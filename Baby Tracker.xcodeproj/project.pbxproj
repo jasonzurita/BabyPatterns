@@ -149,8 +149,8 @@
 		436484D61DCA198A00E6B0A7 /* Tile */ = {
 			isa = PBXGroup;
 			children = (
-				436484CF1DCA160400E6B0A7 /* Tile.xib */,
 				43503C3D1DD35DAC00C6424E /* Tile.swift */,
+				436484CF1DCA160400E6B0A7 /* Tile.xib */,
 			);
 			name = Tile;
 			sourceTree = "<group>";

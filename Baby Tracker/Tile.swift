@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum TileType {
+    case feeding = "Feeding",
+    case diaper = "Changing"
+}
+
+
 class Tile: UIButton {
 
     let shouldPrintDebugString = true //set to false to silence this class

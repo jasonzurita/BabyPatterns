@@ -12,6 +12,9 @@ class HomeVC: UIViewController {
 
     
     //outlets
+    @IBOutlet weak var feedingContainer: UIView!
+    
+    
     @IBOutlet weak var babyNameLabel: UILabel!
     @IBOutlet weak var babyAgeLabel: UILabel!
     @IBOutlet weak var todaysDateLabel: UILabel!
@@ -25,6 +28,13 @@ class HomeVC: UIViewController {
         todaysDateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .none)
 //        babysProfilePictureView.image = 
         
+        
+        
+        
+    }
+    
+    private func addTileWithTitle(type:TileType) {
+    
     }
 
     override func didReceiveMemoryWarning() {
