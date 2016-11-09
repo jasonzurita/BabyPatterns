@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43503C3D1DD35DAC00C6424E /* Tile.swift */; };
 		436484AF1DCA150500E6B0A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436484AE1DCA150500E6B0A7 /* AppDelegate.swift */; };
 		436484B11DCA150500E6B0A7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436484B01DCA150500E6B0A7 /* HomeVC.swift */; };
 		436484B41DCA150500E6B0A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 436484B21DCA150500E6B0A7 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43503C3D1DD35DAC00C6424E /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		436484AB1DCA150500E6B0A7 /* Baby Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baby Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		436484AE1DCA150500E6B0A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		436484B01DCA150500E6B0A7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				436484CF1DCA160400E6B0A7 /* Tile.xib */,
+				43503C3D1DD35DAC00C6424E /* Tile.swift */,
 			);
 			name = Tile;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				43AAB5D91DCCB7D5004CEB7B /* FeedEvent.swift in Sources */,
 				43FCAA851DD0BC70003872BA /* Profile.swift in Sources */,
 				436484B11DCA150500E6B0A7 /* HomeVC.swift in Sources */,
+				43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */,
 				43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */,
 				436484AF1DCA150500E6B0A7 /* AppDelegate.swift in Sources */,
 				43AAB5DB1DCCB892004CEB7B /* FoodRecord.swift in Sources */,
