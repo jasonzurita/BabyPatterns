@@ -59,12 +59,12 @@
                                     <constraint firstItem="WGF-RM-uY4" firstAttribute="top" secondItem="D4T-tz-fTH" secondAttribute="bottom" constant="10" id="t6d-KD-wYY"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdO-si-g3C">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdO-si-g3C" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="37" y="261" width="135" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xk-d5-hJ1">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xk-d5-hJ1" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="203" y="261" width="135" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,7 +92,8 @@
                         <outlet property="babyAgeLabel" destination="WGF-RM-uY4" id="oM4-QS-7Lf"/>
                         <outlet property="babyNameLabel" destination="0Nm-H8-fAY" id="vDa-jm-A42"/>
                         <outlet property="babysProfilePictureView" destination="qkd-Yp-hai" id="Fdx-gp-MHM"/>
-                        <outlet property="feedingContainer" destination="mdO-si-g3C" id="RYr-cd-WdX"/>
+                        <outlet property="changingsTile" destination="2xk-d5-hJ1" id="Hmi-LM-YRQ"/>
+                        <outlet property="feedingTile" destination="mdO-si-g3C" id="eC2-sZ-eR4"/>
                         <outlet property="todaysDateLabel" destination="D4T-tz-fTH" id="UCq-8S-jFK"/>
                     </connections>
                 </viewController>

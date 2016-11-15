@@ -9,14 +9,31 @@
 import UIKit
 
 enum TileType {
-    case feeding = "Feeding",
-    case diaper = "Changing"
+    case feeding
+    case changings
+    
+    static let allValues = [feeding, changings]
 }
 
+class Tile: UIView {
 
-class Tile: UIButton {
+    //constants
+    private let shouldPrintDebugString = true //set to false to silence this class
 
-    let shouldPrintDebugString = true //set to false to silence this class
+    //outlets
+    @IBOutlet var view: UIView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        Bundle.main.loadNibNamed("Tile", owner: self, options: nil)
+        view.frame = bounds
+        addSubview(view)
+        
+    }
+    
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
