@@ -15,10 +15,17 @@ enum TileType {
     static let allValues = [feeding, changings]
 }
 
+protocol TileDelegate : class {
+    func userDidTapTile(tile:Tile)
+}
+
+
 class Tile: UIView {
 
     //constants
     private let shouldPrintDebugString = true //set to false to silence this class
+    
+    weak var delegate:TileDelegate?
 
     //outlets
     @IBOutlet var view: UIView!
@@ -34,6 +41,16 @@ class Tile: UIView {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        for touch in touches {
+
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {

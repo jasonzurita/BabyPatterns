@@ -13,7 +13,6 @@ class HomeVC: UIViewController {
     //outlets
     @IBOutlet weak var feedingTile: Tile!
     @IBOutlet weak var changingsTile: Tile!
-    
     @IBOutlet weak var babyNameLabel: UILabel!
     @IBOutlet weak var babyAgeLabel: UILabel!
     @IBOutlet weak var todaysDateLabel: UILabel!
@@ -29,6 +28,9 @@ class HomeVC: UIViewController {
         for type in TileType.allValues {
             addTileWithTitle(type: type)
         }
+        
+        let vc = SignInVC(nibName: Constants.NibNames.SignIn, bundle: nil)
+        present(vc, animated: true, completion: nil)
     }
     
     private func addTileWithTitle(type:TileType) {
@@ -41,6 +43,12 @@ class HomeVC: UIViewController {
             changingsTile.detailLabel.text = "Last: 4 hrs"
 
         }
+    }
+}
+
+extension HomeVC:TileDelegate {
+    func userDidTapTile(tile: Tile) {
+        
     }
 }
 

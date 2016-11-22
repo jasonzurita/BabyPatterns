@@ -10,5 +10,4 @@ import Foundation
 
 struct Profile {
     var babyName:String
-    
 }
