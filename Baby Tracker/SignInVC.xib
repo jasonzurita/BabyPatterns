@@ -19,26 +19,20 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(data won't be saved on the server) " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCx-wZ-4i6">
-                    <rect key="frame" x="71.5" y="628" width="231.5" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r0X-jp-SMZ">
-                    <rect key="frame" x="128" y="493" width="119" height="130"/>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r0X-jp-SMZ">
+                    <rect key="frame" x="128" y="493" width="127" height="130"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKj-dq-N0n">
-                            <rect key="frame" x="40.5" y="0.0" width="38" height="30"/>
-                            <state key="normal" title="Login"/>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLG-PQ-Pg8">
+                            <rect key="frame" x="0.0" y="0.0" width="127" height="30"/>
+                            <state key="normal" title="Create an Account"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLG-PQ-Pg8">
-                            <rect key="frame" x="35.5" y="50" width="48" height="30"/>
-                            <state key="normal" title="Signup"/>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5z-nz-1df">
+                            <rect key="frame" x="2" y="50" width="123" height="30"/>
+                            <state key="normal" title="Forgot Password?"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5z-nz-1df">
-                            <rect key="frame" x="0.0" y="100" width="119" height="30"/>
-                            <state key="normal" title="Just use the app!"/>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFs-eC-CGa">
+                            <rect key="frame" x="2" y="100" width="123" height="30"/>
+                            <state key="normal" title="Forgot Password?"/>
                         </button>
                     </subviews>
                 </stackView>
@@ -48,15 +42,31 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FMq-qe-vEM">
+                    <rect key="frame" x="139" y="383" width="154" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldc-Tj-xaD">
+                    <rect key="frame" x="139" y="421" width="138" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKj-dq-N0n">
+                    <rect key="frame" x="185" y="455" width="47" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Sign In"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="TtY-AQ-Z9l" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4RU-KV-qBA"/>
                 <constraint firstItem="r0X-jp-SMZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ChP-4R-lPD"/>
-                <constraint firstItem="iCx-wZ-4i6" firstAttribute="centerX" secondItem="r0X-jp-SMZ" secondAttribute="centerX" id="Xo5-UW-rDO"/>
-                <constraint firstItem="iCx-wZ-4i6" firstAttribute="top" secondItem="r0X-jp-SMZ" secondAttribute="bottom" constant="5" id="d4K-wD-zug"/>
                 <constraint firstAttribute="bottom" secondItem="TtY-AQ-Z9l" secondAttribute="bottom" constant="5" id="own-Bf-KcO"/>
-                <constraint firstItem="TtY-AQ-Z9l" firstAttribute="top" secondItem="iCx-wZ-4i6" secondAttribute="bottom" id="yec-ad-F0C"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
