@@ -24,6 +24,7 @@
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
 		43D2BE661DCB684800895A65 /* FeedingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43D2BE641DCB684800895A65 /* FeedingVC.xib */; };
 		43FCAA851DD0BC70003872BA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
+		ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		43D2BE631DCB684800895A65 /* FeedingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingVC.swift; sourceTree = "<group>"; };
 		43D2BE641DCB684800895A65 /* FeedingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedingVC.xib; sourceTree = "<group>"; };
 		43FCAA841DD0BC70003872BA /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA42E7856FB58D2B877C484F /* Pods_Baby_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB450386D37DE8D496932C13 /* Pods-Baby Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baby Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Baby Tracker/Pods-Baby Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		F72128F7CB5F28A775078E32 /* Pods-Baby Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baby Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Baby Tracker/Pods-Baby Tracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		436484D41DCA186A00E6B0A7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */,
 				436484B51DCA150500E6B0A7 /* Assets.xcassets */,
 				436484BA1DCA150500E6B0A7 /* Info.plist */,
 				430FD7441DE484EC00D07C50 /* Constants.swift */,
@@ -313,6 +316,7 @@
 				43D2BE661DCB684800895A65 /* FeedingVC.xib in Resources */,
 				436484D01DCA160400E6B0A7 /* Tile.xib in Resources */,
 				437814CB1DDD1B9D0047D11A /* SignInVC.xib in Resources */,
+				ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

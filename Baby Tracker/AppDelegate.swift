@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 //TODO: when to use a swift struct instead of a class
 
@@ -18,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FIRApp.configure()
         return true
     }
 
