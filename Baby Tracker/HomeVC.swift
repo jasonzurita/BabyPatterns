@@ -28,9 +28,6 @@ class HomeVC: UIViewController {
         for type in TileType.allValues {
             addTileWithTitle(type: type)
         }
-        
-        let vc = SignInVC(nibName: Constants.NibNames.SignIn, bundle: nil)
-        present(vc, animated: true, completion: nil)
     }
     
     private func addTileWithTitle(type:TileType) {

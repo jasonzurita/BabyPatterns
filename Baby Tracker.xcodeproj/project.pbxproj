@@ -18,7 +18,6 @@
 		436484C41DCA150500E6B0A7 /* Baby_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436484C31DCA150500E6B0A7 /* Baby_TrackerTests.swift */; };
 		436484D01DCA160400E6B0A7 /* Tile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436484CF1DCA160400E6B0A7 /* Tile.xib */; };
 		437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437814C81DDD1B9D0047D11A /* SignInVC.swift */; };
-		437814CB1DDD1B9D0047D11A /* SignInVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437814C91DDD1B9D0047D11A /* SignInVC.xib */; };
 		43AAB5D91DCCB7D5004CEB7B /* FeedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AAB5D81DCCB7D5004CEB7B /* FeedEvent.swift */; };
 		43AAB5DB1DCCB892004CEB7B /* FoodRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AAB5DA1DCCB892004CEB7B /* FoodRecord.swift */; };
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
@@ -53,7 +52,6 @@
 		436484C51DCA150500E6B0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		436484CF1DCA160400E6B0A7 /* Tile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tile.xib; sourceTree = "<group>"; };
 		437814C81DDD1B9D0047D11A /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
-		437814C91DDD1B9D0047D11A /* SignInVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInVC.xib; sourceTree = "<group>"; };
 		43AAB5D81DCCB7D5004CEB7B /* FeedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEvent.swift; sourceTree = "<group>"; };
 		43AAB5DA1DCCB892004CEB7B /* FoodRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodRecord.swift; sourceTree = "<group>"; };
 		43D2BE631DCB684800895A65 /* FeedingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingVC.swift; sourceTree = "<group>"; };
@@ -137,9 +135,9 @@
 		436484D31DCA183700E6B0A7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				437814C81DDD1B9D0047D11A /* SignInVC.swift */,
 				436484B01DCA150500E6B0A7 /* HomeVC.swift */,
 				437814C71DDD1B330047D11A /* Feeding */,
-				437814CC1DDD1BA60047D11A /* Login or Signup */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -180,15 +178,6 @@
 				43D2BE641DCB684800895A65 /* FeedingVC.xib */,
 			);
 			name = Feeding;
-			sourceTree = "<group>";
-		};
-		437814CC1DDD1BA60047D11A /* Login or Signup */ = {
-			isa = PBXGroup;
-			children = (
-				437814C81DDD1B9D0047D11A /* SignInVC.swift */,
-				437814C91DDD1B9D0047D11A /* SignInVC.xib */,
-			);
-			name = "Login or Signup";
 			sourceTree = "<group>";
 		};
 		43D2BE671DCB69E900895A65 /* Model */ = {
@@ -315,7 +304,6 @@
 				436484B41DCA150500E6B0A7 /* Main.storyboard in Resources */,
 				43D2BE661DCB684800895A65 /* FeedingVC.xib in Resources */,
 				436484D01DCA160400E6B0A7 /* Tile.xib in Resources */,
-				437814CB1DDD1B9D0047D11A /* SignInVC.xib in Resources */,
 				ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

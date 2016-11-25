@@ -10,4 +10,8 @@ struct Constants {
     struct NibNames {
         static let SignIn = "SignInVC"
     }
+    
+    struct Segues {
+        static let SignInSegue = "SignInSegue"
+    }
 }
