@@ -23,29 +23,11 @@ class HomeVC: UIViewController {
         babyNameLabel.text = "James"
         babyAgeLabel.text = "7 Months old"
         todaysDateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .none)
-//        babysProfilePictureView.image = 
         
-        for type in TileType.allValues {
-            addTileWithTitle(type: type)
+        feedingTile.didTapCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.performSegue(withIdentifier: Constants.Segues.FeedingSegue, sender: nil)
         }
-    }
-    
-    private func addTileWithTitle(type:TileType) {
-        switch type {
-        case .feeding:
-            feedingTile.titleLabel.text = "Feedings"
-            feedingTile.detailLabel.text = "Last: 2 hrs"
-        case .changings:
-            changingsTile.titleLabel.text = "Changings"
-            changingsTile.detailLabel.text = "Last: 4 hrs"
-
-        }
-    }
-}
-
-extension HomeVC:TileDelegate {
-    func userDidTapTile(tile: Tile) {
-        
     }
 }
 

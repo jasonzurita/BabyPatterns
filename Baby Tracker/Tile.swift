@@ -15,17 +15,21 @@ enum TileType {
     static let allValues = [feeding, changings]
 }
 
-protocol TileDelegate : class {
-    func userDidTapTile(tile:Tile)
-}
-
-
 class Tile: UIView {
 
     //constants
     private let shouldPrintDebugString = true //set to false to silence this class
     
-    weak var delegate:TileDelegate?
+    var didTapCallback: (() -> Void)?
+    @IBInspectable var title:String {
+        set {
+            titleLabel.text = newValue
+        }
+        
+        get {
+            return titleLabel.text ?? ""
+        }
+    }
 
     //outlets
     @IBOutlet var view: UIView!
@@ -33,23 +37,23 @@ class Tile: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        Bundle.main.loadNibNamed(String(describing: type(of:self)), owner: self, options: nil)
+        view.frame = bounds
+        addSubview(view)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        Bundle.main.loadNibNamed("Tile", owner: self, options: nil)
+        Bundle.main.loadNibNamed(String(describing: type(of:self)), owner: self, options: nil)
         view.frame = bounds
         addSubview(view)
         
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        for touch in touches {
-
-        }
-    }
-    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        didTapCallback?()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

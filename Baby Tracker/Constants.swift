@@ -13,5 +13,6 @@ struct Constants {
     
     struct Segues {
         static let SignInSegue = "SignInSegue"
+        static let FeedingSegue = "FeedingSegue"
     }
 }

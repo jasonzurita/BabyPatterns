@@ -39,7 +39,7 @@ class SignInVC: UIViewController {
                 print(error.localizedDescription)
                 return
             }
-            self.signedIn(user: FIRAuth.auth()?.currentUser)
+            self.signedIn(user: user)
 //            self.setDisplayName(user!)
         }
     }

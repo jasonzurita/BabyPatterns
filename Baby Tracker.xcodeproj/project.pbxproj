@@ -21,7 +21,6 @@
 		43AAB5D91DCCB7D5004CEB7B /* FeedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AAB5D81DCCB7D5004CEB7B /* FeedEvent.swift */; };
 		43AAB5DB1DCCB892004CEB7B /* FoodRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AAB5DA1DCCB892004CEB7B /* FoodRecord.swift */; };
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
-		43D2BE661DCB684800895A65 /* FeedingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43D2BE641DCB684800895A65 /* FeedingVC.xib */; };
 		43FCAA851DD0BC70003872BA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
 		ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -55,7 +54,6 @@
 		43AAB5D81DCCB7D5004CEB7B /* FeedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEvent.swift; sourceTree = "<group>"; };
 		43AAB5DA1DCCB892004CEB7B /* FoodRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodRecord.swift; sourceTree = "<group>"; };
 		43D2BE631DCB684800895A65 /* FeedingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingVC.swift; sourceTree = "<group>"; };
-		43D2BE641DCB684800895A65 /* FeedingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedingVC.xib; sourceTree = "<group>"; };
 		43FCAA841DD0BC70003872BA /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA42E7856FB58D2B877C484F /* Pods_Baby_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,7 +135,7 @@
 			children = (
 				437814C81DDD1B9D0047D11A /* SignInVC.swift */,
 				436484B01DCA150500E6B0A7 /* HomeVC.swift */,
-				437814C71DDD1B330047D11A /* Feeding */,
+				43D2BE631DCB684800895A65 /* FeedingVC.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -169,15 +167,6 @@
 				436484CF1DCA160400E6B0A7 /* Tile.xib */,
 			);
 			name = Tile;
-			sourceTree = "<group>";
-		};
-		437814C71DDD1B330047D11A /* Feeding */ = {
-			isa = PBXGroup;
-			children = (
-				43D2BE631DCB684800895A65 /* FeedingVC.swift */,
-				43D2BE641DCB684800895A65 /* FeedingVC.xib */,
-			);
-			name = Feeding;
 			sourceTree = "<group>";
 		};
 		43D2BE671DCB69E900895A65 /* Model */ = {
@@ -302,7 +291,6 @@
 				436484B91DCA150500E6B0A7 /* LaunchScreen.storyboard in Resources */,
 				436484B61DCA150500E6B0A7 /* Assets.xcassets in Resources */,
 				436484B41DCA150500E6B0A7 /* Main.storyboard in Resources */,
-				43D2BE661DCB684800895A65 /* FeedingVC.xib in Resources */,
 				436484D01DCA160400E6B0A7 /* Tile.xib in Resources */,
 				ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */,
 			);
