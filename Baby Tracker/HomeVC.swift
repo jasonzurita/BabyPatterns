@@ -10,6 +10,8 @@ import UIKit
 
 class HomeVC: UIViewController {
 
+    let feedings = Feedings()
+    
     //outlets
     @IBOutlet weak var feedingTile: Tile!
     @IBOutlet weak var changingsTile: Tile!

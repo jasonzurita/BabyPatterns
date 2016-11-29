@@ -15,4 +15,10 @@ struct Constants {
         static let SignInSegue = "SignInSegue"
         static let FeedingSegue = "FeedingSegue"
     }
+    
+    struct JsonFields {
+        static let StartTime = "startTime"
+        static let EndTime = "endTime"
+        static let FeedingType = "feedingType"
+    }
 }
