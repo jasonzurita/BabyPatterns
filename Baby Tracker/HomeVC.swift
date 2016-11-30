@@ -25,6 +25,14 @@ class HomeVC: UIViewController {
         babyNameLabel.text = "James"
         babyAgeLabel.text = "7 Months old"
         todaysDateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .none)
+
+        setupFeeding()
+    }
+    
+    private func setupFeeding() {
+        //TODO: convert this to hours and minutes
+        let timeSinceLastFeeding = feedings.timeSinceLastFeeding().hours()
+        feedingTile.detailLabel.text = "Last feeding:\n\(timeSinceLastFeeding) hours ago"
         
         feedingTile.didTapCallback = { [weak self] in
             guard let strongSelf = self else { return }

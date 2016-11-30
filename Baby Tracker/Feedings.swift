@@ -12,7 +12,7 @@ import Firebase
 class Feedings {
     private let shouldPrintDebugString = true
     
-    var feedings:[FeedEvent] = []
+    var allFeedings:[FeedEvent] = []
     private let databaseReference = FIRDatabase.database().reference()
     private var databaseReferenceHandle: FIRDatabaseHandle!
     
@@ -31,7 +31,7 @@ class Feedings {
         databaseReferenceHandle = self.databaseReference.child("feedings").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
             if let json = snapshot.value as? Dictionary<String, String>, let feeding = FeedEvent(feedingJson: json)  {
-                strongSelf.feedings.append(feeding)
+                strongSelf.allFeedings.append(feeding)
                 strongSelf.printDebugString(string: "Adding feeding \(feeding)")
             }
         })
@@ -47,15 +47,22 @@ class Feedings {
 //    }
     
     func lastFeedingTime() -> Date {
-        guard let lft = feedings.last else {
+        guard let lft = allFeedings.last else {
             return Date()
         }
         
-        return lft.dateInterval.start
+        return lft.dateInterval.end
+    }
+    
+    func timeSinceLastFeeding() -> TimeInterval {
+        return lastFeedingTime().timeIntervalSinceNow
     }
     
     func averageFeedingDuration(filterWindow:DateInterval) -> TimeInterval {
-        return 0.0
+        guard allFeedings.count > 0 else { return 0.0 }
+        let sum = allFeedings.reduce(0.0, { $0 + $1.dateInterval.duration })
+        
+        return sum / TimeInterval(allFeedings.count)
     }
     
     private func printDebugString(string:String) {

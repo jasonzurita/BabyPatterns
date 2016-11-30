@@ -19,6 +19,7 @@ struct Constants {
     struct JsonFields {
         static let StartTime = "startTime"
         static let EndTime = "endTime"
-        static let FeedingType = "feedingType"
+        static let FeedingType = "type"
+        static let FeedingQuantity = "quantity"
     }
 }

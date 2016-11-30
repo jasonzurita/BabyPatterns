@@ -16,6 +16,7 @@ enum FeedingType: Int {
 
 struct FeedEvent {
     let dateInterval:DateInterval
+    let quantity:Double?
     let feedingType:FeedingType
     
     init?(feedingJson:Dictionary<String,String>) {
@@ -24,5 +25,11 @@ struct FeedEvent {
         
         dateInterval = DateInterval(start: start, end: end)
         feedingType = type
+        
+        if let quantityString = feedingJson[Constants.JsonFields.FeedingQuantity], let quantityDouble = Double(quantityString) {
+            quantity = quantityDouble
+        } else {
+            quantity = nil
+        }
     }
 }

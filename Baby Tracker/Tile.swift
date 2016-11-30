@@ -21,6 +21,7 @@ class Tile: UIView {
     private let shouldPrintDebugString = true //set to false to silence this class
     
     var didTapCallback: (() -> Void)?
+    
     @IBInspectable var title:String {
         set {
             titleLabel.text = newValue
