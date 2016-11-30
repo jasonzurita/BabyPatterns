@@ -32,8 +32,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssU-5C-dnx">
-                    <rect key="frame" x="69" y="155" width="80.5" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssU-5C-dnx">
+                    <rect key="frame" x="0.5" y="155" width="218" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -46,6 +46,7 @@
                 <constraint firstItem="bjI-yD-2z6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XgD-xG-ZCt"/>
                 <constraint firstItem="UH2-tu-POk" firstAttribute="top" secondItem="bjI-yD-2z6" secondAttribute="bottom" constant="10" id="YhX-Bh-Jev"/>
                 <constraint firstItem="ssU-5C-dnx" firstAttribute="top" secondItem="UH2-tu-POk" secondAttribute="bottom" constant="5" id="aJL-ar-nu8"/>
+                <constraint firstItem="ssU-5C-dnx" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="cIB-Y5-x5F"/>
                 <constraint firstItem="UH2-tu-POk" firstAttribute="centerX" secondItem="bjI-yD-2z6" secondAttribute="centerX" id="cuG-sg-Lih"/>
                 <constraint firstItem="bjI-yD-2z6" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="xJv-II-eAH"/>
                 <constraint firstItem="bjI-yD-2z6" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="yag-fi-GMT"/>
