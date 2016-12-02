@@ -189,15 +189,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="o5g-7o-ylF">
                                         <rect key="frame" x="37.5" y="61" width="300" height="42"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkf-QV-TJJ">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkf-QV-TJJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="▶"/>
+                                                <connections>
+                                                    <action selector="pumpingButtonPressed:" destination="huh-Sl-cRE" eventType="touchUpInside" id="sh4-ee-iaQ"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iuc-HX-bFU">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iuc-HX-bFU">
                                                 <rect key="frame" x="150" y="0.0" width="150" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="▶"/>
+                                                <connections>
+                                                    <action selector="pumpingButtonPressed:" destination="huh-Sl-cRE" eventType="touchUpInside" id="Z2i-mj-0xm"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -208,7 +214,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ac-Rs-GWe">
-                                        <rect key="frame" x="98.5" y="103" width="30" height="20.5"/>
+                                        <rect key="frame" x="97.5" y="103" width="30" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -243,15 +249,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dha-x2-C7r">
                                         <rect key="frame" x="37.5" y="30.5" width="300" height="42"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AM0-DE-wmE">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AM0-DE-wmE">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="▶"/>
+                                                <connections>
+                                                    <action selector="nursingButtonPressed:" destination="huh-Sl-cRE" eventType="touchUpInside" id="4ar-XS-Gpb"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3I-2W-xiF">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3I-2W-xiF">
                                                 <rect key="frame" x="150" y="0.0" width="150" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="▶"/>
+                                                <connections>
+                                                    <action selector="nursingButtonPressed:" destination="huh-Sl-cRE" eventType="touchUpInside" id="lKv-F9-umx"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
