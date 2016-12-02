@@ -10,8 +10,6 @@ import UIKit
 
 class HomeVC: UIViewController {
 
-    let feedings = Feedings()
-    
     //outlets
     @IBOutlet weak var feedingTile: Tile!
     @IBOutlet weak var changingsTile: Tile!
@@ -26,18 +24,29 @@ class HomeVC: UIViewController {
         babyAgeLabel.text = "7 Months old"
         todaysDateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .none)
 
+        feedingTile.didTapCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.performSegue(withIdentifier: Constants.Segues.FeedingSegue, sender: nil)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupFeeding()
     }
     
     private func setupFeeding() {
         //TODO: convert this to hours and minutes
-        let timeSinceLastFeeding = feedings.timeSinceLastFeeding().hours()
-        feedingTile.detailLabel.text = "Last feeding:\n\(timeSinceLastFeeding) hours ago"
         
-        feedingTile.didTapCallback = { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.performSegue(withIdentifier: Constants.Segues.FeedingSegue, sender: nil)
+        func hoursAndMinutes(time:TimeInterval) -> (hours:Int, minutes:Int){
+            let hours = floor(time / 3600)
+            let timeWithoutHours = time - hours * 3600
+            let minutes = floor(timeWithoutHours / 60)
+            return (Int(hours),Int(minutes))
         }
+        
+        let lastFeed = hoursAndMinutes(time: FeedingService.shared.timeSinceLastFeeding())
+        feedingTile.detailLabel.text = "Last feeding:\n\(lastFeed.hours)h:\(lastFeed.minutes)m"
     }
 }
 

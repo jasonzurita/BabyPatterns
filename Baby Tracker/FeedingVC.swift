@@ -9,17 +9,20 @@
 import UIKit
 
 class FeedingVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    @IBAction func pumpingButtonPressed(_ sender: UIButton) {
     }
-
-
+    
+    
+    @IBAction func nursingButtonPressed(_ sender: UIButton) {
+    }
+    
+    
 }

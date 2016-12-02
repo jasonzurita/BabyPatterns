@@ -15,9 +15,3 @@ extension Date {
         self = Date(timeIntervalSince1970: interval)
     }
 }
-
-extension TimeInterval {
-    func hours() -> TimeInterval{
-        return self / 3600
-    }
-}
