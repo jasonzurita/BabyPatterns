@@ -9,18 +9,12 @@
 import Foundation
 import Firebase
 
-enum DatabaseRequestType : String {
-    case nursings = "nursings"
-    case bottle = "bottleFeedings"
-    case pumping = "pumping"
-}
-
 class FirebaseFacade {
     
     private let shouldPrintDebugString = true
     
     private let databaseReference = FIRDatabase.database().reference()
-    private var databaseReferenceHandles: [(type: DatabaseRequestType, handle:FIRDatabaseHandle)] = []
+    private var databaseReferenceHandles: [(type: FeedingType, handle:FIRDatabaseHandle)] = []
     
     deinit {
         for referenceHandle in databaseReferenceHandles {
@@ -28,7 +22,7 @@ class FirebaseFacade {
         }
     }
     
-    func configureDatabase(requestType:DatabaseRequestType, responseHandler: @escaping (Dictionary<String,String>) -> Void ) {
+    func configureDatabase(requestType:FeedingType, responseHandler: @escaping (Dictionary<String,String>) -> Void ) {
         printDebugString(string: "Configuring database...")
         // Listen for new messages in the Firebase database
         self.databaseReference.child(requestType.rawValue).observeSingleEvent(of: .value, with: { [weak self] (snapshot) -> Void in
@@ -51,6 +45,12 @@ class FirebaseFacade {
 //        })
 //        databaseReferenceHandles.append((requestType, handle))
         printDebugString(string: "Database request type - \(requestType.rawValue)")
+    }
+    
+    
+    func uploadFeedingEvent(withData data: [String:String], feedingType:FeedingType) {
+        printDebugString(string: "Uploading feeding event")
+        self.databaseReference.child(feedingType.rawValue).childByAutoId().setValue(data)
     }
     
     private func printDebugString(string:String) {

@@ -8,6 +8,17 @@
 
 import UIKit
 
+enum FeedingType : String {
+    case nursing = "nursings"
+    case bottle = "bottleFeedings"
+    case pumping = "pumpings"
+}
+
+enum FeedingSide: Int {
+    case left = 1
+    case right
+}
+
 class FeedingService {
 
     static let shared = FeedingService()
@@ -17,7 +28,7 @@ class FeedingService {
     let nursing = Nursing()
     
     init() {
-        database.configureDatabase(requestType: .nursings, responseHandler: { json in
+        database.configureDatabase(requestType: .nursing, responseHandler: { json in
             if self.nursing.processNewNursing(json: json) {
             }
         })
@@ -25,5 +36,19 @@ class FeedingService {
     
     func timeSinceLastFeeding() -> TimeInterval {
         return nursing.timeSinceLastFeeding()
+    }
+    
+    func addFeedingEvent(type:FeedingType, start:Date, end:Date, side:FeedingSide?) {
+        switch type {
+        case .nursing:
+            guard let s = side else { return }
+            let nursingEvent = NursingEvent(start: start, end: end, side: s)
+            nursing.nursings.append(nursingEvent)
+            database.uploadFeedingEvent(withData: nursingEvent.eventJson(), feedingType: .nursing)
+        case .bottle:
+            break
+        case .pumping:
+            break
+        }
     }
 }

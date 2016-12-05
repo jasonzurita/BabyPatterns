@@ -12,7 +12,7 @@
 		4330FB481DEDCF2300737A7F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB471DEDCF2300737A7F /* Extensions.swift */; };
 		4330FB521DF1B2B800737A7F /* FeedingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB511DF1B2B700737A7F /* FeedingService.swift */; };
 		4330FB571DF1B41600737A7F /* Nursing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB561DF1B41600737A7F /* Nursing.swift */; };
-		4330FB591DF1B42100737A7F /* Nursings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB581DF1B42100737A7F /* Nursings.swift */; };
+		4330FB591DF1B42100737A7F /* NursingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB581DF1B42100737A7F /* NursingEvent.swift */; };
 		4330FB5B1DF1B4A300737A7F /* FirebaseFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB5A1DF1B4A300737A7F /* FirebaseFacade.swift */; };
 		43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43503C3D1DD35DAC00C6424E /* Tile.swift */; };
 		436484AF1DCA150500E6B0A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436484AE1DCA150500E6B0A7 /* AppDelegate.swift */; };
@@ -44,7 +44,7 @@
 		4330FB471DEDCF2300737A7F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4330FB511DF1B2B700737A7F /* FeedingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingService.swift; sourceTree = "<group>"; };
 		4330FB561DF1B41600737A7F /* Nursing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nursing.swift; sourceTree = "<group>"; };
-		4330FB581DF1B42100737A7F /* Nursings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nursings.swift; sourceTree = "<group>"; };
+		4330FB581DF1B42100737A7F /* NursingEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NursingEvent.swift; sourceTree = "<group>"; };
 		4330FB5A1DF1B4A300737A7F /* FirebaseFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseFacade.swift; sourceTree = "<group>"; };
 		43503C3D1DD35DAC00C6424E /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		436484AB1DCA150500E6B0A7 /* Baby Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baby Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				4330FB561DF1B41600737A7F /* Nursing.swift */,
-				4330FB581DF1B42100737A7F /* Nursings.swift */,
+				4330FB581DF1B42100737A7F /* NursingEvent.swift */,
 			);
 			name = Nursing;
 			sourceTree = "<group>";
@@ -444,7 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4330FB591DF1B42100737A7F /* Nursings.swift in Sources */,
+				4330FB591DF1B42100737A7F /* NursingEvent.swift in Sources */,
 				4330FB5B1DF1B4A300737A7F /* FirebaseFacade.swift in Sources */,
 				437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */,
 				4330FB571DF1B41600737A7F /* Nursing.swift in Sources */,

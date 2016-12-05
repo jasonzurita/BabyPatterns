@@ -9,10 +9,10 @@
 import Foundation
 
 class Nursing {
-    var nursings: [Nursings] = []
+    var nursings: [NursingEvent] = []
     
     func processNewNursing(json: Dictionary<String,String>) -> Bool {
-        if let nursingEvent = Nursings(feedingJson: json) {
+        if let nursingEvent = NursingEvent(feedingJson: json) {
             nursings.append(nursingEvent)
             return true
         }

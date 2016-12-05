@@ -13,16 +13,21 @@ class FeedingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
-
+    var pumpingStartTime:Date?
     @IBAction func pumpingButtonPressed(_ sender: UIButton) {
+
     }
     
-    
+    var nursingStartTime:Date?
     @IBAction func nursingButtonPressed(_ sender: UIButton) {
+        if let startTime = nursingStartTime {
+            FeedingService.shared.addFeedingEvent(type: .nursing, start: startTime, end: Date(), side: FeedingSide(rawValue: sender.tag))
+            sender.setTitle("▶", for: .normal)
+        } else {
+            nursingStartTime = Date()
+            sender.setTitle("◼︎", for: .normal)
+        }
     }
-    
-    
 }
