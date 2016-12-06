@@ -24,6 +24,8 @@
 		436484D01DCA160400E6B0A7 /* Tile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436484CF1DCA160400E6B0A7 /* Tile.xib */; };
 		437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437814C81DDD1B9D0047D11A /* SignInVC.swift */; };
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
+		43F4FADD1DF7030B005510D4 /* FeedingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4FADC1DF7030B005510D4 /* FeedingControl.swift */; };
+		43F4FADF1DF70317005510D4 /* FeedingControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43F4FADE1DF70317005510D4 /* FeedingControl.xib */; };
 		43FCAA851DD0BC70003872BA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
 		ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -60,6 +62,8 @@
 		436484CF1DCA160400E6B0A7 /* Tile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tile.xib; sourceTree = "<group>"; };
 		437814C81DDD1B9D0047D11A /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		43D2BE631DCB684800895A65 /* FeedingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingVC.swift; sourceTree = "<group>"; };
+		43F4FADC1DF7030B005510D4 /* FeedingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingControl.swift; sourceTree = "<group>"; };
+		43F4FADE1DF70317005510D4 /* FeedingControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedingControl.xib; sourceTree = "<group>"; };
 		43FCAA841DD0BC70003872BA /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA42E7856FB58D2B877C484F /* Pods_Baby_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +167,7 @@
 		436484CE1DCA15E500E6B0A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				43F4FADB1DF702E1005510D4 /* FeedingControl */,
 				436484D61DCA198A00E6B0A7 /* Tile */,
 			);
 			name = Views;
@@ -218,6 +223,15 @@
 				4330FB531DF1B3D400737A7F /* Nursing */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		43F4FADB1DF702E1005510D4 /* FeedingControl */ = {
+			isa = PBXGroup;
+			children = (
+				43F4FADC1DF7030B005510D4 /* FeedingControl.swift */,
+				43F4FADE1DF70317005510D4 /* FeedingControl.xib */,
+			);
+			name = FeedingControl;
 			sourceTree = "<group>";
 		};
 		C9E049A3AB031F05B25929A5 /* Pods */ = {
@@ -331,6 +345,7 @@
 			files = (
 				436484B91DCA150500E6B0A7 /* LaunchScreen.storyboard in Resources */,
 				436484B61DCA150500E6B0A7 /* Assets.xcassets in Resources */,
+				43F4FADF1DF70317005510D4 /* FeedingControl.xib in Resources */,
 				436484B41DCA150500E6B0A7 /* Main.storyboard in Resources */,
 				436484D01DCA160400E6B0A7 /* Tile.xib in Resources */,
 				ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */,
@@ -445,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4330FB591DF1B42100737A7F /* NursingEvent.swift in Sources */,
+				43F4FADD1DF7030B005510D4 /* FeedingControl.swift in Sources */,
 				4330FB5B1DF1B4A300737A7F /* FirebaseFacade.swift in Sources */,
 				437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */,
 				4330FB571DF1B41600737A7F /* Nursing.swift in Sources */,

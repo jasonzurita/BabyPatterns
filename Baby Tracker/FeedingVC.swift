@@ -10,24 +10,26 @@ import UIKit
 
 class FeedingVC: UIViewController {
     
+    @IBOutlet weak var nursingLeftControl: FeedingControl!
+    
+    @IBOutlet weak var nursingRightControl: FeedingControl!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        nursingLeftControl.configure(side: .left, type: .nursing)
+        nursingLeftControl.delegate = self
+        
+        nursingRightControl.configure(side: .right, type: .nursing)
+        nursingRightControl.delegate = self
     }
+}
 
-    var pumpingStartTime:Date?
-    @IBAction func pumpingButtonPressed(_ sender: UIButton) {
-
+extension FeedingVC: FeedingControlDelegate {
+    func feedingStarted(forFeedingControl control: FeedingControl) {
+        
     }
     
-    var nursingStartTime:Date?
-    @IBAction func nursingButtonPressed(_ sender: UIButton) {
-        if let startTime = nursingStartTime {
-            FeedingService.shared.addFeedingEvent(type: .nursing, start: startTime, end: Date(), side: FeedingSide(rawValue: sender.tag))
-            sender.setTitle("▶", for: .normal)
-        } else {
-            nursingStartTime = Date()
-            sender.setTitle("◼︎", for: .normal)
-        }
+    func feedingEnded(forFeedingControl control: FeedingControl) {
+        
     }
 }

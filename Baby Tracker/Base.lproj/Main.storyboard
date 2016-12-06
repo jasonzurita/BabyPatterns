@@ -124,7 +124,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbH-Q7-B4G" userLabel="Overview">
-                                <rect key="frame" x="0.0" y="69" width="375" height="312"/>
+                                <rect key="frame" x="0.0" y="69" width="375" height="278.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKh-j8-Pwm">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -148,7 +148,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVT-2M-i7P" userLabel="Bottle">
-                                <rect key="frame" x="0.0" y="381" width="375" height="70.5"/>
+                                <rect key="frame" x="0.0" y="347.5" width="375" height="70.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottle Feeding" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIY-Ax-pi8">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -172,7 +172,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9l-OT-9n6" userLabel="Pumping">
-                                <rect key="frame" x="0.0" y="451.5" width="375" height="123"/>
+                                <rect key="frame" x="0.0" y="418" width="375" height="123"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pumping" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYQ-3N-aQE">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -187,23 +187,17 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="o5g-7o-ylF">
-                                        <rect key="frame" x="37.5" y="61" width="300" height="42"/>
+                                        <rect key="frame" x="38" y="61" width="300" height="42"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkf-QV-TJJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="▶"/>
-                                                <connections>
-                                                    <action selector="pumpingButtonPressed:" destination="huh-Sl-cRE" eventType="touchUpInside" id="sh4-ee-iaQ"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iuc-HX-bFU">
                                                 <rect key="frame" x="150" y="0.0" width="150" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="▶"/>
-                                                <connections>
-                                                    <action selector="pumpingButtonPressed:" destination="huh-Sl-cRE" eventType="touchUpInside" id="Z2i-mj-0xm"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -238,7 +232,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYh-nv-Sw3" userLabel="Nursing">
-                                <rect key="frame" x="0.0" y="574.5" width="375" height="92.5"/>
+                                <rect key="frame" x="0.0" y="541" width="375" height="126"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nursing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdY-nt-kxK">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -247,50 +241,29 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dha-x2-C7r">
-                                        <rect key="frame" x="37.5" y="30.5" width="300" height="42"/>
+                                        <rect key="frame" x="38" y="31" width="300" height="75"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AM0-DE-wmE">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <state key="normal" title="▶"/>
-                                                <connections>
-                                                    <action selector="nursingButtonPressed:" destination="huh-Sl-cRE" eventType="touchUpInside" id="4ar-XS-Gpb"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3I-2W-xiF">
-                                                <rect key="frame" x="150" y="0.0" width="150" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <state key="normal" title="▶"/>
-                                                <connections>
-                                                    <action selector="nursingButtonPressed:" destination="huh-Sl-cRE" eventType="touchUpInside" id="lKv-F9-umx"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24d-f5-cmL" customClass="FeedingControl" customModule="Baby_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="75"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87M-rR-FSO" customClass="FeedingControl" customModule="Baby_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="150" y="0.0" width="150" height="75"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="4DT-WY-RJo"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZV-Dx-KNA">
-                                        <rect key="frame" x="97.5" y="72.5" width="30" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pM6-c5-urX">
-                                        <rect key="frame" x="242.5" y="72.5" width="40" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="dha-x2-C7r" secondAttribute="bottom" constant="20" id="0DM-lA-Cva"/>
-                                    <constraint firstItem="FZV-Dx-KNA" firstAttribute="top" secondItem="AM0-DE-wmE" secondAttribute="bottom" id="Cgt-3I-Xgi"/>
                                     <constraint firstItem="dha-x2-C7r" firstAttribute="top" secondItem="RdY-nt-kxK" secondAttribute="bottom" constant="10" id="Msq-ah-JuE"/>
-                                    <constraint firstItem="FZV-Dx-KNA" firstAttribute="centerX" secondItem="AM0-DE-wmE" secondAttribute="centerX" id="UZC-xg-kri"/>
-                                    <constraint firstItem="pM6-c5-urX" firstAttribute="centerX" secondItem="w3I-2W-xiF" secondAttribute="centerX" id="VUL-PI-QY1"/>
                                     <constraint firstItem="RdY-nt-kxK" firstAttribute="width" secondItem="VYh-nv-Sw3" secondAttribute="width" id="ePP-Zg-rIt"/>
                                     <constraint firstItem="dha-x2-C7r" firstAttribute="centerX" secondItem="VYh-nv-Sw3" secondAttribute="centerX" id="mCY-SF-zXg"/>
                                     <constraint firstItem="RdY-nt-kxK" firstAttribute="top" secondItem="VYh-nv-Sw3" secondAttribute="top" id="oJf-cj-pxj"/>
-                                    <constraint firstItem="pM6-c5-urX" firstAttribute="top" secondItem="w3I-2W-xiF" secondAttribute="bottom" id="qJc-Hn-diN"/>
                                     <constraint firstItem="RdY-nt-kxK" firstAttribute="centerX" secondItem="VYh-nv-Sw3" secondAttribute="centerX" id="rbo-tz-ZQO"/>
                                     <constraint firstItem="dha-x2-C7r" firstAttribute="width" secondItem="VYh-nv-Sw3" secondAttribute="width" multiplier="0.8" id="w84-w4-ag3"/>
                                 </constraints>
@@ -314,6 +287,10 @@
                             <constraint firstItem="kVT-2M-i7P" firstAttribute="centerX" secondItem="nqT-Jo-cxl" secondAttribute="centerX" id="uvu-57-jYK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nursingLeftControl" destination="24d-f5-cmL" id="oaH-a6-lkG"/>
+                        <outlet property="nursingRightControl" destination="87M-rR-FSO" id="Wqa-nf-e6y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNi-co-liz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

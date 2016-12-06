@@ -22,14 +22,8 @@ class Tile: UIView {
     
     var didTapCallback: (() -> Void)?
     
-    @IBInspectable var title:String {
-        set {
-            titleLabel.text = newValue
-        }
-        
-        get {
-            return titleLabel.text ?? ""
-        }
+    @IBInspectable var title:String? {
+        didSet { titleLabel.text = title }
     }
 
     //outlets
