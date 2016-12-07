@@ -8,12 +8,22 @@
 
 import Foundation
 
+enum NursingEventJsonError : Error {
+    case invalidNursingEvent
+}
+
 struct NursingEvent {
-    let dateInterval:DateInterval
+    let startTime:Date
+    let endTime:Date?
     let side:FeedingSide
     
-    init(start:Date, end:Date, side:FeedingSide) {
-        dateInterval = DateInterval(start: start, end: end)
+    var isValid:Bool {
+        return endTime != nil
+    }
+    
+    init(start:Date, end:Date?, side:FeedingSide) {
+        startTime = start
+        endTime = end
         self.side = side
     }
     
@@ -21,7 +31,8 @@ struct NursingEvent {
         guard let start = Date(feedingJson[Constants.JsonFields.StartTime]), let end = Date(feedingJson[Constants.JsonFields.EndTime]) else { return nil }
         guard let string = feedingJson[Constants.JsonFields.Side], let int = Int(string), let type = FeedingSide(rawValue:int) else { return nil }
         
-        dateInterval = DateInterval(start: start, end: end)
+        startTime = start
+        endTime = end
         side = type
 //        
 //        if let quantityString = feedingJson[Constants.JsonFields.FeedingQuantity], let quantityDouble = Double(quantityString) {
@@ -31,9 +42,10 @@ struct NursingEvent {
 //        }
     }
     
-    func eventJson() -> [String:String] {
-        return ["startTime":String(dateInterval.start.timeIntervalSince1970),
-                "endTime":String(dateInterval.end.timeIntervalSince1970),
+    func eventJson() throws -> [String:String] {
+        guard let endTime = endTime else { throw NursingEventJsonError.invalidNursingEvent }
+        return ["startTime":String(startTime.timeIntervalSince1970),
+                "endTime":String(endTime.timeIntervalSince1970),
                 "side":String(side.rawValue)]
     }
 }

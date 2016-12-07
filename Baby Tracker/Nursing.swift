@@ -19,21 +19,28 @@ class Nursing {
         return false
     }
     
-    func lastFeedingTime() -> Date {
+    func lastFeedingTime() -> Date? {
         guard let lft = nursings.last else {
-            return Date()
+            return nil
         }
         
-        return lft.dateInterval.end
+        return lft.endTime
     }
     
     func timeSinceLastFeeding() -> TimeInterval {
-        return abs(lastFeedingTime().timeIntervalSinceNow)
+        guard let lastFeedingTime = lastFeedingTime() else { return 0 }
+        return abs(lastFeedingTime.timeIntervalSinceNow)
     }
     
     func averageFeedingDuration(filterWindow:DateInterval) -> TimeInterval {
         guard nursings.count > 0 else { return 0.0 }
-        let sum = nursings.reduce(0.0, { $0 + $1.dateInterval.duration })
+        let sum = nursings.reduce(0.0, {
+            var duration:TimeInterval = 0.0
+            if let endTime = $1.endTime {
+                duration = $1.startTime.timeIntervalSince(endTime)
+            }
+            return $0 + duration
+        })
         
         return sum / TimeInterval(nursings.count)
     }

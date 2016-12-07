@@ -52,7 +52,7 @@ class FeedingService {
             guard let s = side else { return }
             let nursingEvent = NursingEvent(start: start, end: end, side: s)
             nursing.nursings.append(nursingEvent)
-            database.uploadFeedingEvent(withData: nursingEvent.eventJson(), feedingType: .nursing)
+            try! database.uploadFeedingEvent(withData: nursingEvent.eventJson(), feedingType: .nursing)
         case .bottle:
             break
         case .pumping:
