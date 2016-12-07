@@ -12,10 +12,11 @@ enum NursingEventJsonError : Error {
     case invalidNursingEvent
 }
 
-struct NursingEvent {
+struct NursingEvent: FeedingEvent {
     let startTime:Date
-    let endTime:Date?
+    var endTime:Date?
     let side:FeedingSide
+    let feedingType:FeedingType = .nursing
     
     var isValid:Bool {
         return endTime != nil
@@ -40,6 +41,10 @@ struct NursingEvent {
 //        } else {
 //            quantity = nil
 //        }
+    }
+    
+    mutating func endEvent() {
+        endTime = Date()
     }
     
     func eventJson() throws -> [String:String] {

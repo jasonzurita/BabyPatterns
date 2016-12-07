@@ -30,6 +30,6 @@ extension FeedingVC: FeedingControlDelegate {
     }
     
     func feedingEnded(forFeedingControl control: FeedingControl) {
-        FeedingService.shared.feedingEnded(type: control.feedingType, end: Date(), side: control.feedingSide)
+        FeedingService.shared.feedingEnded(type: control.feedingType, side: control.feedingSide)
     }
 }
