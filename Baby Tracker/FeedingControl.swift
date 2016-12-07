@@ -17,13 +17,17 @@ class FeedingControl: UIView {
     
     private var isFeeding = false
     var feedingSide:FeedingSide = .left {
-        didSet { label.text = feedingSide == .left ? "Left" : "Right" }
+        didSet { resetLabel() }
     }
     var feedingType:FeedingType = .nursing
     var delegate:FeedingControlDelegate?
-        
-    private var counter = 0
+    
     private var timer:Timer?
+    private var counter = 0 {
+        didSet {
+            label.text = "00:0\(counter)"
+        }
+    }
     
     @IBOutlet var view: UIView!
     @IBOutlet weak var button: UIButton!
@@ -49,44 +53,34 @@ class FeedingControl: UIView {
         feedingType = type
     }
     
+    private func resetLabel() {
+        label.text = feedingSide == .left ? "Left" : "Right"
+    }
+    
     @IBAction func buttonPressed(_ sender: UIButton) {
         if !isFeeding {
             button.setTitle("◼︎", for: .normal)
+            startTimer()
         } else {
             button.setTitle("▶", for: .normal)
+            endTimer()
         }
         isFeeding = !isFeeding
     }
     
-    //    private func startTimer(timer:inout Timer?, userInfo:(label:UILabel, counter:Int)) {
-    //        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.countdown), userInfo: userInfo, repeats: true)
-    //    }
+    private func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.count), userInfo: nil, repeats: true)
+        counter = 0
+    }
     
-    //    func countdown(userInfo:Any?) {
-    //        countdownTimerCounter -= 1
-    //
-    //        if countdownTimerCounter > 0 && countdownTimerCounter < 10 {
-    //            auxStatusLabel.text = "00:0\(countdownTimerCounter)"
-    //        } else {
-    //            auxStatusLabel.text = "00:\(countdownTimerCounter)"
-    //        }
-    //
-    //        if countdownTimerCounter <= 0 {
-    //            endCountdownTimer()
-    //            updateUserInterfaceForFailedToFindSensor()
-    //        }
-    //    }
-    //
-    //    private func endCountdownTimer(timer: inout Timer?, ) {
-    //
-    //
-    //        if let timer = countdownTimer {
-    //            countdownTimerCounter = 0
-    //            timer.invalidate()
-    //            countdownTimer = nil
-    //        } else {
-    //            printString("No timer to end...")
-    //        }
-    //    }
-
+    func count() {
+        counter += 1
+    }
+    
+    private func endTimer() {
+        counter = 0
+        timer?.invalidate()
+        timer = nil
+        resetLabel()
+    }
 }

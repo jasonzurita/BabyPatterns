@@ -38,6 +38,14 @@ class FeedingService {
         return nursing.timeSinceLastFeeding()
     }
     
+    func feedingStarted(type:FeedingType, start:Date, side:FeedingSide?) {
+
+    }
+    
+    func feedingEnded(type:FeedingType, end:Date, side:FeedingSide?) {
+        
+    }
+    
     func addFeedingEvent(type:FeedingType, start:Date, end:Date, side:FeedingSide?) {
         switch type {
         case .nursing:
