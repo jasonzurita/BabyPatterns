@@ -61,9 +61,11 @@ class FeedingControl: UIView {
         if !isFeeding {
             button.setTitle("◼︎", for: .normal)
             startTimer()
+            delegate?.feedingStarted(forFeedingControl: self)
         } else {
             button.setTitle("▶", for: .normal)
             endTimer()
+            delegate?.feedingEnded(forFeedingControl: self)
         }
         isFeeding = !isFeeding
     }
