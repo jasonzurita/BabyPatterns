@@ -11,6 +11,7 @@ import UIKit
 class HomeVC: UIViewController {
 
     //outlets
+    //TODO: okay for for now, put these into a collectoin view to easily support future tile additions
     @IBOutlet weak var feedingTile: Tile!
     @IBOutlet weak var changingsTile: Tile!
     @IBOutlet weak var babyNameLabel: UILabel!
@@ -46,7 +47,7 @@ class HomeVC: UIViewController {
         }
         
         let lastFeed = hoursAndMinutes(time: FeedingService.shared.timeSinceLastFeeding())
-        feedingTile.detailLabel.text = "Last feeding:\n\(lastFeed.hours)h:\(lastFeed.minutes)m"
+        feedingTile.detailLabel1.text = "Last: \(lastFeed.hours)h \(lastFeed.minutes)m ago"
     }
 }
 

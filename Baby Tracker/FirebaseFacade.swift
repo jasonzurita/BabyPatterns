@@ -48,7 +48,7 @@ class FirebaseFacade {
     }
     
     func uploadFeedingEvent(withData data: [String:String], feedingType:FeedingType) {
-        printDebugString(string: "Uploading feeding event")
+        printDebugString(string: "Uploading feeding data: \(data)")
         self.databaseReference.child(feedingType.rawValue).childByAutoId().setValue(data)
     }
     

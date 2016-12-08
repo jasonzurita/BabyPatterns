@@ -97,34 +97,58 @@
                                     <constraint firstItem="WGF-RM-uY4" firstAttribute="top" secondItem="D4T-tz-fTH" secondAttribute="bottom" constant="10" id="t6d-KD-wYY"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xk-d5-hJ1" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="131" y="292" width="110" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Changing"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="changingTile"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFS-EY-bMW" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="254" y="292" width="110" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Feature Request"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="featureRequestTile"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBt-CA-tjd">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ads Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEJ-aH-3ap">
+                                        <rect key="frame" x="152" y="15" width="71" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="MEJ-aH-3ap" firstAttribute="centerY" secondItem="TBt-CA-tjd" secondAttribute="centerY" id="AI3-3o-wEJ"/>
+                                    <constraint firstItem="MEJ-aH-3ap" firstAttribute="centerX" secondItem="TBt-CA-tjd" secondAttribute="centerX" id="BSP-cE-pG2"/>
+                                    <constraint firstAttribute="height" constant="50" id="hdQ-J8-kY5"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdO-si-g3C" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="37" y="261" width="135" height="121"/>
+                                <rect key="frame" x="8" y="292" width="110" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Feeding"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="feedingTile"/>
                                 </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xk-d5-hJ1" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="203" y="261" width="135" height="121"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFS-EY-bMW">
-                                <rect key="frame" x="37" y="414" width="135" height="121"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DK0-5t-aO9">
-                                <rect key="frame" x="203" y="414" width="135" height="121"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="TBt-CA-tjd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2gp-EE-vxX"/>
                             <constraint firstItem="ky7-XH-03B" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="4eM-kL-gPN"/>
+                            <constraint firstItem="TBt-CA-tjd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="LgM-mR-PcK"/>
                             <constraint firstItem="ky7-XH-03B" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gZ1-6L-RxY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TBt-CA-tjd" secondAttribute="bottom" id="hCr-Xt-GY4"/>
                             <constraint firstItem="ky7-XH-03B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vX4-mx-We7"/>
                         </constraints>
                     </view>
@@ -437,4 +461,9 @@
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="changingTile" width="66" height="66"/>
+        <image name="featureRequestTile" width="66" height="66"/>
+        <image name="feedingTile" width="66" height="66"/>
+    </resources>
 </document>
