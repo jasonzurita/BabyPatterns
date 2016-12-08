@@ -39,17 +39,21 @@ class Tile: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        Bundle.main.loadNibNamed(String(describing: type(of:self)), owner: self, options: nil)
-        view.frame = bounds
-        addSubview(view)
+        initialConfiguration(frame:frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        initialConfiguration(frame:frame)
+    }
+    
+    private func initialConfiguration(frame:CGRect) {
         Bundle.main.loadNibNamed(String(describing: type(of:self)), owner: self, options: nil)
         view.frame = bounds
         addSubview(view)
         
+        detailLabel1.text = ""
+        detailLabel2.text = ""
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
