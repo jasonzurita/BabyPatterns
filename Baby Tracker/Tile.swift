@@ -50,12 +50,6 @@ class Tile: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         didTapCallback?()
     }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            printDebugString(string: "Touch pressure: \(touch.force/touch.maximumPossibleForce)")
-        }
-    }
 
     private func printDebugString(string:String) {
         if shouldPrintDebugString {
