@@ -13,12 +13,16 @@ class SignInVC: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var signInContainerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configureSignInContainerView(containerLayer: signInContainerView.layer)
+    }
+    
+    private func configureSignInContainerView(containerLayer:CALayer) {
+        containerLayer.borderColor = UIColor.gray.cgColor
+        containerLayer.masksToBounds = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
