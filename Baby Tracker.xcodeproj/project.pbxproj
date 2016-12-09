@@ -43,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		430FD7441DE484EC00D07C50 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4314DD541DFB37D700B3649C /* Baby Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Baby Tracker.entitlements"; sourceTree = "<group>"; };
 		432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4330FB471DEDCF2300737A7F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4330FB511DF1B2B700737A7F /* FeedingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingService.swift; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		436484AD1DCA150500E6B0A7 /* Baby Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				4314DD541DFB37D700B3649C /* Baby Tracker.entitlements */,
 				436484AE1DCA150500E6B0A7 /* AppDelegate.swift */,
 				436484D41DCA186A00E6B0A7 /* Support */,
 				436484D51DCA188B00E6B0A7 /* Storyboards */,
@@ -313,6 +315,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 98P3BUSPS2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					436484BE1DCA150500E6B0A7 = {
 						CreatedOnToolsVersion = 8.1;
@@ -613,6 +620,7 @@
 			baseConfigurationReference = F72128F7CB5F28A775078E32 /* Pods-Baby Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Baby Tracker/Baby Tracker.entitlements";
 				DEVELOPMENT_TEAM = 98P3BUSPS2;
 				INFOPLIST_FILE = "Baby Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -627,6 +635,7 @@
 			baseConfigurationReference = EB450386D37DE8D496932C13 /* Pods-Baby Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Baby Tracker/Baby Tracker.entitlements";
 				DEVELOPMENT_TEAM = 98P3BUSPS2;
 				INFOPLIST_FILE = "Baby Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
