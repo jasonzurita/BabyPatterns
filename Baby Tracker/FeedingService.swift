@@ -33,16 +33,22 @@ class FeedingService {
     static let shared = FeedingService()
     
     private let shouldPrintDebugString = true
-    private let database = FirebaseFacade()
+    private var database:FirebaseFacade?
     private var feedingsInProgress:[FeedingEvent] = []
     
     let nursing = Nursing()
     
     init() {
-        database.configureDatabase(requestType: .nursing, responseHandler: { json in
+
+    }
+    func configure() {
+        database = FirebaseFacade()
+        database?.configureDatabase(requestType: .nursing, responseHandler: { json in
             if self.nursing.processNewNursing(json: json) {
             }
         })
+        
+        
     }
     
     func timeSinceLastFeeding() -> TimeInterval {

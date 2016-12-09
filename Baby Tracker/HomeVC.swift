@@ -25,6 +25,8 @@ class HomeVC: UIViewController {
         babyAgeLabel.text = "7 Months old"
         todaysDateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .none)
 
+        FeedingService.shared.configure()
+        
         feedingTile.didTapCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.performSegue(withIdentifier: Constants.Segues.FeedingSegue, sender: nil)
