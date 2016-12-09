@@ -81,7 +81,7 @@ class FeedingService {
     
     func addFeedingEvent(event:FeedingEvent) {
         
-        try! database.uploadFeedingEvent(withData: event.eventJson(), feedingType: event.feedingType)
+        try! database?.uploadFeedingEvent(withData: event.eventJson(), requestType: event.feedingType)
         
         switch event.feedingType {
         case .nursing:
