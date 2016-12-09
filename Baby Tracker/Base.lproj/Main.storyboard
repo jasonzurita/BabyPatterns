@@ -372,18 +372,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HvD-MH-WMZ">
-                                <rect key="frame" x="128" y="433" width="127" height="130"/>
+                                <rect key="frame" x="128" y="238" width="127" height="147"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulz-GF-pGo">
-                                        <rect key="frame" x="0.0" y="0.0" width="127" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="127" height="35.5"/>
                                         <state key="normal" title="Create an Account"/>
+                                        <connections>
+                                            <action selector="signUp:" destination="Uzf-Ui-YoH" eventType="touchUpInside" id="B3f-6M-Yns"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tT-wJ-nMO">
-                                        <rect key="frame" x="2" y="50" width="123" height="30"/>
+                                        <rect key="frame" x="2" y="55.5" width="123" height="36"/>
                                         <state key="normal" title="Forgot Password?"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWS-YR-Wuw">
-                                        <rect key="frame" x="28.5" y="100" width="70" height="30"/>
+                                        <rect key="frame" x="28.5" y="111.5" width="70" height="35.5"/>
                                         <state key="normal" title="Use demo"/>
                                     </button>
                                 </subviews>
@@ -394,13 +397,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5E0-WI-eaP">
-                                <rect key="frame" x="185" y="395" width="47" height="30"/>
-                                <state key="normal" title="Sign In"/>
-                                <connections>
-                                    <action selector="signIn:" destination="Uzf-Ui-YoH" eventType="touchUpInside" id="R1V-1U-Ncr"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9N2-yD-Ggm" userLabel="Sign In Container">
                                 <rect key="frame" x="37.5" y="120" width="300" height="60"/>
                                 <subviews>
@@ -450,6 +446,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5E0-WI-eaP">
+                                <rect key="frame" x="168" y="211" width="47" height="30"/>
+                                <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="signIn:" destination="Uzf-Ui-YoH" eventType="touchUpInside" id="R1V-1U-Ncr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -457,10 +460,11 @@
                             <constraint firstItem="HvD-MH-WMZ" firstAttribute="top" secondItem="5E0-WI-eaP" secondAttribute="bottom" constant="8" symbolic="YES" id="AIH-5w-hLF"/>
                             <constraint firstItem="1jh-VA-r84" firstAttribute="leading" secondItem="jrz-OJ-tnk" secondAttribute="leadingMargin" id="EYm-a4-gW8"/>
                             <constraint firstItem="HvD-MH-WMZ" firstAttribute="leading" secondItem="jrz-OJ-tnk" secondAttribute="leading" constant="128" id="Gbg-DC-J5k"/>
-                            <constraint firstItem="1jh-VA-r84" firstAttribute="top" secondItem="HvD-MH-WMZ" secondAttribute="bottom" constant="22" id="Mhq-5K-Jy0"/>
+                            <constraint firstItem="1jh-VA-r84" firstAttribute="top" secondItem="HvD-MH-WMZ" secondAttribute="bottom" constant="200" id="Mhq-5K-Jy0"/>
                             <constraint firstItem="9N2-yD-Ggm" firstAttribute="centerX" secondItem="jrz-OJ-tnk" secondAttribute="centerX" id="hNK-jl-WWw"/>
                             <constraint firstItem="9N2-yD-Ggm" firstAttribute="width" secondItem="jrz-OJ-tnk" secondAttribute="width" multiplier="0.8" id="jbw-yJ-fOV"/>
                             <constraint firstItem="cde-pw-O8j" firstAttribute="top" secondItem="1jh-VA-r84" secondAttribute="bottom" constant="65" id="qar-V3-dqh"/>
+                            <constraint firstItem="5E0-WI-eaP" firstAttribute="top" secondItem="9N2-yD-Ggm" secondAttribute="bottom" constant="20" id="v0x-aS-M1u"/>
                         </constraints>
                     </view>
                     <connections>

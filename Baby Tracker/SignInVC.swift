@@ -36,7 +36,7 @@ class SignInVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func signIn(_ sender: Any) {
+    @IBAction func signUp(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
@@ -44,8 +44,21 @@ class SignInVC: UIViewController {
                 return
             }
             self.signedIn(user: user)
-//            self.setDisplayName(user!)
+            //            self.setDisplayName(user!)
         }
+    }
+    
+    
+    @IBAction func signIn(_ sender: Any) {
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        
+        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.signedIn(user: user)
+            }
+        })
     }
     
     private func signedIn(user:FIRUser?) {
