@@ -32,6 +32,14 @@ class Nursing {
         return abs(lastFeedingTime.timeIntervalSinceNow)
     }
     
+    func lastFeedingSide() -> FeedingSide {
+        if let lf = nursings.last {
+            return lf.side
+        }
+        
+        return .none
+    }
+    
     func averageFeedingDuration(filterWindow:DateInterval) -> TimeInterval {
         guard nursings.count > 0 else { return 0.0 }
         let sum = nursings.reduce(0.0, {

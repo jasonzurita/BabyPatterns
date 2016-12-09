@@ -181,9 +181,9 @@
 			isa = PBXGroup;
 			children = (
 				437814C81DDD1B9D0047D11A /* SignInVC.swift */,
-				43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */,
 				436484B01DCA150500E6B0A7 /* HomeVC.swift */,
 				43D2BE631DCB684800895A65 /* FeedingVC.swift */,
+				43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

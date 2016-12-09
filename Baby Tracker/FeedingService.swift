@@ -18,6 +18,17 @@ enum FeedingSide: Int {
     case left = 1
     case right
     case none
+    
+    func asText() -> String {
+        switch self {
+        case .left:
+            return "Left"
+        case .right:
+            return "Right"
+        case .none:
+            return ""
+        }
+    }
 }
 
 protocol FeedingEvent {
@@ -53,6 +64,10 @@ class FeedingService {
     
     func timeSinceLastFeeding() -> TimeInterval {
         return nursing.timeSinceLastFeeding()
+    }
+    
+    func lastFeedingSide() -> FeedingSide {
+        return nursing.lastFeedingSide()
     }
     
     func feedingStarted(type:FeedingType, start:Date, side:FeedingSide) {

@@ -39,7 +39,7 @@ class HomeVC: UIViewController {
     }
     
     private func setupFeeding() {
-        //TODO: convert this to hours and minutes
+        //TODO: convert this to hours and minutes && put this into a global utility class or extension
         
         func hoursAndMinutes(time:TimeInterval) -> (hours:Int, minutes:Int){
             let hours = floor(time / 3600)
@@ -49,7 +49,13 @@ class HomeVC: UIViewController {
         }
         
         let lastFeed = hoursAndMinutes(time: FeedingService.shared.timeSinceLastFeeding())
-        feedingTile.detailLabel1.text = "Last: \(lastFeed.hours)h \(lastFeed.minutes)m ago"
+        
+        let lastSide = FeedingService.shared.lastFeedingSide()
+        var sideText = lastSide.asText()
+        if lastSide != .none {
+            sideText += ": "
+        }
+        feedingTile.detailLabel1.text = "\(sideText)\(lastFeed.hours)h \(lastFeed.minutes)m ago"
     }
 }
 
