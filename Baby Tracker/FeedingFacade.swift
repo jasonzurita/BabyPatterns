@@ -1,35 +1,12 @@
 //
-//  FeedingService.swift
+//  FeedingFacade.swift
 //  Baby Tracker
 //
-//  Created by Jason Zurita on 12/2/16.
+//  Created by Jason Zurita on 12/9/16.
 //  Copyright © 2016 Jason Zurita. All rights reserved.
 //
 
-import UIKit
-
-enum FeedingType : String {
-    case nursing = "nursings"
-    case bottle = "bottleFeedings"
-    case pumping = "pumpings"
-}
-
-enum FeedingSide: Int {
-    case left = 1
-    case right
-    case none
-    
-    func asText() -> String {
-        switch self {
-        case .left:
-            return "Left"
-        case .right:
-            return "Right"
-        case .none:
-            return ""
-        }
-    }
-}
+import Foundation
 
 protocol FeedingEvent {
     var feedingType:FeedingType { get }
@@ -39,27 +16,22 @@ protocol FeedingEvent {
     func eventJson() throws -> [String:String]
 }
 
-class FeedingService {
-
-    static let shared = FeedingService()
+class FeedingFacade {
     
     private let shouldPrintDebugString = true
-    private var database:FirebaseFacade?
+    private var database = FirebaseFacade()
     private var feedingsInProgress:[FeedingEvent] = []
     
     let nursing = Nursing()
     
-    init() {
+    func loadData(completionHandler:@escaping (Void) -> Void) {
 
-    }
-    func configure() {
-        database = FirebaseFacade()
-        database?.configureDatabase(requestType: .nursing, responseHandler: { json in
-            if self.nursing.processNewNursing(json: json) {
+        database.configureDatabase(requestType: .nursing, responseHandler: { jsonArray in
+            for json in jsonArray {
+                self.nursing.processNewNursing(json: json)
             }
+            completionHandler()
         })
-        
-        
     }
     
     func timeSinceLastFeeding() -> TimeInterval {
@@ -96,7 +68,7 @@ class FeedingService {
     
     func addFeedingEvent(event:FeedingEvent) {
         
-        try! database?.uploadFeedingEvent(withData: event.eventJson(), requestType: event.feedingType)
+        try! database.uploadFeedingEvent(withData: event.eventJson(), requestType: event.feedingType)
         
         switch event.feedingType {
         case .nursing:

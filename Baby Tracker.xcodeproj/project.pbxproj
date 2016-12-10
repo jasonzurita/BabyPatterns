@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		02173C36F355DC9389294DE7 /* Pods_Baby_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */; };
 		430FD7451DE484EC00D07C50 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
+		4314DD561DFB6D7500B3649C /* FeedingFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD551DFB6D7500B3649C /* FeedingFacade.swift */; };
+		4314DD581DFB6DE300B3649C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
 		4330FB481DEDCF2300737A7F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB471DEDCF2300737A7F /* Extensions.swift */; };
-		4330FB521DF1B2B800737A7F /* FeedingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB511DF1B2B700737A7F /* FeedingService.swift */; };
 		4330FB571DF1B41600737A7F /* Nursing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB561DF1B41600737A7F /* Nursing.swift */; };
 		4330FB591DF1B42100737A7F /* NursingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB581DF1B42100737A7F /* NursingEvent.swift */; };
 		4330FB5B1DF1B4A300737A7F /* FirebaseFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB5A1DF1B4A300737A7F /* FirebaseFacade.swift */; };
@@ -44,9 +45,10 @@
 /* Begin PBXFileReference section */
 		430FD7441DE484EC00D07C50 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4314DD541DFB37D700B3649C /* Baby Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Baby Tracker.entitlements"; sourceTree = "<group>"; };
+		4314DD551DFB6D7500B3649C /* FeedingFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingFacade.swift; sourceTree = "<group>"; };
+		4314DD571DFB6DE300B3649C /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4330FB471DEDCF2300737A7F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		4330FB511DF1B2B700737A7F /* FeedingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingService.swift; sourceTree = "<group>"; };
 		4330FB561DF1B41600737A7F /* Nursing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nursing.swift; sourceTree = "<group>"; };
 		4330FB581DF1B42100737A7F /* NursingEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NursingEvent.swift; sourceTree = "<group>"; };
 		4330FB5A1DF1B4A300737A7F /* FirebaseFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseFacade.swift; sourceTree = "<group>"; };
@@ -96,7 +98,7 @@
 		4330FB501DF1B27000737A7F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4330FB511DF1B2B700737A7F /* FeedingService.swift */,
+				4314DD551DFB6D7500B3649C /* FeedingFacade.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -196,6 +198,7 @@
 				436484BA1DCA150500E6B0A7 /* Info.plist */,
 				430FD7441DE484EC00D07C50 /* Constants.swift */,
 				4330FB471DEDCF2300737A7F /* Extensions.swift */,
+				4314DD571DFB6DE300B3649C /* Enums.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -221,8 +224,8 @@
 		43D2BE671DCB69E900895A65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				43FCAA841DD0BC70003872BA /* Profile.swift */,
 				4330FB5A1DF1B4A300737A7F /* FirebaseFacade.swift */,
+				43FCAA841DD0BC70003872BA /* Profile.swift */,
 				4330FB551DF1B3E600737A7F /* Bottle */,
 				4330FB541DF1B3DA00737A7F /* Pumping */,
 				4330FB531DF1B3D400737A7F /* Nursing */,
@@ -476,12 +479,13 @@
 				4330FB571DF1B41600737A7F /* Nursing.swift in Sources */,
 				43FCAA851DD0BC70003872BA /* Profile.swift in Sources */,
 				436484B11DCA150500E6B0A7 /* HomeVC.swift in Sources */,
+				4314DD581DFB6DE300B3649C /* Enums.swift in Sources */,
 				43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */,
 				4330FB481DEDCF2300737A7F /* Extensions.swift in Sources */,
 				43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */,
+				4314DD561DFB6D7500B3649C /* FeedingFacade.swift in Sources */,
 				436484AF1DCA150500E6B0A7 /* AppDelegate.swift in Sources */,
 				430FD7451DE484EC00D07C50 /* Constants.swift in Sources */,
-				4330FB521DF1B2B800737A7F /* FeedingService.swift in Sources */,
 				43F4FAE11DF8CD01005510D4 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

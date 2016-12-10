@@ -11,12 +11,10 @@ import Foundation
 class Nursing {
     var nursings: [NursingEvent] = []
     
-    func processNewNursing(json: Dictionary<String,String>) -> Bool {
+    func processNewNursing(json: [String:String]) {
         if let nursingEvent = NursingEvent(feedingJson: json) {
             nursings.append(nursingEvent)
-            return true
         }
-        return false
     }
     
     func lastFeedingTime() -> Date? {

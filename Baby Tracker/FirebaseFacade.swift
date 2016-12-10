@@ -22,7 +22,7 @@ class FirebaseFacade {
         }
     }
     
-    func configureDatabase(requestType:FeedingType, responseHandler: @escaping (Dictionary<String,String>) -> Void ) {
+    func configureDatabase(requestType:FeedingType, responseHandler: @escaping ([[String:String]]) -> Void ) {
         printDebugString(string: "Configuring database...")
         
         guard let path = pathForRequest(type: requestType) else {
@@ -30,15 +30,10 @@ class FirebaseFacade {
             return
         }
         
-        self.databaseReference.child(path).observeSingleEvent(of: .value, with: { [weak self] (snapshot) -> Void in
-            guard let strongSelf = self else { return }
-            for child in snapshot.children {
-                if let c = child as? FIRDataSnapshot, let json = c.value as? Dictionary<String, String> {
-                    responseHandler(json)
-                    strongSelf.printDebugString(string: "Report \(requestType): \(json)")
-                }
-            }
-
+        self.databaseReference.child(path).observeSingleEvent(of: .value, with: { (snapshot) -> Void in
+            guard let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] else { return }
+            let response = snapshots.map { $0.value as! [String:String] }
+            responseHandler(response)
         })
         
 //        let handle = self.databaseReference.child(requestType.rawValue).observe(.childAdded, with: { [weak self] (snapshot) -> Void in

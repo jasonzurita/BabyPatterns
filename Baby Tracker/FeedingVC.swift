@@ -10,9 +10,11 @@ import UIKit
 
 class FeedingVC: UIViewController {
     
-    @IBOutlet weak var nursingLeftControl: FeedingControl!
+    var feedings:FeedingFacade!
     
+    @IBOutlet weak var nursingLeftControl: FeedingControl!
     @IBOutlet weak var nursingRightControl: FeedingControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,10 +28,10 @@ class FeedingVC: UIViewController {
 
 extension FeedingVC: FeedingControlDelegate {
     func feedingStarted(forFeedingControl control: FeedingControl) {
-        FeedingService.shared.feedingStarted(type: control.feedingType, start: Date(), side: control.feedingSide)
+        feedings.feedingStarted(type: control.feedingType, start: Date(), side: control.feedingSide)
     }
     
     func feedingEnded(forFeedingControl control: FeedingControl) {
-        FeedingService.shared.feedingEnded(type: control.feedingType, side: control.feedingSide)
+        feedings.feedingEnded(type: control.feedingType, side: control.feedingSide)
     }
 }
