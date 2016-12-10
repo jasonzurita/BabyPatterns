@@ -11,6 +11,7 @@
 		430FD7451DE484EC00D07C50 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
 		4314DD561DFB6D7500B3649C /* FeedingFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD551DFB6D7500B3649C /* FeedingFacade.swift */; };
 		4314DD581DFB6DE300B3649C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
+		4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4314DD591DFCA34600B3649C /* Feeding.storyboard */; };
 		4330FB481DEDCF2300737A7F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB471DEDCF2300737A7F /* Extensions.swift */; };
 		4330FB571DF1B41600737A7F /* Nursing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB561DF1B41600737A7F /* Nursing.swift */; };
 		4330FB591DF1B42100737A7F /* NursingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB581DF1B42100737A7F /* NursingEvent.swift */; };
@@ -47,6 +48,7 @@
 		4314DD541DFB37D700B3649C /* Baby Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Baby Tracker.entitlements"; sourceTree = "<group>"; };
 		4314DD551DFB6D7500B3649C /* FeedingFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingFacade.swift; sourceTree = "<group>"; };
 		4314DD571DFB6DE300B3649C /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		4314DD591DFCA34600B3649C /* Feeding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feeding.storyboard; sourceTree = "<group>"; };
 		432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4330FB471DEDCF2300737A7F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4330FB561DF1B41600737A7F /* Nursing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nursing.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				436484B21DCA150500E6B0A7 /* Main.storyboard */,
+				4314DD591DFCA34600B3649C /* Feeding.storyboard */,
 				436484B71DCA150500E6B0A7 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -356,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */,
 				436484B91DCA150500E6B0A7 /* LaunchScreen.storyboard in Resources */,
 				436484B61DCA150500E6B0A7 /* Assets.xcassets in Resources */,
 				43F4FADF1DF70317005510D4 /* FeedingControl.xib in Resources */,
