@@ -36,14 +36,14 @@ class FeedingControl: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        Bundle.main.loadNibNamed(String(describing: type(of:self)), owner: self, options: nil)
+        loadNib()
         view.frame = bounds
         addSubview(view)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        Bundle.main.loadNibNamed(String(describing: type(of:self)), owner: self, options: nil)
+        loadNib()
         view.frame = bounds
         addSubview(view)
     }

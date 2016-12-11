@@ -39,16 +39,16 @@ class Tile: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initialConfiguration(frame:frame)
+        initializeView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initialConfiguration(frame:frame)
+        initializeView()
     }
     
-    private func initialConfiguration(frame:CGRect) {
-        Bundle.main.loadNibNamed(String(describing: type(of:self)), owner: self, options: nil)
+    private func initializeView() {
+        loadNib()
         view.frame = bounds
         addSubview(view)
         
