@@ -28,6 +28,11 @@ class FeedingVC: UIViewController {
 //        nursingRightControl.configure(side: .right, type: .nursing)
 //        nursingRightControl.delegate = self
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //equip page view controller to function here
+    }
+    
 }
 
 extension FeedingVC: FeedingControlDelegate {

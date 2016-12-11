@@ -29,6 +29,11 @@
 		436484D01DCA160400E6B0A7 /* Tile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436484CF1DCA160400E6B0A7 /* Tile.xib */; };
 		437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437814C81DDD1B9D0047D11A /* SignInVC.swift */; };
 		43A1C8FA1DFDA906008C5C2F /* SegmentedControlBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C8F91DFDA906008C5C2F /* SegmentedControlBar.xib */; };
+		43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */; };
+		43A1C9001DFDFFBA008C5C2F /* FeedingTimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C8FE1DFDFFBA008C5C2F /* FeedingTimerVC.swift */; };
+		43A1C9011DFDFFBA008C5C2F /* FeedingTimerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C8FF1DFDFFBA008C5C2F /* FeedingTimerVC.xib */; };
+		43A1C9041DFDFFFA008C5C2F /* BottleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */; };
+		43A1C9051DFDFFFA008C5C2F /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
 		43F4FADD1DF7030B005510D4 /* FeedingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4FADC1DF7030B005510D4 /* FeedingControl.swift */; };
 		43F4FADF1DF70317005510D4 /* FeedingControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43F4FADE1DF70317005510D4 /* FeedingControl.xib */; };
@@ -75,6 +80,11 @@
 		436484CF1DCA160400E6B0A7 /* Tile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tile.xib; sourceTree = "<group>"; };
 		437814C81DDD1B9D0047D11A /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		43A1C8F91DFDA906008C5C2F /* SegmentedControlBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlBar.xib; sourceTree = "<group>"; };
+		43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingPageVC.swift; sourceTree = "<group>"; };
+		43A1C8FE1DFDFFBA008C5C2F /* FeedingTimerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingTimerVC.swift; sourceTree = "<group>"; };
+		43A1C8FF1DFDFFBA008C5C2F /* FeedingTimerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedingTimerVC.xib; sourceTree = "<group>"; };
+		43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleVC.swift; sourceTree = "<group>"; };
+		43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottleVC.xib; sourceTree = "<group>"; };
 		43D2BE631DCB684800895A65 /* FeedingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingVC.swift; sourceTree = "<group>"; };
 		43F4FADC1DF7030B005510D4 /* FeedingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingControl.swift; sourceTree = "<group>"; };
 		43F4FADE1DF70317005510D4 /* FeedingControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedingControl.xib; sourceTree = "<group>"; };
@@ -214,7 +224,7 @@
 			children = (
 				437814C81DDD1B9D0047D11A /* SignInVC.swift */,
 				436484B01DCA150500E6B0A7 /* HomeVC.swift */,
-				43D2BE631DCB684800895A65 /* FeedingVC.swift */,
+				43A1C8FD1DFDFEAC008C5C2F /* Feeding */,
 				43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */,
 			);
 			name = "View Controllers";
@@ -250,6 +260,27 @@
 				436484CF1DCA160400E6B0A7 /* Tile.xib */,
 			);
 			name = Tile;
+			sourceTree = "<group>";
+		};
+		43A1C8FD1DFDFEAC008C5C2F /* Feeding */ = {
+			isa = PBXGroup;
+			children = (
+				43D2BE631DCB684800895A65 /* FeedingVC.swift */,
+				43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */,
+				43A1C9061DFE0016008C5C2F /* Pages */,
+			);
+			name = Feeding;
+			sourceTree = "<group>";
+		};
+		43A1C9061DFE0016008C5C2F /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				43A1C8FE1DFDFFBA008C5C2F /* FeedingTimerVC.swift */,
+				43A1C8FF1DFDFFBA008C5C2F /* FeedingTimerVC.xib */,
+				43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */,
+				43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */,
+			);
+			name = Pages;
 			sourceTree = "<group>";
 		};
 		43D2BE671DCB69E900895A65 /* Model */ = {
@@ -389,7 +420,9 @@
 			files = (
 				4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */,
 				436484B91DCA150500E6B0A7 /* LaunchScreen.storyboard in Resources */,
+				43A1C9051DFDFFFA008C5C2F /* BottleVC.xib in Resources */,
 				4314DD601DFDA06D00B3649C /* Segment.xib in Resources */,
+				43A1C9011DFDFFBA008C5C2F /* FeedingTimerVC.xib in Resources */,
 				436484B61DCA150500E6B0A7 /* Assets.xcassets in Resources */,
 				43F4FADF1DF70317005510D4 /* FeedingControl.xib in Resources */,
 				436484B41DCA150500E6B0A7 /* Main.storyboard in Resources */,
@@ -506,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */,
 				4314DD5E1DFDA05D00B3649C /* Segment.swift in Sources */,
 				4330FB591DF1B42100737A7F /* NursingEvent.swift in Sources */,
 				43F4FADD1DF7030B005510D4 /* FeedingControl.swift in Sources */,
@@ -513,10 +547,12 @@
 				437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */,
 				4330FB571DF1B41600737A7F /* Nursing.swift in Sources */,
 				43FCAA851DD0BC70003872BA /* Profile.swift in Sources */,
+				43A1C9041DFDFFFA008C5C2F /* BottleVC.swift in Sources */,
 				4314DD5C1DFD9E5E00B3649C /* SegmentedControlBar.swift in Sources */,
 				436484B11DCA150500E6B0A7 /* HomeVC.swift in Sources */,
 				4314DD581DFB6DE300B3649C /* Enums.swift in Sources */,
 				43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */,
+				43A1C9001DFDFFBA008C5C2F /* FeedingTimerVC.swift in Sources */,
 				4330FB481DEDCF2300737A7F /* Extensions.swift in Sources */,
 				43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */,
 				4314DD561DFB6D7500B3649C /* FeedingFacade.swift in Sources */,

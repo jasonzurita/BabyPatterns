@@ -46,15 +46,25 @@
                                     <constraint firstAttribute="height" constant="75" id="JYO-wN-0jr"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Br-6h-HMj">
+                                <rect key="frame" x="-0.5" y="220" width="375" height="383"/>
+                                <connections>
+                                    <segue destination="8lh-YY-odx" kind="embed" id="BvM-7n-GI1"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="0Br-6h-HMj" firstAttribute="centerX" secondItem="Id1-IJ-LUf" secondAttribute="centerX" id="5pB-Y4-hr0"/>
                             <constraint firstItem="lHZ-wK-GNQ" firstAttribute="centerX" secondItem="Id1-IJ-LUf" secondAttribute="centerX" id="7FD-dh-Unu"/>
+                            <constraint firstItem="j1i-ED-YwF" firstAttribute="top" secondItem="0Br-6h-HMj" secondAttribute="bottom" id="8UV-BM-dQJ"/>
                             <constraint firstItem="XUG-AJ-tde" firstAttribute="leading" secondItem="Id1-IJ-LUf" secondAttribute="leadingMargin" id="9tS-ul-nUF"/>
+                            <constraint firstItem="0Br-6h-HMj" firstAttribute="width" secondItem="Id1-IJ-LUf" secondAttribute="width" id="Cps-EZ-U9M"/>
                             <constraint firstItem="lHZ-wK-GNQ" firstAttribute="top" secondItem="XUG-AJ-tde" secondAttribute="bottom" constant="10" id="NFC-x4-9jO"/>
                             <constraint firstItem="RHy-Ta-cX7" firstAttribute="top" secondItem="1NL-MJ-xdi" secondAttribute="bottom" constant="5" id="Qwg-9D-470"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RHy-Ta-cX7" secondAttribute="trailing" id="Vrv-w8-cNr"/>
                             <constraint firstItem="XUG-AJ-tde" firstAttribute="top" secondItem="1NL-MJ-xdi" secondAttribute="bottom" constant="5" id="p2d-ym-inw"/>
+                            <constraint firstItem="0Br-6h-HMj" firstAttribute="top" secondItem="lHZ-wK-GNQ" secondAttribute="bottom" constant="2" id="spK-z2-Nw8"/>
                             <constraint firstItem="lHZ-wK-GNQ" firstAttribute="width" secondItem="Id1-IJ-LUf" secondAttribute="width" multiplier="0.9" id="uP8-fU-8MP"/>
                         </constraints>
                     </view>
@@ -67,6 +77,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BV7-Bo-838" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2807.1999999999998" y="36.431784107946029"/>
+        </scene>
+        <!--Feeding PageVC-->
+        <scene sceneID="vlg-Gt-jzv">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="8lh-YY-odx" customClass="FeedingPageVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u0i-UV-g8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3591" y="163"/>
         </scene>
     </scenes>
 </document>
