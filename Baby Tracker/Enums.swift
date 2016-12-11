@@ -7,9 +7,11 @@
 //
 
 enum FeedingType : String {
-    case nursing = "nursings"
-    case bottle = "bottleFeedings"
-    case pumping = "pumpings"
+    case nursing = "Nursing"
+    case pumping = "Pumping"
+    case bottle = "Bottle"
+    
+    static let allValues = [nursing, pumping, bottle]
 }
 
 enum FeedingSide: Int {

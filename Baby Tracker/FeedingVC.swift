@@ -15,14 +15,18 @@ class FeedingVC: UIViewController {
     @IBOutlet weak var nursingLeftControl: FeedingControl!
     @IBOutlet weak var nursingRightControl: FeedingControl!
     
+    @IBOutlet weak var controlBar: SegmentedControlBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        nursingLeftControl.configure(side: .left, type: .nursing)
-        nursingLeftControl.delegate = self
-        
-        nursingRightControl.configure(side: .right, type: .nursing)
-        nursingRightControl.delegate = self
+        let titles = FeedingType.allValues.map { $0.rawValue }
+        controlBar.configureSegmentedBar(titles: titles, defaultSegmentIndex:0, delegate: self)
+//
+//        nursingLeftControl.configure(side: .left, type: .nursing)
+//        nursingLeftControl.delegate = self
+//        
+//        nursingRightControl.configure(side: .right, type: .nursing)
+//        nursingRightControl.delegate = self
     }
 }
 
@@ -33,5 +37,11 @@ extension FeedingVC: FeedingControlDelegate {
     
     func feedingEnded(forFeedingControl control: FeedingControl) {
         feedings.feedingEnded(type: control.feedingType, side: control.feedingSide)
+    }
+}
+
+extension FeedingVC: SegmentedControlBarDelegate {
+    func segmentedControlBar(bar: SegmentedControlBar, segmentWasTapped index: Int) {
+        print("Segment tapped: \(index)")
     }
 }
