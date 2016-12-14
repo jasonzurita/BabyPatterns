@@ -60,23 +60,17 @@ class HomeVC: UIViewController {
     }
     
     private func updateFeedingUI() {
-        //TODO: convert this to hours and minutes && put this into a global utility class or extension
-        
-        func hoursAndMinutes(time:TimeInterval) -> (hours:Int, minutes:Int){
-            let hours = floor(time / 3600)
-            let timeWithoutHours = time - hours * 3600
-            let minutes = floor(timeWithoutHours / 60)
-            return (Int(hours),Int(minutes))
-        }
-        
-        let lastFeed = hoursAndMinutes(time: feedings.timeSinceLastFeeding())
         
         let lastSide = feedings.lastFeedingSide()
         var sideText = lastSide.asText()
         if lastSide != .none {
             sideText += ": "
         }
-        feedingTile.detailLabel1.text = "\(sideText)\(lastFeed.hours)h \(lastFeed.minutes)m ago"
+        
+        let hours = feedings.timeSinceLastFeeding().stringFromSecondsToHours()
+        let minutes = hours.remainder.stringFromSecondsToMinutes()
+        
+        feedingTile.detailLabel1.text = "\(sideText)" + hours.string + "h " + minutes.string + "m ago"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
