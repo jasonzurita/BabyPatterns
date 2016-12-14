@@ -10,7 +10,9 @@ import UIKit
 
 class FeedingPageVC: UIPageViewController {
 
-    fileprivate var pages:[UIViewController] = []
+    var pages:[UIViewController] = []
+    var segmentedControl:SegmentedControlBar?
+    fileprivate var segmentIndex:(active:Int, pending:Int) = (0,0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,21 +20,34 @@ class FeedingPageVC: UIPageViewController {
         delegate = self
         dataSource = self
         
-        let page1 = FeedingTimerVC(nibName: "FeedingTimerVC", bundle: nil)
-        let page2 = FeedingTimerVC(nibName: "FeedingTimerVC", bundle: nil)
-        page2.view.backgroundColor = UIColor.purple
-        let page3 = BottleVC(nibName: "BottleVC", bundle: nil)
+        setActivePageViewController()
+    }
+    
+    fileprivate func setActivePageViewController() {
+        setViewControllers([pages[segmentIndex.active]], direction: .forward, animated: true)
 
-        pages.append(contentsOf: [page1, page2, page3])
-        
-        setViewControllers([page1], direction: .forward, animated: true)
-        
+    }
+}
+
+extension FeedingPageVC: SegmentedControlBarDelegate {
+    func segmentedControlBar(bar: SegmentedControlBar, segmentWasTapped index: Int) {
+        segmentIndex.active = index
+        setActivePageViewController()
     }
 }
 
 extension FeedingPageVC: UIPageViewControllerDelegate {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        guard pendingViewControllers.count == 1, let pendingVC = pendingViewControllers.first, let pendingIndex = pages.index(of:pendingVC) else { return }
+        segmentIndex.pending = pendingIndex
+    }
+    
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard finished, let control = segmentedControl else { return }
         
+        segmentIndex.active = segmentIndex.pending
+        control.goToIndex(index: segmentIndex.active)
     }
 }
 

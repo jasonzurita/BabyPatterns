@@ -16,6 +16,9 @@ class SegmentedControlBar: UIStackView {
 
     //properties
     weak var delegate:SegmentedControlBarDelegate?
+    fileprivate var segments:[Segment] = []
+    
+    //outlets
     @IBOutlet var view: UIView!
 
     override init(frame: CGRect) {
@@ -35,36 +38,38 @@ class SegmentedControlBar: UIStackView {
         distribution = .fillEqually;
     }
     
-    func configureSegmentedBar(titles:[String], defaultSegmentIndex:Int, delegate:SegmentedControlBarDelegate) {
-        self.delegate = delegate
-
+    func configureSegmentedBar(titles:[String], defaultSegmentIndex:Int) {
         for (index, title) in titles.enumerated() {
             let segment = Segment(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            segment.delegate = self
             segment.titleLabel.text = title
             segment.index = index
-            segment.delegate = self
-            if index == defaultSegmentIndex {
-                segment.isActive = true
-            } else {
-                segment.isActive = false
-            }
+            segment.isActive = index == defaultSegmentIndex
             addArrangedSubview(segment)
+            
+            segments.append(segment)
         }
     }
+    
+    func goToIndex(index:Int) {
+        resetSegments()
+        segments[index].isActive = true
+    }
+    
+    fileprivate func resetSegments() {
+        segments.forEach { segment in
+            segment.isActive = false
+        }
+        
+    }
+    
 }
 
 extension SegmentedControlBar: SegmentDelegate {
     func segmentTapped(segment: Segment) {
+        resetSegments()
         
-        let segments = arrangedSubviews.flatMap { $0 as? Segment }.filter { $0 !== segment }
-        resetSegments(segments:segments)
-        
+        segment.isActive = true
         delegate?.segmentedControlBar(bar: self, segmentWasTapped: segment.index)
-    }
-    
-    private func resetSegments(segments:[Segment]) {
-        for s in segments {
-            s.isActive = false
-        }
     }
 }

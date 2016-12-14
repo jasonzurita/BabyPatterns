@@ -41,7 +41,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHZ-wK-GNQ" customClass="SegmentedControlBar" customModule="Baby_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="18.5" y="143" width="337.5" height="75"/>
+                                <rect key="frame" x="9" y="143" width="357" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="JYO-wN-0jr"/>
                                 </constraints>
@@ -65,13 +65,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="RHy-Ta-cX7" secondAttribute="trailing" id="Vrv-w8-cNr"/>
                             <constraint firstItem="XUG-AJ-tde" firstAttribute="top" secondItem="1NL-MJ-xdi" secondAttribute="bottom" constant="5" id="p2d-ym-inw"/>
                             <constraint firstItem="0Br-6h-HMj" firstAttribute="top" secondItem="lHZ-wK-GNQ" secondAttribute="bottom" constant="2" id="spK-z2-Nw8"/>
-                            <constraint firstItem="lHZ-wK-GNQ" firstAttribute="width" secondItem="Id1-IJ-LUf" secondAttribute="width" multiplier="0.9" id="uP8-fU-8MP"/>
+                            <constraint firstItem="lHZ-wK-GNQ" firstAttribute="width" secondItem="Id1-IJ-LUf" secondAttribute="width" multiplier="0.95" id="uP8-fU-8MP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feedings" id="a2d-Qf-jhP"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="controlBar" destination="lHZ-wK-GNQ" id="NaI-9S-pfd"/>
+                        <outlet property="segmentedControl" destination="lHZ-wK-GNQ" id="Mo0-LI-D6l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BV7-Bo-838" userLabel="First Responder" sceneMemberID="firstResponder"/>

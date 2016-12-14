@@ -37,11 +37,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="A5A-1L-v1n" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CnY-6v-n4y"/>
                 <constraint firstItem="bLb-qO-z6L" firstAttribute="centerX" secondItem="A5A-1L-v1n" secondAttribute="centerX" id="J3V-dz-tnR"/>
                 <constraint firstItem="A5A-1L-v1n" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Jvz-8P-hPC"/>
                 <constraint firstAttribute="bottom" secondItem="A5A-1L-v1n" secondAttribute="bottom" id="LrE-Hb-oqP"/>
+                <constraint firstAttribute="trailing" secondItem="A5A-1L-v1n" secondAttribute="trailing" id="Lse-jU-DS4"/>
                 <constraint firstItem="A5A-1L-v1n" firstAttribute="top" secondItem="bLb-qO-z6L" secondAttribute="bottom" id="TUN-Hs-d1h"/>
-                <constraint firstItem="A5A-1L-v1n" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="gPg-YX-s4e"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

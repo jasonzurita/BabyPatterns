@@ -9,7 +9,8 @@
 import UIKit
 
 class FeedingTimerVC: UIViewController {
-
+    var feedingType:FeedingType?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

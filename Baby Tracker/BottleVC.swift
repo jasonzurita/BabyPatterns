@@ -9,7 +9,8 @@
 import UIKit
 
 class BottleVC: UIViewController {
-
+    var feedingType:FeedingType = .bottle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
