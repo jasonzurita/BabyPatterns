@@ -40,7 +40,6 @@ class FeedingVC: UIViewController {
         let page3 = BottleVC(nibName: "BottleVC", bundle: nil)
         page2.feedingType = .bottle
         
-        page2.view.backgroundColor = UIColor.purple
         vc.pages.append(contentsOf: [page1, page2, page3])
     }
 }

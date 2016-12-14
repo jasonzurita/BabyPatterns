@@ -34,6 +34,8 @@
 		43A1C9011DFDFFBA008C5C2F /* FeedingTimerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C8FF1DFDFFBA008C5C2F /* FeedingTimerVC.xib */; };
 		43A1C9041DFDFFFA008C5C2F /* BottleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */; };
 		43A1C9051DFDFFFA008C5C2F /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
+		43A1C90B1E01ACB4008C5C2F /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C90A1E01ACB4008C5C2F /* CircleButton.swift */; };
+		43A1C90D1E01CB9E008C5C2F /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */; };
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
 		43F4FADD1DF7030B005510D4 /* FeedingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4FADC1DF7030B005510D4 /* FeedingControl.swift */; };
 		43F4FADF1DF70317005510D4 /* FeedingControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43F4FADE1DF70317005510D4 /* FeedingControl.xib */; };
@@ -85,6 +87,8 @@
 		43A1C8FF1DFDFFBA008C5C2F /* FeedingTimerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedingTimerVC.xib; sourceTree = "<group>"; };
 		43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleVC.swift; sourceTree = "<group>"; };
 		43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottleVC.xib; sourceTree = "<group>"; };
+		43A1C90A1E01ACB4008C5C2F /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		43D2BE631DCB684800895A65 /* FeedingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingVC.swift; sourceTree = "<group>"; };
 		43F4FADC1DF7030B005510D4 /* FeedingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingControl.swift; sourceTree = "<group>"; };
 		43F4FADE1DF70317005510D4 /* FeedingControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedingControl.xib; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 		436484CE1DCA15E500E6B0A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				43A1C90A1E01ACB4008C5C2F /* CircleButton.swift */,
+				43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */,
 				4314DD631DFDA75C00B3649C /* Segmented Control */,
 				43F4FADB1DF702E1005510D4 /* Feeding Control */,
 				436484D61DCA198A00E6B0A7 /* Tile */,
@@ -224,8 +230,8 @@
 			children = (
 				437814C81DDD1B9D0047D11A /* SignInVC.swift */,
 				436484B01DCA150500E6B0A7 /* HomeVC.swift */,
-				43A1C8FD1DFDFEAC008C5C2F /* Feeding */,
 				43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */,
+				43A1C8FD1DFDFEAC008C5C2F /* Feeding */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -539,10 +545,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43A1C90B1E01ACB4008C5C2F /* CircleButton.swift in Sources */,
 				43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */,
 				4314DD5E1DFDA05D00B3649C /* Segment.swift in Sources */,
 				4330FB591DF1B42100737A7F /* NursingEvent.swift in Sources */,
 				43F4FADD1DF7030B005510D4 /* FeedingControl.swift in Sources */,
+				43A1C90D1E01CB9E008C5C2F /* TimerLabel.swift in Sources */,
 				4330FB5B1DF1B4A300737A7F /* FirebaseFacade.swift in Sources */,
 				437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */,
 				4330FB571DF1B41600737A7F /* Nursing.swift in Sources */,

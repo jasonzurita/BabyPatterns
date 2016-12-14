@@ -9,8 +9,10 @@
 import UIKit
 
 class FeedingTimerVC: UIViewController {
-    var feedingType:FeedingType?
     
+    @IBOutlet weak var timerLabel: TimerLabel!
+    
+    var feedingType:FeedingType?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,15 +24,8 @@ class FeedingTimerVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func feedingButtonPressed(_ sender: CircleButton) {
+        sender.isActive = !sender.isActive
+        timerLabel.start()
     }
-    */
-
 }
