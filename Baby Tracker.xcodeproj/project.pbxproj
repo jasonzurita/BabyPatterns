@@ -29,6 +29,8 @@
 		436484D01DCA160400E6B0A7 /* Tile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436484CF1DCA160400E6B0A7 /* Tile.xib */; };
 		437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437814C81DDD1B9D0047D11A /* SignInVC.swift */; };
 		43932C411E01FEB400056F83 /* FeedingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C401E01FEB400056F83 /* FeedingControl.swift */; };
+		43932C441E034E6400056F83 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C431E034E6400056F83 /* ProfileView.swift */; };
+		43932C481E03594F00056F83 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43932C471E03594F00056F83 /* ProfileView.xib */; };
 		43A1C8FA1DFDA906008C5C2F /* SegmentedControlBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C8F91DFDA906008C5C2F /* SegmentedControlBar.xib */; };
 		43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */; };
 		43A1C9001DFDFFBA008C5C2F /* FeedingTimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C8FE1DFDFFBA008C5C2F /* FeedingTimerVC.swift */; };
@@ -81,6 +83,8 @@
 		436484CF1DCA160400E6B0A7 /* Tile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tile.xib; sourceTree = "<group>"; };
 		437814C81DDD1B9D0047D11A /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		43932C401E01FEB400056F83 /* FeedingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingControl.swift; sourceTree = "<group>"; };
+		43932C431E034E6400056F83 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		43932C471E03594F00056F83 /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		43A1C8F91DFDA906008C5C2F /* SegmentedControlBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlBar.xib; sourceTree = "<group>"; };
 		43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingPageVC.swift; sourceTree = "<group>"; };
 		43A1C8FE1DFDFFBA008C5C2F /* FeedingTimerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingTimerVC.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 		436484CE1DCA15E500E6B0A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				43932C421E034E3400056F83 /* Profile */,
 				4314DD631DFDA75C00B3649C /* Segmented Control */,
 				43F4FADB1DF702E1005510D4 /* Feeding Control */,
 				436484D61DCA198A00E6B0A7 /* Tile */,
@@ -280,6 +285,15 @@
 				43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		43932C421E034E3400056F83 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				43932C431E034E6400056F83 /* ProfileView.swift */,
+				43932C471E03594F00056F83 /* ProfileView.xib */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		43A1C8FD1DFDFEAC008C5C2F /* Feeding */ = {
@@ -439,6 +453,7 @@
 			files = (
 				4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */,
 				436484B91DCA150500E6B0A7 /* LaunchScreen.storyboard in Resources */,
+				43932C481E03594F00056F83 /* ProfileView.xib in Resources */,
 				43A1C9051DFDFFFA008C5C2F /* BottleVC.xib in Resources */,
 				4314DD601DFDA06D00B3649C /* Segment.xib in Resources */,
 				43A1C9011DFDFFBA008C5C2F /* FeedingTimerVC.xib in Resources */,
@@ -574,6 +589,7 @@
 				43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */,
 				43A1C9001DFDFFBA008C5C2F /* FeedingTimerVC.swift in Sources */,
 				4330FB481DEDCF2300737A7F /* Extensions.swift in Sources */,
+				43932C441E034E6400056F83 /* ProfileView.swift in Sources */,
 				43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */,
 				4314DD561DFB6D7500B3649C /* FeedingFacade.swift in Sources */,
 				436484AF1DCA150500E6B0A7 /* AppDelegate.swift in Sources */,

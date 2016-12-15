@@ -25,29 +25,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RHy-Ta-cX7">
-                                <rect key="frame" x="295" y="5" width="64" height="64"/>
+                                <rect key="frame" x="295" y="10" width="64" height="64"/>
                                 <color key="backgroundColor" red="0.23137254900000001" green="0.58039215690000001" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RHy-Ta-cX7" secondAttribute="height" multiplier="1:1" id="SVf-5R-vfE"/>
                                     <constraint firstAttribute="height" constant="64" id="VnJ-4l-1LJ"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUG-AJ-tde">
-                                <rect key="frame" x="16" y="5" width="240" height="128"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUG-AJ-tde" customClass="ProfileView" customModule="Baby_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="9" y="10" width="276" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="CfT-wj-0Pj"/>
-                                    <constraint firstAttribute="height" constant="128" id="svj-Wz-vwQ"/>
+                                    <constraint firstAttribute="height" constant="100" id="svj-Wz-vwQ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHZ-wK-GNQ" customClass="SegmentedControlBar" customModule="Baby_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="9" y="143" width="357" height="75"/>
+                                <rect key="frame" x="9" y="115" width="357" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="JYO-wN-0jr"/>
+                                    <constraint firstAttribute="height" constant="45" id="JYO-wN-0jr"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Br-6h-HMj">
-                                <rect key="frame" x="-0.5" y="220" width="375" height="383"/>
+                                <rect key="frame" x="-0.5" y="162" width="375" height="441"/>
                                 <connections>
                                     <segue destination="8lh-YY-odx" kind="embed" id="BvM-7n-GI1"/>
                                 </connections>
@@ -55,15 +53,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="RHy-Ta-cX7" firstAttribute="leading" secondItem="XUG-AJ-tde" secondAttribute="trailing" constant="10" id="1og-eR-P3W"/>
                             <constraint firstItem="0Br-6h-HMj" firstAttribute="centerX" secondItem="Id1-IJ-LUf" secondAttribute="centerX" id="5pB-Y4-hr0"/>
                             <constraint firstItem="lHZ-wK-GNQ" firstAttribute="centerX" secondItem="Id1-IJ-LUf" secondAttribute="centerX" id="7FD-dh-Unu"/>
                             <constraint firstItem="j1i-ED-YwF" firstAttribute="top" secondItem="0Br-6h-HMj" secondAttribute="bottom" id="8UV-BM-dQJ"/>
-                            <constraint firstItem="XUG-AJ-tde" firstAttribute="leading" secondItem="Id1-IJ-LUf" secondAttribute="leadingMargin" id="9tS-ul-nUF"/>
+                            <constraint firstItem="XUG-AJ-tde" firstAttribute="leading" secondItem="lHZ-wK-GNQ" secondAttribute="leading" id="C8a-Qd-d1E"/>
                             <constraint firstItem="0Br-6h-HMj" firstAttribute="width" secondItem="Id1-IJ-LUf" secondAttribute="width" id="Cps-EZ-U9M"/>
-                            <constraint firstItem="lHZ-wK-GNQ" firstAttribute="top" secondItem="XUG-AJ-tde" secondAttribute="bottom" constant="10" id="NFC-x4-9jO"/>
-                            <constraint firstItem="RHy-Ta-cX7" firstAttribute="top" secondItem="1NL-MJ-xdi" secondAttribute="bottom" constant="5" id="Qwg-9D-470"/>
+                            <constraint firstItem="lHZ-wK-GNQ" firstAttribute="top" secondItem="XUG-AJ-tde" secondAttribute="bottom" constant="5" id="NFC-x4-9jO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RHy-Ta-cX7" secondAttribute="trailing" id="Vrv-w8-cNr"/>
-                            <constraint firstItem="XUG-AJ-tde" firstAttribute="top" secondItem="1NL-MJ-xdi" secondAttribute="bottom" constant="5" id="p2d-ym-inw"/>
+                            <constraint firstItem="RHy-Ta-cX7" firstAttribute="top" secondItem="XUG-AJ-tde" secondAttribute="top" id="azb-a1-7yu"/>
+                            <constraint firstItem="XUG-AJ-tde" firstAttribute="top" secondItem="1NL-MJ-xdi" secondAttribute="bottom" constant="10" id="p2d-ym-inw"/>
                             <constraint firstItem="0Br-6h-HMj" firstAttribute="top" secondItem="lHZ-wK-GNQ" secondAttribute="bottom" constant="2" id="spK-z2-Nw8"/>
                             <constraint firstItem="lHZ-wK-GNQ" firstAttribute="width" secondItem="Id1-IJ-LUf" secondAttribute="width" multiplier="0.95" id="uP8-fU-8MP"/>
                         </constraints>

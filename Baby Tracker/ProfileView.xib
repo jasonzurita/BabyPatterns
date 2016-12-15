@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileView" customModule="Baby_Tracker" customModuleProvider="target">
+            <connections>
+                <outlet property="ageLabel" destination="DOh-Kv-b2M" id="uzi-s0-4P2"/>
+                <outlet property="imageView" destination="hdV-4v-MEL" id="vda-kR-b4d"/>
+                <outlet property="nameLabel" destination="OP9-2y-2PP" id="uOn-sO-XE8"/>
+                <outlet property="view" destination="iN0-l3-epB" id="1Nb-Id-EaS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="311" height="120"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="changingTile" translatesAutoresizingMaskIntoConstraints="NO" id="hdV-4v-MEL">
+                    <rect key="frame" x="0.0" y="0.0" width="120.5" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="hdV-4v-MEL" secondAttribute="height" multiplier="1:1" id="212-mE-Kub"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RRY-ek-6e9">
+                    <rect key="frame" x="130.5" y="25" width="140.5" height="70"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 weeks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOh-Kv-b2M">
+                            <rect key="frame" x="39" y="39" width="71" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP9-2y-2PP">
+                            <rect key="frame" x="0.0" y="10" width="45" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mz1-4R-pdu">
+                            <rect key="frame" x="0.0" y="39" width="39" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Mz1-4R-pdu" firstAttribute="leading" secondItem="RRY-ek-6e9" secondAttribute="leading" id="0LI-Ia-xDK"/>
+                        <constraint firstItem="DOh-Kv-b2M" firstAttribute="leading" secondItem="Mz1-4R-pdu" secondAttribute="trailing" id="4x2-l3-2fu"/>
+                        <constraint firstAttribute="bottom" secondItem="Mz1-4R-pdu" secondAttribute="bottom" constant="10" id="A6r-r1-CnS"/>
+                        <constraint firstItem="OP9-2y-2PP" firstAttribute="leading" secondItem="Mz1-4R-pdu" secondAttribute="leading" id="kqg-TE-En5"/>
+                        <constraint firstItem="Mz1-4R-pdu" firstAttribute="top" secondItem="OP9-2y-2PP" secondAttribute="bottom" constant="8" id="l1Y-8a-Rag"/>
+                        <constraint firstItem="Mz1-4R-pdu" firstAttribute="centerY" secondItem="DOh-Kv-b2M" secondAttribute="centerY" id="paU-EH-j8B"/>
+                        <constraint firstItem="OP9-2y-2PP" firstAttribute="top" secondItem="RRY-ek-6e9" secondAttribute="top" constant="10" id="r04-Qb-0kg"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hdV-4v-MEL" firstAttribute="width" secondItem="hdV-4v-MEL" secondAttribute="height" multiplier="1:1" id="1eT-Dh-Of8"/>
+                <constraint firstItem="hdV-4v-MEL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="EAU-uP-oUm"/>
+                <constraint firstAttribute="trailing" secondItem="RRY-ek-6e9" secondAttribute="trailing" constant="40" id="NCZ-cN-Aeh"/>
+                <constraint firstItem="RRY-ek-6e9" firstAttribute="centerY" secondItem="hdV-4v-MEL" secondAttribute="centerY" id="Osw-be-5sN"/>
+                <constraint firstItem="hdV-4v-MEL" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="TfD-04-dBV"/>
+                <constraint firstItem="hdV-4v-MEL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WYa-Tm-tTX"/>
+                <constraint firstItem="RRY-ek-6e9" firstAttribute="leading" secondItem="hdV-4v-MEL" secondAttribute="trailing" constant="10" id="jL2-9B-h6h"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-43.5" y="0.0"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="changingTile" width="66" height="66"/>
+    </resources>
+</document>

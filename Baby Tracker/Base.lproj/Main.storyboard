@@ -55,71 +55,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ky7-XH-03B" userLabel="profile container">
-                                <rect key="frame" x="0.0" y="64" width="375" height="125"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qkd-Yp-hai">
-                                        <rect key="frame" x="15" y="10" width="85" height="85"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="85" id="E4j-8g-FJG"/>
-                                            <constraint firstAttribute="height" constant="85" id="ojH-bF-fj5"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4T-tz-fTH">
-                                        <rect key="frame" x="266" y="5" width="104" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="James" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Nm-H8-fAY">
-                                        <rect key="frame" x="32" y="100" width="50" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGF-RM-uY4">
-                                        <rect key="frame" x="331" y="36" width="39" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="0Nm-H8-fAY" firstAttribute="centerX" secondItem="qkd-Yp-hai" secondAttribute="centerX" id="2Bs-SB-a5M"/>
-                                    <constraint firstAttribute="height" constant="125" id="2f3-fh-17i"/>
-                                    <constraint firstItem="0Nm-H8-fAY" firstAttribute="top" secondItem="qkd-Yp-hai" secondAttribute="bottom" constant="5" id="MUU-MO-9Pw"/>
-                                    <constraint firstItem="qkd-Yp-hai" firstAttribute="top" secondItem="ky7-XH-03B" secondAttribute="top" constant="10" id="Zoi-qx-YDz"/>
-                                    <constraint firstAttribute="trailing" secondItem="WGF-RM-uY4" secondAttribute="trailing" constant="5" id="did-7I-WXs"/>
-                                    <constraint firstItem="D4T-tz-fTH" firstAttribute="top" secondItem="ky7-XH-03B" secondAttribute="top" constant="5" id="kvO-Ko-7Gu"/>
-                                    <constraint firstAttribute="trailing" secondItem="D4T-tz-fTH" secondAttribute="trailing" constant="5" id="ptn-69-3ii"/>
-                                    <constraint firstItem="qkd-Yp-hai" firstAttribute="leading" secondItem="ky7-XH-03B" secondAttribute="leading" constant="15" id="rJr-Qa-kOH"/>
-                                    <constraint firstItem="WGF-RM-uY4" firstAttribute="top" secondItem="D4T-tz-fTH" secondAttribute="bottom" constant="10" id="t6d-KD-wYY"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xk-d5-hJ1" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="131" y="292" width="110" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Changing"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="changingTile"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFS-EY-bMW" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="254" y="292" width="110" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Feature Request"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="featureRequestTile"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBt-CA-tjd">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ads Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEJ-aH-3ap">
-                                        <rect key="frame" x="152" y="15" width="71" height="21"/>
+                                        <rect key="frame" x="152.5" y="15.5" width="70.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -132,24 +72,66 @@
                                     <constraint firstAttribute="height" constant="50" id="hdQ-J8-kY5"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdO-si-g3C" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="8" y="292" width="110" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-HU-SLK" userLabel="Main Container">
+                                <rect key="frame" x="0.0" y="133.5" width="375" height="400"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="mX4-Hq-bNr">
+                                        <rect key="frame" x="57.5" y="200" width="260" height="200"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdO-si-g3C" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="200"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="TKN-gS-b7s"/>
+                                                    <constraint firstAttribute="height" constant="200" id="hO3-QJ-Y1V"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Feeding"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="feedingTile"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFS-EY-bMW" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="150" y="0.0" width="110" height="200"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="9Bp-SI-qs1"/>
+                                                    <constraint firstAttribute="height" constant="200" id="YCm-Ue-q9v"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Feature Request"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="featureRequestTile"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbd-pr-W9x" customClass="ProfileView" customModule="Baby_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="57.5" y="70" width="240" height="110"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="Raj-NH-evB"/>
+                                            <constraint firstAttribute="height" constant="110" id="e3N-eQ-6KD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Feeding"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="feedingTile"/>
-                                </userDefinedRuntimeAttributes>
+                                <constraints>
+                                    <constraint firstItem="mX4-Hq-bNr" firstAttribute="width" secondItem="TCN-HU-SLK" secondAttribute="width" multiplier="0.8" constant="-40" id="5Oc-RF-Nyg"/>
+                                    <constraint firstItem="mX4-Hq-bNr" firstAttribute="centerX" secondItem="TCN-HU-SLK" secondAttribute="centerX" id="7vA-eg-z0p"/>
+                                    <constraint firstAttribute="bottom" secondItem="mX4-Hq-bNr" secondAttribute="bottom" id="M0v-v2-ETE"/>
+                                    <constraint firstItem="mX4-Hq-bNr" firstAttribute="top" secondItem="jbd-pr-W9x" secondAttribute="bottom" constant="20" id="jEm-sb-1me"/>
+                                    <constraint firstItem="jbd-pr-W9x" firstAttribute="leading" secondItem="mdO-si-g3C" secondAttribute="leading" id="sG4-Kh-sOM"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TBt-CA-tjd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2gp-EE-vxX"/>
-                            <constraint firstItem="ky7-XH-03B" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="4eM-kL-gPN"/>
+                            <constraint firstItem="TCN-HU-SLK" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="32Z-ac-duq"/>
+                            <constraint firstItem="TCN-HU-SLK" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="4bb-2P-FuU"/>
                             <constraint firstItem="TBt-CA-tjd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="LgM-mR-PcK"/>
-                            <constraint firstItem="ky7-XH-03B" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gZ1-6L-RxY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TBt-CA-tjd" secondAttribute="bottom" id="hCr-Xt-GY4"/>
-                            <constraint firstItem="ky7-XH-03B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vX4-mx-We7"/>
+                            <constraint firstItem="TCN-HU-SLK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pTa-bb-Ckm"/>
+                            <constraint firstItem="TCN-HU-SLK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zuo-QD-R2L"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome Shannon!" id="5pV-z7-0kB">
@@ -161,12 +143,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="babyAgeLabel" destination="WGF-RM-uY4" id="oM4-QS-7Lf"/>
-                        <outlet property="babyNameLabel" destination="0Nm-H8-fAY" id="vDa-jm-A42"/>
-                        <outlet property="babysProfilePictureView" destination="qkd-Yp-hai" id="Fdx-gp-MHM"/>
-                        <outlet property="changingsTile" destination="2xk-d5-hJ1" id="Hmi-LM-YRQ"/>
                         <outlet property="feedingTile" destination="mdO-si-g3C" id="eC2-sZ-eR4"/>
-                        <outlet property="todaysDateLabel" destination="D4T-tz-fTH" id="UCq-8S-jFK"/>
                         <segue destination="jbw-TF-pH1" kind="show" identifier="FeedingSegue" id="mFW-By-s2g"/>
                     </connections>
                 </viewController>
@@ -321,7 +298,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="changingTile" width="66" height="66"/>
         <image name="featureRequestTile" width="66" height="66"/>
         <image name="feedingTile" width="66" height="66"/>
     </resources>
