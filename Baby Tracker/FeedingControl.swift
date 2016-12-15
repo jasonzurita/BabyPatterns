@@ -8,6 +8,6 @@
 
 import UIKit
 
-class FeedingControl: CircleButton {
+class FeedingControl: CircleToggleButton {
     var side:FeedingSide?
 }

@@ -58,7 +58,7 @@ class FeedingFacade {
         let feedingEvents = feedingsInProgress.filter { $0.side == side && $0.feedingType == type }
         
         guard var event = feedingEvents.first, feedingEvents.count == 1 else {
-            printDebugString(string: "Somehow there was more than one feeding event to end of the same type and side...")
+            printDebugString(string: "Somehow there was either 0 or more than one feeding event to end of the same type and side...")
             return
         }
         

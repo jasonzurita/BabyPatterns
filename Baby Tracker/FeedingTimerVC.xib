@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="leftFeedingControl" destination="o4d-fN-JLd" id="6b6-G3-KEN"/>
                 <outlet property="rightFeedingControl" destination="i6l-8Q-JOA" id="JXi-ef-p1m"/>
+                <outlet property="stopTimerButton" destination="xPX-El-gh9" id="KpB-cK-rEc"/>
                 <outlet property="timerLabel" destination="03y-Zl-AyH" id="gHk-FL-E2O"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -34,7 +35,7 @@
                                 <constraint firstAttribute="width" secondItem="o4d-fN-JLd" secondAttribute="height" multiplier="1:1" id="vj6-98-zqO"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Left"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="normalText" value="Left"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="feedingButtonPressed:" destination="-1" eventType="touchUpInside" id="Q7h-63-6Yk"/>
@@ -47,7 +48,7 @@
                                 <constraint firstAttribute="height" constant="100" id="ykJ-cl-Cxt"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Right"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="normalText" value="Left"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="feedingButtonPressed:" destination="-1" eventType="touchUpInside" id="gwP-3u-AxM"/>
@@ -59,19 +60,31 @@
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03y-Zl-AyH" customClass="TimerLabel" customModule="Baby_Tracker" customModuleProvider="target">
-                    <rect key="frame" x="53.5" y="170" width="249" height="70"/>
+                    <rect key="frame" x="53.5" y="180" width="249" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="q8a-h8-mO9"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPX-El-gh9">
+                    <rect key="frame" x="18.5" y="194.5" width="30" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <state key="normal" title="◼︎">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="stopButtonPressed:" destination="-1" eventType="touchUpInside" id="omV-sp-QFU"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="Lg8-wM-bzN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="08X-P3-wtg"/>
+                <constraint firstItem="xPX-El-gh9" firstAttribute="centerY" secondItem="03y-Zl-AyH" secondAttribute="centerY" id="4y6-RK-Mpd"/>
                 <constraint firstItem="03y-Zl-AyH" firstAttribute="width" secondItem="Lg8-wM-bzN" secondAttribute="width" id="E9o-GL-dWx"/>
                 <constraint firstItem="03y-Zl-AyH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NYQ-fI-Wlj"/>
                 <constraint firstItem="Lg8-wM-bzN" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="bTy-nu-Qav"/>
                 <constraint firstItem="Lg8-wM-bzN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="ehG-68-Tgd"/>
-                <constraint firstItem="03y-Zl-AyH" firstAttribute="top" secondItem="Lg8-wM-bzN" secondAttribute="bottom" constant="20" id="rnP-TR-eGx"/>
+                <constraint firstItem="03y-Zl-AyH" firstAttribute="leading" secondItem="xPX-El-gh9" secondAttribute="trailing" constant="5" id="k9c-WS-5Fn"/>
+                <constraint firstItem="03y-Zl-AyH" firstAttribute="top" secondItem="Lg8-wM-bzN" secondAttribute="bottom" constant="30" id="rnP-TR-eGx"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

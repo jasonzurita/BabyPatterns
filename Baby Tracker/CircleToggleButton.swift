@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CircleButton: UIButton {
+class CircleToggleButton: UIButton {
 
     @IBInspectable var normalColor:UIColor = UIColor.gray {
         didSet {
@@ -16,11 +16,12 @@ class CircleButton: UIButton {
         }
     }
     @IBInspectable var activeColor:UIColor = UIColor.blue
-    @IBInspectable var labelText:String = "Left" {
+    @IBInspectable var normalText:String = "Left" {
         didSet {
-            setTitle(labelText, for: .normal)
+            setTitle(normalText, for: .normal)
         }
     }
+    
     @IBInspectable var isActive:Bool = false {
         didSet {
             updateButton()
@@ -42,7 +43,7 @@ class CircleButton: UIButton {
     private func setupButton() {
         layer.cornerRadius = frame.width * 0.5
         backgroundColor = normalColor
-        setTitle(labelText, for: .normal)
+        setTitle(normalText, for: .normal)
     }
 
     private func updateButton() {
@@ -53,6 +54,8 @@ class CircleButton: UIButton {
             insertSubview(activeBorder!, at: 0)
         } else {
             backgroundColor = normalColor
+            
+            setTitle(normalText, for: .normal)
             
             activeBorder?.removeFromSuperview()
             activeBorder = nil

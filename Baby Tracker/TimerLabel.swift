@@ -12,7 +12,8 @@ class TimerLabel: UILabel {
 
     private let timeInterval:Double = 1
     private var timer:Timer?
-    private var isPaused = false
+    var isPaused = false
+    var isRunning = false
     private var counter:Double = 0 {
         didSet {
             let hours = counter.stringFromSecondsToHours(zeroPadding: true)
@@ -36,7 +37,7 @@ class TimerLabel: UILabel {
     private func setupLabel() {
         backgroundColor = UIColor.clear
         textAlignment = .center
-        font = UIFont(name: "Helvetica", size: 42)
+        font = UIFont(name: "Helvetica", size: 49)
         textColor = UIColor.gray
         setStartTime(time: 0)
     }
@@ -48,7 +49,7 @@ class TimerLabel: UILabel {
 
     func start() {
         guard timer == nil else { return }
-        
+        isRunning = true
         timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { [weak self] _ in
             guard let strongSelf = self, !strongSelf.isPaused else { return }
             strongSelf.counter += strongSelf.timeInterval
@@ -57,6 +58,8 @@ class TimerLabel: UILabel {
     
     func end() {
         guard let t = timer else { return }
+        isRunning = false
+        isPaused = false
         counter = 0
         t.invalidate()
         timer = nil
@@ -65,11 +68,17 @@ class TimerLabel: UILabel {
     func pause() {
         guard timer != nil else { return }
         isPaused = true
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .curveEaseInOut, .repeat], animations: { _ in
+            self.alpha = 0.0
+        }, completion: nil)
     }
     
     func resume() {
         guard timer != nil else { return }
         isPaused = false
+        layer.removeAllAnimations()
+        alpha = 1.0
     }
 
 }
