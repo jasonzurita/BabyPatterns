@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol FeedingTimerDelegate:NSObjectProtocol {
+    func feedingStarted(type:FeedingType, side:FeedingSide)
+    func feedingEnded(type:FeedingType, side:FeedingSide)
+}
+
 class FeedingVC: UIViewController {
     
     //properties
@@ -35,8 +40,10 @@ class FeedingVC: UIViewController {
         
         let page1 = FeedingTimerVC(nibName: "FeedingTimerVC", bundle: nil)
         page1.feedingType = .nursing
+        page1.delegate = self
         let page2 = FeedingTimerVC(nibName: "FeedingTimerVC", bundle: nil)
         page2.feedingType = .pumping
+        page2.delegate = self
         let page3 = BottleVC(nibName: "BottleVC", bundle: nil)
         page2.feedingType = .bottle
         
@@ -44,13 +51,13 @@ class FeedingVC: UIViewController {
     }
 }
 
-extension FeedingVC: FeedingControlDelegate {
-    func feedingStarted(forFeedingControl control: FeedingControl) {
-        feedings.feedingStarted(type: control.feedingType, start: Date(), side: control.feedingSide)
+extension FeedingVC: FeedingTimerDelegate {
+    func feedingStarted(type:FeedingType, side:FeedingSide) {
+        feedings.feedingStarted(type: type, start: Date(), side: side)
     }
     
-    func feedingEnded(forFeedingControl control: FeedingControl) {
-        feedings.feedingEnded(type: control.feedingType, side: control.feedingSide)
+    func feedingEnded(type:FeedingType, side:FeedingSide) {
+        feedings.feedingEnded(type: type, side: side)
     }
 }
 

@@ -8,24 +8,39 @@
 
 import UIKit
 
+
+
 class FeedingTimerVC: UIViewController {
     
-    @IBOutlet weak var timerLabel: TimerLabel!
-    
+    //properties
     var feedingType:FeedingType?
+    weak var delegate:FeedingTimerDelegate?
+    
+    //outlets
+    @IBOutlet weak var timerLabel: TimerLabel!
+    @IBOutlet weak var leftFeedingControl: FeedingControl!
+    @IBOutlet weak var rightFeedingControl: FeedingControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        leftFeedingControl.side = .left
+        rightFeedingControl.side = .right
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func feedingButtonPressed(_ sender: CircleButton) {
+    @IBAction func feedingButtonPressed(_ sender: FeedingControl) {
+        guard let type = feedingType, let side = sender.side else {
+            assertionFailure("Cannot start / end feeding because no feeding type or no side")
+            return
+        }
+        
+        if sender.isActive {
+            timerLabel.end()
+            delegate?.feedingEnded(type: type, side: side)
+        } else {
+            timerLabel.start()
+            delegate?.feedingStarted(type: type, side: side)
+        }
+        
         sender.isActive = !sender.isActive
-        timerLabel.start()
     }
 }

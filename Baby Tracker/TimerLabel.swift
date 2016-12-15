@@ -57,6 +57,7 @@ class TimerLabel: UILabel {
     
     func end() {
         guard let t = timer else { return }
+        counter = 0
         t.invalidate()
         timer = nil
     }
