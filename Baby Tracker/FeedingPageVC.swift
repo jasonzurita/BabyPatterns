@@ -47,7 +47,7 @@ extension FeedingPageVC: UIPageViewControllerDelegate {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        guard finished, let control = segmentedControl else { return }
+        guard finished, completed, let control = segmentedControl else { return }
         
         segmentIndex.active = segmentIndex.pending
         control.goToIndex(index: segmentIndex.active)
