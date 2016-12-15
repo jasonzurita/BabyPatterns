@@ -67,8 +67,8 @@ class HomeVC: UIViewController {
             sideText += ": "
         }
         
-        let hours = feedings.timeSinceLastFeeding().stringFromSecondsToHours()
-        let minutes = hours.remainder.stringFromSecondsToMinutes()
+        let hours = feedings.timeSinceLastFeeding().stringFromSecondsToHours(zeroPadding: false)
+        let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
         
         feedingTile.detailLabel1.text = "\(sideText)" + hours.string + "h " + minutes.string + "m ago"
     }

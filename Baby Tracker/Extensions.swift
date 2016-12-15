@@ -24,26 +24,42 @@ extension UIView {
 }
 
 extension Double {
-    func stringFromSecondsToHours() -> (string:String, remainder:Double) {
+    //TODO make these a generic function
+    func stringFromSecondsToHours(zeroPadding:Bool) -> (string:String, remainder:Double) {
         let secondsToHours:Double = 3600
         let hours = floor(self / secondsToHours)
         let remainder = self - hours * secondsToHours
         
-        return hours < 10 ? ("0\(Int(hours))", remainder) : ("\(Int(hours))", remainder)
+        var returnString = "\(Int(hours))"
+        if zeroPadding && hours < 10{
+            returnString = "0\(Int(hours))"
+        }
+        
+        return (returnString, remainder)
     }
     
-    func stringFromSecondsToMinutes() -> (string:String, remainder:Double) {
+    func stringFromSecondsToMinutes(zeroPadding:Bool) -> (string:String, remainder:Double) {
         let secondsToMinutes:Double = 60
         let minutes = floor(self / secondsToMinutes)
         let remainder = self - minutes * secondsToMinutes
         
-        return minutes < 10 ? ("0\(Int(minutes))",remainder) : ("\(Int(minutes))", remainder)
+        var returnString = "\(Int(minutes))"
+        if zeroPadding && minutes < 10{
+            returnString = "0\(Int(minutes))"
+        }
+        
+        return (returnString, remainder)
     }
     
-    func stringFromSecondsToSeconds() -> (string:String, remainder:Double) {
+    func stringFromSecondsToSeconds(zeroPadding:Bool) -> (string:String, remainder:Double) {
         let seconds = floor(self)
         let remainder = self - seconds
         
-        return seconds < 10 ? ("0\(Int(seconds))",remainder) : ("\(Int(seconds))", remainder)
+        var returnString = "\(Int(seconds))"
+        if zeroPadding && seconds < 10{
+            returnString = "0\(Int(seconds))"
+        }
+        
+        return (returnString, remainder)
     }
 }

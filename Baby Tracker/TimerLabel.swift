@@ -15,9 +15,9 @@ class TimerLabel: UILabel {
     private var isPaused = false
     private var counter:Double = 0 {
         didSet {
-            let hours = counter.stringFromSecondsToHours()
-            let minutes = hours.remainder.stringFromSecondsToMinutes()
-            let seconds = minutes.remainder.stringFromSecondsToSeconds()
+            let hours = counter.stringFromSecondsToHours(zeroPadding: true)
+            let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: true)
+            let seconds = minutes.remainder.stringFromSecondsToSeconds(zeroPadding: true)
             
             text = hours.string + ":" + minutes.string + ":" + seconds.string
         }
