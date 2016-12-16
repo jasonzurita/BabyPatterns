@@ -42,10 +42,10 @@ class FeedingTimerVC: UIViewController {
             delegate?.feedingStarted(type: type, side: side)
             sender.isActive = true
             stopTimerButton.isHidden = false
-        } else if timerLabel.isRunning && !timerLabel.isPaused {
+        } else if timerLabel.isRunning && !timerLabel.isPaused && sender.isActive {
             timerLabel.pause()
             sender.setTitle("Resume", for: .normal)
-        } else if timerLabel.isRunning && timerLabel.isPaused {
+        } else if timerLabel.isRunning && timerLabel.isPaused && sender.isActive {
             timerLabel.resume()
             sender.setTitle("Pause", for: .normal)
         }
