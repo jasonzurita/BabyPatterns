@@ -37,7 +37,7 @@ class FeedingTimerVC: UIViewController {
         }
         
         if !timerLabel.isRunning && !timerLabel.isPaused {
-            timerLabel.start()
+            timerLabel.start(startingAt: 0)
             sender.setTitle("Pause", for: .normal)
             delegate?.feedingStarted(type: type, side: side)
             sender.isActive = true
