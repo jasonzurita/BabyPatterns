@@ -36,16 +36,20 @@ class FeedingTimerVC: UIViewController {
             return
         }
         
-        if !timerLabel.isRunning && !timerLabel.isPaused {
+        let shouldStartTimer = !timerLabel.isRunning && !timerLabel.isPaused
+        let shouldPauseTimer = timerLabel.isRunning && !timerLabel.isPaused && sender.isActive
+        let shouldResumeTimer = timerLabel.isRunning && timerLabel.isPaused && sender.isActive
+        
+        if  shouldStartTimer {
             timerLabel.start(startingAt: 0)
             sender.setTitle("Pause", for: .normal)
             delegate?.feedingStarted(type: type, side: side)
             sender.isActive = true
             stopTimerButton.isHidden = false
-        } else if timerLabel.isRunning && !timerLabel.isPaused && sender.isActive {
+        } else if shouldPauseTimer {
             timerLabel.pause()
             sender.setTitle("Resume", for: .normal)
-        } else if timerLabel.isRunning && timerLabel.isPaused && sender.isActive {
+        } else if shouldResumeTimer {
             timerLabel.resume()
             sender.setTitle("Pause", for: .normal)
         }
