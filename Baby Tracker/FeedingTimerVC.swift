@@ -50,10 +50,12 @@ class FeedingTimerVC: UIViewController {
             sender.setTitle("Pause", for: .normal)
         }
     }
+    
     @IBAction func stopButtonPressed(_ sender: UIButton) {
         guard timerLabel.isRunning, let type = feedingType else {
             assertionFailure("Cannot stop timer that is not running")
-            return }
+            return
+        }
     
         sender.isHidden = true
         timerLabel.end()

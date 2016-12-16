@@ -57,6 +57,12 @@ extension FeedingVC: FeedingTimerDelegate {
     }
     
     func feedingEnded(type:FeedingType, side:FeedingSide) {
+        
+        let toastSize:CGFloat = 150
+        let frame = CGRect(x: self.view.frame.width * 0.5 - (toastSize * 0.5), y: self.view.frame.height * 0.5 - (toastSize * 0.5), width: toastSize, height: toastSize)
+        let toast = Toast(frame: frame, text: "Saved!")
+        toast.presentInView(view: self.view)
+        
         feedings.feedingEnded(type: type, side: side)
     }
 }

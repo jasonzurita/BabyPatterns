@@ -31,6 +31,7 @@
 		43932C411E01FEB400056F83 /* FeedingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C401E01FEB400056F83 /* FeedingControl.swift */; };
 		43932C441E034E6400056F83 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C431E034E6400056F83 /* ProfileView.swift */; };
 		43932C481E03594F00056F83 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43932C471E03594F00056F83 /* ProfileView.xib */; };
+		43932C4A1E041E5300056F83 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C491E041E5300056F83 /* Toast.swift */; };
 		43A1C8FA1DFDA906008C5C2F /* SegmentedControlBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C8F91DFDA906008C5C2F /* SegmentedControlBar.xib */; };
 		43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */; };
 		43A1C9001DFDFFBA008C5C2F /* FeedingTimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C8FE1DFDFFBA008C5C2F /* FeedingTimerVC.swift */; };
@@ -85,6 +86,7 @@
 		43932C401E01FEB400056F83 /* FeedingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingControl.swift; sourceTree = "<group>"; };
 		43932C431E034E6400056F83 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		43932C471E03594F00056F83 /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
+		43932C491E041E5300056F83 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		43A1C8F91DFDA906008C5C2F /* SegmentedControlBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlBar.xib; sourceTree = "<group>"; };
 		43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingPageVC.swift; sourceTree = "<group>"; };
 		43A1C8FE1DFDFFBA008C5C2F /* FeedingTimerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingTimerVC.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 		43932C3F1E01FE7D00056F83 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				43932C491E041E5300056F83 /* Toast.swift */,
 				43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */,
 				43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */,
 			);
@@ -573,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43932C411E01FEB400056F83 /* FeedingControl.swift in Sources */,
+				43932C4A1E041E5300056F83 /* Toast.swift in Sources */,
 				43A1C90B1E01ACB4008C5C2F /* CircleToggleButton.swift in Sources */,
 				43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */,
 				4314DD5E1DFDA05D00B3649C /* Segment.swift in Sources */,
