@@ -31,4 +31,9 @@ class ProfileView: UIView {
         view.frame = bounds
         addSubview(view)
     }
+    
+    @IBAction func changeProfileImageButtonTapped(_ sender: UIButton) {
+        
+    }
+    
 }

@@ -7,7 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct Profile {
-    var babyName:String
+    let babyName:String
+    let parentName:String
+    let profilePicture:UIImage
+    let babyBirthday:Date
 }

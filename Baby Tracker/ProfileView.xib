@@ -62,16 +62,26 @@
                         <constraint firstItem="OP9-2y-2PP" firstAttribute="top" secondItem="RRY-ek-6e9" secondAttribute="top" constant="10" id="r04-Qb-0kg"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZT-rw-DAl">
+                    <rect key="frame" x="0.0" y="0.0" width="120.5" height="120"/>
+                    <connections>
+                        <action selector="changeProfileImageButtonTapped:" destination="-1" eventType="touchUpInside" id="cJV-cc-U56"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="hdV-4v-MEL" firstAttribute="width" secondItem="hdV-4v-MEL" secondAttribute="height" multiplier="1:1" id="1eT-Dh-Of8"/>
+                <constraint firstItem="qZT-rw-DAl" firstAttribute="height" secondItem="hdV-4v-MEL" secondAttribute="height" id="77Q-X3-IKn"/>
                 <constraint firstItem="hdV-4v-MEL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="EAU-uP-oUm"/>
                 <constraint firstAttribute="trailing" secondItem="RRY-ek-6e9" secondAttribute="trailing" constant="40" id="NCZ-cN-Aeh"/>
                 <constraint firstItem="RRY-ek-6e9" firstAttribute="centerY" secondItem="hdV-4v-MEL" secondAttribute="centerY" id="Osw-be-5sN"/>
                 <constraint firstItem="hdV-4v-MEL" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="TfD-04-dBV"/>
                 <constraint firstItem="hdV-4v-MEL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WYa-Tm-tTX"/>
+                <constraint firstItem="qZT-rw-DAl" firstAttribute="centerY" secondItem="hdV-4v-MEL" secondAttribute="centerY" id="haN-mT-9iT"/>
                 <constraint firstItem="RRY-ek-6e9" firstAttribute="leading" secondItem="hdV-4v-MEL" secondAttribute="trailing" constant="10" id="jL2-9B-h6h"/>
+                <constraint firstItem="qZT-rw-DAl" firstAttribute="width" secondItem="hdV-4v-MEL" secondAttribute="width" id="puf-em-vZc"/>
+                <constraint firstItem="qZT-rw-DAl" firstAttribute="centerX" secondItem="hdV-4v-MEL" secondAttribute="centerX" id="tZd-cH-19F"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
