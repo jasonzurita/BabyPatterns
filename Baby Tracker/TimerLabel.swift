@@ -43,7 +43,6 @@ class TimerLabel: UILabel {
     }
     
     func setTime(time:Double) {
-        guard timer == nil else { return }
         counter = time
     }
     

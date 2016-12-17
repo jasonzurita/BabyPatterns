@@ -53,6 +53,11 @@ class FeedingTimerVC: UIViewController {
         if feeding.isPaused {
             pauseFeeding(control: control)
         } else {
+            var timeCorrection = timerLabel.currentTime()
+            if let lapsedTime = feeding.lastUpdateTime {
+                timeCorrection += abs(lapsedTime.timeIntervalSinceNow)
+            }
+            timerLabel.setTime(time: timeCorrection)
             resumeFeeding(control: control)
         }
     }

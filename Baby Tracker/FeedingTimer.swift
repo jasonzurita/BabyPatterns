@@ -9,7 +9,10 @@
 import Foundation
 
 class FeedingTimer : FeedingEvent {
-    var isPaused:Bool = false
+    var isPaused = false
+    var lastUpdateTime:Date?
     var endTime:Date?
     var duration:TimeInterval = 0.0
+    
+    
 }

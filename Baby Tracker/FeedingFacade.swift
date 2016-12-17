@@ -45,7 +45,6 @@ class FeedingFacade {
         
         feeding.endTime = Date()
         feeding.duration = duration
-        feeding.isPaused = false
         guard let event = makeAndAddFeeding(feeding: feeding) else { return }
         try! database.uploadFeedingEvent(withData: event.eventJson(), requestType: event.type)
         feedingsInProgress = feedingsInProgress.filter { $0 !== feeding }
@@ -56,6 +55,7 @@ class FeedingFacade {
         
         feeding.duration = duration
         feeding.isPaused = isPaused
+        feeding.lastUpdateTime = Date()
     }
     
     //TODO: revisit this because it is ugly
