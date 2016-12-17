@@ -10,6 +10,7 @@ enum FeedingType : String {
     case nursing = "Nursing"
     case pumping = "Pumping"
     case bottle = "Bottle"
+    case none = "None"
     
     static let allValues = [nursing, pumping, bottle]
 }
@@ -29,4 +30,8 @@ enum FeedingSide: Int {
             return ""
         }
     }
+}
+
+enum NursingEventJsonError : Error {
+    case invalidNursingEvent
 }

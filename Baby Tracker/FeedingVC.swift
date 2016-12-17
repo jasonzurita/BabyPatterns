@@ -13,6 +13,10 @@ protocol FeedingTimerDelegate:NSObjectProtocol {
     func feedingEnded(type:FeedingType, side:FeedingSide)
 }
 
+protocol FeedingTimerDataSource:NSObjectProtocol {
+    func feedingInProgress() -> (duration:TimeInterval, side:FeedingSide)?
+}
+
 class FeedingVC: UIViewController {
     
     //properties
@@ -53,7 +57,7 @@ class FeedingVC: UIViewController {
 
 extension FeedingVC: FeedingTimerDelegate {
     func feedingStarted(type:FeedingType, side:FeedingSide) {
-        feedings.feedingStarted(type: type, start: Date(), side: side)
+        feedings.feedingStarted(type: type, side: side, startTime: Date())
     }
     
     func feedingEnded(type:FeedingType, side:FeedingSide) {

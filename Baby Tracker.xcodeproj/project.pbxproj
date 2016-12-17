@@ -15,6 +15,8 @@
 		4314DD5C1DFD9E5E00B3649C /* SegmentedControlBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD5B1DFD9E5E00B3649C /* SegmentedControlBar.swift */; };
 		4314DD5E1DFDA05D00B3649C /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD5D1DFDA05D00B3649C /* Segment.swift */; };
 		4314DD601DFDA06D00B3649C /* Segment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4314DD5F1DFDA06D00B3649C /* Segment.xib */; };
+		4326BA591E04C1F0005604A9 /* FeedingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326BA581E04C1F0005604A9 /* FeedingEvent.swift */; };
+		4326BA5B1E04CC81005604A9 /* FeedingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326BA5A1E04CC81005604A9 /* FeedingTimer.swift */; };
 		4330FB481DEDCF2300737A7F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB471DEDCF2300737A7F /* Extensions.swift */; };
 		4330FB571DF1B41600737A7F /* Nursing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB561DF1B41600737A7F /* Nursing.swift */; };
 		4330FB591DF1B42100737A7F /* NursingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB581DF1B42100737A7F /* NursingEvent.swift */; };
@@ -65,6 +67,8 @@
 		4314DD5B1DFD9E5E00B3649C /* SegmentedControlBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlBar.swift; sourceTree = "<group>"; };
 		4314DD5D1DFDA05D00B3649C /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
 		4314DD5F1DFDA06D00B3649C /* Segment.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Segment.xib; sourceTree = "<group>"; };
+		4326BA581E04C1F0005604A9 /* FeedingEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingEvent.swift; sourceTree = "<group>"; };
+		4326BA5A1E04CC81005604A9 /* FeedingTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingTimer.swift; sourceTree = "<group>"; };
 		432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4330FB471DEDCF2300737A7F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4330FB561DF1B41600737A7F /* Nursing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nursing.swift; sourceTree = "<group>"; };
@@ -328,6 +332,8 @@
 				4330FB551DF1B3E600737A7F /* Bottle */,
 				4330FB541DF1B3DA00737A7F /* Pumping */,
 				4330FB531DF1B3D400737A7F /* Nursing */,
+				4326BA581E04C1F0005604A9 /* FeedingEvent.swift */,
+				4326BA5A1E04CC81005604A9 /* FeedingTimer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -577,10 +583,12 @@
 			files = (
 				43932C411E01FEB400056F83 /* FeedingControl.swift in Sources */,
 				43932C4A1E041E5300056F83 /* Toast.swift in Sources */,
+				4326BA5B1E04CC81005604A9 /* FeedingTimer.swift in Sources */,
 				43A1C90B1E01ACB4008C5C2F /* CircleToggleButton.swift in Sources */,
 				43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */,
 				4314DD5E1DFDA05D00B3649C /* Segment.swift in Sources */,
 				4330FB591DF1B42100737A7F /* NursingEvent.swift in Sources */,
+				4326BA591E04C1F0005604A9 /* FeedingEvent.swift in Sources */,
 				43A1C90D1E01CB9E008C5C2F /* TimerLabel.swift in Sources */,
 				4330FB5B1DF1B4A300737A7F /* FirebaseFacade.swift in Sources */,
 				437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */,

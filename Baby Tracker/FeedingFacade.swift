@@ -8,19 +8,11 @@
 
 import Foundation
 
-protocol FeedingEvent {
-    var feedingType:FeedingType { get }
-    var side:FeedingSide { get }
-    init(start:Date, end:Date?, side:FeedingSide)
-    mutating func endEvent()
-    func eventJson() throws -> [String:String]
-}
-
 class FeedingFacade {
     
     private let shouldPrintDebugString = true
     private var database = FirebaseFacade()
-    private var feedingsInProgress:[FeedingEvent] = []
+    private var feedingsInProgress:[FeedingTimer] = []
     
     let nursing = Nursing()
     
@@ -42,43 +34,48 @@ class FeedingFacade {
         return nursing.lastFeedingSide()
     }
     
-    func feedingStarted(type:FeedingType, start:Date, side:FeedingSide) {
-        switch type {
-        case .nursing:
-            let nursingEvent = NursingEvent(start: start, end: nil, side: side)
-            feedingsInProgress.append(nursingEvent)
-        case .pumping:
-            break
-        case .bottle:
-            break
-        }
+    func feedingStarted(type:FeedingType, side:FeedingSide, startTime:Date) {
+        let feeding = FeedingTimer(type: type, side: side, startTime: startTime)
+        feedingsInProgress.append(feeding)
     }
     
     func feedingEnded(type:FeedingType, side:FeedingSide) {
-        let feedingEvents = feedingsInProgress.filter { $0.side == side && $0.feedingType == type }
+        let feedings = feedingsInProgress.filter { $0.side == side && $0.type == type }
         
-        guard var event = feedingEvents.first, feedingEvents.count == 1 else {
+        guard let feeding = feedings.first, feedings.count == 1 else {
             printDebugString(string: "Somehow there was either 0 or more than one feeding event to end of the same type and side...")
             return
         }
         
-        event.endEvent()
-        addFeedingEvent(event: event)
+        feeding.endTime = Date()
+        guard let event = makeAndAddFeeding(feeding: feeding) else { return }
+        try! database.uploadFeedingEvent(withData: event.eventJson(), requestType: event.type)
     }
     
-    func addFeedingEvent(event:FeedingEvent) {
+    func feedingPaused(type:FeedingType, side:FeedingSide) {
+        //build this out
+    }
+    
+    //TODO: revisit this because it is ugly
+    func makeAndAddFeeding(feeding:FeedingTimer) -> FeedingEvent? {
+        var event:FeedingEvent?
         
-        try! database.uploadFeedingEvent(withData: event.eventJson(), requestType: event.feedingType)
-        
-        switch event.feedingType {
+        switch feeding.type {
         case .nursing:
+            guard let endTime = feeding.endTime else { return nil }
+            event = NursingEvent(type: feeding.type, side: feeding.side, duration: feeding.duration, endTime: endTime)
             nursing.nursings.append(event as! NursingEvent)
+            return event
         case .bottle:
             break
         case .pumping:
             
             break
+        case .none:
+            assertionFailure("No feeding type!")
         }
+        
+        return event
     }
     
     private func printDebugString(string:String) {
