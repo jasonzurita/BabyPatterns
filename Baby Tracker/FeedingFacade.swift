@@ -34,8 +34,8 @@ class FeedingFacade {
         return nursing.lastFeedingSide()
     }
     
-    func feedingStarted(type:FeedingType, side:FeedingSide, startTime:Date) {
-        let feeding = FeedingTimer(type: type, side: side, startTime: startTime)
+    func feedingStarted(type:FeedingType, side:FeedingSide) {
+        let feeding = FeedingTimer(type: type, side: side)
         feedingsInProgress.append(feeding)
     }
     

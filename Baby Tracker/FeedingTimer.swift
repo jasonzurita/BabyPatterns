@@ -11,11 +11,5 @@ import Foundation
 class FeedingTimer : FeedingEvent {
     var isPaused:Bool = false
     var endTime:Date?
-    let startTime:Date
     var duration:TimeInterval = 0.0
-    
-    init(type:FeedingType, side:FeedingSide, startTime:Date) {
-        self.startTime = startTime
-        super.init(type: type, side: side)
-    }
 }

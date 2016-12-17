@@ -57,7 +57,7 @@ class FeedingVC: UIViewController {
 
 extension FeedingVC: FeedingTimerDelegate {
     func feedingStarted(type:FeedingType, side:FeedingSide) {
-        feedings.feedingStarted(type: type, side: side, startTime: Date())
+        feedings.feedingStarted(type: type, side: side)
     }
     
     func feedingEnded(type:FeedingType, side:FeedingSide) {

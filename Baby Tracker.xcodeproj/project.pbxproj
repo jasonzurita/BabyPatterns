@@ -150,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				4314DD551DFB6D7500B3649C /* FeedingFacade.swift */,
+				4330FB5A1DF1B4A300737A7F /* FirebaseFacade.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -327,13 +328,12 @@
 		43D2BE671DCB69E900895A65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4330FB5A1DF1B4A300737A7F /* FirebaseFacade.swift */,
 				43FCAA841DD0BC70003872BA /* Profile.swift */,
+				4326BA581E04C1F0005604A9 /* FeedingEvent.swift */,
+				4326BA5A1E04CC81005604A9 /* FeedingTimer.swift */,
 				4330FB551DF1B3E600737A7F /* Bottle */,
 				4330FB541DF1B3DA00737A7F /* Pumping */,
 				4330FB531DF1B3D400737A7F /* Nursing */,
-				4326BA581E04C1F0005604A9 /* FeedingEvent.swift */,
-				4326BA5A1E04CC81005604A9 /* FeedingTimer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
