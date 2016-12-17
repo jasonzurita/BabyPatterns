@@ -46,6 +46,10 @@ class TimerLabel: UILabel {
         guard timer == nil else { return }
         counter = time
     }
+    
+    func currentTime() -> TimeInterval {
+        return counter
+    }
 
     func start(startingAt startTime:Double? = nil) {
         guard timer == nil else { return }

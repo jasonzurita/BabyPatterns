@@ -9,5 +9,5 @@
 import UIKit
 
 class FeedingControl: CircleToggleButton {
-    var side:FeedingSide?
+    var side:FeedingSide = .none
 }

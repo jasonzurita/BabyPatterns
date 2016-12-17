@@ -39,21 +39,22 @@ class FeedingFacade {
         feedingsInProgress.append(feeding)
     }
     
-    func feedingEnded(type:FeedingType, side:FeedingSide) {
-        let feedings = feedingsInProgress.filter { $0.side == side && $0.type == type }
+    func feedingEnded(type:FeedingType, side:FeedingSide, duration:TimeInterval) {
         
-        guard let feeding = feedings.first, feedings.count == 1 else {
-            printDebugString(string: "Somehow there was either 0 or more than one feeding event to end of the same type and side...")
-            return
-        }
+        guard let feeding = feedingInProgress(type: type, side: side) else { return }
         
         feeding.endTime = Date()
+        feeding.duration = duration
+        feeding.isPaused = false
         guard let event = makeAndAddFeeding(feeding: feeding) else { return }
         try! database.uploadFeedingEvent(withData: event.eventJson(), requestType: event.type)
     }
     
-    func feedingPaused(type:FeedingType, side:FeedingSide) {
-        //build this out
+    func updateFeedingInProgress(type:FeedingType, side:FeedingSide, duration:TimeInterval, isPaused:Bool) {
+        guard let feeding = feedingInProgress(type: type, side: side) else { return }
+        
+        feeding.duration = duration
+        feeding.isPaused = isPaused
     }
     
     //TODO: revisit this because it is ugly
@@ -76,6 +77,15 @@ class FeedingFacade {
         }
         
         return event
+    }
+    
+    func feedingInProgress(type:FeedingType, side:FeedingSide) -> FeedingTimer? {
+        let feedings = feedingsInProgress.filter { $0.side == side && $0.type == type }
+        guard feedings.count == 1, let feeding = feedings.first else {
+            printDebugString(string: "Somehow there was either 0 or more than one feeding event in progress of the same type and side...")
+            return nil
+        }
+        return feeding
     }
     
     private func printDebugString(string:String) {
