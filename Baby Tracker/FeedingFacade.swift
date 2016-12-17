@@ -48,6 +48,7 @@ class FeedingFacade {
         feeding.isPaused = false
         guard let event = makeAndAddFeeding(feeding: feeding) else { return }
         try! database.uploadFeedingEvent(withData: event.eventJson(), requestType: event.type)
+        feedingsInProgress = feedingsInProgress.filter { $0 !== feeding }
     }
     
     func updateFeedingInProgress(type:FeedingType, side:FeedingSide, duration:TimeInterval, isPaused:Bool) {
@@ -81,8 +82,9 @@ class FeedingFacade {
     
     func feedingInProgress(type:FeedingType, side:FeedingSide) -> FeedingTimer? {
         let feedings = feedingsInProgress.filter { $0.side == side && $0.type == type }
+        guard feedings.count != 0 else { return nil }
         guard feedings.count == 1, let feeding = feedings.first else {
-            printDebugString(string: "Somehow there was either 0 or more than one feeding event in progress of the same type and side...")
+            printDebugString(string: "Warning! More than one feeding of the same type and side...")
             return nil
         }
         return feeding
