@@ -26,43 +26,35 @@ class FeedingTimerVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        leftFeedingControl.side = .left
-        rightFeedingControl.side = .right
-        stopTimerButton.isHidden = true
         
+        func setupInitialState() {
+            leftFeedingControl.side = .left
+            rightFeedingControl.side = .right
+            stopTimerButton.isHidden = true
+        }
+        
+        setupInitialState()
+        resumeFeedingIfNeeded()
+    }
+    
+    private func resumeFeedingIfNeeded() {
         guard let type = feedingType else { return }
-        
-        if let feeding = dataSource?.feedingInProgress(type: type, side: .left) {
-            stopTimerButton.isHidden = false
-            timerLabel.setTime(time: feeding.duration)
-            timerLabel.start()
-            leftFeedingControl.isActive = true
-            
-            if feeding.isPaused {
-                timerLabel.pause()
-                leftFeedingControl.setTitle("Resume", for: .normal)
-            } else {
-                leftFeedingControl.setTitle("Pause", for: .normal)
 
-            }
-            return
+        if let feeding = dataSource?.feedingInProgress(type: type, side: .left) {
+            resumeInProgressFeeding(control: leftFeedingControl, feeding: feeding)
+        } else if let feeding = dataSource?.feedingInProgress(type: type, side: .right) {
+            resumeInProgressFeeding(control: rightFeedingControl, feeding: feeding)
         }
+    }
+    
+    private func resumeInProgressFeeding(control:FeedingControl, feeding:FeedingTimer) {
+        startFeeding(control: control, startTime:feeding.duration)
         
-        if let feeding = dataSource?.feedingInProgress(type: type, side: .right) {
-            stopTimerButton.isHidden = false
-            timerLabel.setTime(time: feeding.duration)
-            timerLabel.start()
-            leftFeedingControl.isActive = true
-            
-            if feeding.isPaused {
-                timerLabel.pause()
-                rightFeedingControl.setTitle("Resume", for: .normal)
-            } else {
-                rightFeedingControl.setTitle("Pause", for: .normal)
-                
-            }
+        if feeding.isPaused {
+            pauseFeeding(control: control)
+        } else {
+            resumeFeeding(control: control)
         }
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,18 +77,12 @@ class FeedingTimerVC: UIViewController {
         let shouldResumeTimer = timerLabel.isRunning && timerLabel.isPaused && sender.isActive
         
         if  shouldStartTimer {
-            timerLabel.start(startingAt: 0)
-            sender.setTitle("Pause", for: .normal)
+            startFeeding(control: sender, startTime: 0)
             delegate?.feedingStarted(type: type, side: sender.side)
-            sender.isActive = true
-            stopTimerButton.isHidden = false
-            sideInProgress = sender.side
         } else if shouldPauseTimer {
-            timerLabel.pause()
-            sender.setTitle("Resume", for: .normal)
+            pauseFeeding(control: sender)
         } else if shouldResumeTimer {
-            timerLabel.resume()
-            sender.setTitle("Pause", for: .normal)
+            resumeFeeding(control: sender)
         }
     }
     
@@ -105,21 +91,46 @@ class FeedingTimerVC: UIViewController {
             assertionFailure("Cannot stop timer that is not running")
             return
         }
-    
-        sender.isHidden = true
-        timerLabel.end()
         
-        if sideInProgress == .left {
-            leftFeedingControl.isActive = false
-        } else if sideInProgress == .right {
-            rightFeedingControl.isActive = false
-        } else {
-            assertionFailure("Failed to end feeding for unknown side")
+        guard sideInProgress != .none else {
+            return
         }
-        
+
+        var control = FeedingControl()
+        if leftFeedingControl.isActive && sideInProgress == .left {
+            control = leftFeedingControl
+        } else if rightFeedingControl.isActive && sideInProgress == .right {
+            control = rightFeedingControl
+        } else {
+            assertionFailure("Failed to end feeding")
+        }
+        endFeeding(control: control)
+    
         delegate?.feedingEnded(type: type, side: sideInProgress, duration: timerLabel.currentTime())
-        
     }
     
+    private func startFeeding(control:FeedingControl, startTime:TimeInterval) {
+        timerLabel.start(startingAt: startTime)
+        control.setTitle("Pause", for: .normal)
+        control.isActive = true
+        stopTimerButton.isHidden = false
+        sideInProgress = control.side
+    }
+    
+    private func pauseFeeding(control:FeedingControl) {
+        timerLabel.pause()
+        control.setTitle("Resume", for: .normal)
+    }
+    
+    private func resumeFeeding(control:FeedingControl) {
+        timerLabel.resume()
+        control.setTitle("Pause", for: .normal)
+    }
+    
+    private func endFeeding(control:FeedingControl) {
+        control.isActive = false
+        stopTimerButton.isHidden = true
+        timerLabel.end()
+    }
     
 }
