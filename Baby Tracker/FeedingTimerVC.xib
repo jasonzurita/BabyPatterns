@@ -48,7 +48,7 @@
                                 <constraint firstAttribute="height" constant="100" id="ykJ-cl-Cxt"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="normalText" value="Left"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="normalText" value="Right"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="feedingButtonPressed:" destination="-1" eventType="touchUpInside" id="gwP-3u-AxM"/>
