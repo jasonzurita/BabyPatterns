@@ -11,7 +11,8 @@ import UIKit
 class HomeVC: UIViewController {
 
     //properites
-    let feedings = FeedingFacade()
+    let feedings = FeedingVM()
+    let feedingTimer = FeedingTimerVM()
     
     
     //outlets
@@ -21,6 +22,7 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        feedingTimer.feedingModel = feedings
         loadFeedingData()
         setupTileListeners()
     }
@@ -68,6 +70,7 @@ class HomeVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? FeedingVC {
             vc.feedings = feedings
+            vc.feedingTimer = feedingTimer
         }
     }
 }

@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 class NursingEvent: FeedingEvent {
     
     let duration:TimeInterval

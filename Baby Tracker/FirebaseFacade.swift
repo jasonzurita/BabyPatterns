@@ -23,10 +23,10 @@ class FirebaseFacade {
     }
     
     func configureDatabase(requestType:FeedingType, responseHandler: @escaping ([[String:String]]) -> Void ) {
-        printDebugString(string: "Configuring database...")
+        debugPrint(string: "Configuring database...")
         
         guard let path = pathForRequest(type: requestType) else {
-            printDebugString(string: "Configuration Failed! no user id")
+            debugPrint(string: "Configuration Failed! no user id")
             return
         }
         
@@ -44,17 +44,17 @@ class FirebaseFacade {
 //            }
 //        })
 //        databaseReferenceHandles.append((requestType, handle))
-        printDebugString(string: "Database configured with request type: \(requestType.rawValue)")
+        debugPrint(string: "Database configured with request type: \(requestType.rawValue)")
     }
     
     func uploadFeedingEvent(withData data: [String:String], requestType:FeedingType) {
         
         guard let path = pathForRequest(type: requestType) else {
-            printDebugString(string: "Failed to upload data: \(data)")
+            debugPrint(string: "Failed to upload data: \(data)")
             return
         }
 
-        printDebugString(string: "Uploading data: \(data)")
+        debugPrint(string: "Uploading data: \(data)")
         self.databaseReference.child(path).childByAutoId().setValue(data)
     }
     
@@ -65,7 +65,7 @@ class FirebaseFacade {
         return "/users/" + uid + "/" + type.rawValue
     }
     
-    private func printDebugString(string:String) {
+    private func debugPrint(string:String) {
         if shouldPrintDebugString {
             print(String(describing: "-- Debug -- \(type(of:self)): " + string))
         }

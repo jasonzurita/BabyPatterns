@@ -21,7 +21,8 @@ protocol FeedingTimerDataSource:NSObjectProtocol {
 class FeedingVC: UIViewController {
     
     //properties
-    var feedings:FeedingFacade!
+    weak var feedings:FeedingVM?
+    weak var feedingTimer:FeedingTimerVM?
     
     //outlets
     @IBOutlet weak var segmentedControl: SegmentedControlBar!
@@ -61,17 +62,17 @@ class FeedingVC: UIViewController {
 extension FeedingVC: FeedingTimerDelegate {
     
     func feedingStarted(type:FeedingType, side:FeedingSide) {
-        feedings.feedingStarted(type: type, side: side)
+        feedingTimer?.feedingStarted(type: type, side: side)
     }
     
     func feedingEnded(type:FeedingType, side:FeedingSide, duration:TimeInterval) {
     
         showFeedingSavedToast()
-        feedings.feedingEnded(type: type, side: side, duration: duration)
+        feedingTimer?.feedingEnded(type: type, side: side, duration: duration)
     }
     
     func updateFeedingInProgress(type: FeedingType, side: FeedingSide, duration: TimeInterval, isPaused: Bool) {
-        feedings.updateFeedingInProgress(type: type, side: side, duration: duration, isPaused: isPaused)
+        feedingTimer?.updateFeedingInProgress(type: type, side: side, duration: duration, isPaused: isPaused)
     }
     
     private func showFeedingSavedToast() {
@@ -84,7 +85,7 @@ extension FeedingVC: FeedingTimerDelegate {
 
 extension FeedingVC: FeedingTimerDataSource {
     func feedingInProgress(type:FeedingType, side:FeedingSide) -> FeedingTimer? {
-        return feedings.feedingInProgress(type: type, side: side)
+        return feedingTimer?.feedingInProgress(type: type, side: side)
     }
 }
 
