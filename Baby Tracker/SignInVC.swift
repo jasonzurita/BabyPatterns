@@ -21,7 +21,7 @@ class SignInVC: UIViewController {
     }
     
     private func configureSignInContainerView(containerLayer:CALayer) {
-        containerLayer.borderColor = UIColor.gray.cgColor
+        containerLayer.borderColor = UIColor(colorLiteralRed: 0, green: 153/255, blue: 255/255, alpha: 1).cgColor
         containerLayer.masksToBounds = true
     }
     
@@ -47,9 +47,7 @@ class SignInVC: UIViewController {
             //            self.setDisplayName(user!)
         }
     }
-    
-    
-    @IBAction func signIn(_ sender: Any) {
+    @IBAction func signIn(_ sender: RoundedCornerButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
