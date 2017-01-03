@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 
 class SignInVC: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInContainerView: UIView!
@@ -30,7 +30,7 @@ class SignInVC: UIViewController {
             self.signedIn(user: user)
         }
     }
-
+    
     @IBAction func signIn(_ sender: RoundedCornerButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
@@ -48,7 +48,7 @@ class SignInVC: UIViewController {
         let prompt = UIAlertController(title: "Reset Password?", message: "Enter your email then check that email for further instrucitons:", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
             guard let userInput = prompt.textFields?[0].text, !userInput.isEmpty else { return }
-
+            
             FIRAuth.auth()?.sendPasswordReset(withEmail: userInput, completion: { (error) in
                 if let error = error {
                     print(error.localizedDescription)
@@ -77,9 +77,14 @@ class SignInVC: UIViewController {
             //            self.setDisplayName(user!)
         }
     }
-
+    
     
     private func signedIn(user:FIRUser?) {
         performSegue(withIdentifier: Constants.Segues.SignInSegue, sender: nil)
     }
+    
+    @IBAction func tryDemo(_ sender: RoundedCornerButton) {
+        //load demo account
+    }
+    
 }
