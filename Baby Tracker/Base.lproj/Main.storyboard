@@ -180,8 +180,8 @@
                                             <constraint firstAttribute="height" constant="1" id="ygt-VJ-cjm"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EyC-Mo-6jJ">
-                                        <rect key="frame" x="7.5" y="0.0" width="285" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EyC-Mo-6jJ">
+                                        <rect key="frame" x="9" y="0.0" width="282" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ewm-IQ-JB8"/>
                                         </constraints>
@@ -189,8 +189,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVR-Gm-BJB">
-                                        <rect key="frame" x="7.5" y="30" width="285" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVR-Gm-BJB">
+                                        <rect key="frame" x="9" y="30" width="282" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -201,7 +201,7 @@
                                     <constraint firstItem="zVR-Gm-BJB" firstAttribute="height" secondItem="EyC-Mo-6jJ" secondAttribute="height" id="5cd-ai-P3f"/>
                                     <constraint firstItem="zVR-Gm-BJB" firstAttribute="top" secondItem="sue-AQ-aa6" secondAttribute="bottom" id="BE6-U4-Yb5"/>
                                     <constraint firstItem="EyC-Mo-6jJ" firstAttribute="centerX" secondItem="9N2-yD-Ggm" secondAttribute="centerX" id="H46-0X-Gcj"/>
-                                    <constraint firstItem="EyC-Mo-6jJ" firstAttribute="width" secondItem="9N2-yD-Ggm" secondAttribute="width" multiplier="0.95" id="JUx-X5-wES"/>
+                                    <constraint firstItem="EyC-Mo-6jJ" firstAttribute="width" secondItem="9N2-yD-Ggm" secondAttribute="width" multiplier="0.94" id="JUx-X5-wES"/>
                                     <constraint firstAttribute="bottom" secondItem="zVR-Gm-BJB" secondAttribute="bottom" id="SGM-Hj-kGz"/>
                                     <constraint firstItem="sue-AQ-aa6" firstAttribute="width" secondItem="9N2-yD-Ggm" secondAttribute="width" id="Ym7-lz-abz"/>
                                     <constraint firstItem="zVR-Gm-BJB" firstAttribute="top" secondItem="EyC-Mo-6jJ" secondAttribute="bottom" id="eiq-uo-fI6"/>
@@ -270,6 +270,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tT-wJ-nMO">
                                 <rect key="frame" x="115" y="259" width="144" height="30"/>
                                 <state key="normal" title="I forgot my password"/>
+                                <connections>
+                                    <action selector="forgotPassword:" destination="Uzf-Ui-YoH" eventType="touchUpInside" id="jbE-NI-rMG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.40090259909629822" green="0.801006019115448" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
