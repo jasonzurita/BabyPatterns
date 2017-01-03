@@ -31,10 +31,40 @@ class SignInVC: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func signIn(_ sender: RoundedCornerButton) {
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        
+        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.signedIn(user: user)
+            }
+        })
     }
+    
+    @IBAction func forgotPassword(_ sender: UIButton) {
+        
+        let prompt = UIAlertController(title: "Reset Password?", message: "Enter your email then check that email for further instrucitons:", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            guard let userInput = prompt.textFields?[0].text, !userInput.isEmpty else { return }
+
+            FIRAuth.auth()?.sendPasswordReset(withEmail: userInput, completion: { (error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+            })
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        prompt.addTextField(configurationHandler: nil)
+        prompt.addAction(okAction)
+        prompt.addAction(cancelAction)
+        present(prompt, animated: true, completion: nil)
+    }
+    
     
     @IBAction func signUp(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
@@ -47,17 +77,7 @@ class SignInVC: UIViewController {
             //            self.setDisplayName(user!)
         }
     }
-    @IBAction func signIn(_ sender: RoundedCornerButton) {
-        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
-        
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                self.signedIn(user: user)
-            }
-        })
-    }
+
     
     private func signedIn(user:FIRUser?) {
         performSegue(withIdentifier: Constants.Segues.SignInSegue, sender: nil)
