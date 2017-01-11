@@ -8,13 +8,19 @@
 
 import UIKit
 
+protocol TimerLabelDataSource: class {
+    func timerValueForTimerLabel(timerLabel:TimerLabel) -> TimeInterval
+}
+
 class TimerLabel: UILabel {
 
-    private let timeInterval:Double = 1
+    weak var dataSource:TimerLabelDataSource?
+    
+    private let countingInterval:Double = 1
     private var timer:Timer?
     var isPaused = false
     var isRunning = false
-    private var counter:Double = 0 {
+    private var counter:TimeInterval = 0 {
         didSet {
             let hours = counter.stringFromSecondsToHours(zeroPadding: true)
             let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: true)
@@ -39,28 +45,21 @@ class TimerLabel: UILabel {
         textAlignment = .center
         font = UIFont(name: "Helvetica", size: 49)
         textColor = UIColor.gray
-        setTime(time: 0)
-    }
-    
-    func setTime(time:Double) {
-        counter = time
     }
     
     func currentTime() -> TimeInterval {
         return counter
     }
 
-    func start(startingAt startTime:Double? = nil) {
+    func start(startingAt startTime:Double = 0) {
         guard timer == nil else { return }
         isRunning = true
         
-        if let st = startTime {
-            counter = st
-        }
+        counter = startTime
         
-        timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { [weak self] _ in
-            guard let strongSelf = self, !strongSelf.isPaused else { return }
-            strongSelf.counter += strongSelf.timeInterval
+        timer = Timer.scheduledTimer(withTimeInterval: countingInterval, repeats: true, block: { [weak self] _ in
+            guard let strongSelf = self, !strongSelf.isPaused, let ds = strongSelf.dataSource else { return }
+            strongSelf.counter = ds.timerValueForTimerLabel(timerLabel: strongSelf)
         })
     }
     

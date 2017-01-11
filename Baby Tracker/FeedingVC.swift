@@ -8,21 +8,21 @@
 
 import UIKit
 
-protocol FeedingTimerDelegate:NSObjectProtocol {
+protocol FeedingInProgressDelegate:NSObjectProtocol {
     func feedingStarted(type:FeedingType, side:FeedingSide)
     func feedingEnded(type:FeedingType, side:FeedingSide, duration:TimeInterval)
-    func updateFeedingInProgress(type:FeedingType, side:FeedingSide, duration:TimeInterval, isPaused:Bool)
+    func updateFeedingInProgress(type:FeedingType, side:FeedingSide, isPaused:Bool)
 }
 
-protocol FeedingTimerDataSource:NSObjectProtocol {
-    func feedingInProgress(type:FeedingType, side:FeedingSide) -> FeedingTimer?
+protocol FeedingInProgressDataSource:NSObjectProtocol {
+    func feedingInProgress(type:FeedingType) -> FeedingInProgress?
 }
 
 class FeedingVC: UIViewController {
     
     //properties
     weak var feedings:FeedingVM?
-    weak var feedingTimer:FeedingTimerVM?
+    weak var feedingTimer:FeedingsInProgressVM?
     
     //outlets
     @IBOutlet weak var segmentedControl: SegmentedControlBar!
@@ -59,20 +59,19 @@ class FeedingVC: UIViewController {
     }
 }
 
-extension FeedingVC: FeedingTimerDelegate {
+extension FeedingVC: FeedingInProgressDelegate {
     
     func feedingStarted(type:FeedingType, side:FeedingSide) {
         feedingTimer?.feedingStarted(type: type, side: side)
     }
     
     func feedingEnded(type:FeedingType, side:FeedingSide, duration:TimeInterval) {
-    
+        feedingTimer?.feedingEnded(type: type, side: side)
         showFeedingSavedToast()
-        feedingTimer?.feedingEnded(type: type, side: side, duration: duration)
     }
     
-    func updateFeedingInProgress(type: FeedingType, side: FeedingSide, duration: TimeInterval, isPaused: Bool) {
-        feedingTimer?.updateFeedingInProgress(type: type, side: side, duration: duration, isPaused: isPaused)
+    func updateFeedingInProgress(type: FeedingType, side: FeedingSide, isPaused: Bool) {
+        feedingTimer?.updateFeedingInProgress(type: type, side: side, isPaused: isPaused)
     }
     
     private func showFeedingSavedToast() {
@@ -83,9 +82,9 @@ extension FeedingVC: FeedingTimerDelegate {
     }
 }
 
-extension FeedingVC: FeedingTimerDataSource {
-    func feedingInProgress(type:FeedingType, side:FeedingSide) -> FeedingTimer? {
-        return feedingTimer?.feedingInProgress(type: type, side: side)
+extension FeedingVC: FeedingInProgressDataSource {
+    func feedingInProgress(type:FeedingType) -> FeedingInProgress? {
+        return feedingTimer?.feedingInProgress(type: type)
     }
 }
 

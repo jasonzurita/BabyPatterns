@@ -11,9 +11,9 @@ import UIKit
 
 extension Date {
     
-    init?(_ string:String?) {
-        guard let s = string, let interval = TimeInterval(s) else { return nil }
-        self = Date(timeIntervalSince1970: interval)
+    init?(_ interval:Any?) {
+        guard let i = interval as? TimeInterval else { return nil }
+        self = Date(timeIntervalSince1970: i)
     }
 }
 
@@ -52,7 +52,7 @@ extension Double {
     }
     
     func stringFromSecondsToSeconds(zeroPadding:Bool) -> (string:String, remainder:Double) {
-        let seconds = floor(self)
+        let seconds = self.rounded()
         let remainder = self - seconds
         
         var returnString = "\(Int(seconds))"

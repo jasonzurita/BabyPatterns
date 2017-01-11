@@ -32,5 +32,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Patterns uses your photo library to choose a profile picture.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Patterns uses your camera to take a profile picture.</string>
 </dict>
 </plist>

@@ -11,15 +11,10 @@ import Foundation
 class FeedingVM : BaseVM {
     
     let nursing = Nursing()
+    //let pumping = Pumping()
     
-    func loadData(completionHandler:@escaping (Void) -> Void) {
-        
-        database.configureDatabase(requestType: .nursing, responseHandler: { jsonArray in
-            for json in jsonArray {
-                self.nursing.processNewNursing(json: json)
-            }
-            completionHandler()
-        })
+    func newPotentialFeeding(json:[String:Any], serverKey:String) {
+        nursing.newPotentialFeeding(json: json, serverKey: serverKey)
     }
     
     func timeSinceLastFeeding() -> TimeInterval {

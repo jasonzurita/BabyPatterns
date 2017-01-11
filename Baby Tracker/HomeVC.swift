@@ -11,18 +11,17 @@ import UIKit
 class HomeVC: UIViewController {
 
     //properites
-    let feedings = FeedingVM()
-    let feedingTimer = FeedingTimerVM()
-    
+    let feedings = FeedingFacadeVM()
     
     //outlets
     //TODO: okay for for now, put these into a collectoin view to easily support future tile additions
     @IBOutlet weak var feedingTile: Tile!
-    @IBOutlet weak var changingsTile: Tile!
+    @IBOutlet weak var profileView: ProfileView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        feedingTimer.feedingModel = feedings
+        profileView.delegate = self
+        
         loadFeedingData()
         setupTileListeners()
     }
@@ -69,9 +68,48 @@ class HomeVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? FeedingVC {
-            vc.feedings = feedings
-            vc.feedingTimer = feedingTimer
+            vc.feedings = feedings.feedingVM
+            vc.feedingTimer = feedings.feedingsInProgressVM
         }
     }
 }
 
+extension HomeVC: ProfileViewDelegate {
+    func changeProfileImageButtonTapped() {
+        
+        let actionSheet = UIAlertController(title: "Change Profile Photo?", message: nil, preferredStyle: .actionSheet)
+        
+        let libraryOption = UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
+            self.getProfileImage(sourceType: .photoLibrary)
+        })
+        
+        let cameraOption = UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.getProfileImage(sourceType: .camera)
+        })
+        
+        let cancelOption = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            actionSheet.dismiss(animated: true, completion: nil)
+        })
+        
+        actionSheet.addAction(libraryOption)
+        actionSheet.addAction(cameraOption)
+        actionSheet.addAction(cancelOption)
+        
+        present(actionSheet, animated: true, completion: nil)
+
+    }
+    
+    private func getProfileImage(sourceType: UIImagePickerControllerSourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
+        present(imagePicker, animated: true, completion: nil)
+    }
+}
+
+extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        profileView.imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    }
+}

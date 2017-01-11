@@ -78,8 +78,10 @@ class SignInVC: UIViewController {
         }
     }
     
-    
     private func signedIn(user:FIRUser?) {
+        if let user = user {
+            print("User id: \(user.uid)")
+        }
         performSegue(withIdentifier: Constants.Segues.SignInSegue, sender: nil)
     }
     

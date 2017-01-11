@@ -10,23 +10,15 @@ import Foundation
 
 class NursingEvent: FeedingEvent {
     
-    let duration:TimeInterval
-    let endTime:Date
-    
-    init(type:FeedingType, side:FeedingSide, duration:TimeInterval, endTime:Date) {
-        self.duration = duration
-        self.endTime = endTime
-        super.init(type: type, side: side)
-    }
-    
-    init?(feedingJson:Dictionary<String,String>) {
-        guard let endTime = Date(feedingJson[Constants.JsonFields.EndTime]) else { return nil }
-        guard let sideString = feedingJson[Constants.JsonFields.Side], let int = Int(sideString), let side = FeedingSide(rawValue:int) else { return nil }
-        guard let durationString = feedingJson[Constants.JsonFields.Duration], let duration = Double(durationString) else { return nil }
+    init?(json:Dictionary<String,Any>, serverKey:String) {
+        guard let typeRawValue = json[Constants.JsonFields.FeedingType] as? String, let type = FeedingType(rawValue: typeRawValue) else { return nil }
+        guard let sideRawValue = json[Constants.JsonFields.Side] as? Int, let side = FeedingSide(rawValue:sideRawValue) else { return nil }
 
-        self.duration = duration
-        self.endTime = endTime
-        super.init(type: .nursing, side: side)
+        guard let startTime = Date(json[Constants.JsonFields.StartTime]) else { return nil }
+        guard let endTime = Date(json[Constants.JsonFields.EndTime]) else { return nil }
+        guard let pausedTime = json[Constants.JsonFields.PausedTime] as? TimeInterval else { return nil }
+        
+        super.init(type: type, side: side, startTime: startTime, endTime: endTime, pausedTime: pausedTime, serverKey:serverKey)
     }
 
 //
@@ -36,9 +28,18 @@ class NursingEvent: FeedingEvent {
 //            quantity = nil
 //        }
     
-    override func eventJson() throws -> [String:String] {
-        return ["endTime":String(endTime.timeIntervalSince1970),
-                "side":String(side.rawValue),
-                "duration":String(duration)]
+    override func eventJson() -> [String:Any] {
+        var json:[String : Any] = [Constants.JsonFields.FeedingType:type.rawValue,
+                                   Constants.JsonFields.Side:side.rawValue,
+                                   Constants.JsonFields.StartTime:startTime.timeIntervalSince1970,
+                                   Constants.JsonFields.PausedTime:pausedTime]
+        
+        if let endTime = endTime {
+            json[Constants.JsonFields.EndTime] = endTime.timeIntervalSinceNow
+        } else {
+            assertionFailure("Error: No end time for a complete feeding")
+        }
+       
+        return json
     }
 }

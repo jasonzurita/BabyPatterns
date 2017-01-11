@@ -11,8 +11,8 @@ import Foundation
 class Nursing {
     var nursingEvents: [NursingEvent] = []
     
-    func processNewNursing(json: [String:String]) {
-        if let nursingEvent = NursingEvent(feedingJson: json) {
+    func newPotentialFeeding(json: [String:Any], serverKey:String) {
+        if let nursingEvent = NursingEvent(json: json, serverKey:serverKey) {
             nursingEvents.append(nursingEvent)
         }
     }
@@ -38,7 +38,7 @@ class Nursing {
         return .none
     }
     
-    func averageFeedingDuration(filterWindow:DateInterval) -> TimeInterval {
+    func averageFeedingDuration(filterWindow:DateInterval) -> TimeInterval? {
         guard nursingEvents.count > 0 else { return 0.0 }
         let sum = nursingEvents.reduce(0.0, { $0 + $1.duration })
         return sum / TimeInterval(nursingEvents.count)

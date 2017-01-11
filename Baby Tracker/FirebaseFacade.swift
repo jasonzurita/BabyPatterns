@@ -12,6 +12,7 @@ import Firebase
 class FirebaseFacade {
     
     private let shouldPrintDebugString = true
+    typealias ResponseHandler = ([(data:[String:Any],serverKey:String)]) -> Void
     
     private let databaseReference = FIRDatabase.database().reference()
     private var databaseReferenceHandles: [(type: FeedingType, handle:FIRDatabaseHandle)] = []
@@ -22,7 +23,7 @@ class FirebaseFacade {
         }
     }
     
-    func configureDatabase(requestType:FeedingType, responseHandler: @escaping ([[String:String]]) -> Void ) {
+    func configureDatabase(requestType:FeedingType, responseHandler: @escaping (ResponseHandler)) {
         debugPrint(string: "Configuring database...")
         
         guard let path = pathForRequest(type: requestType) else {
@@ -32,7 +33,7 @@ class FirebaseFacade {
         
         self.databaseReference.child(path).observeSingleEvent(of: .value, with: { (snapshot) -> Void in
             guard let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] else { return }
-            let response = snapshots.map { $0.value as! [String:String] }
+            let response = snapshots.map { ($0.value as! [String:Any], $0.key) }
             responseHandler(response)
         })
         
@@ -47,15 +48,28 @@ class FirebaseFacade {
         debugPrint(string: "Database configured with request type: \(requestType.rawValue)")
     }
     
-    func uploadFeedingEvent(withData data: [String:String], requestType:FeedingType) {
+    func uploadFeedingEvent(withData data: [String:Any], requestType:FeedingType) -> String? {
         
         guard let path = pathForRequest(type: requestType) else {
             debugPrint(string: "Failed to upload data: \(data)")
+            return nil
+        }
+
+        let serverKey = databaseReference.child(path).childByAutoId().key
+        debugPrint(string: "Uploading data: \(data), with key: \(serverKey)")
+        self.databaseReference.child(path).child(serverKey).setValue(data)
+        
+        return serverKey
+    }
+    
+    func updateFeedingEvent(data: [String:Any], serverKey:String, requestType:FeedingType) {
+        guard let path = pathForRequest(type: requestType) else {
+            debugPrint(string: "Failed to update data: \(data)")
             return
         }
 
-        debugPrint(string: "Uploading data: \(data)")
-        self.databaseReference.child(path).childByAutoId().setValue(data)
+        debugPrint(string: "Updating data: \(data), with key: \(serverKey)")
+        databaseReference.child(path).child(serverKey).updateChildValues(data)
     }
     
     private func pathForRequest(type:FeedingType) -> String? {

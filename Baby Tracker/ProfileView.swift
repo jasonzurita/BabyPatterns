@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol ProfileViewDelegate: class {
+    func changeProfileImageButtonTapped()
+}
+
 class ProfileView: UIView {
+    
+    //properties
+    @IBInspectable weak var delegate:ProfileViewDelegate?
     
     //outlets
     @IBOutlet var view: UIView!
@@ -33,7 +40,7 @@ class ProfileView: UIView {
     }
     
     @IBAction func changeProfileImageButtonTapped(_ sender: UIButton) {
-        
+        delegate?.changeProfileImageButtonTapped()
     }
     
 }
