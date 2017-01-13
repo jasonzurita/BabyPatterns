@@ -254,6 +254,7 @@
                                         <state key="normal" title="Create an account"/>
                                         <connections>
                                             <action selector="signUp:" destination="Uzf-Ui-YoH" eventType="touchUpInside" id="B3f-6M-Yns"/>
+                                            <segue destination="oVp-eR-4p2" kind="presentation" identifier="SignUpSegue" id="kz2-pb-YG2"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New user?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jh-VA-r84">
@@ -307,6 +308,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IS1-MM-008" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-927.20000000000005" y="36.431784107946029"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="h6e-RA-lAr">
+            <objects>
+                <viewController id="oVp-eR-4p2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Sg-cP-Cr5"/>
+                        <viewControllerLayoutGuide type="bottom" id="V5x-wz-rhl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QpC-a5-MfR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAc-D9-2xr">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cAc-D9-2xr" firstAttribute="centerX" secondItem="QpC-a5-MfR" secondAttribute="centerX" id="PaW-9D-3Bd"/>
+                            <constraint firstItem="cAc-D9-2xr" firstAttribute="centerY" secondItem="QpC-a5-MfR" secondAttribute="centerY" id="Po1-Mg-5fu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b9Q-KZ-MQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-927" y="756"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SyT-Zd-gTA">

@@ -67,15 +67,16 @@ class SignInVC: UIViewController {
     
     
     @IBAction func signUp(_ sender: UIButton) {
-        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
-        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            self.signedIn(user: user)
-            //            self.setDisplayName(user!)
-        }
+//        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+//        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            self.signedIn(user: user)
+//            //            self.setDisplayName(user!)
+//        }
+        performSegue(withIdentifier: Constants.Segues.SignUpSegue, sender: nil)
     }
     
     private func signedIn(user:FIRUser?) {
