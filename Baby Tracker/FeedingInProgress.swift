@@ -20,11 +20,11 @@ class FeedingInProgress : FeedingEvent {
         guard let typeRawValue = json[Constants.JsonFields.FeedingType] as? String, let type = FeedingType(rawValue: typeRawValue) else { return nil }
         guard let sideRawValue = json[Constants.JsonFields.Side] as? Int, let side = FeedingSide(rawValue:sideRawValue) else { return nil }
         
-        guard let startTime = Date(json[Constants.JsonFields.StartTime]) else { return nil }
-        guard Date(json[Constants.JsonFields.EndTime]) == nil else { return nil }
+        guard let startTime = Date(timeInterval:json[Constants.JsonFields.StartTime]) else { return nil }
+        guard Date(timeInterval:json[Constants.JsonFields.EndTime]) == nil else { return nil }
         
         guard let pausedTime = json[Constants.JsonFields.PausedTime] as? TimeInterval else { return nil }
-        let lastPausedDate = Date(json[Constants.JsonFields.LastPausedTime])
+        let lastPausedDate = Date(timeInterval:json[Constants.JsonFields.LastPausedTime])
         self.isPaused = json[Constants.JsonFields.IsPaused] as? Bool ?? false
         self.lastPausedDate = lastPausedDate
 

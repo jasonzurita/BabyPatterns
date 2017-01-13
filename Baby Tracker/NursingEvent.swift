@@ -14,8 +14,8 @@ class NursingEvent: FeedingEvent {
         guard let typeRawValue = json[Constants.JsonFields.FeedingType] as? String, let type = FeedingType(rawValue: typeRawValue) else { return nil }
         guard let sideRawValue = json[Constants.JsonFields.Side] as? Int, let side = FeedingSide(rawValue:sideRawValue) else { return nil }
 
-        guard let startTime = Date(json[Constants.JsonFields.StartTime]) else { return nil }
-        guard let endTime = Date(json[Constants.JsonFields.EndTime]) else { return nil }
+        guard let startTime = Date(timeInterval:json[Constants.JsonFields.StartTime]) else { return nil }
+        guard let endTime = Date(timeInterval:json[Constants.JsonFields.EndTime]) else { return nil }
         guard let pausedTime = json[Constants.JsonFields.PausedTime] as? TimeInterval else { return nil }
         
         super.init(type: type, side: side, startTime: startTime, endTime: endTime, pausedTime: pausedTime, serverKey:serverKey)
