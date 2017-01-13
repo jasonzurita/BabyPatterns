@@ -38,7 +38,8 @@ class FeedingInProgress : FeedingEvent {
                                    Constants.JsonFields.Side:side.rawValue,
                                    Constants.JsonFields.StartTime:startTime.timeIntervalSince1970,
                                    Constants.JsonFields.PausedTime:pausedTime,
-                                   Constants.JsonFields.IsPaused:isPaused]
+                                   Constants.JsonFields.IsPaused:isPaused,
+                                   Constants.JsonFields.EndTime:endTime?.timeIntervalSince1970 ?? 0.0]
         
         if endTime == nil {
             debugPrint(string: "Feeding not finished...")
