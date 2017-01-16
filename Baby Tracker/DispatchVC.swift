@@ -56,7 +56,7 @@ class DispatchVC: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let homeVC = segue.destination as? HomeVC, let f = feedings {
+        if let navigationVC = segue.destination as? UINavigationController, let homeVC = navigationVC.topViewController as? HomeVC, let f = feedings {
             homeVC.feedings = f
             feedings = nil
         }
