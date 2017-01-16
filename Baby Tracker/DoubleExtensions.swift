@@ -1,27 +1,12 @@
 //
-//  Extensions.swift
+//  DoubleExtensions.swift
 //  Baby Tracker
 //
-//  Created by Jason Zurita on 11/29/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
+//  Created by Jason Zurita on 1/16/17.
+//  Copyright © 2017 Jason Zurita. All rights reserved.
 //
 
 import Foundation
-import UIKit
-
-extension Date {
-    
-    init?(timeInterval:Any?) {
-        guard let i = timeInterval as? TimeInterval, i > 0 else { return nil }
-        self = Date(timeIntervalSince1970: i)
-    }
-}
-
-extension UIView {
-    func loadNib() {
-        Bundle.main.loadNibNamed(String(describing: type(of:self)), owner: self, options: nil)
-    }
-}
 
 extension Double {
     //TODO make these a generic function

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		02173C36F355DC9389294DE7 /* Pods_Baby_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */; };
 		430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F01771E2BDAC700FE02FC /* DispatchVC.swift */; };
+		430F017B1E2D0A4200FE02FC /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */; };
+		430F017D1E2D0A5F00FE02FC /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F017C1E2D0A5F00FE02FC /* DoubleExtensions.swift */; };
+		430F017F1E2D0A7900FE02FC /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F017E1E2D0A7900FE02FC /* DateExtensions.swift */; };
 		430FD7451DE484EC00D07C50 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
 		4314DD581DFB6DE300B3649C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
 		4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4314DD591DFCA34600B3649C /* Feeding.storyboard */; };
@@ -17,7 +20,6 @@
 		4314DD601DFDA06D00B3649C /* Segment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4314DD5F1DFDA06D00B3649C /* Segment.xib */; };
 		4326BA591E04C1F0005604A9 /* FeedingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326BA581E04C1F0005604A9 /* FeedingEvent.swift */; };
 		4326BA5B1E04CC81005604A9 /* FeedingInProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326BA5A1E04CC81005604A9 /* FeedingInProgress.swift */; };
-		4330FB481DEDCF2300737A7F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB471DEDCF2300737A7F /* Extensions.swift */; };
 		4330FB571DF1B41600737A7F /* Nursing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB561DF1B41600737A7F /* Nursing.swift */; };
 		4330FB591DF1B42100737A7F /* NursingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB581DF1B42100737A7F /* NursingEvent.swift */; };
 		4330FB5B1DF1B4A300737A7F /* FirebaseFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB5A1DF1B4A300737A7F /* FirebaseFacade.swift */; };
@@ -66,6 +68,9 @@
 
 /* Begin PBXFileReference section */
 		430F01771E2BDAC700FE02FC /* DispatchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchVC.swift; sourceTree = "<group>"; };
+		430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		430F017C1E2D0A5F00FE02FC /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		430F017E1E2D0A7900FE02FC /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		430FD7441DE484EC00D07C50 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4314DD541DFB37D700B3649C /* Baby Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Baby Tracker.entitlements"; sourceTree = "<group>"; };
 		4314DD571DFB6DE300B3649C /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		4326BA581E04C1F0005604A9 /* FeedingEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingEvent.swift; sourceTree = "<group>"; };
 		4326BA5A1E04CC81005604A9 /* FeedingInProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingInProgress.swift; sourceTree = "<group>"; };
 		432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4330FB471DEDCF2300737A7F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4330FB561DF1B41600737A7F /* Nursing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nursing.swift; sourceTree = "<group>"; };
 		4330FB581DF1B42100737A7F /* NursingEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NursingEvent.swift; sourceTree = "<group>"; };
 		4330FB5A1DF1B4A300737A7F /* FirebaseFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseFacade.swift; sourceTree = "<group>"; };
@@ -139,6 +143,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		430F01791E2D09FD00FE02FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				430F017E1E2D0A7900FE02FC /* DateExtensions.swift */,
+				430F017C1E2D0A5F00FE02FC /* DoubleExtensions.swift */,
+				430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		4314DD631DFDA75C00B3649C /* Segmented Control */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +228,8 @@
 			children = (
 				4314DD541DFB37D700B3649C /* Baby Tracker.entitlements */,
 				436484AE1DCA150500E6B0A7 /* AppDelegate.swift */,
+				430FD7441DE484EC00D07C50 /* Constants.swift */,
+				4314DD571DFB6DE300B3649C /* Enums.swift */,
 				4330FB501DF1B27000737A7F /* Services */,
 				43D2BE671DCB69E900895A65 /* Model */,
 				436939031E081A2100EA5158 /* View Models */,
@@ -265,9 +281,6 @@
 				ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */,
 				436484B51DCA150500E6B0A7 /* Assets.xcassets */,
 				436484BA1DCA150500E6B0A7 /* Info.plist */,
-				430FD7441DE484EC00D07C50 /* Constants.swift */,
-				4330FB471DEDCF2300737A7F /* Extensions.swift */,
-				4314DD571DFB6DE300B3649C /* Enums.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -305,6 +318,7 @@
 		43932C3E1E01FE6C00056F83 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				430F01791E2D09FD00FE02FC /* Extensions */,
 				43932C3F1E01FE7D00056F83 /* Views */,
 			);
 			name = Common;
@@ -619,6 +633,7 @@
 				43A1C90D1E01CB9E008C5C2F /* TimerLabel.swift in Sources */,
 				4330FB5B1DF1B4A300737A7F /* FirebaseFacade.swift in Sources */,
 				436939021E081A1700EA5158 /* FeedingVM.swift in Sources */,
+				430F017D1E2D0A5F00FE02FC /* DoubleExtensions.swift in Sources */,
 				437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */,
 				4330FB571DF1B41600737A7F /* Nursing.swift in Sources */,
 				43FCAA851DD0BC70003872BA /* Profile.swift in Sources */,
@@ -627,13 +642,14 @@
 				4314DD5C1DFD9E5E00B3649C /* SegmentedControlBar.swift in Sources */,
 				436484B11DCA150500E6B0A7 /* HomeVC.swift in Sources */,
 				430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */,
+				430F017F1E2D0A7900FE02FC /* DateExtensions.swift in Sources */,
 				43C4CE891E29130100300F13 /* SignUpVC.swift in Sources */,
 				436939051E081A6100EA5158 /* BaseVM.swift in Sources */,
+				430F017B1E2D0A4200FE02FC /* UIViewExtensions.swift in Sources */,
 				435859541E227C2B00F69A0C /* FeedingFacadeVM.swift in Sources */,
 				4314DD581DFB6DE300B3649C /* Enums.swift in Sources */,
 				43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */,
 				43A1C9001DFDFFBA008C5C2F /* FeedingTimerVC.swift in Sources */,
-				4330FB481DEDCF2300737A7F /* Extensions.swift in Sources */,
 				43932C441E034E6400056F83 /* ProfileView.swift in Sources */,
 				43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */,
 				436484AF1DCA150500E6B0A7 /* AppDelegate.swift in Sources */,
