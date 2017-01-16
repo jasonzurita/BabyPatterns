@@ -11,11 +11,7 @@ import UIKit
 class HomeVC: UIViewController {
 
     //properites
-    var feedings:FeedingFacadeVM? {
-        didSet {
-            updateUI()
-        }
-    }
+    var feedings:FeedingFacadeVM?
     
     //outlets
     //TODO: okay for for now, put these into a collectoin view to easily support future tile additions
