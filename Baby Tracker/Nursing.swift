@@ -40,7 +40,7 @@ class Nursing {
     
     func averageFeedingDuration(filterWindow:DateInterval) -> TimeInterval? {
         guard nursingEvents.count > 0 else { return 0.0 }
-        let sum = nursingEvents.reduce(0.0, { $0 + $1.duration })
+        let sum = nursingEvents.reduce(0.0, { $0 + $1.duration() })
         return sum / TimeInterval(nursingEvents.count)
     }
 }

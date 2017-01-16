@@ -44,7 +44,7 @@ class FeedingTimerVC: UIViewController {
         guard let type = feedingType else { return }
 
         if let fip = dataSource?.feedingInProgress(type: type), let control = fip.side == .left ? leftFeedingControl : rightFeedingControl {
-            startFeeding(control: control, startTime:fip.duration)
+            startFeeding(control: control, startTime:fip.duration())
             
             if fip.isPaused {
                 pauseFeeding(control: control)
@@ -137,6 +137,6 @@ extension FeedingTimerVC: TimerLabelDataSource {
 
         guard let type = feedingType, let fip = dataSource?.feedingInProgress(type: type) else { return 0.0 }
         
-        return fip.duration
+        return fip.duration()
     }
 }

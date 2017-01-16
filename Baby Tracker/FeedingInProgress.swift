@@ -51,4 +51,18 @@ class FeedingInProgress : FeedingEvent {
         
         return json
     }
+    
+    override func duration() -> TimeInterval {
+        let unadjustedDuration = super.duration()
+        return unadjustedDuration - durationPausedAdjustment()
+    }
+    
+    private func durationPausedAdjustment() -> TimeInterval {
+        if let lastPausedDate = lastPausedDate {
+            return abs(lastPausedDate.timeIntervalSinceNow)
+        } else {
+            return 0.0
+        }
+    }
+    
 }

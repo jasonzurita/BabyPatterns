@@ -18,19 +18,6 @@ class FeedingEvent {
     
     let shouldPrintDebugString = true
     
-    var duration:TimeInterval {
-        
-        var returnVal:TimeInterval = 0
-        
-        if let endTime = endTime {
-            returnVal = endTime.timeIntervalSince(startTime)
-        } else {
-            returnVal = abs(startTime.timeIntervalSinceNow)
-        }
-        
-        return  floor(returnVal - pausedTime)
-    }
-    
     init(type:FeedingType, side:FeedingSide, startTime:Date, endTime:Date?, pausedTime:TimeInterval, serverKey:String?) {
         self.type = type
         self.side = side
@@ -43,6 +30,18 @@ class FeedingEvent {
     func eventJson() -> [String:Any] {
         assertionFailure("This should be overriden by subclasses")
         return [:]
+    }
+    
+    func duration() -> TimeInterval {
+        return  floor(baseDuration() - pausedTime)
+    }
+    
+    private func baseDuration() -> TimeInterval{
+        if let endTime = endTime {
+            return endTime.timeIntervalSince(startTime)
+        } else {
+            return abs(startTime.timeIntervalSinceNow)
+        }
     }
     
     func debugPrint(string:String) {
