@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Uzf-Ui-YoH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nTM-8P-wsE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -159,6 +159,46 @@
             </objects>
             <point key="canvasLocation" x="1583" y="37"/>
         </scene>
+        <!--DispatchVC-->
+        <scene sceneID="0PK-S2-1Q9">
+            <objects>
+                <viewController id="nTM-8P-wsE" customClass="DispatchVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hjT-RT-mbb"/>
+                        <viewControllerLayoutGuide type="bottom" id="dd8-wg-pgR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W5g-zG-cVy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="or0-TD-gTW">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRr-t9-36f">
+                                <rect key="frame" x="149.5" y="353" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="or0-TD-gTW" firstAttribute="centerX" secondItem="W5g-zG-cVy" secondAttribute="centerX" id="4Fw-9O-lW3"/>
+                            <constraint firstItem="or0-TD-gTW" firstAttribute="centerY" secondItem="W5g-zG-cVy" secondAttribute="centerY" id="eaK-Vk-Jbk"/>
+                            <constraint firstItem="BRr-t9-36f" firstAttribute="top" secondItem="or0-TD-gTW" secondAttribute="bottom" constant="10" id="qVf-tY-2go"/>
+                            <constraint firstItem="BRr-t9-36f" firstAttribute="centerX" secondItem="or0-TD-gTW" secondAttribute="centerX" id="zeL-f1-mbc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="or0-TD-gTW" id="b2D-2Q-pex"/>
+                        <segue destination="8xn-i4-Sqo" kind="show" identifier="LoggedInSegue" animates="NO" id="uZI-Kk-Ngs"/>
+                        <segue destination="Uzf-Ui-YoH" kind="show" identifier="LoggedOutSegue" animates="NO" id="BCu-QH-Iqb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tad-19-oJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146" y="-723"/>
+        </scene>
         <!--Sign InVC-->
         <scene sceneID="OcI-Gw-Ksp">
             <objects>
@@ -302,12 +342,12 @@
                         <outlet property="emailTextField" destination="EyC-Mo-6jJ" id="nbJ-0V-25T"/>
                         <outlet property="passwordTextField" destination="zVR-Gm-BJB" id="Dbq-Yj-T68"/>
                         <outlet property="signInContainerView" destination="9N2-yD-Ggm" id="Ljn-9s-qcB"/>
-                        <segue destination="8xn-i4-Sqo" kind="show" identifier="SignedInSegue" animates="NO" id="8nf-W4-bsa"/>
+                        <segue destination="nTM-8P-wsE" kind="show" identifier="SignedInSegue" id="Pqf-QY-QNL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IS1-MM-008" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-927.20000000000005" y="36.431784107946029"/>
+            <point key="canvasLocation" x="-927" y="37"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="h6e-RA-lAr">
@@ -421,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9Q-KZ-MQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-927" y="756"/>
+            <point key="canvasLocation" x="-758" y="797"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SyT-Zd-gTA">
@@ -447,6 +487,6 @@
         <image name="feedingTile" width="66" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YXW-Bk-Do2"/>
+        <segue reference="uZI-Kk-Ngs"/>
     </inferredMetricsTieBreakers>
 </document>

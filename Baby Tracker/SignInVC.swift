@@ -25,12 +25,6 @@ class SignInVC: UIViewController {
         containerLayer.masksToBounds = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if let user = FIRAuth.auth()?.currentUser {
-            self.signedIn(user: user)
-        }
-    }
-    
     @IBAction func signIn(_ sender: RoundedCornerButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         

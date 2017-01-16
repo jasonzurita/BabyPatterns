@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02173C36F355DC9389294DE7 /* Pods_Baby_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */; };
+		430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F01771E2BDAC700FE02FC /* DispatchVC.swift */; };
 		430FD7451DE484EC00D07C50 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
 		4314DD581DFB6DE300B3649C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
 		4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4314DD591DFCA34600B3649C /* Feeding.storyboard */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		430F01771E2BDAC700FE02FC /* DispatchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchVC.swift; sourceTree = "<group>"; };
 		430FD7441DE484EC00D07C50 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4314DD541DFB37D700B3649C /* Baby Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Baby Tracker.entitlements"; sourceTree = "<group>"; };
 		4314DD571DFB6DE300B3649C /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		436484D31DCA183700E6B0A7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				430F01771E2BDAC700FE02FC /* DispatchVC.swift */,
 				437814C81DDD1B9D0047D11A /* SignInVC.swift */,
 				43C4CE881E29130100300F13 /* SignUpVC.swift */,
 				436484B01DCA150500E6B0A7 /* HomeVC.swift */,
@@ -623,6 +626,7 @@
 				436939071E081AE100EA5158 /* FeedingsInProgressVM.swift in Sources */,
 				4314DD5C1DFD9E5E00B3649C /* SegmentedControlBar.swift in Sources */,
 				436484B11DCA150500E6B0A7 /* HomeVC.swift in Sources */,
+				430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */,
 				43C4CE891E29130100300F13 /* SignUpVC.swift in Sources */,
 				436939051E081A6100EA5158 /* BaseVM.swift in Sources */,
 				435859541E227C2B00F69A0C /* FeedingFacadeVM.swift in Sources */,

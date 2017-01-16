@@ -12,10 +12,18 @@ struct Constants {
     }
     
     struct Segues {
+        //app launch
         static let LoggedInSegue = "LoggedInSegue"
+        static let LoggedOutSegue = "LoggedOutSegue"
+        
+        //logged out
         static let SignedInSegue = "SignedInSegue"
         static let SignUpSegue = "SignUpSegue"
+        
+        //new account
         static let SignedUpSegue = "SignedUpSegue"
+        
+        //home vc
         static let FeedingSegue = "FeedingSegue"
     }
     

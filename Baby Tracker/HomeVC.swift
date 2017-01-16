@@ -11,7 +11,11 @@ import UIKit
 class HomeVC: UIViewController {
 
     //properites
-    let feedings = FeedingFacadeVM()
+    var feedings:FeedingFacadeVM? {
+        didSet {
+            updateUI()
+        }
+    }
     
     //outlets
     //TODO: okay for for now, put these into a collectoin view to easily support future tile additions
@@ -22,19 +26,18 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         profileView.delegate = self
         
-        loadFeedingData()
         setupTileListeners()
     }
     
-    private func loadFeedingData() {
-        feedings.loadData(completionHandler: { [weak self] in
-            guard let strongSelf = self else { return }
-            
-            DispatchQueue.main.async {
-                strongSelf.updateUI()
-            }
-        })
-    }
+//    private func loadFeedingData() {
+//        feedings.loadData(completionHandler: { [weak self] in
+//            guard let strongSelf = self else { return }
+//            
+//            DispatchQueue.main.async {
+//                strongSelf.updateUI()
+//            }
+//        })
+//    }
     
     private func setupTileListeners() {
         feedingTile.didTapCallback = { [weak self] in
@@ -53,23 +56,25 @@ class HomeVC: UIViewController {
     }
     
     private func updateFeedingUI() {
+        guard let f = feedings else { return }
         
-        let lastSide = feedings.lastFeedingSide()
+        let lastSide = f.lastFeedingSide()
         var sideText = lastSide.asText()
         if lastSide != .none {
             sideText += ": "
         }
         
-        let hours = feedings.timeSinceLastFeeding().stringFromSecondsToHours(zeroPadding: false)
+        let hours = f.timeSinceLastFeeding().stringFromSecondsToHours(zeroPadding: false)
         let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
         
         feedingTile.detailLabel1.text = "\(sideText)" + hours.string + "h " + minutes.string + "m ago"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? FeedingVC {
-            vc.feedings = feedings.feedingVM
-            vc.feedingTimer = feedings.feedingsInProgressVM
+        
+        if let vc = segue.destination as? FeedingVC, let f = feedings {
+            vc.feedings = f.feedingVM
+            vc.feedingTimer = f.feedingsInProgressVM
         }
     }
 }
