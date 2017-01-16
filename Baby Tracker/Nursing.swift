@@ -11,7 +11,7 @@ import Foundation
 class Nursing {
     var nursingEvents: [NursingEvent] = []
     
-    func newPotentialFeeding(json: [String:Any], serverKey:String) {
+    func newPotentialNursing(json: [String:Any], serverKey:String) {
         if let nursingEvent = NursingEvent(json: json, serverKey:serverKey) {
             nursingEvents.append(nursingEvent)
         }

@@ -12,6 +12,11 @@ class FeedingFacadeVM: BaseVM {
     let feedingVM = FeedingVM()
     let feedingsInProgressVM = FeedingsInProgressVM()
     
+    override init() {
+        super.init()
+        feedingsInProgressVM.delegate = self
+    }
+    
     func loadData(completionHandler:@escaping (Void) -> Void) {
         
         database.configureDatabase(requestType: .nursing, responseHandler: { responseArray in
@@ -29,5 +34,17 @@ class FeedingFacadeVM: BaseVM {
     
     func lastFeedingSide() -> FeedingSide {
         return feedingVM.lastFeedingSide()
+    }
+}
+
+extension FeedingFacadeVM: FeedingsInProgressDelegate {
+    func feedingCompleted(feedingEvent: FeedingEvent) {
+        
+        guard let serverKey = feedingEvent.serverKey else {
+            debugPrint(string: "No server key for \(feedingEvent)")
+            return
+        }
+        
+        feedingVM.newPotentialFeeding(json: feedingEvent.eventJson(), serverKey: serverKey)
     }
 }

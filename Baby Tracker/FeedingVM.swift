@@ -14,7 +14,7 @@ class FeedingVM : BaseVM {
     //let pumping = Pumping()
     
     func newPotentialFeeding(json:[String:Any], serverKey:String) {
-        nursing.newPotentialFeeding(json: json, serverKey: serverKey)
+        nursing.newPotentialNursing(json: json, serverKey: serverKey)
     }
     
     func timeSinceLastFeeding() -> TimeInterval {
