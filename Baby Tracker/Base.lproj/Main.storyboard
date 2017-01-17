@@ -212,28 +212,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9N2-yD-Ggm" userLabel="Sign In Container">
-                                <rect key="frame" x="37.5" y="120" width="300" height="60"/>
+                                <rect key="frame" x="37.5" y="120" width="300" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sue-AQ-aa6" userLabel="Separator">
-                                        <rect key="frame" x="0.0" y="29" width="300" height="1"/>
+                                        <rect key="frame" x="0.0" y="39" width="300" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="ygt-VJ-cjm"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EyC-Mo-6jJ">
-                                        <rect key="frame" x="9" y="0.0" width="282" height="30"/>
+                                        <rect key="frame" x="9" y="0.0" width="282" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="ewm-IQ-JB8"/>
+                                            <constraint firstAttribute="height" constant="40" id="ewm-IQ-JB8"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVR-Gm-BJB">
-                                        <rect key="frame" x="9" y="30" width="282" height="30"/>
+                                        <rect key="frame" x="9" y="40" width="282" height="40"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
@@ -261,7 +261,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TC9-X6-Qh8" customClass="RoundedCornerButton" customModule="Baby_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="56" y="200" width="262.5" height="44"/>
+                                <rect key="frame" x="56" y="220" width="262.5" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="RBV-sl-Fhg"/>
@@ -313,7 +313,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tT-wJ-nMO">
-                                <rect key="frame" x="115" y="259" width="144" height="30"/>
+                                <rect key="frame" x="115" y="279" width="144" height="30"/>
                                 <state key="normal" title="I forgot my password"/>
                                 <connections>
                                     <action selector="forgotPassword:" destination="Uzf-Ui-YoH" eventType="touchUpInside" id="jbE-NI-rMG"/>
