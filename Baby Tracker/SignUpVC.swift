@@ -20,6 +20,11 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func dismissButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 
     @IBAction func submitButtonPressed(_ sender: RoundedCornerButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
