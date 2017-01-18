@@ -13,7 +13,7 @@ class FeedingTimerVC: UIViewController {
     //properties
     var feedingType:FeedingType?
     weak var delegate:FeedingInProgressDelegate?
-    weak var dataSource:FeedingInProgressDataSource?
+    weak var dataSource:FeedingsDataSource?
     
     private var sideInProgress:FeedingSide = .none
     private let shouldPrintDebugString = true

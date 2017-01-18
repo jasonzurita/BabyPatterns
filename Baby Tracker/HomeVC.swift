@@ -70,7 +70,7 @@ class HomeVC: UIViewController {
         
         if let vc = segue.destination as? FeedingVC, let f = feedings {
             vc.feedings = f.feedingVM
-            vc.feedingTimer = f.feedingsInProgressVM
+            vc.feedingsInProgress = f.feedingsInProgressVM
         }
     }
 }

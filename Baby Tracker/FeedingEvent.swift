@@ -36,7 +36,7 @@ class FeedingEvent {
         return  floor(baseDuration() - pausedTime)
     }
     
-    private func baseDuration() -> TimeInterval{
+    private func baseDuration() -> TimeInterval {
         if let endTime = endTime {
             return endTime.timeIntervalSince(startTime)
         } else {

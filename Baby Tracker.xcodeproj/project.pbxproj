@@ -348,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				43D2BE631DCB684800895A65 /* FeedingVC.swift */,
+				43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */,
 				43A1C9061DFE0016008C5C2F /* Pages */,
 			);
 			name = Feeding;
@@ -356,7 +357,6 @@
 		43A1C9061DFE0016008C5C2F /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */,
 				43A1C8FE1DFDFFBA008C5C2F /* FeedingTimerVC.swift */,
 				43A1C8FF1DFDFFBA008C5C2F /* FeedingTimerVC.xib */,
 				43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */,
