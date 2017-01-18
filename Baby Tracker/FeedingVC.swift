@@ -31,6 +31,15 @@ class FeedingVC: UIViewController {
         super.viewDidLoad()
         let titles = FeedingType.allValues.map { $0.rawValue }
         segmentedControl.configureSegmentedBar(titles: titles, defaultSegmentIndex:0)
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+//        NotificationCenter.default.addObserver(self, selector: #selector("deviceOrientationDidChange"), name: .UIDeviceOrientationDidChange, object: UIDevice.current)
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIDevice.current.endGeneratingDeviceOrientationNotifications()
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,6 +65,10 @@ class FeedingVC: UIViewController {
         page2.feedingType = .bottle
         
         vc.pages.append(contentsOf: [page1, page2, page3])
+    }
+    
+    @objc func deviceOrientationDidChange(notification:Notification) {
+        
     }
 }
 
