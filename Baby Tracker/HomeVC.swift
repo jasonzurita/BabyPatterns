@@ -11,7 +11,7 @@ import UIKit
 class HomeVC: UIViewController {
 
     //properites
-    var feedings:FeedingFacadeVM?
+    var feedings:FeedingVM?
     
     //outlets
     //TODO: okay for for now, put these into a collectoin view to easily support future tile additions
@@ -69,8 +69,7 @@ class HomeVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let vc = segue.destination as? FeedingVC, let f = feedings {
-            vc.feedings = f.feedingVM
-            vc.feedingsInProgress = f.feedingsInProgressVM
+            vc.feedings = f
         }
     }
 }

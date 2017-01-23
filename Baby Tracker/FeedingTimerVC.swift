@@ -11,7 +11,7 @@ import UIKit
 class FeedingTimerVC: UIViewController {
     
     //properties
-    var feedingType:FeedingType?
+    var feedingType:FeedingType!
     weak var delegate:FeedingInProgressDelegate?
     weak var dataSource:FeedingsDataSource?
     
@@ -28,32 +28,50 @@ class FeedingTimerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if feedingType == nil {
+            assertionFailure("Feeding type not assigned...")
+        }
+        
         func setupInitialState() {
             leftFeedingControl.side = .left
             rightFeedingControl.side = .right
             stopTimerButton.isHidden = true
-            
             timerLabel.dataSource = self
         }
         
         setupInitialState()
+        
+        //TODO: this should be refactored to be called and setup in prepare for segue from parent VC
         resumeFeedingIfNeeded()
     }
 
     private func resumeFeedingIfNeeded() {
-        guard let type = feedingType else { return }
-
-        if let fip = dataSource?.feedingInProgress(type: type), let control = fip.side == .left ? leftFeedingControl : rightFeedingControl {
-            startFeeding(control: control, startTime:fip.duration())
-            
-            if fip.isPaused {
-                pauseFeeding(control: control)
+        guard let lf = dataSource?.lastFeeding(type: feedingType) else { return }
+        
+        if lf.isFinished {
+            showLastFeeding(finishedFeeding:lf)
+        } else {
+            guard let control = lf.side == .left ? leftFeedingControl : rightFeedingControl else {
+                debugPrint(string: "No active control to resume feeding with")
+                return
             }
+            resumeFeeding(feedingInProgress:lf, activeControl: control)
+        }
+    }
+    
+    private func showLastFeeding(finishedFeeding:Feeding) {
+        
+    }
+    
+    private func resumeFeeding(feedingInProgress:Feeding, activeControl:FeedingControl) {
+        startFeeding(control: activeControl, startTime:feedingInProgress.duration())
+        if feedingInProgress.isPaused {
+            pauseFeeding(control: activeControl)
         }
     }
     
     @IBAction func stopButtonPressed(_ sender: UIButton) {
-        guard timerLabel.isRunning, let type = feedingType else {
+        guard timerLabel.isRunning else {
             assertionFailure("Cannot stop timer that is not running")
             return
         }
@@ -72,7 +90,7 @@ class FeedingTimerVC: UIViewController {
             assertionFailure("Failed to end feeding")
         }
         endFeeding(control: control)
-        delegate?.feedingEnded(type: type, side: sideInProgress, duration: timerLabel.currentTime())
+        delegate?.feedingEnded(type: feedingType, side: sideInProgress, duration: timerLabel.currentTime())
     }
     
     fileprivate func updateFeedingInProgress(type:FeedingType, side:FeedingSide) {
@@ -80,7 +98,7 @@ class FeedingTimerVC: UIViewController {
     }
     
     @IBAction func feedingButtonPressed(_ sender: FeedingControl) {
-        guard let type = feedingType, sender.side != .none else {
+        guard sender.side != .none else {
             assertionFailure("Cannot start / end feeding because no feeding type or no side")
             return
         }
@@ -91,13 +109,13 @@ class FeedingTimerVC: UIViewController {
         
         if  shouldStartTimer {
             startFeeding(control: sender, startTime: 0)
-            delegate?.feedingStarted(type: type, side: sender.side)
+            delegate?.feedingStarted(type: feedingType, side: sender.side)
         } else if shouldPauseTimer {
             pauseFeeding(control: sender)
-            updateFeedingInProgress(type: type, side: sender.side)
+            updateFeedingInProgress(type: feedingType, side: sender.side)
         } else if shouldResumeTimer {
             resumeFeeding(control: sender)
-            updateFeedingInProgress(type: type, side: sender.side)
+            updateFeedingInProgress(type: feedingType, side: sender.side)
         }
     }
     
@@ -135,7 +153,7 @@ class FeedingTimerVC: UIViewController {
 extension FeedingTimerVC: TimerLabelDataSource {
     func timerValueForTimerLabel(timerLabel: TimerLabel) -> TimeInterval {
 
-        guard let type = feedingType, let fip = dataSource?.feedingInProgress(type: type) else { return 0.0 }
+        guard let fip = dataSource?.lastFeeding(type: feedingType) else { return 0.0 }
         
         return fip.duration()
     }

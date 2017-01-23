@@ -14,7 +14,7 @@ class DispatchVC: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var feedings:FeedingFacadeVM?
+    var feedings:FeedingVM?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class DispatchVC: UIViewController {
             print("User id: \(user.uid)")
         }
         
-        feedings = FeedingFacadeVM()
+        feedings = FeedingVM()
         
         //TODO: loading failed
 //        self.performSegue(withIdentifier: Constants.Segues.LoggedInSegue, sender: nil)
