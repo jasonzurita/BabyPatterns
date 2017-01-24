@@ -15,7 +15,7 @@ extension FeedingVM {
     }
     
     func finishedFeedings() -> [Feeding] {
-        return feedingsMatching(type: .nursing, isFinished: false) + feedingsMatching(type: .bottle, isFinished: false)
+        return feedingsMatching(type: .nursing, isFinished: true) + feedingsMatching(type: .bottle, isFinished: true)
     }
     
     func lastFeedingTime() -> Date? {
