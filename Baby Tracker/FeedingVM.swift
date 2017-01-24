@@ -14,7 +14,7 @@ class FeedingVM: BaseVM {
     
     func loadData(completionHandler:@escaping (Void) -> Void) {
         
-        database.configureDatabase(requestType: .nursing, responseHandler: { responseArray in
+        database.configureDatabase(requestType: .feedings, responseHandler: { responseArray in
             for response in responseArray {
                 self.newPotentialFeeding(json: response.data, serverKey:response.serverKey)
             }

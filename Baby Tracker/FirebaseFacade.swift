@@ -23,7 +23,7 @@ class FirebaseFacade {
         }
     }
     
-    func configureDatabase(requestType:FeedingType, responseHandler: @escaping (ResponseHandler)) {
+    func configureDatabase(requestType:FirebaseRequestType, responseHandler: @escaping (ResponseHandler)) {
         debugPrint(string: "Configuring database...")
         
         guard let path = pathForRequest(type: requestType) else {
@@ -48,7 +48,7 @@ class FirebaseFacade {
         debugPrint(string: "Database configured with request type: \(requestType.rawValue)")
     }
     
-    func uploadFeedingEvent(withData data: [String:Any], requestType:FeedingType) -> String? {
+    func uploadFeedingEvent(withData data: [String:Any], requestType:FirebaseRequestType) -> String? {
         
         guard let path = pathForRequest(type: requestType) else {
             debugPrint(string: "Failed to upload data: \(data)")
@@ -62,7 +62,7 @@ class FirebaseFacade {
         return serverKey
     }
     
-    func updateFeedingEvent(data: [String:Any], serverKey:String, requestType:FeedingType) {
+    func updateFeedingEvent(data: [String:Any], serverKey:String, requestType:FirebaseRequestType) {
         guard let path = pathForRequest(type: requestType) else {
             debugPrint(string: "Failed to update data: \(data)")
             return
@@ -72,7 +72,7 @@ class FirebaseFacade {
         databaseReference.child(path).child(serverKey).updateChildValues(data)
     }
     
-    private func pathForRequest(type:FeedingType) -> String? {
+    private func pathForRequest(type:FirebaseRequestType) -> String? {
         guard let uid = FIRAuth.auth()?.currentUser?.uid else {
             return nil
         }

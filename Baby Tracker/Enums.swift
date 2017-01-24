@@ -15,6 +15,10 @@ enum FeedingType : String {
     static let allValues = [nursing, pumping, bottle]
 }
 
+enum FirebaseRequestType : String {
+    case feedings = "Feedings"
+}
+
 enum FeedingSide: Int {
     case left = 1
     case right
