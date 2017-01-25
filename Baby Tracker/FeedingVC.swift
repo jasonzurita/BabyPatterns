@@ -10,7 +10,7 @@ import UIKit
 
 protocol FeedingInProgressDelegate:NSObjectProtocol {
     func feedingStarted(type:FeedingType, side:FeedingSide)
-    func feedingEnded(type:FeedingType, side:FeedingSide, duration:TimeInterval)
+    func feedingEnded(type:FeedingType, side:FeedingSide)
     func updateFeedingInProgress(type:FeedingType, side:FeedingSide, isPaused:Bool)
 }
 
@@ -77,7 +77,7 @@ extension FeedingVC: FeedingInProgressDelegate {
         feedings?.feedingStarted(type: type, side: side)
     }
     
-    func feedingEnded(type:FeedingType, side:FeedingSide, duration:TimeInterval) {
+    func feedingEnded(type:FeedingType, side:FeedingSide) {
         feedings?.feedingEnded(type: type, side: side)
         showFeedingSavedToast()
     }

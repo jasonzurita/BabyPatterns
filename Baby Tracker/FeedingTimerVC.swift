@@ -92,7 +92,7 @@ class FeedingTimerVC: UIViewController {
             assertionFailure("Failed to end feeding")
         }
         endFeeding(control: control)
-        delegate?.feedingEnded(type: feedingType, side: sideInProgress, duration: timerLabel.currentTime())
+        delegate?.feedingEnded(type: feedingType, side: sideInProgress)
     }
     
     fileprivate func updateFeedingInProgress(type:FeedingType, side:FeedingSide) {
