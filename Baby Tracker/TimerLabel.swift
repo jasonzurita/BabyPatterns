@@ -58,7 +58,11 @@ class TimerLabel: UILabel {
         counter = startTime
         
         timer = Timer.scheduledTimer(withTimeInterval: countingInterval, repeats: true, block: { [weak self] _ in
-            guard let strongSelf = self, !strongSelf.isPaused, let ds = strongSelf.dataSource else { return }
+            guard let strongSelf = self, let ds = strongSelf.dataSource else { return }
+            guard !strongSelf.isPaused else {
+                strongSelf.pulseAnimationIfNotPulsing()
+                return
+            }
             strongSelf.counter = ds.timerValueForTimerLabel(timerLabel: strongSelf)
         })
     }
@@ -75,10 +79,17 @@ class TimerLabel: UILabel {
     func pause() {
         guard timer != nil else { return }
         isPaused = true
-        
+        pulseAnimationIfNotPulsing()
+    }
+    
+    private func pulseAnimationIfNotPulsing() {
+        guard layer.animationKeys() == nil else { return }
         UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .curveEaseInOut, .repeat], animations: { _ in
             self.alpha = 0.0
-        }, completion: nil)
+        }, completion: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.alpha = 1.0
+        })
     }
     
     func resume() {
@@ -89,6 +100,5 @@ class TimerLabel: UILabel {
     
     private func clearPauseAnimation() {
         layer.removeAllAnimations()
-        alpha = 1.0
     }
 }

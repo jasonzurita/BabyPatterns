@@ -40,8 +40,10 @@ class FeedingTimerVC: UIViewController {
         }
         
         setupInitialState()
-        
-        //TODO: this should be refactored to be called and setup in prepare for segue from parent VC
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         resumeFeedingIfNeeded()
     }
 
