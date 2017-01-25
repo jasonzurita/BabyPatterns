@@ -62,7 +62,7 @@ class FeedingTimerVC: UIViewController {
     }
     
     private func showLastFeeding(finishedFeeding:Feeding) {
-        
+        timerLabel.displayTime(time: finishedFeeding.duration())
     }
     
     private func resumeFeeding(feedingInProgress:Feeding, activeControl:FeedingControl) {
