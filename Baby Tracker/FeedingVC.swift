@@ -96,7 +96,7 @@ extension FeedingVC: FeedingInProgressDelegate {
 
 extension FeedingVC: FeedingsDataSource {
     func lastFeeding(type: FeedingType) -> Feeding? {
-        return feedings?.feedingInProgress(type: type)
+        return feedings?.lastFeeding(type: type)
     }
 }
 

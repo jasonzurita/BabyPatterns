@@ -42,4 +42,8 @@ extension FeedingVM {
         let sum = f.reduce(0.0, { $0 + $1.duration() })
         return sum / TimeInterval(f.count)
     }
+    
+    func lastFeeding(type:FeedingType) -> Feeding? {
+        return feedings.filter { $0.type == type }.last
+    }
 }
