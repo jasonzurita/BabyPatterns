@@ -47,8 +47,9 @@ class TimerLabel: UILabel {
         textColor = UIColor.gray
     }
     
-    func currentTime() -> TimeInterval {
-        return counter
+    func displayTime(time:TimeInterval) {
+        guard !isRunning else { return }
+        counter = time
     }
 
     func start(startingAt startTime:Double = 0) {
