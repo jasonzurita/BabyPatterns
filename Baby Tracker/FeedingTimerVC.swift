@@ -22,8 +22,9 @@ class FeedingTimerVC: UIViewController {
     @IBOutlet weak var timerLabel: TimerLabel!
     @IBOutlet weak var leftFeedingControl: FeedingControl!
     @IBOutlet weak var rightFeedingControl: FeedingControl!
-    
     @IBOutlet weak var stopTimerButton: UIButton!
+    @IBOutlet weak var editLastFeedingButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class FeedingTimerVC: UIViewController {
             leftFeedingControl.side = .left
             rightFeedingControl.side = .right
             stopTimerButton.isHidden = true
+            editLastFeedingButton.isHidden = true
             timerLabel.dataSource = self
         }
         
@@ -150,6 +152,11 @@ class FeedingTimerVC: UIViewController {
             print(String(describing: "-- Debug -- \(type(of:self)): " + string))
         }
     }
+    
+    @IBAction func editLastFeeding(_ sender: UIButton) {
+    }
+    
+    
 }
 
 extension FeedingTimerVC: TimerLabelDataSource {
