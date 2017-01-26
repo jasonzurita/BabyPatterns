@@ -20,6 +20,14 @@ protocol FeedingsDataSource:NSObjectProtocol {
 
 class FeedingVC: UIViewController {
     
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait, .landscape]
+    }
+    
     //properties
     weak var feedings:FeedingVM?
     
@@ -30,9 +38,6 @@ class FeedingVC: UIViewController {
         super.viewDidLoad()
         let titles = FeedingType.allValues.map { $0.rawValue }
         segmentedControl.configureSegmentedBar(titles: titles, defaultSegmentIndex:0)
-        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
-//        NotificationCenter.default.addObserver(self, selector: #selector("deviceOrientationDidChange"), name: .UIDeviceOrientationDidChange, object: UIDevice.current)
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,9 +70,15 @@ class FeedingVC: UIViewController {
         
         vc.pages.append(contentsOf: [page1, page2, page3])
     }
-    
-    @objc func deviceOrientationDidChange(notification:Notification) {
         
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        let orientation = UIApplication.shared.statusBarOrientation
+        if orientation == .portrait {
+            print("portrait")
+        } else if orientation == .landscapeLeft || orientation == .landscapeRight {
+            print("landscape")
+        }
     }
 }
 

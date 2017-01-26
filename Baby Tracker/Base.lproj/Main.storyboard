@@ -477,10 +477,10 @@
             </objects>
             <point key="canvasLocation" x="-758" y="797"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--NavigationVC-->
         <scene sceneID="SyT-Zd-gTA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8xn-i4-Sqo" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8xn-i4-Sqo" customClass="NavigationVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bJt-Z8-I21">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

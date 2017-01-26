@@ -11,6 +11,14 @@ import FirebaseAuth
 
 class SignUpVC: UIViewController {
 
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var babyNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!

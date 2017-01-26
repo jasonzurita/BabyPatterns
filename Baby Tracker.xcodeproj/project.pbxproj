@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02173C36F355DC9389294DE7 /* Pods_Baby_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */; };
+		43037E0E1E3A36DB00D478AD /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43037E0D1E3A36DB00D478AD /* NavigationVC.swift */; };
 		430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F01771E2BDAC700FE02FC /* DispatchVC.swift */; };
 		430F017B1E2D0A4200FE02FC /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */; };
 		430F017D1E2D0A5F00FE02FC /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F017C1E2D0A5F00FE02FC /* DoubleExtensions.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43037E0D1E3A36DB00D478AD /* NavigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
 		430F01771E2BDAC700FE02FC /* DispatchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchVC.swift; sourceTree = "<group>"; };
 		430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		430F017C1E2D0A5F00FE02FC /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		436484D31DCA183700E6B0A7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				43037E0D1E3A36DB00D478AD /* NavigationVC.swift */,
 				430F01771E2BDAC700FE02FC /* DispatchVC.swift */,
 				437814C81DDD1B9D0047D11A /* SignInVC.swift */,
 				43C4CE881E29130100300F13 /* SignUpVC.swift */,
@@ -626,6 +629,7 @@
 				43C4CE891E29130100300F13 /* SignUpVC.swift in Sources */,
 				436939051E081A6100EA5158 /* BaseVM.swift in Sources */,
 				430F017B1E2D0A4200FE02FC /* UIViewExtensions.swift in Sources */,
+				43037E0E1E3A36DB00D478AD /* NavigationVC.swift in Sources */,
 				435859541E227C2B00F69A0C /* FeedingVM.swift in Sources */,
 				4314DD581DFB6DE300B3649C /* Enums.swift in Sources */,
 				43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */,
