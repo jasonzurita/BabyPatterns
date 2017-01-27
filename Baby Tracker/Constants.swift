@@ -6,7 +6,7 @@
 //  Copyright © 2016 Jason Zurita. All rights reserved.
 //
 
-struct Constants {
+struct K {
     struct NibNames {
         static let SignIn = "SignInVC"
     }
@@ -25,6 +25,9 @@ struct Constants {
         
         //home vc
         static let FeedingSegue = "FeedingSegue"
+        
+        //feeding vc
+        static let FeedingHistorySegue = "FeedingHistorySegue"
     }
     
     struct JsonFields {

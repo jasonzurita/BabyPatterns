@@ -38,25 +38,25 @@ struct Feeding {
     }
     
     init?(json:Dictionary<String,Any>, serverKey:String) {
-        guard let typeRawValue = json[Constants.JsonFields.FeedingType] as? String, let type = FeedingType(rawValue: typeRawValue) else { return nil }
-        guard let sideRawValue = json[Constants.JsonFields.Side] as? Int, let side = FeedingSide(rawValue:sideRawValue) else { return nil }
+        guard let typeRawValue = json[K.JsonFields.FeedingType] as? String, let type = FeedingType(rawValue: typeRawValue) else { return nil }
+        guard let sideRawValue = json[K.JsonFields.Side] as? Int, let side = FeedingSide(rawValue:sideRawValue) else { return nil }
         
-        guard let startDate = Date(timeInterval:json[Constants.JsonFields.StartDate]) else { return nil }
-        let endDate = Date(timeInterval:json[Constants.JsonFields.EndDate])
+        guard let startDate = Date(timeInterval:json[K.JsonFields.StartDate]) else { return nil }
+        let endDate = Date(timeInterval:json[K.JsonFields.EndDate])
         
-        let lastPausedDate = Date(timeInterval:json[Constants.JsonFields.LastPausedDate])
-        guard let pausedTime = json[Constants.JsonFields.PausedTime] as? TimeInterval else { return nil }
+        let lastPausedDate = Date(timeInterval:json[K.JsonFields.LastPausedDate])
+        guard let pausedTime = json[K.JsonFields.PausedTime] as? TimeInterval else { return nil }
                 
         self.init(type:type, side:side, startDate:startDate, endDate:endDate, lastPausedDate: lastPausedDate, pausedTime:pausedTime, serverKey:serverKey)
     }
     
     func eventJson() -> [String:Any] {
-        let json:[String : Any] = [Constants.JsonFields.FeedingType : type.rawValue,
-                                   Constants.JsonFields.Side : side.rawValue,
-                                   Constants.JsonFields.StartDate : startDate.timeIntervalSince1970,
-                                   Constants.JsonFields.PausedTime : pausedTime,
-                                   Constants.JsonFields.EndDate : endDate?.timeIntervalSince1970 ?? 0.0,
-                                   Constants.JsonFields.LastPausedDate : lastPausedDate?.timeIntervalSince1970 ?? 0.0]
+        let json:[String : Any] = [K.JsonFields.FeedingType : type.rawValue,
+                                   K.JsonFields.Side : side.rawValue,
+                                   K.JsonFields.StartDate : startDate.timeIntervalSince1970,
+                                   K.JsonFields.PausedTime : pausedTime,
+                                   K.JsonFields.EndDate : endDate?.timeIntervalSince1970 ?? 0.0,
+                                   K.JsonFields.LastPausedDate : lastPausedDate?.timeIntervalSince1970 ?? 0.0]
         
         return json
     }

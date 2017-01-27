@@ -53,13 +53,13 @@ class DispatchVC: UIViewController {
 //        self.performSegue(withIdentifier: Constants.Segues.LoggedInSegue, sender: nil)
 
         feedings!.loadData(completionHandler: { _ in
-            self.performSegue(withIdentifier: Constants.Segues.LoggedInSegue, sender: nil)
+            self.performSegue(withIdentifier: K.Segues.LoggedInSegue, sender: nil)
 
         })
     }
     
     private func userLoggedOut() {
-        performSegue(withIdentifier: Constants.Segues.LoggedOutSegue, sender: nil)
+        performSegue(withIdentifier: K.Segues.LoggedOutSegue, sender: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

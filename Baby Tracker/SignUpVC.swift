@@ -50,7 +50,7 @@ class SignUpVC: UIViewController {
         if let user = user {
             print("User id: \(user.uid)")
         }
-        performSegue(withIdentifier: Constants.Segues.SignedUpSegue, sender: nil)
+        performSegue(withIdentifier: K.Segues.SignedUpSegue, sender: nil)
     }
 
 }

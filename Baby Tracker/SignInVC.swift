@@ -69,14 +69,14 @@ class SignInVC: UIViewController {
     
     
     @IBAction func signUp(_ sender: UIButton) {
-        performSegue(withIdentifier: Constants.Segues.SignUpSegue, sender: nil)
+        performSegue(withIdentifier: K.Segues.SignUpSegue, sender: nil)
     }
     
     private func signedIn(user:FIRUser?) {
         if let user = user {
             print("User id: \(user.uid)")
         }
-        performSegue(withIdentifier: Constants.Segues.SignedInSegue, sender: nil)
+        performSegue(withIdentifier: K.Segues.SignedInSegue, sender: nil)
     }
     
     @IBAction func tryDemo(_ sender: RoundedCornerButton) {

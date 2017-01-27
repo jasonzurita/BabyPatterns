@@ -47,7 +47,7 @@ class HomeVC: UIViewController {
     private func setupTileListeners() {
         feedingTile.didTapCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.performSegue(withIdentifier: Constants.Segues.FeedingSegue, sender: nil)
+            strongSelf.performSegue(withIdentifier: K.Segues.FeedingSegue, sender: nil)
         }
     }
     

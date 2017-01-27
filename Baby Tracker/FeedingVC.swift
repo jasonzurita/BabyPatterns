@@ -76,6 +76,7 @@ class FeedingVC: UIViewController {
         let orientation = UIApplication.shared.statusBarOrientation
         if orientation == .portrait {
             print("portrait")
+            performSegue(withIdentifier: K.Segues.FeedingHistorySegue, sender: nil)
         } else if orientation == .landscapeLeft || orientation == .landscapeRight {
             print("landscape")
         }
