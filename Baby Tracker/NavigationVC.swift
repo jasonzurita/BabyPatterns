@@ -10,7 +10,7 @@ import UIKit
 
 class NavigationVC: UINavigationController {
     override var shouldAutorotate: Bool {
-        return viewControllers.last?.shouldAutorotate ?? false
+        return true
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

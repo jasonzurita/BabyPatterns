@@ -19,11 +19,7 @@ protocol FeedingsDataSource:NSObjectProtocol {
 }
 
 class FeedingVC: UIViewController {
-    
-    override var shouldAutorotate: Bool {
-        return true
-    }
-    
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return [.portrait, .landscape]
     }

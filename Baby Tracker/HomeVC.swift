@@ -10,12 +10,8 @@ import UIKit
 
 class HomeVC: UIViewController {
 
-    override var shouldAutorotate: Bool {
-        //TODO: auto rotate to add and view other children
-        return false
-    }
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        //TODO: auto rotate to add and view other children
         return .portrait
     }
     
