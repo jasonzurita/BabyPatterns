@@ -21,11 +21,12 @@ protocol FeedingsDataSource:NSObjectProtocol {
 class FeedingVC: UIViewController {
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return [.portrait, .landscape]
+        return .portrait
     }
     
     //properties
     weak var feedings:FeedingVM?
+    private var notificationToken:NSObjectProtocol?
     
     //outlets
     @IBOutlet weak var segmentedControl: SegmentedControlBar!
@@ -39,7 +40,23 @@ class FeedingVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIDevice.current.endGeneratingDeviceOrientationNotifications()
-        NotificationCenter.default.removeObserver(self)
+        if let token = notificationToken {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+
+        let center = NotificationCenter.default
+        notificationToken = center.addObserver(forName: .UIDeviceOrientationDidChange, object: nil, queue: nil, using: { _ in
+            if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+                    self.performSegue(withIdentifier: K.Segues.FeedingHistorySegue, sender: nil)
+                    UIDevice.current.endGeneratingDeviceOrientationNotifications()
+                    center.removeObserver(self.notificationToken!)
+            }
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,16 +83,11 @@ class FeedingVC: UIViewController {
         
         vc.pages.append(contentsOf: [page1, page2, page3])
     }
-        
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        
-        let orientation = UIApplication.shared.statusBarOrientation
-        if orientation == .portrait {
-            print("portrait")
-            performSegue(withIdentifier: K.Segues.FeedingHistorySegue, sender: nil)
-        } else if orientation == .landscapeLeft || orientation == .landscapeRight {
-            print("landscape")
-        }
+    
+    }
+    
+    @IBAction func unwindToFeedingVC(segue: UIStoryboardSegue) {
+
     }
 }
 
