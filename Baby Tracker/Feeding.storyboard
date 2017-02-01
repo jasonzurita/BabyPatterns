@@ -33,19 +33,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUG-AJ-tde" customClass="ProfileView" customModule="Baby_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="9" y="10" width="276" height="100"/>
+                                <rect key="frame" x="9.5" y="10" width="275.5" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="svj-Wz-vwQ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHZ-wK-GNQ" customClass="SegmentedControlBar" customModule="Baby_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="9" y="115" width="357" height="45"/>
+                                <rect key="frame" x="9.5" y="115" width="356" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="JYO-wN-0jr"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Br-6h-HMj">
-                                <rect key="frame" x="-0.5" y="162" width="375" height="441"/>
+                                <rect key="frame" x="0.0" y="162" width="375" height="441"/>
                                 <connections>
                                     <segue destination="8lh-YY-odx" kind="embed" id="BvM-7n-GI1"/>
                                 </connections>
@@ -91,23 +91,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBr-Ne-5lv">
-                                <rect key="frame" x="309" y="20" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="69Z-X5-w5S"/>
-                                    <constraint firstAttribute="height" constant="50" id="jVv-TR-2l4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
-                                <state key="normal" title="✕"/>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYK-oA-hBL">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RBr-Ne-5lv" firstAttribute="top" secondItem="gyk-ag-FDI" secondAttribute="bottom" id="Aac-Er-Hiy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RBr-Ne-5lv" secondAttribute="trailing" id="dqz-Tc-j7Y"/>
+                            <constraint firstItem="oYK-oA-hBL" firstAttribute="width" secondItem="XlG-W5-SrI" secondAttribute="width" id="LGw-Vy-4hY"/>
+                            <constraint firstItem="oYK-oA-hBL" firstAttribute="centerY" secondItem="XlG-W5-SrI" secondAttribute="centerY" id="Pvv-r0-ACf"/>
+                            <constraint firstItem="oYK-oA-hBL" firstAttribute="height" secondItem="XlG-W5-SrI" secondAttribute="height" id="VIS-sc-SG3"/>
+                            <constraint firstItem="oYK-oA-hBL" firstAttribute="centerX" secondItem="XlG-W5-SrI" secondAttribute="centerX" id="oho-QJ-jp7"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="scrollView" destination="oYK-oA-hBL" id="UeJ-gw-7Yv"/>
                         <segue destination="suT-MQ-IJ6" kind="unwind" identifier="UnwindToFeedingVCSegue" unwindAction="unwindToFeedingVCWithSegue:" id="ajW-C6-O7L"/>
                     </connections>
                 </viewController>

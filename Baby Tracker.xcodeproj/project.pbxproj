@@ -22,6 +22,9 @@
 		4314DD601DFDA06D00B3649C /* Segment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4314DD5F1DFDA06D00B3649C /* Segment.xib */; };
 		4326BA591E04C1F0005604A9 /* Feeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326BA581E04C1F0005604A9 /* Feeding.swift */; };
 		4330FB5B1DF1B4A300737A7F /* FirebaseFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330FB5A1DF1B4A300737A7F /* FirebaseFacade.swift */; };
+		433AF9211E40CBB100AD654C /* BarGraphLollipop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433AF9201E40CBB100AD654C /* BarGraphLollipop.swift */; };
+		433AF9231E40CBD700AD654C /* BarGraphLollipop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433AF9221E40CBD700AD654C /* BarGraphLollipop.xib */; };
+		433AF9261E40CC8A00AD654C /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433AF9251E40CC8A00AD654C /* Circle.swift */; };
 		43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43503C3D1DD35DAC00C6424E /* Tile.swift */; };
 		435859541E227C2B00F69A0C /* FeedingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435859531E227C2B00F69A0C /* FeedingVM.swift */; };
 		436484AF1DCA150500E6B0A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436484AE1DCA150500E6B0A7 /* AppDelegate.swift */; };
@@ -82,6 +85,9 @@
 		4326BA581E04C1F0005604A9 /* Feeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feeding.swift; sourceTree = "<group>"; };
 		432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4330FB5A1DF1B4A300737A7F /* FirebaseFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseFacade.swift; sourceTree = "<group>"; };
+		433AF9201E40CBB100AD654C /* BarGraphLollipop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarGraphLollipop.swift; sourceTree = "<group>"; };
+		433AF9221E40CBD700AD654C /* BarGraphLollipop.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarGraphLollipop.xib; sourceTree = "<group>"; };
+		433AF9251E40CC8A00AD654C /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		43503C3D1DD35DAC00C6424E /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		435859531E227C2B00F69A0C /* FeedingVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingVM.swift; sourceTree = "<group>"; };
 		436484AB1DCA150500E6B0A7 /* Baby Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baby Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +204,15 @@
 			children = (
 			);
 			name = Bottle;
+			sourceTree = "<group>";
+		};
+		433AF9241E40CBDC00AD654C /* BarGraphLollipop */ = {
+			isa = PBXGroup;
+			children = (
+				433AF9201E40CBB100AD654C /* BarGraphLollipop.swift */,
+				433AF9221E40CBD700AD654C /* BarGraphLollipop.xib */,
+			);
+			name = BarGraphLollipop;
 			sourceTree = "<group>";
 		};
 		436484A21DCA150400E6B0A7 = {
@@ -329,6 +344,8 @@
 				43932C491E041E5300056F83 /* Toast.swift */,
 				43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */,
 				43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */,
+				433AF9241E40CBDC00AD654C /* BarGraphLollipop */,
+				433AF9251E40CC8A00AD654C /* Circle.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -500,6 +517,7 @@
 				4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */,
 				436484B91DCA150500E6B0A7 /* LaunchScreen.storyboard in Resources */,
 				43932C481E03594F00056F83 /* ProfileView.xib in Resources */,
+				433AF9231E40CBD700AD654C /* BarGraphLollipop.xib in Resources */,
 				43A1C9051DFDFFFA008C5C2F /* BottleVC.xib in Resources */,
 				4314DD601DFDA06D00B3649C /* Segment.xib in Resources */,
 				43A1C9011DFDFFBA008C5C2F /* FeedingTimerVC.xib in Resources */,
@@ -618,6 +636,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				433AF9261E40CC8A00AD654C /* Circle.swift in Sources */,
 				43932C411E01FEB400056F83 /* FeedingControl.swift in Sources */,
 				43932C4A1E041E5300056F83 /* Toast.swift in Sources */,
 				43A1C90B1E01ACB4008C5C2F /* CircleToggleButton.swift in Sources */,
@@ -641,6 +660,7 @@
 				436939051E081A6100EA5158 /* BaseVM.swift in Sources */,
 				430F017B1E2D0A4200FE02FC /* UIViewExtensions.swift in Sources */,
 				43037E0E1E3A36DB00D478AD /* NavigationVC.swift in Sources */,
+				433AF9211E40CBB100AD654C /* BarGraphLollipop.swift in Sources */,
 				435859541E227C2B00F69A0C /* FeedingVM.swift in Sources */,
 				4314DD581DFB6DE300B3649C /* Enums.swift in Sources */,
 				43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */,

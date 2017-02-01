@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11762"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BarGraphLollipop" customModule="Baby_Tracker" customModuleProvider="target">
+            <connections>
+                <outlet property="barView" destination="I78-sh-UoW" id="du9-aK-djk"/>
+                <outlet property="circle" destination="uCd-fM-Djz" id="wdw-aF-BbF"/>
+                <outlet property="view" destination="iN0-l3-epB" id="xSL-kd-8wP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="31" height="140"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I78-sh-UoW">
+                    <rect key="frame" x="2" y="48" width="28" height="92"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uCd-fM-Djz" customClass="Circle" customModule="Baby_Tracker" customModuleProvider="target">
+                    <rect key="frame" x="2" y="10" width="28" height="28"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="uCd-fM-Djz" secondAttribute="height" multiplier="1:1" id="sie-bg-BGg"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="I78-sh-UoW" firstAttribute="top" secondItem="uCd-fM-Djz" secondAttribute="bottom" constant="10" id="0IS-e9-gpg"/>
+                <constraint firstItem="uCd-fM-Djz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="7we-K4-37X"/>
+                <constraint firstItem="uCd-fM-Djz" firstAttribute="width" secondItem="I78-sh-UoW" secondAttribute="width" id="FyS-L1-ihw"/>
+                <constraint firstItem="I78-sh-UoW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="d2O-ts-2Ra"/>
+                <constraint firstAttribute="bottom" secondItem="I78-sh-UoW" secondAttribute="bottom" id="l28-lu-DNh"/>
+                <constraint firstItem="uCd-fM-Djz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uqd-MV-Bhd"/>
+                <constraint firstItem="I78-sh-UoW" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="vcZ-h4-J1M"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-137.5" y="-210"/>
+        </view>
+    </objects>
+</document>

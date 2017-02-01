@@ -63,6 +63,8 @@ class FeedingVC: UIViewController {
         //equip page view controller to function here
         if let vc = segue.destination as? FeedingPageVC {
             configureFeedingPageVC(vc: vc)
+        } else if let vc = segue.destination as? FeedingHistoryVC {
+            configureFeedingHistoryVC(vc:vc)
         }
     }
     
@@ -84,6 +86,8 @@ class FeedingVC: UIViewController {
         vc.pages.append(contentsOf: [page1, page2, page3])
     }
     
+    private func configureFeedingHistoryVC(vc:FeedingHistoryVC) {
+        vc.feedings = feedings
     }
     
     @IBAction func unwindToFeedingVC(segue: UIStoryboardSegue) {
