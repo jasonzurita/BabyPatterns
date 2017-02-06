@@ -82,7 +82,7 @@
         <!--Feeding HistoryVC-->
         <scene sceneID="yhL-WI-Fze">
             <objects>
-                <viewController id="90A-Ai-swE" customClass="FeedingHistoryVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="90A-Ai-swE" customClass="FeedingHistoryVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gyk-ag-FDI"/>
                         <viewControllerLayoutGuide type="bottom" id="fl8-O2-sxH"/>
@@ -92,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYK-oA-hBL">
-                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
