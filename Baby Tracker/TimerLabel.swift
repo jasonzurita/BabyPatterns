@@ -52,20 +52,32 @@ class TimerLabel: UILabel {
         counter = time
     }
 
-    func start(startingAt startTime:Double = 0) {
+    func start(startingAt startTime:TimeInterval? = nil) {
         guard timer == nil else { return }
         isRunning = true
         
-        counter = startTime
+        counter = startingCounterTime(startTime:startTime)
         
         timer = Timer.scheduledTimer(withTimeInterval: countingInterval, repeats: true, block: { [weak self] _ in
-            guard let strongSelf = self, let ds = strongSelf.dataSource else { return }
+            guard let strongSelf = self else { return }
             guard !strongSelf.isPaused else {
                 strongSelf.pulseAnimationIfNotPulsing()
                 return
             }
-            strongSelf.counter = ds.timerValueForTimerLabel(timerLabel: strongSelf)
+            
+            strongSelf.counter += 1
         })
+    }
+    
+    private func startingCounterTime(startTime:TimeInterval?) -> TimeInterval {
+        var returnValue:TimeInterval = 0
+        if let st = startTime {
+            returnValue = st
+        } else if let ds = dataSource {
+            returnValue = ds.timerValueForTimerLabel(timerLabel: self)
+        }
+        
+        return returnValue
     }
     
     func end() {

@@ -62,7 +62,7 @@ struct Feeding {
     }
     
     func duration() -> TimeInterval {
-        return floor(baseDuration() - fullPausedTime())
+        return round(baseDuration() - fullPausedTime())
     }
     
     private func baseDuration() -> TimeInterval {
