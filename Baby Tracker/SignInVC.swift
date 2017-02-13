@@ -29,7 +29,7 @@ class SignInVC: UIViewController {
         containerLayer.masksToBounds = true
     }
     
-    @IBAction func signIn(_ sender: RoundedCornerButton) {
+    @IBAction func signIn(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
@@ -75,7 +75,7 @@ class SignInVC: UIViewController {
         performSegue(withIdentifier: K.Segues.SignedInSegue, sender: nil)
     }
     
-    @IBAction func tryDemo(_ sender: RoundedCornerButton) {
+    @IBAction func tryDemo(_ sender: UIButton) {
         //load demo account
     }
     

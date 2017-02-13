@@ -28,9 +28,8 @@ class SignUpVC: UIViewController {
     @IBAction func dismissButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
 
-    @IBAction func submitButtonPressed(_ sender: RoundedCornerButton) {
+    @IBAction func submitButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
