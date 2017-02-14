@@ -1,0 +1,19 @@
+1. Polish sign-up
+2. Polish history screen
+3. Create bottle feeding page
+4. Allow in-progress feeding to be edited (start time, etc.)
+5. Popups when something goes wrong like email entered wrong
+6. Update icons
+7. Allow user to edit profile picture
+8. Store user sign-up details
+9. Finish settings screen
+-log out
+-app version
+-name
+-baby name
+-baby profile picture
+-email
+-password reset
+-baby dob
+-get rid of adds
+-app suggestions
