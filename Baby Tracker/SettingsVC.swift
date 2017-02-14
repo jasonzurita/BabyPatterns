@@ -15,15 +15,12 @@ class SettingsVC: UIViewController {
         return .portrait
     }
     
+    fileprivate let settingsList = ["Name", "Baby Name", "Baby DOB", "Email", "Reset Password", "Get rid of ads", "App Suggestions" ,"App Version", "Logout"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func signOut(_ sender: Any) {
@@ -35,5 +32,22 @@ class SettingsVC: UIViewController {
         } catch let signOutError {
             print ("Error signing out: \(signOutError.localizedDescription)")
         }
+    }
+}
+
+extension SettingsVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO
+    }
+}
+
+extension SettingsVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return settingsList.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = settingsList[indexPath.row]
+        return cell
     }
 }

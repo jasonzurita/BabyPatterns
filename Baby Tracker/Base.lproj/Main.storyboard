@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nTM-8P-wsE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nTM-8P-wsE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,18 +22,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2O7-e2-9yp">
-                                <rect key="frame" x="161" y="318" width="52" height="30"/>
-                                <state key="normal" title="Log out"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BXh-8q-TXd">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="signOut:" destination="x8p-25-rZB" eventType="touchUpInside" id="5Pd-Wm-pU9"/>
+                                    <outlet property="dataSource" destination="x8p-25-rZB" id="KRa-Fa-iOX"/>
+                                    <outlet property="delegate" destination="x8p-25-rZB" id="7da-zr-uD8"/>
                                 </connections>
-                            </button>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2O7-e2-9yp" firstAttribute="centerY" secondItem="zOY-V0-7oI" secondAttribute="centerY" id="9pO-og-cX3"/>
-                            <constraint firstItem="2O7-e2-9yp" firstAttribute="centerX" secondItem="zOY-V0-7oI" secondAttribute="centerX" id="AgA-gx-Tcc"/>
+                            <constraint firstItem="BXh-8q-TXd" firstAttribute="width" secondItem="zOY-V0-7oI" secondAttribute="width" id="62T-Vo-rCX"/>
+                            <constraint firstItem="BXh-8q-TXd" firstAttribute="centerY" secondItem="zOY-V0-7oI" secondAttribute="centerY" id="9RY-c7-RtD"/>
+                            <constraint firstItem="BXh-8q-TXd" firstAttribute="centerX" secondItem="zOY-V0-7oI" secondAttribute="centerX" id="VyY-Ei-NXv"/>
+                            <constraint firstItem="BXh-8q-TXd" firstAttribute="height" secondItem="zOY-V0-7oI" secondAttribute="height" id="fzb-GJ-5tO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="vLc-IU-HPM"/>

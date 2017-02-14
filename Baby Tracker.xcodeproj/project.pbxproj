@@ -190,20 +190,6 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
-		4330FB541DF1B3DA00737A7F /* Pumping */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Pumping;
-			sourceTree = "<group>";
-		};
-		4330FB551DF1B3E600737A7F /* Bottle */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Bottle;
-			sourceTree = "<group>";
-		};
 		433AF9241E40CBDC00AD654C /* BarGraphLollipop */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,8 +369,6 @@
 			children = (
 				43FCAA841DD0BC70003872BA /* Profile.swift */,
 				4326BA581E04C1F0005604A9 /* Feeding.swift */,
-				4330FB551DF1B3E600737A7F /* Bottle */,
-				4330FB541DF1B3DA00737A7F /* Pumping */,
 			);
 			name = Model;
 			sourceTree = "<group>";
