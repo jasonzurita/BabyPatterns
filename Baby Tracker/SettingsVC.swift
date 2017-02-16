@@ -9,23 +9,67 @@
 import UIKit
 import Firebase
 
-class SettingsVC: UIViewController {
+class SettingsVC: UITableViewController {
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
     
-    fileprivate let settingsList = ["Name", "Baby Name", "Baby DOB", "Email", "Reset Password", "Get rid of ads", "App Suggestions" ,"App Version", "Logout"]
+    //cells
+    @IBOutlet weak var resetPasswordCell: UITableViewCell!
+    @IBOutlet weak var contactSupportCell: UITableViewCell!
+    @IBOutlet weak var logoutCell: UITableViewCell!
+    
+    //text fileds
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var babyNameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        emailTextField.text = "example@example.com"
+        let footerView = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        footerView.text = "App version: awesome.awesome"
+        tableView.tableFooterView = footerView
     }
     
-    @IBAction func signOut(_ sender: Any) {
-        let firebaseAuth = FIRAuth.auth()
+    @IBAction func emailTextFieldDidFinishEditing(_ sender: UITextField) {
+    }
+    @IBAction func nameTextFieldDidFinishEditing(_ sender: UITextField) {
+    }
+    
+    @IBAction func babyNameTextFieldDidFinishEditing(_ sender: UITextField) {
+    }
+    
+    @IBAction func turnOffAdsSwitchPressed(_ sender: UISwitch) {
+    }
+}
+
+extension SettingsVC {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = tableView.cellForRow(at: indexPath)
         
+        if selectedCell == resetPasswordCell {
+            resetPassword()
+        } else if selectedCell == contactSupportCell {
+            contactSupport()
+        } else if selectedCell == logoutCell {
+            logout()
+        } else {
+            print("Non static cell selected...")
+        }
+    }
+    
+    private func resetPassword() {
+        
+    }
+    
+    private func contactSupport() {
+        
+    }
+    
+    private func logout() {
+        let firebaseAuth = FIRAuth.auth()
         do {
             try firebaseAuth?.signOut()
             dismiss(animated: true, completion: nil)
@@ -33,21 +77,6 @@ class SettingsVC: UIViewController {
             print ("Error signing out: \(signOutError.localizedDescription)")
         }
     }
+
 }
 
-extension SettingsVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO
-    }
-}
-
-extension SettingsVC: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingsList.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = settingsList[indexPath.row]
-        return cell
-    }
-}
