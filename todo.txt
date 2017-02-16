@@ -7,13 +7,3 @@
 7. Allow user to edit profile picture
 8. Store user sign-up details
 9. Finish settings screen
--log out
--app version
--name
--baby name
--baby profile picture
--email
--password reset
--baby dob
--get rid of adds
--app suggestions
