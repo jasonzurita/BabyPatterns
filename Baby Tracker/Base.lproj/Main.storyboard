@@ -104,7 +104,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Welcome Shannon!" id="5pV-z7-0kB">
                         <barButtonItem key="backBarButtonItem" title="Home" id="haC-5w-BwZ"/>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="V1h-pj-rdT">
+                        <barButtonItem key="rightBarButtonItem" image="settingButton" id="V1h-pj-rdT">
                             <connections>
                                 <segue destination="3QO-be-xnZ" kind="show" id="PZu-So-cd7"/>
                             </connections>
@@ -723,6 +723,7 @@
     <resources>
         <image name="featureRequestTile" width="66" height="66"/>
         <image name="feedingTile" width="66" height="66"/>
+        <image name="settingButton" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YXW-Bk-Do2"/>
