@@ -12,7 +12,7 @@ import Firebase
 class FirebaseFacade {
     
     private let shouldPrintDebugString = true
-    typealias ResponseHandler = ([(data:[String:Any],serverKey:String)]) -> Void
+    typealias ResponseHandler = ([(json:[String:Any], serverKey:String)]) -> Void
     
     private let databaseReference = FIRDatabase.database().reference()
     private var databaseReferenceHandles: [(type: FeedingType, handle:FIRDatabaseHandle)] = []
@@ -48,28 +48,28 @@ class FirebaseFacade {
         debugPrint(string: "Database configured with request type: \(requestType.rawValue)")
     }
     
-    func uploadFeedingEvent(withData data: [String:Any], requestType:FirebaseRequestType) -> String? {
+    func uploadJSON(_ json: [String:Any], requestType:FirebaseRequestType) -> String? {
         
         guard let path = pathForRequest(type: requestType) else {
-            debugPrint(string: "Failed to upload data: \(data)")
+            debugPrint(string: "Failed to upload data: \(json)")
             return nil
         }
 
         let serverKey = databaseReference.child(path).childByAutoId().key
-        debugPrint(string: "Uploading data: \(data), with key: \(serverKey)")
-        self.databaseReference.child(path).child(serverKey).setValue(data)
+        debugPrint(string: "Uploading data: \(json), with key: \(serverKey)")
+        self.databaseReference.child(path).child(serverKey).setValue(json)
         
         return serverKey
     }
     
-    func updateFeedingEvent(data: [String:Any], serverKey:String, requestType:FirebaseRequestType) {
+    func updateJSON(_ json: [String:Any], serverKey:String, requestType:FirebaseRequestType) {
         guard let path = pathForRequest(type: requestType) else {
-            debugPrint(string: "Failed to update data: \(data)")
+            debugPrint(string: "Failed to update data: \(json)")
             return
         }
 
-        debugPrint(string: "Updating data: \(data), with key: \(serverKey)")
-        databaseReference.child(path).child(serverKey).updateChildValues(data)
+        debugPrint(string: "Updating data: \(json), with key: \(serverKey)")
+        databaseReference.child(path).child(serverKey).updateChildValues(json)
     }
     
     private func pathForRequest(type:FirebaseRequestType) -> String? {

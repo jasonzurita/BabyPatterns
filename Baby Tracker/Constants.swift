@@ -32,6 +32,7 @@ struct K {
     }
     
     struct JsonFields {
+        //feeding
         static let FeedingType = "type"
         static let Side = "side"
         static let StartDate = "startDate"
@@ -40,5 +41,11 @@ struct K {
         static let PausedTime = "pausedTime"
         static let FeedingQuantity = "quantity"
         static let Duration = "duration"
+        
+        //profile
+        static let ParentName = "parentName"
+        static let BabyName = "babyName"
+        static let BabyDOB = "babyDOB"
+        static let Email = "email"
     }
 }

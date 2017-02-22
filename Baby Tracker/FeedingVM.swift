@@ -12,11 +12,11 @@ class FeedingVM: BaseVM {
     
     var feedings:[Feeding] = []
     
-    func loadData(completionHandler:@escaping (Void) -> Void) {
+    func loadFeedings(completionHandler:@escaping (Void) -> Void) {
         
         database.configureDatabase(requestType: .feedings, responseHandler: { responseArray in
             for response in responseArray {
-                self.newPotentialFeeding(json: response.data, serverKey:response.serverKey)
+                self.newPotentialFeeding(json: response.json, serverKey:response.serverKey)
             }
             completionHandler()
         })

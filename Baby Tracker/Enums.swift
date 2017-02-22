@@ -17,6 +17,7 @@ enum FeedingType : String {
 
 enum FirebaseRequestType : String {
     case feedings = "Feedings"
+    case profile = "Profile"
 }
 
 enum FeedingSide: Int {

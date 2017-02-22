@@ -15,6 +15,8 @@ class SettingsVC: UITableViewController {
         return .portrait
     }
     
+    var profile:Profile?
+    
     //cells
     @IBOutlet weak var resetPasswordCell: UITableViewCell!
     @IBOutlet weak var contactSupportCell: UITableViewCell!
@@ -27,7 +29,19 @@ class SettingsVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.text = "example@example.com"
+        
+        setupProfileUI()
+        setupFooter()
+    }
+    
+    private func setupProfileUI() {
+        guard let p = profile else { return }
+        emailTextField.text = p.email
+        nameTextField.text = p.parentName
+        babyNameTextField.text = p.babyName
+    }
+    
+    private func setupFooter() {
         let footerView = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         footerView.text = "App version: awesome.awesome"
         tableView.tableFooterView = footerView

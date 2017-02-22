@@ -112,6 +112,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="feedingTile" destination="mdO-si-g3C" id="eC2-sZ-eR4"/>
+                        <outlet property="homeScreenTitle" destination="5pV-z7-0kB" id="S2O-HF-W4C"/>
                         <outlet property="profileView" destination="jbd-pr-W9x" id="csr-4B-HuD"/>
                         <segue destination="jbw-TF-pH1" kind="show" identifier="FeedingSegue" id="mFW-By-s2g"/>
                     </connections>

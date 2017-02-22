@@ -17,7 +17,12 @@ class DispatchVC: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var feedings:FeedingVM?
+    private var feedings:FeedingVM?
+    private var profile:Profile?
+    
+    //TODO: this should be changed to be a bitwise operator
+    private var didRequestFeedings = false
+    private var didRequestProfile = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,25 +48,41 @@ class DispatchVC: UIViewController {
             print("User id: \(user.uid)")
         }
         
+        Profile.loadProfile(completionHandler: { (profile) in
+            self.didRequestProfile = true
+            self.profile = profile
+            self.userLoggedIn()
+        })
+        
         feedings = FeedingVM()
         
         //TODO: loading failed
 //        self.performSegue(withIdentifier: Constants.Segues.LoggedInSegue, sender: nil)
 
-        feedings!.loadData(completionHandler: { _ in
-            self.performSegue(withIdentifier: K.Segues.LoggedInSegue, sender: nil)
-
+        feedings!.loadFeedings(completionHandler: { _ in
+            self.didRequestFeedings = true
+            self.userLoggedIn()
         })
     }
     
     private func userLoggedOut() {
         performSegue(withIdentifier: K.Segues.LoggedOutSegue, sender: nil)
     }
+    
+    private func userLoggedIn() {
+        if didRequestFeedings && didRequestProfile {
+            performSegue(withIdentifier: K.Segues.LoggedInSegue, sender: nil)
+        }
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let navigationVC = segue.destination as? UINavigationController, let homeVC = navigationVC.topViewController as? HomeVC, let f = feedings {
-            homeVC.feedings = f
+        if let navigationVC = segue.destination as? UINavigationController, let homeVC = navigationVC.topViewController as? HomeVC {
+            homeVC.feedings = feedings
+            homeVC.profile = profile
             feedings = nil
+            profile = nil
+            didRequestProfile = false
+            didRequestFeedings = false
         }
     }
 }

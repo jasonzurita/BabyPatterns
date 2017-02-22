@@ -17,11 +17,14 @@ class HomeVC: UIViewController {
     
     //properites
     var feedings:FeedingVM?
+    var profile:Profile?
     
     //outlets
     //TODO: okay for for now, put these into a collectoin view to easily support future tile additions
     @IBOutlet weak var feedingTile: Tile!
     @IBOutlet weak var profileView: ProfileView!
+    @IBOutlet weak var homeScreenTitle: UINavigationItem!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +32,6 @@ class HomeVC: UIViewController {
         
         setupTileListeners()
     }
-    
-//    private func loadFeedingData() {
-//        feedings.loadData(completionHandler: { [weak self] in
-//            guard let strongSelf = self else { return }
-//            
-//            DispatchQueue.main.async {
-//                strongSelf.updateUI()
-//            }
-//        })
-//    }
     
     private func setupTileListeners() {
         feedingTile.didTapCallback = { [weak self] in
@@ -53,7 +46,14 @@ class HomeVC: UIViewController {
     }
     
     private func updateUI() {
+        updateProfileUI()
         updateFeedingUI()
+    }
+    
+    private func updateProfileUI() {
+        guard let p = profile else { return }
+        profileView.nameLabel.text = p.babyName
+        homeScreenTitle.title = "Welcome \(p.parentName)!"
     }
     
     private func updateFeedingUI() {
