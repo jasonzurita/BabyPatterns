@@ -73,6 +73,8 @@ class HomeVC: UIViewController {
         
         if let vc = segue.destination as? FeedingVC, let f = feedingsVM {
             vc.feedingsVM = f
+        } else if let vc = segue.destination as? SettingsVC, let p = profileVM {
+            vc.profileVM = p
         }
     }
 }

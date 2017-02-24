@@ -24,7 +24,7 @@ class FirebaseFacade {
     }
     
     func configureDatabase(requestType:FirebaseRequestType, responseHandler: @escaping (ResponseHandler)) {
-        debugPrint(string: "Configuring database...")
+        debugPrint(string: "Configuring database with request Type: \(requestType.rawValue)...")
         
         guard let path = pathForRequest(type: requestType) else {
             debugPrint(string: "Configuration Failed! no user id")

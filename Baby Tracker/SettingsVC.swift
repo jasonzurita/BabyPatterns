@@ -15,7 +15,7 @@ class SettingsVC: UITableViewController {
         return .portrait
     }
     
-    var profile:Profile?
+    var profileVM:ProfileVM?
     
     //cells
     @IBOutlet weak var resetPasswordCell: UITableViewCell!
@@ -35,7 +35,7 @@ class SettingsVC: UITableViewController {
     }
     
     private func setupProfileUI() {
-        guard let p = profile else { return }
+        guard let p = profileVM?.profile else { return }
         emailTextField.text = p.email
         nameTextField.text = p.parentName
         babyNameTextField.text = p.babyName
