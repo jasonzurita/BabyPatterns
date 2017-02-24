@@ -1,5 +1,5 @@
 //
-//  FeedingVM.swift
+//  FeedingsVM.swift
 //  Baby Tracker
 //
 //  Created by Jason Zurita on 1/8/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FeedingVM: BaseVM {
+class FeedingsVM: BaseVM {
     
     var feedings:[Feeding] = []
     

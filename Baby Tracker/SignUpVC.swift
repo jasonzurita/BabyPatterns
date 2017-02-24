@@ -15,8 +15,7 @@ class SignUpVC: UIViewController {
         return .portrait
     }
     
-    private var profile:Profile?
-    
+    private var profileVM:ProfileVM? = ProfileVM()
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var babyNameTextField: UITextField!
@@ -40,7 +39,6 @@ class SignUpVC: UIViewController {
                 return
             }
             self.signedUp(user: user)
-            //            self.setDisplayName(user!)
         }
     }
     
@@ -48,16 +46,11 @@ class SignUpVC: UIViewController {
         if let user = user {
             print("User id: \(user.uid)")
         }
-        
-        sendProfileToServer()
+
+        profileVM?.profile = makeProfile()
+        profileVM?.sendToServer()
         
         performSegue(withIdentifier: K.Segues.SignedUpSegue, sender: nil)
-    }
-    
-    private func sendProfileToServer() {
-        let firebaseFacade = FirebaseFacade()
-        profile = makeProfile()
-        firebaseFacade.uploadJSON(self.profile!.json(), requestType: .profile)
     }
     
     private func makeProfile() -> Profile {
@@ -68,9 +61,9 @@ class SignUpVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let navigationVC = segue.destination as? UINavigationController, let homeVC = navigationVC.topViewController as? HomeVC, let p = profile {
-            homeVC.profile = p
-            profile = nil
+        if let navigationVC = segue.destination as? UINavigationController, let homeVC = navigationVC.topViewController as? HomeVC {
+            homeVC.profileVM = profileVM
+            profileVM = nil
         }
     }
 }

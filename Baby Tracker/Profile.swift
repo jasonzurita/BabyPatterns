@@ -15,18 +15,15 @@ struct Profile {
     let profilePicture:UIImage
     let babyDOB:Date
     let email:String
+    let serverKey:String?
     
-    static func loadProfile(completionHandler:@escaping (Profile) -> Void) {
-        FirebaseFacade().configureDatabase(requestType: .profile, responseHandler: { responseArray in
-            //TODO: respond with completion handler if this fails
-            guard let profile = responseArray.last?.json else { return }
-            guard let bName = profile[K.JsonFields.BabyName] as? String else { return }
-            guard let pName = profile[K.JsonFields.ParentName] as? String else { return }
-            guard let email = profile[K.JsonFields.Email] as? String else { return }
-//            guard let bday = Date(timeInterval: profile["babyDOB"]) else { return }
-            
-            completionHandler(Profile(babyName: bName, parentName: pName, profilePicture: UIImage(), babyDOB: Date(), email:email))
-        })
+    init(babyName:String, parentName:String, profilePicture:UIImage, babyDOB:Date, email:String, serverKey:String? = nil) {
+        self.babyName = babyName
+        self.parentName = parentName
+        self.profilePicture = profilePicture
+        self.babyDOB = babyDOB
+        self.email = email
+        self.serverKey = serverKey
     }
     
     func json() -> [String:Any] {

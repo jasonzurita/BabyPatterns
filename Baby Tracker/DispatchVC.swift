@@ -17,8 +17,8 @@ class DispatchVC: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private var feedings:FeedingVM?
-    private var profile:Profile?
+    private var feedingsVM:FeedingsVM?
+    private var profileVM:ProfileVM?
     
     //TODO: this should be changed to be a bitwise operator
     private var didRequestFeedings = false
@@ -48,18 +48,24 @@ class DispatchVC: UIViewController {
             print("User id: \(user.uid)")
         }
         
-        Profile.loadProfile(completionHandler: { (profile) in
+        loadProfile()
+        loadFeedings()
+    }
+    
+    private func loadProfile() {
+        let p = ProfileVM()
+        profileVM = p
+        p.loadProfile(completionHandler: { _ in
             self.didRequestProfile = true
-            self.profile = profile
             self.userLoggedIn()
+            
         })
-        
-        feedings = FeedingVM()
-        
-        //TODO: loading failed
-//        self.performSegue(withIdentifier: Constants.Segues.LoggedInSegue, sender: nil)
-
-        feedings!.loadFeedings(completionHandler: { _ in
+    }
+    
+    private func loadFeedings() {
+        let f = FeedingsVM()
+        feedingsVM = f
+        f.loadFeedings(completionHandler: { _ in
             self.didRequestFeedings = true
             self.userLoggedIn()
         })
@@ -77,10 +83,10 @@ class DispatchVC: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let navigationVC = segue.destination as? UINavigationController, let homeVC = navigationVC.topViewController as? HomeVC {
-            homeVC.feedings = feedings
-            homeVC.profile = profile
-            feedings = nil
-            profile = nil
+            homeVC.feedingsVM = feedingsVM
+            homeVC.profileVM = profileVM
+            feedingsVM = nil
+            profileVM = nil
             didRequestProfile = false
             didRequestFeedings = false
         }

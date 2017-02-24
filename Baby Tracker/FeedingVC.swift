@@ -25,7 +25,7 @@ class FeedingVC: UIViewController {
     }
     
     //properties
-    weak var feedings:FeedingVM?
+    weak var feedingsVM:FeedingsVM?
     private var notificationToken:NSObjectProtocol?
     
     //outlets
@@ -87,7 +87,7 @@ class FeedingVC: UIViewController {
     }
     
     private func configureFeedingHistoryVC(vc:FeedingHistoryVC) {
-        vc.feedings = feedings
+        vc.feedingsVM = feedingsVM
     }
     
     @IBAction func unwindToFeedingVC(segue: UIStoryboardSegue) {
@@ -98,16 +98,16 @@ class FeedingVC: UIViewController {
 extension FeedingVC: FeedingInProgressDelegate {
     
     func feedingStarted(type:FeedingType, side:FeedingSide) {
-        feedings?.feedingStarted(type: type, side: side)
+        feedingsVM?.feedingStarted(type: type, side: side)
     }
     
     func feedingEnded(type:FeedingType, side:FeedingSide) {
-        feedings?.feedingEnded(type: type, side: side)
+        feedingsVM?.feedingEnded(type: type, side: side)
         showFeedingSavedToast()
     }
     
     func updateFeedingInProgress(type: FeedingType, side: FeedingSide, isPaused: Bool) {
-        feedings?.updateFeedingInProgress(type: type, side: side, isPaused: isPaused)
+        feedingsVM?.updateFeedingInProgress(type: type, side: side, isPaused: isPaused)
     }
     
     private func showFeedingSavedToast() {
@@ -120,7 +120,7 @@ extension FeedingVC: FeedingInProgressDelegate {
 
 extension FeedingVC: FeedingsDataSource {
     func lastFeeding(type: FeedingType) -> Feeding? {
-        return feedings?.lastFeeding(type: type)
+        return feedingsVM?.lastFeeding(type: type)
     }
 }
 

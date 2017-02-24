@@ -15,11 +15,9 @@ class HomeVC: UIViewController {
         return .portrait
     }
     
-    //properites
-    var feedings:FeedingVM?
-    var profile:Profile?
+    var feedingsVM:FeedingsVM?
+    var profileVM:ProfileVM?
     
-    //outlets
     //TODO: okay for for now, put these into a collectoin view to easily support future tile additions
     @IBOutlet weak var feedingTile: Tile!
     @IBOutlet weak var profileView: ProfileView!
@@ -51,13 +49,13 @@ class HomeVC: UIViewController {
     }
     
     private func updateProfileUI() {
-        guard let p = profile else { return }
+        guard let p = profileVM?.profile else { return }
         profileView.nameLabel.text = p.babyName
         homeScreenTitle.title = "Welcome \(p.parentName)!"
     }
     
     private func updateFeedingUI() {
-        guard let f = feedings else { return }
+        guard let f = feedingsVM else { return }
         
         let lastSide = f.lastFeedingSide()
         var sideText = lastSide.asText()
@@ -73,8 +71,8 @@ class HomeVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let vc = segue.destination as? FeedingVC, let f = feedings {
-            vc.feedings = f
+        if let vc = segue.destination as? FeedingVC, let f = feedingsVM {
+            vc.feedingsVM = f
         }
     }
 }

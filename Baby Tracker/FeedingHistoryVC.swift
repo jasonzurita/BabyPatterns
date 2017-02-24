@@ -32,7 +32,7 @@ class FeedingHistoryVC: UIViewController {
         return screenWidth / CGFloat(screenTimeWindowSeconds)
     }
 
-    weak var feedings:FeedingVM?
+    weak var feedingsVM:FeedingsVM?
 
     @IBOutlet weak var scrollView: UIScrollView!
 
@@ -43,7 +43,7 @@ class FeedingHistoryVC: UIViewController {
     }
     
     private func setupGraph() {
-        guard let allFeedings = feedings?.feedingsMatching(type: .nursing, isFinished: true) else {
+        guard let allFeedings = feedingsVM?.feedingsMatching(type: .nursing, isFinished: true) else {
             print("no feedings to show...")
             return }
 

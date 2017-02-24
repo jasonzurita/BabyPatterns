@@ -1,5 +1,5 @@
 //
-//  FeedingVM+FeedingInProgress.swift
+//  FeedingsVM+FeedingInProgress.swift
 //  Baby Tracker
 //
 //  Created by Jason Zurita on 12/19/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension FeedingVM {
+extension FeedingsVM {
     
     func feedingStarted(type:FeedingType, side:FeedingSide) {
         guard feedingInProgress(type: type) == nil else {

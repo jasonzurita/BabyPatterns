@@ -1,5 +1,5 @@
 //
-//  FeedingVM+Summary.swift
+//  FeedingsVM+Summary.swift
 //  Baby Tracker
 //
 //  Created by Jason Zurita on 12/19/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension FeedingVM {
+extension FeedingsVM {
 
     func feedingsMatching(type:FeedingType, isFinished:Bool) -> [Feeding] {
         return feedings.filter { $0.type == type && $0.isFinished == isFinished }
