@@ -48,14 +48,28 @@ class SettingsVC: UITableViewController {
     }
     
     @IBAction func emailTextFieldDidFinishEditing(_ sender: UITextField) {
+        guard let email = sender.text, email.validateEmail() else { fieldNotValid(message:"Invalid email. Try again."); return }
+        profileVM?.profile?.email = email
+        profileVM?.profileUpdated()
     }
+    
     @IBAction func nameTextFieldDidFinishEditing(_ sender: UITextField) {
+        guard let name = sender.text else { return }
+        profileVM?.profile?.parentName = name
+        profileVM?.profileUpdated()
     }
     
     @IBAction func babyNameTextFieldDidFinishEditing(_ sender: UITextField) {
+        guard let name = sender.text else { return }
+        profileVM?.profile?.babyName = name
+        profileVM?.profileUpdated()
     }
     
     @IBAction func turnOffAdsSwitchPressed(_ sender: UISwitch) {
+    }
+    
+    private func fieldNotValid(message:String) {
+        //present popup here
     }
 }
 

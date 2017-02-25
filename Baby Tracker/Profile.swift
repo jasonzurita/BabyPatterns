@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 struct Profile {
-    let babyName:String
-    let parentName:String
-    let profilePicture:UIImage
-    let babyDOB:Date
-    let email:String
-    let serverKey:String?
+    var babyName:String
+    var parentName:String
+    var profilePicture:UIImage
+    var babyDOB:Date
+    var email:String
+    var serverKey:String?
     
     init(babyName:String, parentName:String, profilePicture:UIImage, babyDOB:Date, email:String, serverKey:String? = nil) {
         self.babyName = babyName

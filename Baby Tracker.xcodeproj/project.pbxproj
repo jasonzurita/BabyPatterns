@@ -38,6 +38,7 @@
 		436939051E081A6100EA5158 /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436939041E081A6100EA5158 /* BaseVM.swift */; };
 		436939071E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436939061E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift */; };
 		43714F161E5E4DDC0055B411 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43714F151E5E4DDC0055B411 /* ProfileVM.swift */; };
+		43714F1A1E60F1E20055B411 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43714F191E60F1E20055B411 /* StringExtensions.swift */; };
 		437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437814C81DDD1B9D0047D11A /* SignInVC.swift */; };
 		43932C411E01FEB400056F83 /* FeedingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C401E01FEB400056F83 /* FeedingControl.swift */; };
 		43932C441E034E6400056F83 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C431E034E6400056F83 /* ProfileView.swift */; };
@@ -105,6 +106,7 @@
 		436939041E081A6100EA5158 /* BaseVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
 		436939061E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedingsVM+FeedingInProgress.swift"; sourceTree = "<group>"; };
 		43714F151E5E4DDC0055B411 /* ProfileVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		43714F191E60F1E20055B411 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		437814C81DDD1B9D0047D11A /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		43932C401E01FEB400056F83 /* FeedingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingControl.swift; sourceTree = "<group>"; };
 		43932C431E034E6400056F83 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				430F017E1E2D0A7900FE02FC /* DateExtensions.swift */,
 				430F017C1E2D0A5F00FE02FC /* DoubleExtensions.swift */,
 				430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */,
+				43714F191E60F1E20055B411 /* StringExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				4330FB5B1DF1B4A300737A7F /* FirebaseFacade.swift in Sources */,
 				436939021E081A1700EA5158 /* FeedingsVM+Summary.swift in Sources */,
 				430F017D1E2D0A5F00FE02FC /* DoubleExtensions.swift in Sources */,
+				43714F1A1E60F1E20055B411 /* StringExtensions.swift in Sources */,
 				437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */,
 				43FCAA851DD0BC70003872BA /* Profile.swift in Sources */,
 				43A1C9041DFDFFFA008C5C2F /* BottleVC.swift in Sources */,

@@ -11,25 +11,28 @@ import UIKit
 class ProfileVM: BaseVM {
     var profile:Profile?
     
-    
-    
     func loadProfile(completionHandler:@escaping (Void) -> Void) {
         FirebaseFacade().configureDatabase(requestType: .profile, responseHandler: { responseArray in
             //TODO: respond with completion handler if this fails
-            guard let profile = responseArray.last?.json else { completionHandler(); return }
-            guard let babyName = profile[K.JsonFields.BabyName] as? String else { completionHandler(); return  }
-            guard let parentName = profile[K.JsonFields.ParentName] as? String else { completionHandler(); return  }
-            guard let email = profile[K.JsonFields.Email] as? String else { completionHandler(); return  }
-            guard let babyDOB = Date(timeInterval: profile[K.JsonFields.BabyDOB]) else { completionHandler(); return  }
+            guard let data = responseArray.last else { completionHandler(); return }
+            guard let babyName = data.json[K.JsonFields.BabyName] as? String else { completionHandler(); return  }
+            guard let parentName = data.json[K.JsonFields.ParentName] as? String else { completionHandler(); return  }
+            guard let email = data.json[K.JsonFields.Email] as? String else { completionHandler(); return  }
+            guard let babyDOB = Date(timeInterval: data.json[K.JsonFields.BabyDOB]) else { completionHandler(); return  }
             
-            self.profile = Profile(babyName: babyName, parentName: parentName, profilePicture: UIImage(), babyDOB: babyDOB, email: email)
+            self.profile = Profile(babyName: babyName, parentName: parentName, profilePicture: UIImage(), babyDOB: babyDOB, email: email, serverKey: data.serverKey)
             
             completionHandler()
         })
     }
     
     func sendToServer() {
-        guard let p = profile else { return }
-        database.uploadJSON(p.json(), requestType: .profile)
+        guard let p = profile else { print("No profile to send to server..."); return }
+        profile?.serverKey = database.uploadJSON(p.json(), requestType: .profile)
+    }
+    
+    func profileUpdated() {
+        guard let p = profile, let serverKey = p.serverKey else { print("Error updating profile..."); return }
+        database.updateJSON(p.json(), serverKey: serverKey, requestType: .profile)
     }
 }
