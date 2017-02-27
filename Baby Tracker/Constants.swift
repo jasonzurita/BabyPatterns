@@ -11,6 +11,7 @@ struct K {
         static let SignIn = "SignInVC"
     }
     
+    //TODO: consider turn segues and constants in to enums
     struct Segues {
         //app launch
         static let LoggedInSegue = "LoggedInSegue"
@@ -29,6 +30,9 @@ struct K {
         //feeding vc
         static let FeedingHistorySegue = "FeedingHistorySegue"
         static let UnwindToFeedingVCSegue = "UnwindToFeedingVCSegue"
+        
+        //edit profile image
+        static let EditProfileImageSegue = "EditProfileImageSegue"
     }
     
     struct JsonFields {

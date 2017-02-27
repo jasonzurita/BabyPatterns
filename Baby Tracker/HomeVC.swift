@@ -17,6 +17,7 @@ class HomeVC: UIViewController {
     
     var feedingsVM:FeedingsVM?
     var profileVM:ProfileVM?
+    var profilePhotoCandidate:UIImage?
     
     //TODO: okay for for now, put these into a collectoin view to easily support future tile additions
     @IBOutlet weak var feedingTile: Tile!
@@ -75,6 +76,8 @@ class HomeVC: UIViewController {
             vc.feedingsVM = f
         } else if let vc = segue.destination as? SettingsVC, let p = profileVM {
             vc.profileVM = p
+        } else if let vc = segue.destination as? EditProfileImageVC, let i = profilePhotoCandidate {
+            vc.imageCandidate = i
         }
     }
 }
@@ -101,7 +104,6 @@ extension HomeVC: ProfileViewDelegate {
         actionSheet.addAction(cancelOption)
         
         present(actionSheet, animated: true, completion: nil)
-
     }
     
     private func getProfileImage(sourceType: UIImagePickerControllerSourceType) {
@@ -115,6 +117,8 @@ extension HomeVC: ProfileViewDelegate {
 extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        profileView.imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        profilePhotoCandidate = image
+        performSegue(withIdentifier: K.Segues.EditProfileImageSegue, sender: nil)
     }
 }
