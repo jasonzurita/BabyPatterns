@@ -37,6 +37,9 @@ class ProfileView: UIView {
         loadNib()
         view.frame = bounds
         addSubview(view)
+        
+        imageView.layer.cornerRadius = imageView.frame.height * 0.5
+        imageView.layer.masksToBounds = true
     }
     
     @IBAction func changeProfileImageButtonTapped(_ sender: UIButton) {

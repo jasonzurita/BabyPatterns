@@ -68,7 +68,7 @@ class FirebaseFacade {
             return
         }
 
-        debugPrint(string: "Updating data: \(json), with key: \(serverKey)")
+        debugPrint(string: "Updating json: \(json), with key: \(serverKey)")
         databaseReference.child(path).child(serverKey).updateChildValues(json)
     }
     

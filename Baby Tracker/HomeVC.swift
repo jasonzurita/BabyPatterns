@@ -49,10 +49,11 @@ class HomeVC: UIViewController {
         updateFeedingUI()
     }
     
-    private func updateProfileUI() {
+    internal func updateProfileUI() {
         guard let p = profileVM?.profile else { return }
         profileView.nameLabel.text = p.babyName
         homeScreenTitle.title = "Welcome \(p.parentName)!"
+        profileView.imageView.image = p.profilePicture
     }
     
     private func updateFeedingUI() {
@@ -78,6 +79,7 @@ class HomeVC: UIViewController {
             vc.profileVM = p
         } else if let vc = segue.destination as? EditProfileImageVC, let i = profilePhotoCandidate {
             vc.imageCandidate = i
+            vc.delegate = self
         }
     }
 }
@@ -114,11 +116,42 @@ extension HomeVC: ProfileViewDelegate {
     }
 }
 
+extension HomeVC:EditProfileImageDelegate {
+    func profileImageEdited(image: UIImage) {
+        profileVM?.updateProfilePhoto(image:image)
+        updateProfileUI()
+    }
+}
+
 extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        
         profilePhotoCandidate = image
         performSegue(withIdentifier: K.Segues.EditProfileImageSegue, sender: nil)
+    }
+    
+    private func rotatedImage(image:UIImage, orientation:UIImageOrientation) -> UIImage {
+        
+        UIGraphicsBeginImageContext(image.size)
+        
+        let context = UIGraphicsGetCurrentContext()
+        
+        if (orientation == .right) {
+            context!.rotate(by: CGFloat(90)/CGFloat(180) * CGFloat(M_PI))
+        } else if (orientation == .left) {
+            context!.rotate(by: -CGFloat(90)/CGFloat(180) * CGFloat(M_PI))
+
+        } else if (orientation == .down) {
+            // NOTHING
+        } else if (orientation == .up) {
+            context!.rotate(by: CGFloat(90)/CGFloat(180) * CGFloat(M_PI))
+        }
+        
+        image.draw(at: CGPoint(x: 0, y: 0))
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img!
     }
 }

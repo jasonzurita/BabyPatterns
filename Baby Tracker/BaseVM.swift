@@ -12,6 +12,7 @@ class BaseVM {
     
     private let shouldPrintDebugString = true
     let database = FirebaseFacade()
+    let storage = FirebaseStorageFacade()
 
     func debugPrint(string:String) {
         if shouldPrintDebugString {

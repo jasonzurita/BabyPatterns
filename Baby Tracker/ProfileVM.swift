@@ -26,6 +26,12 @@ class ProfileVM: BaseVM {
         })
     }
     
+    func updateProfilePhoto(image:UIImage) {
+        profile?.profilePicture = image
+        let data = UIImagePNGRepresentation(image)
+        storage.uploadData(data: data!, requestType: .profilePhoto)
+    }
+    
     func sendToServer() {
         guard let p = profile else { print("No profile to send to server..."); return }
         profile?.serverKey = database.uploadJSON(p.json(), requestType: .profile)
