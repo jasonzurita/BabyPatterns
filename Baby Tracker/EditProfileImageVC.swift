@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ImageIO
 
 protocol EditProfileImageDelegate: class {
     func profileImageEdited(image:UIImage)
@@ -16,37 +17,8 @@ class EditProfileImageVC: UIViewController {
 
     weak var delegate:EditProfileImageDelegate?
     var imageCandidate:UIImage!
-    private var cutoutCenter = CGPoint(x: UIScreen.main.bounds.size.width * 0.5, y: UIScreen.main.bounds.size.height * 0.5)
-//    private var cropRect:CGRect? {
-//        guard let image = profileImageView.image, let imageFrame = profileImageView.imageFrame() else { return nil }
-//        
-//        let imageToViewScale = image.size.width/view.frame.width
-//        let zoomScale = 1/scrollView.zoomScale
-//        let radius = cutoutCenter.x * 0.9
-//        let frame = CGRect(x: cutoutCenter.x - radius, y: cutoutCenter.y - radius, width: radius * 2, height: radius * 2)
-//
-//        let x = (scrollView.contentOffset.x + frame.origin.x - imageFrame.origin.x) * zoomScale * imageToViewScale
-//        let y = (scrollView.contentOffset.y + frame.origin.y - imageFrame.origin.y) * zoomScale * imageToViewScale
-//        let width = frame.size.width * zoomScale * imageToViewScale
-//        let height = frame.size.height * zoomScale * imageToViewScale
-//        return CGRect(x: x, y: y, width: width, height: height)
-//    }
-    
-    var cropRect:CGRect{
-        get{
-            let factor = profileImageView.image!.size.width/view.frame.width
-            let scale = 1/scrollView.zoomScale
-            let imageFrame = profileImageView.imageFrame()!
-                    let radius = cutoutCenter.x * 0.9
+    fileprivate var cutoutCenter = CGPoint(x: UIScreen.main.bounds.size.width * 0.5, y: UIScreen.main.bounds.size.height * 0.5)
 
-                    let frame = CGRect(x: cutoutCenter.x - radius, y: cutoutCenter.y - radius, width: radius * 2 * factor, height: radius * 2 * factor)
-            let x = (scrollView.contentOffset.x) * scale
-            let y = (scrollView.contentOffset.y) * scale
-            let width = frame.size.width * scale
-            let height = frame.size.height * scale
-            return CGRect(x: x, y: y, width: width, height: height)
-        }
-    }
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var overlayView: UIView!
@@ -94,9 +66,9 @@ class EditProfileImageVC: UIViewController {
     
     private func cropImage(_ image:UIImage) -> UIImage? {
         guard let cgImage = image.cgImage else { return nil }
-        guard let croppedCGImage = cgImage.cropping(to: cropRect) else { return nil }
+        guard let croppedCGImage = resizeOption2(image: image) else { return nil }
         
-        return UIImage(cgImage: croppedCGImage)
+        return croppedCGImage
     }
     
     @IBAction func dismissViewController(_ sender: UIButton) {
@@ -109,3 +81,74 @@ extension EditProfileImageVC: UIScrollViewDelegate {
         return profileImageView
     }
 }
+
+//image resizing
+extension EditProfileImageVC {
+    var cropRect1:CGRect{
+        get{
+            let factor = profileImageView.image!.size.width/view.frame.width
+            let scale = 1/scrollView.zoomScale
+            let imageFrame = profileImageView.imageFrame()!
+            let radius = cutoutCenter.x * 0.9
+            
+            let frame = CGRect(x: cutoutCenter.x - radius, y: cutoutCenter.y - radius, width: radius * 2 * factor, height: radius * 2 * factor)
+            let x = (scrollView.contentOffset.x) * scale
+            let y = (scrollView.contentOffset.y) * scale
+            let width = frame.size.width * scale
+            let height = frame.size.height * scale
+            return CGRect(x: x, y: y, width: width, height: height)
+        }
+    }
+    
+    private var cropRect2:CGRect {
+        guard let image = profileImageView.image, let imageFrame = profileImageView.imageFrame() else { return CGRect.zero }
+        
+        let imageToViewScale = image.size.width/view.frame.width
+        let zoomScale = 1/scrollView.zoomScale
+        let radius = cutoutCenter.x * 0.9
+        let frame = CGRect(x: cutoutCenter.x - radius, y: cutoutCenter.y - radius, width: radius * 2, height: radius * 2)
+        
+        let x = (scrollView.contentOffset.x + frame.origin.x - imageFrame.origin.x) * zoomScale * imageToViewScale
+        let y = (scrollView.contentOffset.y + frame.origin.y - imageFrame.origin.y) * zoomScale * imageToViewScale
+        let width = frame.size.width * zoomScale * imageToViewScale
+        let height = frame.size.height * zoomScale * imageToViewScale
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
+    
+    fileprivate func resizeOption1(image:UIImage) -> UIImage? {
+        // Define thumbnail size
+        let size = cropRect2.size
+        
+        // Define rect for thumbnail
+        let scale = max(size.width/image.size.width, size.height/image.size.height)
+        let width = image.size.width * scale
+        let height = image.size.height * scale
+        let x = (size.width - width) / CGFloat(2)
+        let y = (size.height - height) / CGFloat(2)
+        let thumbnailRect = CGRect(x: x, y: y, width: width, height: height)
+        
+        // Generate thumbnail from image
+        UIGraphicsBeginImageContextWithOptions(cropRect2.size, false, 0)
+        image.draw(in: cropRect2)
+        let thumbnail = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return thumbnail
+    }
+    
+    fileprivate func resizeOption2(image:UIImage) -> UIImage? {
+        let data = UIImageJPEGRepresentation(image, 0)
+
+        if let imageSource = CGImageSourceCreateWithData(data as! CFData, nil) {
+            let options: [NSString: NSObject] = [
+                kCGImageSourceThumbnailMaxPixelSize: (max(cropRect1.size.width, cropRect1.size.height) * 0.25) as NSObject,
+                kCGImageSourceCreateThumbnailFromImageAlways: true as NSObject,
+                kCGImageSourceCreateThumbnailWithTransform: true as NSObject
+            ]
+            
+            return CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary?).flatMap { UIImage(cgImage: $0) }
+        }
+        return nil
+    }
+    
+}
+
