@@ -32,6 +32,8 @@ class DispatchVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let user = FIRAuth.auth()?.currentUser {
+            didRequestProfile = false
+            didRequestFeedings = false
             self.userLoggedIn(user: user)
         } else {
             userLoggedOut()

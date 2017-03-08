@@ -12,12 +12,13 @@ import UIKit
 struct Profile {
     var babyName:String
     var parentName:String
-    var profilePicture:UIImage
     var babyDOB:Date
     var email:String
     var serverKey:String?
+    var profilePicture:UIImage?
+
     
-    init(babyName:String, parentName:String, profilePicture:UIImage, babyDOB:Date, email:String, serverKey:String? = nil) {
+    init(babyName:String, parentName:String, babyDOB:Date, email:String, serverKey:String? = nil, profilePicture:UIImage? = nil) {
         self.babyName = babyName
         self.parentName = parentName
         self.profilePicture = profilePicture

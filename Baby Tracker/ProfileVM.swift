@@ -20,16 +20,28 @@ class ProfileVM: BaseVM {
             guard let email = data.json[K.JsonFields.Email] as? String else { completionHandler(); return  }
             guard let babyDOB = Date(timeInterval: data.json[K.JsonFields.BabyDOB]) else { completionHandler(); return  }
             
-            self.profile = Profile(babyName: babyName, parentName: parentName, profilePicture: UIImage(), babyDOB: babyDOB, email: email, serverKey: data.serverKey)
+            self.profile = Profile(babyName: babyName, parentName: parentName, babyDOB: babyDOB, email: email, serverKey: data.serverKey)
             
             completionHandler()
+        })
+        
+        FirebaseStorageFacade().download(requestType: .profilePhoto, callback: { (data, error) in
+            guard let data = data else {
+                if let e = error {
+                    print(e.localizedDescription)
+                }
+                return
+            }
+            if let image = UIImage(data: data) {
+                self.profile?.profilePicture = image
+            }
         })
     }
     
     func updateProfilePhoto(image:UIImage) {
         profile?.profilePicture = image
         let data = UIImagePNGRepresentation(image)
-        storage.uploadData(data: data!, requestType: .profilePhoto)
+//        storage.uploadData(data: data!, requestType: .profilePhoto)
     }
     
     func sendToServer() {

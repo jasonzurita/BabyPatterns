@@ -63,7 +63,6 @@ class SignInVC: UIViewController {
         present(prompt, animated: true, completion: nil)
     }
     
-    
     @IBAction func signUp(_ sender: UIButton) {
         performSegue(withIdentifier: K.Segues.SignUpSegue, sender: nil)
     }
