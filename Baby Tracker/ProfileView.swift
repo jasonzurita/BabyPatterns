@@ -38,11 +38,13 @@ class ProfileView: UIView {
         view.frame = bounds
         addSubview(view)
         
-//        imageView.layer.masksToBounds = true
+        imageView.layer.masksToBounds = true
+//        imageView.layer.borderColor = UIColor.blue.cgColor
+//        imageView.layer.borderWidth = 4.0
     }
     
     override func draw(_ rect: CGRect) {
-//        imageView.layer.cornerRadius = imageView.frame.height * 0.5
+        imageView.layer.cornerRadius = imageView.frame.height * 0.5
     }
     
     @IBAction func changeProfileImageButtonTapped(_ sender: UIButton) {

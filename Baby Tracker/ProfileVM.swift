@@ -41,7 +41,7 @@ class ProfileVM: BaseVM {
     func updateProfilePhoto(image:UIImage) {
         profile?.profilePicture = image
         let data = UIImagePNGRepresentation(image)
-//        storage.uploadData(data: data!, requestType: .profilePhoto)
+        storage.uploadData(data: data!, requestType: .profilePhoto)
     }
     
     func sendToServer() {

@@ -17,9 +17,10 @@ class EditProfileImageVC: UIViewController {
 
     weak var delegate:EditProfileImageDelegate?
     var imageCandidate:UIImage!
-    fileprivate var cutoutCenter = CGPoint(x: UIScreen.main.bounds.size.width * 0.5, y: UIScreen.main.bounds.size.height * 0.5)
-
+    private var cropRadius:CGFloat!
     
+    private var cropCenter = CGPoint(x: UIScreen.main.bounds.size.width * 0.5, y: UIScreen.main.bounds.size.height * 0.5)
+
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -32,6 +33,7 @@ class EditProfileImageVC: UIViewController {
         super.viewDidLoad()
         profileImageView.image = imageCandidate
         scrollView.maximumZoomScale = 4.0
+        cropRadius = cropCenter.x * 0.9
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,10 +42,8 @@ class EditProfileImageVC: UIViewController {
     }
     
     private func configureOverlay() {
-        // Create a path with the rectangle in it.
         let path = CGMutablePath()
-        let radius = cutoutCenter.x * 0.9
-        path.addArc(center: cutoutCenter, radius: radius, startAngle: 0.0, endAngle: 2 * CGFloat(M_PI), clockwise: false)
+        path.addArc(center: cropCenter, radius: cropRadius, startAngle: 0.0, endAngle: 2 * CGFloat(M_PI), clockwise: false)
         path.addRect(CGRect(x: 0, y: 0, width: overlayView.frame.width, height: overlayView.frame.height))
         
         let maskLayer = CAShapeLayer()
@@ -59,16 +59,32 @@ class EditProfileImageVC: UIViewController {
     @IBAction func saveProfilePhoto(_ sender: UIButton) {
         if let image = profileImageView.image, let editedImage = cropImage(image) {
             delegate?.profileImageEdited(image: editedImage)
-//            profileImageView.image = editedImage
         }
         dismissViewController(UIButton())
     }
     
     private func cropImage(_ image:UIImage) -> UIImage? {
-        guard let cgImage = image.cgImage else { return nil }
-        guard let croppedCGImage = cgImage.cropping(to: cropRect3) else { return nil }
+        guard let cgImage = image.cgImage, let cropRect = cropRect() else { return nil }
+        guard let croppedCGImage = cgImage.cropping(to: cropRect) else { return nil }
         
         return UIImage(cgImage: croppedCGImage)
+    }
+    
+    private func cropRect() -> CGRect? {
+        guard let imageFrame = profileImageView.imageFrame() else { return nil }
+        
+        let frame = CGRect(x: cropCenter.x - cropRadius, y: cropCenter.y - cropRadius, width: cropRadius * 2, height: cropRadius * 2)
+        
+        let imageSizeToFrameRatio = profileImageView.image!.size.width / imageFrame.width
+        
+        let y = (scrollView.contentOffset.y + frame.origin.y - imageFrame.origin.y) * imageSizeToFrameRatio
+        let x = (scrollView.contentOffset.x + frame.origin.x - imageFrame.origin.x) * imageSizeToFrameRatio
+        
+        let width = frame.width * imageSizeToFrameRatio
+        let height = frame.height * imageSizeToFrameRatio
+        
+        //print("x: \(x), y:\(y), imageSizeToFrameRatio: \(imageSizeToFrameRatio)")
+        return CGRect(x: x, y: y, width: width, height: height)
     }
     
     @IBAction func dismissViewController(_ sender: UIButton) {
@@ -80,97 +96,5 @@ extension EditProfileImageVC: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return profileImageView
     }
-}
-
-//image resizing
-extension EditProfileImageVC {
-    var cropRect3:CGRect {
-        let radius = cutoutCenter.x * 0.9
-
-        let frame = CGRect(x: cutoutCenter.x - radius, y: cutoutCenter.y - radius, width: radius * 2, height: radius * 2)
-        let imgFrame = profileImageView.imageFrame()!
-        
-        let factorX = profileImageView.image!.size.width / imgFrame.width
-        let factorY = profileImageView.image!.size.height / imgFrame.height
-        
-        let y = (frame.origin.y - imgFrame.origin.y) * factorY
-        let x = (frame.origin.x - imgFrame.origin.x) * factorX
-        
-        let width = frame.width * factorX
-        let height = frame.height * factorY
-        
-        print("x: \(x), y:\(y), factorX: \(factorX), factorY: \(factorY)")
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
-    
-    var cropRect1:CGRect{
-        get{
-            let factor = profileImageView.image!.size.width/view.frame.width
-            let scale = 1/scrollView.zoomScale
-            let imageFrame = profileImageView.imageFrame()!
-            let radius = cutoutCenter.x * 0.9
-            
-            let frame = CGRect(x: cutoutCenter.x - radius, y: cutoutCenter.y - radius, width: radius * 2, height: radius * 2)
-            
-            let x = (scrollView.contentOffset.x + frame.origin.x) * scale
-            let y = (scrollView.contentOffset.y + frame.origin.y) * scale
-            let width = frame.size.width * scale
-            let height = frame.size.height * scale
-            return CGRect(x: x, y: y, width: width, height: height)
-        }
-    }
-    
-    var cropRect2:CGRect {
-        guard let image = profileImageView.image, let imageFrame = profileImageView.imageFrame() else { return CGRect.zero }
-        
-        let imageToViewScale = image.size.width/profileImageView.frame.width
-        let zoomScale = 1/scrollView.zoomScale
-        let radius = cutoutCenter.x * 0.9
-        let frame = CGRect(x: cutoutCenter.x - radius, y: cutoutCenter.y - radius, width: radius * 2, height: radius * 2)
-        
-        let x = (scrollView.contentOffset.x + frame.origin.x - imageFrame.origin.x) * zoomScale * imageToViewScale
-        print("x:\(x)")
-        let y = (scrollView.contentOffset.y + frame.origin.y - imageFrame.origin.y) * zoomScale * imageToViewScale
-        print("y:\(y)")
-        let width = frame.size.width * zoomScale * imageToViewScale
-        let height = frame.size.height * zoomScale * imageToViewScale
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
-    
-    fileprivate func resizeOption1(image:UIImage) -> UIImage? {
-        // Define thumbnail size
-        let size = cropRect2.size
-        
-        // Define rect for thumbnail
-        let scale = max(size.width/image.size.width, size.height/image.size.height)
-        let width = image.size.width * scale
-        let height = image.size.height * scale
-        let x = (size.width - width) / CGFloat(2)
-        let y = (size.height - height) / CGFloat(2)
-        let thumbnailRect = CGRect(x: x, y: y, width: width, height: height)
-        
-        // Generate thumbnail from image
-        UIGraphicsBeginImageContextWithOptions(cropRect2.size, false, 0)
-        image.draw(in: cropRect2)
-        let thumbnail = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return thumbnail
-    }
-    
-    fileprivate func resizeOption2(image:UIImage) -> UIImage? {
-        let data = UIImageJPEGRepresentation(image, 0)
-
-        if let imageSource = CGImageSourceCreateWithData(data as! CFData, nil) {
-            let options: [NSString: NSObject] = [
-                kCGImageSourceThumbnailMaxPixelSize: (max(cropRect1.size.width, cropRect1.size.height) * 0.25) as NSObject,
-                kCGImageSourceCreateThumbnailFromImageAlways: true as NSObject,
-                kCGImageSourceCreateThumbnailWithTransform: true as NSObject
-            ]
-            
-            return CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary?).flatMap { UIImage(cgImage: $0) }
-        }
-        return nil
-    }
-    
 }
 
