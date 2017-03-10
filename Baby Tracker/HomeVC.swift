@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ImageIO
 
 class HomeVC: UIViewController {
 
@@ -128,8 +129,23 @@ extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
         
-        profilePhotoCandidate = image
+        profilePhotoCandidate = resizeOption2(image: image)
         performSegue(withIdentifier: K.Segues.EditProfileImageSegue, sender: nil)
+    }
+    
+    fileprivate func resizeOption2(image:UIImage) -> UIImage? {
+        let data = UIImageJPEGRepresentation(image, 0)
+        
+        if let imageSource = CGImageSourceCreateWithData(data as! CFData, nil) {
+            let options: [NSString: NSObject] = [
+                kCGImageSourceThumbnailMaxPixelSize: (max(image.size.width, image.size.height) * 0.5) as NSObject,
+                kCGImageSourceCreateThumbnailFromImageAlways: true as NSObject,
+                kCGImageSourceCreateThumbnailWithTransform: true as NSObject
+            ]
+            
+            return CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary?).flatMap { UIImage(cgImage: $0) }
+        }
+        return nil
     }
     
     private func rotatedImage(image:UIImage, orientation:UIImageOrientation) -> UIImage {
@@ -155,3 +171,5 @@ extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate
         return img!
     }
 }
+
+

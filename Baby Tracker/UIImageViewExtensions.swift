@@ -24,7 +24,7 @@ extension UIImageView {
             imageFrame = CGRect(x: topLeftX, y: 0, width: width, height: frame.size.height)
         } else {
             let scaleFactor = frame.size.width / imageSize.width
-            let height = frame.size.height * scaleFactor
+            let height = imageSize.height * scaleFactor
             let topLeftY = (frame.size.height - height) * 0.5
             imageFrame = CGRect(x: 0, y: topLeftY, width: frame.size.width, height: height)
         }
