@@ -1,5 +1,5 @@
 //
-//  FirebaseStorageFacade.swift
+//  StorageFacade.swift
 //  Baby Tracker
 //
 //  Created by Jason Zurita on 3/6/17.
@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class FirebaseStorageFacade {
+struct StorageFacade {
     
     private let storageReference = FIRStorage.storage().reference()
     typealias DownloadResponseHandler = (_ data:Data?, _ error:Error?) -> Void
@@ -40,7 +40,6 @@ class FirebaseStorageFacade {
         })
     }
     
-    //TODO: make both firbase facades subclasses that include this and other common code
     private func pathForRequest(type:FirebaseRequestType) -> FIRStorageReference? {
         guard let uid = FIRAuth.auth()?.currentUser?.uid else {
             return nil

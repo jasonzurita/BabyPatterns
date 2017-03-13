@@ -1,5 +1,5 @@
 //
-//  FirebaseFacade.swift
+//  DatabaseFacade.swift
 //  Baby Tracker
 //
 //  Created by Jason Zurita on 12/2/16.
@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class FirebaseFacade {
+struct DatabaseFacade {
     
     private let shouldPrintDebugString = true
     typealias ResponseHandler = ([(json:[String:Any], serverKey:String)]) -> Void
@@ -17,11 +17,11 @@ class FirebaseFacade {
     private let databaseReference = FIRDatabase.database().reference()
     private var databaseReferenceHandles: [(type: FeedingType, handle:FIRDatabaseHandle)] = []
     
-    deinit {
-        for referenceHandle in databaseReferenceHandles {
-            self.databaseReference.child(referenceHandle.type.rawValue).removeObserver(withHandle: referenceHandle.handle)
-        }
-    }
+//    deinit {
+//        for referenceHandle in databaseReferenceHandles {
+//            self.databaseReference.child(referenceHandle.type.rawValue).removeObserver(withHandle: referenceHandle.handle)
+//        }
+//    }
     
     func configureDatabase(requestType:FirebaseRequestType, responseHandler: @escaping (ResponseHandler)) {
         debugPrint(string: "Configuring database with request Type: \(requestType.rawValue)...")

@@ -12,7 +12,7 @@ class ProfileVM: BaseVM {
     var profile:Profile?
     
     func loadProfile(completionHandler:@escaping (Void) -> Void) {
-        FirebaseFacade().configureDatabase(requestType: .profile, responseHandler: { responseArray in
+        DatabaseFacade().configureDatabase(requestType: .profile, responseHandler: { responseArray in
             //TODO: respond with completion handler if this fails
             guard let data = responseArray.last else { completionHandler(); return }
             guard let babyName = data.json[K.JsonFields.BabyName] as? String else { completionHandler(); return  }
@@ -25,7 +25,7 @@ class ProfileVM: BaseVM {
             completionHandler()
         })
         
-        FirebaseStorageFacade().download(requestType: .profilePhoto, callback: { (data, error) in
+        StorageFacade().download(requestType: .profilePhoto, callback: { (data, error) in
             guard let data = data else {
                 if let e = error {
                     print(e.localizedDescription)
@@ -41,16 +41,16 @@ class ProfileVM: BaseVM {
     func updateProfilePhoto(image:UIImage) {
         profile?.profilePicture = image
         let data = UIImagePNGRepresentation(image)
-        storage.uploadData(data: data!, requestType: .profilePhoto)
+        StorageFacade().uploadData(data: data!, requestType: .profilePhoto)
     }
     
     func sendToServer() {
         guard let p = profile else { print("No profile to send to server..."); return }
-        profile?.serverKey = database.uploadJSON(p.json(), requestType: .profile)
+        profile?.serverKey = DatabaseFacade().uploadJSON(p.json(), requestType: .profile)
     }
     
     func profileUpdated() {
         guard let p = profile, let serverKey = p.serverKey else { print("Error updating profile..."); return }
-        database.updateJSON(p.json(), serverKey: serverKey, requestType: .profile)
+        DatabaseFacade().updateJSON(p.json(), serverKey: serverKey, requestType: .profile)
     }
 }

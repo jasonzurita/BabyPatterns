@@ -17,7 +17,7 @@ extension FeedingsVM {
         }
         
         var fip = Feeding(type: type, side: side, startDate: Date())
-        let serverKey = database.uploadJSON(fip.eventJson(), requestType: .feedings)
+        let serverKey = DatabaseFacade().uploadJSON(fip.eventJson(), requestType: .feedings)
         fip.serverKey = serverKey
         feedings.append(fip)
     }
@@ -59,7 +59,7 @@ extension FeedingsVM {
             debugPrint(string: "Did not update feeding on server because no server key found...")
             return
         }
-        database.updateJSON(fip.eventJson(), serverKey: serverKey, requestType: .feedings)
+        DatabaseFacade().updateJSON(fip.eventJson(), serverKey: serverKey, requestType: .feedings)
     }
     
     //Change this to provide an array for feeding timers based on type. i.e., delete side from here to simplifiy
