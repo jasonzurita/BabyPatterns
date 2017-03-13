@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ProfileVM: BaseVM {
+class ProfileVM {
+    private let shouldPrintDebugString = true
+    
     var profile:Profile?
     
     func loadProfile(completionHandler:@escaping (Void) -> Void) {
@@ -28,7 +30,7 @@ class ProfileVM: BaseVM {
         StorageFacade().download(requestType: .profilePhoto, callback: { (data, error) in
             guard let data = data else {
                 if let e = error {
-                    print(e.localizedDescription)
+                    Logger.log(message: e.localizedDescription, object: self, type: .error, shouldPrintDebugLog: self.shouldPrintDebugString)
                 }
                 return
             }
@@ -45,12 +47,17 @@ class ProfileVM: BaseVM {
     }
     
     func sendToServer() {
-        guard let p = profile else { print("No profile to send to server..."); return }
+        guard let p = profile else {
+            Logger.log(message: "No profile to send to server...", object: self, type: .warning, shouldPrintDebugLog: shouldPrintDebugString)
+            return
+        }
         profile?.serverKey = DatabaseFacade().uploadJSON(p.json(), requestType: .profile)
     }
     
     func profileUpdated() {
-        guard let p = profile, let serverKey = p.serverKey else { print("Error updating profile..."); return }
+        guard let p = profile, let serverKey = p.serverKey else {
+            Logger.log(message: "Couldn't update profile. Either no profile or no server key...", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugString)
+            return }
         DatabaseFacade().updateJSON(p.json(), serverKey: serverKey, requestType: .profile)
     }
 }

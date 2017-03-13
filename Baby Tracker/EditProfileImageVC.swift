@@ -83,7 +83,7 @@ class EditProfileImageVC: UIViewController {
         let width = frame.width * imageSizeToFrameRatio
         let height = frame.height * imageSizeToFrameRatio
         
-        //print("x: \(x), y:\(y), imageSizeToFrameRatio: \(imageSizeToFrameRatio)")
+        Logger.log(message: "x: \(x), y:\(y), imageSizeToFrameRatio: \(imageSizeToFrameRatio)", object: self, type: .info, shouldPrintDebugLog: false)
         return CGRect(x: x, y: y, width: width, height: height)
     }
     

@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 
 class SettingsVC: UITableViewController {
-
+    fileprivate let shouldPrintDebugString = true
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
@@ -84,7 +85,7 @@ extension SettingsVC {
         } else if selectedCell == logoutCell {
             logout()
         } else {
-            print("Non static cell selected...")
+            Logger.log(message: "Non static cell selected...", object: self, type: .warning, shouldPrintDebugLog: shouldPrintDebugString)
         }
     }
     
@@ -102,7 +103,7 @@ extension SettingsVC {
             try firebaseAuth?.signOut()
             dismiss(animated: true, completion: nil)
         } catch let signOutError {
-            print ("Error signing out: \(signOutError.localizedDescription)")
+            Logger.log(message: "Error signing out: \(signOutError.localizedDescription)", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugString)
         }
     }
 

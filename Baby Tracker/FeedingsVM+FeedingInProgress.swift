@@ -12,7 +12,7 @@ extension FeedingsVM {
     
     func feedingStarted(type:FeedingType, side:FeedingSide) {
         guard feedingInProgress(type: type) == nil else {
-            debugPrint(string: "Already a feeding started on this side...")
+            Logger.log(message: "Already a feeding started on this side...", object: self, type: .warning, shouldPrintDebugLog: shouldPrintDebugString)
             return
         }
         
@@ -56,7 +56,7 @@ extension FeedingsVM {
     
     private func updateFeedingOnServer(fip:Feeding) {
         guard let serverKey = fip.serverKey else {
-            debugPrint(string: "Did not update feeding on server because no server key found...")
+            Logger.log(message: "Did not update feeding on server because no server key found...", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugString)
             return
         }
         DatabaseFacade().updateJSON(fip.eventJson(), serverKey: serverKey, requestType: .feedings)
@@ -67,7 +67,7 @@ extension FeedingsVM {
         let f = feedings.filter { $0.type == type && !$0.isFinished}
         guard f.count != 0 else { return nil }
         guard f.count == 1, let feeding = f.first else {
-            debugPrint(string: "Warning! More than one feeding of the same type...")
+            Logger.log(message: "More than one feeding of the same type...", object: self, type: .warning, shouldPrintDebugLog: shouldPrintDebugString)
             return nil
         }
         return feeding

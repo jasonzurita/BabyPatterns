@@ -9,7 +9,7 @@
 import UIKit
 
 class FeedingHistoryVC: UIViewController {
-    
+    private let shouldPrintDebugLog = true
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
@@ -44,7 +44,7 @@ class FeedingHistoryVC: UIViewController {
     
     private func setupGraph() {
         guard let allFeedings = feedingsVM?.feedingsMatching(type: .nursing, isFinished: true) else {
-            print("no feedings to show...")
+            Logger.log(message: "no feedings to show...", object: self, type: .warning, shouldPrintDebugLog: shouldPrintDebugLog)
             return }
 
         let fullFeedingsWindow = dateIntervalWindow(endDate:allFeedings.first?.endDate)
@@ -66,7 +66,7 @@ class FeedingHistoryVC: UIViewController {
     private func layoutFeedings(_ feedings:[Feeding], inWindow window:DateInterval) {
         for feeding in feedings {
             guard let endDate = feeding.endDate else {
-                print("Feeding not finished, so cannot display...")
+                Logger.log(message: "Feeding not finished, so cannot display...", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugLog)
                 return
             }
             let x = xFeedingLocation(forDate: endDate, inWindow: window)

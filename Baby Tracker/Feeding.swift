@@ -81,10 +81,4 @@ struct Feeding {
         
         return pausedTime + adjustment
     }
-    
-    func debugPrint(string:String) {
-        if shouldPrintDebugString {
-            print(String(describing: "-- Debug -- \(type(of:self)): " + string))
-        }
-    }
 }

@@ -59,10 +59,4 @@ class Tile: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         didTapCallback?()
     }
-
-    private func printDebugString(string:String) {
-        if shouldPrintDebugString {
-            print("\(type(of:self)): " + string)
-        }
-    }
 }

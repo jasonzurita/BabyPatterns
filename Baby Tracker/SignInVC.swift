@@ -11,6 +11,8 @@ import FirebaseAuth
 
 class SignInVC: UIViewController {
 
+    private let shouldPrintDebugString = true
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
@@ -34,7 +36,7 @@ class SignInVC: UIViewController {
         
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
-                print(error.localizedDescription)
+                Logger.log(message: error.localizedDescription, object: self, type: .error, shouldPrintDebugLog: self.shouldPrintDebugString)
             } else {
                 self.signedIn(user: user)
             }
@@ -49,7 +51,7 @@ class SignInVC: UIViewController {
             
             FIRAuth.auth()?.sendPasswordReset(withEmail: userInput, completion: { (error) in
                 if let error = error {
-                    print(error.localizedDescription)
+                    Logger.log(message: error.localizedDescription, object: self, type: .error, shouldPrintDebugLog: self.shouldPrintDebugString)
                     return
                 }
             })
@@ -69,7 +71,7 @@ class SignInVC: UIViewController {
     
     private func signedIn(user:FIRUser?) {
         if let user = user {
-            print("User id: \(user.uid)")
+            Logger.log(message: "User id: \(user.uid)", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
         }
         performSegue(withIdentifier: K.Segues.SignedInSegue, sender: nil)
     }

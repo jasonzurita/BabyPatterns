@@ -11,6 +11,8 @@ import FirebaseAuth
 
 class DispatchVC: UIViewController {
 
+    private let shouldPrintDebugString = true
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
@@ -47,7 +49,7 @@ class DispatchVC: UIViewController {
     
     private func userLoggedIn(user:FIRUser?) {
         if let user = user {
-            print("User id: \(user.uid)")
+            Logger.log(message: "User id: \(user.uid)", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
         }
         
         loadProfile()

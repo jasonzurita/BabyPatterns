@@ -8,8 +8,8 @@
 
 import Foundation
 
-class FeedingsVM: BaseVM {
-    
+class FeedingsVM {
+    let shouldPrintDebugString = true
     var feedings:[Feeding] = []
     
     func loadFeedings(completionHandler:@escaping (Void) -> Void) {

@@ -10,7 +10,8 @@ import UIKit
 import FirebaseAuth
 
 class SignUpVC: UIViewController {
-
+    private let shouldPrintDebugString = true
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
@@ -35,7 +36,7 @@ class SignUpVC: UIViewController {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
-                print(error.localizedDescription)
+                Logger.log(message: error.localizedDescription, object: self, type: .error, shouldPrintDebugLog: self.shouldPrintDebugString)
                 return
             }
             self.signedUp(user: user)
@@ -44,7 +45,7 @@ class SignUpVC: UIViewController {
     
     private func signedUp(user:FIRUser?) {
         if let user = user {
-            print("User id: \(user.uid)")
+            Logger.log(message: "User id: \(user.uid)", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
         }
 
         profileVM?.profile = makeProfile()

@@ -24,10 +24,10 @@ struct DatabaseFacade {
 //    }
     
     func configureDatabase(requestType:FirebaseRequestType, responseHandler: @escaping (ResponseHandler)) {
-        debugPrint(string: "Configuring database with request Type: \(requestType.rawValue)...")
+        Logger.log(message: "Configuring database with request Type: \(requestType.rawValue)...", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
         
         guard let path = pathForRequest(type: requestType) else {
-            debugPrint(string: "Configuration Failed! no user id")
+            Logger.log(message: "Configuration Failed! no user id", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugString)
             return
         }
         
@@ -45,18 +45,18 @@ struct DatabaseFacade {
 //            }
 //        })
 //        databaseReferenceHandles.append((requestType, handle))
-        debugPrint(string: "Database configured with request type: \(requestType.rawValue)")
+        Logger.log(message: "Database configured with request type: \(requestType.rawValue)", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
     }
     
     func uploadJSON(_ json: [String:Any], requestType:FirebaseRequestType) -> String? {
         
         guard let path = pathForRequest(type: requestType) else {
-            debugPrint(string: "Failed to upload data: \(json)")
+            Logger.log(message: "Failed to upload data: \(json)", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugString)
             return nil
         }
 
         let serverKey = databaseReference.child(path).childByAutoId().key
-        debugPrint(string: "Uploading data: \(json), with key: \(serverKey)")
+        Logger.log(message: "Uploading data: \(json), with key: \(serverKey)", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
         self.databaseReference.child(path).child(serverKey).setValue(json)
         
         return serverKey
@@ -64,11 +64,11 @@ struct DatabaseFacade {
     
     func updateJSON(_ json: [String:Any], serverKey:String, requestType:FirebaseRequestType) {
         guard let path = pathForRequest(type: requestType) else {
-            debugPrint(string: "Failed to update data: \(json)")
+            Logger.log(message: "Failed to update data: \(json)", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugString)
             return
         }
 
-        debugPrint(string: "Updating json: \(json), with key: \(serverKey)")
+        Logger.log(message: "Updating json: \(json), with key: \(serverKey)", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
         databaseReference.child(path).child(serverKey).updateChildValues(json)
     }
     
@@ -78,11 +78,4 @@ struct DatabaseFacade {
         }
         return "/users/" + uid + "/" + type.rawValue
     }
-    
-    private func debugPrint(string:String) {
-        if shouldPrintDebugString {
-            print(String(describing: "-- Debug -- \(type(of:self)): " + string))
-        }
-    }
-    
 }

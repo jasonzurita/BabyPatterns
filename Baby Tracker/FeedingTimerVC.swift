@@ -56,7 +56,7 @@ class FeedingTimerVC: UIViewController {
             showLastFeeding(finishedFeeding:lf)
         } else {
             guard let control = lf.side == .left ? leftFeedingControl : rightFeedingControl else {
-                debugPrint(string: "No active control to resume feeding with")
+                Logger.log(message: "No active control to resume feeding with", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugString)
                 return
             }
             resumeFeeding(feedingInProgress:lf, activeControl: control)
@@ -145,12 +145,6 @@ class FeedingTimerVC: UIViewController {
         control.isActive = false
         stopTimerButton.isHidden = true
         timerLabel.end()
-    }
-    
-    fileprivate func debugPrint(string:String) {
-        if shouldPrintDebugString {
-            print(String(describing: "-- Debug -- \(type(of:self)): " + string))
-        }
     }
     
     @IBAction func editLastFeeding(_ sender: UIButton) {

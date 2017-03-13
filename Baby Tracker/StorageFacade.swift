@@ -10,22 +10,25 @@ import Foundation
 import Firebase
 
 struct StorageFacade {
-    
+    private let shouldPrintDebugString = true
     private let storageReference = FIRStorage.storage().reference()
     typealias DownloadResponseHandler = (_ data:Data?, _ error:Error?) -> Void
     
     func uploadData(data:Data, requestType type:FirebaseRequestType) {
-        print("uploading picture...")
-        guard let fullReference = pathForRequest(type: type) else { print("poop....");return }
+        Logger.log(message: "Uploading \(type.rawValue)...", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
+        guard let fullReference = pathForRequest(type: type) else {
+            Logger.log(message: "Couldn't make full storage reference for path with request type: \(type.rawValue)", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugString)
+            return
+        }
         
         // Upload the file to the path "images/rivers.jpg"
         fullReference.put(data, metadata: nil) { (metadata, error) in
             guard let metadata = metadata else {
                 // Uh-oh, an error occurred!
-                print("Failure...")
+                Logger.log(message: "Failure uploading \(type.rawValue)", object: self, type: .error, shouldPrintDebugLog: self.shouldPrintDebugString)
                 return
             }
-            print("Success")
+            Logger.log(message: "Upload complete! - \(type.rawValue)", object: self, type: .info, shouldPrintDebugLog: self.shouldPrintDebugString)
             // Metadata contains file metadata such as size, content-type, and download URL.
 //            let downloadURL = metadata.downloadURL
         }

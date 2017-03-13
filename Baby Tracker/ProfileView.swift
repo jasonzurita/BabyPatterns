@@ -39,8 +39,6 @@ class ProfileView: UIView {
         addSubview(view)
         
         imageView.layer.masksToBounds = true
-//        imageView.layer.borderColor = UIColor.blue.cgColor
-//        imageView.layer.borderWidth = 4.0
     }
     
     override func draw(_ rect: CGRect) {
