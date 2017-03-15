@@ -50,21 +50,16 @@ class FeedingTimerVC: UIViewController {
     }
 
     private func resumeFeedingIfNeeded() {
-        guard let lf = dataSource?.lastFeeding(type: feedingType) else { return }
-        
-        if lf.isFinished {
-            showLastFeeding(finishedFeeding:lf)
-        } else {
-            guard let control = lf.side == .left ? leftFeedingControl : rightFeedingControl else {
-                Logger.log(message: "No active control to resume feeding with", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugString)
-                return
-            }
-            resumeFeeding(feedingInProgress:lf, activeControl: control)
+        guard let lf = dataSource?.lastFeeding(type: feedingType), !lf.isFinished else {
+            timerLabel.changeDisplayTime(time: 0)
+            return
         }
-    }
-    
-    private func showLastFeeding(finishedFeeding:Feeding) {
-        timerLabel.displayTime(time: finishedFeeding.duration())
+        
+        guard let control = lf.side == .left ? leftFeedingControl : rightFeedingControl else {
+            Logger.log(message: "No active control to resume feeding with", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugString)
+            return
+        }
+        resumeFeeding(feedingInProgress:lf, activeControl: control)
     }
     
     private func resumeFeeding(feedingInProgress:Feeding, activeControl:FeedingControl) {
@@ -85,7 +80,7 @@ class FeedingTimerVC: UIViewController {
             return
         }
 
-        var control = FeedingControl()
+        var control:FeedingControl!
         if leftFeedingControl.isActive && sideInProgress == .left {
             control = leftFeedingControl
         } else if rightFeedingControl.isActive && sideInProgress == .right {

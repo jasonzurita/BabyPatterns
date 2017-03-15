@@ -47,7 +47,7 @@ class TimerLabel: UILabel {
         textColor = UIColor.gray
     }
     
-    func displayTime(time:TimeInterval) {
+    func changeDisplayTime(time:TimeInterval) {
         guard !isRunning else { return }
         counter = time
     }
@@ -87,6 +87,7 @@ class TimerLabel: UILabel {
         clearPauseAnimation()
         t.invalidate()
         timer = nil
+        changeDisplayTime(time: 0)
     }
     
     func pause() {
