@@ -14,7 +14,7 @@ class Logger {
     
     static func log(message:String, object:Any, type:LogType, shouldPrintDebugLog:Bool) {
         if _shouldPrintDebugLog && shouldPrintDebugLog {
-            print("\(type.rawValue) -> \(type(of:object)): message")
+            print("\(type.rawValue) -> \(type(of:object)): " + message)
         }
     }
 }
