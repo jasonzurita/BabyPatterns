@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0zI-84-9QN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0zI-84-9QN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -94,13 +94,33 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYK-oA-hBL">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rRo-wX-lhY">
+                                <rect key="frame" x="127" y="48.5" width="121" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDu-uo-2Vo">
+                                <rect key="frame" x="294" y="30" width="65" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="Ggh-0k-SZQ"/>
+                                    <constraint firstAttribute="width" secondItem="ZDu-uo-2Vo" secondAttribute="height" multiplier="1:1" id="nxT-qF-1cQ"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="exitHistory"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZDu-uo-2Vo" secondAttribute="trailing" id="G4k-Uj-eT4"/>
                             <constraint firstItem="oYK-oA-hBL" firstAttribute="width" secondItem="XlG-W5-SrI" secondAttribute="width" id="LGw-Vy-4hY"/>
                             <constraint firstItem="oYK-oA-hBL" firstAttribute="centerY" secondItem="XlG-W5-SrI" secondAttribute="centerY" id="Pvv-r0-ACf"/>
+                            <constraint firstItem="ZDu-uo-2Vo" firstAttribute="width" secondItem="ZDu-uo-2Vo" secondAttribute="height" multiplier="1:1" id="UZS-nN-csp"/>
                             <constraint firstItem="oYK-oA-hBL" firstAttribute="height" secondItem="XlG-W5-SrI" secondAttribute="height" id="VIS-sc-SG3"/>
+                            <constraint firstItem="ZDu-uo-2Vo" firstAttribute="top" secondItem="gyk-ag-FDI" secondAttribute="bottom" constant="10" id="cfu-Hb-3tJ"/>
+                            <constraint firstItem="rRo-wX-lhY" firstAttribute="centerY" secondItem="ZDu-uo-2Vo" secondAttribute="centerY" id="nXt-U9-H9G"/>
                             <constraint firstItem="oYK-oA-hBL" firstAttribute="centerX" secondItem="XlG-W5-SrI" secondAttribute="centerX" id="oho-QJ-jp7"/>
+                            <constraint firstItem="rRo-wX-lhY" firstAttribute="centerX" secondItem="XlG-W5-SrI" secondAttribute="centerX" id="r0u-x5-Cj5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -110,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXM-kk-ONY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3590" y="-436"/>
+            <point key="canvasLocation" x="3589.5999999999999" y="-436.73163418290858"/>
         </scene>
         <!--Feeding PageVC-->
         <scene sceneID="vlg-Gt-jzv">
@@ -122,6 +142,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="exitHistory" width="46" height="46"/>
         <image name="viewHistory" width="46" height="46"/>
     </resources>
 </document>
