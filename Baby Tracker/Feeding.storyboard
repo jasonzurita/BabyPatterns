@@ -70,6 +70,7 @@
                     <navigationItem key="navigationItem" title="Feedings" id="a2d-Qf-jhP"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="profileView" destination="XUG-AJ-tde" id="vDi-h3-zGn"/>
                         <outlet property="segmentedControl" destination="lHZ-wK-GNQ" id="Mo0-LI-D6l"/>
                         <segue destination="90A-Ai-swE" kind="presentation" identifier="FeedingHistorySegue" animates="NO" id="IOn-VP-bgF"/>
                     </connections>

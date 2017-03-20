@@ -26,15 +26,25 @@ class FeedingVC: UIViewController {
     
     //properties
     weak var feedingsVM:FeedingsVM?
+    var profileVM:ProfileVM?
     private var notificationToken:NSObjectProtocol?
     
     //outlets
     @IBOutlet weak var segmentedControl: SegmentedControlBar!
+    @IBOutlet weak var profileView: ProfileView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let titles = FeedingType.allValues.map { $0.rawValue }
         segmentedControl.configureSegmentedBar(titles: titles, defaultSegmentIndex:0)
+        
+        updateProfileUI()
+    }
+    
+    private func updateProfileUI() {
+        guard let p = profileVM?.profile else { return }
+        profileView.nameLabel.text = p.babyName
+        profileView.imageView.image = p.profilePicture
     }
     
     override func viewWillDisappear(_ animated: Bool) {

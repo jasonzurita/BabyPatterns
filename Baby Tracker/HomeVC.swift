@@ -76,6 +76,7 @@ class HomeVC: UIViewController {
         
         if let vc = segue.destination as? FeedingVC, let f = feedingsVM {
             vc.feedingsVM = f
+            vc.profileVM = profileVM
         } else if let vc = segue.destination as? SettingsVC, let p = profileVM {
             vc.profileVM = p
         } else if let vc = segue.destination as? EditProfileImageVC, let i = profilePhotoCandidate {
