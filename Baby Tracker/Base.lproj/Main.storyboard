@@ -399,21 +399,7 @@
                             </scrollView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58s-pY-912">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlx-re-bXs">
-                                        <rect key="frame" x="18" y="164" width="337" height="337"/>
-                                        <color key="backgroundColor" red="0.92462605450000002" green="0.1252581811" blue="0.1174131828" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="337" id="VOx-v0-BBS"/>
-                                            <constraint firstAttribute="width" constant="337" id="wBW-ue-h3a"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="Hlx-re-bXs" firstAttribute="top" secondItem="58s-pY-912" secondAttribute="top" constant="164" id="8eq-ra-3FB"/>
-                                    <constraint firstItem="Hlx-re-bXs" firstAttribute="leading" secondItem="58s-pY-912" secondAttribute="leading" constant="18" id="z42-bD-UQ3"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1v-rb-UA5">
                                 <rect key="frame" x="309" y="0.0" width="50" height="50"/>
