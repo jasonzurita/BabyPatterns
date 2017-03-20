@@ -107,7 +107,11 @@ class FeedingHistoryVC: UIViewController {
                 UIDevice.current.endGeneratingDeviceOrientationNotifications()
                 center.removeObserver(self.notificationToken!)
             }
-            
         })
     }
+    
+    @IBAction func exitHistoryButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: K.Segues.UnwindToFeedingVCSegue, sender: nil)
+    }
+    
 }

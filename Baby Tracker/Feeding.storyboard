@@ -49,6 +49,9 @@
                                     <constraint firstAttribute="height" constant="65" id="xDG-bV-197"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="viewHistory"/>
+                                <connections>
+                                    <action selector="showHistoryButtonPressed:" destination="0zI-84-9QN" eventType="touchUpInside" id="4qS-HF-rGC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,6 +112,9 @@
                                     <constraint firstAttribute="width" secondItem="ZDu-uo-2Vo" secondAttribute="height" multiplier="1:1" id="nxT-qF-1cQ"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="exitHistory"/>
+                                <connections>
+                                    <action selector="exitHistoryButtonPressed:" destination="90A-Ai-swE" eventType="touchUpInside" id="dbd-2Q-zfB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

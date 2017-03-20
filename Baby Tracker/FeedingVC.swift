@@ -69,6 +69,10 @@ class FeedingVC: UIViewController {
         })
     }
     
+    @IBAction func showHistoryButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: K.Segues.FeedingHistorySegue, sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //equip page view controller to function here
         if let vc = segue.destination as? FeedingPageVC {
