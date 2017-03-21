@@ -625,6 +625,9 @@
                                     <action selector="signIn:" destination="Uzf-Ui-YoH" eventType="touchUpInside" id="Yth-UR-aiG"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1Ib-Wn-bTc">
+                                <rect key="frame" x="177" y="232" width="20" height="20"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqi-72-3ju">
                                 <rect key="frame" x="93.5" y="593" width="187.5" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -640,6 +643,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="yMz-CR-Elv">
+                                <rect key="frame" x="177.5" y="605" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -650,8 +656,12 @@
                             <constraint firstItem="9N2-yD-Ggm" firstAttribute="top" secondItem="l8O-IT-7Aw" secondAttribute="bottom" constant="100" id="6ej-L6-6m2"/>
                             <constraint firstItem="bqi-72-3ju" firstAttribute="width" secondItem="jrz-OJ-tnk" secondAttribute="width" multiplier="0.5" id="ADC-Hz-LOa"/>
                             <constraint firstItem="cde-pw-O8j" firstAttribute="top" secondItem="bqi-72-3ju" secondAttribute="bottom" constant="30" id="IUg-2R-jUD"/>
+                            <constraint firstItem="1Ib-Wn-bTc" firstAttribute="centerY" secondItem="OlT-hd-inr" secondAttribute="centerY" id="Nb2-oj-na8"/>
                             <constraint firstItem="mIZ-lV-ESi" firstAttribute="width" secondItem="jrz-OJ-tnk" secondAttribute="width" multiplier="0.55" id="Nj5-Wu-u5N"/>
                             <constraint firstItem="bqi-72-3ju" firstAttribute="centerX" secondItem="jrz-OJ-tnk" secondAttribute="centerX" id="V9B-b4-9Jj"/>
+                            <constraint firstItem="1Ib-Wn-bTc" firstAttribute="centerX" secondItem="OlT-hd-inr" secondAttribute="centerX" id="Y67-10-YP4"/>
+                            <constraint firstItem="yMz-CR-Elv" firstAttribute="centerY" secondItem="bqi-72-3ju" secondAttribute="centerY" id="bHO-7w-4tI"/>
+                            <constraint firstItem="yMz-CR-Elv" firstAttribute="centerX" secondItem="bqi-72-3ju" secondAttribute="centerX" id="gzx-DH-Fd4"/>
                             <constraint firstItem="9N2-yD-Ggm" firstAttribute="centerX" secondItem="jrz-OJ-tnk" secondAttribute="centerX" id="hNK-jl-WWw"/>
                             <constraint firstItem="9N2-yD-Ggm" firstAttribute="width" secondItem="jrz-OJ-tnk" secondAttribute="width" multiplier="0.8" id="jbw-yJ-fOV"/>
                             <constraint firstItem="4tT-wJ-nMO" firstAttribute="top" secondItem="OlT-hd-inr" secondAttribute="bottom" constant="15" id="oBx-O2-GZo"/>
@@ -662,7 +672,9 @@
                     <connections>
                         <outlet property="emailTextField" destination="EyC-Mo-6jJ" id="nbJ-0V-25T"/>
                         <outlet property="passwordTextField" destination="zVR-Gm-BJB" id="Dbq-Yj-T68"/>
+                        <outlet property="signInActivityIndicator" destination="1Ib-Wn-bTc" id="tP1-2q-anw"/>
                         <outlet property="signInContainerView" destination="9N2-yD-Ggm" id="Ljn-9s-qcB"/>
+                        <outlet property="tryDemoActivityIndicator" destination="yMz-CR-Elv" id="1ZY-kp-FC8"/>
                         <segue destination="nTM-8P-wsE" kind="show" identifier="SignedInSegue" id="Pqf-QY-QNL"/>
                     </connections>
                 </viewController>

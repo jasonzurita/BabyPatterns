@@ -21,6 +21,11 @@ class SignInVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInContainerView: UIView!
     
+    @IBOutlet weak var signInActivityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var tryDemoActivityIndicator: UIActivityIndicatorView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSignInContainerView(containerLayer: signInContainerView.layer)
@@ -32,15 +37,39 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func signIn(_ sender: UIButton) {
-        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        signInActivityIndicator.startAnimating()
+        guard let email = emailTextField.text, let password = passwordTextField.text else {
+            signInFailed()
+            return
+        }
         
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
-                Logger.log(message: error.localizedDescription, object: self, type: .error, shouldPrintDebugLog: self.shouldPrintDebugString)
+                self.signInFailed(error: error)
             } else {
                 self.signedIn(user: user)
             }
         })
+    }
+    
+    private func signInFailed(error:Error? = nil) {
+        signInActivityIndicator.stopAnimating()
+        
+        Logger.log(message: error?.localizedDescription ?? "Trouble signing in...", object: self, type: .error, shouldPrintDebugLog: self.shouldPrintDebugString)
+
+        let alert = UIAlertController(title: "Trouble Signing In", message: "Please check your email and password and try again.", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alert.addAction(okayAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func signedIn(user:FIRUser?) {
+        signInActivityIndicator.stopAnimating()
+        
+        if let user = user {
+            Logger.log(message: "User id: \(user.uid)", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
+        }
+        performSegue(withIdentifier: K.Segues.SignedInSegue, sender: nil)
     }
     
     @IBAction func forgotPassword(_ sender: UIButton) {
@@ -69,15 +98,9 @@ class SignInVC: UIViewController {
         performSegue(withIdentifier: K.Segues.SignUpSegue, sender: nil)
     }
     
-    private func signedIn(user:FIRUser?) {
-        if let user = user {
-            Logger.log(message: "User id: \(user.uid)", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
-        }
-        performSegue(withIdentifier: K.Segues.SignedInSegue, sender: nil)
-    }
-    
     @IBAction func tryDemo(_ sender: UIButton) {
         //load demo account
+        tryDemoActivityIndicator.startAnimating()
     }
     
 }
