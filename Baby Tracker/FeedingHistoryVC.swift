@@ -43,13 +43,13 @@ class FeedingHistoryVC: UIViewController {
     }
     
     private func setupGraph() {
-        guard let allFeedings = feedingsVM?.feedingsMatching(type: .nursing, isFinished: true) else {
+        guard let feedingEvents = feedingsVM?.feedings(withTypes: [.nursing, .bottle, .pumping], isFinished: true) else {
             Logger.log(message: "no feedings to show...", object: self, type: .warning, shouldPrintDebugLog: shouldPrintDebugLog)
             return }
 
-        let fullFeedingsWindow = dateIntervalWindow(endDate:allFeedings.first?.endDate)
+        let fullFeedingsWindow = dateIntervalWindow(endDate:feedingEvents.first?.endDate)
         adjustScrollViewContentSize(width: CGFloat(abs(fullFeedingsWindow.start.timeIntervalSinceNow)) * pointsPerSecond)
-        layoutFeedings(allFeedings, inWindow: fullFeedingsWindow)
+        layoutFeedings(feedingEvents, inWindow: fullFeedingsWindow)
         adjustScrollViewContentOffset()
     }
     
@@ -113,5 +113,4 @@ class FeedingHistoryVC: UIViewController {
     @IBAction func exitHistoryButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: K.Segues.UnwindToFeedingVCSegue, sender: nil)
     }
-    
 }

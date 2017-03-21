@@ -9,35 +9,22 @@
 import Foundation
 
 extension FeedingsVM {
-
-    func feedingsMatching(type:FeedingType, isFinished:Bool) -> [Feeding] {
-        return feedings.filter { $0.type == type && $0.isFinished == isFinished }
-    }
-    
-    func finishedFeedings() -> [Feeding] {
-        return feedingsMatching(type: .nursing, isFinished: true) + feedingsMatching(type: .bottle, isFinished: true)
-    }
-    
-    func lastFeedingTime() -> Date? {
-        
-        guard let lft = finishedFeedings().last else {
-            return nil
-        }
-        
-        return lft.endDate
+//maybe overload ==
+    func feedings(withTypes types:[FeedingType], isFinished:Bool) -> [Feeding] {
+        return feedings.filter { types.contains($0.type) && $0.isFinished == isFinished }
     }
     
     func timeSinceLastFeeding() -> TimeInterval {
-        guard let lastFeedingTime = lastFeedingTime() else { return 0 }
+        guard let lastFeedingTime = feedings(withTypes: [.nursing, .bottle], isFinished: true).last?.endDate else { return 0 }
         return abs(lastFeedingTime.timeIntervalSinceNow)
     }
     
     func lastFeedingSide() -> FeedingSide {
-        return feedingsMatching(type: .nursing, isFinished: true).last?.side ?? .none
+        return feedings(withTypes: [.nursing], isFinished: true).last?.side ?? .none
     }
     
-    func averageFeedingDuration(filterWindow:DateInterval) -> TimeInterval? {
-        let f = finishedFeedings()
+    func averageNursingDuration(filterWindow:DateInterval) -> TimeInterval? {
+        let f = feedings(withTypes: [.nursing], isFinished: true)
         guard f.count > 0 else { return 0.0 }
         let sum = f.reduce(0.0, { $0 + $1.duration() })
         return sum / TimeInterval(f.count)
