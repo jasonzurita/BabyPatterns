@@ -100,6 +100,7 @@ class SignInVC: UIViewController {
     
     @IBAction func tryDemo(_ sender: UIButton) {
         //load demo account
+        //TODO: turn start animating off
         tryDemoActivityIndicator.startAnimating()
     }
     

@@ -38,8 +38,16 @@ enum FeedingSide: Int {
     }
 }
 
-enum NursingEventJsonError : Error {
+enum NursingEventJsonError: Error {
     case invalidNursingEvent
+}
+
+enum SignUpValidationError: String, Error {
+    case invalidEmail = "Invalid email entered."
+    case invalidPassword = "Invalid password entered."
+    case noNameEntered = "No name entered."
+    case noBabyNameEntered = "No baby name entered."
+    case noBabyDOBEntered = "No date of birth entered."
 }
 
 enum LogType: String {
