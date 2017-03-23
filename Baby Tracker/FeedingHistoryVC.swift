@@ -19,6 +19,7 @@ class FeedingHistoryVC: UIViewController {
     }
     
     private var notificationToken:NSObjectProtocol?
+    
     private let screenTimeWindowSeconds:TimeInterval = 24 * 60 * 60
     private let screenHeight = UIScreen.main.bounds.size.width
     private let screenWidth = UIScreen.main.bounds.size.height
@@ -47,13 +48,13 @@ class FeedingHistoryVC: UIViewController {
             Logger.log(message: "no feedings to show...", object: self, type: .warning, shouldPrintDebugLog: shouldPrintDebugLog)
             return }
 
-        let fullFeedingsWindow = dateIntervalWindow(endDate:feedingEvents.first?.endDate)
-        adjustScrollViewContentSize(width: CGFloat(abs(fullFeedingsWindow.start.timeIntervalSinceNow)) * pointsPerSecond)
-        layoutFeedings(feedingEvents, inWindow: fullFeedingsWindow)
+        let graphWindow = feedingWindow(endDate:feedingEvents.first?.endDate)
+        adjustScrollViewContentSize(width: CGFloat(abs(graphWindow.start.timeIntervalSinceNow)) * pointsPerSecond)
+        layoutFeedings(feedingEvents, inWindow: graphWindow)
         adjustScrollViewContentOffset()
     }
-    
-    private func dateIntervalWindow(endDate:Date?) -> DateInterval {
+    //Should be a little over the last feeding to allow showing of the last feeding
+    private func feedingWindow(endDate:Date?) -> DateInterval {
         let now = Date() //when? now! when now? now now!
         let past = endDate ?? Date(timeInterval: -(screenTimeWindowSeconds), since: now)
         return DateInterval(start: past, end: now)
@@ -66,7 +67,7 @@ class FeedingHistoryVC: UIViewController {
     private func layoutFeedings(_ feedings:[Feeding], inWindow window:DateInterval) {
         for feeding in feedings {
             guard let endDate = feeding.endDate else {
-                Logger.log(message: "Feeding not finished, so cannot display...", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugLog)
+                Logger.log(message: "We should only have finished feedings, but feeding not finished. Cannot display...", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugLog)
                 return
             }
             let x = xFeedingLocation(forDate: endDate, inWindow: window)
