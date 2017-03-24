@@ -103,8 +103,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome Shannon!" id="5pV-z7-0kB">
-                        <barButtonItem key="backBarButtonItem" title="Home" id="haC-5w-BwZ"/>
+                        <barButtonItem key="backBarButtonItem" title="Home" id="haC-5w-BwZ">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="settingButton" id="V1h-pj-rdT">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="3QO-be-xnZ" kind="show" id="PZu-So-cd7"/>
                             </connections>
@@ -825,9 +828,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8xn-i4-Sqo" customClass="NavigationVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bJt-Z8-I21">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="bJt-Z8-I21">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -847,4 +854,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="YXW-Bk-Do2"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
