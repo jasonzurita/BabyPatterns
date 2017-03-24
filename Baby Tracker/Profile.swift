@@ -14,16 +14,17 @@ struct Profile {
     var parentName:String
     var babyDOB:Date
     var email:String
+    let userID:String
     var serverKey:String?
     var profilePicture:UIImage?
 
-    
-    init(babyName:String, parentName:String, babyDOB:Date, email:String, serverKey:String? = nil, profilePicture:UIImage? = nil) {
+    init(babyName:String, parentName:String, babyDOB:Date, email:String, userID:String, serverKey:String? = nil, profilePicture:UIImage? = nil) {
         self.babyName = babyName
         self.parentName = parentName
         self.profilePicture = profilePicture
         self.babyDOB = babyDOB
         self.email = email
+        self.userID = userID
         self.serverKey = serverKey
     }
     
@@ -31,6 +32,7 @@ struct Profile {
         return [K.JsonFields.BabyName:babyName,
                 K.JsonFields.ParentName:parentName,
                 K.JsonFields.BabyDOB:babyDOB.timeIntervalSince1970,
-                K.JsonFields.Email:email]
+                K.JsonFields.Email:email,
+                K.JsonFields.UserID:userID]
     }
 }

@@ -49,11 +49,15 @@ class SignUpVC: UIViewController {
         }
         
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
-            if let error = error {
+            guard error == nil else {
                 self.signUpFailed(message: "", error: error)
                 return
             }
-            self.signedUp(user: user)
+            guard let u = user else {
+                self.signUpFailed(message: "Failed to create account. Please try again.")
+                return
+            }
+            self.signedUp(user: u)
         }
     }
     
@@ -75,23 +79,21 @@ class SignUpVC: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func signedUp(user:FIRUser?) {
+    private func signedUp(user:FIRUser) {
         submitActivityIndicator.stopAnimating()
-        if let user = user {
-            Logger.log(message: "User id: \(user.uid)", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
-        }
+        Logger.log(message: "User id: \(user.uid)", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
 
-        profileVM?.profile = makeProfile()
+        profileVM?.profile = makeProfile(userID:user.uid)
         profileVM?.sendToServer()
         
         performSegue(withIdentifier: K.Segues.SignedUpSegue, sender: nil)
     }
     
-    private func makeProfile() -> Profile {
+    private func makeProfile(userID:String) -> Profile {
         let parentName = nameTextField.text ?? "None"
         let babyName = babyNameTextField.text ?? "None"
         let email = emailTextField.text ?? "None"
-        return Profile(babyName: babyName, parentName: parentName, babyDOB: Date(), email:email)
+        return Profile(babyName: babyName, parentName: parentName, babyDOB: Date(), email:email, userID:userID)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
