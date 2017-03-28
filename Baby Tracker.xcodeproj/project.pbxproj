@@ -52,6 +52,7 @@
 		43A1C9051DFDFFFA008C5C2F /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
 		43A1C90B1E01ACB4008C5C2F /* CircleToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */; };
 		43A1C90D1E01CB9E008C5C2F /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */; };
+		43B002151E8A937E00810739 /* ValidationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B002141E8A937E00810739 /* ValidationTextField.swift */; };
 		43C4CE891E29130100300F13 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C4CE881E29130100300F13 /* SignUpVC.swift */; };
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
 		43E92D2D1E68D9AC008CE31E /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E92D2C1E68D9AC008CE31E /* UIImageViewExtensions.swift */; };
@@ -123,6 +124,7 @@
 		43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottleVC.xib; sourceTree = "<group>"; };
 		43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleToggleButton.swift; sourceTree = "<group>"; };
 		43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
+		43B002141E8A937E00810739 /* ValidationTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationTextField.swift; sourceTree = "<group>"; };
 		43C4CE881E29130100300F13 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		43D2BE631DCB684800895A65 /* FeedingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingVC.swift; sourceTree = "<group>"; };
 		43E92D2C1E68D9AC008CE31E /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */,
 				433AF9241E40CBDC00AD654C /* BarGraphLollipop */,
 				433AF9251E40CC8A00AD654C /* Circle.swift */,
+				43B002141E8A937E00810739 /* ValidationTextField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				435859541E227C2B00F69A0C /* FeedingsVM.swift in Sources */,
 				4314DD581DFB6DE300B3649C /* Enums.swift in Sources */,
 				43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */,
+				43B002151E8A937E00810739 /* ValidationTextField.swift in Sources */,
 				43A1C9001DFDFFBA008C5C2F /* FeedingTimerVC.swift in Sources */,
 				43037E191E3B8F6700D478AD /* FeedingHistoryVC.swift in Sources */,
 				43932C441E034E6400056F83 /* ProfileView.swift in Sources */,
