@@ -23,9 +23,18 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var submitActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var babyInfoContainer: UIView!
+    @IBOutlet weak var parentInfoContainer: UIView!
     
     override func viewDidLoad() {
+        configureSignUpContainerView(containerLayer: babyInfoContainer.layer)
+        configureSignUpContainerView(containerLayer: parentInfoContainer.layer)
         super.viewDidLoad()
+    }
+    
+    private func configureSignUpContainerView(containerLayer:CALayer) {
+        containerLayer.borderColor = UIColor(colorLiteralRed: 0, green: 153/255, blue: 255/255, alpha: 1).cgColor
+        containerLayer.masksToBounds = true
     }
     
     @IBAction func dismissButtonTapped(_ sender: UIButton) {
