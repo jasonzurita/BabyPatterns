@@ -18,10 +18,10 @@ class SignUpVC: UIViewController {
     
     private var profileVM:ProfileVM? = ProfileVM()
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var babyNameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var nameTextField: ValidationTextField!
+    @IBOutlet weak var babyNameTextField: ValidationTextField!
+    @IBOutlet weak var emailTextField: ValidationTextField!
+    @IBOutlet weak var passwordTextField: ValidationTextField!
     @IBOutlet weak var submitActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var babyInfoContainer: UIView!
     @IBOutlet weak var parentInfoContainer: UIView!
@@ -42,21 +42,17 @@ class SignUpVC: UIViewController {
     }
 
     @IBAction func submitButtonPressed(_ sender: UIButton) {
-        submitActivityIndicator.startAnimating()
+        
+        guard allTextFieldsValid() else { return }
+        
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             signUpFailed(message:"Please check your email and password and try again.")
             return
         }
         
-        do {
-            try validateSignUpCredentials()
-        } catch let error as SignUpValidationError {
-            signUpFailed(message: error.rawValue)
-            return
-        } catch {
-            signUpFailed(message: "Unkown error.")
-        }
-        
+        submitActivityIndicator.startAnimating()
+
+    
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
             guard error == nil else {
                 self.signUpFailed(message: "", error: error)
@@ -70,11 +66,8 @@ class SignUpVC: UIViewController {
         }
     }
     
-    private func validateSignUpCredentials() throws {
-        
-        guard let name = nameTextField.text, !name.isEmpty else { throw SignUpValidationError.noNameEntered }
-        
-        guard let babyName = babyNameTextField.text, !babyName.isEmpty else { throw SignUpValidationError.noBabyNameEntered }
+    private func allTextFieldsValid() -> Bool {
+        return nameTextField.validate() && babyNameTextField.validate() && emailTextField.validate() && passwordTextField.validate()
     }
     
     private func signUpFailed(message:String, error:Error? = nil) {

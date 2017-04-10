@@ -13,19 +13,14 @@ enum TextFieldType {
     case email
     case phoneNumber
     case dateOfBirth
-    case custom(() -> ValidationResult)
+    case custom(() -> Bool)
 }
 
-enum ValidationResult {
-    case success
-    case failure(String)
-}
-
-class ValidationTextField: UITextField {
+class ValidationTextField: UITextField, Shakeable {
 
     var type:TextFieldType = .text
     
-    func isValid() -> ValidationResult {
+    func validate() -> Bool {
         switch type {
         case .text:
             return textValidation()
@@ -40,21 +35,35 @@ class ValidationTextField: UITextField {
         }
     }
     
-    private func textValidation() -> ValidationResult {
-        return (text?.isEmpty ?? false ) ? .success : .failure("Empty text")
+    private func textValidation() -> Bool {
+        guard let t = text, !t.isEmpty  else {
+            shake()
+            return false
+        }
+        
+        return true
     }
     
     //TODO: implement us!
-    private func emailValidation() -> ValidationResult {
+    private func emailValidation() -> Bool {
         return textValidation()
     }
     
-    private func phoneNumberValidation() -> ValidationResult {
+    private func phoneNumberValidation() -> Bool {
         return textValidation()
     }
     
-    private func dobValidation() -> ValidationResult {
+    private func dobValidation() -> Bool {
         return textValidation()
     }
-    
 }
+
+//
+//enum SignUpValidationError: String, Error {
+//    case invalidEmail = "Invalid email entered."
+//    case invalidPassword = "Invalid password entered."
+//    case noNameEntered = "No name entered."
+//    case noBabyNameEntered = "No baby name entered."
+//    case noBabyDOBEntered = "No date of birth entered."
+//}
+

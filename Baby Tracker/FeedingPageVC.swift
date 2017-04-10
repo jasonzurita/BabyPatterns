@@ -25,7 +25,6 @@ class FeedingPageVC: UIPageViewController {
     
     fileprivate func setActivePageViewController(direction:UIPageViewControllerNavigationDirection) {
         setViewControllers([pages[segmentIndex.active]], direction: direction, animated: true)
-
     }
 }
 
