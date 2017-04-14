@@ -583,7 +583,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulz-GF-pGo">
                                         <rect key="frame" x="80.5" y="7" width="126" height="30"/>
-                                        <state key="normal" title="Create an account"/>
+                                        <state key="normal" title="Create an account">
+                                            <color key="titleColor" red="0.0" green="0.3341426253" blue="0.80068218710000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="signUp:" destination="Uzf-Ui-YoH" eventType="touchUpInside" id="B3f-6M-Yns"/>
                                             <segue destination="oVp-eR-4p2" kind="presentation" identifier="SignUpSegue" id="kz2-pb-YG2"/>
@@ -606,7 +608,9 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tT-wJ-nMO">
                                 <rect key="frame" x="115" y="279" width="144" height="30"/>
-                                <state key="normal" title="I forgot my password"/>
+                                <state key="normal" title="I forgot my password">
+                                    <color key="titleColor" red="0.0" green="0.3341426253" blue="0.80068218710000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="forgotPassword:" destination="Uzf-Ui-YoH" eventType="touchUpInside" id="jbE-NI-rMG"/>
                                 </connections>
