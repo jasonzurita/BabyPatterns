@@ -20,50 +20,43 @@ class ValidationTextField: UITextField, Shakeable {
 
     var type:TextFieldType = .text
     
-    func validate() -> Bool {
+    func isValid() -> Bool {
+        var isValid = false
+        
         switch type {
         case .text:
-            return textValidation()
+            isValid = isTextValid()
         case .email:
-            return emailValidation()
+            isValid = emailValidation()
         case .phoneNumber:
-            return phoneNumberValidation()
+            isValid = phoneNumberValidation()
         case .dateOfBirth:
-            return textValidation()
+            isValid = isTextValid()
         case .custom(let validation):
-            return validation()
-        }
-    }
-    
-    private func textValidation() -> Bool {
-        guard let t = text, !t.isEmpty  else {
-            shake()
-            return false
+            isValid = validation()
         }
         
-        return true
+        if !isValid {
+            shake()
+        }
+        
+        return isValid
+    }
+    
+    private func isTextValid() -> Bool {
+        return !(text?.isEmpty ?? true)
     }
     
     //TODO: implement us!
     private func emailValidation() -> Bool {
-        return textValidation()
+        return isTextValid()
     }
     
     private func phoneNumberValidation() -> Bool {
-        return textValidation()
+        return isTextValid()
     }
     
     private func dobValidation() -> Bool {
-        return textValidation()
+        return isTextValid()
     }
 }
-
-//
-//enum SignUpValidationError: String, Error {
-//    case invalidEmail = "Invalid email entered."
-//    case invalidPassword = "Invalid password entered."
-//    case noNameEntered = "No name entered."
-//    case noBabyNameEntered = "No baby name entered."
-//    case noBabyDOBEntered = "No date of birth entered."
-//}
-

@@ -18,8 +18,9 @@ class SignUpVC: UIViewController {
     
     private var profileVM:ProfileVM? = ProfileVM()
     
-    @IBOutlet weak var nameTextField: ValidationTextField!
     @IBOutlet weak var babyNameTextField: ValidationTextField!
+    @IBOutlet weak var babyDOBTextField: ValidationTextField!
+    @IBOutlet weak var nameTextField: ValidationTextField!
     @IBOutlet weak var emailTextField: ValidationTextField!
     @IBOutlet weak var passwordTextField: ValidationTextField!
     @IBOutlet weak var submitActivityIndicator: UIActivityIndicatorView!
@@ -67,7 +68,7 @@ class SignUpVC: UIViewController {
     }
     
     private func allTextFieldsValid() -> Bool {
-        return nameTextField.validate() && babyNameTextField.validate() && emailTextField.validate() && passwordTextField.validate()
+        return babyNameTextField.isValid() && babyDOBTextField.isValid() && nameTextField.isValid() && emailTextField.isValid() && passwordTextField.isValid()
     }
     
     private func signUpFailed(message:String, error:Error? = nil) {
