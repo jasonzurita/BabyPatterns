@@ -71,13 +71,4 @@ extension FeedingPageVC: UIPageViewControllerDataSource {
         
         return pages[nextIndex]
     }
-    
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return pages.count
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
-    }
-    
 }
