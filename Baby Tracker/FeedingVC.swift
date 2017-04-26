@@ -14,8 +14,13 @@ protocol FeedingInProgressDelegate:NSObjectProtocol {
     func updateFeedingInProgress(type:FeedingType, side:FeedingSide, isPaused:Bool)
 }
 
+protocol BottleFeedingDelegate:NSObjectProtocol {
+    func logBottleFeeding(withAmount amount:Double, time:Date)
+}
+
 protocol FeedingsDataSource:NSObjectProtocol {
     func lastFeeding(type:FeedingType) -> Feeding?
+    func remainingBottleSupply() -> Double
 }
 
 class FeedingVC: UIViewController {
@@ -95,7 +100,6 @@ class FeedingVC: UIViewController {
         page2.delegate = self
         page2.dataSource = self
         let page3 = BottleVC(nibName: "BottleVC", bundle: nil)
-        page2.feedingType = .bottle
         
         vc.pages.append(contentsOf: [page1, page2, page3])
     }
@@ -135,6 +139,10 @@ extension FeedingVC: FeedingInProgressDelegate {
 extension FeedingVC: FeedingsDataSource {
     func lastFeeding(type: FeedingType) -> Feeding? {
         return feedingsVM?.lastFeeding(type: type)
+    }
+    
+    func remainingBottleSupply() -> Double {
+        return 0.0
     }
 }
 

@@ -9,15 +9,14 @@
 import UIKit
 import Firebase
 
-//TODO: when to use a swift struct instead of a class
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        //TODO: move this into a separate initialization file
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true
         return true

@@ -9,24 +9,30 @@
 import UIKit
 
 class BottleVC: UIViewController {
+    
     fileprivate let shouldPrintDebugString = true
     
-    var feedingType:FeedingType = .bottle
+    private let _feedingType:FeedingType = .bottle
     
-    @IBOutlet weak var feedingAmountWholeNumberPickerView: UIPickerView!
-    @IBOutlet weak var feedingAmountFractionPickerView: UIPickerView!
-    
+    @IBOutlet weak var remainingAmountLabel: UILabel!
+    @IBOutlet weak var amountFedLabel: UILabel!
+    @IBOutlet weak var sliderContainerView: UIView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var slider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        slider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi * 0.5)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        
     }
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        
+    }
+    
 }
 
 extension BottleVC: UIPickerViewDelegate {
@@ -36,15 +42,5 @@ extension BottleVC: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(row)"
-    }
-}
-
-extension BottleVC: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
     }
 }
