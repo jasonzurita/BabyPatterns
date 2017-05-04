@@ -14,7 +14,10 @@ class BottleVC: UIViewController {
     
     private let _feedingType:FeedingType = .bottle
     
-    @IBOutlet weak var remainingAmountLabel: UILabel!
+    var delegate:BottleFeedingDelegate?
+    var dataSource:FeedingsDataSource?
+    
+    @IBOutlet weak var remainingSupplyLabel: UILabel!
     @IBOutlet weak var amountFedLabel: UILabel!
     @IBOutlet weak var sliderContainerView: UIView!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -23,6 +26,9 @@ class BottleVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         slider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi * 0.5)
+        
+        guard let ds = dataSource else { return }
+        remainingSupplyLabel.text = "\(ds.remainingSupply())"
     }
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {

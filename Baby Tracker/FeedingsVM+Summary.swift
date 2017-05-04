@@ -33,4 +33,10 @@ extension FeedingsVM {
     func lastFeeding(type:FeedingType) -> Feeding? {
         return feedings.filter { $0.type == type }.last
     }
+    
+    func remainingSupply() -> Double {
+        return feedings.reduce(0.0, { (partialTotal, feeding) in
+            partialTotal + feeding.supplyAmount
+        })
+    }
 }

@@ -20,7 +20,7 @@ protocol BottleFeedingDelegate:NSObjectProtocol {
 
 protocol FeedingsDataSource:NSObjectProtocol {
     func lastFeeding(type:FeedingType) -> Feeding?
-    func remainingBottleSupply() -> Double
+    func remainingSupply() -> Double
 }
 
 class FeedingVC: UIViewController {
@@ -100,7 +100,8 @@ class FeedingVC: UIViewController {
         page2.delegate = self
         page2.dataSource = self
         let page3 = BottleVC(nibName: "BottleVC", bundle: nil)
-        
+        page3.delegate = self
+        page3.dataSource = self
         vc.pages.append(contentsOf: [page1, page2, page3])
     }
     
@@ -141,8 +142,13 @@ extension FeedingVC: FeedingsDataSource {
         return feedingsVM?.lastFeeding(type: type)
     }
     
-    func remainingBottleSupply() -> Double {
-        return 0.0
+    func remainingSupply() -> Double {
+        return feedingsVM?.remainingSupply() ?? 0.0
     }
 }
 
+extension FeedingVC: BottleFeedingDelegate {
+    func logBottleFeeding(withAmount amount: Double, time: Date) {
+        //TODO
+    }
+}
