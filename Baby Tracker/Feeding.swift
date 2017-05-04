@@ -12,10 +12,11 @@ struct Feeding {
     let type:FeedingType
     let side:FeedingSide
     let startDate:Date
+    var serverKey:String?
     var endDate:Date?
     var lastPausedDate:Date?
     var pausedTime:TimeInterval
-    var serverKey:String?
+    let supplyAmount:Double
     
     let shouldPrintDebugString = true
     
@@ -26,13 +27,14 @@ struct Feeding {
     var isFinished:Bool {
         return endDate != nil
     }
-    
-    init(type:FeedingType, side:FeedingSide, startDate:Date, endDate:Date? = nil, lastPausedDate:Date? = nil, pausedTime:TimeInterval = 0.0, serverKey:String? = nil) {
+
+    init(type:FeedingType, side:FeedingSide, startDate:Date, endDate:Date? = nil, lastPausedDate:Date? = nil, supplyAmount:Double = 0.0, pausedTime:TimeInterval = 0.0, serverKey:String? = nil) {
         self.type = type
         self.side = side
         self.startDate = startDate
         self.endDate = endDate
         self.lastPausedDate = lastPausedDate
+        self.supplyAmount = supplyAmount
         self.pausedTime = pausedTime
         self.serverKey = serverKey
     }
@@ -45,18 +47,21 @@ struct Feeding {
         let endDate = Date(timeInterval:json[K.JsonFields.EndDate])
         
         let lastPausedDate = Date(timeInterval:json[K.JsonFields.LastPausedDate])
+        
+        guard let supplyAmount = json[K.JsonFields.SupplyAmount] as? Double else { return nil }
         guard let pausedTime = json[K.JsonFields.PausedTime] as? TimeInterval else { return nil }
                 
-        self.init(type:type, side:side, startDate:startDate, endDate:endDate, lastPausedDate: lastPausedDate, pausedTime:pausedTime, serverKey:serverKey)
+        self.init(type:type, side:side, startDate:startDate, endDate:endDate, lastPausedDate: lastPausedDate, supplyAmount:supplyAmount, pausedTime:pausedTime, serverKey:serverKey)
     }
     
     func eventJson() -> [String:Any] {
-        let json:[String : Any] = [K.JsonFields.FeedingType : type.rawValue,
+        let json:[String:Any] = [K.JsonFields.FeedingType : type.rawValue,
                                    K.JsonFields.Side : side.rawValue,
                                    K.JsonFields.StartDate : startDate.timeIntervalSince1970,
                                    K.JsonFields.PausedTime : pausedTime,
                                    K.JsonFields.EndDate : endDate?.timeIntervalSince1970 ?? 0.0,
-                                   K.JsonFields.LastPausedDate : lastPausedDate?.timeIntervalSince1970 ?? 0.0]
+                                   K.JsonFields.LastPausedDate : lastPausedDate?.timeIntervalSince1970 ?? 0.0,
+                                   K.JsonFields.SupplyAmount : supplyAmount]
         
         return json
     }

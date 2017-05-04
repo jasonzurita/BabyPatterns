@@ -42,6 +42,7 @@ struct K {
         static let StartDate = "startDate"
         static let EndDate = "endDate"
         static let LastPausedDate = "lastPausedDate"
+        static let SupplyAmount = "supplyAmount"
         static let PausedTime = "pausedTime"
         static let FeedingQuantity = "quantity"
         static let Duration = "duration"
