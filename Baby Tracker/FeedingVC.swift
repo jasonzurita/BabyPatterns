@@ -112,6 +112,13 @@ class FeedingVC: UIViewController {
     @IBAction func unwindToFeedingVC(segue: UIStoryboardSegue) {
 
     }
+    
+    fileprivate func showFeedingSavedToast() {
+        let toastSize:CGFloat = 150
+        let frame = CGRect(x: self.view.frame.width * 0.5 - (toastSize * 0.5), y: self.view.frame.height * 0.5 - (toastSize * 0.5), width: toastSize, height: toastSize)
+        let toast = Toast(frame: frame, text: "Saved!")
+        toast.presentInView(view: self.view)
+    }
 }
 
 extension FeedingVC: FeedingInProgressDelegate {
@@ -128,13 +135,6 @@ extension FeedingVC: FeedingInProgressDelegate {
     func updateFeedingInProgress(type: FeedingType, side: FeedingSide, isPaused: Bool) {
         feedingsVM?.updateFeedingInProgress(type: type, side: side, isPaused: isPaused)
     }
-    
-    private func showFeedingSavedToast() {
-        let toastSize:CGFloat = 150
-        let frame = CGRect(x: self.view.frame.width * 0.5 - (toastSize * 0.5), y: self.view.frame.height * 0.5 - (toastSize * 0.5), width: toastSize, height: toastSize)
-        let toast = Toast(frame: frame, text: "Saved!")
-        toast.presentInView(view: self.view)
-    }
 }
 
 extension FeedingVC: FeedingsDataSource {
@@ -150,5 +150,6 @@ extension FeedingVC: FeedingsDataSource {
 extension FeedingVC: BottleFeedingDelegate {
     func logBottleFeeding(withAmount amount: Double, time: Date) {
         //TODO
+        showFeedingSavedToast()
     }
 }

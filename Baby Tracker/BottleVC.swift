@@ -25,20 +25,25 @@ class BottleVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        slider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi * 0.5)
+        configureSlider()
         
         guard let ds = dataSource else { return }
         remainingSupplyLabel.text = "\(ds.remainingSupply())"
     }
+    
+    private func configureSlider() {
+        slider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi * 0.5)
+        slider.minimumValue = 0
+        slider.maximumValue = Float(dataSource?.remainingSupply() ?? 1.0)
+    }
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        
+        delegate?.logBottleFeeding(withAmount: Double(slider.value), time: datePicker.date)
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        
+        print("Slider value: \(sender.value)")
     }
-    
 }
 
 extension BottleVC: UIPickerViewDelegate {
