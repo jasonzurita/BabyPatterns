@@ -53,5 +53,12 @@ struct K {
         static let BabyDOB = "babyDOB"
         static let Email = "email"
         static let UserID = "userID"
+        static let DesiredMaxSupply = "desiredMaxSupply"
+    }
+    
+    struct Defaults {
+        static let DefaultDesiredMaxSupply = 50.0
+        static let BottleTopHeight = 70.0
+        static let BottleFillOverlapWithBottomFillImageHeight = 3.0
     }
 }

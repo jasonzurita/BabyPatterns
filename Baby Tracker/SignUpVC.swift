@@ -96,7 +96,7 @@ class SignUpVC: UIViewController {
         let parentName = nameTextField.text ?? "None"
         let babyName = babyNameTextField.text ?? "None"
         let email = emailTextField.text ?? "None"
-        return Profile(babyName: babyName, parentName: parentName, babyDOB: Date(), email:email, userID:userID)
+        return Profile(babyName: babyName, parentName: parentName, babyDOB: Date(), email:email, userID:userID, desiredMaxSupply:K.Defaults.DefaultDesiredMaxSupply)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

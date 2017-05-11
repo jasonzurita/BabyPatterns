@@ -32,8 +32,9 @@ class ProfileVM {
             guard let email = data.json[K.JsonFields.Email] as? String else { completionHandler(); return  }
             guard let userID = data.json[K.JsonFields.UserID] as? String else { completionHandler(); return }
             guard let babyDOB = Date(timeInterval: data.json[K.JsonFields.BabyDOB]) else { completionHandler(); return  }
+            let desiredMaxSupply = data.json[K.JsonFields.DesiredMaxSupply] as? Double ?? K.Defaults.DefaultDesiredMaxSupply
             
-            self.profile = Profile(babyName: babyName, parentName: parentName, babyDOB: babyDOB, email: email, userID:userID, serverKey: data.serverKey)
+            self.profile = Profile(babyName: babyName, parentName: parentName, babyDOB: babyDOB, email: email, userID:userID, serverKey: data.serverKey, desiredMaxSupply:desiredMaxSupply)
             
             guard let imagePath = self.profileImageURLPath, FileManager.default.fileExists(atPath: imagePath) else { completionHandler(); return }
             guard let imageData = NSData(contentsOfFile: imagePath), let image = UIImage(data: imageData as Data) else { completionHandler(); return }

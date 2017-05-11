@@ -21,6 +21,7 @@ protocol BottleFeedingDelegate:NSObjectProtocol {
 protocol FeedingsDataSource:NSObjectProtocol {
     func lastFeeding(type:FeedingType) -> Feeding?
     func remainingSupply() -> Double
+    func desiredMaxSupply() -> Double
 }
 
 class FeedingVC: UIViewController {
@@ -143,7 +144,12 @@ extension FeedingVC: FeedingsDataSource {
     }
     
     func remainingSupply() -> Double {
-        return feedingsVM?.remainingSupply() ?? 0.0
+//        return feedingsVM?.remainingSupply() ?? 0.0
+        return 25
+    }
+    
+    func desiredMaxSupply() -> Double {
+        return profileVM?.profile?.desiredMaxSupply ?? 0.0
     }
 }
 
