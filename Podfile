@@ -4,16 +4,15 @@
 
 use_frameworks!
 
-pod 'Firebase/Storage'
 pod 'Firebase/AdMob'
-
 pod 'Firebase/Crash'
-
 pod 'Firebase/RemoteConfig'
 
 #used
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
+pod 'Firebase/Storage'
+pod 'SwiftLint'
 
 target 'Baby Tracker' do
 end
