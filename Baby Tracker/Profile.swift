@@ -10,16 +10,24 @@ import Foundation
 import UIKit
 
 struct Profile {
-    var babyName:String
-    var parentName:String
-    var babyDOB:Date
-    var email:String
-    let userID:String
-    var serverKey:String?
-    var desiredMaxSupply:Double
-    var profilePicture:UIImage?
+    var babyName: String
+    var parentName: String
+    var babyDOB: Date
+    var email: String
+    let userID: String
+    var serverKey: String?
+    var desiredMaxSupply: Double
+    var profilePicture: UIImage?
 
-    init(babyName:String, parentName:String, babyDOB:Date, email:String, userID:String, serverKey:String? = nil, desiredMaxSupply:Double, profilePicture:UIImage? = nil) {
+    init(babyName: String,
+         parentName: String,
+         babyDOB: Date,
+         email: String,
+         userID: String,
+         serverKey: String? = nil,
+         desiredMaxSupply: Double,
+         profilePicture: UIImage? = nil) {
+
         self.babyName = babyName
         self.parentName = parentName
         self.profilePicture = profilePicture
@@ -29,13 +37,13 @@ struct Profile {
         self.serverKey = serverKey
         self.desiredMaxSupply = desiredMaxSupply
     }
-    
-    func json() -> [String:Any] {
-        return [K.JsonFields.BabyName:babyName,
-                K.JsonFields.ParentName:parentName,
-                K.JsonFields.BabyDOB:babyDOB.timeIntervalSince1970,
-                K.JsonFields.Email:email,
-                K.JsonFields.UserID:userID,
-                K.JsonFields.DesiredMaxSupply:desiredMaxSupply]
+
+    func json() -> [String: Any] {
+        return [K.JsonFields.BabyName: babyName,
+                K.JsonFields.ParentName: parentName,
+                K.JsonFields.BabyDOB: babyDOB.timeIntervalSince1970,
+                K.JsonFields.Email: email,
+                K.JsonFields.UserID: userID,
+                K.JsonFields.DesiredMaxSupply: desiredMaxSupply]
     }
 }

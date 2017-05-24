@@ -11,11 +11,11 @@ import UIKit
 extension UIImageView {
     func imageFrame() -> CGRect? {
         guard let imageSize = image?.size else { return nil }
-        
+
         let imageAspectRatio = imageSize.width / imageSize.height
         let viewAspectRatio = frame.size.width / frame.size.height
-        
-        var imageFrame:CGRect?
+
+        var imageFrame: CGRect?
         let shouldGetScaledImageWidth = imageAspectRatio < viewAspectRatio
         if shouldGetScaledImageWidth {
             let scaleFactor = frame.size.height / imageSize.height

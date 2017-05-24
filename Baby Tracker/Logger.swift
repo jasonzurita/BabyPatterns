@@ -8,11 +8,15 @@
 
 import Foundation
 
-class Logger {
+protocol Loggable {
+    var shouldPrintDebugLog: Bool { get }
+    func log(_ message: String, object: Any, type: LogType)
+}
 
-    private static let _shouldPrintDebugLog = true
-    
-    static func log(message:String, object:Any, type:LogType, shouldPrintDebugLog:Bool) {
+extension Loggable {
+    private var _shouldPrintDebugLog: Bool { return true }
+
+    func log(_ message: String, object: Any, type: LogType) {
         if _shouldPrintDebugLog && shouldPrintDebugLog {
             print("\(type.rawValue) -> \(type(of:object)): " + message)
         }

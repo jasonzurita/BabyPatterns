@@ -18,11 +18,11 @@ enum TextFieldType {
 
 class ValidationTextField: UITextField, Shakeable {
 
-    var type:TextFieldType = .text
-    
+    var type: TextFieldType = .text
+
     func isValid() -> Bool {
         var isValid = false
-        
+
         switch type {
         case .text:
             isValid = isTextValid()
@@ -35,27 +35,27 @@ class ValidationTextField: UITextField, Shakeable {
         case .custom(let validation):
             isValid = validation()
         }
-        
+
         if !isValid {
             shake()
         }
-        
+
         return isValid
     }
-    
+
     private func isTextValid() -> Bool {
         return !(text?.isEmpty ?? true)
     }
-    
+
     //TODO: implement us!
     private func emailValidation() -> Bool {
         return isTextValid()
     }
-    
+
     private func phoneNumberValidation() -> Bool {
         return isTextValid()
     }
-    
+
     private func dobValidation() -> Bool {
         return isTextValid()
     }

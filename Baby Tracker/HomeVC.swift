@@ -15,65 +15,64 @@ class HomeVC: UIViewController {
         //TODO: auto rotate to add and view other children
         return .portrait
     }
-    
-    var feedingsVM:FeedingsVM?
-    var profileVM:ProfileVM?
-    var profilePhotoCandidate:UIImage?
-    
+
+    var feedingsVM: FeedingsVM?
+    var profileVM: ProfileVM?
+    var profilePhotoCandidate: UIImage?
+
     //TODO: okay for for now, put these into a collectoin view to easily support future tile additions
     @IBOutlet weak var feedingTile: Tile!
     @IBOutlet weak var profileView: ProfileView!
     @IBOutlet weak var homeScreenTitle: UINavigationItem!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         profileView.delegate = self
-        
+
         setupTileListeners()
     }
-    
+
     private func setupTileListeners() {
         feedingTile.didTapCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.performSegue(withIdentifier: K.Segues.FeedingSegue, sender: nil)
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
     }
-    
+
     private func updateUI() {
         updateProfileUI()
         updateFeedingUI()
     }
-    
+
     internal func updateProfileUI() {
         guard let p = profileVM?.profile else { return }
         profileView.nameLabel.text = p.babyName
         homeScreenTitle.title = "Welcome \(p.parentName)!"
         profileView.imageView.image = p.profilePicture
     }
-    
+
     private func updateFeedingUI() {
         guard let f = feedingsVM else { return }
-        
+
         let lastSide = f.lastFeedingSide()
         var sideText = lastSide.asText()
         if lastSide != .none {
             sideText += ": "
         }
-        
+
         let hours = f.timeSinceLastFeeding().stringFromSecondsToHours(zeroPadding: false)
         let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
-        
+
         feedingTile.detailLabel1.text = "\(sideText)" + hours.string + "h " + minutes.string + "m ago"
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+
         if let vc = segue.destination as? FeedingVC, let f = feedingsVM {
             vc.feedingsVM = f
             vc.profileVM = profileVM
@@ -88,28 +87,28 @@ class HomeVC: UIViewController {
 
 extension HomeVC: ProfileViewDelegate {
     func changeProfileImageButtonTapped() {
-        
+
         let actionSheet = UIAlertController(title: "Change Profile Photo?", message: nil, preferredStyle: .actionSheet)
-        
+
         let libraryOption = UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
             self.getProfileImage(sourceType: .photoLibrary)
         })
-        
+
         let cameraOption = UIAlertAction(title: "Camera", style: .default, handler: { _ in
             self.getProfileImage(sourceType: .camera)
         })
-        
+
         let cancelOption = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
             actionSheet.dismiss(animated: true, completion: nil)
         })
-        
+
         actionSheet.addAction(libraryOption)
         actionSheet.addAction(cameraOption)
         actionSheet.addAction(cancelOption)
-        
+
         present(actionSheet, animated: true, completion: nil)
     }
-    
+
     private func getProfileImage(sourceType: UIImagePickerControllerSourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -129,48 +128,44 @@ extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
-        
-        profilePhotoCandidate = resizeOption2(image: image)
+
+        profilePhotoCandidate = resize(image: image)
         performSegue(withIdentifier: K.Segues.EditProfileImageSegue, sender: nil)
     }
-    
-    fileprivate func resizeOption2(image:UIImage) -> UIImage? {
-        let data = UIImageJPEGRepresentation(image, 0)
-        
-        if let imageSource = CGImageSourceCreateWithData(data as! CFData, nil) {
-            let options: [NSString: NSObject] = [
-                kCGImageSourceThumbnailMaxPixelSize: (max(image.size.width, image.size.height) * 0.5) as NSObject,
-                kCGImageSourceCreateThumbnailFromImageAlways: true as NSObject,
-                kCGImageSourceCreateThumbnailWithTransform: true as NSObject
-            ]
-            
-            return CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary?).flatMap { UIImage(cgImage: $0) }
-        }
-        return nil
-    }
-    
-    private func rotatedImage(image:UIImage, orientation:UIImageOrientation) -> UIImage {
-        
-        UIGraphicsBeginImageContext(image.size)
-        
-        let context = UIGraphicsGetCurrentContext()
-        
-        if (orientation == .right) {
-            context!.rotate(by: CGFloat(90)/CGFloat(180) * CGFloat(M_PI))
-        } else if (orientation == .left) {
-            context!.rotate(by: -CGFloat(90)/CGFloat(180) * CGFloat(M_PI))
 
-        } else if (orientation == .down) {
+    fileprivate func resize(image: UIImage) -> UIImage? {
+        guard let data = UIImageJPEGRepresentation(image, 0) else { return nil }
+        guard let imageSource = CGImageSourceCreateWithData(data as NSData as CFData, nil) else { return nil }
+
+        let options: [NSString: NSObject] = [
+            kCGImageSourceThumbnailMaxPixelSize: (max(image.size.width, image.size.height) * 0.5) as NSObject,
+            kCGImageSourceCreateThumbnailFromImageAlways: true as NSObject,
+            kCGImageSourceCreateThumbnailWithTransform: true as NSObject
+        ]
+        let thumbnail = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary?)
+        return thumbnail.flatMap { UIImage(cgImage: $0) }
+    }
+
+    private func rotatedImage(image: UIImage, orientation: UIImageOrientation) -> UIImage {
+
+        UIGraphicsBeginImageContext(image.size)
+
+        let context = UIGraphicsGetCurrentContext()
+
+        if orientation == .right {
+            context!.rotate(by: CGFloat(90)/CGFloat(180) * CGFloat.pi)
+        } else if orientation == .left {
+            context!.rotate(by: -CGFloat(90)/CGFloat(180) * CGFloat.pi)
+
+        } else if orientation == .down {
             // NOTHING
-        } else if (orientation == .up) {
-            context!.rotate(by: CGFloat(90)/CGFloat(180) * CGFloat(M_PI))
+        } else if orientation == .up {
+            context!.rotate(by: CGFloat(90)/CGFloat(180) * CGFloat.pi)
         }
-        
+
         image.draw(at: CGPoint(x: 0, y: 0))
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img!
     }
 }
-
-

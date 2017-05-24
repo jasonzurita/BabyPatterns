@@ -12,11 +12,11 @@ class NavigationVC: UINavigationController {
     override var shouldAutorotate: Bool {
         return true
     }
-    
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return viewControllers.last?.supportedInterfaceOrientations ?? .portrait
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

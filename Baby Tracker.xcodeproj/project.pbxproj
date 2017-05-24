@@ -32,7 +32,6 @@
 		436484B41DCA150500E6B0A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 436484B21DCA150500E6B0A7 /* Main.storyboard */; };
 		436484B61DCA150500E6B0A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436484B51DCA150500E6B0A7 /* Assets.xcassets */; };
 		436484B91DCA150500E6B0A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 436484B71DCA150500E6B0A7 /* LaunchScreen.storyboard */; };
-		436484C41DCA150500E6B0A7 /* Baby_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436484C31DCA150500E6B0A7 /* Baby_TrackerTests.swift */; };
 		436484D01DCA160400E6B0A7 /* Tile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436484CF1DCA160400E6B0A7 /* Tile.xib */; };
 		436939021E081A1700EA5158 /* FeedingsVM+Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436939011E081A1700EA5158 /* FeedingsVM+Summary.swift */; };
 		436939071E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436939061E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift */; };
@@ -104,8 +103,6 @@
 		436484B81DCA150500E6B0A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		436484BA1DCA150500E6B0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		436484BF1DCA150500E6B0A7 /* Baby TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Baby TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		436484C31DCA150500E6B0A7 /* Baby_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baby_TrackerTests.swift; sourceTree = "<group>"; };
-		436484C51DCA150500E6B0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		436484CF1DCA160400E6B0A7 /* Tile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tile.xib; sourceTree = "<group>"; };
 		436939011E081A1700EA5158 /* FeedingsVM+Summary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedingsVM+Summary.swift"; sourceTree = "<group>"; };
 		436939061E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedingsVM+FeedingInProgress.swift"; sourceTree = "<group>"; };
@@ -221,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				436484AD1DCA150500E6B0A7 /* Baby Tracker */,
-				436484C21DCA150500E6B0A7 /* Baby TrackerTests */,
 				436484AC1DCA150500E6B0A7 /* Products */,
 				C9E049A3AB031F05B25929A5 /* Pods */,
 				E6E2429A0B036BEAA14B2AB7 /* Frameworks */,
@@ -254,15 +250,6 @@
 				436484D41DCA186A00E6B0A7 /* Support */,
 			);
 			path = "Baby Tracker";
-			sourceTree = "<group>";
-		};
-		436484C21DCA150500E6B0A7 /* Baby TrackerTests */ = {
-			isa = PBXGroup;
-			children = (
-				436484C31DCA150500E6B0A7 /* Baby_TrackerTests.swift */,
-				436484C51DCA150500E6B0A7 /* Info.plist */,
-			);
-			path = "Baby TrackerTests";
 			sourceTree = "<group>";
 		};
 		436484CE1DCA15E500E6B0A7 /* Views */ = {
@@ -660,7 +647,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				436484C41DCA150500E6B0A7 /* Baby_TrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

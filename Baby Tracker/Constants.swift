@@ -10,31 +10,31 @@ struct K {
     struct NibNames {
         static let SignIn = "SignInVC"
     }
-    
+
     //TODO: consider turn segues and constants in to enums
     struct Segues {
         //app launch
         static let LoggedInSegue = "LoggedInSegue"
         static let LoggedOutSegue = "LoggedOutSegue"
-        
+
         //logged out
         static let SignedInSegue = "SignedInSegue"
         static let SignUpSegue = "SignUpSegue"
-        
+
         //new account
         static let SignedUpSegue = "SignedUpSegue"
-        
+
         //home vc
         static let FeedingSegue = "FeedingSegue"
-        
+
         //feeding vc
         static let FeedingHistorySegue = "FeedingHistorySegue"
         static let UnwindToFeedingVCSegue = "UnwindToFeedingVCSegue"
-        
+
         //edit profile image
         static let EditProfileImageSegue = "EditProfileImageSegue"
     }
-    
+
     struct JsonFields {
         //feeding
         static let FeedingType = "type"
@@ -46,7 +46,7 @@ struct K {
         static let PausedTime = "pausedTime"
         static let FeedingQuantity = "quantity"
         static let Duration = "duration"
-        
+
         //profile
         static let ParentName = "parentName"
         static let BabyName = "babyName"
@@ -55,10 +55,10 @@ struct K {
         static let UserID = "userID"
         static let DesiredMaxSupply = "desiredMaxSupply"
     }
-    
+
     struct Defaults {
         static let DefaultDesiredMaxSupply = 50.0
         static let BottleTopHeight = 70.0
-        static let BottleFillOverlapWithBottomFillImageHeight = 3.0
+        static let BottleFillOverlapWithBottomFillImage = 3.0
     }
 }

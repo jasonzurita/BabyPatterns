@@ -9,28 +9,28 @@
 import UIKit
 import FirebaseAuth
 
-class DispatchVC: UIViewController {
+class DispatchVC: UIViewController, Loggable {
 
-    private let shouldPrintDebugString = true
-    
+    let shouldPrintDebugLog = true
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
-    
+
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    private var feedingsVM:FeedingsVM?
-    private var profileVM:ProfileVM?
-    
+
+    private var feedingsVM: FeedingsVM?
+    private var profileVM: ProfileVM?
+
     //TODO: this should be changed to be a bitwise operator
     private var didRequestFeedings = false
     private var didRequestProfile = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let user = FIRAuth.auth()?.currentUser {
@@ -41,31 +41,31 @@ class DispatchVC: UIViewController {
             userLoggedOut()
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         activityIndicator.stopAnimating()
     }
-    
-    private func userLoggedIn(user:FIRUser?) {
+
+    private func userLoggedIn(user: FIRUser?) {
         if let user = user {
-            Logger.log(message: "User id: \(user.uid)", object: self, type: .info, shouldPrintDebugLog: shouldPrintDebugString)
+            log("User id: \(user.uid)", object: self, type: .info)
         }
-        
+
         loadProfile()
         loadFeedings()
     }
-    
+
     private func loadProfile() {
         let p = ProfileVM()
         profileVM = p
         p.loadProfile(completionHandler: { _ in
             self.didRequestProfile = true
             self.userLoggedIn()
-            
+
         })
     }
-    
+
     private func loadFeedings() {
         let f = FeedingsVM()
         feedingsVM = f
@@ -74,11 +74,11 @@ class DispatchVC: UIViewController {
             self.userLoggedIn()
         })
     }
-    
+
     private func userLoggedOut() {
         performSegue(withIdentifier: K.Segues.LoggedOutSegue, sender: nil)
     }
-    
+
     private func userLoggedIn() {
         if didRequestFeedings && didRequestProfile {
             performSegue(withIdentifier: K.Segues.LoggedInSegue, sender: nil)
@@ -86,7 +86,8 @@ class DispatchVC: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let navigationVC = segue.destination as? UINavigationController, let homeVC = navigationVC.topViewController as? HomeVC {
+        if let navigationVC = segue.destination as? UINavigationController,
+            let homeVC = navigationVC.topViewController as? HomeVC {
             homeVC.feedingsVM = feedingsVM
             homeVC.profileVM = profileVM
             feedingsVM = nil

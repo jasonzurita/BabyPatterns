@@ -12,15 +12,21 @@ extension UIView {
     func loadNib() {
         Bundle.main.loadNibNamed(String(describing: type(of:self)), owner: self, options: nil)
     }
-    
+
     func bindFrameToSuperviewBounds() {
         guard let superview = self.superview else {
-            Logger.log(message: "Trying to bind frame to nil superview...", object: self, type: .warning, shouldPrintDebugLog: true)
+            print("Cannot bind frame to superview because nil superview...")
             return
         }
-        
+
         self.translatesAutoresizingMaskIntoConstraints = false
-        superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": self]))
-        superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": self]))
+        superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|",
+                                                                options: .directionLeadingToTrailing,
+                                                                metrics: nil,
+                                                                views: ["subview": self]))
+        superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|",
+                                                                options: .directionLeadingToTrailing,
+                                                                metrics: nil,
+                                                                views: ["subview": self]))
     }
 }

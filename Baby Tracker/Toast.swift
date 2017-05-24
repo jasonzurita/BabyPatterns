@@ -11,17 +11,17 @@ import UIKit
 class Toast: UILabel {
 
     var title = "toast label"
-    
-    convenience init(frame:CGRect, text:String) {
+
+    convenience init(frame: CGRect, text: String) {
         self.init(frame:frame)
         title = text
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupToast()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupToast()
@@ -31,20 +31,20 @@ class Toast: UILabel {
         textAlignment = .center
         textColor = UIColor.white
         font = UIFont(name: "Helvetica", size: 32)
-        
+
         layer.cornerRadius = frame.width * 0.1
         layer.masksToBounds = true
-        
+
         backgroundColor = UIColor.gray
         alpha = 0.0
     }
-    
-    func presentInView(view:UIView) {
+
+    func presentInView(view: UIView) {
         text = title
-        
+
         view.addSubview(self)
         UIView.animateKeyframes(withDuration: 2.4, delay: 0.0, options: .calculationModeLinear, animations: { _ in
-            
+
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.05, animations: { _ in
                 self.alpha = 1.0
             })

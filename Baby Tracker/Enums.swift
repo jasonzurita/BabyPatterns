@@ -6,26 +6,26 @@
 //  Copyright © 2016 Jason Zurita. All rights reserved.
 //
 
-enum FeedingType : String {
+enum FeedingType: String {
     case nursing = "Nursing"
     case pumping = "Pumping"
     case bottle = "Bottle"
     case none = "None"
-    
+
     static let allValues = [nursing, pumping, bottle]
 }
 
-enum FirebaseRequestType : String {
-    case feedings = "feedings"
-    case profile = "profile"
-    case profilePhoto = "profilePhoto"
+enum FirebaseRequestType: String {
+    case feedings
+    case profile
+    case profilePhoto
 }
 
 enum FeedingSide: Int {
     case left = 1
     case right
     case none
-    
+
     func asText() -> String {
         switch self {
         case .left:

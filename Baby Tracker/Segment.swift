@@ -9,20 +9,20 @@
 import UIKit
 
 protocol SegmentDelegate: class {
-    func segmentTapped(segment:Segment)
+    func segmentTapped(segment: Segment)
 }
 
 class Segment: UIView {
 
-    weak var delegate:SegmentDelegate?
-    
+    weak var delegate: SegmentDelegate?
+
     var index = -1
     var isActive = false {
         didSet {
             selectedStatusBar.isHidden = !isActive
         }
     }
-    
+
     @IBOutlet var view: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var selectedStatusBar: UIView!
@@ -33,7 +33,7 @@ class Segment: UIView {
         view.frame = bounds
         addSubview(view)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -41,5 +41,4 @@ class Segment: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         delegate?.segmentTapped(segment: self)
     }
-    
 }

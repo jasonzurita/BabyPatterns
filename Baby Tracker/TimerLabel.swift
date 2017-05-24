@@ -9,77 +9,76 @@
 import UIKit
 
 protocol TimerLabelDataSource: class {
-    func timerValueForTimerLabel(timerLabel:TimerLabel) -> TimeInterval
+    func timerValueForTimerLabel(timerLabel: TimerLabel) -> TimeInterval
 }
 
 class TimerLabel: UILabel {
 
-    weak var dataSource:TimerLabelDataSource?
-    
-    private let countingInterval:Double = 1
-    private var timer:Timer?
+    weak var dataSource: TimerLabelDataSource?
+
+    private let countingInterval: Double = 1
+    private var timer: Timer?
     var isPaused = false
     var isRunning = false
-    private var counter:TimeInterval = 0 {
+    private var counter: TimeInterval = 0 {
         didSet {
             let hours = counter.stringFromSecondsToHours(zeroPadding: true)
             let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: true)
             let seconds = minutes.remainder.stringFromSecondsToSeconds(zeroPadding: true)
-            
+
             text = hours.string + ":" + minutes.string + ":" + seconds.string
         }
     }
-    
-    override init(frame:CGRect) {
+
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setupLabel()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupLabel()
     }
-    
+
     private func setupLabel() {
         backgroundColor = UIColor.clear
         textAlignment = .center
         font = UIFont(name: "Helvetica", size: 49)
         textColor = UIColor.gray
     }
-    
-    func changeDisplayTime(time:TimeInterval) {
+
+    func changeDisplayTime(time: TimeInterval) {
         guard !isRunning else { return }
         counter = time
     }
 
-    func start(startingAt startTime:TimeInterval? = nil) {
+    func start(startingAt startTime: TimeInterval? = nil) {
         guard timer == nil else { return }
         isRunning = true
-        
+
         counter = startingCounterTime(startTime:startTime)
-        
+
         timer = Timer.scheduledTimer(withTimeInterval: countingInterval, repeats: true, block: { [weak self] _ in
             guard let strongSelf = self else { return }
             guard !strongSelf.isPaused else {
                 strongSelf.pulseAnimationIfNotPulsing()
                 return
             }
-            
             strongSelf.counter += 1
         })
     }
-    
-    private func startingCounterTime(startTime:TimeInterval?) -> TimeInterval {
-        var returnValue:TimeInterval = 0
+
+    private func startingCounterTime(startTime: TimeInterval?) -> TimeInterval {
+        var returnValue: TimeInterval = 0
         if let st = startTime {
             returnValue = st
         } else if let ds = dataSource {
             returnValue = ds.timerValueForTimerLabel(timerLabel: self)
         }
-        
+
         return returnValue
     }
-    
+
     func end() {
         guard let t = timer else { return }
         isRunning = false
@@ -89,29 +88,32 @@ class TimerLabel: UILabel {
         timer = nil
         changeDisplayTime(time: 0)
     }
-    
+
     func pause() {
         guard timer != nil else { return }
         isPaused = true
         pulseAnimationIfNotPulsing()
     }
-    
+
     private func pulseAnimationIfNotPulsing() {
         guard layer.animationKeys() == nil else { return }
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .curveEaseInOut, .repeat], animations: { _ in
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [.autoreverse, .curveEaseInOut, .repeat],
+                       animations: { _ in
             self.alpha = 0.0
         }, completion: { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.alpha = 1.0
         })
     }
-    
+
     func resume() {
         guard timer != nil else { return }
         isPaused = false
         clearPauseAnimation()
     }
-    
+
     private func clearPauseAnimation() {
         layer.removeAllAnimations()
     }

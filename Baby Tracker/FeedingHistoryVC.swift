@@ -8,44 +8,45 @@
 
 import UIKit
 
-class FeedingHistoryVC: UIViewController {
-    private let shouldPrintDebugLog = true
+class FeedingHistoryVC: UIViewController, Loggable {
+    let shouldPrintDebugLog = true
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
-    
+
     override var description: String {
         return "\(type(of:self))"
     }
-    
-    private var notificationToken:NSObjectProtocol?
-    
-    private let screenTimeWindowSeconds:TimeInterval = 24 * 60 * 60
+
+    private var notificationToken: NSObjectProtocol?
+
+    private let screenTimeWindowSeconds: TimeInterval = 24 * 60 * 60
     private let screenHeight = UIScreen.main.bounds.size.width
     private let screenWidth = UIScreen.main.bounds.size.height
-    private var barGraphHeight:CGFloat {
+    private var barGraphHeight: CGFloat {
         return screenHeight * 0.5
     }
-    private let barGraphYOffset:CGFloat = 10
-    private let barGraphElementWidth:CGFloat = 6
-    
-    private var pointsPerSecond:CGFloat {
+    private let barGraphYOffset: CGFloat = 10
+    private let barGraphElementWidth: CGFloat = 6
+
+    private var pointsPerSecond: CGFloat {
         return screenWidth / CGFloat(screenTimeWindowSeconds)
     }
 
-    weak var feedingsVM:FeedingsVM?
+    weak var feedingsVM: FeedingsVM?
 
     @IBOutlet weak var scrollView: UIScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupGraph()
     }
-    
+
     private func setupGraph() {
-        guard let feedingEvents = feedingsVM?.feedings(withTypes: [.nursing, .bottle, .pumping], isFinished: true) else {
-            Logger.log(message: "no feedings to show...", object: self, type: .warning, shouldPrintDebugLog: shouldPrintDebugLog)
+        guard let feedingEvents = feedingsVM?.feedings(withTypes: [.nursing, .bottle, .pumping],
+                                                       isFinished: true) else {
+            log("no feedings to show...", object: self, type: .warning)
             return }
 
         let graphWindow = feedingWindow(endDate:feedingEvents.first?.endDate)
@@ -54,41 +55,46 @@ class FeedingHistoryVC: UIViewController {
         adjustScrollViewContentOffset()
     }
     //Should be a little over the last feeding to allow showing of the last feeding
-    private func feedingWindow(endDate:Date?) -> DateInterval {
+    private func feedingWindow(endDate: Date?) -> DateInterval {
         let now = Date() //when? now! when now? now now!
         let past = endDate ?? Date(timeInterval: -(screenTimeWindowSeconds), since: now)
         return DateInterval(start: past, end: now)
     }
-    
-    private func adjustScrollViewContentSize(width:CGFloat) {
+
+    private func adjustScrollViewContentSize(width: CGFloat) {
         scrollView.contentSize = CGSize(width: width, height: scrollView.contentSize.height)
     }
-    
-    private func layoutFeedings(_ feedings:[Feeding], inWindow window:DateInterval) {
+
+    private func layoutFeedings(_ feedings: [Feeding], inWindow window: DateInterval) {
         for feeding in feedings {
             guard let endDate = feeding.endDate else {
-                Logger.log(message: "We should only have finished feedings, but feeding not finished. Cannot display...", object: self, type: .error, shouldPrintDebugLog: shouldPrintDebugLog)
+                let message = "We should only have finished feedings, but feeding not finished. Cannot display..."
+                log(message, object: self, type: .error)
                 return
             }
             let x = xFeedingLocation(forDate: endDate, inWindow: window)
-            let frame = CGRect(x: x, y: screenHeight - (barGraphHeight + barGraphYOffset), width: barGraphElementWidth, height: barGraphHeight)
+            let frame = CGRect(x: x,
+                               y: screenHeight - (barGraphHeight + barGraphYOffset),
+                               width: barGraphElementWidth,
+                               height: barGraphHeight)
+
             let graphElement = BarGraphLollipop(frame: frame)
-            
+
             scrollView.addSubview(graphElement)
         }
     }
-    
-    private func xFeedingLocation(forDate date:Date, inWindow window:DateInterval) -> CGFloat {
+
+    private func xFeedingLocation(forDate date: Date, inWindow window: DateInterval) -> CGFloat {
         let maxX = scrollView.contentSize.width
         let secondsSinceNow = CGFloat(abs(date.timeIntervalSince(window.end)))
-        
+
         return maxX - pointsPerSecond * CGFloat(secondsSinceNow) - barGraphElementWidth
     }
-    
+
     private func adjustScrollViewContentOffset() {
         scrollView.contentOffset = CGPoint(x: scrollView.contentSize.width, y: scrollView.contentOffset.y)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIDevice.current.endGeneratingDeviceOrientationNotifications()
@@ -96,13 +102,16 @@ class FeedingHistoryVC: UIViewController {
             NotificationCenter.default.removeObserver(token)
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
-        
+
         let center = NotificationCenter.default
-        notificationToken = center.addObserver(forName: .UIDeviceOrientationDidChange, object: nil, queue: nil, using: { _ in
+        notificationToken = center.addObserver(forName: .UIDeviceOrientationDidChange,
+                                               object: nil,
+                                               queue: nil,
+                                               using: { _ in
             if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
                 self.performSegue(withIdentifier: K.Segues.UnwindToFeedingVCSegue, sender: nil)
                 UIDevice.current.endGeneratingDeviceOrientationNotifications()
@@ -110,7 +119,7 @@ class FeedingHistoryVC: UIViewController {
             }
         })
     }
-    
+
     @IBAction func exitHistoryButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: K.Segues.UnwindToFeedingVCSegue, sender: nil)
     }
