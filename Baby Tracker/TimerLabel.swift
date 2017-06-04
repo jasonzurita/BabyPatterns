@@ -17,7 +17,7 @@ class TimerLabel: UILabel {
     weak var dataSource: TimerLabelDataSource?
 
     private let countingInterval: Double = 1
-    private var timer: Timer?
+    private var _timer: Timer?
     var isPaused = false
     var isRunning = false
     private var counter: TimeInterval = 0 {
@@ -53,12 +53,12 @@ class TimerLabel: UILabel {
     }
 
     func start(startingAt startTime: TimeInterval? = nil) {
-        guard timer == nil else { return }
+        guard _timer == nil else { return }
         isRunning = true
 
         counter = startingCounterTime(startTime:startTime)
 
-        timer = Timer.scheduledTimer(withTimeInterval: countingInterval, repeats: true, block: { [weak self] _ in
+        _timer = Timer.scheduledTimer(withTimeInterval: countingInterval, repeats: true, block: { [weak self] _ in
             guard let strongSelf = self else { return }
             guard !strongSelf.isPaused else {
                 strongSelf.pulseAnimationIfNotPulsing()
@@ -80,17 +80,17 @@ class TimerLabel: UILabel {
     }
 
     func end() {
-        guard let t = timer else { return }
+        guard let t = _timer else { return }
         isRunning = false
         isPaused = false
         clearPauseAnimation()
         t.invalidate()
-        timer = nil
+        _timer = nil
         changeDisplayTime(time: 0)
     }
 
     func pause() {
-        guard timer != nil else { return }
+        guard _timer != nil else { return }
         isPaused = true
         pulseAnimationIfNotPulsing()
     }
@@ -109,12 +109,16 @@ class TimerLabel: UILabel {
     }
 
     func resume() {
-        guard timer != nil else { return }
+        guard _timer != nil else { return }
         isPaused = false
         clearPauseAnimation()
     }
 
     private func clearPauseAnimation() {
         layer.removeAllAnimations()
+    }
+
+    deinit {
+        _timer?.invalidate()
     }
 }
