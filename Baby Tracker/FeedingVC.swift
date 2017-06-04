@@ -32,7 +32,7 @@ class FeedingVC: UIViewController {
 
     //properties
     weak var feedingsVM: FeedingsVM?
-    var profileVM: ProfileVM?
+    weak var profileVM: ProfileVM?
     private var notificationToken: NSObjectProtocol?
 
     //outlets
@@ -53,14 +53,6 @@ class FeedingVC: UIViewController {
         profileView.imageView.image = p.profilePicture
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIDevice.current.endGeneratingDeviceOrientationNotifications()
-        if let token = notificationToken {
-            NotificationCenter.default.removeObserver(token)
-        }
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
@@ -69,13 +61,23 @@ class FeedingVC: UIViewController {
         notificationToken = center.addObserver(forName: .UIDeviceOrientationDidChange,
                                                object: nil,
                                                queue: nil,
-                                               using: { _ in
+                                               using: { [weak self] _ in
             if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-                    self.performSegue(withIdentifier: K.Segues.FeedingHistory, sender: nil)
-                    UIDevice.current.endGeneratingDeviceOrientationNotifications()
-                    center.removeObserver(self.notificationToken!)
+                self?.performSegue(withIdentifier: K.Segues.FeedingHistory, sender: nil)
+                UIDevice.current.endGeneratingDeviceOrientationNotifications()
+                if let token = self?.notificationToken {
+                    center.removeObserver(token)
+                }
             }
         })
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIDevice.current.endGeneratingDeviceOrientationNotifications()
+        if let token = notificationToken {
+            NotificationCenter.default.removeObserver(token)
+        }
     }
 
     @IBAction func showHistoryButtonPressed(_ sender: UIButton) {
