@@ -113,7 +113,7 @@ class FeedingHistoryVC: UIViewController, Loggable {
                                                queue: nil,
                                                using: { _ in
             if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-                self.performSegue(withIdentifier: K.Segues.UnwindToFeedingVCSegue, sender: nil)
+                self.performSegue(withIdentifier: K.Segues.UnwindToFeedingVC, sender: nil)
                 UIDevice.current.endGeneratingDeviceOrientationNotifications()
                 center.removeObserver(self.notificationToken!)
             }
@@ -121,6 +121,6 @@ class FeedingHistoryVC: UIViewController, Loggable {
     }
 
     @IBAction func exitHistoryButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: K.Segues.UnwindToFeedingVCSegue, sender: nil)
+        self.performSegue(withIdentifier: K.Segues.UnwindToFeedingVC, sender: nil)
     }
 }

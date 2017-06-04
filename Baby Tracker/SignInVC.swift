@@ -71,7 +71,7 @@ class SignInVC: UIViewController, Loggable {
         if let user = user {
             log("User id: \(user.uid)", object: self, type: .info)
         }
-        performSegue(withIdentifier: K.Segues.SignedInSegue, sender: nil)
+        performSegue(withIdentifier: K.Segues.SignedIn, sender: nil)
     }
 
     @IBAction func forgotPassword(_ sender: UIButton) {
@@ -101,7 +101,7 @@ class SignInVC: UIViewController, Loggable {
     }
 
     @IBAction func signUp(_ sender: UIButton) {
-        performSegue(withIdentifier: K.Segues.SignUpSegue, sender: nil)
+        performSegue(withIdentifier: K.Segues.SignUp, sender: nil)
     }
 
     @IBAction func tryDemo(_ sender: UIButton) {

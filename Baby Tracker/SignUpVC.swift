@@ -92,7 +92,7 @@ class SignUpVC: UIViewController, Loggable {
         profileVM?.profile = makeProfile(userID:user.uid)
         profileVM?.sendToServer()
 
-        performSegue(withIdentifier: K.Segues.SignedUpSegue, sender: nil)
+        performSegue(withIdentifier: K.Segues.SignedUp, sender: nil)
     }
 
     private func makeProfile(userID: String) -> Profile {

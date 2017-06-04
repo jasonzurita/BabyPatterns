@@ -135,7 +135,7 @@ extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
 
         profilePhotoCandidate = resize(image: image)
-        performSegue(withIdentifier: K.Segues.EditProfileImageSegue, sender: nil)
+        performSegue(withIdentifier: K.Segues.EditProfileImage, sender: nil)
     }
 
     fileprivate func resize(image: UIImage) -> UIImage? {

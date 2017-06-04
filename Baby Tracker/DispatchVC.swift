@@ -76,12 +76,12 @@ class DispatchVC: UIViewController, Loggable {
     }
 
     private func userLoggedOut() {
-        performSegue(withIdentifier: K.Segues.LoggedOutSegue, sender: nil)
+        performSegue(withIdentifier: K.Segues.LoggedOut, sender: nil)
     }
 
     private func userLoggedIn() {
         if didRequestFeedings && didRequestProfile {
-            performSegue(withIdentifier: K.Segues.LoggedInSegue, sender: nil)
+            performSegue(withIdentifier: K.Segues.LoggedIn, sender: nil)
         }
     }
 

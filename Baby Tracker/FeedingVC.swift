@@ -71,7 +71,7 @@ class FeedingVC: UIViewController {
                                                queue: nil,
                                                using: { _ in
             if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-                    self.performSegue(withIdentifier: K.Segues.FeedingHistorySegue, sender: nil)
+                    self.performSegue(withIdentifier: K.Segues.FeedingHistory, sender: nil)
                     UIDevice.current.endGeneratingDeviceOrientationNotifications()
                     center.removeObserver(self.notificationToken!)
             }
@@ -79,7 +79,7 @@ class FeedingVC: UIViewController {
     }
 
     @IBAction func showHistoryButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: K.Segues.FeedingHistorySegue, sender: nil)
+        self.performSegue(withIdentifier: K.Segues.FeedingHistory, sender: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
