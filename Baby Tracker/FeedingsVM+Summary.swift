@@ -36,8 +36,8 @@ extension FeedingsVM {
     }
 
     func remainingSupply() -> Double {
-        return feedings.reduce(0.0, { (partialTotal, feeding) in
-            partialTotal + feeding.supplyAmount
+        return feedings.reduce(0.0, { (runningTotal, feeding) in
+            runningTotal + feeding.supplyAmount
         })
     }
 }
