@@ -156,7 +156,7 @@ extension FeedingVC: FeedingsDataSource {
     }
 
     func desiredMaxSupply() -> Double {
-        return profileVM?.profile?.desiredMaxSupply ?? 0.0
+        return profileVM?.profile?.desiredMaxSupply ?? K.Defaults.DefaultDesiredMaxSupply
     }
 }
 
