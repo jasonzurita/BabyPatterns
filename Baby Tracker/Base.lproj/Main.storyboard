@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nTM-8P-wsE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nTM-8P-wsE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -67,7 +67,7 @@
                                                     <constraint firstAttribute="height" constant="200" id="YCm-Ue-q9v"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Feature Request"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Request Feature"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="featureRequestTile"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -118,8 +118,10 @@
                         <outlet property="feedingTile" destination="mdO-si-g3C" id="eC2-sZ-eR4"/>
                         <outlet property="homeScreenTitle" destination="5pV-z7-0kB" id="S2O-HF-W4C"/>
                         <outlet property="profileView" destination="jbd-pr-W9x" id="csr-4B-HuD"/>
+                        <outlet property="requestFeatureTile" destination="qFS-EY-bMW" id="Z5G-ZR-cg1"/>
                         <segue destination="jbw-TF-pH1" kind="show" identifier="FeedingSegue" id="mFW-By-s2g"/>
                         <segue destination="ceP-0c-4TS" kind="presentation" identifier="EditProfileImageSegue" id="n5I-xs-1WB"/>
+                        <segue destination="LNw-dm-fV7" kind="show" identifier="RequestFeatureSegue" id="PWM-Wd-dRT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -371,7 +373,36 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gp6-ga-Dm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="751.57421289355329"/>
+            <point key="canvasLocation" x="462" y="797"/>
+        </scene>
+        <!--Request Feature-->
+        <scene sceneID="7dJ-lI-hKg">
+            <objects>
+                <tableViewController id="LNw-dm-fV7" customClass="RequestFeatureTVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="t8y-Vx-X0L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="umU-dY-z12">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="umU-dY-z12" id="kwe-Rm-dkk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LNw-dm-fV7" id="LeH-eu-7sS"/>
+                            <outlet property="delegate" destination="LNw-dm-fV7" id="AMC-VI-PUC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Request Feature" id="JhM-h0-ZlR"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TxC-nb-1sb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1521" y="797"/>
         </scene>
         <!--Edit Profile ImageVC-->
         <scene sceneID="OtJ-Wc-o2g">

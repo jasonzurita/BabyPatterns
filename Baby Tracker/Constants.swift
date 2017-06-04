@@ -25,7 +25,8 @@ struct K {
         static let SignedUpSegue = "SignedUpSegue"
 
         //home vc
-        static let FeedingSegue = "FeedingSegue"
+        static let Feeding = "FeedingSegue"
+        static let RequestFeature = "RequestFeatureSegue"
 
         //feeding vc
         static let FeedingHistorySegue = "FeedingHistorySegue"

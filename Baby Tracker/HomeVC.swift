@@ -20,10 +20,12 @@ class HomeVC: UIViewController {
     var profileVM: ProfileVM?
     var profilePhotoCandidate: UIImage?
 
+    @IBOutlet weak var homeScreenTitle: UINavigationItem!
+    @IBOutlet weak var profileView: ProfileView!
+
     //TODO: okay for for now, put these into a collectoin view to easily support future tile additions
     @IBOutlet weak var feedingTile: Tile!
-    @IBOutlet weak var profileView: ProfileView!
-    @IBOutlet weak var homeScreenTitle: UINavigationItem!
+    @IBOutlet weak var requestFeatureTile: Tile!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +35,12 @@ class HomeVC: UIViewController {
     }
 
     private func setupTileListeners() {
-        feedingTile.didTapCallback = { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.performSegue(withIdentifier: K.Segues.FeedingSegue, sender: nil)
+        feedingTile.didTapCallback = { [unowned self] in
+            self.performSegue(withIdentifier: K.Segues.Feeding, sender: nil)
+        }
+
+        requestFeatureTile.didTapCallback = { [unowned self] in
+            self.performSegue(withIdentifier: K.Segues.RequestFeature, sender: nil)
         }
     }
 
