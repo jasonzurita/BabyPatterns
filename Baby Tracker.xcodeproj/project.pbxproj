@@ -30,7 +30,6 @@
 		436484AF1DCA150500E6B0A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436484AE1DCA150500E6B0A7 /* AppDelegate.swift */; };
 		436484B11DCA150500E6B0A7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436484B01DCA150500E6B0A7 /* HomeVC.swift */; };
 		436484B41DCA150500E6B0A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 436484B21DCA150500E6B0A7 /* Main.storyboard */; };
-		436484B61DCA150500E6B0A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436484B51DCA150500E6B0A7 /* Assets.xcassets */; };
 		436484B91DCA150500E6B0A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 436484B71DCA150500E6B0A7 /* LaunchScreen.storyboard */; };
 		436484D01DCA160400E6B0A7 /* Tile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436484CF1DCA160400E6B0A7 /* Tile.xib */; };
 		436939021E081A1700EA5158 /* FeedingsVM+Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436939011E081A1700EA5158 /* FeedingsVM+Summary.swift */; };
@@ -60,6 +59,7 @@
 		43EE2DE21E76CC4A00B8B373 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE2DE11E76CC4A00B8B373 /* Logger.swift */; };
 		43F4FAE11DF8CD01005510D4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */; };
 		43FCAA851DD0BC70003872BA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
+		AC9738DF1EE1FB6B00232DE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9738DE1EE1FB6B00232DE8 /* Assets.xcassets */; };
 		ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +99,6 @@
 		436484AE1DCA150500E6B0A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		436484B01DCA150500E6B0A7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		436484B31DCA150500E6B0A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		436484B51DCA150500E6B0A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "/Users/jasonzurita/Documents/babytracker/Baby Tracker/Assets.xcassets"; sourceTree = "<absolute>"; };
 		436484B81DCA150500E6B0A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		436484BA1DCA150500E6B0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		436484BF1DCA150500E6B0A7 /* Baby TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Baby TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +130,7 @@
 		43EE2DE11E76CC4A00B8B373 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		43FCAA841DD0BC70003872BA /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		AC9738DE1EE1FB6B00232DE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA42E7856FB58D2B877C484F /* Pods_Baby_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB450386D37DE8D496932C13 /* Pods-Baby Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baby Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Baby Tracker/Pods-Baby Tracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */,
-				436484B51DCA150500E6B0A7 /* Assets.xcassets */,
+				AC9738DE1EE1FB6B00232DE8 /* Assets.xcassets */,
 				436484BA1DCA150500E6B0A7 /* Info.plist */,
 			);
 			name = Support;
@@ -516,10 +516,10 @@
 				43A1C9051DFDFFFA008C5C2F /* BottleVC.xib in Resources */,
 				4314DD601DFDA06D00B3649C /* Segment.xib in Resources */,
 				43A1C9011DFDFFBA008C5C2F /* FeedingTimerVC.xib in Resources */,
-				436484B61DCA150500E6B0A7 /* Assets.xcassets in Resources */,
 				436484B41DCA150500E6B0A7 /* Main.storyboard in Resources */,
 				436484D01DCA160400E6B0A7 /* Tile.xib in Resources */,
 				ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */,
+				AC9738DF1EE1FB6B00232DE8 /* Assets.xcassets in Resources */,
 				43A1C8FA1DFDA906008C5C2F /* SegmentedControlBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
