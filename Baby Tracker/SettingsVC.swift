@@ -43,8 +43,10 @@ class SettingsVC: UITableViewController, Loggable {
     }
 
     private func setupFooter() {
-        let footerView = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        footerView.text = "App version: awesome.awesome"
+        let footerView = UILabel(frame: CGRect(x: 15, y: 15, width: tableView.frame.width - 15, height: 50))
+        let versionNumber = Bundle.main.object(forInfoDictionaryKey: K.DictionaryKeys.VersionNumber) as? String ?? "N/A"
+        let buildNumber = Bundle.main.object(forInfoDictionaryKey: K.DictionaryKeys.BuildNumber) as? String ?? ""
+        footerView.text = "version: \(versionNumber) (\(buildNumber))"
         tableView.tableFooterView = footerView
     }
 

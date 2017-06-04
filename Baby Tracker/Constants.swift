@@ -61,4 +61,9 @@ struct K {
         static let BottleTopHeight = 70.0
         static let BottleFillOverlapWithBottomFillImage = 3.0
     }
+
+    struct DictionaryKeys {
+        static let VersionNumber = "CFBundleShortVersionString"
+        static let BuildNumber = "CFBundleVersion"
+    }
 }
