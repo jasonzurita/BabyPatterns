@@ -42,8 +42,8 @@ class BottleVC: UIViewController, Loggable {
         return (_maxSupplyHeight / Float(ds.desiredMaxSupply())) * Float(ds.remainingSupply())
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         configureSlider()
         configureBottle()
         configureRemainingSupplyLine()
@@ -68,6 +68,7 @@ class BottleVC: UIViewController, Loggable {
     private func configureLabels() {
         guard let ds = dataSource else { return }
         remainingSupplyLabel.text = String.localizedStringWithFormat("%.1f%", ds.remainingSupply())
+        amountFedLabel.text = "0.0"
     }
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
