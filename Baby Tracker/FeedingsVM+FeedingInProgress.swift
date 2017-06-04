@@ -10,23 +10,23 @@ import Foundation
 
 extension FeedingsVM {
 
-    func feedingStarted(type: FeedingType, side: FeedingSide) {
+    func feedingStarted(type: FeedingType, side: FeedingSide, startDate: Date = Date(), supplyAmount: Double = 0.0) {
         guard feedingInProgress(type: type) == nil else {
             log("Already a feeding started on this side...", object: self, type: .warning)
             return
         }
 
-        var fip = Feeding(type: type, side: side, startDate: Date())
+        var fip = Feeding(type: type, side: side, startDate: startDate, supplyAmount: supplyAmount)
         let serverKey = DatabaseFacade().uploadJSON(fip.eventJson(), requestType: .feedings)
         fip.serverKey = serverKey
         feedings.append(fip)
     }
 
-    func feedingEnded(type: FeedingType, side: FeedingSide) {
+    func feedingEnded(type: FeedingType, side: FeedingSide, endDate: Date = Date()) {
 
         guard var fip = feedingInProgress(type: type) else { return }
 
-        fip.endDate = Date()
+        fip.endDate = endDate
         fip.lastPausedDate = nil
 
         updateInternalFeedingCache(fip: fip)

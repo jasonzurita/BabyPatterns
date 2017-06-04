@@ -162,7 +162,8 @@ extension FeedingVC: FeedingsDataSource {
 
 extension FeedingVC: BottleFeedingDelegate {
     func logBottleFeeding(withAmount amount: Double, time: Date) {
-        //TODO
+        feedingsVM?.feedingStarted(type: .bottle, side: .none, startDate: time, supplyAmount: amount)
+        feedingsVM?.feedingEnded(type: .bottle, side: .none, endDate: time)
         showFeedingSavedToast()
     }
 }

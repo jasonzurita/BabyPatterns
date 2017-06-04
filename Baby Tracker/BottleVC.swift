@@ -71,7 +71,8 @@ class BottleVC: UIViewController, Loggable {
     }
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        delegate?.logBottleFeeding(withAmount: Double(slider.value), time: datePicker.date)
+        let consumedAmount = -Double(slider.value)
+        delegate?.logBottleFeeding(withAmount: consumedAmount, time: datePicker.date)
         configureLabels()
     }
 
