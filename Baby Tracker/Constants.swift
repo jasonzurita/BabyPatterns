@@ -8,10 +8,10 @@
 
 struct K {
     struct NibNames {
+        //TODO: update this to use the acutal class name to make it more robust
         static let SignIn = "SignInVC"
     }
 
-    //TODO: consider turn segues and constants in to enums
     struct Segues {
         //app launch
         static let LoggedIn = "LoggedInSegue"

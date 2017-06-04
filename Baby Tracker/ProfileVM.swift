@@ -34,7 +34,6 @@ class ProfileVM: Loggable {
 
     func loadProfile(completionHandler:@escaping (Void) -> Void) {
         DatabaseFacade().configureDatabase(requestType: .profile, responseHandler: { responseArray in
-            //TODO: respond with completion handler if this fails
             guard let data = responseArray.last else { completionHandler(); return }
             guard let babyName = data.json[K.JsonFields.BabyName] as? String else { completionHandler(); return  }
             guard let parentName = data.json[K.JsonFields.ParentName] as? String else { completionHandler(); return  }
