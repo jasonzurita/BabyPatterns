@@ -4,11 +4,11 @@
 
 use_frameworks!
 
-pod 'Firebase/AdMob'
 pod 'Firebase/Crash'
 pod 'Firebase/RemoteConfig'
 
 #used
+pod 'Firebase/AdMob'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'

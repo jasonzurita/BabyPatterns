@@ -24,22 +24,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBt-CA-tjd">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBt-CA-tjd" customClass="GADBannerView">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ads Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEJ-aH-3ap">
-                                        <rect key="frame" x="152.5" y="15.5" width="70.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="MEJ-aH-3ap" firstAttribute="centerY" secondItem="TBt-CA-tjd" secondAttribute="centerY" id="AI3-3o-wEJ"/>
-                                    <constraint firstItem="MEJ-aH-3ap" firstAttribute="centerX" secondItem="TBt-CA-tjd" secondAttribute="centerX" id="BSP-cE-pG2"/>
                                     <constraint firstAttribute="height" constant="50" id="hdQ-J8-kY5"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="adUnitID" value="ca-app-pub-9077495891432075/5916265547"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-HU-SLK" userLabel="Main Container">
                                 <rect key="frame" x="0.0" y="133.5" width="375" height="400"/>
@@ -91,13 +84,24 @@
                                     <constraint firstItem="jbd-pr-W9x" firstAttribute="leading" secondItem="mdO-si-g3C" secondAttribute="leading" id="sG4-Kh-sOM"/>
                                 </constraints>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku9-hW-fqk">
+                                <rect key="frame" x="147" y="582" width="80" height="30"/>
+                                <state key="normal" title="turn off ads">
+                                    <color key="titleColor" red="0.0" green="0.3341426253" blue="0.80068218710000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="turnOffAdsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CfV-hY-Pxj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TBt-CA-tjd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2gp-EE-vxX"/>
                             <constraint firstItem="TCN-HU-SLK" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="32Z-ac-duq"/>
                             <constraint firstItem="TCN-HU-SLK" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="4bb-2P-FuU"/>
+                            <constraint firstItem="ku9-hW-fqk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Epg-Zv-AmL"/>
                             <constraint firstItem="TBt-CA-tjd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="LgM-mR-PcK"/>
+                            <constraint firstItem="TBt-CA-tjd" firstAttribute="top" secondItem="ku9-hW-fqk" secondAttribute="bottom" constant="5" id="Pv1-Q0-wYV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TBt-CA-tjd" secondAttribute="bottom" id="hCr-Xt-GY4"/>
                             <constraint firstItem="TCN-HU-SLK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pTa-bb-Ckm"/>
                             <constraint firstItem="TCN-HU-SLK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zuo-QD-R2L"/>
@@ -115,10 +119,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adBannerView" destination="TBt-CA-tjd" id="wuJ-yZ-yFK"/>
                         <outlet property="feedingTile" destination="mdO-si-g3C" id="eC2-sZ-eR4"/>
                         <outlet property="homeScreenTitle" destination="5pV-z7-0kB" id="S2O-HF-W4C"/>
                         <outlet property="profileView" destination="jbd-pr-W9x" id="csr-4B-HuD"/>
                         <outlet property="requestFeatureTile" destination="qFS-EY-bMW" id="Z5G-ZR-cg1"/>
+                        <outlet property="turnOffAdsButton" destination="ku9-hW-fqk" id="6yA-N8-lRz"/>
                         <segue destination="jbw-TF-pH1" kind="show" identifier="FeedingSegue" id="mFW-By-s2g"/>
                         <segue destination="ceP-0c-4TS" kind="presentation" identifier="EditProfileImageSegue" id="n5I-xs-1WB"/>
                         <segue destination="LNw-dm-fV7" kind="show" identifier="RequestFeatureSegue" id="PWM-Wd-dRT"/>

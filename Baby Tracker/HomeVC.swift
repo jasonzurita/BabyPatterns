@@ -8,6 +8,7 @@
 
 import UIKit
 import ImageIO
+import Firebase
 
 class HomeVC: UIViewController {
 
@@ -27,11 +28,20 @@ class HomeVC: UIViewController {
     @IBOutlet weak var feedingTile: Tile!
     @IBOutlet weak var requestFeatureTile: Tile!
 
+    @IBOutlet weak var adBannerView: GADBannerView!
+    @IBOutlet weak var turnOffAdsButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         profileView.delegate = self
 
         setupTileListeners()
+
+        adBannerView.rootViewController = self
+        adBannerView.delegate =  self
+        let adRequest = GADRequest()
+        adRequest.testDevices = [ kGADSimulatorID, "4796a5487323e9b9f16cf3dd3c0ada73" ]
+        adBannerView.load(adRequest)
     }
 
     private func setupTileListeners() {
@@ -87,6 +97,10 @@ class HomeVC: UIViewController {
             vc.imageCandidate = i
             vc.delegate = self
         }
+    }
+    @IBAction func turnOffAdsButtonPressed(_ sender: UIButton) {
+        print("TODO: implement getting rid of ads")
+
     }
 }
 
@@ -172,5 +186,11 @@ extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img!
+    }
+}
+
+extension HomeVC: GADBannerViewDelegate {
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        turnOffAdsButton.isHidden = false
     }
 }
