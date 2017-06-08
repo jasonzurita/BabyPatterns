@@ -32,7 +32,7 @@ class ProfileVM: Loggable {
 
     var profile: Profile?
 
-    func loadProfile(completionHandler:@escaping (Void) -> Void) {
+    func loadProfile(completionHandler:@escaping () -> Void) {
         DatabaseFacade().configureDatabase(requestType: .profile, responseHandler: { responseArray in
             guard let data = responseArray.last else { completionHandler(); return }
             guard let babyName = data.json[K.JsonFields.BabyName] as? String else { completionHandler(); return  }

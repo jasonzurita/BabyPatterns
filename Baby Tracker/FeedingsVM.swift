@@ -12,7 +12,7 @@ class FeedingsVM: Loggable {
     let shouldPrintDebugLog = true
     var feedings: [Feeding] = []
 
-    func loadFeedings(completionHandler: @escaping (Void) -> Void) {
+    func loadFeedings(completionHandler: @escaping () -> Void) {
 
         DatabaseFacade().configureDatabase(requestType: .feedings, responseHandler: { responseArray in
             for response in responseArray {
