@@ -33,7 +33,7 @@ class DispatchVC: UIViewController, Loggable {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let user = FIRAuth.auth()?.currentUser {
+        if let user = Auth.auth().currentUser {
             didRequestProfile = false
             didRequestFeedings = false
             self.userLoggedIn(user: user)
@@ -47,7 +47,7 @@ class DispatchVC: UIViewController, Loggable {
         activityIndicator.stopAnimating()
     }
 
-    private func userLoggedIn(user: FIRUser?) {
+    private func userLoggedIn(user: User?) {
         if let user = user {
             log("User id: \(user.uid)", object: self, type: .info)
         }

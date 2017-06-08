@@ -53,7 +53,7 @@ class SignUpVC: UIViewController, Loggable {
 
         submitActivityIndicator.startAnimating()
 
-        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             guard error == nil else {
                 self.signUpFailed(message: "", error: error)
                 return
@@ -85,7 +85,7 @@ class SignUpVC: UIViewController, Loggable {
         present(alert, animated: true, completion: nil)
     }
 
-    private func signedUp(user: FIRUser) {
+    private func signedUp(user: User) {
         submitActivityIndicator.stopAnimating()
         log("User id: \(user.uid)", object: self, type: .info)
 

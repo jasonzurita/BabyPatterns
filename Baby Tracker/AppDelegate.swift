@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         //TODO: move this into a separate initialization file
-        FIRApp.configure()
-        FIRDatabase.database().persistenceEnabled = true
+        FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
         GADMobileAds.configure(withApplicationID: "ca-app-pub-9077495891432075~4439532342")
         return true
     }

@@ -14,8 +14,8 @@ struct DatabaseFacade: Loggable {
 
     typealias ResponseHandler = ([(json: [String:Any], serverKey: String)]) -> Void
 
-    private let databaseReference = FIRDatabase.database().reference()
-    private var databaseReferenceHandles: [(type: FeedingType, handle: FIRDatabaseHandle)] = []
+    private let databaseReference = Database.database().reference()
+    private var databaseReferenceHandles: [(type: FeedingType, handle: DatabaseHandle)] = []
 
 //    deinit {
 //        for referenceHandle in databaseReferenceHandles {
@@ -34,7 +34,7 @@ struct DatabaseFacade: Loggable {
         }
 
         self.databaseReference.child(path).observeSingleEvent(of: .value, with: { (snapshot) -> Void in
-            guard let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] else { return }
+            guard let snapshots = snapshot.children.allObjects as? [DataSnapshot] else { return }
 
             let response = snapshots.map { ($0.value as? [String:Any] ?? [:], $0.key) }
             responseHandler(response)
@@ -78,7 +78,7 @@ struct DatabaseFacade: Loggable {
     }
 
     private func pathForRequest(type: FirebaseRequestType) -> String? {
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else {
+        guard let uid = Auth.auth().currentUser?.uid else {
             return nil
         }
         return "/users/" + uid + "/" + type.rawValue

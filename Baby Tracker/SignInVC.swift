@@ -42,7 +42,7 @@ class SignInVC: UIViewController, Loggable {
             return
         }
 
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
                 self.signInFailed(error: error)
             } else {
@@ -65,7 +65,7 @@ class SignInVC: UIViewController, Loggable {
         present(alert, animated: true, completion: nil)
     }
 
-    private func signedIn(user: FIRUser?) {
+    private func signedIn(user: User?) {
         signInActivityIndicator.stopAnimating()
 
         if let user = user {
@@ -83,7 +83,7 @@ class SignInVC: UIViewController, Loggable {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
             guard let userInput = prompt.textFields?[0].text, !userInput.isEmpty else { return }
 
-            FIRAuth.auth()?.sendPasswordReset(withEmail: userInput, completion: { [weak self] (error) in
+            Auth.auth().sendPasswordReset(withEmail: userInput, completion: { [weak self] (error) in
                 if let error = error, let s = self {
                     //TODO: revist this because we want to print this error regardless if self is available
                     s.log(error.localizedDescription, object: s, type: .error)

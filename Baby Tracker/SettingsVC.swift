@@ -104,9 +104,9 @@ extension SettingsVC {
     }
 
     private func logout() {
-        let firebaseAuth = FIRAuth.auth()
+        let firebaseAuth = Auth.auth()
         do {
-            try firebaseAuth?.signOut()
+            try firebaseAuth.signOut()
             dismiss(animated: true, completion: nil)
         } catch let signOutError {
             log("Error signing out: \(signOutError.localizedDescription)", object: self, type: .error)
