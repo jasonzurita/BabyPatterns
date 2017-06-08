@@ -539,7 +539,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="or0-TD-gTW" firstAttribute="centerX" secondItem="W5g-zG-cVy" secondAttribute="centerX" id="4Fw-9O-lW3"/>
                             <constraint firstItem="or0-TD-gTW" firstAttribute="centerY" secondItem="W5g-zG-cVy" secondAttribute="centerY" id="eaK-Vk-Jbk"/>
@@ -978,7 +978,7 @@
         <image name="settingButton" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YXW-Bk-Do2"/>
+        <segue reference="uZI-Kk-Ngs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
