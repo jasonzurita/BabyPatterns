@@ -22,13 +22,13 @@ class CircleToggleButton: UIButton {
         }
     }
 
+    private var activeBorder: UIView?
+
     @IBInspectable var isActive: Bool = false {
         didSet {
             updateButton()
         }
     }
-
-    private var activeBorder: UIView?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,8 +50,10 @@ class CircleToggleButton: UIButton {
         if isActive {
             backgroundColor = activeColor
 
-            activeBorder = makeActiveBorder()
-            insertSubview(activeBorder!, at: 0)
+            guard activeBorder == nil else { return }
+            let border = makeActiveBorder()
+            insertSubview(border, at: 0)
+            activeBorder = border
         } else {
             backgroundColor = normalColor
 
