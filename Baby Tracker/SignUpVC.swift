@@ -115,3 +115,10 @@ class SignUpVC: UIViewController, Loggable {
         }
     }
 }
+
+extension SignUpVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

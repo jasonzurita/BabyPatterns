@@ -112,5 +112,11 @@ extension SettingsVC {
             log("Error signing out: \(signOutError.localizedDescription)", object: self, type: .error)
         }
     }
+}
 
+extension SettingsVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 }

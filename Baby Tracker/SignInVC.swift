@@ -109,5 +109,11 @@ class SignInVC: UIViewController, Loggable {
         //TODO: turn start animating off
         tryDemoActivityIndicator.startAnimating()
     }
+}
 
+extension SignInVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
