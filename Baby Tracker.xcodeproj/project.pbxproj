@@ -321,19 +321,10 @@
 			name = "View Models";
 			sourceTree = "<group>";
 		};
-		437C1F741E9BB40F00DE17DC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				437C1F751E9BB44A00DE17DC /* Shakeable.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		43932C3E1E01FE6C00056F83 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				ACF086A01F153E300012A04D /* Protocols */,
-				437C1F741E9BB40F00DE17DC /* View */,
 				430F01791E2D09FD00FE02FC /* Extensions */,
 				43932C3F1E01FE7D00056F83 /* Views */,
 			);
@@ -404,6 +395,7 @@
 		ACF086A01F153E300012A04D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				437C1F751E9BB44A00DE17DC /* Shakeable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
