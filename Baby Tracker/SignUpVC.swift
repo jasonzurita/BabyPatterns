@@ -18,11 +18,21 @@ class SignUpVC: UIViewController, Loggable {
 
     private var profileVM: ProfileVM? = ProfileVM()
 
-    @IBOutlet weak var babyNameTextField: ValidationTextField!
-    @IBOutlet weak var babyDOBTextField: ValidationTextField!
-    @IBOutlet weak var nameTextField: ValidationTextField!
-    @IBOutlet weak var emailTextField: ValidationTextField!
-    @IBOutlet weak var passwordTextField: ValidationTextField!
+    @IBOutlet weak var babyNameTextField: ValidationTextField! {
+        didSet { babyNameTextField.type = .text }
+    }
+    @IBOutlet weak var babyDOBTextField: ValidationTextField! {
+        didSet { babyDOBTextField.type = .dateOfBirth }
+    }
+    @IBOutlet weak var nameTextField: ValidationTextField! {
+        didSet { nameTextField.type = .text }
+    }
+    @IBOutlet weak var emailTextField: ValidationTextField! {
+        didSet { emailTextField.type = .email }
+    }
+    @IBOutlet weak var passwordTextField: ValidationTextField! {
+        didSet { passwordTextField.type = .password }
+    }
     @IBOutlet weak var submitActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var babyInfoContainer: UIView!
     @IBOutlet weak var parentInfoContainer: UIView!

@@ -13,6 +13,7 @@ enum TextFieldType {
     case email
     case phoneNumber
     case dateOfBirth
+    case password
     case custom(() -> Bool)
 }
 
@@ -27,18 +28,18 @@ class ValidationTextField: UITextField, Shakeable {
         case .text:
             isValid = isTextValid()
         case .email:
-            isValid = emailValidation()
+            isValid = isEmailValid()
         case .phoneNumber:
-            isValid = phoneNumberValidation()
+            isValid = isPhoneNumberValid()
         case .dateOfBirth:
-            isValid = isTextValid()
+            isValid = isDOBValid()
+        case .password:
+            isValid = isPasswordValid()
         case .custom(let validation):
             isValid = validation()
         }
 
-        if !isValid {
-            shake()
-        }
+        if !isValid { shake() }
 
         return isValid
     }
@@ -48,15 +49,19 @@ class ValidationTextField: UITextField, Shakeable {
     }
 
     //TODO: implement us!
-    private func emailValidation() -> Bool {
+    private func isEmailValid() -> Bool {
         return isTextValid()
     }
 
-    private func phoneNumberValidation() -> Bool {
+    private func isPhoneNumberValid() -> Bool {
         return isTextValid()
     }
 
-    private func dobValidation() -> Bool {
+    private func isDOBValid() -> Bool {
+        return isTextValid()
+    }
+
+    private func isPasswordValid() -> Bool {
         return isTextValid()
     }
 }
