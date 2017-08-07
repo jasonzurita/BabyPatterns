@@ -100,10 +100,6 @@ class SignInVC: UIViewController, Loggable {
         present(prompt, animated: true, completion: nil)
     }
 
-    @IBAction func signUp(_ sender: UIButton) {
-        performSegue(withIdentifier: K.Segues.SignUp, sender: nil)
-    }
-
     @IBAction func tryDemo(_ sender: UIButton) {
         //load demo account
         //TODO: turn start animating off
