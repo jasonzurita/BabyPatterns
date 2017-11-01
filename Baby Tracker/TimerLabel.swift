@@ -100,7 +100,7 @@ class TimerLabel: UILabel {
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        options: [.autoreverse, .curveEaseInOut, .repeat],
-                       animations: { _ in
+                       animations: {
             self.alpha = 0.0
         }, completion: { [weak self] _ in
             guard let strongSelf = self else { return }

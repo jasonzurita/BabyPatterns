@@ -59,17 +59,16 @@ class DispatchVC: UIViewController, Loggable {
     private func loadProfile() {
         let p = ProfileVM()
         profileVM = p
-        p.loadProfile(completionHandler: { _ in
+        p.loadProfile(completionHandler: {
             self.didRequestProfile = true
             self.userLoggedIn()
-
         })
     }
 
     private func loadFeedings() {
         let f = FeedingsVM()
         feedingsVM = f
-        f.loadFeedings(completionHandler: { _ in
+        f.loadFeedings(completionHandler: {
             self.didRequestFeedings = true
             self.userLoggedIn()
         })

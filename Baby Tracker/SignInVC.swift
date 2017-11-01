@@ -31,7 +31,7 @@ class SignInVC: UIViewController, Loggable {
     }
 
     private func configureSignInContainerView(containerLayer: CALayer) {
-        containerLayer.borderColor = UIColor(colorLiteralRed: 0, green: 153/255, blue: 255/255, alpha: 1).cgColor
+        containerLayer.borderColor = UIColor(red: 0, green: 153/255, blue: 255/255, alpha: 1).cgColor
         containerLayer.masksToBounds = true
     }
 
