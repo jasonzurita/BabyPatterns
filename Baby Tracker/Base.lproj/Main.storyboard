@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nTM-8P-wsE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nTM-8P-wsE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -274,7 +274,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhk-2z-AFR">
-                                                    <rect key="frame" x="18" y="11" width="122" height="21"/>
+                                                    <rect key="frame" x="18" y="11" width="324" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -283,6 +283,7 @@
                                             <constraints>
                                                 <constraint firstItem="fhk-2z-AFR" firstAttribute="centerY" secondItem="OQX-LH-2nJ" secondAttribute="centerY" id="Kzw-BL-5tx"/>
                                                 <constraint firstItem="fhk-2z-AFR" firstAttribute="leading" secondItem="OQX-LH-2nJ" secondAttribute="leadingMargin" constant="10" id="ZIS-Ce-8BB"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="fhk-2z-AFR" secondAttribute="trailing" id="Zxl-Qw-Jic"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -298,7 +299,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn off advertiesments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fM-7k-vi6">
-                                                    <rect key="frame" x="18" y="11" width="183" height="21"/>
+                                                    <rect key="frame" x="18" y="11" width="290" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -313,6 +314,7 @@
                                             <constraints>
                                                 <constraint firstItem="2t3-5C-rzA" firstAttribute="centerY" secondItem="AUt-tg-CJr" secondAttribute="centerY" id="39E-YS-Tia"/>
                                                 <constraint firstItem="2fM-7k-vi6" firstAttribute="centerY" secondItem="AUt-tg-CJr" secondAttribute="centerY" id="4Tp-0v-fCt"/>
+                                                <constraint firstItem="2t3-5C-rzA" firstAttribute="leading" relation="lessThanOrEqual" secondItem="2fM-7k-vi6" secondAttribute="trailing" id="dQZ-9x-epL"/>
                                                 <constraint firstItem="2fM-7k-vi6" firstAttribute="leading" secondItem="AUt-tg-CJr" secondAttribute="leadingMargin" constant="10" id="doY-55-BTD"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="2t3-5C-rzA" secondAttribute="trailing" constant="10" id="vxf-3u-8Tv"/>
                                             </constraints>
@@ -330,7 +332,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgG-ol-NVi">
-                                                    <rect key="frame" x="18" y="11" width="128" height="21"/>
+                                                    <rect key="frame" x="18" y="11" width="324" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -338,6 +340,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="pgG-ol-NVi" firstAttribute="leading" secondItem="wcf-55-bMP" secondAttribute="leadingMargin" constant="10" id="Ocu-Hc-pNY"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="pgG-ol-NVi" secondAttribute="trailing" id="oq0-aD-dE2"/>
                                                 <constraint firstItem="pgG-ol-NVi" firstAttribute="centerY" secondItem="wcf-55-bMP" secondAttribute="centerY" id="teT-1o-o7G"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -350,7 +353,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uj8-nb-IX5">
-                                                    <rect key="frame" x="18" y="11" width="54" height="21"/>
+                                                    <rect key="frame" x="18" y="11" width="324" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.98039215690000003" green="0.0039215686269999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -359,6 +362,7 @@
                                             <constraints>
                                                 <constraint firstItem="Uj8-nb-IX5" firstAttribute="leading" secondItem="SGe-zP-c1N" secondAttribute="leadingMargin" constant="10" id="Jzh-Yn-K7Q"/>
                                                 <constraint firstItem="Uj8-nb-IX5" firstAttribute="centerY" secondItem="SGe-zP-c1N" secondAttribute="centerY" id="KH8-7J-aFJ"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Uj8-nb-IX5" secondAttribute="trailing" id="s7F-CN-aKD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -449,7 +453,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1v-rb-UA5">
-                                <rect key="frame" x="309" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="309" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QyH-tm-ZpA"/>
                                     <constraint firstAttribute="width" constant="50" id="eAU-zD-cEN"/>
@@ -469,7 +473,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCO-2K-VIT">
-                                <rect key="frame" x="16" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="16" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="LZU-hJ-jLl"/>
                                     <constraint firstAttribute="height" constant="50" id="Niw-Sn-bb7"/>
@@ -971,7 +975,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8xn-i4-Sqo" customClass="NavigationVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="bJt-Z8-I21">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -996,7 +1000,7 @@
         <image name="settingButton" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uZI-Kk-Ngs"/>
+        <segue reference="YXW-Bk-Do2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
