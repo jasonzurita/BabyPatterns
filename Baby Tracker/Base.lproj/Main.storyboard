@@ -11,6 +11,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Welcome Shannon!-->
         <scene sceneID="tne-QT-ifu">
@@ -576,8 +581,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baby Patterns" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNa-5D-Ffj">
+                                <rect key="frame" x="0.0" y="40" width="375" height="41"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="34"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9N2-yD-Ggm" userLabel="Sign In Container">
-                                <rect key="frame" x="37.5" y="120" width="300" height="80"/>
+                                <rect key="frame" x="37.5" y="126" width="300" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sue-AQ-aa6" userLabel="Separator">
                                         <rect key="frame" x="0.0" y="39" width="300" height="1"/>
@@ -634,7 +645,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tT-wJ-nMO">
-                                <rect key="frame" x="115" y="279" width="144" height="30"/>
+                                <rect key="frame" x="115" y="285" width="144" height="30"/>
                                 <state key="normal" title="I forgot my password">
                                     <color key="titleColor" red="0.0" green="0.3341426253" blue="0.80068218710000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -643,7 +654,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-hd-inr">
-                                <rect key="frame" x="56.5" y="220" width="262.5" height="44"/>
+                                <rect key="frame" x="56.5" y="226" width="262.5" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="GbV-tx-2Oh"/>
@@ -661,7 +672,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1Ib-Wn-bTc">
-                                <rect key="frame" x="177" y="232" width="20" height="20"/>
+                                <rect key="frame" x="177" y="238" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqi-72-3ju">
                                 <rect key="frame" x="93.5" y="593" width="187.5" height="44"/>
@@ -710,8 +721,9 @@
                             <constraint firstItem="OlT-hd-inr" firstAttribute="centerX" secondItem="jrz-OJ-tnk" secondAttribute="centerX" id="0vB-Zf-YBF"/>
                             <constraint firstItem="4tT-wJ-nMO" firstAttribute="centerX" secondItem="OlT-hd-inr" secondAttribute="centerX" id="2lC-v7-FME"/>
                             <constraint firstItem="OlT-hd-inr" firstAttribute="width" secondItem="jrz-OJ-tnk" secondAttribute="width" multiplier="0.7" id="36B-Wx-BGJ"/>
-                            <constraint firstItem="9N2-yD-Ggm" firstAttribute="top" secondItem="l8O-IT-7Aw" secondAttribute="bottom" constant="100" id="6ej-L6-6m2"/>
+                            <constraint firstItem="hNa-5D-Ffj" firstAttribute="width" secondItem="jrz-OJ-tnk" secondAttribute="width" id="A3d-Rr-tLY"/>
                             <constraint firstItem="bqi-72-3ju" firstAttribute="width" secondItem="jrz-OJ-tnk" secondAttribute="width" multiplier="0.5" id="ADC-Hz-LOa"/>
+                            <constraint firstItem="9N2-yD-Ggm" firstAttribute="top" secondItem="hNa-5D-Ffj" secondAttribute="bottom" constant="45" id="D1r-pA-w3a"/>
                             <constraint firstItem="cde-pw-O8j" firstAttribute="top" secondItem="bqi-72-3ju" secondAttribute="bottom" constant="30" id="IUg-2R-jUD"/>
                             <constraint firstItem="1Ib-Wn-bTc" firstAttribute="centerY" secondItem="OlT-hd-inr" secondAttribute="centerY" id="Nb2-oj-na8"/>
                             <constraint firstItem="bqi-72-3ju" firstAttribute="centerX" secondItem="jrz-OJ-tnk" secondAttribute="centerX" id="V9B-b4-9Jj"/>
@@ -724,6 +736,8 @@
                             <constraint firstItem="4tT-wJ-nMO" firstAttribute="top" secondItem="OlT-hd-inr" secondAttribute="bottom" constant="15" id="oBx-O2-GZo"/>
                             <constraint firstItem="cHb-Ej-L1I" firstAttribute="centerX" secondItem="jrz-OJ-tnk" secondAttribute="centerX" id="qzv-pS-1pC"/>
                             <constraint firstItem="OlT-hd-inr" firstAttribute="top" secondItem="9N2-yD-Ggm" secondAttribute="bottom" constant="20" id="u6N-R4-ep8"/>
+                            <constraint firstItem="hNa-5D-Ffj" firstAttribute="top" secondItem="l8O-IT-7Aw" secondAttribute="bottom" constant="20" id="vEh-KK-Bu0"/>
+                            <constraint firstItem="hNa-5D-Ffj" firstAttribute="centerX" secondItem="jrz-OJ-tnk" secondAttribute="centerX" id="wnj-HX-34c"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1000,7 +1014,7 @@
         <image name="settingButton" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YXW-Bk-Do2"/>
+        <segue reference="uZI-Kk-Ngs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
