@@ -8,7 +8,14 @@
 
 import UIKit
 
-class FeedingHistoryVC: UIViewController, Loggable {
+final class FeedingHistoryVC: UIViewController, Loggable {
+
+    private enum TimeWindow: TimeInterval {
+        case day = 86_400 //in seconds
+        case week = 604_800 //in seconds
+        case month = 2_592_000 //in seconds
+    }
+
     let shouldPrintDebugLog = true
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
@@ -20,7 +27,11 @@ class FeedingHistoryVC: UIViewController, Loggable {
 
     private var notificationToken: NSObjectProtocol?
 
-    private let screenTimeWindowSeconds: TimeInterval = 24 * 60 * 60
+    private var screenTimeWindow: TimeWindow = .day {
+        didSet {
+            setupGraph()
+        }
+    }
     private let screenHeight = UIScreen.main.bounds.size.width
     private let screenWidth = UIScreen.main.bounds.size.height
     private var barGraphHeight: CGFloat {
@@ -30,7 +41,7 @@ class FeedingHistoryVC: UIViewController, Loggable {
     private let barGraphElementWidth: CGFloat = 6
 
     private var pointsPerSecond: CGFloat {
-        return screenWidth / CGFloat(screenTimeWindowSeconds)
+        return screenWidth / CGFloat(screenTimeWindow.rawValue)
     }
 
     weak var feedingsVM: FeedingsVM?
@@ -57,7 +68,7 @@ class FeedingHistoryVC: UIViewController, Loggable {
     //Should be a little over the last feeding to allow showing of the last feeding
     private func feedingWindow(endDate: Date?) -> DateInterval {
         let now = Date() //when? now! when now? now now!
-        let past = endDate ?? Date(timeInterval: -(screenTimeWindowSeconds), since: now)
+        let past = endDate ?? Date(timeInterval: -(screenTimeWindow.rawValue), since: now)
         return DateInterval(start: past, end: now)
     }
 
@@ -122,5 +133,19 @@ class FeedingHistoryVC: UIViewController, Loggable {
 
     @IBAction func exitHistoryButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: K.Segues.UnwindToFeedingVC, sender: nil)
+    }
+
+    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+
+        switch sender.selectedSegmentIndex {
+        case 0:
+            screenTimeWindow = .day
+        case 1:
+            screenTimeWindow = .week
+        case 2:
+            screenTimeWindow = .month
+        default:
+            fatalError("Impossible segement selected...")
+        }
     }
 }
