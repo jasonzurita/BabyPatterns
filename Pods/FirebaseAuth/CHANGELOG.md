@@ -1,3 +1,36 @@
+# v4.3.1
+- Internal clean up.
+
+# v4.3.0
+- Provides account creation and last sign-in dates as metadata to the user
+  object.
+- Returns more descriptive errors for some error cases of the phone number
+  sign-in reCAPTCHA flow.
+- Fixes an issue that invalid users were not automatically signed out earlier.
+- Fixes an issue that ID token listeners were not fired in some cases.
+
+# v4.2.1
+- Fixes a threading issue in phone number auth that completion block was not
+  executed on the main thread in some error cases.
+
+# v4.2.0
+- Adds new phone number verification API which makes use of an intelligent reCAPTCHA to verify the application.
+
+# v4.1.1
+- Improves some method documentation in headers.
+
+# v4.1.0
+- Allows the app to handle continue URL natively, e.g., from password reset
+  email.
+- Allows the app to set language code, e.g., for sending password reset email.
+- Fixes an issue that user's phone number did not persist on client.
+- Fixes an issue that recover email action code type was reported as unknown.
+- Improves app start-up time by moving initialization off from the main
+  thread.
+- Better reports missing email error when creating a new password user.
+- Changes console message logging levels to be more consistent with other
+  Firebase products on the iOS platform.
+
 # 2017-05-17 -- v4.0.0
 - Adds Phone Number Authentication.
 - Adds support for generic OAuth2 identity providers.

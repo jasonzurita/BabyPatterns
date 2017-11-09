@@ -1,3 +1,34 @@
+# 2017-10-11 -- v2.0.5
+- Improved support for working in shared Keychain environments.
+
+# 2017-09-26 -- v2.0.4
+- Fixed an issue where the FCM token was not associating correctly with an APNs
+  device token, depending on when the APNs device token was made available.
+- Fixed an issue where FCM tokens for different Sender IDs were not associating
+  correctly with an APNs device token.
+- Fixed an issue that was preventing the FCM direct channel from being
+  established on the first start after 24 hours of being opened.
+
+# 2017-09-13 -- v2.0.3
+- Fixed a race condition where a token was not being generated on first start,
+  if Firebase Messaging was included and the app did not register for remote
+  notifications.
+
+# 2017-08-25 -- v2.0.2
+- Fixed a startup performance regression, removing a call which was blocking the
+  main thread.
+
+# 2017-08-07 -- v2.0.1
+- Fixed issues with token and app identifier being inaccessible when the device
+  is locked.
+- Fixed a crash if bundle identifier is nil, which is possible in some testing
+  environments.
+- Fixed a small memory leak fetching a new token.
+- Moved to a new and simplified token storage system.
+- Moved to a new queuing system for token fetches and deletes.
+- Simplified logic and code around configuration and logging.
+- Added clarification about the 'apns_sandbox' parameter, in header comments.
+
 # 2017-05-08 -- v2.0.0
 - Introduced an improved interface for Swift 3 developers
 - Deprecated some methods and properties after moving their logic to the

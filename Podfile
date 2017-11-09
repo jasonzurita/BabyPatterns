@@ -3,9 +3,9 @@
 # Comment this line if you're not using Swift and don't want to use dynamic frameworks
 
 use_frameworks!
-
-pod 'Firebase/Crash'
-pod 'Firebase/RemoteConfig'
+#
+#pod 'Firebase/Crash'
+#pod 'Firebase/RemoteConfig'
 
 #used
 pod 'Firebase/AdMob'
