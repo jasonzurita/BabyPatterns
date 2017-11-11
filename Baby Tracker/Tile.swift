@@ -17,8 +17,8 @@ enum TileType {
 
 class Tile: UIView {
 
-    //constants
-    private let shouldPrintDebugString = true //set to false to silence this class
+    // constants
+    private let shouldPrintDebugString = true // set to false to silence this class
 
     var didTapCallback: (() -> Void)?
 
@@ -30,7 +30,7 @@ class Tile: UIView {
         didSet { imageView.image = image }
     }
 
-    //outlets
+    // outlets
     @IBOutlet var view: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -56,7 +56,7 @@ class Tile: UIView {
         detailLabel2.text = ""
     }
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesEnded(_: Set<UITouch>, with _: UIEvent?) {
         didTapCallback?()
     }
 }

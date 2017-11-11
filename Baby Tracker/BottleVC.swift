@@ -71,7 +71,7 @@ class BottleVC: UIViewController, Loggable {
         amountFedLabel.text = "0.0"
     }
 
-    @IBAction func saveButtonPressed(_ sender: UIButton) {
+    @IBAction func saveButtonPressed(_: UIButton) {
         let consumedAmount = -Double(slider.value)
         delegate?.logBottleFeeding(withAmount: consumedAmount, time: datePicker.date)
         configureLabels()
@@ -83,21 +83,21 @@ class BottleVC: UIViewController, Loggable {
         sender.value = sender.value > _remainingSupplyHeight ? _remainingSupplyHeight : sender.value
         bottleFillHeightConstraint.constant = CGFloat(sender.value)
 
-        //TODO: break this out into a few variables with good names to help readability
+        // TODO: break this out into a few variables with good names to help readability
         let amountFed = Float(ds.remainingSupply()) -
-                        (Float(ds.remainingSupply()) / _remainingSupplyHeight) *
-                        slider.value
+            (Float(ds.remainingSupply()) / _remainingSupplyHeight) *
+            slider.value
 
         amountFedLabel.text = String.localizedStringWithFormat("%.1f%", CGFloat(amountFed))
     }
 }
 
 extension BottleVC: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_: UIPickerView, didSelectRow _: Int, inComponent _: Int) {
         log("Row selected", object: self, type: .info)
     }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
         return "\(row)"
     }
 }

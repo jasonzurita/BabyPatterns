@@ -11,7 +11,7 @@ import UIKit
 class ProfileVM: Loggable {
     let shouldPrintDebugLog = true
 
-    //TODO: consider returning a URL to use Data methods instead of having to cast to NSData
+    // TODO: consider returning a URL to use Data methods instead of having to cast to NSData
     private var profileImageURLPath: String? {
         guard let userID = profile?.userID else { return nil }
         let documentDirectory = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])"
@@ -32,12 +32,12 @@ class ProfileVM: Loggable {
 
     var profile: Profile?
 
-    func loadProfile(completionHandler:@escaping () -> Void) {
+    func loadProfile(completionHandler: @escaping () -> Void) {
         DatabaseFacade().configureDatabase(requestType: .profile, responseHandler: { responseArray in
             guard let data = responseArray.last else { completionHandler(); return }
-            guard let babyName = data.json[K.JsonFields.BabyName] as? String else { completionHandler(); return  }
-            guard let parentName = data.json[K.JsonFields.ParentName] as? String else { completionHandler(); return  }
-            guard let email = data.json[K.JsonFields.Email] as? String else { completionHandler(); return  }
+            guard let babyName = data.json[K.JsonFields.BabyName] as? String else { completionHandler(); return }
+            guard let parentName = data.json[K.JsonFields.ParentName] as? String else { completionHandler(); return }
+            guard let email = data.json[K.JsonFields.Email] as? String else { completionHandler(); return }
             guard let userID = data.json[K.JsonFields.UserID] as? String else { completionHandler(); return }
             guard let babyDOB = Date(timeInterval: data.json[K.JsonFields.BabyDOB]) else {
                 completionHandler()
@@ -51,9 +51,9 @@ class ProfileVM: Loggable {
                                    parentName: parentName,
                                    babyDOB: babyDOB,
                                    email: email,
-                                   userID:userID,
+                                   userID: userID,
                                    serverKey: data.serverKey,
-                                   desiredMaxSupply:desiredMaxSupply)
+                                   desiredMaxSupply: desiredMaxSupply)
 
             guard let imagePath = self.profileImageURLPath, FileManager.default.fileExists(atPath: imagePath) else {
                 completionHandler()
@@ -69,20 +69,20 @@ class ProfileVM: Loggable {
             completionHandler()
         })
 
-//        StorageFacade().download(requestType: .profilePhoto, callback: { (data, error) in
-//            guard let data = data else {
-//                if let e = error {
-                   // Logger.log(message: e.localizedDescription,
-                           //    object: self,
-                             //  type: .error,
-                             //  shouldPrintDebugLog: self.shouldPrintDebugString)
-//                }
-//                return
-//            }
-//            if let image = UIImage(data: data) {
-//                self.profile?.profilePicture = image
-//            }
-//        })
+        //        StorageFacade().download(requestType: .profilePhoto, callback: { (data, error) in
+        //            guard let data = data else {
+        //                if let e = error {
+        // Logger.log(message: e.localizedDescription,
+        //    object: self,
+        //  type: .error,
+        //  shouldPrintDebugLog: self.shouldPrintDebugString)
+        //                }
+        //                return
+        //            }
+        //            if let image = UIImage(data: data) {
+        //                self.profile?.profilePicture = image
+        //            }
+        //        })
     }
 
     func updateProfilePhoto(image: UIImage) {

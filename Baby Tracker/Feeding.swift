@@ -51,33 +51,35 @@ struct Feeding {
         guard let typeRawValue = json[K.JsonFields.FeedingType] as? String else { return nil }
         guard let type = FeedingType(rawValue: typeRawValue) else { return nil }
         guard let sideRawValue = json[K.JsonFields.Side] as? Int else { return nil }
-        guard let side = FeedingSide(rawValue:sideRawValue) else { return nil }
-        guard let startDate = Date(timeInterval:json[K.JsonFields.StartDate]) else { return nil }
-        let endDate = Date(timeInterval:json[K.JsonFields.EndDate])
+        guard let side = FeedingSide(rawValue: sideRawValue) else { return nil }
+        guard let startDate = Date(timeInterval: json[K.JsonFields.StartDate]) else { return nil }
+        let endDate = Date(timeInterval: json[K.JsonFields.EndDate])
 
-        let lastPausedDate = Date(timeInterval:json[K.JsonFields.LastPausedDate])
+        let lastPausedDate = Date(timeInterval: json[K.JsonFields.LastPausedDate])
 
         guard let supplyAmount = json[K.JsonFields.SupplyAmount] as? Double else { return nil }
         guard let pausedTime = json[K.JsonFields.PausedTime] as? TimeInterval else { return nil }
 
-        self.init(type:type,
-                  side:side,
-                  startDate:startDate,
-                  endDate:endDate,
+        self.init(type: type,
+                  side: side,
+                  startDate: startDate,
+                  endDate: endDate,
                   lastPausedDate: lastPausedDate,
-                  supplyAmount:supplyAmount,
-                  pausedTime:pausedTime,
-                  serverKey:serverKey)
+                  supplyAmount: supplyAmount,
+                  pausedTime: pausedTime,
+                  serverKey: serverKey)
     }
 
-    func eventJson() -> [String:Any] {
-        let json: [String:Any] = [K.JsonFields.FeedingType: type.rawValue,
-                                   K.JsonFields.Side: side.rawValue,
-                                   K.JsonFields.StartDate: startDate.timeIntervalSince1970,
-                                   K.JsonFields.PausedTime: pausedTime,
-                                   K.JsonFields.EndDate: endDate?.timeIntervalSince1970 ?? 0.0,
-                                   K.JsonFields.LastPausedDate: lastPausedDate?.timeIntervalSince1970 ?? 0.0,
-                                   K.JsonFields.SupplyAmount: supplyAmount]
+    func eventJson() -> [String: Any] {
+        let json: [String: Any] = [
+            K.JsonFields.FeedingType: type.rawValue,
+            K.JsonFields.Side: side.rawValue,
+            K.JsonFields.StartDate: startDate.timeIntervalSince1970,
+            K.JsonFields.PausedTime: pausedTime,
+            K.JsonFields.EndDate: endDate?.timeIntervalSince1970 ?? 0.0,
+            K.JsonFields.LastPausedDate: lastPausedDate?.timeIntervalSince1970 ?? 0.0,
+            K.JsonFields.SupplyAmount: supplyAmount,
+        ]
 
         return json
     }

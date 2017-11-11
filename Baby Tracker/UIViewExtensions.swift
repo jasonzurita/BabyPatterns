@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     func loadNib() {
-        Bundle.main.loadNibNamed(String(describing: type(of:self)), owner: self, options: nil)
+        Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
     }
 
     func bindFrameToSuperviewBounds() {
@@ -19,7 +19,7 @@ extension UIView {
             return
         }
 
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|",
                                                                 options: .directionLeadingToTrailing,
                                                                 metrics: nil,

@@ -29,30 +29,30 @@ class FeedingPageVC: UIPageViewController {
 }
 
 extension FeedingPageVC: SegmentedControlBarDelegate {
-    func segmentedControlBar(bar: SegmentedControlBar, segmentWasTapped index: Int) {
+    func segmentedControlBar(bar _: SegmentedControlBar, segmentWasTapped index: Int) {
 
         let direction: UIPageViewControllerNavigationDirection = segmentIndex.active < index ? .forward : .reverse
         segmentIndex.active = index
 
-        setActivePageViewController(direction:direction)
+        setActivePageViewController(direction: direction)
     }
 }
 
 extension FeedingPageVC: UIPageViewControllerDelegate {
 
-    func pageViewController(_ pageViewController: UIPageViewController,
+    func pageViewController(_: UIPageViewController,
                             willTransitionTo pendingViewControllers: [UIViewController]) {
 
         guard pendingViewControllers.count == 1,
             let pendingVC = pendingViewControllers.first,
-            let pendingIndex = pages.index(of:pendingVC) else { return }
+            let pendingIndex = pages.index(of: pendingVC) else { return }
 
         segmentIndex.pending = pendingIndex
     }
 
-    func pageViewController(_ pageViewController: UIPageViewController,
+    func pageViewController(_: UIPageViewController,
                             didFinishAnimating finished: Bool,
-                            previousViewControllers: [UIViewController],
+                            previousViewControllers _: [UIViewController],
                             transitionCompleted completed: Bool) {
 
         guard finished, completed, let control = segmentedControl else { return }
@@ -63,7 +63,7 @@ extension FeedingPageVC: UIPageViewControllerDelegate {
 }
 
 extension FeedingPageVC: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController,
+    func pageViewController(_: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
         guard let index = pages.index(of: viewController) else { return nil }
@@ -73,7 +73,7 @@ extension FeedingPageVC: UIPageViewControllerDataSource {
         return pages[previousIndex]
     }
 
-    func pageViewController(_ pageViewController: UIPageViewController,
+    func pageViewController(_: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
 
         guard let index = pages.index(of: viewController) else { return nil }

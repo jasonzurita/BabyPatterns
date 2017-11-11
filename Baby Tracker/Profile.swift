@@ -39,11 +39,13 @@ struct Profile {
     }
 
     func json() -> [String: Any] {
-        return [K.JsonFields.BabyName: babyName,
-                K.JsonFields.ParentName: parentName,
-                K.JsonFields.BabyDOB: babyDOB.timeIntervalSince1970,
-                K.JsonFields.Email: email,
-                K.JsonFields.UserID: userID,
-                K.JsonFields.DesiredMaxSupply: desiredMaxSupply]
+        return [
+            K.JsonFields.BabyName: babyName,
+            K.JsonFields.ParentName: parentName,
+            K.JsonFields.BabyDOB: babyDOB.timeIntervalSince1970,
+            K.JsonFields.Email: email,
+            K.JsonFields.UserID: userID,
+            K.JsonFields.DesiredMaxSupply: desiredMaxSupply,
+        ]
     }
 }

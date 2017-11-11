@@ -31,18 +31,18 @@ class SignInVC: UIViewController, Loggable {
     }
 
     private func configureSignInContainerView(containerLayer: CALayer) {
-        containerLayer.borderColor = UIColor(red: 0, green: 153/255, blue: 255/255, alpha: 1).cgColor
+        containerLayer.borderColor = UIColor(red: 0, green: 153 / 255, blue: 255 / 255, alpha: 1).cgColor
         containerLayer.masksToBounds = true
     }
 
-    @IBAction func signIn(_ sender: UIButton) {
+    @IBAction func signIn(_: UIButton) {
         signInActivityIndicator.startAnimating()
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             signInFailed()
             return
         }
 
-        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password, completion: { user, error in
             if let error = error {
                 self.signInFailed(error: error)
             } else {
@@ -74,7 +74,7 @@ class SignInVC: UIViewController, Loggable {
         performSegue(withIdentifier: K.Segues.SignedIn, sender: nil)
     }
 
-    @IBAction func forgotPassword(_ sender: UIButton) {
+    @IBAction func forgotPassword(_: UIButton) {
 
         let prompt = UIAlertController(title: "Reset Password?",
                                        message: "Enter your email then check that email for further instrucitons:",
@@ -83,9 +83,9 @@ class SignInVC: UIViewController, Loggable {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
             guard let userInput = prompt.textFields?[0].text, !userInput.isEmpty else { return }
 
-            Auth.auth().sendPasswordReset(withEmail: userInput, completion: { [weak self] (error) in
+            Auth.auth().sendPasswordReset(withEmail: userInput, completion: { [weak self] error in
                 if let error = error, let s = self {
-                    //TODO: revist this because we want to print this error regardless if self is available
+                    // TODO: revist this because we want to print this error regardless if self is available
                     s.log(error.localizedDescription, object: s, type: .error)
                     return
                 }
@@ -100,9 +100,9 @@ class SignInVC: UIViewController, Loggable {
         present(prompt, animated: true, completion: nil)
     }
 
-    @IBAction func tryDemo(_ sender: UIButton) {
-        //load demo account
-        //TODO: turn start animating off
+    @IBAction func tryDemo(_: UIButton) {
+        // load demo account
+        // TODO: turn start animating off
         tryDemoActivityIndicator.startAnimating()
     }
 }

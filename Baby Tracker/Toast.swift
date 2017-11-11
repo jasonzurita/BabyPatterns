@@ -13,7 +13,7 @@ class Toast: UILabel {
     var title = "toast label"
 
     convenience init(frame: CGRect, text: String) {
-        self.init(frame:frame)
+        self.init(frame: frame)
         title = text
     }
 
@@ -58,5 +58,4 @@ class Toast: UILabel {
             self.removeFromSuperview()
         })
     }
-
 }

@@ -18,7 +18,7 @@ extension Loggable {
 
     func log(_ message: String, object: Any, type: LogType) {
         if _shouldPrintDebugLog && shouldPrintDebugLog {
-            print("\(type.rawValue) -> \(Swift.type(of:object)): " + message)
+            print("\(type.rawValue) -> \(Swift.type(of: object)): " + message)
         }
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 extension Double {
-    //TODO make these a generic function
+    // TODO: make these a generic function
     func stringFromSecondsToHours(zeroPadding: Bool) -> (string: String, remainder: Double) {
         let secondsToHours: Double = 3600
         let hours = floor(self / secondsToHours)
@@ -37,7 +37,7 @@ extension Double {
     }
 
     func stringFromSecondsToSeconds(zeroPadding: Bool) -> (string: String, remainder: Double) {
-        let seconds = self.rounded()
+        let seconds = rounded()
         let remainder = self - seconds
 
         var returnString = "\(Int(seconds))"

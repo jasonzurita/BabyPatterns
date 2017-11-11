@@ -13,7 +13,7 @@ import Firebase
 class HomeVC: UIViewController {
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        //TODO: auto rotate to add and view other children
+        // TODO: auto rotate to add and view other children
         return .portrait
     }
 
@@ -24,7 +24,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var homeScreenTitle: UINavigationItem!
     @IBOutlet weak var profileView: ProfileView!
 
-    //TODO: okay for for now, put these into a collectoin view to easily support future tile additions
+    // TODO: okay for for now, put these into a collectoin view to easily support future tile additions
     @IBOutlet weak var feedingTile: Tile!
     @IBOutlet weak var requestFeatureTile: Tile!
 
@@ -38,9 +38,9 @@ class HomeVC: UIViewController {
         setupTileListeners()
 
         adBannerView.rootViewController = self
-        adBannerView.delegate =  self
+        adBannerView.delegate = self
         let adRequest = GADRequest()
-        adRequest.testDevices = [ kGADSimulatorID, "4796a5487323e9b9f16cf3dd3c0ada73" ]
+        adRequest.testDevices = [kGADSimulatorID, "4796a5487323e9b9f16cf3dd3c0ada73"]
         adBannerView.load(adRequest)
     }
 
@@ -86,7 +86,7 @@ class HomeVC: UIViewController {
         feedingTile.detailLabel1.text = "\(sideText)" + hours.string + "h " + minutes.string + "m ago"
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
 
         if let vc = segue.destination as? FeedingVC, let f = feedingsVM {
             vc.feedingsVM = f
@@ -98,9 +98,9 @@ class HomeVC: UIViewController {
             vc.delegate = self
         }
     }
-    @IBAction func turnOffAdsButtonPressed(_ sender: UIButton) {
-        print("TODO: implement getting rid of ads")
 
+    @IBAction func turnOffAdsButtonPressed(_: UIButton) {
+        print("TODO: implement getting rid of ads")
     }
 }
 
@@ -136,15 +136,15 @@ extension HomeVC: ProfileViewDelegate {
     }
 }
 
-extension HomeVC:EditProfileImageDelegate {
+extension HomeVC: EditProfileImageDelegate {
     func profileImageEdited(image: UIImage) {
-        profileVM?.updateProfilePhoto(image:image)
+        profileVM?.updateProfilePhoto(image: image)
         updateProfileUI()
     }
 }
 
-extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+extension HomeVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
 
@@ -159,7 +159,7 @@ extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate
         let options: [NSString: NSObject] = [
             kCGImageSourceThumbnailMaxPixelSize: (max(image.size.width, image.size.height) * 0.5) as NSObject,
             kCGImageSourceCreateThumbnailFromImageAlways: true as NSObject,
-            kCGImageSourceCreateThumbnailWithTransform: true as NSObject
+            kCGImageSourceCreateThumbnailWithTransform: true as NSObject,
         ]
         let thumbnail = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary?)
         return thumbnail.flatMap { UIImage(cgImage: $0) }
@@ -172,14 +172,14 @@ extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate
         let context = UIGraphicsGetCurrentContext()
 
         if orientation == .right {
-            context!.rotate(by: CGFloat(90)/CGFloat(180) * CGFloat.pi)
+            context!.rotate(by: CGFloat(90) / CGFloat(180) * CGFloat.pi)
         } else if orientation == .left {
-            context!.rotate(by: -CGFloat(90)/CGFloat(180) * CGFloat.pi)
+            context!.rotate(by: -CGFloat(90) / CGFloat(180) * CGFloat.pi)
 
         } else if orientation == .down {
             // NOTHING
         } else if orientation == .up {
-            context!.rotate(by: CGFloat(90)/CGFloat(180) * CGFloat.pi)
+            context!.rotate(by: CGFloat(90) / CGFloat(180) * CGFloat.pi)
         }
 
         image.draw(at: CGPoint(x: 0, y: 0))
@@ -190,7 +190,7 @@ extension HomeVC:UIImagePickerControllerDelegate, UINavigationControllerDelegate
 }
 
 extension HomeVC: GADBannerViewDelegate {
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+    func adViewDidReceiveAd(_: GADBannerView) {
         turnOffAdsButton.isHidden = false
     }
 }

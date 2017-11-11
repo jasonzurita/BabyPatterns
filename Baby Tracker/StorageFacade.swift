@@ -22,9 +22,9 @@ struct StorageFacade: Loggable {
             log(message, object: self, type: .error)
             return
         }
-        fullReference.putData(data, metadata: nil) { (metadata, error) in
+        fullReference.putData(data, metadata: nil) { metadata, error in
             guard metadata != nil && error == nil else {
-                //TODO: handle error?
+                // TODO: handle error?
                 self.log("Failure uploading \(type.rawValue)", object: self, type: .error)
                 return
             }
@@ -35,8 +35,8 @@ struct StorageFacade: Loggable {
     func download(requestType type: FirebaseRequestType, callback: @escaping DownloadResponseHandler) {
         guard let fullReference = pathForRequest(type: type) else { return }
 
-        //TODO: wrap data & error in a request object
-        fullReference.getData(maxSize: 100 * 1024 * 1024, completion: { (data, error) in
+        // TODO: wrap data & error in a request object
+        fullReference.getData(maxSize: 100 * 1024 * 1024, completion: { data, error in
             callback(data, error)
         })
     }
@@ -47,5 +47,4 @@ struct StorageFacade: Loggable {
         }
         return storageReference.child("/users/" + uid + "/" + type.rawValue)
     }
-
 }

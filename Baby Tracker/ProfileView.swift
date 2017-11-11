@@ -14,17 +14,17 @@ protocol ProfileViewDelegate: class {
 
 class ProfileView: UIView {
 
-    //properties
+    // properties
     weak var delegate: ProfileViewDelegate?
 
-    //outlets
+    // outlets
     @IBOutlet var view: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
 
     override init(frame: CGRect) {
-        super.init(frame:frame)
+        super.init(frame: frame)
         initializeView()
     }
 
@@ -41,11 +41,11 @@ class ProfileView: UIView {
         imageView.layer.masksToBounds = true
     }
 
-    override func draw(_ rect: CGRect) {
+    override func draw(_: CGRect) {
         imageView.layer.cornerRadius = imageView.frame.height * 0.5
     }
 
-    @IBAction func changeProfileImageButtonTapped(_ sender: UIButton) {
+    @IBAction func changeProfileImageButtonTapped(_: UIButton) {
         delegate?.changeProfileImageButtonTapped()
     }
 }

@@ -15,6 +15,7 @@ class CircleToggleButton: UIButton {
             backgroundColor = normalColor
         }
     }
+
     @IBInspectable var activeColor: UIColor = UIColor.blue
     @IBInspectable var normalText: String = "Left" {
         didSet {
@@ -80,5 +81,4 @@ class CircleToggleButton: UIButton {
 
         return view
     }
-
 }

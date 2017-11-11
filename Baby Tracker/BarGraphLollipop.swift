@@ -26,9 +26,8 @@ class BarGraphLollipop: UIView {
 
     private func setupBarGraph() {
         loadNib()
-        self.view.frame = self.bounds
-        self.addSubview(view)
-        //barView.backgroundColor = UIColor.green
+        view.frame = bounds
+        addSubview(view)
+        // barView.backgroundColor = UIColor.green
     }
-
 }

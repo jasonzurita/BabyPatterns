@@ -28,10 +28,10 @@ protocol Validatable {
 
 extension Validatable {
     func validate(_ value: String?, type: ValidationType) -> ValidationResult {
-        guard let v = value else { return .failure(reason: "no text to validate")}
+        guard let v = value else { return .failure(reason: "no text to validate") }
 
         switch type {
-        case .text(let length):
+        case let .text(length):
             return validate(text: v, length: length)
         case .email:
             return validate(email: v)
@@ -41,7 +41,7 @@ extension Validatable {
             return validate(dateOfBirth: v)
         case .password:
             return validate(password: v)
-        case .custom(let validator):
+        case let .custom(validator):
             return validator(v)
         }
     }
@@ -63,22 +63,22 @@ extension Validatable {
                 guard components.scheme == "mailto" else { return nil }
 
                 return components.path
-        }
+            }
 
         return addresses.isEmpty ? .failure(reason: "invalid email") : .success
     }
 
-    private func validate(phoneNumber: String) -> ValidationResult {
+    private func validate(phoneNumber _: String) -> ValidationResult {
         // TODO: implement validation
         return .success
     }
 
-    private func validate(dateOfBirth: String) -> ValidationResult {
+    private func validate(dateOfBirth _: String) -> ValidationResult {
         // TODO: implement validation
         return .success
     }
 
-    private func validate(password: String) -> ValidationResult {
+    private func validate(password _: String) -> ValidationResult {
         // TODO: implement validation
         return .success
     }

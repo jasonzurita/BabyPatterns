@@ -34,26 +34,26 @@ class SignUpVC: UIViewController, Loggable, Validatable {
     }
 
     private func configureSignUpContainerView(containerLayer: CALayer) {
-        containerLayer.borderColor = UIColor(red: 0, green: 153/255, blue: 255/255, alpha: 1).cgColor
+        containerLayer.borderColor = UIColor(red: 0, green: 153 / 255, blue: 255 / 255, alpha: 1).cgColor
         containerLayer.masksToBounds = true
     }
 
-    @IBAction func dismissButtonTapped(_ sender: UIButton) {
+    @IBAction func dismissButtonTapped(_: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func submitButtonPressed(_ sender: UIButton) {
+    @IBAction func submitButtonPressed(_: UIButton) {
 
         guard allTextFieldsValid() else { return }
 
         guard let email = emailTextField.text, let password = passwordTextField.text else {
-            signUpFailed(message:"Please check your email and password and try again.")
+            signUpFailed(message: "Please check your email and password and try again.")
             return
         }
 
         submitActivityIndicator.startAnimating()
 
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { user, error in
             guard error == nil else {
                 self.signUpFailed(message: "", error: error)
                 return
@@ -86,7 +86,6 @@ class SignUpVC: UIViewController, Loggable, Validatable {
         }
 
         return resultReasons.isEmpty
-
     }
 
     private func signUpFailed(message: String, error: Error? = nil) {
@@ -104,7 +103,7 @@ class SignUpVC: UIViewController, Loggable, Validatable {
         submitActivityIndicator.stopAnimating()
         log("User id: \(user.uid)", object: self, type: .info)
 
-        profileVM?.profile = makeProfile(userID:user.uid)
+        profileVM?.profile = makeProfile(userID: user.uid)
         profileVM?.sendToServer()
 
         performSegue(withIdentifier: K.Segues.SignedUp, sender: nil)
@@ -117,14 +116,14 @@ class SignUpVC: UIViewController, Loggable, Validatable {
         return Profile(babyName: babyName,
                        parentName: parentName,
                        babyDOB: Date(),
-                       email:email,
-                       userID:userID,
-                       desiredMaxSupply:K.Defaults.DefaultDesiredMaxSupply)
+                       email: email,
+                       userID: userID,
+                       desiredMaxSupply: K.Defaults.DefaultDesiredMaxSupply)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         if let navigationVC = segue.destination as? UINavigationController,
-           let homeVC = navigationVC.topViewController as? HomeVC {
+            let homeVC = navigationVC.topViewController as? HomeVC {
             homeVC.profileVM = profileVM
             profileVM = nil
         }

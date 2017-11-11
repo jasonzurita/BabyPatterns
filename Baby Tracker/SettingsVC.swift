@@ -18,7 +18,7 @@ class SettingsVC: UITableViewController, Loggable {
 
     var profileVM: ProfileVM?
 
-    //cells
+    // cells
     @IBOutlet weak var resetPasswordCell: UITableViewCell!
     @IBOutlet weak var contactSupportCell: UITableViewCell!
     @IBOutlet weak var logoutCell: UITableViewCell!
@@ -52,7 +52,7 @@ class SettingsVC: UITableViewController, Loggable {
 
     @IBAction func emailTextFieldDidFinishEditing(_ sender: UITextField) {
         guard let email = sender.text, email.validateEmail() else {
-            fieldNotValid(message:"Invalid email. Try again.")
+            fieldNotValid(message: "Invalid email. Try again.")
             return
         }
 
@@ -72,11 +72,11 @@ class SettingsVC: UITableViewController, Loggable {
         profileVM?.profileUpdated()
     }
 
-    @IBAction func turnOffAdsSwitchPressed(_ sender: UISwitch) {
+    @IBAction func turnOffAdsSwitchPressed(_: UISwitch) {
     }
 
-    private func fieldNotValid(message: String) {
-        //present popup here
+    private func fieldNotValid(message _: String) {
+        // present popup here
     }
 }
 
@@ -96,11 +96,9 @@ extension SettingsVC {
     }
 
     private func resetPassword() {
-
     }
 
     private func contactSupport() {
-
     }
 
     private func logout() {

@@ -56,7 +56,7 @@ class TimerLabel: UILabel {
         guard _timer == nil else { return }
         isRunning = true
 
-        counter = startingCounterTime(startTime:startTime)
+        counter = startingCounterTime(startTime: startTime)
 
         _timer = Timer.scheduledTimer(withTimeInterval: countingInterval, repeats: true, block: { [weak self] _ in
             guard let strongSelf = self else { return }
@@ -101,10 +101,10 @@ class TimerLabel: UILabel {
                        delay: 0,
                        options: [.autoreverse, .curveEaseInOut, .repeat],
                        animations: {
-            self.alpha = 0.0
-        }, completion: { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.alpha = 1.0
+                           self.alpha = 0.0
+                       }, completion: { [weak self] _ in
+                           guard let strongSelf = self else { return }
+                           strongSelf.alpha = 1.0
         })
     }
 

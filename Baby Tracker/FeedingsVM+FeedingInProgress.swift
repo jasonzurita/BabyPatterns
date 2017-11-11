@@ -22,7 +22,7 @@ extension FeedingsVM {
         feedings.append(fip)
     }
 
-    func feedingEnded(type: FeedingType, side: FeedingSide, endDate: Date = Date()) {
+    func feedingEnded(type: FeedingType, side _: FeedingSide, endDate: Date = Date()) {
 
         guard var fip = feedingInProgress(type: type) else { return }
 
@@ -33,7 +33,7 @@ extension FeedingsVM {
         updateFeedingOnServer(fip: fip)
     }
 
-    func updateFeedingInProgress(type: FeedingType, side: FeedingSide, isPaused: Bool) {
+    func updateFeedingInProgress(type: FeedingType, side _: FeedingSide, isPaused: Bool) {
         guard var fip = feedingInProgress(type: type) else { return }
 
         if isPaused {
@@ -44,11 +44,11 @@ extension FeedingsVM {
         }
 
         updateInternalFeedingCache(fip: fip)
-        updateFeedingOnServer(fip:fip)
+        updateFeedingOnServer(fip: fip)
     }
 
     private func updateInternalFeedingCache(fip: Feeding) {
-        //TODO: implement an == definition in the Feeding class to make this more robust
+        // TODO: implement an == definition in the Feeding class to make this more robust
         if let i = feedings.index(where: { $0.serverKey == fip.serverKey }) {
             feedings[i] = fip
         }
@@ -63,7 +63,7 @@ extension FeedingsVM {
     }
 
     func feedingInProgress(type: FeedingType) -> Feeding? {
-        let f = feedings.filter { $0.type == type && !$0.isFinished}
+        let f = feedings.filter { $0.type == type && !$0.isFinished }
         guard f.count > 0 else { return nil }
         guard f.count == 1, let feeding = f.first else {
             log("More than one in-progress feeding of the same type...", object: self, type: .warning)

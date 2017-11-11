@@ -30,19 +30,19 @@ class FeedingVC: UIViewController {
         return .portrait
     }
 
-    //properties
+    // properties
     weak var feedingsVM: FeedingsVM?
     weak var profileVM: ProfileVM?
     private var notificationToken: NSObjectProtocol?
 
-    //outlets
+    // outlets
     @IBOutlet weak var segmentedControl: SegmentedControlBar!
     @IBOutlet weak var profileView: ProfileView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let titles = FeedingType.allValues.map { $0.rawValue }
-        segmentedControl.configureSegmentedBar(titles: titles, defaultSegmentIndex:0)
+        segmentedControl.configureSegmentedBar(titles: titles, defaultSegmentIndex: 0)
 
         updateProfileUI()
     }
@@ -80,16 +80,16 @@ class FeedingVC: UIViewController {
         }
     }
 
-    @IBAction func showHistoryButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: K.Segues.FeedingHistory, sender: nil)
+    @IBAction func showHistoryButtonPressed(_: UIButton) {
+        performSegue(withIdentifier: K.Segues.FeedingHistory, sender: nil)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //equip page view controller to function here
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        // equip page view controller to function here
         if let vc = segue.destination as? FeedingPageVC {
             configureFeedingPageVC(vc: vc)
         } else if let vc = segue.destination as? FeedingHistoryVC {
-            configureFeedingHistoryVC(vc:vc)
+            configureFeedingHistoryVC(vc: vc)
         }
     }
 
@@ -115,19 +115,18 @@ class FeedingVC: UIViewController {
         vc.feedingsVM = feedingsVM
     }
 
-    @IBAction func unwindToFeedingVC(segue: UIStoryboardSegue) {
-
+    @IBAction func unwindToFeedingVC(segue _: UIStoryboardSegue) {
     }
 
     fileprivate func showFeedingSavedToast() {
         let toastSize: CGFloat = 150
-        let frame = CGRect(x: self.view.frame.width * 0.5 - (toastSize * 0.5),
-                           y: self.view.frame.height * 0.5 - (toastSize * 0.5),
+        let frame = CGRect(x: view.frame.width * 0.5 - (toastSize * 0.5),
+                           y: view.frame.height * 0.5 - (toastSize * 0.5),
                            width: toastSize,
                            height: toastSize)
 
         let toast = Toast(frame: frame, text: "Saved!")
-        toast.presentInView(view: self.view)
+        toast.presentInView(view: view)
     }
 }
 
@@ -153,7 +152,7 @@ extension FeedingVC: FeedingsDataSource {
     }
 
     func remainingSupply() -> Double {
-//        return feedingsVM?.remainingSupply() ?? 0.0
+        //        return feedingsVM?.remainingSupply() ?? 0.0
         return 25
     }
 

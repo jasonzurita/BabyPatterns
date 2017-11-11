@@ -8,36 +8,36 @@
 
 struct K {
     struct NibNames {
-        //TODO: update this to use the acutal class name to make it more robust
+        // TODO: update this to use the acutal class name to make it more robust
         static let SignIn = "SignInVC"
     }
 
     struct Segues {
-        //app launch
+        // app launch
         static let LoggedIn = "LoggedInSegue"
         static let LoggedOut = "LoggedOutSegue"
 
-        //logged out
+        // logged out
         static let SignedIn = "SignedInSegue"
         static let SignUp = "SignUpSegue"
 
-        //new account
+        // new account
         static let SignedUp = "SignedUpSegue"
 
-        //home vc
+        // home vc
         static let Feeding = "FeedingSegue"
         static let RequestFeature = "RequestFeatureSegue"
 
-        //feeding vc
+        // feeding vc
         static let FeedingHistory = "FeedingHistorySegue"
         static let UnwindToFeedingVC = "UnwindToFeedingVCSegue"
 
-        //edit profile image
+        // edit profile image
         static let EditProfileImage = "EditProfileImageSegue"
     }
 
     struct JsonFields {
-        //feeding
+        // feeding
         static let FeedingType = "type"
         static let Side = "side"
         static let StartDate = "startDate"
@@ -48,7 +48,7 @@ struct K {
         static let FeedingQuantity = "quantity"
         static let Duration = "duration"
 
-        //profile
+        // profile
         static let ParentName = "parentName"
         static let BabyName = "babyName"
         static let BabyDOB = "babyDOB"

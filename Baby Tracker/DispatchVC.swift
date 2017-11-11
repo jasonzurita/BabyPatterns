@@ -22,7 +22,7 @@ class DispatchVC: UIViewController, Loggable {
     private var feedingsVM: FeedingsVM?
     private var profileVM: ProfileVM?
 
-    //TODO: this should be changed to be a bitwise operator
+    // TODO: this should be changed to be a bitwise operator
     private var didRequestFeedings = false
     private var didRequestProfile = false
 
@@ -36,7 +36,7 @@ class DispatchVC: UIViewController, Loggable {
         if let user = Auth.auth().currentUser {
             didRequestProfile = false
             didRequestFeedings = false
-            self.userLoggedIn(user: user)
+            userLoggedIn(user: user)
         } else {
             userLoggedOut()
         }
@@ -84,7 +84,7 @@ class DispatchVC: UIViewController, Loggable {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         if let navigationVC = segue.destination as? UINavigationController,
             let homeVC = navigationVC.topViewController as? HomeVC {
             homeVC.feedingsVM = feedingsVM

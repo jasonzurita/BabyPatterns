@@ -63,7 +63,7 @@ class EditProfileImageVC: UIViewController, Loggable {
         overlayView.clipsToBounds = true
     }
 
-    @IBAction func saveProfilePhoto(_ sender: UIButton) {
+    @IBAction func saveProfilePhoto(_: UIButton) {
         if let image = profileImageView.image, let editedImage = cropImage(image) {
             delegate?.profileImageEdited(image: editedImage)
         }
@@ -97,13 +97,13 @@ class EditProfileImageVC: UIViewController, Loggable {
         return CGRect(x: x, y: y, width: width, height: height)
     }
 
-    @IBAction func dismissViewController(_ sender: UIButton) {
+    @IBAction func dismissViewController(_: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 }
 
 extension EditProfileImageVC: UIScrollViewDelegate {
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in _: UIScrollView) -> UIView? {
         return profileImageView
     }
 }

@@ -11,9 +11,9 @@ import UIKit
 final class FeedingHistoryVC: UIViewController, Loggable {
 
     private enum TimeWindow: TimeInterval {
-        case day = 86_400 //in seconds
-        case week = 604_800 //in seconds
-        case month = 2_592_000 //in seconds
+        case day = 86400 // in seconds
+        case week = 604_800 // in seconds
+        case month = 2_592_000 // in seconds
     }
 
     let shouldPrintDebugLog = true
@@ -22,7 +22,7 @@ final class FeedingHistoryVC: UIViewController, Loggable {
     }
 
     override var description: String {
-        return "\(type(of:self))"
+        return "\(type(of: self))"
     }
 
     private var notificationToken: NSObjectProtocol?
@@ -32,11 +32,13 @@ final class FeedingHistoryVC: UIViewController, Loggable {
             setupGraph()
         }
     }
+
     private let screenHeight = UIScreen.main.bounds.size.width
     private let screenWidth = UIScreen.main.bounds.size.height
     private var barGraphHeight: CGFloat {
         return screenHeight * 0.5
     }
+
     private let barGraphYOffset: CGFloat = 10
     private let barGraphElementWidth: CGFloat = 6
 
@@ -60,14 +62,15 @@ final class FeedingHistoryVC: UIViewController, Loggable {
             log("no feedings to show...", object: self, type: .warning)
             return }
 
-        let graphWindow = feedingWindow(endDate:feedingEvents.first?.endDate)
+        let graphWindow = feedingWindow(endDate: feedingEvents.first?.endDate)
         adjustScrollViewContentSize(width: CGFloat(abs(graphWindow.start.timeIntervalSinceNow)) * pointsPerSecond)
         layoutFeedings(feedingEvents, inWindow: graphWindow)
         adjustScrollViewContentOffset()
     }
-    //Should be a little over the last feeding to allow showing of the last feeding
+
+    // Should be a little over the last feeding to allow showing of the last feeding
     private func feedingWindow(endDate: Date?) -> DateInterval {
-        let now = Date() //when? now! when now? now now!
+        let now = Date() // when? now! when now? now now!
         let past = endDate ?? Date(timeInterval: -(screenTimeWindow.rawValue), since: now)
         return DateInterval(start: past, end: now)
     }
@@ -131,8 +134,8 @@ final class FeedingHistoryVC: UIViewController, Loggable {
         })
     }
 
-    @IBAction func exitHistoryButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: K.Segues.UnwindToFeedingVC, sender: nil)
+    @IBAction func exitHistoryButtonPressed(_: UIButton) {
+        performSegue(withIdentifier: K.Segues.UnwindToFeedingVC, sender: nil)
     }
 
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {

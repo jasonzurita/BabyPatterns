@@ -14,11 +14,11 @@ protocol SegmentedControlBarDelegate: class {
 
 class SegmentedControlBar: UIStackView {
 
-    //properties
+    // properties
     weak var delegate: SegmentedControlBarDelegate?
     fileprivate var segments: [Segment] = []
 
-    //outlets
+    // outlets
     @IBOutlet var view: UIView!
 
     override init(frame: CGRect) {
@@ -60,9 +60,7 @@ class SegmentedControlBar: UIStackView {
         segments.forEach { segment in
             segment.isActive = false
         }
-
     }
-
 }
 
 extension SegmentedControlBar: SegmentDelegate {

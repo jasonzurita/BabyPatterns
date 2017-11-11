@@ -10,7 +10,7 @@ import UIKit
 
 class FeedingTimerVC: UIViewController, Loggable {
 
-    //properties
+    // properties
     var feedingType: FeedingType!
     weak var delegate: FeedingInProgressDelegate?
     weak var dataSource: FeedingsDataSource?
@@ -18,7 +18,7 @@ class FeedingTimerVC: UIViewController, Loggable {
     private var sideInProgress: FeedingSide = .none
     let shouldPrintDebugLog = true
 
-    //outlets
+    // outlets
     @IBOutlet weak var timerLabel: TimerLabel!
     @IBOutlet weak var leftFeedingControl: FeedingControl!
     @IBOutlet weak var rightFeedingControl: FeedingControl!
@@ -58,17 +58,17 @@ class FeedingTimerVC: UIViewController, Loggable {
             log("No active control to resume feeding with", object: self, type: .error)
             return
         }
-        resumeFeeding(feedingInProgress:lf, activeControl: control)
+        resumeFeeding(feedingInProgress: lf, activeControl: control)
     }
 
     private func resumeFeeding(feedingInProgress: Feeding, activeControl: FeedingControl) {
-        startFeeding(control: activeControl, startTime:feedingInProgress.duration())
+        startFeeding(control: activeControl, startTime: feedingInProgress.duration())
         if feedingInProgress.isPaused {
             pauseFeeding(control: activeControl)
         }
     }
 
-    @IBAction func stopButtonPressed(_ sender: UIButton) {
+    @IBAction func stopButtonPressed(_: UIButton) {
         guard timerLabel.isRunning else {
             assertionFailure("Cannot stop timer that is not running")
             return
@@ -91,7 +91,7 @@ class FeedingTimerVC: UIViewController, Loggable {
         delegate?.feedingEnded(type: feedingType, side: sideInProgress)
     }
 
-    fileprivate func updateFeedingInProgress(type: FeedingType, side: FeedingSide) {
+    fileprivate func updateFeedingInProgress(type: FeedingType, side _: FeedingSide) {
         delegate?.updateFeedingInProgress(type: type, side: sideInProgress, isPaused: timerLabel.isPaused)
     }
 
@@ -105,7 +105,7 @@ class FeedingTimerVC: UIViewController, Loggable {
         let shouldPauseTimer = timerLabel.isRunning && !timerLabel.isPaused && sender.isActive
         let shouldResumeTimer = timerLabel.isRunning && timerLabel.isPaused && sender.isActive
 
-        if  shouldStartTimer {
+        if shouldStartTimer {
             startFeeding(control: sender, startTime: 0)
             delegate?.feedingStarted(type: feedingType, side: sender.side)
         } else if shouldPauseTimer {
@@ -141,13 +141,12 @@ class FeedingTimerVC: UIViewController, Loggable {
         timerLabel.end()
     }
 
-    @IBAction func editLastFeeding(_ sender: UIButton) {
+    @IBAction func editLastFeeding(_: UIButton) {
     }
-
 }
 
 extension FeedingTimerVC: TimerLabelDataSource {
-    func timerValueForTimerLabel(timerLabel: TimerLabel) -> TimeInterval {
+    func timerValueForTimerLabel(timerLabel _: TimerLabel) -> TimeInterval {
 
         guard let fip = dataSource?.lastFeeding(type: feedingType) else { return 0.0 }
 
