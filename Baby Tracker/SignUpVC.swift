@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class SignUpVC: UIViewController, Loggable {
+class SignUpVC: UIViewController, Loggable, Validatable {
     let shouldPrintDebugLog = true
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -18,21 +18,11 @@ class SignUpVC: UIViewController, Loggable {
 
     private var profileVM: ProfileVM? = ProfileVM()
 
-    @IBOutlet weak var babyNameTextField: ValidationTextField! {
-        didSet { babyNameTextField.type = .text }
-    }
-    @IBOutlet weak var babyDOBTextField: ValidationTextField! {
-        didSet { babyDOBTextField.type = .dateOfBirth }
-    }
-    @IBOutlet weak var nameTextField: ValidationTextField! {
-        didSet { nameTextField.type = .text }
-    }
-    @IBOutlet weak var emailTextField: ValidationTextField! {
-        didSet { emailTextField.type = .email }
-    }
-    @IBOutlet weak var passwordTextField: ValidationTextField! {
-        didSet { passwordTextField.type = .password }
-    }
+    @IBOutlet weak var babyNameTextField: ShakeTextField!
+    @IBOutlet weak var babyDOBTextField: ShakeTextField!
+    @IBOutlet weak var nameTextField: ShakeTextField!
+    @IBOutlet weak var emailTextField: ShakeTextField!
+    @IBOutlet weak var passwordTextField: ShakeTextField!
     @IBOutlet weak var submitActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var babyInfoContainer: UIView!
     @IBOutlet weak var parentInfoContainer: UIView!
@@ -77,11 +67,26 @@ class SignUpVC: UIViewController, Loggable {
     }
 
     private func allTextFieldsValid() -> Bool {
-        return babyNameTextField.isValid() &&
-            babyDOBTextField.isValid() &&
-            nameTextField.isValid() &&
-            emailTextField.isValid() &&
-            passwordTextField.isValid()
+
+        let babyNameResult = validate(babyNameTextField.text, type: .text(length: 1))
+        let babyDOBResult = validate(babyDOBTextField.text, type: .dateOfBirth)
+        let nameResult = validate(nameTextField.text, type: .text(length: 1))
+        let emailResult = validate(emailTextField.text, type: .email)
+        let passwordResult = validate(passwordTextField.text, type: .password)
+
+        if case .failure = babyNameResult { babyNameTextField.shake() }
+        if case .failure = babyDOBResult { babyDOBTextField.shake() }
+        if case .failure = nameResult { nameTextField.shake() }
+        if case .failure = emailResult { emailTextField.shake() }
+        if case .failure = passwordResult { passwordTextField.shake() }
+
+        let resultReasons = [babyNameResult, babyDOBResult, nameResult, emailResult, passwordResult].flatMap {
+            guard case let .failure(reason) = $0 else { return nil }
+            return reason
+        }
+
+        return resultReasons.isEmpty
+
     }
 
     private func signUpFailed(message: String, error: Error? = nil) {

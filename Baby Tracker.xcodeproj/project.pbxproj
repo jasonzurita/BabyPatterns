@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02173C36F355DC9389294DE7 /* Pods_Baby_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */; };
+		128C93CB1FB72CA0001E58F4 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128C93CA1FB72CA0001E58F4 /* Validatable.swift */; };
 		43037E0E1E3A36DB00D478AD /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43037E0D1E3A36DB00D478AD /* NavigationVC.swift */; };
 		43037E191E3B8F6700D478AD /* FeedingHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43037E171E3B8F6700D478AD /* FeedingHistoryVC.swift */; };
 		430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F01771E2BDAC700FE02FC /* DispatchVC.swift */; };
@@ -51,7 +52,7 @@
 		43A1C9051DFDFFFA008C5C2F /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
 		43A1C90B1E01ACB4008C5C2F /* CircleToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */; };
 		43A1C90D1E01CB9E008C5C2F /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */; };
-		43B002151E8A937E00810739 /* ValidationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B002141E8A937E00810739 /* ValidationTextField.swift */; };
+		43B002151E8A937E00810739 /* ShakeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B002141E8A937E00810739 /* ShakeTextField.swift */; };
 		43C4CE891E29130100300F13 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C4CE881E29130100300F13 /* SignUpVC.swift */; };
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
 		43E92D2D1E68D9AC008CE31E /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E92D2C1E68D9AC008CE31E /* UIImageViewExtensions.swift */; };
@@ -75,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		128C93CA1FB72CA0001E58F4 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
 		43037E0D1E3A36DB00D478AD /* NavigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
 		43037E171E3B8F6700D478AD /* FeedingHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingHistoryVC.swift; sourceTree = "<group>"; };
 		430F01771E2BDAC700FE02FC /* DispatchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchVC.swift; sourceTree = "<group>"; };
@@ -123,7 +125,7 @@
 		43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottleVC.xib; sourceTree = "<group>"; };
 		43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleToggleButton.swift; sourceTree = "<group>"; };
 		43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
-		43B002141E8A937E00810739 /* ValidationTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationTextField.swift; sourceTree = "<group>"; };
+		43B002141E8A937E00810739 /* ShakeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeTextField.swift; sourceTree = "<group>"; };
 		43C4CE881E29130100300F13 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		43D2BE631DCB684800895A65 /* FeedingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingVC.swift; sourceTree = "<group>"; };
 		43E92D2C1E68D9AC008CE31E /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
@@ -339,7 +341,7 @@
 				43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */,
 				433AF9241E40CBDC00AD654C /* BarGraphLollipop */,
 				433AF9251E40CC8A00AD654C /* Circle.swift */,
-				43B002141E8A937E00810739 /* ValidationTextField.swift */,
+				43B002141E8A937E00810739 /* ShakeTextField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -396,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				437C1F751E9BB44A00DE17DC /* Shakeable.swift */,
+				128C93CA1FB72CA0001E58F4 /* Validatable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				436939071E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift in Sources */,
 				4314DD5C1DFD9E5E00B3649C /* SegmentedControlBar.swift in Sources */,
 				43714F1C1E63DCC20055B411 /* EditProfileImageVC.swift in Sources */,
+				128C93CB1FB72CA0001E58F4 /* Validatable.swift in Sources */,
 				436484B11DCA150500E6B0A7 /* HomeVC.swift in Sources */,
 				430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */,
 				430F017F1E2D0A7900FE02FC /* DateExtensions.swift in Sources */,
@@ -649,7 +653,7 @@
 				435859541E227C2B00F69A0C /* FeedingsVM.swift in Sources */,
 				4314DD581DFB6DE300B3649C /* Enums.swift in Sources */,
 				43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */,
-				43B002151E8A937E00810739 /* ValidationTextField.swift in Sources */,
+				43B002151E8A937E00810739 /* ShakeTextField.swift in Sources */,
 				43A1C9001DFDFFBA008C5C2F /* FeedingTimerVC.swift in Sources */,
 				43037E191E3B8F6700D478AD /* FeedingHistoryVC.swift in Sources */,
 				43932C441E034E6400056F83 /* ProfileView.swift in Sources */,
