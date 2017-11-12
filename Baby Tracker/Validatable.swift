@@ -78,8 +78,10 @@ extension Validatable {
         return .success
     }
 
-    private func validate(password _: String) -> ValidationResult {
-        // TODO: implement validation
-        return .success
+    private func validate(password: String) -> ValidationResult {
+        let passwordLength = 10
+        return password.count > passwordLength ?
+            .success :
+            .failure(reason: "you password must be greater than \(passwordLength) characters")
     }
 }
