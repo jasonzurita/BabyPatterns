@@ -14,5 +14,5 @@ pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'SwiftLint'
 
-target 'Baby Tracker' do
+target 'BabyPatterns' do
 end
