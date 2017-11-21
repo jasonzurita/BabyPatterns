@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Library
 
 class FeedingsVM: Loggable {
     let shouldPrintDebugLog = true

@@ -28,10 +28,6 @@ struct K {
         static let Feeding = "FeedingSegue"
         static let RequestFeature = "RequestFeatureSegue"
 
-        // feeding vc
-        static let FeedingHistory = "FeedingHistorySegue"
-        static let UnwindToFeedingVC = "UnwindToFeedingVCSegue"
-
         // edit profile image
         static let EditProfileImage = "EditProfileImageSegue"
     }

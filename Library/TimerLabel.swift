@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol TimerLabelDataSource: class {
+public protocol TimerLabelDataSource: class {
     func timerValueForTimerLabel(timerLabel: TimerLabel) -> TimeInterval
 }
 
-class TimerLabel: UILabel {
+public final class TimerLabel: UILabel {
 
-    weak var dataSource: TimerLabelDataSource?
+    public weak var dataSource: TimerLabelDataSource?
 
     private let countingInterval: Double = 1
     private var _timer: Timer?
-    var isPaused = false
-    var isRunning = false
+    public var isPaused = false
+    public var isRunning = false
     private var counter: TimeInterval = 0 {
         didSet {
             let hours = counter.stringFromSecondsToHours(zeroPadding: true)
@@ -35,7 +35,7 @@ class TimerLabel: UILabel {
         setupLabel()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupLabel()
     }
@@ -47,12 +47,12 @@ class TimerLabel: UILabel {
         textColor = UIColor.gray
     }
 
-    func changeDisplayTime(time: TimeInterval) {
+    public func changeDisplayTime(time: TimeInterval) {
         guard !isRunning else { return }
         counter = time
     }
 
-    func start(startingAt startTime: TimeInterval? = nil) {
+    public func start(startingAt startTime: TimeInterval? = nil) {
         guard _timer == nil else { return }
         isRunning = true
 
@@ -79,7 +79,7 @@ class TimerLabel: UILabel {
         return returnValue
     }
 
-    func end() {
+    public func end() {
         guard let t = _timer else { return }
         isRunning = false
         isPaused = false
@@ -89,7 +89,7 @@ class TimerLabel: UILabel {
         changeDisplayTime(time: 0)
     }
 
-    func pause() {
+    public func pause() {
         guard _timer != nil else { return }
         isPaused = true
         pulseAnimationIfNotPulsing()
@@ -108,7 +108,7 @@ class TimerLabel: UILabel {
         })
     }
 
-    func resume() {
+    public func resume() {
         guard _timer != nil else { return }
         isPaused = false
         clearPauseAnimation()

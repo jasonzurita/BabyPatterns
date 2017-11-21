@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Library
 
-class FeedingTimerVC: UIViewController, Loggable {
+final class FeedingTimerVC: UIViewController, Loggable {
 
     // properties
     var feedingType: FeedingType!

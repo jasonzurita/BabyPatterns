@@ -8,12 +8,13 @@
 
 import UIKit
 import ImageIO
+import Library
 
 protocol EditProfileImageDelegate: class {
     func profileImageEdited(image: UIImage)
 }
 
-class EditProfileImageVC: UIViewController, Loggable {
+final class EditProfileImageVC: UIViewController, Loggable {
     let shouldPrintDebugLog = true
 
     weak var delegate: EditProfileImageDelegate?

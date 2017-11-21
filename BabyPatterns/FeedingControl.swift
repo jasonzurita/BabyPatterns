@@ -7,7 +7,8 @@
 //
 
 import UIKit
+import Library
 
-class FeedingControl: CircleToggleButton {
+final class FeedingControl: CircleToggleButton {
     var side: FeedingSide = .none
 }

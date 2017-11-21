@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Library
 
 class DispatchVC: UIViewController, Loggable {
 

@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import Library
 
-class SettingsVC: UITableViewController, Loggable {
+final class SettingsVC: UITableViewController, Loggable {
     let shouldPrintDebugLog = true
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

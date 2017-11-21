@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Library
 
 class SignUpVC: UIViewController, Loggable, Validatable {
     let shouldPrintDebugLog = true

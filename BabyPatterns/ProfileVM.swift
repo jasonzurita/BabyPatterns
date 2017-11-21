@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Library
 
 class ProfileVM: Loggable {
     let shouldPrintDebugLog = true

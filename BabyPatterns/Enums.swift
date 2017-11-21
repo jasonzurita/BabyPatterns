@@ -41,9 +41,3 @@ enum FeedingSide: Int {
 enum NursingEventJsonError: Error {
     case invalidNursingEvent
 }
-
-enum LogType: String {
-    case info = "INFO"
-    case warning = "WARNING"
-    case error = "ERROR"
-}

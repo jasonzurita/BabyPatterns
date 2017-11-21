@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CircleToggleButton: UIButton {
+open class CircleToggleButton: UIButton {
 
     @IBInspectable var normalColor: UIColor = UIColor.gray {
         didSet {
@@ -25,7 +25,7 @@ class CircleToggleButton: UIButton {
 
     private var activeBorder: UIView?
 
-    @IBInspectable var isActive: Bool = false {
+    @IBInspectable public var isActive: Bool = false {
         didSet {
             updateButton()
         }
@@ -36,7 +36,7 @@ class CircleToggleButton: UIButton {
         setupButton()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupButton()
     }

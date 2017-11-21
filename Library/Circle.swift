@@ -8,13 +8,13 @@
 
 import UIKit
 
-class Circle: UIView {
+public final class Circle: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCircle()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupCircle()
     }

@@ -8,4 +8,4 @@
 
 import UIKit
 
-final class ShakeTextField: UITextField, Shakeable {}
+public final class ShakeTextField: UITextField, Shakeable {}

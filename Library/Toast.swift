@@ -8,11 +8,11 @@
 
 import UIKit
 
-class Toast: UILabel {
+public final class Toast: UILabel {
 
     var title = "toast label"
 
-    convenience init(frame: CGRect, text: String) {
+    convenience public init(frame: CGRect, text: String) {
         self.init(frame: frame)
         title = text
     }
@@ -22,7 +22,7 @@ class Toast: UILabel {
         setupToast()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupToast()
     }
@@ -39,7 +39,7 @@ class Toast: UILabel {
         alpha = 0.0
     }
 
-    func presentInView(view: UIView) {
+    public func presentInView(view: UIView) {
         text = title
 
         view.addSubview(self)

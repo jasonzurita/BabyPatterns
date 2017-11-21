@@ -8,9 +8,10 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     func loadNib() {
-        Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        let bundle = Bundle(for: type(of: self))
+        bundle.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
     }
 
     func bindFrameToSuperviewBounds() {

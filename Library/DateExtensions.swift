@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
 
     init?(timeInterval: Any?) {
         guard let i = timeInterval as? TimeInterval, i > 0 else { return nil }

@@ -8,18 +8,22 @@
 
 import UIKit
 
-class BarGraphLollipop: UIView {
+public final class BarGraphLollipop: UIView {
 
     @IBOutlet var view: UIView!
     @IBOutlet weak var circle: Circle!
     @IBOutlet weak var barView: UIView!
 
-    override init(frame: CGRect) {
+    public convenience init() {
+        self.init(frame: CGRect.zero)
+    }
+
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setupBarGraph()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupBarGraph()
     }
@@ -28,6 +32,5 @@ class BarGraphLollipop: UIView {
         loadNib()
         view.frame = bounds
         addSubview(view)
-        // barView.backgroundColor = UIColor.green
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Double {
+public extension Double {
     // TODO: make these a generic function
     func stringFromSecondsToHours(zeroPadding: Bool) -> (string: String, remainder: Double) {
         let secondsToHours: Double = 3600

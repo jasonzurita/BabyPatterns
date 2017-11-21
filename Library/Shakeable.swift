@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol Shakeable {
+public protocol Shakeable {
     func shake()
 }
 
-extension Shakeable where Self: UIView {
+public extension Shakeable where Self: UIView {
     func shake() {
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.05

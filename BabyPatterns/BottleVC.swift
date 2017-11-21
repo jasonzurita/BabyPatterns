@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Library
 
-class BottleVC: UIViewController, Loggable {
+final class BottleVC: UIViewController, Loggable {
 
     let shouldPrintDebugLog = true
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIImageView {
+public extension UIImageView {
     func imageFrame() -> CGRect? {
         guard let imageSize = image?.size else { return nil }
 

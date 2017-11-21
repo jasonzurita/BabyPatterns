@@ -1,5 +1,5 @@
 //
-//  Logger.swift
+//  Loggable.swift
 //  BabyPatterns
 //
 //  Created by Jason Zurita on 3/13/17.
@@ -8,12 +8,18 @@
 
 import Foundation
 
-protocol Loggable {
+public enum LogType: String {
+    case info = "INFO"
+    case warning = "WARNING"
+    case error = "ERROR"
+}
+
+public protocol Loggable {
     var shouldPrintDebugLog: Bool { get }
     func log(_ message: String, object: Any, type: LogType)
 }
 
-extension Loggable {
+public extension Loggable {
     private var _shouldPrintDebugLog: Bool { return true }
 
     func log(_ message: String, object: Any, type: LogType) {

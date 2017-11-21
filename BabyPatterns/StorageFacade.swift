@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import Library
 
 struct StorageFacade: Loggable {
     let shouldPrintDebugLog = true

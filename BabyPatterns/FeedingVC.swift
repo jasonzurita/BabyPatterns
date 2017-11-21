@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Library
+import Framework_BabyPatterns
 
 protocol FeedingInProgressDelegate: NSObjectProtocol {
     func feedingStarted(type: FeedingType, side: FeedingSide)
@@ -24,7 +26,15 @@ protocol FeedingsDataSource: NSObjectProtocol {
     func desiredMaxSupply() -> Double
 }
 
-class FeedingVC: UIViewController {
+struct EndFeedingEvent: Event {
+    private(set) var endDate: Date
+    init?(date: Date?) {
+        guard let d = date else { return nil }
+        endDate = d
+    }
+}
+
+final class FeedingVC: UIViewController {
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -63,11 +73,17 @@ class FeedingVC: UIViewController {
                                                queue: nil,
                                                using: { [weak self] _ in
             if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-                self?.performSegue(withIdentifier: K.Segues.FeedingHistory, sender: nil)
+                // TODO: audit this for correctness in the non vm case
+                guard let vm = self?.feedingsVM else { return }
+                let events = vm
+                    .feedings(withTypes: [.nursing, .bottle, .pumping], isFinished: true)
+                    .flatMap { EndFeedingEvent(date: $0.endDate) }
+
+                let vc = HistoryVC(events: events)
+                self?.present(vc, animated: false, completion: nil)
+
                 UIDevice.current.endGeneratingDeviceOrientationNotifications()
-                if let token = self?.notificationToken {
-                    center.removeObserver(token)
-                }
+                if let token = self?.notificationToken { center.removeObserver(token) }
             }
         })
     }
@@ -81,15 +97,19 @@ class FeedingVC: UIViewController {
     }
 
     @IBAction func showHistoryButtonPressed(_: UIButton) {
-        performSegue(withIdentifier: K.Segues.FeedingHistory, sender: nil)
+        guard let vm = feedingsVM else { return }
+        let events = vm
+            .feedings(withTypes: [.nursing, .bottle, .pumping], isFinished: true)
+            .flatMap { EndFeedingEvent(date: $0.endDate) }
+
+        let vc = HistoryVC(events: events)
+        present(vc, animated: false, completion: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         // equip page view controller to function here
         if let vc = segue.destination as? FeedingPageVC {
             configureFeedingPageVC(vc: vc)
-        } else if let vc = segue.destination as? FeedingHistoryVC {
-            configureFeedingHistoryVC(vc: vc)
         }
     }
 
@@ -109,10 +129,6 @@ class FeedingVC: UIViewController {
         page3.delegate = self
         page3.dataSource = self
         vc.pages.append(contentsOf: [page1, page2, page3])
-    }
-
-    private func configureFeedingHistoryVC(vc: FeedingHistoryVC) {
-        vc.feedingsVM = feedingsVM
     }
 
     @IBAction func unwindToFeedingVC(segue _: UIStoryboardSegue) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ValidationType {
+public enum ValidationType {
     case text(length: Int)
     case email
     case phoneNumber
@@ -17,16 +17,16 @@ enum ValidationType {
     case custom((String) -> ValidationResult)
 }
 
-enum ValidationResult {
+public enum ValidationResult {
     case success
     case failure(reason: String)
 }
 
-protocol Validatable {
+public protocol Validatable {
     func validate(_ value: String?, type: ValidationType) -> ValidationResult
 }
 
-extension Validatable {
+public extension Validatable {
     func validate(_ value: String?, type: ValidationType) -> ValidationResult {
         guard let v = value else { return .failure(reason: "no text to validate") }
 

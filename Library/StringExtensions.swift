@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
     func validateEmail() -> Bool {
         return true
     }

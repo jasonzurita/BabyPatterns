@@ -8,8 +8,9 @@
 
 import UIKit
 import FirebaseAuth
+import Library
 
-class SignInVC: UIViewController, Loggable {
+final class SignInVC: UIViewController, Loggable {
 
     let shouldPrintDebugLog = true
 
