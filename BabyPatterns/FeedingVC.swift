@@ -16,10 +16,6 @@ protocol FeedingInProgressDelegate: NSObjectProtocol {
     func updateFeedingInProgress(type: FeedingType, side: FeedingSide, isPaused: Bool)
 }
 
-protocol BottleFeedingDelegate: NSObjectProtocol {
-    func logBottleFeeding(withAmount amount: Double, time: Date)
-}
-
 protocol FeedingsDataSource: NSObjectProtocol {
     func lastFeeding(type: FeedingType) -> Feeding?
     func remainingSupply() -> Double
@@ -125,7 +121,7 @@ final class FeedingVC: UIViewController {
         page2.feedingType = .pumping
         page2.delegate = self
         page2.dataSource = self
-        let page3 = BottleVC(nibName: "BottleVC", bundle: nil)
+        let page3 = BottleVC()
         page3.delegate = self
         page3.dataSource = self
         vc.pages.append(contentsOf: [page1, page2, page3])
@@ -162,14 +158,13 @@ extension FeedingVC: FeedingInProgressDelegate {
     }
 }
 
-extension FeedingVC: FeedingsDataSource {
+extension FeedingVC: FeedingsDataSource, BottleDataSource {
     func lastFeeding(type: FeedingType) -> Feeding? {
         return feedingsVM?.lastFeeding(type: type)
     }
 
     func remainingSupply() -> Double {
-        //        return feedingsVM?.remainingSupply() ?? 0.0
-        return 25
+        return feedingsVM?.remainingSupply() ?? 0.0
     }
 
     func desiredMaxSupply() -> Double {
@@ -177,9 +172,10 @@ extension FeedingVC: FeedingsDataSource {
     }
 }
 
-extension FeedingVC: BottleFeedingDelegate {
+extension FeedingVC: BottleDelegate {
     func logBottleFeeding(withAmount amount: Double, time: Date) {
-        feedingsVM?.feedingStarted(type: .bottle, side: .none, startDate: time, supplyAmount: amount)
+        // TODO: make specific bottle feeding method
+        feedingsVM?.feedingStarted(type: .bottle, side: .none, startDate: time, supplyAmount: -amount)
         feedingsVM?.feedingEnded(type: .bottle, side: .none, endDate: time)
         showFeedingSavedToast()
     }

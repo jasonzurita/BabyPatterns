@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Library
+import Framework_BabyPatterns
 
 final class SettingsVC: UITableViewController, Loggable {
     let shouldPrintDebugLog = true

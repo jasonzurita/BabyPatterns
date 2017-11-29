@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Library
+import Framework_BabyPatterns
 
 class SignUpVC: UIViewController, Loggable, Validatable {
     let shouldPrintDebugLog = true

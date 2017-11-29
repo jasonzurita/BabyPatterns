@@ -8,6 +8,7 @@
 
 import UIKit
 import Library
+import Framework_BabyPatterns
 
 class ProfileVM: Loggable {
     let shouldPrintDebugLog = true

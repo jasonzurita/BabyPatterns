@@ -29,6 +29,7 @@ public enum Orientation {
  - returns: Two controllers: a root controller that can be set to the playground's live view, and a content
  controller which should have UI elements added to it
  */
+// swiftlint:disable function_body_length
 public func playgroundWrapper(child: UIViewController,
                               device: Device = .phone4_7inch,
                               orientation: Orientation = .portrait,

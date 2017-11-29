@@ -12,7 +12,7 @@ class FeedingPageVC: UIPageViewController {
 
     var pages: [UIViewController] = []
     var segmentedControl: SegmentedControlBar?
-    fileprivate var segmentIndex: (active: Int, pending: Int) = (0, 0)
+    private var segmentIndex: (active: Int, pending: Int) = (0, 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()

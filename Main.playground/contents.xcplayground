@@ -3,5 +3,6 @@
     <pages>
         <page name='_Introduction'/>
         <page name='History'/>
+        <page name='Bottle'/>
     </pages>
 </playground>

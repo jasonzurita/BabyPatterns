@@ -31,11 +31,13 @@
 		12605B3F1FBB1DBB0035243B /* Framework-BabyPatterns.h in Headers */ = {isa = PBXBuildFile; fileRef = 12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; };
 		12605B431FBB1DBB0035243B /* Framework_BabyPatterns.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */; };
+		12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
+		12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
 		12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */; };
 		12F3A9C81FBB2174002ECC7B /* HistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */; };
 		43037E0E1E3A36DB00D478AD /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43037E0D1E3A36DB00D478AD /* NavigationVC.swift */; };
 		430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F01771E2BDAC700FE02FC /* DispatchVC.swift */; };
-		430FD7451DE484EC00D07C50 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
 		4314DD581DFB6DE300B3649C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
 		4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4314DD591DFCA34600B3649C /* Feeding.storyboard */; };
 		4314DD5C1DFD9E5E00B3649C /* SegmentedControlBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD5B1DFD9E5E00B3649C /* SegmentedControlBar.swift */; };
@@ -62,8 +64,6 @@
 		43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */; };
 		43A1C9001DFDFFBA008C5C2F /* FeedingTimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C8FE1DFDFFBA008C5C2F /* FeedingTimerVC.swift */; };
 		43A1C9011DFDFFBA008C5C2F /* FeedingTimerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C8FF1DFDFFBA008C5C2F /* FeedingTimerVC.xib */; };
-		43A1C9041DFDFFFA008C5C2F /* BottleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */; };
-		43A1C9051DFDFFFA008C5C2F /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
 		43C4CE891E29130100300F13 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C4CE881E29130100300F13 /* SignUpVC.swift */; };
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
 		43E92D2F1E6D9F3F008CE31E /* StorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E92D2E1E6D9F3F008CE31E /* StorageFacade.swift */; };
@@ -273,6 +273,9 @@
 		12605B3C1FBB1DBB0035243B /* Framework-BabyPatterns */ = {
 			isa = PBXGroup;
 			children = (
+				430FD7441DE484EC00D07C50 /* Constants.swift */,
+				43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */,
+				43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */,
 				12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */,
 				12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */,
 				12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */,
@@ -361,7 +364,6 @@
 			children = (
 				4314DD541DFB37D700B3649C /* BabyPatterns.entitlements */,
 				436484AE1DCA150500E6B0A7 /* AppDelegate.swift */,
-				430FD7441DE484EC00D07C50 /* Constants.swift */,
 				4314DD571DFB6DE300B3649C /* Enums.swift */,
 				4330FB501DF1B27000737A7F /* Services */,
 				43D2BE671DCB69E900895A65 /* Model */,
@@ -478,8 +480,6 @@
 			children = (
 				43A1C8FE1DFDFFBA008C5C2F /* FeedingTimerVC.swift */,
 				43A1C8FF1DFDFFBA008C5C2F /* FeedingTimerVC.xib */,
-				43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */,
-				43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -740,6 +740,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */,
 				120F801A1FBF0B7F00D04E45 /* Assets.xcassets in Resources */,
 				12F3A9C81FBB2174002ECC7B /* HistoryVC.xib in Resources */,
 				120F801B1FBF0C2E00D04E45 /* Info.plist in Resources */,
@@ -753,7 +754,6 @@
 				4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */,
 				436484B91DCA150500E6B0A7 /* LaunchScreen.storyboard in Resources */,
 				43932C481E03594F00056F83 /* ProfileView.xib in Resources */,
-				43A1C9051DFDFFFA008C5C2F /* BottleVC.xib in Resources */,
 				4314DD601DFDA06D00B3649C /* Segment.xib in Resources */,
 				43A1C9011DFDFFBA008C5C2F /* FeedingTimerVC.xib in Resources */,
 				436484B41DCA150500E6B0A7 /* Main.storyboard in Resources */,
@@ -879,7 +879,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */,
 				12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */,
+				12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,7 +900,6 @@
 				436939021E081A1700EA5158 /* FeedingsVM+Summary.swift in Sources */,
 				437814CA1DDD1B9D0047D11A /* SignInVC.swift in Sources */,
 				43FCAA851DD0BC70003872BA /* Profile.swift in Sources */,
-				43A1C9041DFDFFFA008C5C2F /* BottleVC.swift in Sources */,
 				436939071E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift in Sources */,
 				4314DD5C1DFD9E5E00B3649C /* SegmentedControlBar.swift in Sources */,
 				43714F1C1E63DCC20055B411 /* EditProfileImageVC.swift in Sources */,
@@ -913,7 +914,6 @@
 				43932C441E034E6400056F83 /* ProfileView.swift in Sources */,
 				43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */,
 				436484AF1DCA150500E6B0A7 /* AppDelegate.swift in Sources */,
-				430FD7451DE484EC00D07C50 /* Constants.swift in Sources */,
 				43F4FAE11DF8CD01005510D4 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

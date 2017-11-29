@@ -6,8 +6,8 @@
 //  Copyright © 2016 Jason Zurita. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import Framework_BabyPatterns
 
 struct Profile {
     var babyName: String

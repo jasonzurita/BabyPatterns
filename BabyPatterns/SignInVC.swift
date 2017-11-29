@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Library
+import Framework_BabyPatterns
 
 final class SignInVC: UIViewController, Loggable {
 

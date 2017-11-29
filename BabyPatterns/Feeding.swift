@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Framework_BabyPatterns
 
 struct Feeding {
     let type: FeedingType

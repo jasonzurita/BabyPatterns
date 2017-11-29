@@ -9,6 +9,7 @@
 import UIKit
 import ImageIO
 import Firebase
+import Framework_BabyPatterns
 
 class HomeVC: UIViewController {
 
