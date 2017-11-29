@@ -40,6 +40,13 @@ final class FeedingVC: UIViewController {
     weak var feedingsVM: FeedingsVM?
     weak var profileVM: ProfileVM?
     private var notificationToken: NSObjectProtocol?
+    private var orderedCompletedFeedingEvents: [Event] {
+        guard let vm = feedingsVM else { return [] }
+        return vm
+            .feedings(withTypes: [.nursing, .bottle, .pumping], isFinished: true)
+            .flatMap { EndFeedingEvent(date: $0.endDate) }
+            .sorted { $0.endDate > $1.endDate }
+    }
 
     // outlets
     @IBOutlet weak var segmentedControl: SegmentedControlBar!
@@ -69,13 +76,8 @@ final class FeedingVC: UIViewController {
                                                queue: nil,
                                                using: { [weak self] _ in
             if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-                // TODO: audit this for correctness in the non vm case
-                guard let vm = self?.feedingsVM else { return }
-                let events = vm
-                    .feedings(withTypes: [.nursing, .bottle, .pumping], isFinished: true)
-                    .flatMap { EndFeedingEvent(date: $0.endDate) }
-
-                let vc = HistoryVC(events: events)
+                guard let strongSelf = self else { return }
+                let vc = HistoryVC(events: strongSelf.orderedCompletedFeedingEvents)
                 self?.present(vc, animated: false, completion: nil)
 
                 UIDevice.current.endGeneratingDeviceOrientationNotifications()
@@ -93,12 +95,7 @@ final class FeedingVC: UIViewController {
     }
 
     @IBAction func showHistoryButtonPressed(_: UIButton) {
-        guard let vm = feedingsVM else { return }
-        let events = vm
-            .feedings(withTypes: [.nursing, .bottle, .pumping], isFinished: true)
-            .flatMap { EndFeedingEvent(date: $0.endDate) }
-
-        let vc = HistoryVC(events: events)
+        let vc = HistoryVC(events: orderedCompletedFeedingEvents)
         present(vc, animated: false, completion: nil)
     }
 
