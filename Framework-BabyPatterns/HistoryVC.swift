@@ -58,6 +58,7 @@ public final class HistoryVC: UIViewController, Loggable {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        modalTransitionStyle = .crossDissolve
         setupGraph()
     }
 
@@ -116,7 +117,8 @@ public final class HistoryVC: UIViewController, Loggable {
                                                queue: nil,
                                                using: { [weak self ] _ in
                                                 if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-                                                    self?.dismiss(animated: false, completion: nil)
+                                                    self?.dismiss(animated: true, completion: nil)
+
                                                     UIDevice.current.endGeneratingDeviceOrientationNotifications()
                                                     guard let token = self?.notificationToken else { return }
                                                     center.removeObserver(token)
@@ -125,7 +127,7 @@ public final class HistoryVC: UIViewController, Loggable {
     }
 
     @IBAction func exitHistoryButtonPressed(_: UIButton) {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {

@@ -77,11 +77,10 @@ final class FeedingVC: UIViewController {
                                                using: { [weak self] _ in
             if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
                 guard let strongSelf = self else { return }
-                let vc = HistoryVC(events: strongSelf.orderedCompletedFeedingEvents)
-                self?.present(vc, animated: false, completion: nil)
+                strongSelf.presentHistoryVC()
 
                 UIDevice.current.endGeneratingDeviceOrientationNotifications()
-                if let token = self?.notificationToken { center.removeObserver(token) }
+                if let token = strongSelf.notificationToken { center.removeObserver(token) }
             }
         })
     }
@@ -95,8 +94,13 @@ final class FeedingVC: UIViewController {
     }
 
     @IBAction func showHistoryButtonPressed(_: UIButton) {
+        presentHistoryVC()
+    }
+
+    private func presentHistoryVC() {
         let vc = HistoryVC(events: orderedCompletedFeedingEvents)
-        present(vc, animated: false, completion: nil)
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
