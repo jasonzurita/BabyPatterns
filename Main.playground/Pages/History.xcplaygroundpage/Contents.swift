@@ -19,5 +19,8 @@ let events = [MockEvent(0),
 
 let vc = HistoryVC(events: events)
 
-let parent = playgroundWrapper(child: vc, device: .phone4inch, orientation: .landscape, contentSizeCategory: .accessibilityMedium)
+let parent = playgroundWrapper(child: vc,
+                               device: .phone4inch,
+                               orientation: .landscape,
+                               contentSizeCategory: .accessibilityMedium)
 PlaygroundPage.current.liveView = parent

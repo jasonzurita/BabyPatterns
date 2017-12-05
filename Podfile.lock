@@ -73,7 +73,7 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 113804f266381a30f982ad3c18063d4e0155414f
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
-  leveldb-library: 44ef425bfde64f5b41daef86b38db2d13edbbee1
+  leveldb-library: 4f9eedf84ab46b4fa3b7893bf30714b2a1a74022
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SwiftLint: 1b670ce79284c76520f84060e87d645078fd32fa
 

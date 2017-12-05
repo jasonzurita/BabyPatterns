@@ -7,29 +7,28 @@
 //
 
 import Foundation
-import Framework_BabyPatterns
 
-struct Feeding {
-    let type: FeedingType
-    let side: FeedingSide
-    let startDate: Date
-    var serverKey: String?
-    var endDate: Date?
-    var lastPausedDate: Date?
-    var pausedTime: TimeInterval
-    let supplyAmount: Double
+public struct Feeding {
+    public let type: FeedingType
+    public let side: FeedingSide
+    public let startDate: Date
+    public var serverKey: String?
+    public var endDate: Date?
+    public var lastPausedDate: Date?
+    public var pausedTime: TimeInterval
+    public let supplyAmount: Double
 
-    let shouldPrintDebugString = true
+    public let shouldPrintDebugString = true
 
-    var isPaused: Bool {
+    public var isPaused: Bool {
         return lastPausedDate != nil
     }
 
-    var isFinished: Bool {
+    public var isFinished: Bool {
         return endDate != nil
     }
 
-    init(type: FeedingType,
+    public init(type: FeedingType,
          side: FeedingSide,
          startDate: Date,
          endDate: Date? = nil,
@@ -48,7 +47,7 @@ struct Feeding {
         self.serverKey = serverKey
     }
 
-    init?(json: [String: Any], serverKey: String) {
+    public init?(json: [String: Any], serverKey: String) {
         guard let typeRawValue = json[K.JsonFields.FeedingType] as? String else { return nil }
         guard let type = FeedingType(rawValue: typeRawValue) else { return nil }
         guard let sideRawValue = json[K.JsonFields.Side] as? Int else { return nil }
@@ -71,7 +70,7 @@ struct Feeding {
                   serverKey: serverKey)
     }
 
-    func eventJson() -> [String: Any] {
+    public func eventJson() -> [String: Any] {
         let json: [String: Any] = [
             K.JsonFields.FeedingType: type.rawValue,
             K.JsonFields.Side: side.rawValue,
@@ -85,7 +84,7 @@ struct Feeding {
         return json
     }
 
-    func duration() -> TimeInterval {
+    public func duration() -> TimeInterval {
         return round(baseDuration() - fullPausedTime())
     }
 

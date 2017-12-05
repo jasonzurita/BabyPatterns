@@ -28,7 +28,9 @@ let vc = BottleVC()
 vc.dataSource = provider
 vc.delegate = provider
 
-let parent = playgroundWrapper(child: vc, device: .phone4inch, orientation: .portrait, contentSizeCategory: .accessibilityMedium)
+let parent = playgroundWrapper(child: vc,
+                               device: .phone4inch,
+                               orientation: .portrait,
+                               contentSizeCategory: .accessibilityMedium)
 
 PlaygroundPage.current.liveView = parent
-

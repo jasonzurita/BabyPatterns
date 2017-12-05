@@ -8,9 +8,20 @@
 
 import UIKit
 import Library
-import Framework_BabyPatterns
 
-final class FeedingTimerVC: UIViewController, Loggable {
+protocol FeedingsDataSource: NSObjectProtocol {
+    func lastFeeding(type: FeedingType) -> Feeding?
+    func remainingSupply() -> Double
+    func desiredMaxSupply() -> Double
+}
+
+protocol FeedingInProgressDelegate: NSObjectProtocol {
+    func feedingStarted(type: FeedingType, side: FeedingSide)
+    func feedingEnded(type: FeedingType, side: FeedingSide)
+    func updateFeedingInProgress(type: FeedingType, side: FeedingSide, isPaused: Bool)
+}
+
+final class NursingVC: UIViewController, Loggable {
 
     // properties
     var feedingType: FeedingType!
@@ -147,7 +158,7 @@ final class FeedingTimerVC: UIViewController, Loggable {
     }
 }
 
-extension FeedingTimerVC: TimerLabelDataSource {
+extension NursingVC: TimerLabelDataSource {
     func timerValueForTimerLabel(timerLabel _: TimerLabel) -> TimeInterval {
 
         guard let fip = dataSource?.lastFeeding(type: feedingType) else { return 0.0 }

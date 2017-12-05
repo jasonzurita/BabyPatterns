@@ -7,19 +7,18 @@
 //
 
 import UIKit
-import Framework_BabyPatterns
 
-struct Profile {
-    var babyName: String
-    var parentName: String
-    var babyDOB: Date
-    var email: String
-    let userID: String
-    var serverKey: String?
-    var desiredMaxSupply: Double
-    var profilePicture: UIImage?
+public struct Profile {
+    public var babyName: String
+    public var parentName: String
+    public var babyDOB: Date
+    public var email: String
+    public let userID: String
+    public var serverKey: String?
+    public var desiredMaxSupply: Double
+    public var profilePicture: UIImage?
 
-    init(babyName: String,
+    public init(babyName: String,
          parentName: String,
          babyDOB: Date,
          email: String,
@@ -38,7 +37,7 @@ struct Profile {
         self.desiredMaxSupply = desiredMaxSupply
     }
 
-    func json() -> [String: Any] {
+    public func json() -> [String: Any] {
         return [
             K.JsonFields.BabyName: babyName,
             K.JsonFields.ParentName: parentName,

@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import Library
+import Framework_BabyPatterns
 
 struct StorageFacade: Loggable {
     let shouldPrintDebugLog = true

@@ -29,7 +29,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Lg8-wM-bzN">
                     <rect key="frame" x="53.5" y="50" width="249" height="100"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4d-fN-JLd" customClass="FeedingControl" customModule="BabyPatterns" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4d-fN-JLd" customClass="FeedingControl" customModule="Framework_BabyPatterns">
                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="52a-Yf-qge"/>
@@ -42,7 +42,7 @@
                                 <action selector="feedingButtonPressed:" destination="-1" eventType="touchUpInside" id="Q7h-63-6Yk"/>
                             </connections>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i6l-8Q-JOA" customClass="FeedingControl" customModule="BabyPatterns" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i6l-8Q-JOA" customClass="FeedingControl" customModule="Framework_BabyPatterns">
                             <rect key="frame" x="149" y="0.0" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="i6l-8Q-JOA" secondAttribute="height" multiplier="1:1" id="mV5-d1-OEi"/>

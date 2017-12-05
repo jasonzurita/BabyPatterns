@@ -8,6 +8,7 @@
 
 import Foundation
 import Library
+import Framework_BabyPatterns
 
 class FeedingsVM: Loggable {
     let shouldPrintDebugLog = true
