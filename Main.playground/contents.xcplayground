@@ -4,5 +4,6 @@
         <page name='_Introduction'/>
         <page name='History'/>
         <page name='Bottle'/>
+        <page name='Stopwatch'/>
     </pages>
 </playground>
