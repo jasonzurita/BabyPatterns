@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol TimerLabelDataSource: class {
-    func timerValueForTimerLabel(timerLabel: TimerLabel) -> TimeInterval
+    func timeValue(for timerLabel: TimerLabel) -> TimeInterval
 }
 
 public final class TimerLabel: UILabel {
@@ -69,11 +69,13 @@ public final class TimerLabel: UILabel {
     }
 
     private func startingCounterTime(startTime: TimeInterval?) -> TimeInterval {
-        var returnValue: TimeInterval = 0
+        let returnValue: TimeInterval
         if let st = startTime {
             returnValue = st
         } else if let ds = dataSource {
-            returnValue = ds.timerValueForTimerLabel(timerLabel: self)
+            returnValue = ds.timeValue(for: self)
+        } else {
+            returnValue = 0
         }
 
         return returnValue

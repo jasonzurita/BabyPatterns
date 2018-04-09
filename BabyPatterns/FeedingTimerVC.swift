@@ -148,7 +148,7 @@ final class FeedingTimerVC: UIViewController, Loggable {
 }
 
 extension FeedingTimerVC: TimerLabelDataSource {
-    func timerValueForTimerLabel(timerLabel _: TimerLabel) -> TimeInterval {
+    func timeValue(for timerLabel: TimerLabel) -> TimeInterval {
 
         guard let fip = dataSource?.lastFeeding(type: feedingType) else { return 0.0 }
 

@@ -142,10 +142,10 @@ public final class FeedingStopwatchView: UIView {
 }
 
 extension FeedingStopwatchView: TimerLabelDataSource {
-    public func timerValueForTimerLabel(timerLabel _: TimerLabel) -> TimeInterval {
 
         guard let fip = dataSource?.lastFeeding(type: _feedingType) else { return 0.0 }
 
         return fip.duration()
+    public func timeValue(for timerLabel: TimerLabel) -> TimeInterval {
     }
 }
