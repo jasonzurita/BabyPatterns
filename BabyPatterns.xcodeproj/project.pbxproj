@@ -33,7 +33,6 @@
 		12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; };
 		12605B431FBB1DBB0035243B /* Framework_BabyPatterns.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12C9B09C1FD6172100CA6EBF /* NursingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9B09A1FD6172100CA6EBF /* NursingVC.swift */; };
-		12C9B09D1FD6172100CA6EBF /* NursingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12C9B09B1FD6172100CA6EBF /* NursingVC.xib */; };
 		12C9B0A01FD6187800CA6EBF /* FeedingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C401E01FEB400056F83 /* FeedingControl.swift */; };
 		12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
 		12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
@@ -152,7 +151,6 @@
 		128C93CA1FB72CA0001E58F4 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validatable.swift; path = ../Library/Validatable.swift; sourceTree = "<group>"; };
 		12A782421FBB20C7000BD13F /* Main.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Main.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		12C9B09A1FD6172100CA6EBF /* NursingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingVC.swift; sourceTree = "<group>"; };
-		12C9B09B1FD6172100CA6EBF /* NursingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NursingVC.xib; sourceTree = "<group>"; };
 		12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryVC.xib; sourceTree = "<group>"; };
 		43037E0D1E3A36DB00D478AD /* NavigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
@@ -315,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				12C9B09A1FD6172100CA6EBF /* NursingVC.swift */,
-				12C9B09B1FD6172100CA6EBF /* NursingVC.xib */,
 				1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */,
 				1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */,
 			);
@@ -778,7 +775,6 @@
 			files = (
 				12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */,
 				120F801A1FBF0B7F00D04E45 /* Assets.xcassets in Resources */,
-				12C9B09D1FD6172100CA6EBF /* NursingVC.xib in Resources */,
 				12F3A9C81FBB2174002ECC7B /* HistoryVC.xib in Resources */,
 				1243E4841FD6DA4900D727F1 /* FeedingStopwatchView.xib in Resources */,
 			);

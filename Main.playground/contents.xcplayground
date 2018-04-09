@@ -5,5 +5,6 @@
         <page name='History'/>
         <page name='Bottle'/>
         <page name='Stopwatch'/>
+        <page name='Nursing Feeding'/>
     </pages>
 </playground>

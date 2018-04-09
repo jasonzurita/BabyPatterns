@@ -10,13 +10,14 @@ import UIKit
 import Library
 
 public protocol FeedingStopwatchDataSource: class {
-    func lastFeeding(type: FeedingType) -> Feeding?
+    func currentFeedingDuration() -> TimeInterval?
 }
 
 public protocol FeedingStopWatchDelegate: class {
-    func feedingStarted(type: FeedingType, side: FeedingSide)
-    func feedingEnded(type: FeedingType, side: FeedingSide)
-    func updateFeedingInProgress(type: FeedingType, side: FeedingSide, isPaused: Bool)
+    func start(feeding type: FeedingType, side: FeedingSide)
+    func end(feeding type: FeedingType, side: FeedingSide)
+    func pause(feeeding type: FeedingType, side: FeedingSide)
+    func resume(feeding type: FeedingType, side: FeedingSide)
 }
 
 public final class FeedingStopwatchView: UIView {
@@ -80,13 +81,13 @@ public final class FeedingStopwatchView: UIView {
 
         if shouldStartTimer {
             startFeeding(control: sender, startTime: 0)
-            delegate?.feedingStarted(type: _feedingType, side: sender.side)
+            delegate?.start(feeding: _feedingType, side: sender.side)
         } else if shouldPauseTimer {
             pauseFeeding(control: sender)
-            updateFeedingInProgress(type: _feedingType, side: sender.side)
+            delegate?.pause(feeeding: _feedingType, side: sender.side)
         } else if shouldResumeTimer {
             resumeFeeding(control: sender)
-            updateFeedingInProgress(type: _feedingType, side: sender.side)
+            delegate?.resume(feeding: _feedingType, side: sender.side)
         }
     }
 
@@ -108,16 +109,6 @@ public final class FeedingStopwatchView: UIView {
         control.setTitle("Pause", for: .normal)
     }
 
-    fileprivate func updateFeedingInProgress(type: FeedingType, side _: FeedingSide) {
-        delegate?.updateFeedingInProgress(type: type, side: sideInProgress, isPaused: timerLabel.isPaused)
-    }
-
-    private func endFeeding(control: FeedingControl) {
-        control.isActive = false
-        stopButton.isHidden = true
-        timerLabel.end()
-    }
-
     @IBAction func stopButtonPressed(_: UIButton) {
         guard timerLabel.isRunning else {
             preconditionFailure("Cannot stop timer that is not running")
@@ -136,16 +127,19 @@ public final class FeedingStopwatchView: UIView {
         } else {
             assertionFailure("Failed to end feeding")
         }
-        endFeeding(control: control)
-        delegate?.feedingEnded(type: _feedingType, side: sideInProgress)
+        reset(control: control)
+        delegate?.end(feeding: _feedingType, side: sideInProgress)
+    }
+
+    private func reset(control: FeedingControl) {
+        control.isActive = false
+        stopButton.isHidden = true
+        timerLabel.end()
     }
 }
 
 extension FeedingStopwatchView: TimerLabelDataSource {
-
-        guard let fip = dataSource?.lastFeeding(type: _feedingType) else { return 0.0 }
-
-        return fip.duration()
     public func timeValue(for timerLabel: TimerLabel) -> TimeInterval {
+        return dataSource?.currentFeedingDuration() ?? 0.0
     }
 }
