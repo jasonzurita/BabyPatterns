@@ -1,3 +1,35 @@
+# v4.5.0
+- Adds new API which provides a way to determine the sign-in methods associated with an
+  email address.
+- Adds new API which allows authentication using only an email link (Passwordless Authentication
+  with email link).
+
+# v4.4.4
+- Addresses CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF warnings that surface in newer versions of
+  Xcode and CocoaPods.
+- Improves FIRUser documentation with clear message explaining when Firebase Auth attempts to validate
+  users and what happens when an invalidated user is detected (#694) .
+
+# v4.4.3
+- Adds an explicit dependency on CoreGraphics from Firebase Auth.
+
+# v4.4.2
+- Fixes bug where the FIRAuthResult object returned following a Phone Number authentication
+  always contained a nil FIRAdditionalUserInfo object. Now the FIRAdditionalUserInfo object is
+  never nil and its newUser field is populated correctly.
+
+# v4.4.0
+- Adds new APIs which return an AuthDataResult object after successfully creating an
+  Email/Password user, signing in anonymously, signing in with Email/Password and signing
+  in with Custom Token. The AuthDataResult object contains the new user and additional
+  information pertaining to the new user.
+
+# v4.3.2
+- Improves error handling for the phone number sign-in reCAPTCHA flow.
+- Improves error handling for phone number linking flow.
+- Fixes issue where after linking an anonymous user to a phone number the user remained
+  anonymous.
+
 # v4.3.1
 - Internal clean up.
 

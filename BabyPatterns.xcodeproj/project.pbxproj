@@ -652,7 +652,6 @@
 				436484A81DCA150500E6B0A7 /* Frameworks */,
 				436484A91DCA150500E6B0A7 /* Resources */,
 				54770791F4753F9D34E04B8C /* [CP] Embed Pods Frameworks */,
-				EB0A052C8BAB51093738E988 /* [CP] Copy Pods Resources */,
 				43C431771ED165EC00158E7A /* ShellScript */,
 				12605B311FBAA6B50035243B /* Embed Frameworks */,
 			);
@@ -842,21 +841,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BabyPatterns/Pods-BabyPatterns-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EB0A052C8BAB51093738E988 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BabyPatterns/Pods-BabyPatterns-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F98E26E6EAD0764B1E7D37D6 /* [CP] Check Pods Manifest.lock */ = {
