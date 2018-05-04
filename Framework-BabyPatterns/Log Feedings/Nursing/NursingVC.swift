@@ -39,7 +39,8 @@ public final class NursingVC: UIViewController {
         view = UIView()
 
         view.addSubview(stopwatch)
-        stopwatch.backgroundColor = .yellow
+
+        stopwatch.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             stopwatch.topAnchor.constraint(equalTo: view.topAnchor),
