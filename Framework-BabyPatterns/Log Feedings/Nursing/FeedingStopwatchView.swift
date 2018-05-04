@@ -13,19 +13,17 @@ public protocol FeedingStopwatchDataSource: class {
     func currentFeedingDuration() -> TimeInterval?
 }
 
-public protocol FeedingStopWatchDelegate: class {
-    func start(feeding type: FeedingType, side: FeedingSide)
-    func end(feeding type: FeedingType, side: FeedingSide)
-    func pause(feeeding type: FeedingType, side: FeedingSide)
-    func resume(feeding type: FeedingType, side: FeedingSide)
-}
-
 public final class FeedingStopwatchView: UIView {
 
-    private let _feedingType: FeedingType
-    private var sideInProgress: FeedingSide = .none
+    typealias StatusChangeHandler = ((FeedingType, FeedingSide) -> Void)
+    var onStart: StatusChangeHandler?
+    var onEnd: StatusChangeHandler?
+    var onPause: StatusChangeHandler?
+    var onResume: StatusChangeHandler?
 
-    weak var delegate: FeedingStopWatchDelegate?
+    private let _feedingType: FeedingType
+    private var _sideInProgress: FeedingSide = .none
+
     weak var dataSource: FeedingStopwatchDataSource?
 
     @IBOutlet var view: UIView! {
@@ -65,9 +63,7 @@ public final class FeedingStopwatchView: UIView {
         stopButton.isHidden = true
     }
 
-    public required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
 
     @IBAction func feedingButtonPressed(_ sender: FeedingControl) {
         guard sender.side != .none else {
@@ -81,13 +77,13 @@ public final class FeedingStopwatchView: UIView {
 
         if shouldStartTimer {
             startFeeding(control: sender, startTime: 0)
-            delegate?.start(feeding: _feedingType, side: sender.side)
+            onStart?(_feedingType, sender.side)
         } else if shouldPauseTimer {
             pauseFeeding(control: sender)
-            delegate?.pause(feeeding: _feedingType, side: sender.side)
+            onPause?(_feedingType, sender.side)
         } else if shouldResumeTimer {
             resumeFeeding(control: sender)
-            delegate?.resume(feeding: _feedingType, side: sender.side)
+            onResume?(_feedingType, sender.side)
         }
     }
 
@@ -96,7 +92,7 @@ public final class FeedingStopwatchView: UIView {
         control.setTitle("Pause", for: .normal)
         control.isActive = true
         stopButton.isHidden = false
-        sideInProgress = control.side
+        _sideInProgress = control.side
     }
 
     private func pauseFeeding(control: FeedingControl) {
@@ -114,21 +110,21 @@ public final class FeedingStopwatchView: UIView {
             preconditionFailure("Cannot stop timer that is not running")
         }
 
-        guard sideInProgress != .none else {
+        guard _sideInProgress != .none else {
             preconditionFailure("No side in progress to stop")
         }
 
         // TODO: fix this "!"
         var control: FeedingControl!
-        if leftFeedingControl.isActive && sideInProgress == .left {
+        if leftFeedingControl.isActive && _sideInProgress == .left {
             control = leftFeedingControl
-        } else if rightFeedingControl.isActive && sideInProgress == .right {
+        } else if rightFeedingControl.isActive && _sideInProgress == .right {
             control = rightFeedingControl
         } else {
             assertionFailure("Failed to end feeding")
         }
         reset(control: control)
-        delegate?.end(feeding: _feedingType, side: sideInProgress)
+        onEnd?(_feedingType, _sideInProgress)
     }
 
     private func reset(control: FeedingControl) {

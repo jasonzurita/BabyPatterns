@@ -114,6 +114,7 @@ final class FeedingVC: UIViewController {
         segmentedControl.delegate = vc
         vc.segmentedControl = segmentedControl
 
+        // TODO: update this with the new nursing vc (in development) & pumping vc (to be made)
         let page1 = FeedingTimerVC(nibName: "FeedingTimerVC", bundle: nil)
         page1.feedingType = .nursing
         page1.delegate = self

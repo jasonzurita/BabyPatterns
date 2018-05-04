@@ -1,11 +1,33 @@
 import UIKit
 
+public protocol FeedingController {
+    func start(feeding type: FeedingType, side: FeedingSide)
+    func end(feeding type: FeedingType, side: FeedingSide)
+    func pause(feeeding type: FeedingType, side: FeedingSide)
+    func resume(feeding type: FeedingType, side: FeedingSide)
+}
+
 public final class NursingVC: UIViewController {
 
     let stopwatch = FeedingStopwatchView(feedingType: .nursing)
 
-    public init() {
+    public init(controller: FeedingController) {
         super.init(nibName: nil, bundle: nil)
+        stopwatch.onStart = { type, side in
+
+        }
+
+        stopwatch.onEnd = { type, side in
+
+        }
+
+        stopwatch.onPause = { type, side in
+
+        }
+
+        stopwatch.onResume = { type, side in
+
+        }
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -25,7 +47,6 @@ public final class NursingVC: UIViewController {
             stopwatch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
 
-        stopwatch.delegate = self
         stopwatch.dataSource = self
     }
 
@@ -52,24 +73,6 @@ public final class NursingVC: UIViewController {
 //        if feedingInProgress.isPaused {
 //            pauseFeeding(control: activeControl)
 //        }
-    }
-}
-
-extension NursingVC: FeedingStopWatchDelegate {
-    public func start(feeding type: FeedingType, side: FeedingSide) {
-        // do work!
-    }
-
-    public func end(feeding type: FeedingType, side: FeedingSide) {
-        // do work!
-    }
-
-    public func pause(feeeding type: FeedingType, side: FeedingSide) {
-        // do work!
-    }
-
-    public func resume(feeding type: FeedingType, side: FeedingSide) {
-        // do work!
     }
 }
 
