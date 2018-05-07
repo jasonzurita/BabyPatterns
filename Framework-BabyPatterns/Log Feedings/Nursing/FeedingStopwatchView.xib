@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -27,10 +27,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ufk-bv-sIP">
-                    <rect key="frame" x="53.5" y="0.0" width="249" height="134"/>
+                    <rect key="frame" x="53.5" y="5" width="249" height="129"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQF-oL-g8D" customClass="FeedingControl" customModule="Framework_BabyPatterns" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="17" width="100" height="100"/>
+                            <rect key="frame" x="0.0" y="14.5" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="GQF-oL-g8D" secondAttribute="height" multiplier="1:1" id="LSI-sA-S5T"/>
                                 <constraint firstAttribute="height" constant="100" id="zLo-cl-CkN"/>
@@ -43,7 +43,7 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZp-LW-zRn" customClass="FeedingControl" customModule="Framework_BabyPatterns" customModuleProvider="target">
-                            <rect key="frame" x="149" y="17" width="100" height="100"/>
+                            <rect key="frame" x="149" y="14.5" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="DdT-Zc-nZu"/>
                                 <constraint firstAttribute="width" secondItem="dZp-LW-zRn" secondAttribute="height" multiplier="1:1" id="WFG-fm-pZB"/>
@@ -78,12 +78,12 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="ufk-bv-sIP" firstAttribute="top" secondItem="tVy-yB-8eG" secondAttribute="top" id="DTA-tY-BPH"/>
                 <constraint firstItem="yjT-8X-JG0" firstAttribute="centerX" secondItem="tVy-yB-8eG" secondAttribute="centerX" id="EzA-8o-LEA"/>
                 <constraint firstItem="ufk-bv-sIP" firstAttribute="width" secondItem="tVy-yB-8eG" secondAttribute="width" multiplier="0.7" id="HRB-y3-dpL"/>
                 <constraint firstItem="IDs-9r-TQL" firstAttribute="bottom" secondItem="yjT-8X-JG0" secondAttribute="bottom" id="Kcp-18-7va"/>
                 <constraint firstItem="yjT-8X-JG0" firstAttribute="top" secondItem="ufk-bv-sIP" secondAttribute="bottom" constant="25" id="KxO-x8-P3f"/>
                 <constraint firstItem="i7Q-Xy-81V" firstAttribute="centerY" secondItem="yjT-8X-JG0" secondAttribute="centerY" id="LuJ-5f-Vm2"/>
+                <constraint firstItem="ufk-bv-sIP" firstAttribute="top" secondItem="IDs-9r-TQL" secondAttribute="top" constant="5" id="OhH-R7-dc8"/>
                 <constraint firstItem="yjT-8X-JG0" firstAttribute="leading" secondItem="i7Q-Xy-81V" secondAttribute="trailing" constant="5" id="OuR-iX-wDR"/>
                 <constraint firstItem="ufk-bv-sIP" firstAttribute="centerX" secondItem="tVy-yB-8eG" secondAttribute="centerX" id="b4O-Qc-2zl"/>
                 <constraint firstItem="yjT-8X-JG0" firstAttribute="width" secondItem="ufk-bv-sIP" secondAttribute="width" id="xlJ-h8-WRS"/>
