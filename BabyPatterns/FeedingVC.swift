@@ -24,7 +24,6 @@ final class FeedingVC: UIViewController {
         return .portrait
     }
 
-    // properties
     weak var feedingsVM: FeedingsVM?
     weak var profileVM: ProfileVM?
     private var notificationToken: NSObjectProtocol?
@@ -32,11 +31,10 @@ final class FeedingVC: UIViewController {
         guard let vm = feedingsVM else { return [] }
         return vm
             .feedings(withTypes: [.nursing, .bottle, .pumping], isFinished: true)
-            .flatMap { EndFeedingEvent(date: $0.endDate) }
+            .compactMap { EndFeedingEvent(date: $0.endDate) }
             .sorted { $0.endDate > $1.endDate }
     }
 
-    // outlets
     @IBOutlet weak var segmentedControl: SegmentedControlBar!
     @IBOutlet weak var profileView: ProfileView!
 
@@ -111,8 +109,7 @@ final class FeedingVC: UIViewController {
         vc.pages.append(contentsOf: [page1, page2, page3])
     }
 
-    @IBAction func unwindToFeedingVC(segue _: UIStoryboardSegue) {
-    }
+    @IBAction func unwindToFeedingVC(segue _: UIStoryboardSegue) { }
 
     fileprivate func showFeedingSavedToast() {
         let toastSize: CGFloat = 150

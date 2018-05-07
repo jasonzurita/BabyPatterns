@@ -14,11 +14,9 @@ protocol SegmentedControlBarDelegate: class {
 
 class SegmentedControlBar: UIStackView {
 
-    // properties
     weak var delegate: SegmentedControlBarDelegate?
     fileprivate var segments: [Segment] = []
 
-    // outlets
     @IBOutlet var view: UIView!
 
     override init(frame: CGRect) {

@@ -14,10 +14,8 @@ protocol ProfileViewDelegate: class {
 
 class ProfileView: UIView {
 
-    // properties
     weak var delegate: ProfileViewDelegate?
 
-    // outlets
     @IBOutlet var view: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

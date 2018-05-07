@@ -2,19 +2,21 @@ import UIKit
 import PlaygroundSupport
 @testable import Framework_BabyPatterns
 
-
 struct Controller: FeedingController {
     func start(feeding type: FeedingType, side: FeedingSide) {
-
+        print("start: feeding type - \(type), side - \(side)")
     }
+
     func end(feeding type: FeedingType, side: FeedingSide) {
-
+        print("End: feeding type - \(type), side - \(side)")
     }
+
     func pause(feeeding type: FeedingType, side: FeedingSide) {
-
+        print("Pause: feeding type - \(type), side - \(side)")
     }
-    func resume(feeding type: FeedingType, side: FeedingSide) {
 
+    func resume(feeding type: FeedingType, side: FeedingSide) {
+        print("Resume: feeding type - \(type), side - \(side)")
     }
 }
 let feeding = Feeding(type: .nursing, side: .right, startDate: Date())
@@ -28,5 +30,3 @@ let parent = playgroundWrapper(child: vc,
                                contentSizeCategory: .accessibilityMedium)
 
 PlaygroundPage.current.liveView = parent
-
-print(vc.stopwatch)

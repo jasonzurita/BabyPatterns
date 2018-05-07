@@ -20,12 +20,10 @@ final class SettingsVC: UITableViewController, Loggable {
 
     var profileVM: ProfileVM?
 
-    // cells
     @IBOutlet weak var resetPasswordCell: UITableViewCell!
     @IBOutlet weak var contactSupportCell: UITableViewCell!
     @IBOutlet weak var logoutCell: UITableViewCell!
 
-    //text fileds
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var babyNameTextField: UITextField!

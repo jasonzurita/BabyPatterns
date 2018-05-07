@@ -82,8 +82,9 @@ class SignUpVC: UIViewController, Loggable, Validatable {
         if case .failure = emailResult { emailTextField.shake() }
         if case .failure = passwordResult { passwordTextField.shake() }
 
-        let resultReasons = [babyNameResult, babyDOBResult, nameResult, emailResult, passwordResult].flatMap {
-            guard case let .failure(reason) = $0 else { return nil }
+        let reasons = [babyNameResult, babyDOBResult, nameResult, emailResult, passwordResult]
+        let resultReasons = reasons.compactMap { (result: ValidationResult) -> String? in
+            guard case let .failure(reason) = result else { return nil }
             return reason
         }
 

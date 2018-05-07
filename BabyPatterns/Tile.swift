@@ -30,7 +30,6 @@ class Tile: UIView {
         didSet { imageView.image = image }
     }
 
-    // outlets
     @IBOutlet var view: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

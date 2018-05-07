@@ -57,8 +57,8 @@ public extension Validatable {
         let range = NSRange(location: 0, length: email.count)
         let addresses = detector
             .matches(in: email, options: [], range: range)
-            .flatMap {
-                guard let matchURL = $0.url else { return nil }
+            .compactMap { (result: NSTextCheckingResult) -> String? in
+                guard let matchURL = result.url else { return nil }
                 guard let components = URLComponents(url: matchURL, resolvingAgainstBaseURL: false) else { return nil }
                 guard components.scheme == "mailto" else { return nil }
 

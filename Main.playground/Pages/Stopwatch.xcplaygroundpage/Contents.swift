@@ -7,4 +7,3 @@ let view = FeedingStopwatchView(feedingType: .nursing, frame: frame)
 view.backgroundColor = .white
 
 PlaygroundPage.current.liveView = view
-
