@@ -23,14 +23,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="tVy-yB-8eG">
-            <rect key="frame" x="0.0" y="0.0" width="356" height="229"/>
+            <rect key="frame" x="0.0" y="0.0" width="356" height="273"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ufk-bv-sIP">
-                    <rect key="frame" x="53.5" y="5" width="249" height="129"/>
+                    <rect key="frame" x="53.5" y="40" width="249" height="138"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQF-oL-g8D" customClass="FeedingControl" customModule="Framework_BabyPatterns" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="14.5" width="100" height="100"/>
+                            <rect key="frame" x="0.0" y="19" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="GQF-oL-g8D" secondAttribute="height" multiplier="1:1" id="LSI-sA-S5T"/>
                                 <constraint firstAttribute="height" constant="100" id="zLo-cl-CkN"/>
@@ -43,7 +43,7 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZp-LW-zRn" customClass="FeedingControl" customModule="Framework_BabyPatterns" customModuleProvider="target">
-                            <rect key="frame" x="149" y="14.5" width="100" height="100"/>
+                            <rect key="frame" x="149" y="19" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="DdT-Zc-nZu"/>
                                 <constraint firstAttribute="width" secondItem="dZp-LW-zRn" secondAttribute="height" multiplier="1:1" id="WFG-fm-pZB"/>
@@ -61,13 +61,13 @@
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjT-8X-JG0" customClass="TimerLabel" customModule="Library">
-                    <rect key="frame" x="53.5" y="159" width="249" height="70"/>
+                    <rect key="frame" x="53.5" y="203" width="249" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="HVK-Vg-PDM"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7Q-Xy-81V">
-                    <rect key="frame" x="18.5" y="173.5" width="30" height="41"/>
+                    <rect key="frame" x="18.5" y="217.5" width="30" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <state key="normal" title="◼︎">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,7 +83,7 @@
                 <constraint firstItem="IDs-9r-TQL" firstAttribute="bottom" secondItem="yjT-8X-JG0" secondAttribute="bottom" id="Kcp-18-7va"/>
                 <constraint firstItem="yjT-8X-JG0" firstAttribute="top" secondItem="ufk-bv-sIP" secondAttribute="bottom" constant="25" id="KxO-x8-P3f"/>
                 <constraint firstItem="i7Q-Xy-81V" firstAttribute="centerY" secondItem="yjT-8X-JG0" secondAttribute="centerY" id="LuJ-5f-Vm2"/>
-                <constraint firstItem="ufk-bv-sIP" firstAttribute="top" secondItem="IDs-9r-TQL" secondAttribute="top" constant="5" id="OhH-R7-dc8"/>
+                <constraint firstItem="ufk-bv-sIP" firstAttribute="top" secondItem="IDs-9r-TQL" secondAttribute="top" constant="40" id="OhH-R7-dc8"/>
                 <constraint firstItem="yjT-8X-JG0" firstAttribute="leading" secondItem="i7Q-Xy-81V" secondAttribute="trailing" constant="5" id="OuR-iX-wDR"/>
                 <constraint firstItem="ufk-bv-sIP" firstAttribute="centerX" secondItem="tVy-yB-8eG" secondAttribute="centerX" id="b4O-Qc-2zl"/>
                 <constraint firstItem="yjT-8X-JG0" firstAttribute="width" secondItem="ufk-bv-sIP" secondAttribute="width" id="xlJ-h8-WRS"/>
@@ -91,7 +91,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="IDs-9r-TQL"/>
-            <point key="canvasLocation" x="116" y="71.5"/>
+            <point key="canvasLocation" x="116" y="93.5"/>
         </view>
     </objects>
 </document>
