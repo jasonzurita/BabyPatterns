@@ -9,45 +9,32 @@ public protocol FeedingController {
 
 public final class NursingVC: UIViewController {
 
-    let stopwatch = FeedingStopwatchView(feedingType: .nursing)
+    private let _stopwatch = FeedingStopwatchView(feedingType: .nursing)
 
     public init(controller: FeedingController) {
         super.init(nibName: nil, bundle: nil)
-        stopwatch.onStart = { type, side in
-
-        }
-
-        stopwatch.onEnd = { type, side in
-
-        }
-
-        stopwatch.onPause = { type, side in
-
-        }
-
-        stopwatch.onResume = { type, side in
-
-        }
+        _stopwatch.onStart = controller.start(feeding:side:)
+        _stopwatch.onEnd = controller.end(feeding:side:)
+        _stopwatch.onPause = controller.pause(feeeding:side:)
+        _stopwatch.onResume = controller.resume(feeding:side:)
     }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
+    public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
 
     public override func loadView() {
         super.loadView()
         view = UIView()
 
-        view.addSubview(stopwatch)
+        view.addSubview(_stopwatch)
 
-        stopwatch.translatesAutoresizingMaskIntoConstraints = false
+        _stopwatch.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stopwatch.topAnchor.constraint(equalTo: view.topAnchor),
-            stopwatch.widthAnchor.constraint(equalTo: view.widthAnchor),
-            stopwatch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            _stopwatch.topAnchor.constraint(equalTo: view.topAnchor),
+            _stopwatch.widthAnchor.constraint(equalTo: view.widthAnchor),
+            _stopwatch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
 
-        stopwatch.dataSource = self
+        _stopwatch.dataSource = self
     }
 
     override public func viewWillAppear(_ animated: Bool) {
@@ -69,9 +56,9 @@ public final class NursingVC: UIViewController {
     }
 
     func resumeFeeding(_ feeding: Feeding) {
-        stopwatch.startFeeding(at: feeding.duration(), on: feeding.side)
+        _stopwatch.startFeeding(at: feeding.duration(), on: feeding.side)
         if feeding.isPaused {
-            stopwatch.pause()
+            _stopwatch.pause()
         }
     }
 }
