@@ -10,18 +10,6 @@ import UIKit
 import Library
 import Framework_BabyPatterns
 
-protocol FeedingInProgressDelegate: NSObjectProtocol {
-    func feedingStarted(type: FeedingType, side: FeedingSide)
-    func feedingEnded(type: FeedingType, side: FeedingSide)
-    func updateFeedingInProgress(type: FeedingType, side: FeedingSide, isPaused: Bool)
-}
-
-protocol FeedingsDataSource: NSObjectProtocol {
-    func lastFeeding(type: FeedingType) -> Feeding?
-    func remainingSupply() -> Double
-    func desiredMaxSupply() -> Double
-}
-
 struct EndFeedingEvent: Event {
     private(set) var endDate: Date
     init?(date: Date?) {
@@ -158,10 +146,7 @@ extension FeedingVC: FeedingController {
     }
 }
 
-extension FeedingVC: FeedingsDataSource, BottleDataSource {
-    func lastFeeding(type: FeedingType) -> Feeding? {
-        return feedingsVM?.lastFeeding(type: type)
-    }
+extension FeedingVC: BottleDataSource {
 
     func remainingSupply() -> Double {
         return feedingsVM?.remainingSupply() ?? 0.0
