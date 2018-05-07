@@ -115,14 +115,8 @@ final class FeedingVC: UIViewController {
         vc.segmentedControl = segmentedControl
 
         // TODO: update this with the new nursing vc (in development) & pumping vc (to be made)
-        let page1 = FeedingTimerVC(nibName: "FeedingTimerVC", bundle: nil)
-        page1.feedingType = .nursing
-        page1.delegate = self
-        page1.dataSource = self
-        let page2 = FeedingTimerVC(nibName: "FeedingTimerVC", bundle: nil)
-        page2.feedingType = .pumping
-        page2.delegate = self
-        page2.dataSource = self
+        let page1 = NursingVC(controller: self)
+        let page2 = NursingVC(controller: self)
         let page3 = BottleVC()
         page3.delegate = self
         page3.dataSource = self
@@ -144,19 +138,23 @@ final class FeedingVC: UIViewController {
     }
 }
 
-extension FeedingVC: FeedingInProgressDelegate {
-
-    func feedingStarted(type: FeedingType, side: FeedingSide) {
+extension FeedingVC: FeedingController {
+    func start(feeding type: FeedingType, side: FeedingSide) {
         feedingsVM?.feedingStarted(type: type, side: side)
     }
 
-    func feedingEnded(type: FeedingType, side: FeedingSide) {
+    func end(feeding type: FeedingType, side: FeedingSide) {
         feedingsVM?.feedingEnded(type: type, side: side)
         showFeedingSavedToast()
     }
 
-    func updateFeedingInProgress(type: FeedingType, side: FeedingSide, isPaused: Bool) {
-        feedingsVM?.updateFeedingInProgress(type: type, side: side, isPaused: isPaused)
+    // TODO: split up feedingVM.updateFeedingInProgress for pause and resume
+    func pause(feeeding type: FeedingType, side: FeedingSide) {
+        feedingsVM?.updateFeedingInProgress(type: type, side: side, isPaused: true)
+    }
+
+    func resume(feeding type: FeedingType, side: FeedingSide) {
+        feedingsVM?.updateFeedingInProgress(type: type, side: side, isPaused: false)
     }
 }
 
