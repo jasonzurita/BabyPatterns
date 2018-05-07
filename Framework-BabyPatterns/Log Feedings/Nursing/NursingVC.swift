@@ -41,7 +41,6 @@ public final class NursingVC: UIViewController {
         view.addSubview(stopwatch)
 
         stopwatch.translatesAutoresizingMaskIntoConstraints = false
-
         NSLayoutConstraint.activate([
             stopwatch.topAnchor.constraint(equalTo: view.topAnchor),
             stopwatch.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -69,11 +68,11 @@ public final class NursingVC: UIViewController {
 //        resumeFeeding(feedingInProgress: lf, activeControl: control)
     }
 
-    private func resumeFeeding(feedingInProgress: Feeding, activeControl: FeedingControl) {
-//        startFeeding(control: activeControl, startTime: feedingInProgress.duration())
-//        if feedingInProgress.isPaused {
-//            pauseFeeding(control: activeControl)
-//        }
+    func resumeFeeding(_ feeding: Feeding) {
+        stopwatch.startFeeding(at: feeding.duration(), on: feeding.side)
+        if feeding.isPaused {
+            stopwatch.pause()
+        }
     }
 }
 

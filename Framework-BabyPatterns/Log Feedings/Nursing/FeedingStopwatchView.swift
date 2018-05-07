@@ -24,6 +24,20 @@ public final class FeedingStopwatchView: UIView {
     private let _feedingType: FeedingType
     private var _sideInProgress: FeedingSide = .none
 
+    private var _activeControl: FeedingControl? {
+        switch (leftFeedingControl.isActive, rightFeedingControl.isActive) {
+        case (true, false):
+            return leftFeedingControl
+        case (false, true):
+            return rightFeedingControl
+        case (true, true):
+            assertionFailure("Both feeding controls are active. How!?")
+            return nil
+        case (false, false):
+            return nil
+        }
+    }
+
     weak var dataSource: FeedingStopwatchDataSource?
 
     @IBOutlet var view: UIView! {
@@ -76,10 +90,10 @@ public final class FeedingStopwatchView: UIView {
         let shouldResumeTimer = timerLabel.isRunning && timerLabel.isPaused && sender.isActive
 
         if shouldStartTimer {
-            startFeeding(control: sender, startTime: 0)
+            startFeeding(at: 0, on: sender.side)
             onStart?(_feedingType, sender.side)
         } else if shouldPauseTimer {
-            pauseFeeding(control: sender)
+            pause()
             onPause?(_feedingType, sender.side)
         } else if shouldResumeTimer {
             resumeFeeding(control: sender)
@@ -87,15 +101,25 @@ public final class FeedingStopwatchView: UIView {
         }
     }
 
-    private func startFeeding(control: FeedingControl, startTime: TimeInterval) {
+    func startFeeding(at startTime: TimeInterval, on side: FeedingSide) {
+        var control: FeedingControl?
+        switch side {
+        case .left:
+            control = leftFeedingControl
+        case .right:
+            control = rightFeedingControl
+        case .none:
+            assertionFailure("Asked to start a feeding on side of = none")
+        }
         timerLabel.start(startingAt: startTime)
-        control.setTitle("Pause", for: .normal)
-        control.isActive = true
+        control!.setTitle("Pause", for: .normal)
+        control!.isActive = true
         stopButton.isHidden = false
-        _sideInProgress = control.side
+        _sideInProgress = control!.side
     }
 
-    private func pauseFeeding(control: FeedingControl) {
+    func pause() {
+        guard let control = _activeControl else { return }
         timerLabel.pause()
         control.setTitle("Resume", for: .normal)
     }
