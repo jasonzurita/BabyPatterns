@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nTM-8P-wsE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nTM-8P-wsE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Medium</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Welcome Shannon!-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="BabyPatterns" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -45,7 +40,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="mX4-Hq-bNr">
                                         <rect key="frame" x="57.5" y="200" width="260" height="200"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdO-si-g3C" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdO-si-g3C" customClass="Tile" customModule="BabyPatterns" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="110" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -57,7 +52,7 @@
                                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="feedingTile"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFS-EY-bMW" customClass="Tile" customModule="Baby_Tracker" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFS-EY-bMW" customClass="Tile" customModule="BabyPatterns" customModuleProvider="target">
                                                 <rect key="frame" x="150" y="0.0" width="110" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -71,7 +66,7 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbd-pr-W9x" customClass="ProfileView" customModule="Baby_Tracker" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbd-pr-W9x" customClass="ProfileView" customModule="BabyPatterns" customModuleProvider="target">
                                         <rect key="frame" x="57.5" y="70" width="240" height="110"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -142,7 +137,7 @@
         <!--Settings-->
         <scene sceneID="b46-4B-VC3">
             <objects>
-                <tableViewController id="3QO-be-xnZ" customClass="SettingsVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="3QO-be-xnZ" customClass="SettingsVC" customModule="BabyPatterns" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BkE-sE-scw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,7 +304,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2t3-5C-rzA">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2t3-5C-rzA">
                                                     <rect key="frame" x="300" y="6" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="turnOffAdsSwitchPressed:" destination="3QO-be-xnZ" eventType="valueChanged" id="43s-yI-Uka"/>
@@ -396,7 +391,7 @@
         <!--Request Feature-->
         <scene sceneID="7dJ-lI-hKg">
             <objects>
-                <tableViewController id="LNw-dm-fV7" customClass="RequestFeatureTVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="LNw-dm-fV7" customClass="RequestFeatureTVC" customModule="BabyPatterns" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="t8y-Vx-X0L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -425,7 +420,7 @@
         <!--Edit Profile ImageVC-->
         <scene sceneID="OtJ-Wc-o2g">
             <objects>
-                <viewController id="ceP-0c-4TS" customClass="EditProfileImageVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ceP-0c-4TS" customClass="EditProfileImageVC" customModule="BabyPatterns" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o4u-0M-ny3"/>
                         <viewControllerLayoutGuide type="bottom" id="ZVo-xp-IEt"/>
@@ -532,7 +527,7 @@
         <!--DispatchVC-->
         <scene sceneID="0PK-S2-1Q9">
             <objects>
-                <viewController id="nTM-8P-wsE" customClass="DispatchVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nTM-8P-wsE" customClass="DispatchVC" customModule="BabyPatterns" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hjT-RT-mbb"/>
                         <viewControllerLayoutGuide type="bottom" id="dd8-wg-pgR"/>
@@ -572,7 +567,7 @@
         <!--Sign InVC-->
         <scene sceneID="OcI-Gw-Ksp">
             <objects>
-                <viewController id="Uzf-Ui-YoH" customClass="SignInVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Uzf-Ui-YoH" customClass="SignInVC" customModule="BabyPatterns" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l8O-IT-7Aw"/>
                         <viewControllerLayoutGuide type="bottom" id="cde-pw-O8j"/>
@@ -756,7 +751,7 @@
         <!--Sign UpVC-->
         <scene sceneID="h6e-RA-lAr">
             <objects>
-                <viewController id="oVp-eR-4p2" customClass="SignUpVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oVp-eR-4p2" customClass="SignUpVC" customModule="BabyPatterns" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Sg-cP-Cr5"/>
                         <viewControllerLayoutGuide type="bottom" id="V5x-wz-rhl"/>
@@ -803,7 +798,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udc-Wd-VsN" userLabel="Baby Info Container">
                                 <rect key="frame" x="37.5" y="95" width="300" height="79"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Baby Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWK-9L-tX9" customClass="ShakeTextField" customModule="Baby_Tracker" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Baby Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWK-9L-tX9" customClass="ShakeTextField" customModule="BabyPatterns" customModuleProvider="target">
                                         <rect key="frame" x="93" y="0.0" width="198.5" height="40"/>
                                         <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -823,7 +818,7 @@
                                             <constraint firstAttribute="height" constant="1" id="ke8-UE-4gq"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Baby Birthday" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fu4-Eb-htD" customClass="ShakeTextField" customModule="Baby_Tracker" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Baby Birthday" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fu4-Eb-htD" customClass="ShakeTextField" customModule="BabyPatterns" customModuleProvider="target">
                                         <rect key="frame" x="93" y="39" width="198.5" height="40"/>
                                         <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -876,7 +871,7 @@
                                             <constraint firstAttribute="height" constant="1" id="6nx-xA-75V"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="foT-J6-Z7a" customClass="ShakeTextField" customModule="Baby_Tracker" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="foT-J6-Z7a" customClass="ShakeTextField" customModule="BabyPatterns" customModuleProvider="target">
                                         <rect key="frame" x="9" y="0.0" width="282" height="40"/>
                                         <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -889,7 +884,7 @@
                                             <outlet property="delegate" destination="oVp-eR-4p2" id="eHp-o9-w8X"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ryA-Kw-Gd6" customClass="ShakeTextField" customModule="Baby_Tracker" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ryA-Kw-Gd6" customClass="ShakeTextField" customModule="BabyPatterns" customModuleProvider="target">
                                         <rect key="frame" x="9" y="40" width="282" height="40"/>
                                         <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
@@ -906,7 +901,7 @@
                                             <constraint firstAttribute="height" constant="1" id="hMu-pc-yHM"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5OF-Iy-z5K" customClass="ShakeTextField" customModule="Baby_Tracker" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5OF-Iy-z5K" customClass="ShakeTextField" customModule="BabyPatterns" customModuleProvider="target">
                                         <rect key="frame" x="9" y="80" width="282" height="40"/>
                                         <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
@@ -986,7 +981,7 @@
         <!--NavigationVC-->
         <scene sceneID="SyT-Zd-gTA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8xn-i4-Sqo" customClass="NavigationVC" customModule="Baby_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8xn-i4-Sqo" customClass="NavigationVC" customModule="BabyPatterns" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="bJt-Z8-I21">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
