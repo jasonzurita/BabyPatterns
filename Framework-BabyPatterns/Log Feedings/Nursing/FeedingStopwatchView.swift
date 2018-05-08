@@ -9,10 +9,6 @@
 import UIKit
 import Library
 
-public protocol FeedingStopwatchDataSource: class {
-    func currentFeedingDuration() -> TimeInterval?
-}
-
 public final class FeedingStopwatchView: UIView {
 
     typealias StatusChangeHandler = ((FeedingType, FeedingSide) -> Void)
@@ -38,8 +34,6 @@ public final class FeedingStopwatchView: UIView {
         }
     }
 
-    weak var dataSource: FeedingStopwatchDataSource?
-
     @IBOutlet var view: UIView! {
         didSet {
             view.frame = bounds
@@ -49,7 +43,6 @@ public final class FeedingStopwatchView: UIView {
 
     @IBOutlet weak var timerLabel: TimerLabel! {
         didSet {
-            timerLabel.dataSource = self
             timerLabel.changeDisplayTime(time: 0)
         }
     }
@@ -155,11 +148,5 @@ public final class FeedingStopwatchView: UIView {
         control.isActive = false
         stopButton.isHidden = true
         timerLabel.end()
-    }
-}
-
-extension FeedingStopwatchView: TimerLabelDataSource {
-    public func timeValue(for timerLabel: TimerLabel) -> TimeInterval {
-        return dataSource?.currentFeedingDuration() ?? 0.0
     }
 }

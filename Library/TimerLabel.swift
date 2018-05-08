@@ -8,13 +8,7 @@
 
 import UIKit
 
-public protocol TimerLabelDataSource: class {
-    func timeValue(for timerLabel: TimerLabel) -> TimeInterval
-}
-
 public final class TimerLabel: UILabel {
-
-    public weak var dataSource: TimerLabelDataSource?
 
     private let countingInterval: Double = 1
     private var _timer: Timer?
@@ -72,8 +66,6 @@ public final class TimerLabel: UILabel {
         let returnValue: TimeInterval
         if let st = startTime {
             returnValue = st
-        } else if let ds = dataSource {
-            returnValue = ds.timeValue(for: self)
         } else {
             returnValue = 0
         }

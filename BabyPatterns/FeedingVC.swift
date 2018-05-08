@@ -100,9 +100,15 @@ final class FeedingVC: UIViewController {
         segmentedControl.delegate = vc
         vc.segmentedControl = segmentedControl
 
-        // TODO: update this with the new nursing vc (in development) & pumping vc (to be made)
+        // TODO: update this with the new pumping vc (to be made)
         let page1 = NursingVC(controller: self)
+        if let lf = feedingsVM?.lastFeeding(type: .nursing), !lf.isFinished {
+            page1.resumeFeeding(lf)
+        }
         let page2 = NursingVC(controller: self)
+        if let lf = feedingsVM?.lastFeeding(type: .pumping), !lf.isFinished {
+            page2.resumeFeeding(lf)
+        }
         let page3 = BottleVC()
         page3.delegate = self
         page3.dataSource = self

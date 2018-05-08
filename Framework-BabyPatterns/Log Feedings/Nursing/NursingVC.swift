@@ -33,38 +33,12 @@ public final class NursingVC: UIViewController {
             _stopwatch.widthAnchor.constraint(equalTo: view.widthAnchor),
             _stopwatch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
-
-        _stopwatch.dataSource = self
     }
 
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        resumeFeedingIfNeeded()
-    }
-
-    private func resumeFeedingIfNeeded() {
-//        guard let lf = dataSource?.lastFeeding(type: feedingType), !lf.isFinished else {
-//            timerLabel.changeDisplayTime(time: 0)
-//            return
-//        }
-//
-//        guard let control = lf.side == .left ? leftFeedingControl : rightFeedingControl else {
-//            log("No active control to resume feeding with", object: self, type: .error)
-//            return
-//        }
-//        resumeFeeding(feedingInProgress: lf, activeControl: control)
-    }
-
-    func resumeFeeding(_ feeding: Feeding) {
+    public func resumeFeeding(_ feeding: Feeding) {
         _stopwatch.startFeeding(at: feeding.duration(), on: feeding.side)
         if feeding.isPaused {
             _stopwatch.pause()
         }
-    }
-}
-
-extension NursingVC: FeedingStopwatchDataSource {
-    public func currentFeedingDuration() -> TimeInterval? {
-        return nil
     }
 }
