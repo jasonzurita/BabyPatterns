@@ -22,7 +22,7 @@ struct Controller: FeedingController {
 let feeding = Feeding(type: .nursing, side: .right, startDate: Date())
 let c = Controller()
 let vc = NursingVC(controller: c)
-vc.resumeFeeding(feeding)
+vc.resume(feeding: feeding)
 
 let parent = playgroundWrapper(child: vc,
                                device: .phone4inch,
