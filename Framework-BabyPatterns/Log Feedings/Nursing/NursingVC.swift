@@ -35,7 +35,7 @@ public final class NursingVC: UIViewController {
             ])
     }
 
-    public func resumeFeeding(_ feeding: Feeding) {
+    public func resume(feeding: Feeding) {
         _stopwatch.startFeeding(at: feeding.duration(), on: feeding.side)
         if feeding.isPaused {
             _stopwatch.pause()
