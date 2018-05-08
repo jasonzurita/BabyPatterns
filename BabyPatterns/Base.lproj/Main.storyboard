@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="133.5" width="375" height="400"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="mX4-Hq-bNr">
-                                        <rect key="frame" x="57.5" y="200" width="260" height="200"/>
+                                        <rect key="frame" x="57.5" y="165" width="260" height="200"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdO-si-g3C" customClass="Tile" customModule="BabyPatterns" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="110" height="200"/>
@@ -67,21 +67,37 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbd-pr-W9x" customClass="ProfileView" customModule="BabyPatterns" customModuleProvider="target">
-                                        <rect key="frame" x="57.5" y="70" width="240" height="110"/>
+                                        <rect key="frame" x="57.5" y="35" width="240" height="110"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="Raj-NH-evB"/>
                                             <constraint firstAttribute="height" constant="110" id="e3N-eQ-6KD"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1On-f5-HAB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsB-rm-Jk7">
+                                        <rect key="frame" x="-0.5" y="365" width="375" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="mX4-Hq-bNr" firstAttribute="width" secondItem="TCN-HU-SLK" secondAttribute="width" multiplier="0.8" constant="-40" id="5Oc-RF-Nyg"/>
                                     <constraint firstItem="mX4-Hq-bNr" firstAttribute="centerX" secondItem="TCN-HU-SLK" secondAttribute="centerX" id="7vA-eg-z0p"/>
-                                    <constraint firstAttribute="bottom" secondItem="mX4-Hq-bNr" secondAttribute="bottom" id="M0v-v2-ETE"/>
+                                    <constraint firstItem="gsB-rm-Jk7" firstAttribute="centerX" secondItem="TCN-HU-SLK" secondAttribute="centerX" id="Ahr-mG-aU3"/>
+                                    <constraint firstAttribute="bottom" secondItem="gsB-rm-Jk7" secondAttribute="bottom" id="GPV-tc-t9B"/>
+                                    <constraint firstItem="gsB-rm-Jk7" firstAttribute="top" secondItem="mX4-Hq-bNr" secondAttribute="bottom" id="UUk-xy-Sab"/>
+                                    <constraint firstItem="gsB-rm-Jk7" firstAttribute="width" secondItem="TCN-HU-SLK" secondAttribute="width" id="bqi-ky-50m"/>
+                                    <constraint firstItem="1On-f5-HAB" firstAttribute="width" secondItem="TCN-HU-SLK" secondAttribute="width" id="cao-OG-KjK"/>
+                                    <constraint firstItem="1On-f5-HAB" firstAttribute="top" secondItem="TCN-HU-SLK" secondAttribute="top" id="j9F-jR-gSC"/>
                                     <constraint firstItem="mX4-Hq-bNr" firstAttribute="top" secondItem="jbd-pr-W9x" secondAttribute="bottom" constant="20" id="jEm-sb-1me"/>
+                                    <constraint firstItem="jbd-pr-W9x" firstAttribute="top" secondItem="1On-f5-HAB" secondAttribute="bottom" id="jGB-uF-6ly"/>
+                                    <constraint firstItem="1On-f5-HAB" firstAttribute="centerX" secondItem="TCN-HU-SLK" secondAttribute="centerX" id="mzv-Hf-fAc"/>
                                     <constraint firstItem="jbd-pr-W9x" firstAttribute="leading" secondItem="mdO-si-g3C" secondAttribute="leading" id="sG4-Kh-sOM"/>
+                                    <constraint firstItem="gsB-rm-Jk7" firstAttribute="height" secondItem="1On-f5-HAB" secondAttribute="height" id="zrA-2a-cdc"/>
                                 </constraints>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku9-hW-fqk">
