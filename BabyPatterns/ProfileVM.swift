@@ -1,14 +1,6 @@
-//
-//  ProfileVM.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 2/22/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
-import UIKit
-import Library
 import Framework_BabyPatterns
+import Library
+import UIKit
 
 class ProfileVM: Loggable {
     let shouldPrintDebugLog = true

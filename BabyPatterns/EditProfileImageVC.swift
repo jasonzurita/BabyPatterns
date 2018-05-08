@@ -1,14 +1,6 @@
-//
-//  EditProfileImageVC.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 2/26/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
-import UIKit
 import ImageIO
 import Library
+import UIKit
 
 protocol EditProfileImageDelegate: class {
     func profileImageEdited(image: UIImage)
@@ -24,9 +16,9 @@ final class EditProfileImageVC: UIViewController, Loggable {
     private var cropCenter = CGPoint(x: UIScreen.main.bounds.size.width * 0.5,
                                      y: UIScreen.main.bounds.size.height * 0.5)
 
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var overlayView: UIView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet var profileImageView: UIImageView!
+    @IBOutlet var overlayView: UIView!
+    @IBOutlet var scrollView: UIScrollView!
 
     override var prefersStatusBarHidden: Bool {
         return true

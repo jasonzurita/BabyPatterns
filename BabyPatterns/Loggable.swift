@@ -1,11 +1,3 @@
-//
-//  Loggable.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 3/13/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
 import Foundation
 
 public enum LogType: String {

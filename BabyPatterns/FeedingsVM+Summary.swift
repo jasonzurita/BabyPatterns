@@ -1,11 +1,3 @@
-//
-//  FeedingsVM+Summary.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/19/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 import Foundation
 import Framework_BabyPatterns
 

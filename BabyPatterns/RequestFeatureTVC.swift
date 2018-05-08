@@ -1,15 +1,6 @@
-//
-//  RequestFeatureTVC.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 6/4/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
 import UIKit
 
 class RequestFeatureTVC: UITableViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -1,15 +1,7 @@
-//
-//  StorageFacade.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 3/6/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
-import Foundation
 import Firebase
-import Library
+import Foundation
 import Framework_BabyPatterns
+import Library
 
 struct StorageFacade: Loggable {
     let shouldPrintDebugLog = true

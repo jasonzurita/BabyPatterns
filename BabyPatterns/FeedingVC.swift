@@ -1,14 +1,6 @@
-//
-//  FeedingVC.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 11/3/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
-import UIKit
-import Library
 import Framework_BabyPatterns
+import Library
+import UIKit
 
 struct EndFeedingEvent: Event {
     private(set) var endDate: Date
@@ -19,7 +11,6 @@ struct EndFeedingEvent: Event {
 }
 
 final class FeedingVC: UIViewController {
-
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
@@ -35,8 +26,8 @@ final class FeedingVC: UIViewController {
             .sorted { $0.endDate > $1.endDate }
     }
 
-    @IBOutlet weak var segmentedControl: SegmentedControlBar!
-    @IBOutlet weak var profileView: ProfileView!
+    @IBOutlet var segmentedControl: SegmentedControlBar!
+    @IBOutlet var profileView: ProfileView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,13 +52,13 @@ final class FeedingVC: UIViewController {
                                                object: nil,
                                                queue: nil,
                                                using: { [weak self] _ in
-            if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-                guard let strongSelf = self else { return }
-                strongSelf.presentHistoryVC()
+                                                   if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+                                                       guard let strongSelf = self else { return }
+                                                       strongSelf.presentHistoryVC()
 
-                UIDevice.current.endGeneratingDeviceOrientationNotifications()
-                if let token = strongSelf.notificationToken { center.removeObserver(token) }
-            }
+                                                       UIDevice.current.endGeneratingDeviceOrientationNotifications()
+                                                       if let token = strongSelf.notificationToken { center.removeObserver(token) }
+                                                   }
         })
     }
 
@@ -115,7 +106,7 @@ final class FeedingVC: UIViewController {
         vc.pages.append(contentsOf: [page1, page2, page3])
     }
 
-    @IBAction func unwindToFeedingVC(segue _: UIStoryboardSegue) { }
+    @IBAction func unwindToFeedingVC(segue _: UIStoryboardSegue) {}
 
     fileprivate func showFeedingSavedToast() {
         let toastSize: CGFloat = 150
@@ -150,7 +141,6 @@ extension FeedingVC: FeedingController {
 }
 
 extension FeedingVC: BottleDataSource {
-
     func remainingSupply() -> Double {
         return feedingsVM?.remainingSupply() ?? 0.0
     }

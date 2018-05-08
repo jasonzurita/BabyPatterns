@@ -1,11 +1,3 @@
-//
-//  Segment.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/11/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 import UIKit
 
 protocol SegmentDelegate: class {
@@ -13,7 +5,6 @@ protocol SegmentDelegate: class {
 }
 
 class Segment: UIView {
-
     weak var delegate: SegmentDelegate?
 
     var index = -1
@@ -24,8 +15,8 @@ class Segment: UIView {
     }
 
     @IBOutlet var view: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var selectedStatusBar: UIView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var selectedStatusBar: UIView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)

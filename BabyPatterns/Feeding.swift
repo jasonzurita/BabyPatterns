@@ -1,11 +1,3 @@
-//
-//  Feeding.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/16/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 import Foundation
 
 public struct Feeding {
@@ -29,14 +21,13 @@ public struct Feeding {
     }
 
     public init(type: FeedingType,
-         side: FeedingSide,
-         startDate: Date,
-         endDate: Date? = nil,
-         lastPausedDate: Date? = nil,
-         supplyAmount: Double = 0.0,
-         pausedTime: TimeInterval = 0.0,
-         serverKey: String? = nil) {
-
+                side: FeedingSide,
+                startDate: Date,
+                endDate: Date? = nil,
+                lastPausedDate: Date? = nil,
+                supplyAmount: Double = 0.0,
+                pausedTime: TimeInterval = 0.0,
+                serverKey: String? = nil) {
         self.type = type
         self.side = side
         self.startDate = startDate

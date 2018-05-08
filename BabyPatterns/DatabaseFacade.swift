@@ -1,15 +1,7 @@
-//
-//  DatabaseFacade.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/2/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
-import Foundation
 import Firebase
-import Library
+import Foundation
 import Framework_BabyPatterns
+import Library
 
 struct DatabaseFacade: Loggable {
     let shouldPrintDebugLog = true
@@ -56,7 +48,6 @@ struct DatabaseFacade: Loggable {
     }
 
     func uploadJSON(_ json: [String: Any], requestType: FirebaseRequestType) -> String? {
-
         guard let path = pathForRequest(type: requestType) else {
             log("Failed to upload data: \(json)", object: self, type: .error)
             return nil

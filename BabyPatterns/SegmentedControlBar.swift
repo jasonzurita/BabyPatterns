@@ -1,11 +1,3 @@
-//
-//  SegmentedControlBar.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/11/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 import UIKit
 
 protocol SegmentedControlBarDelegate: class {
@@ -13,7 +5,6 @@ protocol SegmentedControlBarDelegate: class {
 }
 
 class SegmentedControlBar: UIStackView {
-
     weak var delegate: SegmentedControlBarDelegate?
     fileprivate var segments: [Segment] = []
 

@@ -1,18 +1,9 @@
-//
-//  HomeVC.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 11/2/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
-import UIKit
-import ImageIO
 import Firebase
 import Framework_BabyPatterns
+import ImageIO
+import UIKit
 
 class HomeVC: UIViewController {
-
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         // TODO: auto rotate to add and view other children
         return .portrait
@@ -22,15 +13,15 @@ class HomeVC: UIViewController {
     var profileVM: ProfileVM?
     var profilePhotoCandidate: UIImage?
 
-    @IBOutlet weak var homeScreenTitle: UINavigationItem!
-    @IBOutlet weak var profileView: ProfileView!
+    @IBOutlet var homeScreenTitle: UINavigationItem!
+    @IBOutlet var profileView: ProfileView!
 
     // TODO: okay for for now, put these into a collectoin view to easily support future tile additions
-    @IBOutlet weak var feedingTile: Tile!
-    @IBOutlet weak var requestFeatureTile: Tile!
+    @IBOutlet var feedingTile: Tile!
+    @IBOutlet var requestFeatureTile: Tile!
 
-    @IBOutlet weak var adBannerView: GADBannerView!
-    @IBOutlet weak var turnOffAdsButton: UIButton!
+    @IBOutlet var adBannerView: GADBannerView!
+    @IBOutlet var turnOffAdsButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +79,6 @@ class HomeVC: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-
         if let vc = segue.destination as? FeedingVC, let f = feedingsVM {
             vc.feedingsVM = f
             vc.profileVM = profileVM
@@ -107,7 +97,6 @@ class HomeVC: UIViewController {
 
 extension HomeVC: ProfileViewDelegate {
     func changeProfileImageButtonTapped() {
-
         let actionSheet = UIAlertController(title: "Change Profile Photo?", message: nil, preferredStyle: .actionSheet)
 
         let libraryOption = UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
@@ -167,7 +156,6 @@ extension HomeVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
     }
 
     private func rotatedImage(image: UIImage, orientation: UIImageOrientation) -> UIImage {
-
         UIGraphicsBeginImageContext(image.size)
 
         let context = UIGraphicsGetCurrentContext()

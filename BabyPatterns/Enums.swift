@@ -1,11 +1,3 @@
-//
-//  Enums.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/9/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 public enum FeedingType: String {
     case nursing = "Nursing"
     case pumping = "Pumping"

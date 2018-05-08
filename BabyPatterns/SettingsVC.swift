@@ -1,15 +1,7 @@
-//
-//  SettingsVC.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/7/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
-import UIKit
 import Firebase
-import Library
 import Framework_BabyPatterns
+import Library
+import UIKit
 
 final class SettingsVC: UITableViewController, Loggable {
     let shouldPrintDebugLog = true
@@ -20,13 +12,13 @@ final class SettingsVC: UITableViewController, Loggable {
 
     var profileVM: ProfileVM?
 
-    @IBOutlet weak var resetPasswordCell: UITableViewCell!
-    @IBOutlet weak var contactSupportCell: UITableViewCell!
-    @IBOutlet weak var logoutCell: UITableViewCell!
+    @IBOutlet var resetPasswordCell: UITableViewCell!
+    @IBOutlet var contactSupportCell: UITableViewCell!
+    @IBOutlet var logoutCell: UITableViewCell!
 
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var babyNameTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var babyNameTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()

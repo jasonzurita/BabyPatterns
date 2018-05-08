@@ -1,31 +1,22 @@
-//
-//  SignInVC.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 11/16/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
-import UIKit
 import FirebaseAuth
-import Library
 import Framework_BabyPatterns
+import Library
+import UIKit
 
 final class SignInVC: UIViewController, Loggable {
-
     let shouldPrintDebugLog = true
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
 
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signInContainerView: UIView!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var signInContainerView: UIView!
 
-    @IBOutlet weak var signInActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet var signInActivityIndicator: UIActivityIndicatorView!
 
-    @IBOutlet weak var tryDemoActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet var tryDemoActivityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +68,6 @@ final class SignInVC: UIViewController, Loggable {
     }
 
     @IBAction func forgotPassword(_: UIButton) {
-
         let prompt = UIAlertController(title: "Reset Password?",
                                        message: "Enter your email then check that email for further instrucitons:",
                                        preferredStyle: .alert)

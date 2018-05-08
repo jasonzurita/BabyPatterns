@@ -1,11 +1,3 @@
-//
-//  Profile.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 11/7/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 import UIKit
 
 public struct Profile {
@@ -19,14 +11,13 @@ public struct Profile {
     public var profilePicture: UIImage?
 
     public init(babyName: String,
-         parentName: String,
-         babyDOB: Date,
-         email: String,
-         userID: String,
-         serverKey: String? = nil,
-         desiredMaxSupply: Double,
-         profilePicture: UIImage? = nil) {
-
+                parentName: String,
+                babyDOB: Date,
+                email: String,
+                userID: String,
+                serverKey: String? = nil,
+                desiredMaxSupply: Double,
+                profilePicture: UIImage? = nil) {
         self.babyName = babyName
         self.parentName = parentName
         self.profilePicture = profilePicture

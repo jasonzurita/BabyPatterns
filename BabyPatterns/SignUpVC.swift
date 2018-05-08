@@ -1,15 +1,7 @@
-//
-//  SignUpVC.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 1/13/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
-import UIKit
 import FirebaseAuth
-import Library
 import Framework_BabyPatterns
+import Library
+import UIKit
 
 class SignUpVC: UIViewController, Loggable, Validatable {
     let shouldPrintDebugLog = true
@@ -20,14 +12,14 @@ class SignUpVC: UIViewController, Loggable, Validatable {
 
     private var profileVM: ProfileVM? = ProfileVM()
 
-    @IBOutlet weak var babyNameTextField: ShakeTextField!
-    @IBOutlet weak var babyDOBTextField: ShakeTextField!
-    @IBOutlet weak var nameTextField: ShakeTextField!
-    @IBOutlet weak var emailTextField: ShakeTextField!
-    @IBOutlet weak var passwordTextField: ShakeTextField!
-    @IBOutlet weak var submitActivityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var babyInfoContainer: UIView!
-    @IBOutlet weak var parentInfoContainer: UIView!
+    @IBOutlet var babyNameTextField: ShakeTextField!
+    @IBOutlet var babyDOBTextField: ShakeTextField!
+    @IBOutlet var nameTextField: ShakeTextField!
+    @IBOutlet var emailTextField: ShakeTextField!
+    @IBOutlet var passwordTextField: ShakeTextField!
+    @IBOutlet var submitActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet var babyInfoContainer: UIView!
+    @IBOutlet var parentInfoContainer: UIView!
 
     override func viewDidLoad() {
         configureSignUpContainerView(containerLayer: babyInfoContainer.layer)
@@ -45,7 +37,6 @@ class SignUpVC: UIViewController, Loggable, Validatable {
     }
 
     @IBAction func submitButtonPressed(_: UIButton) {
-
         guard allTextFieldsValid() else { return }
 
         guard let email = emailTextField.text, let password = passwordTextField.text else {
@@ -69,7 +60,6 @@ class SignUpVC: UIViewController, Loggable, Validatable {
     }
 
     private func allTextFieldsValid() -> Bool {
-
         let babyNameResult = validate(babyNameTextField.text, type: .text(length: 1))
         let babyDOBResult = validate(babyDOBTextField.text, type: .dateOfBirth)
         let nameResult = validate(nameTextField.text, type: .text(length: 1))

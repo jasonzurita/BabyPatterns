@@ -1,11 +1,3 @@
-//
-//  ProfileView.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/15/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 import UIKit
 
 protocol ProfileViewDelegate: class {
@@ -13,13 +5,12 @@ protocol ProfileViewDelegate: class {
 }
 
 class ProfileView: UIView {
-
     weak var delegate: ProfileViewDelegate?
 
     @IBOutlet var view: UIView!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var ageLabel: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -1,25 +1,16 @@
-//
-//  DispatchVC.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 1/15/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
-import UIKit
 import FirebaseAuth
-import Library
 import Framework_BabyPatterns
+import Library
+import UIKit
 
 class DispatchVC: UIViewController, Loggable {
-
     let shouldPrintDebugLog = true
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     private var feedingsVM: FeedingsVM?
     private var profileVM: ProfileVM?

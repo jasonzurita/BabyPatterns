@@ -1,16 +1,7 @@
-//
-//  FeedingsVM+FeedingInProgress.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/19/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 import Foundation
 import Framework_BabyPatterns
 
 extension FeedingsVM {
-
     func feedingStarted(type: FeedingType, side: FeedingSide, startDate: Date = Date(), supplyAmount: Double = 0.0) {
         guard feedingInProgress(type: type) == nil else {
             log("Already a feeding started of this type...", object: self, type: .warning)
@@ -24,7 +15,6 @@ extension FeedingsVM {
     }
 
     func feedingEnded(type: FeedingType, side _: FeedingSide, endDate: Date = Date()) {
-
         guard var fip = feedingInProgress(type: type) else { return }
 
         fip.endDate = endDate

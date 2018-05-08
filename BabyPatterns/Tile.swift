@@ -1,11 +1,3 @@
-//
-//  Tile.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 11/9/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 import UIKit
 
 enum TileType {
@@ -16,7 +8,6 @@ enum TileType {
 }
 
 class Tile: UIView {
-
     // constants
     private let shouldPrintDebugString = true // set to false to silence this class
 
@@ -31,10 +22,10 @@ class Tile: UIView {
     }
 
     @IBOutlet var view: UIView!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailLabel1: UILabel!
-    @IBOutlet weak var detailLabel2: UILabel!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var detailLabel1: UILabel!
+    @IBOutlet var detailLabel2: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)

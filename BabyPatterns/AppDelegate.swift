@@ -1,22 +1,12 @@
-//
-//  AppDelegate.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 11/2/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
-import UIKit
 import Firebase
+import UIKit
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
     func application(_: UIApplication,
                      didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
         // TODO: move this into a separate initialization file
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
