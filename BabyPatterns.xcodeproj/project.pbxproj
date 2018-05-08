@@ -29,6 +29,7 @@
 		120F804D1FBF131D00D04E45 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE2DE11E76CC4A00B8B373 /* Loggable.swift */; };
 		1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */; };
 		1243E4841FD6DA4900D727F1 /* FeedingStopwatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */; };
+		124D863320A2634100F3C2D0 /* PumpingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124D863220A2634100F3C2D0 /* PumpingVC.swift */; };
 		12605B3F1FBB1DBB0035243B /* Framework-BabyPatterns.h in Headers */ = {isa = PBXBuildFile; fileRef = 12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; };
 		12605B431FBB1DBB0035243B /* Framework_BabyPatterns.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -143,6 +144,7 @@
 		120F80321FBF0E9500D04E45 /* Info-LibraryTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-LibraryTests.plist"; sourceTree = "<group>"; };
 		1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingStopwatchView.swift; sourceTree = "<group>"; };
 		1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedingStopwatchView.xib; sourceTree = "<group>"; };
+		124D863220A2634100F3C2D0 /* PumpingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PumpingVC.swift; sourceTree = "<group>"; };
 		12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Framework_BabyPatterns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Framework-BabyPatterns.h"; sourceTree = "<group>"; };
 		12605B3E1FBB1DBB0035243B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -291,7 +293,7 @@
 			children = (
 				43932C401E01FEB400056F83 /* FeedingControl.swift */,
 				12C9B0991FD6170700CA6EBF /* Bottle */,
-				12C9B09E1FD6172500CA6EBF /* Nursing */,
+				12C9B09E1FD6172500CA6EBF /* Feeding */,
 			);
 			path = "Log Feedings";
 			sourceTree = "<group>";
@@ -305,14 +307,15 @@
 			path = Bottle;
 			sourceTree = "<group>";
 		};
-		12C9B09E1FD6172500CA6EBF /* Nursing */ = {
+		12C9B09E1FD6172500CA6EBF /* Feeding */ = {
 			isa = PBXGroup;
 			children = (
 				12C9B09A1FD6172100CA6EBF /* NursingVC.swift */,
+				124D863220A2634100F3C2D0 /* PumpingVC.swift */,
 				1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */,
 				1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */,
 			);
-			path = Nursing;
+			path = Feeding;
 			sourceTree = "<group>";
 		};
 		430F01791E2D09FD00FE02FC /* Extensions */ = {
@@ -882,6 +885,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12C9B0A01FD6187800CA6EBF /* FeedingControl.swift in Sources */,
+				124D863320A2634100F3C2D0 /* PumpingVC.swift in Sources */,
 				1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */,
 				12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */,
 				12C9B0A31FD619C300CA6EBF /* Feeding.swift in Sources */,

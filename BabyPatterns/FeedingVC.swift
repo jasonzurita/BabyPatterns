@@ -96,7 +96,7 @@ final class FeedingVC: UIViewController {
         if let lf = feedingsVM?.lastFeeding(type: .nursing), !lf.isFinished {
             page1.resume(feeding: lf)
         }
-        let page2 = NursingVC(controller: self)
+        let page2 = PumpingVC(controller: self)
         if let lf = feedingsVM?.lastFeeding(type: .pumping), !lf.isFinished {
             page2.resume(feeding: lf)
         }
