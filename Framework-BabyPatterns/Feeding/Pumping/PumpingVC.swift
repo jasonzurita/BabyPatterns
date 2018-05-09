@@ -48,8 +48,12 @@ public final class PumpingVC: UIViewController {
             _stopwatch.pause()
         }
     }
+
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        _amountCallback(10)
+        let row = amountPicker.selectedRow(inComponent: 0)
+        // TOOD: alert user of failure from this guard
+        guard row >= 0, let amount = Double(_amounts[row]) else { return }
+        _amountCallback(amount)
     }
 }
 
