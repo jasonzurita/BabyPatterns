@@ -140,6 +140,12 @@ extension FeedingVC: FeedingController {
     }
 }
 
+extension FeedingVC: PumpingDelegate {
+    func pumpingAmountChosen(_ amount: Int) {
+        
+    }
+}
+
 extension FeedingVC: BottleDataSource {
     func remainingSupply() -> Double {
         return feedingsVM?.remainingSupply() ?? 0.0

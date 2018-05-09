@@ -2,7 +2,8 @@ import UIKit
 import PlaygroundSupport
 @testable import Framework_BabyPatterns
 
-struct Controller: FeedingController {
+
+struct Controller: PumpingController {
     func start(feeding type: FeedingType, side: FeedingSide) {
         print("start: feeding type - \(type), side - \(side)")
     }
@@ -18,12 +19,16 @@ struct Controller: FeedingController {
     func resume(feeding type: FeedingType, side: FeedingSide) {
         print("Resume: feeding type - \(type), side - \(side)")
     }
+
+    func pumpingAmountChosen(_ amount: Int) {
+        print("Amount chosen: \(amount)")
+    }
 }
+
 let feeding = Feeding(type: .nursing, side: .right, startDate: Date())
 let c = Controller()
 let vc = PumpingVC(controller: c)
 vc.resume(feeding: feeding)
-
 
 let parent = playgroundWrapper(child: vc,
                                device: .phone4inch,
