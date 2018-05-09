@@ -101,8 +101,9 @@
                                 </constraints>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku9-hW-fqk">
-                                <rect key="frame" x="147" y="582" width="80" height="30"/>
-                                <state key="normal" title="turn off ads">
+                                <rect key="frame" x="140.5" y="586" width="94" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="TURN OFF ADS">
                                     <color key="titleColor" red="0.0" green="0.3341426253" blue="0.80068218710000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -117,7 +118,7 @@
                             <constraint firstItem="TCN-HU-SLK" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="4bb-2P-FuU"/>
                             <constraint firstItem="ku9-hW-fqk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Epg-Zv-AmL"/>
                             <constraint firstItem="TBt-CA-tjd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="LgM-mR-PcK"/>
-                            <constraint firstItem="TBt-CA-tjd" firstAttribute="top" secondItem="ku9-hW-fqk" secondAttribute="bottom" constant="5" id="Pv1-Q0-wYV"/>
+                            <constraint firstItem="TBt-CA-tjd" firstAttribute="top" secondItem="ku9-hW-fqk" secondAttribute="bottom" constant="3" id="Pv1-Q0-wYV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TBt-CA-tjd" secondAttribute="bottom" id="hCr-Xt-GY4"/>
                             <constraint firstItem="TCN-HU-SLK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pTa-bb-Ckm"/>
                             <constraint firstItem="TCN-HU-SLK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zuo-QD-R2L"/>
