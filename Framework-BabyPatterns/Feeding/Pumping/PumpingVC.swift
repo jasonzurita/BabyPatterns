@@ -48,7 +48,7 @@ public final class PumpingVC: UIViewController {
             _stopwatch.pause()
         }
     }
-    @IBAction func addButtonPressed(_ sender: UIButton) {
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
         _amountCallback(10)
     }
 }
