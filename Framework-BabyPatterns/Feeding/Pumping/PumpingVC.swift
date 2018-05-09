@@ -2,7 +2,7 @@ import UIKit
 import Library
 
 public protocol PumpingDelegate {
-    func pumpingAmountChosen(_ amount: Int)
+    func pumpingAmountChosen(_ amount: Double)
 }
 public typealias PumpingController = PumpingDelegate & FeedingController
 
@@ -10,7 +10,7 @@ public final class PumpingVC: UIViewController {
 
     private let _stopwatch = FeedingStopwatchView(feedingType: .pumping)
     private let _amounts = stride(from: 0, to: 10, by: 0.1).map { String($0) }
-    private let _amountCallback: (Int) -> Void
+    private let _amountCallback: (Double) -> Void
 
     @IBOutlet var amountPicker: UIPickerView! {
         didSet {

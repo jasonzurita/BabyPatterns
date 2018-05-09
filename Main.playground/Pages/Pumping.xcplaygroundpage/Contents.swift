@@ -20,7 +20,7 @@ struct Controller: PumpingController {
         print("Resume: feeding type - \(type), side - \(side)")
     }
 
-    func pumpingAmountChosen(_ amount: Int) {
+    func pumpingAmountChosen(_ amount: Double) {
         print("Amount chosen: \(amount)")
     }
 }
