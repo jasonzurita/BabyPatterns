@@ -1,7 +1,19 @@
 1. Polish sign-up
 2. Polish history screen
-3. Create bottle feeding page
-4. Allow in-progress feeding to be edited (start time, etc.)
-5. Popups when something goes wrong like email entered wrong
-6. Update icons
+3. Persist pumped amount
+5. Fix stop button UI
+6. Update app icons
 7. Finish settings screen
+8. Age validation during sign up
+9. Need stock baby image
+10. Turn off ads screen
+11. Request feature? or maybe say coming soon?
+12. The first feeding seems to not get logged. Check this out.
+13. Bottle screen slider jumps on loading
+14. Setup CI / configuration management
+15. Move to github
+16. Pass on color scheme
+17. Pass on fonts
+
+v2
+- Allow in-progress feeding to be edited (start time, etc.)
