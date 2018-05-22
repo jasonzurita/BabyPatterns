@@ -59,6 +59,10 @@ public struct K {
         public static let BottleFillOverlapWithBottomFillImage = 3.0
     }
 
+    public struct UserDefaultsKeys {
+        public static let adsDisplayState = "adsDisplayStateKey"
+    }
+
     public struct DictionaryKeys {
         public static let VersionNumber = "CFBundleShortVersionString"
         public static let BuildNumber = "CFBundleVersion"

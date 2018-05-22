@@ -41,6 +41,7 @@
 		12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */; };
 		12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
 		12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
+		12DD2D0320A46ECD00849A48 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD2D0220A46ECD00849A48 /* Configuration.swift */; };
 		12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12E8E57D20A2684D00C781EE /* PumpingVC.xib */; };
 		12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */; };
 		12F3A9C81FBB2174002ECC7B /* HistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */; };
@@ -152,6 +153,7 @@
 		128C93CA1FB72CA0001E58F4 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validatable.swift; path = ../Library/Validatable.swift; sourceTree = "<group>"; };
 		12A782421FBB20C7000BD13F /* Main.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Main.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		12C9B09A1FD6172100CA6EBF /* NursingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingVC.swift; sourceTree = "<group>"; };
+		12DD2D0220A46ECD00849A48 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		12E8E57D20A2684D00C781EE /* PumpingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PumpingVC.xib; sourceTree = "<group>"; };
 		12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryVC.xib; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			children = (
 				430FD7441DE484EC00D07C50 /* Constants.swift */,
 				4314DD571DFB6DE300B3649C /* Enums.swift */,
+				12DD2D0220A46ECD00849A48 /* Configuration.swift */,
 				43D2BE671DCB69E900895A65 /* Model */,
 				12C9B0981FD616ED00CA6EBF /* Feeding */,
 				12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */,
@@ -898,6 +901,7 @@
 				12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */,
 				12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */,
 				12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */,
+				12DD2D0320A46ECD00849A48 /* Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
