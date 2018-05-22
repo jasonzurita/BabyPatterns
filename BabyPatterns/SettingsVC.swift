@@ -11,7 +11,16 @@ final class SettingsVC: UITableViewController, Loggable {
     }
 
     var profileVM: ProfileVM?
-
+    var configuration: Configuration? {
+        didSet {
+            configureAdsOffSwitch()
+        }
+    }
+    @IBOutlet var adsOffSwitch: UISwitch! {
+        didSet {
+            configureAdsOffSwitch()
+        }
+    }
     @IBOutlet var resetPasswordCell: UITableViewCell!
     @IBOutlet var contactSupportCell: UITableViewCell!
     @IBOutlet var logoutCell: UITableViewCell!
@@ -40,6 +49,17 @@ final class SettingsVC: UITableViewController, Loggable {
         let buildNumber = Bundle.main.object(forInfoDictionaryKey: K.DictionaryKeys.BuildNumber) as? String ?? ""
         footerView.text = "version: \(versionNumber) (\(buildNumber))"
         tableView.tableFooterView = footerView
+    }
+
+    private func configureAdsOffSwitch() {
+        guard let c = configuration, adsOffSwitch != nil else { return }
+
+        switch c.adsState {
+        case .show, .initialInstall:
+            adsOffSwitch.setOn(false, animated: true)
+        case .hide:
+            adsOffSwitch.setOn(true, animated: true)
+        }
     }
 
     @IBAction func emailTextFieldDidFinishEditing(_ sender: UITextField) {

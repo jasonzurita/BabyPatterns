@@ -11,6 +11,7 @@ class HomeVC: UIViewController {
 
     var feedingsVM: FeedingsVM?
     var profileVM: ProfileVM?
+    var configuration: Configuration?
     var profilePhotoCandidate: UIImage?
 
     @IBOutlet var homeScreenTitle: UINavigationItem!
@@ -84,6 +85,7 @@ class HomeVC: UIViewController {
             vc.profileVM = profileVM
         } else if let vc = segue.destination as? SettingsVC, let p = profileVM {
             vc.profileVM = p
+            vc.configuration = configuration
         } else if let vc = segue.destination as? EditProfileImageVC, let i = profilePhotoCandidate {
             vc.imageCandidate = i
             vc.delegate = self

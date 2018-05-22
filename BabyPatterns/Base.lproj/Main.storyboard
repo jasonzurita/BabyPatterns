@@ -393,6 +393,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="GGp-sX-d6d"/>
                     <connections>
+                        <outlet property="adsOffSwitch" destination="2t3-5C-rzA" id="9j5-IF-8al"/>
                         <outlet property="babyNameTextField" destination="aBd-cM-zWj" id="ncv-wY-4Kb"/>
                         <outlet property="contactSupportCell" destination="VFE-o5-9ll" id="Gbm-xQ-yXe"/>
                         <outlet property="emailTextField" destination="h52-Zu-yce" id="E5m-ri-PkX"/>
