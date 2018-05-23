@@ -85,6 +85,17 @@ final class SettingsVC: UITableViewController, Loggable {
     }
 
     @IBAction func turnOffAdsSwitchPressed(_: UISwitch) {
+        guard let c = configuration else { return }
+        switch c.adsState {
+        case .hide:
+            configuration?.adsState = .show
+        case .show:
+            configuration?.adsState = .hide
+        case .initialInstall:
+            adsOffSwitch.isOn = false
+            // TODO: show ad removal screen here
+            break
+        }
     }
 
     private func fieldNotValid(message _: String) {
