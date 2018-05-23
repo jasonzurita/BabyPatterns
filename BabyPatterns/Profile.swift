@@ -1,5 +1,6 @@
 import UIKit
 
+// TOOD: check if userID is used
 public struct Profile {
     public var babyName: String
     public var parentName: String

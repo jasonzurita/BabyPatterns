@@ -3,6 +3,7 @@ import Framework_BabyPatterns
 import Library
 import UIKit
 
+// TODO: allow chaning supply amount (both max supply & current supply)
 final class SettingsVC: UITableViewController, Loggable {
     let shouldPrintDebugLog = true
 
