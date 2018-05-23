@@ -60,7 +60,7 @@ public struct K {
     }
 
     public struct UserDefaultsKeys {
-        public static let adsDisplayState = "adsDisplayStateKey"
+        public static let adsDisplayState = "ads_display_state_key"
     }
 
     public struct DictionaryKeys {
