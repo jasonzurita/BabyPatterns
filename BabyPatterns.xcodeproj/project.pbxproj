@@ -38,6 +38,7 @@
 		12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
 		12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
 		12C9B0A31FD619C300CA6EBF /* Feeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326BA581E04C1F0005604A9 /* Feeding.swift */; };
+		12C9FFD020B8301200B048E6 /* AdsDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */; };
 		12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */; };
 		12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
 		12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
@@ -153,6 +154,7 @@
 		128C93CA1FB72CA0001E58F4 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validatable.swift; path = ../Library/Validatable.swift; sourceTree = "<group>"; };
 		12A782421FBB20C7000BD13F /* Main.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Main.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		12C9B09A1FD6172100CA6EBF /* NursingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingVC.swift; sourceTree = "<group>"; };
+		12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDisplayManager.swift; sourceTree = "<group>"; };
 		12DD2D0220A46ECD00849A48 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		12E8E57D20A2684D00C781EE /* PumpingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PumpingVC.xib; sourceTree = "<group>"; };
 		12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 				437814C81DDD1B9D0047D11A /* SignInVC.swift */,
 				43C4CE881E29130100300F13 /* SignUpVC.swift */,
 				436484B01DCA150500E6B0A7 /* HomeVC.swift */,
+				12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */,
 				43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */,
 				AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */,
 				43714F1B1E63DCC20055B411 /* EditProfileImageVC.swift */,
@@ -910,6 +913,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC9738E71EE49B9E00232DE8 /* RequestFeatureTVC.swift in Sources */,
+				12C9FFD020B8301200B048E6 /* AdsDisplayManager.swift in Sources */,
 				43E92D2F1E6D9F3F008CE31E /* StorageFacade.swift in Sources */,
 				43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */,
 				43714F161E5E4DDC0055B411 /* ProfileVM.swift in Sources */,

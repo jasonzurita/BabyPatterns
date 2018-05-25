@@ -9,6 +9,7 @@ class HomeVC: UIViewController {
         return .portrait
     }
 
+    private var adsManager = AdsDisplayManager()
     var feedingsVM: FeedingsVM?
     var profileVM: ProfileVM?
     var configuration: Configuration?
@@ -27,14 +28,10 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         profileView.delegate = self
-
-        setupTileListeners()
-
         adBannerView.rootViewController = self
         adBannerView.delegate = self
-        let adRequest = GADRequest()
-        adRequest.testDevices = [kGADSimulatorID, "4796a5487323e9b9f16cf3dd3c0ada73"]
-        adBannerView.load(adRequest)
+
+        setupTileListeners()
     }
 
     private func setupTileListeners() {
@@ -50,6 +47,11 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
+
+        let state: AdsDisplayState = configuration?.adsState ?? .initialInstall
+        adsManager.update(adBannerView,
+                          for: state,
+                          additionalViewsToManage: [turnOffAdsButton])
     }
 
     private func updateUI() {
