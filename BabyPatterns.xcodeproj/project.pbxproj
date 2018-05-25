@@ -39,6 +39,7 @@
 		12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
 		12C9B0A31FD619C300CA6EBF /* Feeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326BA581E04C1F0005604A9 /* Feeding.swift */; };
 		12C9FFD020B8301200B048E6 /* AdsDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */; };
+		12C9FFD320B837CB00B048E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9FFD220B837CB00B048E6 /* Color.swift */; };
 		12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */; };
 		12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
 		12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
@@ -155,6 +156,7 @@
 		12A782421FBB20C7000BD13F /* Main.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Main.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		12C9B09A1FD6172100CA6EBF /* NursingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingVC.swift; sourceTree = "<group>"; };
 		12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDisplayManager.swift; sourceTree = "<group>"; };
+		12C9FFD220B837CB00B048E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		12DD2D0220A46ECD00849A48 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		12E8E57D20A2684D00C781EE /* PumpingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PumpingVC.xib; sourceTree = "<group>"; };
 		12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 		12605B3C1FBB1DBB0035243B /* Framework-BabyPatterns */ = {
 			isa = PBXGroup;
 			children = (
+				12C9FFD120B837B800B048E6 /* Extensions */,
 				430FD7441DE484EC00D07C50 /* Constants.swift */,
 				4314DD571DFB6DE300B3649C /* Enums.swift */,
 				12DD2D0220A46ECD00849A48 /* Configuration.swift */,
@@ -324,6 +327,14 @@
 				12E8E57D20A2684D00C781EE /* PumpingVC.xib */,
 			);
 			path = Pumping;
+			sourceTree = "<group>";
+		};
+		12C9FFD120B837B800B048E6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				12C9FFD220B837CB00B048E6 /* Color.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		430F01791E2D09FD00FE02FC /* Extensions */ = {
@@ -899,6 +910,7 @@
 				1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */,
 				12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */,
 				12C9B0A31FD619C300CA6EBF /* Feeding.swift in Sources */,
+				12C9FFD320B837CB00B048E6 /* Color.swift in Sources */,
 				12C9B09C1FD6172100CA6EBF /* NursingVC.swift in Sources */,
 				12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */,
 				12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */,
