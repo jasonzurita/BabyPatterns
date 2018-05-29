@@ -95,7 +95,6 @@ final class SettingsVC: UITableViewController, Loggable {
         case .initialInstall:
             adsOffSwitch.isOn = false
             // TODO: show ad removal screen here
-            break
         }
     }
 
