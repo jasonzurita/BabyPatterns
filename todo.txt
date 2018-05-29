@@ -14,6 +14,10 @@
 15. Move to github
 16. Pass on color scheme
 17. Pass on fonts
+18. Contact support
 
 v2
 - Allow in-progress feeding to be edited (start time, etc.)
+- Walkthrough
+- Continue migrating over to a playground driven app
+- Reset password
