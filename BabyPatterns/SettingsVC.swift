@@ -29,6 +29,24 @@ final class SettingsVC: UITableViewController, Loggable {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var babyNameTextField: UITextField!
+    @IBOutlet var desiredSupplyTextField: UITextField! {
+        didSet {
+            let keyboardToolbar = UIToolbar()
+            keyboardToolbar.sizeToFit()
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                                target: nil,
+                                                action: nil)
+            let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                                target: self,
+                                                action: #selector(numberPadDoneButtonPressed))
+            keyboardToolbar.items = [flexibleSpace, doneBarButton]
+            desiredSupplyTextField.inputAccessoryView = keyboardToolbar
+        }
+    }
+
+    @objc func numberPadDoneButtonPressed() {
+        _ = textFieldShouldReturn(desiredSupplyTextField)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +116,9 @@ final class SettingsVC: UITableViewController, Loggable {
         }
     }
 
+    @IBAction func desiredSupplyTextFieldDidFinishEditing(_ sender: UITextField) {
+    }
+    
     private func fieldNotValid(message _: String) {
         // present popup here
     }
