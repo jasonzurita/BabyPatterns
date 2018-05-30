@@ -3,7 +3,6 @@ import Framework_BabyPatterns
 import Library
 import UIKit
 
-// TODO: allow chaning supply amount (both max supply & current supply)
 final class SettingsVC: UITableViewController, Loggable {
     let shouldPrintDebugLog = true
 
@@ -60,6 +59,7 @@ final class SettingsVC: UITableViewController, Loggable {
         emailTextField.text = p.email
         nameTextField.text = p.parentName
         babyNameTextField.text = p.babyName
+        desiredSupplyTextField.text = "\(p.desiredMaxSupply)"
     }
 
     private func setupFooter() {
@@ -117,8 +117,16 @@ final class SettingsVC: UITableViewController, Loggable {
     }
 
     @IBAction func desiredSupplyTextFieldDidFinishEditing(_ sender: UITextField) {
+        // TODO: validate desiredSupply
+        guard let text = sender.text, let desiredSupply = Double(text) else {
+            fieldNotValid(message: "Chceck number and try again.")
+            return
+        }
+
+        profileVM?.profile?.desiredMaxSupply = desiredSupply
+        profileVM?.profileUpdated()
     }
-    
+
     private func fieldNotValid(message _: String) {
         // present popup here
     }
