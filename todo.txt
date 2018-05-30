@@ -1,23 +1,28 @@
-1. Polish sign-up
-2. Polish history screen
-3. Persist pumped amount
-5. Fix stop button UI
-6. Update app icons
-7. Finish settings screen
-8. Age validation during sign up
-9. Need stock baby image
-10. Turn off ads screen
-11. Request feature? or maybe say coming soon?
-12. The first feeding seems to not get logged. Check this out.
-13. Bottle screen slider jumps on loading
-14. Setup CI / configuration management
-15. Move to github
-16. Pass on color scheme
-17. Pass on fonts
-18. Contact support
+1. Add tick marks to history screen (by minute, day, week)
+2. Add ability to tap on history bar and get tool tip of date
+3. UI style pass on history screen
+4. In app purchase to turn off adds or email 3 friends screen (with restore purchase)
+5. Polish timer view per Raph's suggestions
+6. Ask about polishing the sign-up screen
+7. Icon for create an account screen
+8. ^^ same icon for home screen (need stock baby image)
+9. Persist pumped amount
+10. Get app icon
+11. Final pass on settings screen (show ad removal screen, contact support) 
+12. Age validation during sign up
+13. Request feature? or maybe say coming soon?
+14. The first feeding seems to not get logged. Check this out.
+15. Bottle screen slider jumps on loading
+16. Setup CI / configuration management
+17. Move to github
+18. Pass on color scheme
+19. Pass on fonts
 
 v2
 - Allow in-progress feeding to be edited (start time, etc.)
 - Walkthrough
 - Continue migrating over to a playground driven app
 - Reset password
+- Allow changing of current supply in settings
+- Ability to change add photo of child when signing up
+- Reset password in setting screen
