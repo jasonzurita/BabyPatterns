@@ -1,11 +1,3 @@
-//
-//  DoubleExtensions.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 1/16/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
 import Foundation
 
 public extension Double {

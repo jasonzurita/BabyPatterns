@@ -1,16 +1,7 @@
-//
-//  FeedingStopwatchView.swift
-//  Framework-BabyPatterns
-//
-//  Created by Jason Zurita on 12/5/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
-import UIKit
 import Library
+import UIKit
 
 public final class FeedingStopwatchView: UIView {
-
     typealias StatusChangeHandler = ((FeedingType, FeedingSide) -> Void)
     var onStart: StatusChangeHandler?
     var onEnd: StatusChangeHandler?
@@ -41,25 +32,25 @@ public final class FeedingStopwatchView: UIView {
         }
     }
 
-    @IBOutlet weak var timerLabel: TimerLabel! {
+    @IBOutlet var timerLabel: TimerLabel! {
         didSet {
             timerLabel.changeDisplayTime(time: 0)
         }
     }
 
-    @IBOutlet weak var leftFeedingControl: FeedingControl! {
+    @IBOutlet var leftFeedingControl: FeedingControl! {
         didSet {
             leftFeedingControl.side = .left
         }
     }
 
-    @IBOutlet weak var rightFeedingControl: FeedingControl! {
+    @IBOutlet var rightFeedingControl: FeedingControl! {
         didSet {
             rightFeedingControl.side = .right
         }
     }
 
-    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet var stopButton: UIButton!
 
     public init(feedingType: FeedingType, frame: CGRect = .zero) {
         _feedingType = feedingType

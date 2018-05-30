@@ -1,18 +1,9 @@
-//
-//  Toast.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/16/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 import UIKit
 
 public final class Toast: UILabel {
-
     var title = "toast label"
 
-    convenience public init(frame: CGRect, text: String) {
+    public convenience init(frame: CGRect, text: String) {
         self.init(frame: frame)
         title = text
     }
@@ -22,7 +13,7 @@ public final class Toast: UILabel {
         setupToast()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupToast()
     }
@@ -44,7 +35,6 @@ public final class Toast: UILabel {
 
         view.addSubview(self)
         UIView.animateKeyframes(withDuration: 2.4, delay: 0.0, options: .calculationModeLinear, animations: {
-
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.05, animations: {
                 self.alpha = 1.0
             })

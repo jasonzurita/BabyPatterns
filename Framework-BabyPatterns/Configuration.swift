@@ -17,7 +17,7 @@ public struct Configuration {
             guard let state = AdsDisplayState(rawValue: stateString) else {
                 fatalError("Invalid string stored for ads display state: \(stateString)")
             }
-            return  state
+            return state
         }
     }
 

@@ -8,7 +8,6 @@ public protocol FeedingController {
 }
 
 public final class NursingVC: UIViewController {
-
     private let _stopwatch = FeedingStopwatchView(feedingType: .nursing)
 
     public init(controller: FeedingController) {
@@ -32,7 +31,7 @@ public final class NursingVC: UIViewController {
             _stopwatch.topAnchor.constraint(equalTo: view.topAnchor),
             _stopwatch.widthAnchor.constraint(equalTo: view.widthAnchor),
             _stopwatch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            ])
+        ])
     }
 
     public func resume(feeding: Feeding) {

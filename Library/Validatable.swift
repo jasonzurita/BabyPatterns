@@ -1,11 +1,3 @@
-//
-//  Validatable.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 11/11/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
 import Foundation
 
 public enum ValidationType {

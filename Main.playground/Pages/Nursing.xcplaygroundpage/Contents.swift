@@ -1,6 +1,6 @@
-import UIKit
-import PlaygroundSupport
 @testable import Framework_BabyPatterns
+import PlaygroundSupport
+import UIKit
 
 struct Controller: FeedingController {
     func start(feeding type: FeedingType, side: FeedingSide) {
@@ -19,6 +19,7 @@ struct Controller: FeedingController {
         print("Resume: feeding type - \(type), side - \(side)")
     }
 }
+
 let feeding = Feeding(type: .nursing, side: .right, startDate: Date())
 let c = Controller()
 let vc = NursingVC(controller: c)

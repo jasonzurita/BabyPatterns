@@ -1,20 +1,11 @@
-//
-//  HistoryVC.swift
-//  AppFramework
-//
-//  Created by Jason Zurita on 11/14/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
-import UIKit
 import Library
+import UIKit
 
 public protocol Event {
     var endDate: Date { get }
 }
 
 public final class HistoryVC: UIViewController, Loggable {
-
     private enum TimeWindow: TimeInterval {
         case day = 86_400 // in seconds
         case week = 604_800 // in seconds
@@ -22,11 +13,11 @@ public final class HistoryVC: UIViewController, Loggable {
     }
 
     public let shouldPrintDebugLog = true
-    override public var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
 
-    override public var description: String { return "\(type(of: self))" }
+    public override var description: String { return "\(type(of: self))" }
 
     private var screenTimeWindow: TimeWindow = .day {
         didSet {
@@ -34,8 +25,8 @@ public final class HistoryVC: UIViewController, Loggable {
         }
     }
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var scrollContentView: UIView!
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var scrollContentView: UIView!
 
     let events: [Event]
 
@@ -52,11 +43,11 @@ public final class HistoryVC: UIViewController, Loggable {
         super.init(nibName: "\(type(of: self))", bundle: Bundle(for: type(of: self)))
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override public func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         modalTransitionStyle = .crossDissolve
         setupGraph()
@@ -88,8 +79,8 @@ public final class HistoryVC: UIViewController, Loggable {
                 scrollContentView.bottomAnchor.constraint(equalTo: graphElement.bottomAnchor, constant: yOffset),
                 graphElement.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor, constant: x),
                 scrollContentView.trailingAnchor
-                    .constraint(greaterThanOrEqualTo: graphElement.trailingAnchor, constant: 10)
-                ])
+                    .constraint(greaterThanOrEqualTo: graphElement.trailingAnchor, constant: 10),
+            ])
         }
     }
 
@@ -99,7 +90,7 @@ public final class HistoryVC: UIViewController, Loggable {
         return pointsPerSecond * CGFloat(secondsSinceNow) + barGraphElementWidth
     }
 
-    override public func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIDevice.current.endGeneratingDeviceOrientationNotifications()
         if let token = notificationToken {
@@ -107,7 +98,7 @@ public final class HistoryVC: UIViewController, Loggable {
         }
     }
 
-    override public func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
 
@@ -115,14 +106,14 @@ public final class HistoryVC: UIViewController, Loggable {
         notificationToken = center.addObserver(forName: .UIDeviceOrientationDidChange,
                                                object: nil,
                                                queue: nil,
-                                               using: { [weak self ] _ in
-                                                if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-                                                    self?.dismiss(animated: true, completion: nil)
+                                               using: { [weak self] _ in
+                                                   if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+                                                       self?.dismiss(animated: true, completion: nil)
 
-                                                    UIDevice.current.endGeneratingDeviceOrientationNotifications()
-                                                    guard let token = self?.notificationToken else { return }
-                                                    center.removeObserver(token)
-                                                }
+                                                       UIDevice.current.endGeneratingDeviceOrientationNotifications()
+                                                       guard let token = self?.notificationToken else { return }
+                                                       center.removeObserver(token)
+                                                   }
         })
     }
 
@@ -131,7 +122,6 @@ public final class HistoryVC: UIViewController, Loggable {
     }
 
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
-
         switch sender.selectedSegmentIndex {
         case 0:
             screenTimeWindow = .day

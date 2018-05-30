@@ -1,15 +1,6 @@
-//
-//  CircleButton.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/14/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 import UIKit
 
 open class CircleToggleButton: UIButton {
-
     @IBInspectable var normalColor: UIColor = UIColor.gray {
         didSet {
             backgroundColor = normalColor
@@ -36,7 +27,7 @@ open class CircleToggleButton: UIButton {
         setupButton()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupButton()
     }

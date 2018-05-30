@@ -1,26 +1,25 @@
-import UIKit
-import GoogleMobileAds
 import Framework_BabyPatterns
+import GoogleMobileAds
+import UIKit
 
 struct AdsDisplayManager {
     private var didRequestAds = false
 
     mutating func update(_ bannerView: GADBannerView,
-                for state: AdsDisplayState,
-                additionalViewsToManage additionalViews: [UIView] = []) {
-
+                         for state: AdsDisplayState,
+                         additionalViewsToManage additionalViews: [UIView] = []) {
         switch state {
         case .initialInstall, .show:
             if didRequestAds {
                 bannerView.isHidden = false
-                additionalViews.forEach { $0.isHidden = false}
+                additionalViews.forEach { $0.isHidden = false }
             } else {
                 loadAds(for: bannerView)
                 didRequestAds = true
             }
         case .hide:
             bannerView.isHidden = true
-            additionalViews.forEach { $0.isHidden = true}
+            additionalViews.forEach { $0.isHidden = true }
         }
     }
 

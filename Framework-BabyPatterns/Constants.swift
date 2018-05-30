@@ -1,11 +1,3 @@
-//
-//  Constants.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 11/22/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 public struct K {
     public struct NibNames {
         // TODO: update this to use the acutal class name to make it more robust

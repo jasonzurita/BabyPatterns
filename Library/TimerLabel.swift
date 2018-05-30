@@ -1,15 +1,6 @@
-//
-//  TimerLabel.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/14/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
 import UIKit
 
 public final class TimerLabel: UILabel {
-
     private let countingInterval: Double = 1
     private var _timer: Timer?
     public var isPaused = false
@@ -29,7 +20,7 @@ public final class TimerLabel: UILabel {
         setupLabel()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupLabel()
     }

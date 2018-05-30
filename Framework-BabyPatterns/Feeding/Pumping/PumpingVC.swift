@@ -1,13 +1,13 @@
-import UIKit
 import Library
+import UIKit
 
 public protocol PumpingDelegate {
     func pumpingAmountChosen(_ amount: Double)
 }
+
 public typealias PumpingController = PumpingDelegate & FeedingController
 
 public final class PumpingVC: UIViewController {
-
     private let _stopwatch = FeedingStopwatchView(feedingType: .pumping)
     private let _amounts = stride(from: 0, to: 10, by: 0.1).map { String($0) }
     private let _amountCallback: (Double) -> Void
@@ -49,7 +49,7 @@ public final class PumpingVC: UIViewController {
         }
     }
 
-    @IBAction func saveButtonPressed(_ sender: UIButton) {
+    @IBAction func saveButtonPressed(_: UIButton) {
         let row = amountPicker.selectedRow(inComponent: 0)
         // TOOD: alert user of failure from this guard
         guard row >= 0, let amount = Double(_amounts[row]) else { return }
@@ -58,17 +58,17 @@ public final class PumpingVC: UIViewController {
 }
 
 extension PumpingVC: UIPickerViewDataSource {
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in _: UIPickerView) -> Int {
         return 1
     }
 
-    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
         return _amounts.count
     }
 }
 
 extension PumpingVC: UIPickerViewDelegate {
-    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    public func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
         return _amounts[row]
     }
 }

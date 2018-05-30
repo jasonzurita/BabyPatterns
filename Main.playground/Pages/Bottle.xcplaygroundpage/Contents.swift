@@ -1,6 +1,6 @@
-import UIKit
-import PlaygroundSupport
 import Framework_BabyPatterns
+import PlaygroundSupport
+import UIKit
 
 final class MockBottleProvider: BottleDelegate, BottleDataSource {
     init() {}

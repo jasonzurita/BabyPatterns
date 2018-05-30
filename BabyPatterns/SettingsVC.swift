@@ -16,11 +16,13 @@ final class SettingsVC: UITableViewController, Loggable {
             configureAdsOffSwitch()
         }
     }
+
     @IBOutlet var adsOffSwitch: UISwitch! {
         didSet {
             configureAdsOffSwitch()
         }
     }
+
     @IBOutlet var resetPasswordCell: UITableViewCell!
     @IBOutlet var contactSupportCell: UITableViewCell!
     @IBOutlet var logoutCell: UITableViewCell!

@@ -1,11 +1,3 @@
-//
-//  Circle.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 1/31/17.
-//  Copyright © 2017 Jason Zurita. All rights reserved.
-//
-
 import UIKit
 
 public final class Circle: UIView {
@@ -14,7 +6,7 @@ public final class Circle: UIView {
         setupCircle()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupCircle()
     }

@@ -1,6 +1,6 @@
-import UIKit
-import PlaygroundSupport
 @testable import Framework_BabyPatterns
+import PlaygroundSupport
+import UIKit
 
 struct MockEvent: Event {
     let endDate: Date
@@ -10,12 +10,14 @@ struct MockEvent: Event {
     }
 }
 
-let events = [MockEvent(0),
-              MockEvent(120),
-              MockEvent(240),
-              MockEvent(24*60),
-              MockEvent(60*60),
-              MockEvent(7*24*60)]
+let events = [
+    MockEvent(0),
+    MockEvent(120),
+    MockEvent(240),
+    MockEvent(24 * 60),
+    MockEvent(60 * 60),
+    MockEvent(7 * 24 * 60),
+]
 
 let vc = HistoryVC(events: events)
 

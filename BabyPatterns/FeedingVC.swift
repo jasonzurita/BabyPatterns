@@ -141,8 +141,7 @@ extension FeedingVC: FeedingController {
 }
 
 extension FeedingVC: PumpingDelegate {
-    func pumpingAmountChosen(_ amount: Double) {
-        
+    func pumpingAmountChosen(_: Double) {
     }
 }
 

@@ -1,13 +1,5 @@
-//
-//  BottleVC.swift
-//  BabyPatterns
-//
-//  Created by Jason Zurita on 12/11/16.
-//  Copyright © 2016 Jason Zurita. All rights reserved.
-//
-
-import UIKit
 import Library
+import UIKit
 
 public protocol BottleDelegate: class {
     func logBottleFeeding(withAmount amount: Double, time: Date)
@@ -19,24 +11,23 @@ public protocol BottleDataSource: class {
 }
 
 public final class BottleVC: UIViewController, Loggable {
-
     public let shouldPrintDebugLog = true
 
     public weak var delegate: BottleDelegate?
     public weak var dataSource: BottleDataSource?
 
-    @IBOutlet weak var remainingSupplyLabel: UILabel!
-    @IBOutlet weak var amountFedLabel: UILabel!
-    @IBOutlet weak var sliderContainerView: UIView!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var slider: UISlider!
+    @IBOutlet var remainingSupplyLabel: UILabel!
+    @IBOutlet var amountFedLabel: UILabel!
+    @IBOutlet var sliderContainerView: UIView!
+    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var slider: UISlider!
 
-    @IBOutlet weak var bottleBottomFill: UIImageView!
-    @IBOutlet weak var bottleBaseView: UIImageView!
-    @IBOutlet weak var bottleFillHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var bottleBottomFill: UIImageView!
+    @IBOutlet var bottleBaseView: UIImageView!
+    @IBOutlet var bottleFillHeightConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var remainingSupplyLineYConstraint: NSLayoutConstraint!
-    @IBOutlet weak var remainingSupplyLineView: UIView!
+    @IBOutlet var remainingSupplyLineYConstraint: NSLayoutConstraint!
+    @IBOutlet var remainingSupplyLineView: UIView!
 
     private var _maxSupplyHeight: Float {
         return Float(bottleBaseView.frame.height +
@@ -54,16 +45,16 @@ public final class BottleVC: UIViewController, Loggable {
         super.init(nibName: "\(type(of: self))", bundle: Bundle(for: type(of: self)))
     }
 
-    public required init?(coder aDecoder: NSCoder) {
+    public required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override public func viewDidLoad() {
+    public override func viewDidLoad() {
         slider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi * 0.5)
         slider.minimumValue = 0
     }
 
-    override public func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateLabels()
     }
@@ -74,7 +65,7 @@ public final class BottleVC: UIViewController, Loggable {
         amountFedLabel.text = "0.0"
     }
 
-    override public func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         configureSlider()
         configureBottleFillHeight()
@@ -93,15 +84,15 @@ public final class BottleVC: UIViewController, Loggable {
     private func configureRemainingSupplyLine() {
         remainingSupplyLineYConstraint.constant =
             -(CGFloat(_remainingSupplyHeight) -
-            CGFloat(K.Defaults.BottleFillOverlapWithBottomFillImage) +
-            bottleBottomFill.frame.height)
+                CGFloat(K.Defaults.BottleFillOverlapWithBottomFillImage) +
+                bottleBottomFill.frame.height)
     }
 
     @IBAction func saveButtonPressed(_: UIButton) {
         guard let ds = dataSource else { return }
         let consumedAmount = convert(sliderValue: slider.value,
-                                withRemainingSupply: Float(ds.remainingSupply()),
-                                remainingSupplyHeight: Float(_remainingSupplyHeight))
+                                     withRemainingSupply: Float(ds.remainingSupply()),
+                                     remainingSupplyHeight: Float(_remainingSupplyHeight))
         delegate?.logBottleFeeding(withAmount: Double(consumedAmount), time: datePicker.date)
         updateLabels()
         configureRemainingSupplyLine()
