@@ -33,6 +33,7 @@
 		12605B3F1FBB1DBB0035243B /* Framework-BabyPatterns.h in Headers */ = {isa = PBXBuildFile; fileRef = 12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; };
 		12605B431FBB1DBB0035243B /* Framework_BabyPatterns.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289D18C20C167A800E73DA0 /* StopButton.swift */; };
 		12C9B09C1FD6172100CA6EBF /* NursingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9B09A1FD6172100CA6EBF /* NursingVC.swift */; };
 		12C9B0A01FD6187800CA6EBF /* FeedingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C401E01FEB400056F83 /* FeedingControl.swift */; };
 		12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
@@ -152,6 +153,7 @@
 		12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Framework_BabyPatterns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Framework-BabyPatterns.h"; sourceTree = "<group>"; };
 		12605B3E1FBB1DBB0035243B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1289D18C20C167A800E73DA0 /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		128C93CA1FB72CA0001E58F4 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validatable.swift; path = ../Library/Validatable.swift; sourceTree = "<group>"; };
 		12A782421FBB20C7000BD13F /* Main.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Main.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		12C9B09A1FD6172100CA6EBF /* NursingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingVC.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				433AF9241E40CBDC00AD654C /* BarGraphLollipop */,
 				433AF9251E40CC8A00AD654C /* Circle.swift */,
 				43B002141E8A937E00810739 /* ShakeTextField.swift */,
+				1289D18C20C167A800E73DA0 /* StopButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -888,6 +891,7 @@
 				120F80431FBF125A00D04E45 /* UIViewExtensions.swift in Sources */,
 				120F803E1FBF0FCF00D04E45 /* Shakeable.swift in Sources */,
 				120F80401FBF124F00D04E45 /* Validatable.swift in Sources */,
+				1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */,
 				120F804D1FBF131D00D04E45 /* Loggable.swift in Sources */,
 				120F80411FBF125300D04E45 /* DateExtensions.swift in Sources */,
 				120F80491FBF126E00D04E45 /* BarGraphLollipop.swift in Sources */,

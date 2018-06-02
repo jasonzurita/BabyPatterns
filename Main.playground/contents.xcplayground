@@ -7,5 +7,6 @@
         <page name='Stopwatch'/>
         <page name='Nursing'/>
         <page name='Pumping'/>
+        <page name='Stop Button'/>
     </pages>
 </playground>
