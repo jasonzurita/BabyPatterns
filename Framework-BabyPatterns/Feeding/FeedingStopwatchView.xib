@@ -16,7 +16,7 @@
             <connections>
                 <outlet property="leftFeedingControl" destination="GQF-oL-g8D" id="TyA-LH-es2"/>
                 <outlet property="rightFeedingControl" destination="dZp-LW-zRn" id="AZq-89-Clf"/>
-                <outlet property="stopButton" destination="i7Q-Xy-81V" id="y8w-84-yaa"/>
+                <outlet property="stopButtonContainerView" destination="ZVu-B6-Ub5" id="WEr-lP-Skf"/>
                 <outlet property="timerLabel" destination="yjT-8X-JG0" id="LGV-rJ-lk3"/>
                 <outlet property="view" destination="tVy-yB-8eG" id="dWi-wF-Mp3"/>
             </connections>
@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ufk-bv-sIP">
-                    <rect key="frame" x="53.5" y="40" width="249" height="138"/>
+                    <rect key="frame" x="54" y="40" width="249.5" height="138"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQF-oL-g8D" customClass="FeedingControl" customModule="Framework_BabyPatterns" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="19" width="100" height="100"/>
@@ -49,7 +49,7 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZp-LW-zRn" customClass="FeedingControl" customModule="Framework_BabyPatterns" customModuleProvider="target">
-                            <rect key="frame" x="149" y="19" width="100" height="100"/>
+                            <rect key="frame" x="149.5" y="19" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="DdT-Zc-nZu"/>
                                 <constraint firstAttribute="width" secondItem="dZp-LW-zRn" secondAttribute="height" multiplier="1:1" id="WFG-fm-pZB"/>
@@ -73,32 +73,29 @@
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjT-8X-JG0" customClass="TimerLabel" customModule="Library">
-                    <rect key="frame" x="53.5" y="203" width="249" height="70"/>
+                    <rect key="frame" x="104" y="203" width="199" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="HVK-Vg-PDM"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7Q-Xy-81V">
-                    <rect key="frame" x="18.5" y="217.5" width="30" height="41"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                    <state key="normal" title="◼︎">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="stopButtonPressed:" destination="-1" eventType="touchUpInside" id="4Ff-FL-dW3"/>
-                    </connections>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVu-B6-Ub5">
+                    <rect key="frame" x="54" y="219" width="40" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ZVu-B6-Ub5" secondAttribute="height" multiplier="1:1" id="oNf-Oi-Srk"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
-                <constraint firstItem="yjT-8X-JG0" firstAttribute="centerX" secondItem="tVy-yB-8eG" secondAttribute="centerX" id="EzA-8o-LEA"/>
+                <constraint firstItem="ZVu-B6-Ub5" firstAttribute="centerY" secondItem="yjT-8X-JG0" secondAttribute="centerY" id="9xQ-EZ-1wo"/>
                 <constraint firstItem="ufk-bv-sIP" firstAttribute="width" secondItem="tVy-yB-8eG" secondAttribute="width" multiplier="0.7" id="HRB-y3-dpL"/>
                 <constraint firstItem="IDs-9r-TQL" firstAttribute="bottom" secondItem="yjT-8X-JG0" secondAttribute="bottom" id="Kcp-18-7va"/>
                 <constraint firstItem="yjT-8X-JG0" firstAttribute="top" secondItem="ufk-bv-sIP" secondAttribute="bottom" constant="25" id="KxO-x8-P3f"/>
-                <constraint firstItem="i7Q-Xy-81V" firstAttribute="centerY" secondItem="yjT-8X-JG0" secondAttribute="centerY" id="LuJ-5f-Vm2"/>
                 <constraint firstItem="ufk-bv-sIP" firstAttribute="top" secondItem="IDs-9r-TQL" secondAttribute="top" constant="40" id="OhH-R7-dc8"/>
-                <constraint firstItem="yjT-8X-JG0" firstAttribute="leading" secondItem="i7Q-Xy-81V" secondAttribute="trailing" constant="5" id="OuR-iX-wDR"/>
+                <constraint firstItem="ZVu-B6-Ub5" firstAttribute="leading" secondItem="ufk-bv-sIP" secondAttribute="leading" id="Xjp-2L-OSj"/>
+                <constraint firstItem="yjT-8X-JG0" firstAttribute="leading" secondItem="ZVu-B6-Ub5" secondAttribute="trailing" constant="10" id="Zsu-f1-SqV"/>
+                <constraint firstItem="ZVu-B6-Ub5" firstAttribute="width" secondItem="yjT-8X-JG0" secondAttribute="width" multiplier="0.2" id="aea-zM-Nos"/>
                 <constraint firstItem="ufk-bv-sIP" firstAttribute="centerX" secondItem="tVy-yB-8eG" secondAttribute="centerX" id="b4O-Qc-2zl"/>
-                <constraint firstItem="yjT-8X-JG0" firstAttribute="width" secondItem="ufk-bv-sIP" secondAttribute="width" id="xlJ-h8-WRS"/>
+                <constraint firstItem="yjT-8X-JG0" firstAttribute="trailing" secondItem="ufk-bv-sIP" secondAttribute="trailing" id="xzX-gy-DLY"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -50,7 +50,19 @@ public final class FeedingStopwatchView: UIView {
         }
     }
 
-    @IBOutlet var stopButton: UIButton!
+    private lazy var stopButton: StopButton = {
+        let onTap: () -> Void = { [weak self] in
+            self?.stopButtonPressed()
+        }
+        return StopButton(onTap: onTap, enabledColor: .bpDarkGray, disabledColor: .bpLightGray)
+    }()
+
+    @IBOutlet var stopButtonContainerView: UIView! {
+        didSet {
+            stopButtonContainerView.addSubview(stopButton)
+            stopButton.bindFrameToSuperviewBounds()
+        }
+    }
 
     public init(feedingType: FeedingType, frame: CGRect = .zero) {
         _feedingType = feedingType
@@ -58,10 +70,31 @@ public final class FeedingStopwatchView: UIView {
         super.init(frame: frame)
         loadNib()
 
-        stopButton.isHidden = true
+        stopButton.isDisabled = true
     }
 
     public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
+
+    func stopButtonPressed() {
+        guard timerLabel.isRunning else {
+            preconditionFailure("Cannot stop timer that is not running")
+        }
+
+        guard _sideInProgress != .none else {
+            preconditionFailure("No side in progress to stop")
+        }
+
+        var control: FeedingControl!
+        if leftFeedingControl.isActive && _sideInProgress == .left {
+            control = leftFeedingControl
+        } else if rightFeedingControl.isActive && _sideInProgress == .right {
+            control = rightFeedingControl
+        } else {
+            assertionFailure("Failed to end feeding")
+        }
+        reset(control: control)
+        onEnd?(_feedingType, _sideInProgress)
+    }
 
     @IBAction func feedingButtonPressed(_ sender: FeedingControl) {
         guard sender.side != .none else {
@@ -98,7 +131,7 @@ public final class FeedingStopwatchView: UIView {
         timerLabel.start(startingAt: startTime)
         control!.setTitle("Pause", for: .normal)
         control!.isActive = true
-        stopButton.isHidden = false
+        stopButton.isDisabled = false
         _sideInProgress = control!.side
     }
 
@@ -113,31 +146,9 @@ public final class FeedingStopwatchView: UIView {
         control.setTitle("Pause", for: .normal)
     }
 
-    @IBAction func stopButtonPressed(_: UIButton) {
-        guard timerLabel.isRunning else {
-            preconditionFailure("Cannot stop timer that is not running")
-        }
-
-        guard _sideInProgress != .none else {
-            preconditionFailure("No side in progress to stop")
-        }
-
-        // TODO: fix this "!"
-        var control: FeedingControl!
-        if leftFeedingControl.isActive && _sideInProgress == .left {
-            control = leftFeedingControl
-        } else if rightFeedingControl.isActive && _sideInProgress == .right {
-            control = rightFeedingControl
-        } else {
-            assertionFailure("Failed to end feeding")
-        }
-        reset(control: control)
-        onEnd?(_feedingType, _sideInProgress)
-    }
-
     private func reset(control: FeedingControl) {
         control.isActive = false
-        stopButton.isHidden = true
+        stopButton.isDisabled = true
         timerLabel.end()
     }
 }
