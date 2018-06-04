@@ -91,7 +91,6 @@ final class FeedingVC: UIViewController {
         segmentedControl.delegate = vc
         vc.segmentedControl = segmentedControl
 
-        // TODO: update this with the new pumping vc (to be made)
         let page1 = NursingVC(controller: self)
         if let lf = feedingsVM?.lastFeeding(type: .nursing), !lf.isFinished {
             page1.resume(feeding: lf)
@@ -142,6 +141,7 @@ extension FeedingVC: FeedingController {
 
 extension FeedingVC: PumpingDelegate {
     func pumpingAmountChosen(_: Double) {
+        // TODO: finish this implementation
     }
 }
 
@@ -157,7 +157,7 @@ extension FeedingVC: BottleDataSource {
 
 extension FeedingVC: BottleDelegate {
     func logBottleFeeding(withAmount amount: Double, time: Date) {
-        // TODO: make specific bottle feeding method
+        // TODO: make specific bottle feeding method for the below weird calls
         feedingsVM?.feedingStarted(type: .bottle, side: .none, startDate: time, supplyAmount: -amount)
         feedingsVM?.feedingEnded(type: .bottle, side: .none, endDate: time)
         showFeedingSavedToast()

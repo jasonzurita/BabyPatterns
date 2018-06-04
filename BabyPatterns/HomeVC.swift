@@ -164,6 +164,7 @@ extension HomeVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
 
         let context = UIGraphicsGetCurrentContext()
 
+        // TODO: use a switch statement silly
         if orientation == .right {
             context!.rotate(by: CGFloat(90) / CGFloat(180) * CGFloat.pi)
         } else if orientation == .left {
