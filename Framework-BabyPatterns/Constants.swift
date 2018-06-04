@@ -18,7 +18,6 @@ public struct K {
 
         // home vc
         public static let Feeding = "FeedingSegue"
-        public static let RequestFeature = "RequestFeatureSegue"
 
         // edit profile image
         public static let EditProfileImage = "EditProfileImageSegue"

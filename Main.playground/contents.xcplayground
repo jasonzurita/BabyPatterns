@@ -8,5 +8,6 @@
         <page name='Nursing'/>
         <page name='Pumping'/>
         <page name='Stop Button'/>
+        <page name='Request Feature'/>
     </pages>
 </playground>

@@ -40,7 +40,8 @@ class HomeVC: UIViewController {
         }
 
         requestFeatureTile.didTapCallback = { [unowned self] in
-            self.performSegue(withIdentifier: K.Segues.RequestFeature, sender: nil)
+            let requestTVC = RequestFeatureTVC()
+            self.navigationController?.pushViewController(requestTVC, animated: true)
         }
     }
 

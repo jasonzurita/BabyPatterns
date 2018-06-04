@@ -8,7 +8,6 @@
 - Get app icon
 - Final pass on settings screen (show ad removal screen, contact support) 
 - Age validation during sign up
-- Request feature? or maybe say coming soon?
 - The first feeding seems to not get logged. Check this out.
 - Bottle screen slider jumps on loading
 - Setup CI / configuration management
@@ -24,3 +23,4 @@ v2
 - Allow changing of current supply in settings
 - Ability to change add photo of child when signing up
 - Reset password in setting screen
+- Implement request feature

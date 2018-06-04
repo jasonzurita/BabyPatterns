@@ -144,7 +144,6 @@
                         <outlet property="turnOffAdsButton" destination="ku9-hW-fqk" id="6yA-N8-lRz"/>
                         <segue destination="jbw-TF-pH1" kind="show" identifier="FeedingSegue" id="mFW-By-s2g"/>
                         <segue destination="ceP-0c-4TS" kind="presentation" identifier="EditProfileImageSegue" id="n5I-xs-1WB"/>
-                        <segue destination="LNw-dm-fV7" kind="show" identifier="RequestFeatureSegue" id="PWM-Wd-dRT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -426,36 +425,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gp6-ga-Dm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="469.60000000000002" y="822.63868065967017"/>
-        </scene>
-        <!--Request Feature-->
-        <scene sceneID="7dJ-lI-hKg">
-            <objects>
-                <tableViewController id="LNw-dm-fV7" customClass="RequestFeatureTVC" customModule="BabyPatterns" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="t8y-Vx-X0L">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RequestFeatureCell" id="umU-dY-z12">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="umU-dY-z12" id="kwe-Rm-dkk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="LNw-dm-fV7" id="LeH-eu-7sS"/>
-                            <outlet property="delegate" destination="LNw-dm-fV7" id="AMC-VI-PUC"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Request Feature" id="JhM-h0-ZlR"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TxC-nb-1sb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1599" y="823"/>
+            <point key="canvasLocation" x="972" y="797"/>
         </scene>
         <!--Edit Profile ImageVC-->
         <scene sceneID="OtJ-Wc-o2g">
@@ -1016,7 +986,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9Q-KZ-MQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-759.20000000000005" y="796.55172413793105"/>
+            <point key="canvasLocation" x="-927" y="797"/>
         </scene>
         <!--NavigationVC-->
         <scene sceneID="SyT-Zd-gTA">
