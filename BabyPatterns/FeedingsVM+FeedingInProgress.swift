@@ -14,6 +14,28 @@ extension FeedingsVM {
         feedings.append(fip)
     }
 
+    // TODO: the term `feeding in progress` doesn't quite fit here, consider improving naming
+    func addPumpingAmountToLastPumping(amount: Double) {
+        guard let lpf = feedings.reversed().first(where: { $0.type == .pumping }) else {
+            log("No pumping to to add amount to...", object: self, type: .warning)
+            return
+        }
+
+        // TODO: more of a swift excercise, but there should be a better way to
+        // duplicate a struct and update one property. Maybe make an update function?
+        let updatedPumpingFeeding = Feeding(type: lpf.type,
+                                            side: lpf.side,
+                                            startDate: lpf.startDate,
+                                            endDate: lpf.endDate,
+                                            lastPausedDate: lpf.lastPausedDate,
+                                            supplyAmount: amount,
+                                            pausedTime: lpf.pausedTime,
+                                            serverKey: lpf.serverKey)
+
+        updateInternalFeedingCache(fip: updatedPumpingFeeding)
+        updateFeedingOnServer(fip: updatedPumpingFeeding)
+    }
+
     func feedingEnded(type: FeedingType, side _: FeedingSide, endDate: Date = Date()) {
         guard var fip = feedingInProgress(type: type) else { return }
 

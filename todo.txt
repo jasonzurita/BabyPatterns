@@ -5,7 +5,6 @@
 - Ask about polishing the sign-up screen
 - Icon for create an account screen
 - ^^ same icon for home screen (need stock baby image)
-- Persist pumped amount
 - Get app icon
 - Final pass on settings screen (show ad removal screen, contact support) 
 - Age validation during sign up

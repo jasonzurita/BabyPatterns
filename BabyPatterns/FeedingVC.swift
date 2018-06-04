@@ -140,8 +140,9 @@ extension FeedingVC: FeedingController {
 }
 
 extension FeedingVC: PumpingDelegate {
-    func pumpingAmountChosen(_: Double) {
-        // TODO: finish this implementation
+    func pumpingAmountChosen(_ amount: Double) {
+        feedingsVM?.addPumpingAmountToLastPumping(amount: amount)
+        showFeedingSavedToast()
     }
 }
 
