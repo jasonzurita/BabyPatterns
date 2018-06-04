@@ -1,22 +1,21 @@
-1. Add tick marks to history screen (by minute, day, week)
-2. Add ability to tap on history bar and get tool tip of date
-3. UI style pass on history screen
-4. In app purchase to turn off adds or email 3 friends screen (with restore purchase)
-5. Polish timer view per Raph's suggestions
-6. Ask about polishing the sign-up screen
-7. Icon for create an account screen
-8. ^^ same icon for home screen (need stock baby image)
-9. Persist pumped amount
-10. Get app icon
-11. Final pass on settings screen (show ad removal screen, contact support) 
-12. Age validation during sign up
-13. Request feature? or maybe say coming soon?
-14. The first feeding seems to not get logged. Check this out.
-15. Bottle screen slider jumps on loading
-16. Setup CI / configuration management
-17. Move to github
-18. Pass on color scheme
-19. Pass on fonts
+- Add tick marks to history screen (by minute, day, week)
+- Add ability to tap on history bar and get tool tip of date
+- UI style pass on history screen
+- In app purchase to turn off adds or email 3 friends screen (with restore purchase)
+- Ask about polishing the sign-up screen
+- Icon for create an account screen
+- ^^ same icon for home screen (need stock baby image)
+- Persist pumped amount
+- Get app icon
+- Final pass on settings screen (show ad removal screen, contact support) 
+- Age validation during sign up
+- Request feature? or maybe say coming soon?
+- The first feeding seems to not get logged. Check this out.
+- Bottle screen slider jumps on loading
+- Setup CI / configuration management
+- Move to github
+- Pass on color scheme
+- Pass on fonts
 
 v2
 - Allow in-progress feeding to be edited (start time, etc.)
