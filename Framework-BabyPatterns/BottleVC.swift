@@ -61,7 +61,7 @@ public final class BottleVC: UIViewController, Loggable {
 
     private func updateLabels() {
         guard let ds = dataSource else { return }
-        remainingSupplyLabel.text = String.localizedStringWithFormat("%.1f%", ds.remainingSupply())
+        remainingSupplyLabel.text = String.localizedStringWithFormat("%.1f%", abs(ds.remainingSupply()))
         amountFedLabel.text = "0.0"
     }
 
