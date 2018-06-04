@@ -286,15 +286,15 @@
 		12605B3C1FBB1DBB0035243B /* Framework-BabyPatterns */ = {
 			isa = PBXGroup;
 			children = (
-				12C9FFD120B837B800B048E6 /* Extensions */,
 				430FD7441DE484EC00D07C50 /* Constants.swift */,
 				4314DD571DFB6DE300B3649C /* Enums.swift */,
 				12DD2D0220A46ECD00849A48 /* Configuration.swift */,
 				43D2BE671DCB69E900895A65 /* Model */,
-				12C9B0981FD616ED00CA6EBF /* Feeding */,
 				12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */,
 				12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */,
 				AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */,
+				12C9B0981FD616ED00CA6EBF /* Feeding */,
+				12C9FFD120B837B800B048E6 /* Extensions */,
 				12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */,
 				12605B3E1FBB1DBB0035243B /* Info.plist */,
 			);
