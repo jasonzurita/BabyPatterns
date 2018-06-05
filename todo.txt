@@ -1,7 +1,7 @@
 - Add tick marks to history screen (by minute, day, week)
 - Add ability to tap on history bar and get tool tip of date
 - UI style pass on history screen
-- In app purchase to turn off adds or email 3 friends screen (with restore purchase)
+- Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)
 - Ask about polishing the sign-up screen
 - Icon for create an account screen
 - ^^ same icon for home screen (need stock baby image)
