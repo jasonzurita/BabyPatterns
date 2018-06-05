@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TurnOffAdsVC" customModule="Framework_BabyPatterns" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9W-9u-RJb">
+                    <rect key="frame" x="19.5" y="90" width="337.5" height="81.5"/>
+                    <string key="text">Ads...I know - yuck! They are only here to allow me to keep improving this app. If you want to turn the ads off, or you want to help support this app, you have two options:</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Tell 3 of your friends about this app. We will NEVER sell these email addresses or abuse them!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7b-mI-Mtb">
+                    <rect key="frame" x="19" y="191" width="337.5" height="61"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Donate $1!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6e-e9-K6p">
+                    <rect key="frame" x="19" y="272" width="337.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6LL-fb-jIH">
+                    <rect key="frame" x="0.0" y="20" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="9AZ-9e-7Ow"/>
+                        <constraint firstAttribute="width" constant="50" id="Uez-pD-8nD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                    <state key="normal" title="✕">
+                        <color key="titleColor" red="0.0" green="0.3341426253" blue="0.80068218710000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissButtonTapped:" destination="-1" eventType="touchUpInside" id="xff-jf-uJX"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="w6e-e9-K6p" firstAttribute="top" secondItem="x7b-mI-Mtb" secondAttribute="bottom" constant="20" id="6ni-hV-Z75"/>
+                <constraint firstItem="w6e-e9-K6p" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="MgV-ku-AEr"/>
+                <constraint firstItem="w6e-e9-K6p" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="Spv-cE-h82"/>
+                <constraint firstItem="6LL-fb-jIH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="enD-1r-dfi"/>
+                <constraint firstItem="K9W-9u-RJb" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="iSg-Kq-P2d"/>
+                <constraint firstItem="K9W-9u-RJb" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="iWI-wR-pBi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="6LL-fb-jIH" secondAttribute="top" id="shZ-5A-hEY"/>
+                <constraint firstItem="x7b-mI-Mtb" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="vUZ-nM-kDH"/>
+                <constraint firstItem="K9W-9u-RJb" firstAttribute="top" secondItem="6LL-fb-jIH" secondAttribute="bottom" constant="20" id="veR-4c-ix1"/>
+                <constraint firstItem="x7b-mI-Mtb" firstAttribute="top" secondItem="K9W-9u-RJb" secondAttribute="bottom" constant="20" id="vvq-si-Ug5"/>
+                <constraint firstItem="x7b-mI-Mtb" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="xhT-6p-Xut"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

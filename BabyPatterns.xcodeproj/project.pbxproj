@@ -28,6 +28,8 @@
 		120F804C1FBF127A00D04E45 /* ShakeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B002141E8A937E00810739 /* ShakeTextField.swift */; };
 		120F804D1FBF131D00D04E45 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE2DE11E76CC4A00B8B373 /* Loggable.swift */; };
 		12128AC820C5ED0300CF16C0 /* RequestFeatureTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */; };
+		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
+		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
 		1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */; };
 		1243E4841FD6DA4900D727F1 /* FeedingStopwatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */; };
 		124D863320A2634100F3C2D0 /* PumpingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124D863220A2634100F3C2D0 /* PumpingVC.swift */; };
@@ -147,6 +149,8 @@
 		120F80241FBF0E9500D04E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		120F80291FBF0E9500D04E45 /* LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		120F80321FBF0E9500D04E45 /* Info-LibraryTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-LibraryTests.plist"; sourceTree = "<group>"; };
+		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
+		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
 		1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingStopwatchView.swift; sourceTree = "<group>"; };
 		1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedingStopwatchView.xib; sourceTree = "<group>"; };
 		124D863220A2634100F3C2D0 /* PumpingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PumpingVC.swift; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 				12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */,
 				12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */,
 				AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */,
+				123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */,
+				123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */,
 				12C9B0981FD616ED00CA6EBF /* Feeding */,
 				12C9FFD120B837B800B048E6 /* Extensions */,
 				12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */,
@@ -786,6 +792,7 @@
 			files = (
 				12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */,
 				12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */,
+				123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */,
 				120F801A1FBF0B7F00D04E45 /* Assets.xcassets in Resources */,
 				12F3A9C81FBB2174002ECC7B /* HistoryVC.xib in Resources */,
 				1243E4841FD6DA4900D727F1 /* FeedingStopwatchView.xib in Resources */,
@@ -919,6 +926,7 @@
 				12C9B09C1FD6172100CA6EBF /* NursingVC.swift in Sources */,
 				12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */,
 				12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */,
+				123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */,
 				12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */,
 				12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */,
 				12DD2D0320A46ECD00849A48 /* Configuration.swift in Sources */,
