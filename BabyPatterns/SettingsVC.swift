@@ -114,7 +114,9 @@ final class SettingsVC: UITableViewController, Loggable {
             configuration?.adsState = .hide
         case .initialInstall:
             adsOffSwitch.isOn = false
-            // TODO: show ad removal screen here
+            let vc = TurnOffAdsVC()
+            vc.modalPresentationStyle = .overCurrentContext
+            present(vc, animated: true, completion: nil)
         }
     }
 

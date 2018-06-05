@@ -96,7 +96,9 @@ class HomeVC: UIViewController {
     }
 
     @IBAction func turnOffAdsButtonPressed(_: UIButton) {
-        print("TODO: implement getting rid of ads")
+        let vc = TurnOffAdsVC()
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
     }
 }
 

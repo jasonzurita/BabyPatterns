@@ -6,7 +6,7 @@
 - Icon for create an account screen
 - ^^ same icon for home screen (need stock baby image)
 - Get app icon
-- Final pass on settings screen (show ad removal screen, contact support) 
+- Final pass on settings screen (contact support) 
 - Age validation during sign up
 - The first feeding seems to not get logged. Check this out.
 - Bottle screen slider jumps on loading
