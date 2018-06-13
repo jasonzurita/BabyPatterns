@@ -33,14 +33,6 @@ final class FeedingVC: UIViewController {
         super.viewDidLoad()
         let titles = FeedingType.allValues.map { $0.rawValue }
         segmentedControl.configureSegmentedBar(titles: titles, defaultSegmentIndex: 0)
-
-        updateProfileUI()
-    }
-
-    private func updateProfileUI() {
-        guard let p = profileVM?.profile else { return }
-        profileView.nameLabel.text = p.babyName
-        profileView.imageView.image = p.profilePicture
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +52,14 @@ final class FeedingVC: UIViewController {
                                                        if let token = strongSelf.notificationToken { center.removeObserver(token) }
                                                    }
         })
+        updateProfileUI()
+    }
+    
+    private func updateProfileUI() {
+        guard let p = profileVM?.profile else { return }
+        profileView.nameLabel.text = p.babyName
+        let image = p.profilePicture ?? UIImage(named: "defaultProfileImage")
+        profileView.imageView.image = image
     }
 
     override func viewWillDisappear(_ animated: Bool) {

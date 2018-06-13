@@ -64,7 +64,9 @@ class HomeVC: UIViewController {
         guard let p = profileVM?.profile else { return }
         profileView.nameLabel.text = p.babyName
         homeScreenTitle.title = "Welcome \(p.parentName)!"
-        profileView.imageView.image = p.profilePicture
+
+        let image = p.profilePicture ?? UIImage(named: "defaultProfileImage")
+        profileView.imageView.image = image
     }
 
     private func updateFeedingUI() {

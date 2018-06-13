@@ -3,8 +3,6 @@
 - UI style pass on history screen
 - Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)
 - Ask about polishing the sign-up screen
-- Icon for create an account screen
-- ^^ same icon for home screen (need stock baby image)
 - Get app icon
 - Final pass on settings screen (contact support) 
 - Age validation during sign up
