@@ -65,8 +65,17 @@ public final class BottleVC: UIViewController, Loggable {
         amountFedLabel.text = "0.0"
     }
 
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    // TODO: the use of the bool below is hacky and should be revisted for a real solution
+    private var _hasConfiguredView = false
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        _hasConfiguredView = false
+    }
+
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard !_hasConfiguredView else { return }
+        _hasConfiguredView = true
         configureSlider()
         configureBottleFillHeight()
         configureRemainingSupplyLine()

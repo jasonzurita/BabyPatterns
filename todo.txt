@@ -7,7 +7,6 @@
 - Final pass on settings screen (contact support) 
 - Age validation during sign up
 - The first feeding seems to not get logged. Check this out.
-- Bottle screen slider jumps on loading
 - Setup CI / configuration management
 - Move to github
 - Pass on color scheme
