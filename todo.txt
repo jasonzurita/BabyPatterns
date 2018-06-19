@@ -1,18 +1,24 @@
 - Add tick marks to history screen (by minute, day, week)
-- Add ability to tap on history bar and get tool tip of date
-- UI style pass on history screen
+    - UI style pass on history screen
+    - Add ability to tap on history bar and get tool tip of date
 - Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)
 - Ask about polishing the sign-up screen
 - Get app icon
 - Final pass on settings screen (contact support) 
 - Age validation during sign up
 - The first feeding seems to not get logged. Check this out.
-- Setup CI / configuration management
-- Move to github
 - Pass on color scheme
 - Pass on fonts
 
+bugs
+- Autolayout breaking when rotating on bottle screen
+- What if user exceeds max supply amount when pumping?
+- Slide bottle amount down, go to history, go back to bottle. The bottle UI is messed up.
+
 v2
+- in-app reviews
+- Setup CI / configuration management
+- Move to github
 - Allow in-progress feeding to be edited (start time, etc.)
 - Walkthrough
 - Continue migrating over to a playground driven app
@@ -21,3 +27,5 @@ v2
 - Ability to change add photo of child when signing up
 - Reset password in setting screen
 - Implement request feature
+- Home screen bottom feeding summary - Include pumping?
+- Animation when logging a bottle feeding
