@@ -7,6 +7,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication,
                      didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UIFont.registerFonts
         // TODO: move this into a separate initialization file
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true

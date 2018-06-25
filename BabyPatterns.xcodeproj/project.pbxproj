@@ -37,6 +37,12 @@
 		12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; };
 		12605B431FBB1DBB0035243B /* Framework_BabyPatterns.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289D18C20C167A800E73DA0 /* StopButton.swift */; };
+		12C866B720DDAF5300053FCC /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C866B320DDAF5200053FCC /* NotoSans-Regular.ttf */; };
+		12C866B820DDAF5300053FCC /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C866B420DDAF5200053FCC /* NotoSans-Bold.ttf */; };
+		12C866B920DDAF5300053FCC /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C866B520DDAF5300053FCC /* NotoSans-Italic.ttf */; };
+		12C866BA20DDAF5300053FCC /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C866B620DDAF5300053FCC /* NotoSans-BoldItalic.ttf */; };
+		12C866BC20DDB09400053FCC /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C866BB20DDB09400053FCC /* UIFont.swift */; };
+		12C866BE20DDB15000053FCC /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C866BD20DDB15000053FCC /* Bundle.swift */; };
 		12C9B09C1FD6172100CA6EBF /* NursingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9B09A1FD6172100CA6EBF /* NursingVC.swift */; };
 		12C9B0A01FD6187800CA6EBF /* FeedingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C401E01FEB400056F83 /* FeedingControl.swift */; };
 		12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
@@ -160,6 +166,12 @@
 		1289D18C20C167A800E73DA0 /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		128C93CA1FB72CA0001E58F4 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validatable.swift; path = ../Library/Validatable.swift; sourceTree = "<group>"; };
 		12A782421FBB20C7000BD13F /* Main.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Main.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		12C866B320DDAF5200053FCC /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		12C866B420DDAF5200053FCC /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		12C866B520DDAF5300053FCC /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
+		12C866B620DDAF5300053FCC /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		12C866BB20DDB09400053FCC /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		12C866BD20DDB15000053FCC /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		12C9B09A1FD6172100CA6EBF /* NursingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingVC.swift; sourceTree = "<group>"; };
 		12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDisplayManager.swift; sourceTree = "<group>"; };
 		12C9FFD220B837CB00B048E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -290,6 +302,7 @@
 		12605B3C1FBB1DBB0035243B /* Framework-BabyPatterns */ = {
 			isa = PBXGroup;
 			children = (
+				12C866B220DDAE1200053FCC /* Fonts */,
 				430FD7441DE484EC00D07C50 /* Constants.swift */,
 				4314DD571DFB6DE300B3649C /* Enums.swift */,
 				12DD2D0220A46ECD00849A48 /* Configuration.swift */,
@@ -305,6 +318,18 @@
 				12605B3E1FBB1DBB0035243B /* Info.plist */,
 			);
 			path = "Framework-BabyPatterns";
+			sourceTree = "<group>";
+		};
+		12C866B220DDAE1200053FCC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				12C866B420DDAF5200053FCC /* NotoSans-Bold.ttf */,
+				12C866B620DDAF5300053FCC /* NotoSans-BoldItalic.ttf */,
+				12C866B520DDAF5300053FCC /* NotoSans-Italic.ttf */,
+				12C866B320DDAF5200053FCC /* NotoSans-Regular.ttf */,
+			);
+			name = Fonts;
+			path = Library;
 			sourceTree = "<group>";
 		};
 		12C9B0981FD616ED00CA6EBF /* Feeding */ = {
@@ -341,6 +366,8 @@
 		12C9FFD120B837B800B048E6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				12C866BD20DDB15000053FCC /* Bundle.swift */,
+				12C866BB20DDB09400053FCC /* UIFont.swift */,
 				12C9FFD220B837CB00B048E6 /* Color.swift */,
 			);
 			path = Extensions;
@@ -790,12 +817,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12C866B920DDAF5300053FCC /* NotoSans-Italic.ttf in Resources */,
+				12C866B820DDAF5300053FCC /* NotoSans-Bold.ttf in Resources */,
+				12C866BA20DDAF5300053FCC /* NotoSans-BoldItalic.ttf in Resources */,
 				12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */,
 				12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */,
 				123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */,
 				120F801A1FBF0B7F00D04E45 /* Assets.xcassets in Resources */,
 				12F3A9C81FBB2174002ECC7B /* HistoryVC.xib in Resources */,
 				1243E4841FD6DA4900D727F1 /* FeedingStopwatchView.xib in Resources */,
+				12C866B720DDAF5300053FCC /* NotoSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,6 +947,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12C866BC20DDB09400053FCC /* UIFont.swift in Sources */,
 				12128AC820C5ED0300CF16C0 /* RequestFeatureTVC.swift in Sources */,
 				12C9B0A01FD6187800CA6EBF /* FeedingControl.swift in Sources */,
 				124D863320A2634100F3C2D0 /* PumpingVC.swift in Sources */,
@@ -924,6 +956,7 @@
 				12C9B0A31FD619C300CA6EBF /* Feeding.swift in Sources */,
 				12C9FFD320B837CB00B048E6 /* Color.swift in Sources */,
 				12C9B09C1FD6172100CA6EBF /* NursingVC.swift in Sources */,
+				12C866BE20DDB15000053FCC /* Bundle.swift in Sources */,
 				12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */,
 				12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */,
 				123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */,

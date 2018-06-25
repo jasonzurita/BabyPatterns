@@ -24,12 +24,14 @@ final class MockBottleProvider: BottleDelegate, BottleDataSource {
 
 let provider = MockBottleProvider()
 
+UIFont.registerFonts
+
 let vc = BottleVC()
 vc.dataSource = provider
 vc.delegate = provider
 
 let parent = playgroundWrapper(child: vc,
-                               device: .phone4inch,
+                               device: .phone5_5inch,
                                orientation: .portrait,
                                contentSizeCategory: .accessibilityMedium)
 
