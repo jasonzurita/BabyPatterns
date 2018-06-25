@@ -16,6 +16,7 @@ public final class BottleVC: UIViewController, Loggable {
     public weak var delegate: BottleDelegate?
     public weak var dataSource: BottleDataSource?
 
+    @IBOutlet var bodyLabels: [UILabel]!
     @IBOutlet var remainingSupplyLabel: UILabel!
     @IBOutlet var amountFedLabel: UILabel!
     @IBOutlet var sliderContainerView: UIView!
@@ -52,6 +53,11 @@ public final class BottleVC: UIViewController, Loggable {
     public override func viewDidLoad() {
         slider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi * 0.5)
         slider.minimumValue = 0
+        configureRemainingStyles()
+    }
+
+    private func configureRemainingStyles() {
+        bodyLabels.forEach { styleH2Label($0) }
     }
 
     public override func viewWillAppear(_ animated: Bool) {
