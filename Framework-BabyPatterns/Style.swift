@@ -49,7 +49,7 @@ let styleButtonCornerRadius: (UIButton) -> Void = {
     $0.layer.masksToBounds = true
 }
 
-let styleButtonSave: (UIButton) -> Void =
+let styleButtonSave =
     styleButtonBase
         <> styleButtonCornerRadius
         <> {
