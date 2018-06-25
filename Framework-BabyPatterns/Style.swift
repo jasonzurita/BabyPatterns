@@ -38,3 +38,21 @@ let styleBodyLabel =
     styleBaseLabel
         <> styleLabelFont(.notoSansRegular(ofSize: 16))
         <> styleLabelColor(.bpMediumGray)
+
+// MARK: Buttons
+let styleButtonBase: (UIButton) -> Void = { _ in 
+    // noop
+}
+
+let styleButtonCornerRadius: (UIButton) -> Void = {
+    $0.layer.cornerRadius = $0.frame.height * 0.5
+    $0.layer.masksToBounds = true
+}
+
+let styleButtonSave: (UIButton) -> Void =
+    styleButtonBase
+        <> styleButtonCornerRadius
+        <> {
+            $0.backgroundColor = .bpLightBlue
+            $0.titleLabel?.font = .notoSansRegular(ofSize: 20)
+        }
