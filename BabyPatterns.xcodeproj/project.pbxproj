@@ -43,6 +43,7 @@
 		12C866BA20DDAF5300053FCC /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C866B620DDAF5300053FCC /* NotoSans-BoldItalic.ttf */; };
 		12C866BC20DDB09400053FCC /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C866BB20DDB09400053FCC /* UIFont.swift */; };
 		12C866BE20DDB15000053FCC /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C866BD20DDB15000053FCC /* Bundle.swift */; };
+		12C866C020DDB34200053FCC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C866BF20DDB34100053FCC /* Style.swift */; };
 		12C9B09C1FD6172100CA6EBF /* NursingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9B09A1FD6172100CA6EBF /* NursingVC.swift */; };
 		12C9B0A01FD6187800CA6EBF /* FeedingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C401E01FEB400056F83 /* FeedingControl.swift */; };
 		12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
@@ -172,6 +173,7 @@
 		12C866B620DDAF5300053FCC /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		12C866BB20DDB09400053FCC /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		12C866BD20DDB15000053FCC /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		12C866BF20DDB34100053FCC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		12C9B09A1FD6172100CA6EBF /* NursingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingVC.swift; sourceTree = "<group>"; };
 		12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDisplayManager.swift; sourceTree = "<group>"; };
 		12C9FFD220B837CB00B048E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		12605B3C1FBB1DBB0035243B /* Framework-BabyPatterns */ = {
 			isa = PBXGroup;
 			children = (
+				12C866BF20DDB34100053FCC /* Style.swift */,
 				12C866B220DDAE1200053FCC /* Fonts */,
 				430FD7441DE484EC00D07C50 /* Constants.swift */,
 				4314DD571DFB6DE300B3649C /* Enums.swift */,
@@ -961,6 +964,7 @@
 				12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */,
 				123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */,
 				12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */,
+				12C866C020DDB34200053FCC /* Style.swift in Sources */,
 				12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */,
 				12DD2D0320A46ECD00849A48 /* Configuration.swift in Sources */,
 			);
