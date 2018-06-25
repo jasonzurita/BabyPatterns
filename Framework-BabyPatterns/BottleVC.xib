@@ -21,6 +21,7 @@
                 <outlet property="remainingSupplyLabel" destination="0vN-xE-sCg" id="EN3-Nk-Zf2"/>
                 <outlet property="remainingSupplyLineView" destination="W5w-b7-M3T" id="sNF-On-o1p"/>
                 <outlet property="remainingSupplyLineYConstraint" destination="MO8-dC-OPb" id="hKa-jg-YrL"/>
+                <outlet property="saveButton" destination="72W-cv-oew" id="2EU-oi-Tue"/>
                 <outlet property="slider" destination="oUS-gl-eyx" id="hpG-yR-oYY"/>
                 <outlet property="sliderContainerView" destination="Hzk-zY-DfO" id="Ami-2S-vDM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

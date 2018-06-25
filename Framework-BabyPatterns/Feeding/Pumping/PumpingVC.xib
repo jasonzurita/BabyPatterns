@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PumpingVC" customModule="Framework_BabyPatterns" customModuleProvider="target">
             <connections>
                 <outlet property="amountPicker" destination="GBu-rd-5j4" id="Djk-7a-9MK"/>
+                <outlet property="saveButton" destination="SXV-H3-PLv" id="vcn-gL-gZX"/>
                 <outlet property="stopwatchContainerView" destination="LHh-f0-6cl" id="x3X-eE-iGw"/>
                 <outlet property="view" destination="iN0-l3-epB" id="zVR-rC-zIh"/>
             </connections>

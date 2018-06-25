@@ -24,6 +24,10 @@ public final class PumpingVC: UIViewController {
             _stopwatch.bindFrameToSuperviewBounds()
         }
     }
+    
+    @IBOutlet var saveButton: UIButton! {
+        didSet { styleButtonSave(saveButton) }
+    }
 
     public init(controller: PumpingController) {
         _amountCallback = controller.pumpingAmountChosen

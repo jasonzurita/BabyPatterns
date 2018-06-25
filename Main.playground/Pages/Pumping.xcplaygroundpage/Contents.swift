@@ -2,6 +2,8 @@
 import PlaygroundSupport
 import UIKit
 
+UIFont.registerFonts
+
 struct Controller: PumpingController {
     func start(feeding type: FeedingType, side: FeedingSide) {
         print("start: feeding type - \(type), side - \(side)")
