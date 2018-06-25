@@ -5,11 +5,15 @@ public enum CustomFont: String {
     case notoSansBoldItalic = "NotoSans-BoldItalic"
     case notoSansItalic = "NotoSans-Italic"
     case notoSansRegular = "NotoSans-Regular"
-
-    static var allValues: [CustomFont] { return [.notoSansBold,
-                                                 .notoSansBoldItalic,
-                                                 .notoSansItalic,
-                                                 .notoSansRegular] }
+    
+    static var allValues: [CustomFont] {
+        return [
+            .notoSansBold,
+            .notoSansBoldItalic,
+            .notoSansItalic,
+            .notoSansRegular,
+        ]
+    }
 }
 
 public extension UIFont {
@@ -24,7 +28,7 @@ public extension UIFont {
             let fontData = NSData(contentsOfFile: pathForResourceString),
             let dataProvider = CGDataProvider(data: fontData),
             let fontRef = CGFont(dataProvider) else {
-                preconditionFailure("Failed to load fonts (step 1): \(fontName)")
+            preconditionFailure("Failed to load fonts (step 1): \(fontName)")
         }
         var errorRef: Unmanaged<CFError>?
         if !CTFontManagerRegisterGraphicsFont(fontRef, &errorRef) {
@@ -64,6 +68,7 @@ extension UIFont {
         rawValue.removeSubrange(range)
         return rawValue
     }()
+
     static func notoSansRegular(ofSize size: CGFloat) -> UIFont {
         guard let font = UIFont(name: notoSansRegular, size: size) else {
             preconditionFailure("Missing font: \(notoSansRegular)")

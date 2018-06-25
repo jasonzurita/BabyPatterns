@@ -7,7 +7,7 @@ public final class TurnOffAdsVC: UIViewController {
 
     public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
 
-    override public func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
     }
 

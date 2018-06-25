@@ -54,7 +54,7 @@ final class FeedingVC: UIViewController {
         })
         updateProfileUI()
     }
-    
+
     private func updateProfileUI() {
         guard let p = profileVM?.profile else { return }
         profileView.nameLabel.text = p.babyName

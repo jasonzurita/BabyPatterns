@@ -10,6 +10,7 @@ public final class StopButton: UIButton {
             updateColor()
         }
     }
+
     public init(onTap: @escaping () -> Void, enabledColor: UIColor, disabledColor: UIColor) {
         _onTap = onTap
         _enabledColor = enabledColor
@@ -37,8 +38,8 @@ public final class StopButton: UIButton {
             _centerSquare.centerXAnchor.constraint(equalTo: centerXAnchor),
             _centerSquare.centerYAnchor.constraint(equalTo: centerYAnchor),
             _centerSquare.heightAnchor.constraint(equalTo: _centerSquare.widthAnchor),
-            _centerSquare.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.25)
-            ])
+            _centerSquare.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.25),
+        ])
         updateColor()
     }
 
