@@ -2,6 +2,8 @@ import Framework_BabyPatterns
 import PlaygroundSupport
 import UIKit
 
+UIFont.registerFonts
+
 final class MockBottleProvider: BottleDelegate, BottleDataSource {
     init() {}
 
@@ -23,8 +25,6 @@ final class MockBottleProvider: BottleDelegate, BottleDataSource {
 }
 
 let provider = MockBottleProvider()
-
-UIFont.registerFonts
 
 let vc = BottleVC()
 vc.dataSource = provider
