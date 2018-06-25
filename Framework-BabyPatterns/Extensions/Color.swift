@@ -13,7 +13,7 @@ extension UIColor {
 
     static var bpLightBlue: UIColor {
         // #66CCFF
-        return UIColor(red: 102.0 / 255.0, green: 204.0 / 255.0, blue: 225.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 102.0 / 255.0, green: 204.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
     }
 
     static var bpDarkGray: UIColor {
