@@ -13,7 +13,7 @@ func<> <A: AnyObject>(f: @escaping (A) -> Void, g: @escaping (A) -> Void) -> (A)
 }
 
 // MARK: Label Styles
-let styleBaseLabel: (UILabel) -> Void = {
+let styleLabelBase: (UILabel) -> Void = {
     $0.numberOfLines = 0
 }
 
@@ -29,13 +29,13 @@ func styleLabelColor(_ color: UIColor) -> (UILabel) -> Void {
     }
 }
 
-let styleH2Label =
-    styleBaseLabel
+let styleLabelH2 =
+    styleLabelBase
         <> styleLabelFont(.notoSansBold(ofSize: 16))
         <> styleLabelColor(.bpMediumGray)
 
-let styleBodyLabel =
-    styleBaseLabel
+let styleLabelBody =
+    styleLabelBase
         <> styleLabelFont(.notoSansRegular(ofSize: 16))
         <> styleLabelColor(.bpMediumGray)
 
