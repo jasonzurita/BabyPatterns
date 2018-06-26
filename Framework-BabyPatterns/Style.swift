@@ -49,7 +49,7 @@ let styleLabelTimer =
 }
 
 // MARK: Buttons
-let styleButtonBase: (UIButton) -> Void = { _ in 
+let styleButtonBase: (UIButton) -> Void = { _ in
     // noop
 }
 

@@ -24,7 +24,7 @@ public final class PumpingVC: UIViewController {
             _stopwatch.bindFrameToSuperviewBounds()
         }
     }
-    
+
     @IBOutlet var saveButton: UIButton! {
         didSet { styleButtonSave(saveButton) }
     }

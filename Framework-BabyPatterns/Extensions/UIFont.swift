@@ -5,7 +5,7 @@ public enum CustomFont: String {
     case notoSansBoldItalic = "NotoSans-BoldItalic"
     case notoSansItalic = "NotoSans-Italic"
     case notoSansRegular = "NotoSans-Regular"
-    
+
     static var allValues: [CustomFont] {
         return [
             .notoSansBold,

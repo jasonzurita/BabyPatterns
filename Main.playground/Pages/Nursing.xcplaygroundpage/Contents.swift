@@ -2,7 +2,7 @@
 import PlaygroundSupport
 import UIKit
 
-UIFont.registerFonts 
+UIFont.registerFonts
 
 struct Controller: FeedingController {
     func start(feeding type: FeedingType, side: FeedingSide) {
