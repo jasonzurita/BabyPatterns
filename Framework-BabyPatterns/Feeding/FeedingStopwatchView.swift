@@ -42,12 +42,14 @@ public final class FeedingStopwatchView: UIView {
     @IBOutlet var leftFeedingControl: FeedingControl! {
         didSet {
             leftFeedingControl.side = .left
+            styleButtonFont(.notoSansRegular(ofSize: 16))(leftFeedingControl)
         }
     }
 
     @IBOutlet var rightFeedingControl: FeedingControl! {
         didSet {
             rightFeedingControl.side = .right
+            styleButtonFont(.notoSansRegular(ofSize: 16))(rightFeedingControl)
         }
     }
 
