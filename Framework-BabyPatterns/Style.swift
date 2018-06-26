@@ -58,10 +58,16 @@ let styleButtonCornerRadius: (UIButton) -> Void = {
     $0.layer.masksToBounds = true
 }
 
+func styleButtonFont(_ font: UIFont) -> (UIButton) -> Void {
+    return {
+        $0.titleLabel?.font = font
+    }
+}
+
 let styleButtonSave =
     styleButtonBase
         <> styleButtonCornerRadius
+        <> styleButtonFont(.notoSansRegular(ofSize: 20))
         <> {
             $0.backgroundColor = .bpLightBlue
-            $0.titleLabel?.font = .notoSansRegular(ofSize: 20)
         }
