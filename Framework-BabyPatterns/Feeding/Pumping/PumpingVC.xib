@@ -17,6 +17,8 @@
                 <outlet property="saveButton" destination="SXV-H3-PLv" id="vcn-gL-gZX"/>
                 <outlet property="stopwatchContainerView" destination="LHh-f0-6cl" id="x3X-eE-iGw"/>
                 <outlet property="view" destination="iN0-l3-epB" id="zVR-rC-zIh"/>
+                <outletCollection property="bodyLabels" destination="DBk-K9-kge" collectionClass="NSMutableArray" id="UQr-rz-gR4"/>
+                <outletCollection property="bodyLabels" destination="tZh-uD-m9Y" collectionClass="NSMutableArray" id="h6Z-fL-C2H"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -41,8 +43,8 @@
                         <constraint firstAttribute="height" constant="75" id="Yj2-hG-qh2"/>
                     </constraints>
                 </pickerView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="oz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZh-uD-m9Y">
-                    <rect key="frame" x="242" y="304" width="19" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="OZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZh-uD-m9Y">
+                    <rect key="frame" x="242" y="304" width="24" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>

@@ -12,6 +12,7 @@ public final class PumpingVC: UIViewController {
     private let _amounts = stride(from: 0, to: 10, by: 0.1).map { String($0) }
     private let _amountCallback: (Double) -> Void
 
+    @IBOutlet var bodyLabels: [UILabel]!
     @IBOutlet var amountPicker: UIPickerView! {
         didSet {
             amountPicker.dataSource = self
@@ -44,6 +45,7 @@ public final class PumpingVC: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+        bodyLabels.forEach { styleLabelBody($0) }
     }
 
     public func resume(feeding: Feeding) {
@@ -72,7 +74,14 @@ extension PumpingVC: UIPickerViewDataSource {
 }
 
 extension PumpingVC: UIPickerViewDelegate {
-    public func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
-        return _amounts[row]
+    public func pickerView(_ : UIPickerView,
+                           attributedTitleForRow row: Int,
+                           forComponent _: Int) -> NSAttributedString? {
+        let string = _amounts[row]
+        return NSAttributedString(string: string,
+                                  attributes: [
+                                    .font: UIFont.notoSansRegular(ofSize: 20),
+                                    .foregroundColor: UIColor.black,
+                                    ])
     }
 }
