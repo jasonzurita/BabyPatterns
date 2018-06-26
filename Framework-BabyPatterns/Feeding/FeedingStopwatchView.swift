@@ -35,6 +35,7 @@ public final class FeedingStopwatchView: UIView {
     @IBOutlet var timerLabel: TimerLabel! {
         didSet {
             timerLabel.changeDisplayTime(time: 0)
+            styleLabelTimer(timerLabel)
         }
     }
 

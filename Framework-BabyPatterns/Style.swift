@@ -15,6 +15,7 @@ func<> <A: AnyObject>(f: @escaping (A) -> Void, g: @escaping (A) -> Void) -> (A)
 // MARK: Label Styles
 let styleLabelBase: (UILabel) -> Void = {
     $0.numberOfLines = 0
+    $0.backgroundColor = .clear
 }
 
 func styleLabelFont(_ font: UIFont) -> (UILabel) -> Void {
@@ -38,6 +39,14 @@ let styleLabelBody =
     styleLabelBase
         <> styleLabelFont(.notoSansRegular(ofSize: 16))
         <> styleLabelColor(.bpMediumGray)
+
+let styleLabelTimer =
+    styleLabelBase
+        <> styleLabelColor(.bpMediumGray)
+        <> styleLabelFont(.notoSansBold(ofSize: 46))
+        <> {
+            $0.textAlignment = .center
+}
 
 // MARK: Buttons
 let styleButtonBase: (UIButton) -> Void = { _ in 

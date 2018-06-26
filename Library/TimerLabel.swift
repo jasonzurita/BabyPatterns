@@ -15,23 +15,6 @@ public final class TimerLabel: UILabel {
         }
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupLabel()
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupLabel()
-    }
-
-    private func setupLabel() {
-        backgroundColor = UIColor.clear
-        textAlignment = .center
-        font = UIFont(name: "Helvetica", size: 49)
-        textColor = UIColor.gray
-    }
-
     public func changeDisplayTime(time: TimeInterval) {
         guard !isRunning else { return }
         counter = time
