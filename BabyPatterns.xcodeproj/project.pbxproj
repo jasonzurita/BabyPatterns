@@ -28,6 +28,7 @@
 		120F804C1FBF127A00D04E45 /* ShakeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B002141E8A937E00810739 /* ShakeTextField.swift */; };
 		120F804D1FBF131D00D04E45 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE2DE11E76CC4A00B8B373 /* Loggable.swift */; };
 		12128AC820C5ED0300CF16C0 /* RequestFeatureTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */; };
+		1221EB7320E3006F002212DB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1221EB7220E3006F002212DB /* StoreKit.framework */; };
 		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
 		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
 		1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */; };
@@ -156,6 +157,7 @@
 		120F80241FBF0E9500D04E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		120F80291FBF0E9500D04E45 /* LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		120F80321FBF0E9500D04E45 /* Info-LibraryTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-LibraryTests.plist"; sourceTree = "<group>"; };
+		1221EB7220E3006F002212DB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
 		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
 		1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingStopwatchView.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				120F80361FBF0E9500D04E45 /* Library.framework in Frameworks */,
 				8E08FBE236E6B48374B5161C /* Pods_BabyPatterns.framework in Frameworks */,
 				12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */,
+				1221EB7320E3006F002212DB /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +609,7 @@
 		E6E2429A0B036BEAA14B2AB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1221EB7220E3006F002212DB /* StoreKit.framework */,
 				432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */,
 				DA42E7856FB58D2B877C484F /* Pods_Baby_TrackerTests.framework */,
 				88A3C31FEB35E52EB3F11900 /* Pods_BabyPatterns.framework */,
@@ -765,6 +769,9 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 0;
 							};
