@@ -1,12 +1,21 @@
 - Add tick marks to history screen (by minute, day, week)
-    - UI style pass on history screen
-    - Add ability to tap on history bar and get tool tip of date
+  - UI style pass on history screen
+  - Add ability to tap on history bar and get tool tip of date
 - Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)
-- Ask about polishing the sign-up screen
+- Remove "Demo button from sign in screen"
+- Swap login and sign up screens
+- Better center login/signup screens
 - Get app icon
+- Temporarily put request feature into settings (send email to me)
+- Make feedings the home screen
+- Move last feeding info to feeding screen (from current home screen)
+  - This can be either under the baby info on the top or at the bottom as a sort of persistent banner.
+  - Maybe with `*` and add `*` to feeding circle to indicate last side used?
+- Move settings button to new feeding home screen
 - Final pass on settings screen (contact support) 
 - Age validation during sign up
 - The first feeding seems to not get logged. Check this out.
+- Privacy policy
 - Pass on color scheme
 - Pass on fonts
 
@@ -16,6 +25,9 @@ bugs
 - Slide bottle amount down, go to history, go back to bottle. The bottle UI is messed up.
 
 v2
+- Add ads back in
+- Add demo account button to sign in/create account screen
+- Restore main home screen after adding more functionality (request feature, changings, etc.)
 - in-app reviews
 - Setup CI / configuration management
 - Move to github
