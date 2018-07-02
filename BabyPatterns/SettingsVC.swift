@@ -1,6 +1,7 @@
 import Firebase
 import Framework_BabyPatterns
 import Library
+import MessageUI
 import UIKit
 
 final class SettingsVC: UITableViewController, Loggable {
@@ -24,6 +25,7 @@ final class SettingsVC: UITableViewController, Loggable {
     }
 
     @IBOutlet var resetPasswordCell: UITableViewCell!
+    @IBOutlet var requestFeatureCell: UITableViewCell!
     @IBOutlet var contactSupportCell: UITableViewCell!
     @IBOutlet var logoutCell: UITableViewCell!
 
@@ -142,8 +144,10 @@ extension SettingsVC {
 
         if selectedCell == resetPasswordCell {
             resetPassword()
+        } else if selectedCell == requestFeatureCell {
+            composeEmail(subject: "Baby Patterns - Request Feature")
         } else if selectedCell == contactSupportCell {
-            contactSupport()
+            composeEmail(subject: "Baby Patterns - Contact Support")
         } else if selectedCell == logoutCell {
             logout()
         } else {
@@ -151,10 +155,18 @@ extension SettingsVC {
         }
     }
 
-    private func resetPassword() {
-    }
+    private func resetPassword() { }
 
-    private func contactSupport() {
+    private func composeEmail(subject: String) {
+        guard MFMailComposeViewController.canSendMail() else { return }
+
+        let vc = MFMailComposeViewController()
+        vc.mailComposeDelegate = self
+
+        vc.setToRecipients(["jasonzurita@me.com"])
+        vc.setSubject(subject)
+
+        present(vc, animated: true, completion: nil)
     }
 
     private func logout() {
@@ -172,5 +184,12 @@ extension SettingsVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
+    }
+}
+
+extension SettingsVC: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        // TODO: make use of the error
+        controller.dismiss(animated: true, completion: nil)
     }
 }

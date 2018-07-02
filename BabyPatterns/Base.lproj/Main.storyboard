@@ -369,7 +369,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgG-ol-NVi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Feature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgG-ol-NVi">
                                                     <rect key="frame" x="26" y="11" width="315" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -390,7 +390,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uj8-nb-IX5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAY-us-5EP">
+                                                    <rect key="frame" x="26" y="12" width="127.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RAY-us-5EP" firstAttribute="leading" secondItem="SGe-zP-c1N" secondAttribute="leadingMargin" constant="10" id="dFX-jy-JGm"/>
+                                                <constraint firstItem="RAY-us-5EP" firstAttribute="centerY" secondItem="SGe-zP-c1N" secondAttribute="centerY" id="dhh-m6-E3r"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RAY-us-5EP" secondAttribute="trailing" id="lUB-Sp-F6Q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="ulb-3m-tKO">
+                                        <rect key="frame" x="0.0" y="427" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ulb-3m-tKO" id="Fv3-uQ-7eb">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pS5-iH-Djt">
                                                     <rect key="frame" x="26" y="11" width="315" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.98039215690000003" green="0.0039215686269999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -398,9 +419,9 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Uj8-nb-IX5" firstAttribute="leading" secondItem="SGe-zP-c1N" secondAttribute="leadingMargin" constant="10" id="Jzh-Yn-K7Q"/>
-                                                <constraint firstItem="Uj8-nb-IX5" firstAttribute="centerY" secondItem="SGe-zP-c1N" secondAttribute="centerY" id="KH8-7J-aFJ"/>
-                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Uj8-nb-IX5" secondAttribute="trailing" id="s7F-CN-aKD"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="pS5-iH-Djt" secondAttribute="trailing" id="0U5-dc-CDR"/>
+                                                <constraint firstItem="pS5-iH-Djt" firstAttribute="centerY" secondItem="Fv3-uQ-7eb" secondAttribute="centerY" id="4iX-lT-Zth"/>
+                                                <constraint firstItem="pS5-iH-Djt" firstAttribute="leading" secondItem="Fv3-uQ-7eb" secondAttribute="leadingMargin" constant="10" id="y2I-cy-9ur"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -416,11 +437,12 @@
                     <connections>
                         <outlet property="adsOffSwitch" destination="APw-Pv-uEz" id="tVp-RR-3Nf"/>
                         <outlet property="babyNameTextField" destination="aBd-cM-zWj" id="ncv-wY-4Kb"/>
-                        <outlet property="contactSupportCell" destination="VFE-o5-9ll" id="Gbm-xQ-yXe"/>
+                        <outlet property="contactSupportCell" destination="cfF-oH-3Nb" id="mdE-K6-dvo"/>
                         <outlet property="desiredSupplyTextField" destination="rIf-ho-amV" id="Muz-7T-5Tt"/>
                         <outlet property="emailTextField" destination="h52-Zu-yce" id="E5m-ri-PkX"/>
                         <outlet property="logoutCell" destination="cfF-oH-3Nb" id="le2-Ot-RTc"/>
                         <outlet property="nameTextField" destination="mf7-E8-js5" id="hpP-QE-2uf"/>
+                        <outlet property="requestFeatureCell" destination="VFE-o5-9ll" id="9jk-3G-jeW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gp6-ga-Dm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
