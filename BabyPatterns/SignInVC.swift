@@ -16,8 +16,6 @@ final class SignInVC: UIViewController, Loggable {
 
     @IBOutlet var signInActivityIndicator: UIActivityIndicatorView!
 
-    @IBOutlet var tryDemoActivityIndicator: UIActivityIndicatorView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSignInContainerView(containerLayer: signInContainerView.layer)
@@ -90,12 +88,6 @@ final class SignInVC: UIViewController, Loggable {
         prompt.addAction(okAction)
         prompt.addAction(cancelAction)
         present(prompt, animated: true, completion: nil)
-    }
-
-    @IBAction func tryDemo(_: UIButton) {
-        // load demo account
-        // TODO: turn start animating off
-        tryDemoActivityIndicator.startAnimating()
     }
 }
 

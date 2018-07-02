@@ -2,7 +2,6 @@
   - UI style pass on history screen
   - Add ability to tap on history bar and get tool tip of date
 - Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)
-- Remove "Demo button from sign in screen"
 - Swap login and sign up screens
 - Better center login/signup screens
 - Get app icon
@@ -39,3 +38,4 @@ v2
 - Implement request feature
 - Home screen bottom feeding summary - Include pumping?
 - Animation when logging a bottle feeding
+- Reconsider adding a demo mode

@@ -701,24 +701,6 @@
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1Ib-Wn-bTc">
                                 <rect key="frame" x="177" y="238" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqi-72-3ju">
-                                <rect key="frame" x="93.5" y="593" width="187.5" height="44"/>
-                                <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="diL-yS-vik"/>
-                                </constraints>
-                                <state key="normal" title="Try demo">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="22"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="yMz-CR-Elv">
-                                <rect key="frame" x="177.5" y="605" width="20" height="20"/>
-                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cHb-Ej-L1I">
                                 <rect key="frame" x="84.5" y="543" width="206.5" height="30"/>
                                 <subviews>
@@ -749,17 +731,12 @@
                             <constraint firstItem="4tT-wJ-nMO" firstAttribute="centerX" secondItem="OlT-hd-inr" secondAttribute="centerX" id="2lC-v7-FME"/>
                             <constraint firstItem="OlT-hd-inr" firstAttribute="width" secondItem="jrz-OJ-tnk" secondAttribute="width" multiplier="0.7" id="36B-Wx-BGJ"/>
                             <constraint firstItem="hNa-5D-Ffj" firstAttribute="width" secondItem="jrz-OJ-tnk" secondAttribute="width" id="A3d-Rr-tLY"/>
-                            <constraint firstItem="bqi-72-3ju" firstAttribute="width" secondItem="jrz-OJ-tnk" secondAttribute="width" multiplier="0.5" id="ADC-Hz-LOa"/>
                             <constraint firstItem="9N2-yD-Ggm" firstAttribute="top" secondItem="hNa-5D-Ffj" secondAttribute="bottom" constant="45" id="D1r-pA-w3a"/>
-                            <constraint firstItem="cde-pw-O8j" firstAttribute="top" secondItem="bqi-72-3ju" secondAttribute="bottom" constant="30" id="IUg-2R-jUD"/>
                             <constraint firstItem="1Ib-Wn-bTc" firstAttribute="centerY" secondItem="OlT-hd-inr" secondAttribute="centerY" id="Nb2-oj-na8"/>
-                            <constraint firstItem="bqi-72-3ju" firstAttribute="centerX" secondItem="jrz-OJ-tnk" secondAttribute="centerX" id="V9B-b4-9Jj"/>
                             <constraint firstItem="1Ib-Wn-bTc" firstAttribute="centerX" secondItem="OlT-hd-inr" secondAttribute="centerX" id="Y67-10-YP4"/>
-                            <constraint firstItem="yMz-CR-Elv" firstAttribute="centerY" secondItem="bqi-72-3ju" secondAttribute="centerY" id="bHO-7w-4tI"/>
-                            <constraint firstItem="bqi-72-3ju" firstAttribute="top" secondItem="cHb-Ej-L1I" secondAttribute="bottom" constant="20" id="dc1-W3-G73"/>
-                            <constraint firstItem="yMz-CR-Elv" firstAttribute="centerX" secondItem="bqi-72-3ju" secondAttribute="centerX" id="gzx-DH-Fd4"/>
                             <constraint firstItem="9N2-yD-Ggm" firstAttribute="centerX" secondItem="jrz-OJ-tnk" secondAttribute="centerX" id="hNK-jl-WWw"/>
                             <constraint firstItem="9N2-yD-Ggm" firstAttribute="width" secondItem="jrz-OJ-tnk" secondAttribute="width" multiplier="0.8" id="jbw-yJ-fOV"/>
+                            <constraint firstItem="cde-pw-O8j" firstAttribute="top" secondItem="cHb-Ej-L1I" secondAttribute="bottom" constant="94" id="mYu-2X-m8a"/>
                             <constraint firstItem="4tT-wJ-nMO" firstAttribute="top" secondItem="OlT-hd-inr" secondAttribute="bottom" constant="15" id="oBx-O2-GZo"/>
                             <constraint firstItem="cHb-Ej-L1I" firstAttribute="centerX" secondItem="jrz-OJ-tnk" secondAttribute="centerX" id="qzv-pS-1pC"/>
                             <constraint firstItem="OlT-hd-inr" firstAttribute="top" secondItem="9N2-yD-Ggm" secondAttribute="bottom" constant="20" id="u6N-R4-ep8"/>
@@ -772,7 +749,6 @@
                         <outlet property="passwordTextField" destination="zVR-Gm-BJB" id="Dbq-Yj-T68"/>
                         <outlet property="signInActivityIndicator" destination="1Ib-Wn-bTc" id="tP1-2q-anw"/>
                         <outlet property="signInContainerView" destination="9N2-yD-Ggm" id="Ljn-9s-qcB"/>
-                        <outlet property="tryDemoActivityIndicator" destination="yMz-CR-Elv" id="1ZY-kp-FC8"/>
                         <segue destination="nTM-8P-wsE" kind="show" identifier="SignedInSegue" id="Pqf-QY-QNL"/>
                     </connections>
                 </viewController>
