@@ -21,11 +21,11 @@ class DispatchVC: UIViewController, Loggable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.startAnimating()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        activityIndicator.startAnimating()
         if let user = Auth.auth().currentUser {
             didRequestProfile = false
             didRequestFeedings = false
