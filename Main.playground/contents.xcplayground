@@ -10,5 +10,6 @@
         <page name='Stop Button'/>
         <page name='Request Feature'/>
         <page name='Turn Off Ads'/>
+        <page name='Signup'/>
     </pages>
 </playground>
