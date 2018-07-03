@@ -10,7 +10,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
 
     @IBOutlet var containerCenterYConstraint: NSLayoutConstraint!
     @IBOutlet var containerView: UIView!
-
+    @IBOutlet var submitButton: UIButton!
     @IBOutlet var babyNameTextField: ShakeTextField!
     @IBOutlet var babyDOBTextField: ShakeTextField!
     @IBOutlet var nameTextField: ShakeTextField!
@@ -52,6 +52,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
     @IBAction func submitButtonPressed(_: UIButton) {
         guard areAllTextFieldsValid() else { return }
 
+        submitButton.isEnabled = false
         submitActivityIndicator.startAnimating()
         defer { containerView.endEditing(false); resetContainerHeight() }
 
@@ -93,6 +94,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
     }
 
     public func signUpFailed(message: String = "", error: Error? = nil) {
+        submitButton.isEnabled = true
         submitActivityIndicator.stopAnimating()
 
         // TODO: consider using the error for the user message
