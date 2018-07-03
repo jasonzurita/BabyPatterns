@@ -3,7 +3,7 @@
   - Add ability to tap on history bar and get tool tip of date
 - Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)
 - Swap login and sign up screens
-- Better center login/signup screens
+- Better center login screens
 - Make feedings the home screen
 - Move last feeding info to feeding screen (from current home screen)
   - This can be either under the baby info on the top or at the bottom as a sort of persistent banner.
@@ -14,6 +14,7 @@
 - Privacy policy
 - Pass on color scheme
 - Pass on fonts
+- Test failing create account
 
 bugs
 - Autolayout breaking when rotating on bottle screen
@@ -22,6 +23,8 @@ bugs
 
 v2
 - Add ads back in
+- Add relevant siri shortcuts (when pulling down on iOS and watchOS)
+- Native watchOS app?
 - Add demo account button to sign in/create account screen
 - Restore main home screen after adding more functionality (request feature, changings, etc.)
 - in-app reviews
