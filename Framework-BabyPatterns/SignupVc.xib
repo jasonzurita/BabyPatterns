@@ -17,6 +17,8 @@
                 <outlet property="babyDOBTextField" destination="4Sf-WR-nog" id="3pc-ec-Nk8"/>
                 <outlet property="babyInfoContainer" destination="QC9-dB-0Ra" id="skC-1J-zpl"/>
                 <outlet property="babyNameTextField" destination="6G3-Bc-CWh" id="O7N-rx-P2z"/>
+                <outlet property="containerCenterYConstraint" destination="Ohd-bq-Oew" id="FIB-vD-cxS"/>
+                <outlet property="containerView" destination="nA2-fy-qmm" id="p0w-05-GlP"/>
                 <outlet property="emailTextField" destination="y46-g2-qP6" id="WPv-1J-gHB"/>
                 <outlet property="nameTextField" destination="Rk2-8x-bOh" id="dWq-x4-e2N"/>
                 <outlet property="parentInfoContainer" destination="bcB-Rk-dfn" id="DwE-rV-i67"/>

@@ -4,6 +4,9 @@ import Library
 public final class SignupVc: UIViewController, Loggable, Validatable {
     public let shouldPrintDebugLog = true
 
+    @IBOutlet var containerCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet var containerView: UIView!
+
     @IBOutlet var babyNameTextField: ShakeTextField!
     @IBOutlet var babyDOBTextField: ShakeTextField!
     @IBOutlet var nameTextField: ShakeTextField!
@@ -117,6 +120,22 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
 extension SignupVc: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        view.setNeedsLayout()
+        UIView.animate(withDuration: 0.25) {
+            self.containerCenterYConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }
         return true
+    }
+
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        let delta = (view.frame.height - containerView.frame.height - view.safeAreaInsets.top) * 0.5
+        log("Container view Y offset: \(delta)", object: self, type: .info)
+
+        view.setNeedsLayout()
+        UIView.animate(withDuration: 0.25) {
+            self.containerCenterYConstraint.constant = -delta
+            self.view.layoutIfNeeded()
+        }
     }
 }
