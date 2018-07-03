@@ -39,7 +39,7 @@ class DispatchVC: UIViewController, Loggable {
         let vc = SignupVc()
 
         vc.onSignup = { (email, password) -> Void in
-            Auth.auth().createUser(withEmail: email, password: password) { user, error in
+            Auth.auth().createUser(withEmail: email, password: password) { [unowned self] user, error in
                 guard error == nil else {
                     vc.signUpFailed(error: error)
                     return
@@ -48,8 +48,9 @@ class DispatchVC: UIViewController, Loggable {
                     vc.signUpFailed(message: "Failed to create account. Please try again.")
                     return
                 }
-                // TODO: implement this
-//                self.signedUp(user: u)
+                vc.dismiss(animated: false, completion: {
+                    self.userLoggedIn(user: u)
+                })
             }
         }
 
@@ -91,7 +92,6 @@ class DispatchVC: UIViewController, Loggable {
             self.userLoggedIn()
         })
     }
-
 
     private func userLoggedIn() {
         if didRequestFeedings && didRequestProfile {
