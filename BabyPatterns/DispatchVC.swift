@@ -39,7 +39,7 @@ class DispatchVC: UIViewController, Loggable {
     private func presentSignup() {
         let vc = SignupVc()
 
-        vc.onSignup = { (email, password) -> Void in
+        vc.onSignup = { (email, password, parentName, babyName) -> Void in
             Auth.auth().createUser(withEmail: email, password: password) { [unowned self] user, error in
                 guard error == nil else {
                     vc.signUpFailed(error: error)
@@ -50,6 +50,14 @@ class DispatchVC: UIViewController, Loggable {
                     return
                 }
                 vc.dismiss(animated: false, completion: {
+                    self.log("User id: \(u.uid)", object: self, type: .info)
+                    self.profileVM?.profile = Profile(babyName: babyName,
+                                                      parentName: parentName,
+                                                      babyDOB: Date(),
+                                                      email: email,
+                                                      userID: u.uid,
+                                                      desiredMaxSupply: K.Defaults.DefaultDesiredMaxSupply)
+                    self.profileVM?.sendToServer()
                     self.userLoggedIn(user: u)
                 })
             }

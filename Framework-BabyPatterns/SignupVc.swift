@@ -4,7 +4,14 @@ import Library
 public final class SignupVc: UIViewController, Loggable, Validatable {
     public let shouldPrintDebugLog = true
 
-    public typealias SignupResultHandler = (_ email: String, _ password: String) -> Void
+    public typealias SignupResultHandler =
+        (
+        _ email: String,
+        _ password: String,
+        _ parentName: String,
+        _ babyName: String
+        ) -> Void
+
     public var onSignup: SignupResultHandler?
     public var onLoginRequested: (() -> Void)?
 
@@ -60,7 +67,9 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
             signUpFailed(message: "Please check your email and password and try again.")
             return
         }
-        onSignup?(email, password)
+        let parentName = nameTextField.text ?? "None"
+        let babyName = babyNameTextField.text ?? "None"
+        onSignup?(email, password, parentName, babyName)
     }
 
     private func resetContainerHeight() {
@@ -104,26 +113,6 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
         let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alert.addAction(okayAction)
         present(alert, animated: true, completion: nil)
-    }
-
-//    private func signedUp(user: User) {
-//        submitActivityIndicator.stopAnimating()
-//        log("User id: \(user.uid)", object: self, type: .info)
-//
-//        profileVM?.profile = makeProfile(userID: user.uid)
-//        profileVM?.sendToServer()
-//    }
-
-    private func makeProfile(userID: String) -> Profile {
-        let parentName = nameTextField.text ?? "None"
-        let babyName = babyNameTextField.text ?? "None"
-        let email = emailTextField.text ?? "None"
-        return Profile(babyName: babyName,
-                       parentName: parentName,
-                       babyDOB: Date(),
-                       email: email,
-                       userID: userID,
-                       desiredMaxSupply: K.Defaults.DefaultDesiredMaxSupply)
     }
 }
 
