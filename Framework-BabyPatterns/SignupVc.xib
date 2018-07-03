@@ -45,7 +45,7 @@
                             <rect key="frame" x="0.0" y="75" width="337.5" height="79"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Baby Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6G3-Bc-CWh" customClass="ShakeTextField" customModule="Library">
-                                    <rect key="frame" x="93" y="0.0" width="97" height="40"/>
+                                    <rect key="frame" x="93" y="0.0" width="244.5" height="40"/>
                                     <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="fBy-zb-wAh"/>
@@ -65,7 +65,7 @@
                                     </constraints>
                                 </view>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Baby Birthday" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Sf-WR-nog" customClass="ShakeTextField" customModule="Library">
-                                    <rect key="frame" x="93" y="39" width="117.5" height="40"/>
+                                    <rect key="frame" x="93" y="39" width="244.5" height="40"/>
                                     <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="65t-Oa-QxH"/>
@@ -93,8 +93,10 @@
                                 <constraint firstItem="6G3-Bc-CWh" firstAttribute="leading" secondItem="ZNW-2M-Qwb" secondAttribute="leading" id="8kB-VF-LAn"/>
                                 <constraint firstAttribute="bottom" secondItem="4Sf-WR-nog" secondAttribute="bottom" id="IWi-ce-4qw"/>
                                 <constraint firstItem="4Sf-WR-nog" firstAttribute="top" secondItem="6G3-Bc-CWh" secondAttribute="bottom" constant="-1" id="JUy-TM-ACR"/>
+                                <constraint firstAttribute="trailing" secondItem="6G3-Bc-CWh" secondAttribute="trailing" id="UvK-nB-IX7"/>
                                 <constraint firstItem="ZNW-2M-Qwb" firstAttribute="bottom" secondItem="6G3-Bc-CWh" secondAttribute="bottom" id="ZYP-hO-aVJ"/>
                                 <constraint firstItem="4Sf-WR-nog" firstAttribute="leading" secondItem="ZNW-2M-Qwb" secondAttribute="leading" id="gS7-CZ-TE0"/>
+                                <constraint firstAttribute="trailing" secondItem="4Sf-WR-nog" secondAttribute="trailing" id="hS8-WQ-iIq"/>
                                 <constraint firstItem="6G3-Bc-CWh" firstAttribute="top" secondItem="QC9-dB-0Ra" secondAttribute="top" id="nnP-yF-EH3"/>
                                 <constraint firstItem="bsj-6l-cDh" firstAttribute="centerY" secondItem="QC9-dB-0Ra" secondAttribute="centerY" id="x75-vP-goy"/>
                             </constraints>
