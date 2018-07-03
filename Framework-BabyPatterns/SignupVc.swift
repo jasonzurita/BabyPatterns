@@ -53,12 +53,21 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
         guard areAllTextFieldsValid() else { return }
 
         submitActivityIndicator.startAnimating()
+        defer { containerView.endEditing(false); resetContainerHeight() }
 
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             signUpFailed(message: "Please check your email and password and try again.")
             return
         }
         onSignup?(email, password)
+    }
+
+    private func resetContainerHeight() {
+        view.setNeedsLayout()
+        UIView.animate(withDuration: 0.25) {
+            self.containerCenterYConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }
     }
 
     private func areAllTextFieldsValid() -> Bool {
@@ -119,11 +128,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
 extension SignupVc: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        view.setNeedsLayout()
-        UIView.animate(withDuration: 0.25) {
-            self.containerCenterYConstraint.constant = 0
-            self.view.layoutIfNeeded()
-        }
+        resetContainerHeight()
         return true
     }
 
