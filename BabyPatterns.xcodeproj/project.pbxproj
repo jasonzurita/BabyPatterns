@@ -38,6 +38,8 @@
 		12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; };
 		12605B431FBB1DBB0035243B /* Framework_BabyPatterns.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289D18C20C167A800E73DA0 /* StopButton.swift */; };
+		12B6E42120EB973400EA6944 /* SignupVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B6E41F20EB973400EA6944 /* SignupVc.swift */; };
+		12B6E42220EB973400EA6944 /* SignupVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B6E42020EB973400EA6944 /* SignupVc.xib */; };
 		12C866B720DDAF5300053FCC /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C866B320DDAF5200053FCC /* NotoSans-Regular.ttf */; };
 		12C866B820DDAF5300053FCC /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C866B420DDAF5200053FCC /* NotoSans-Bold.ttf */; };
 		12C866B920DDAF5300053FCC /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C866B520DDAF5300053FCC /* NotoSans-Italic.ttf */; };
@@ -169,6 +171,8 @@
 		1289D18C20C167A800E73DA0 /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		128C93CA1FB72CA0001E58F4 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validatable.swift; path = ../Library/Validatable.swift; sourceTree = "<group>"; };
 		12A782421FBB20C7000BD13F /* Main.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Main.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		12B6E41F20EB973400EA6944 /* SignupVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVc.swift; sourceTree = "<group>"; };
+		12B6E42020EB973400EA6944 /* SignupVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupVc.xib; sourceTree = "<group>"; };
 		12C866B320DDAF5200053FCC /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		12C866B420DDAF5200053FCC /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		12C866B520DDAF5300053FCC /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
@@ -322,6 +326,8 @@
 				12C9FFD120B837B800B048E6 /* Extensions */,
 				12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */,
 				12605B3E1FBB1DBB0035243B /* Info.plist */,
+				12B6E41F20EB973400EA6944 /* SignupVc.swift */,
+				12B6E42020EB973400EA6944 /* SignupVc.xib */,
 			);
 			path = "Framework-BabyPatterns";
 			sourceTree = "<group>";
@@ -827,6 +833,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B6E42220EB973400EA6944 /* SignupVc.xib in Resources */,
 				12C866B920DDAF5300053FCC /* NotoSans-Italic.ttf in Resources */,
 				12C866B820DDAF5300053FCC /* NotoSans-Bold.ttf in Resources */,
 				12C866BA20DDAF5300053FCC /* NotoSans-BoldItalic.ttf in Resources */,
@@ -969,6 +976,7 @@
 				12C866BE20DDB15000053FCC /* Bundle.swift in Sources */,
 				12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */,
 				12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */,
+				12B6E42120EB973400EA6944 /* SignupVc.swift in Sources */,
 				123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */,
 				12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */,
 				12C866C020DDB34200053FCC /* Style.swift in Sources */,
