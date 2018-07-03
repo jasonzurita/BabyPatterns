@@ -40,7 +40,7 @@ public final class HistoryVC: UIViewController, Loggable {
 
     public init(events: [Event]) {
         self.events = events
-        super.init(nibName: "\(type(of: self))", bundle: Bundle(for: type(of: self)))
+        super.init(nibName: "\(type(of: self))", bundle: Bundle.framework)
     }
 
     public required init?(coder _: NSCoder) {

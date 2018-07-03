@@ -2,7 +2,7 @@ import UIKit
 
 public final class TurnOffAdsVC: UIViewController {
     public init() {
-        super.init(nibName: "\(type(of: self))", bundle: Bundle(for: type(of: self)))
+        super.init(nibName: "\(type(of: self))", bundle: Bundle.framework)
     }
 
     public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
