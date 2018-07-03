@@ -188,7 +188,9 @@ extension SettingsVC: UITextFieldDelegate {
 }
 
 extension SettingsVC: MFMailComposeViewControllerDelegate {
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult,
+                               error: Error?) {
         // TODO: make use of the error
         controller.dismiss(animated: true, completion: nil)
     }

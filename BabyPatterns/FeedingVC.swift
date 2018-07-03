@@ -44,13 +44,13 @@ final class FeedingVC: UIViewController {
                                                object: nil,
                                                queue: nil,
                                                using: { [weak self] _ in
-                                                   if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-                                                       guard let strongSelf = self else { return }
-                                                       strongSelf.presentHistoryVC()
-
-                                                       UIDevice.current.endGeneratingDeviceOrientationNotifications()
-                                                       if let token = strongSelf.notificationToken { center.removeObserver(token) }
-                                                   }
+                                                guard UIDeviceOrientationIsLandscape(UIDevice.current.orientation),
+                                                let strongSelf = self else { return }
+                                                strongSelf.presentHistoryVC()
+                                                UIDevice.current.endGeneratingDeviceOrientationNotifications()
+                                                if let token = strongSelf.notificationToken {
+                                                    center.removeObserver(token)
+                                                }
         })
         updateProfileUI()
     }
