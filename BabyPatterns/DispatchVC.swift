@@ -31,8 +31,33 @@ class DispatchVC: UIViewController, Loggable {
             didRequestFeedings = false
             userLoggedIn(user: user)
         } else {
-            userLoggedOut()
+            presentSignup()
         }
+    }
+
+    private func presentSignup() {
+        let vc = SignupVc()
+
+        vc.onSignup = { (email, password) -> Void in
+            Auth.auth().createUser(withEmail: email, password: password) { user, error in
+                guard error == nil else {
+                    vc.signUpFailed(error: error)
+                    return
+                }
+                guard let u = user else {
+                    vc.signUpFailed(message: "Failed to create account. Please try again.")
+                    return
+                }
+                // TODO: implement this
+//                self.signedUp(user: u)
+            }
+        }
+
+        vc.onLoginRequested = {
+            // TODO: implement this
+        }
+
+        present(vc, animated: false, completion: nil)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,9 +92,6 @@ class DispatchVC: UIViewController, Loggable {
         })
     }
 
-    private func userLoggedOut() {
-        performSegue(withIdentifier: K.Segues.LoggedOut, sender: nil)
-    }
 
     private func userLoggedIn() {
         if didRequestFeedings && didRequestProfile {

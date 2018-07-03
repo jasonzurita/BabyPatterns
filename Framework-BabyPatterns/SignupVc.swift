@@ -4,6 +4,10 @@ import Library
 public final class SignupVc: UIViewController, Loggable, Validatable {
     public let shouldPrintDebugLog = true
 
+    public typealias SignupResultHandler = (_ email: String, _ password: String) -> Void
+    public var onSignup: SignupResultHandler?
+    public var onLoginRequested: (() -> Void)?
+
     @IBOutlet var containerCenterYConstraint: NSLayoutConstraint!
     @IBOutlet var containerView: UIView!
 
@@ -40,27 +44,21 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
 //        containerLayer.borderColor = UIColor(red: 0, green: 153 / 255, blue: 255 / 255, alpha: 1).cgColor
 //        containerLayer.masksToBounds = true
 //    }
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        submitActivityIndicator.stopAnimating()
+    }
+
     @IBAction func submitButtonPressed(_: UIButton) {
         guard areAllTextFieldsValid() else { return }
+
+        submitActivityIndicator.startAnimating()
 
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             signUpFailed(message: "Please check your email and password and try again.")
             return
         }
-
-        submitActivityIndicator.startAnimating()
-
-//        Auth.auth().createUser(withEmail: email, password: password) { user, error in
-//            guard error == nil else {
-//                self.signUpFailed(message: "", error: error)
-//                return
-//            }
-//            guard let u = user else {
-//                self.signUpFailed(message: "Failed to create account. Please try again.")
-//                return
-//            }
-//            self.signedUp(user: u)
-//        }
+        onSignup?(email, password)
     }
 
     private func areAllTextFieldsValid() -> Bool {
@@ -85,9 +83,10 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
         return resultReasons.isEmpty
     }
 
-    private func signUpFailed(message: String, error: Error? = nil) {
+    public func signUpFailed(message: String = "", error: Error? = nil) {
         submitActivityIndicator.stopAnimating()
 
+        // TODO: consider using the error for the user message
         log(error?.localizedDescription ?? message, object: self, type: .error)
 
         let alert = UIAlertController(title: "Trouble Signing Up", message: message, preferredStyle: .alert)
