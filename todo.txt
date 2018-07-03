@@ -15,6 +15,7 @@
 - Pass on color scheme
 - Pass on fonts
 - Test failing create account
+- Correct Firebase credentials in plist and move to new firebase account
 
 bugs
 - Autolayout breaking when rotating on bottle screen

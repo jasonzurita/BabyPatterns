@@ -26,6 +26,7 @@ class DispatchVC: UIViewController, Loggable {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activityIndicator.startAnimating()
+        // TODO: fix the double configuring the db when creating an account
         if let user = Auth.auth().currentUser {
             didRequestProfile = false
             didRequestFeedings = false
