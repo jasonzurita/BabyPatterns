@@ -4,7 +4,6 @@
 - Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)
 - Swap login and sign up screens
 - Better center login/signup screens
-- Get app icon
 - Make feedings the home screen
 - Move last feeding info to feeding screen (from current home screen)
   - This can be either under the baby info on the top or at the bottom as a sort of persistent banner.
