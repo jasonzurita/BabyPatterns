@@ -85,7 +85,6 @@
 		43932C481E03594F00056F83 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43932C471E03594F00056F83 /* ProfileView.xib */; };
 		43A1C8FA1DFDA906008C5C2F /* SegmentedControlBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C8F91DFDA906008C5C2F /* SegmentedControlBar.xib */; };
 		43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */; };
-		43C4CE891E29130100300F13 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C4CE881E29130100300F13 /* SignUpVC.swift */; };
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
 		43E92D2F1E6D9F3F008CE31E /* StorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E92D2E1E6D9F3F008CE31E /* StorageFacade.swift */; };
 		43F4FAE11DF8CD01005510D4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */; };
@@ -233,7 +232,6 @@
 		43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleToggleButton.swift; sourceTree = "<group>"; };
 		43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		43B002141E8A937E00810739 /* ShakeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeTextField.swift; sourceTree = "<group>"; };
-		43C4CE881E29130100300F13 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		43D2BE631DCB684800895A65 /* FeedingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingVC.swift; sourceTree = "<group>"; };
 		43E92D2C1E68D9AC008CE31E /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewExtensions.swift; path = ../Library/UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		43E92D2E1E6D9F3F008CE31E /* StorageFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageFacade.swift; sourceTree = "<group>"; };
@@ -492,7 +490,6 @@
 				43037E0D1E3A36DB00D478AD /* NavigationVC.swift */,
 				430F01771E2BDAC700FE02FC /* DispatchVC.swift */,
 				437814C81DDD1B9D0047D11A /* SignInVC.swift */,
-				43C4CE881E29130100300F13 /* SignUpVC.swift */,
 				436484B01DCA150500E6B0A7 /* HomeVC.swift */,
 				12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */,
 				43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */,
@@ -977,7 +974,6 @@
 				43714F1C1E63DCC20055B411 /* EditProfileImageVC.swift in Sources */,
 				436484B11DCA150500E6B0A7 /* HomeVC.swift in Sources */,
 				430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */,
-				43C4CE891E29130100300F13 /* SignUpVC.swift in Sources */,
 				43037E0E1E3A36DB00D478AD /* NavigationVC.swift in Sources */,
 				435859541E227C2B00F69A0C /* FeedingsVM.swift in Sources */,
 				43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */,

@@ -11,10 +11,6 @@ public struct K {
 
         // logged out
         public static let SignedIn = "SignedInSegue"
-        public static let SignUp = "SignUpSegue"
-
-        // new account
-        public static let SignedUp = "SignedUpSegue"
 
         // home vc
         public static let Feeding = "FeedingSegue"
