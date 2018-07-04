@@ -24,13 +24,12 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
     @IBOutlet var emailTextField: ShakeTextField!
     @IBOutlet var passwordTextField: ShakeTextField!
     @IBOutlet var submitActivityIndicator: UIActivityIndicatorView!
-    @IBOutlet var babyInfoContainer: UIView! {
+    @IBOutlet var infoContainers: [UIView]!
     @IBOutlet var titleLabel: UILabel! {
         didSet {
             styleLabelTitle(titleLabel)
         }
     }
-    @IBOutlet var parentInfoContainer: UIView!
 
     public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -43,15 +42,10 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
     public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
 
     public override func viewDidLoad() {
-//        configureSignUpContainerView(containerLayer: babyInfoContainer.layer)
-//        configureSignUpContainerView(containerLayer: parentInfoContainer.layer)
         super.viewDidLoad()
+        infoContainers.forEach(styleViewBorder)
     }
 
-//    private func configureSignUpContainerView(containerLayer: CALayer) {
-//        containerLayer.borderColor = UIColor(red: 0, green: 153 / 255, blue: 255 / 255, alpha: 1).cgColor
-//        containerLayer.masksToBounds = true
-//    }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         submitActivityIndicator.stopAnimating()

@@ -12,6 +12,12 @@ func<> <A: AnyObject>(f: @escaping (A) -> Void, g: @escaping (A) -> Void) -> (A)
     }
 }
 
+// MARK: UIView
+let styleViewBorder: (UIView) -> Void = {
+    $0.layer.borderColor = UIColor.bpMediumBlue.cgColor
+    $0.layer.masksToBounds = true
+}
+
 // MARK: Label Styles
 let styleLabelBase: (UILabel) -> Void = {
     $0.numberOfLines = 0
