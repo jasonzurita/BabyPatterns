@@ -82,3 +82,9 @@ let styleButtonSave =
         <> {
             $0.backgroundColor = .bpLightBlue
         }
+
+// MARK: TextFields
+let styleTextFieldBase: (UITextField) -> Void = {
+    $0.font = .notoSansRegular(ofSize: 16)
+    $0.textColor = .bpDarkGray
+}

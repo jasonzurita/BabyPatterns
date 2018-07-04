@@ -25,6 +25,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
     @IBOutlet var passwordTextField: ShakeTextField!
     @IBOutlet var submitActivityIndicator: UIActivityIndicatorView!
     @IBOutlet var infoContainers: [UIView]!
+    @IBOutlet var allTextFields: [UITextField]!
     @IBOutlet var titleLabel: UILabel! {
         didSet {
             styleLabelTitle(titleLabel)
@@ -44,6 +45,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
     public override func viewDidLoad() {
         super.viewDidLoad()
         infoContainers.forEach(styleViewBorder)
+        allTextFields.forEach(styleTextFieldBase)
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
