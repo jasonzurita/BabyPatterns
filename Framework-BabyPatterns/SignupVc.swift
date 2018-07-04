@@ -25,8 +25,9 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
     @IBOutlet var passwordTextField: ShakeTextField!
     @IBOutlet var submitActivityIndicator: UIActivityIndicatorView!
     @IBOutlet var babyInfoContainer: UIView! {
+    @IBOutlet var titleLabel: UILabel! {
         didSet {
-            // TODO style
+            styleLabelTitle(titleLabel)
         }
     }
     @IBOutlet var parentInfoContainer: UIView!

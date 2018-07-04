@@ -25,6 +25,7 @@
                 <outlet property="passwordTextField" destination="N70-z9-0MN" id="Laj-Ns-fIF"/>
                 <outlet property="submitActivityIndicator" destination="keg-Wh-xD0" id="EFG-go-3sc"/>
                 <outlet property="submitButton" destination="fDf-RZ-pvz" id="khO-4W-5py"/>
+                <outlet property="titleLabel" destination="UZF-l1-8Pc" id="HaP-By-VBy"/>
                 <outlet property="view" destination="Z1x-cv-z1L" id="OlA-w0-Su5"/>
             </connections>
         </placeholder>

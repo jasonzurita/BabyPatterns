@@ -30,6 +30,11 @@ func styleLabelColor(_ color: UIColor) -> (UILabel) -> Void {
     }
 }
 
+let styleLabelTitle =
+    styleLabelBase
+        <> styleLabelFont(.notoSansBold(ofSize: 35))
+        <> styleLabelColor(.bpWhite)
+
 let styleLabelH2 =
     styleLabelBase
         <> styleLabelFont(.notoSansBold(ofSize: 16))
