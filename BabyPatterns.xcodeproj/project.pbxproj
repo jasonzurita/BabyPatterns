@@ -61,6 +61,7 @@
 		12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12E8E57D20A2684D00C781EE /* PumpingVC.xib */; };
 		12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */; };
 		12F3A9C81FBB2174002ECC7B /* HistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */; };
+		2A665C208E99BFF450A704EB /* libPods-BabyPatterns.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20D78A84B09EE74A0AA1D /* libPods-BabyPatterns.a */; };
 		43037E0E1E3A36DB00D478AD /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43037E0D1E3A36DB00D478AD /* NavigationVC.swift */; };
 		430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F01771E2BDAC700FE02FC /* DispatchVC.swift */; };
 		4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4314DD591DFCA34600B3649C /* Feeding.storyboard */; };
@@ -88,7 +89,6 @@
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
 		43E92D2F1E6D9F3F008CE31E /* StorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E92D2E1E6D9F3F008CE31E /* StorageFacade.swift */; };
 		43F4FAE11DF8CD01005510D4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */; };
-		8E08FBE236E6B48374B5161C /* Pods_BabyPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A3C31FEB35E52EB3F11900 /* Pods_BabyPatterns.framework */; };
 		AC9738DF1EE1FB6B00232DE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9738DE1EE1FB6B00232DE8 /* Assets.xcassets */; };
 		ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -240,10 +240,10 @@
 		43EE2DE11E76CC4A00B8B373 /* Loggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Loggable.swift; path = ../BabyPatterns/Loggable.swift; sourceTree = "<group>"; };
 		43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		43FCAA841DD0BC70003872BA /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile.swift; path = ../../BabyPatterns/Profile.swift; sourceTree = "<group>"; };
-		88A3C31FEB35E52EB3F11900 /* Pods_BabyPatterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabyPatterns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9738DE1EE1FB6B00232DE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestFeatureTVC.swift; sourceTree = "<group>"; };
 		ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B8F20D78A84B09EE74A0AA1D /* libPods-BabyPatterns.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BabyPatterns.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35AE663E8B7C15692422F8B /* Pods-BabyPatterns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyPatterns.release.xcconfig"; path = "Pods/Target Support Files/Pods-BabyPatterns/Pods-BabyPatterns.release.xcconfig"; sourceTree = "<group>"; };
 		DA42E7856FB58D2B877C484F /* Pods_Baby_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFBDECB888FD1A98C4AFC96 /* Pods-BabyPatterns.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyPatterns.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabyPatterns/Pods-BabyPatterns.debug.xcconfig"; sourceTree = "<group>"; };
@@ -279,9 +279,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				120F80361FBF0E9500D04E45 /* Library.framework in Frameworks */,
-				8E08FBE236E6B48374B5161C /* Pods_BabyPatterns.framework in Frameworks */,
 				12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */,
 				1221EB7320E3006F002212DB /* StoreKit.framework in Frameworks */,
+				2A665C208E99BFF450A704EB /* libPods-BabyPatterns.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,7 +618,7 @@
 				1221EB7220E3006F002212DB /* StoreKit.framework */,
 				432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */,
 				DA42E7856FB58D2B877C484F /* Pods_Baby_TrackerTests.framework */,
-				88A3C31FEB35E52EB3F11900 /* Pods_BabyPatterns.framework */,
+				B8F20D78A84B09EE74A0AA1D /* libPods-BabyPatterns.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -709,7 +709,6 @@
 				436484A71DCA150500E6B0A7 /* Sources */,
 				436484A81DCA150500E6B0A7 /* Frameworks */,
 				436484A91DCA150500E6B0A7 /* Resources */,
-				54770791F4753F9D34E04B8C /* [CP] Embed Pods Frameworks */,
 				43C431771ED165EC00158E7A /* ShellScript */,
 				12605B311FBAA6B50035243B /* Embed Frameworks */,
 			);
@@ -885,30 +884,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
-		};
-		54770791F4753F9D34E04B8C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BabyPatterns/Pods-BabyPatterns-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BabyPatterns/Pods-BabyPatterns-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		F98E26E6EAD0764B1E7D37D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

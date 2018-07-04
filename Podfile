@@ -1,10 +1,9 @@
-use_frameworks!
-platform :ios, '10.3'
+inhibit_all_warnings!
+platform :ios, '11.0'
 
 #pod 'Firebase/Crash'
 #pod 'Firebase/RemoteConfig'
 
-#used
 pod 'Firebase/AdMob'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
