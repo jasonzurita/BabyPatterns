@@ -1,5 +1,5 @@
 import Framework_BabyPatterns
-import GoogleMobileAds
+import Firebase
 import UIKit
 
 struct AdsDisplayManager {

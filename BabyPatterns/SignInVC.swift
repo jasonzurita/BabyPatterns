@@ -1,4 +1,4 @@
-import FirebaseAuth
+import Firebase
 import Framework_BabyPatterns
 import Library
 import UIKit
