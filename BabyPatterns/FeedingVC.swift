@@ -15,8 +15,8 @@ final class FeedingVC: UIViewController {
         return .portrait
     }
 
-    weak var feedingsVM: FeedingsVM?
-    weak var profileVM: ProfileVM?
+    var feedingsVM: FeedingsVM?
+    var profileVM: ProfileVM?
     private var notificationToken: NSObjectProtocol?
     private var orderedCompletedFeedingEvents: [Event] {
         guard let vm = feedingsVM else { return [] }
@@ -58,6 +58,7 @@ final class FeedingVC: UIViewController {
     private func updateProfileUI() {
         guard let p = profileVM?.profile else { return }
         profileView.nameLabel.text = p.babyName
+        navigationItem.title = "Welcome \(p.parentName)!"
         let image = p.profilePicture ?? UIImage(named: "defaultProfileImage")
         profileView.imageView.image = image
     }

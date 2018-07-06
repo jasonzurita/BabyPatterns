@@ -2,7 +2,6 @@
   - UI style pass on history screen
   - Add ability to tap on history bar and get tool tip of date
 - Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)
-- Make feedings the home screen
 - Move last feeding info to feeding screen (from current home screen)
   - This can be either under the baby info on the top or at the bottom as a sort of persistent banner.
   - Maybe with `*` and add `*` to feeding circle to indicate last side used?

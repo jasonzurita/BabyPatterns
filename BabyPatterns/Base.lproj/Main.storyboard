@@ -140,7 +140,6 @@
                         <outlet property="profileView" destination="jbd-pr-W9x" id="csr-4B-HuD"/>
                         <outlet property="requestFeatureTile" destination="qFS-EY-bMW" id="Z5G-ZR-cg1"/>
                         <outlet property="turnOffAdsButton" destination="ku9-hW-fqk" id="6yA-N8-lRz"/>
-                        <segue destination="jbw-TF-pH1" kind="show" identifier="FeedingSegue" id="mFW-By-s2g"/>
                         <segue destination="ceP-0c-4TS" kind="presentation" identifier="EditProfileImageSegue" id="n5I-xs-1WB"/>
                     </connections>
                 </viewController>
@@ -549,10 +548,12 @@
         <!--Feeding-->
         <scene sceneID="rwX-ko-NlZ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Feeding" id="jbw-TF-pH1" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Feeding" id="jbw-TF-pH1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="f5q-Dk-Mva"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAB-S9-5sr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1508" y="208"/>
+            <point key="canvasLocation" x="535" y="36"/>
         </scene>
         <!--DispatchVC-->
         <scene sceneID="0PK-S2-1Q9">
@@ -609,7 +610,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xrm-yA-lFe"/>
+                        <segue destination="jbw-TF-pH1" kind="relationship" relationship="rootViewController" id="U4V-pV-Oc7"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BnD-G0-ej7" userLabel="First Responder" sceneMemberID="firstResponder"/>

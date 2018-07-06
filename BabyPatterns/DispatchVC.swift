@@ -140,10 +140,10 @@ class DispatchVC: UIViewController, Loggable {
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         if let navigationVC = segue.destination as? UINavigationController,
-            let homeVC = navigationVC.topViewController as? HomeVC {
-            homeVC.feedingsVM = feedingsVM
-            homeVC.profileVM = profileVM
-            homeVC.configuration = Configuration(defaults: UserDefaults.standard)
+            let vc = navigationVC.topViewController as? FeedingVC {
+            vc.feedingsVM = feedingsVM
+            vc.profileVM = profileVM
+//            vc.configuration = Configuration(defaults: UserDefaults.standard)
             feedingsVM = nil
             profileVM = nil
             didRequestProfile = false
