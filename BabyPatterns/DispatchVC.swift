@@ -63,11 +63,43 @@ class DispatchVC: UIViewController, Loggable {
             }
         }
 
-        vc.onLoginRequested = {
-            // TODO: implement this
+        vc.onLogInRequested = { [unowned self, unowned vc] in
+            self.logIn(presentingOn: vc)
         }
 
         present(vc, animated: false, completion: nil)
+    }
+
+    private func logIn(presentingOn rootVc: UIViewController) {
+        let vc = LoginVc()
+
+        vc.onLogIn = { [unowned self, unowned vc, unowned rootVc] (email, password) in
+            Auth.auth().signIn(withEmail: email, password: password, completion: { user, error in
+                if let error = error {
+                    vc.logInFailed(error: error)
+                } else {
+                    // FIXME: this is real crappy an needs to be fixed
+                    self.dismiss(animated: false, completion: {
+                        rootVc.dismiss(animated: false, completion: {
+                            self.userLoggedIn(user: user)
+                        })
+                    })
+                }
+            })
+        }
+
+        vc.onForgotPassword = { email in
+            // TODO: implement this
+            //            Auth.auth().sendPasswordReset(withEmail: userInput, completion: { [weak self] error in
+            //                if let error = error, let s = self {
+            //                    // TODO: revist this because we want to print this error regardless if self is available
+            //                    s.log(error.localizedDescription, object: s, type: .error)
+            //                    return
+            //                }
+            //            })
+        }
+
+        rootVc.present(vc, animated: true, completion: nil)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

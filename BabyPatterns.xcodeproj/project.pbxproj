@@ -40,6 +40,8 @@
 		1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289D18C20C167A800E73DA0 /* StopButton.swift */; };
 		12B6E42120EB973400EA6944 /* SignupVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B6E41F20EB973400EA6944 /* SignupVc.swift */; };
 		12B6E42220EB973400EA6944 /* SignupVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B6E42020EB973400EA6944 /* SignupVc.xib */; };
+		12BA1B7E20EED21700835F77 /* LoginVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BA1B7C20EED21700835F77 /* LoginVc.swift */; };
+		12BA1B7F20EED21700835F77 /* LoginVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12BA1B7D20EED21700835F77 /* LoginVc.xib */; };
 		12C866B720DDAF5300053FCC /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C866B320DDAF5200053FCC /* NotoSans-Regular.ttf */; };
 		12C866B820DDAF5300053FCC /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C866B420DDAF5200053FCC /* NotoSans-Bold.ttf */; };
 		12C866B920DDAF5300053FCC /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C866B520DDAF5300053FCC /* NotoSans-Italic.ttf */; };
@@ -172,6 +174,8 @@
 		12A782421FBB20C7000BD13F /* Main.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Main.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		12B6E41F20EB973400EA6944 /* SignupVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVc.swift; sourceTree = "<group>"; };
 		12B6E42020EB973400EA6944 /* SignupVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupVc.xib; sourceTree = "<group>"; };
+		12BA1B7C20EED21700835F77 /* LoginVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVc.swift; sourceTree = "<group>"; };
+		12BA1B7D20EED21700835F77 /* LoginVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVc.xib; sourceTree = "<group>"; };
 		12C866B320DDAF5200053FCC /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		12C866B420DDAF5200053FCC /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		12C866B520DDAF5300053FCC /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
@@ -326,6 +330,8 @@
 				12605B3E1FBB1DBB0035243B /* Info.plist */,
 				12B6E41F20EB973400EA6944 /* SignupVc.swift */,
 				12B6E42020EB973400EA6944 /* SignupVc.xib */,
+				12BA1B7C20EED21700835F77 /* LoginVc.swift */,
+				12BA1B7D20EED21700835F77 /* LoginVc.xib */,
 			);
 			path = "Framework-BabyPatterns";
 			sourceTree = "<group>";
@@ -835,6 +841,7 @@
 				12C866BA20DDAF5300053FCC /* NotoSans-BoldItalic.ttf in Resources */,
 				12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */,
 				12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */,
+				12BA1B7F20EED21700835F77 /* LoginVc.xib in Resources */,
 				123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */,
 				120F801A1FBF0B7F00D04E45 /* Assets.xcassets in Resources */,
 				12F3A9C81FBB2174002ECC7B /* HistoryVC.xib in Resources */,
@@ -939,6 +946,7 @@
 				12C866BC20DDB09400053FCC /* UIFont.swift in Sources */,
 				12128AC820C5ED0300CF16C0 /* RequestFeatureTVC.swift in Sources */,
 				12C9B0A01FD6187800CA6EBF /* FeedingControl.swift in Sources */,
+				12BA1B7E20EED21700835F77 /* LoginVc.swift in Sources */,
 				124D863320A2634100F3C2D0 /* PumpingVC.swift in Sources */,
 				1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */,
 				12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */,

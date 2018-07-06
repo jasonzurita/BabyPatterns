@@ -13,7 +13,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
         ) -> Void
 
     public var onSignup: SignupResultHandler?
-    public var onLoginRequested: (() -> Void)?
+    public var onLogInRequested: (() -> Void)?
 
     @IBOutlet var containerCenterYConstraint: NSLayoutConstraint!
     @IBOutlet var containerView: UIView!
@@ -67,6 +67,10 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
         let parentName = nameTextField.text ?? "None"
         let babyName = babyNameTextField.text ?? "None"
         onSignup?(email, password, parentName, babyName)
+    }
+
+    @IBAction func logIn(_ sender: UIButton) {
+        onLogInRequested?()
     }
 
     private func resetContainerHeight() {

@@ -75,6 +75,15 @@ func styleButtonFont(_ font: UIFont) -> (UIButton) -> Void {
     }
 }
 
+func styleButtonRounded(_ color: UIColor) -> (UIButton) -> Void {
+    return styleButtonBase
+        <> styleButtonCornerRadius
+        <> styleButtonFont(.notoSansRegular(ofSize: 20))
+        <> {
+            $0.backgroundColor = color
+    }
+}
+
 let styleButtonSave =
     styleButtonBase
         <> styleButtonCornerRadius
