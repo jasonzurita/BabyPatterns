@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -19,6 +18,8 @@
                 <outlet property="containerCenterYConstraint" destination="Ohd-bq-Oew" id="FIB-vD-cxS"/>
                 <outlet property="containerView" destination="nA2-fy-qmm" id="p0w-05-GlP"/>
                 <outlet property="emailTextField" destination="y46-g2-qP6" id="WPv-1J-gHB"/>
+                <outlet property="haveAnAccountLabel" destination="ABS-CJ-k5m" id="kEf-fs-7e3"/>
+                <outlet property="logInButton" destination="sLg-IJ-oCh" id="04S-PZ-9tI"/>
                 <outlet property="nameTextField" destination="Rk2-8x-bOh" id="dWq-x4-e2N"/>
                 <outlet property="passwordTextField" destination="N70-z9-0MN" id="Laj-Ns-fIF"/>
                 <outlet property="submitActivityIndicator" destination="keg-Wh-xD0" id="EFG-go-3sc"/>
@@ -40,7 +41,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nA2-fy-qmm">
-                    <rect key="frame" x="38" y="139.5" width="300" height="408.5"/>
+                    <rect key="frame" x="38" y="149.5" width="300" height="388.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baby Patterns" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZF-l1-8Pc">
                             <rect key="frame" x="0.5" y="0.0" width="300" height="45.5"/>
@@ -49,7 +50,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QC9-dB-0Ra" userLabel="Baby Info Container">
-                            <rect key="frame" x="0.5" y="85.5" width="300" height="79"/>
+                            <rect key="frame" x="0.5" y="65.5" width="300" height="79"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Baby Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6G3-Bc-CWh" customClass="ShakeTextField" customModule="Library">
                                     <rect key="frame" x="93.5" y="0.0" width="207" height="40"/>
@@ -117,7 +118,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcB-Rk-dfn" userLabel="Parent Info Container">
-                            <rect key="frame" x="0.5" y="184.5" width="300" height="120"/>
+                            <rect key="frame" x="0.5" y="164.5" width="300" height="120"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWl-eS-2fl" userLabel="Separator">
                                     <rect key="frame" x="0.5" y="39" width="300" height="1"/>
@@ -198,7 +199,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDf-RZ-pvz">
-                            <rect key="frame" x="0.0" y="324.5" width="300" height="44"/>
+                            <rect key="frame" x="0.0" y="304.5" width="300" height="44"/>
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="dfp-de-tiO"/>
@@ -216,10 +217,10 @@
                             </connections>
                         </button>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="keg-Wh-xD0">
-                            <rect key="frame" x="139.5" y="336.5" width="20" height="20"/>
+                            <rect key="frame" x="139.5" y="316.5" width="20" height="20"/>
                         </activityIndicatorView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ekf-Ve-TZF">
-                            <rect key="frame" x="64.5" y="378.5" width="172" height="30"/>
+                            <rect key="frame" x="64.5" y="358.5" width="172" height="30"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABS-CJ-k5m">
                                     <rect key="frame" x="0.0" y="0.0" width="122" height="30"/>
@@ -254,7 +255,7 @@
                         <constraint firstItem="UZF-l1-8Pc" firstAttribute="top" secondItem="nA2-fy-qmm" secondAttribute="top" id="QHZ-ZA-hpZ"/>
                         <constraint firstItem="UZF-l1-8Pc" firstAttribute="width" secondItem="nA2-fy-qmm" secondAttribute="width" id="V3p-dD-GNI"/>
                         <constraint firstItem="keg-Wh-xD0" firstAttribute="centerY" secondItem="fDf-RZ-pvz" secondAttribute="centerY" id="X7e-f1-lG0"/>
-                        <constraint firstItem="QC9-dB-0Ra" firstAttribute="top" secondItem="UZF-l1-8Pc" secondAttribute="bottom" constant="40" id="XmV-l4-CJL"/>
+                        <constraint firstItem="QC9-dB-0Ra" firstAttribute="top" secondItem="UZF-l1-8Pc" secondAttribute="bottom" constant="20" id="XmV-l4-CJL"/>
                         <constraint firstItem="fDf-RZ-pvz" firstAttribute="top" secondItem="bcB-Rk-dfn" secondAttribute="bottom" constant="20" id="bQ3-If-jgb"/>
                         <constraint firstItem="bcB-Rk-dfn" firstAttribute="centerX" secondItem="nA2-fy-qmm" secondAttribute="centerX" id="bex-7p-50w"/>
                         <constraint firstItem="Ekf-Ve-TZF" firstAttribute="top" secondItem="fDf-RZ-pvz" secondAttribute="bottom" constant="10" id="jLe-IF-xv6"/>

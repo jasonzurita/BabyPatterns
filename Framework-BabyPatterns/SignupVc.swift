@@ -17,7 +17,11 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
 
     @IBOutlet var containerCenterYConstraint: NSLayoutConstraint!
     @IBOutlet var containerView: UIView!
-    @IBOutlet var submitButton: UIButton!
+    @IBOutlet var submitButton: UIButton! {
+        didSet {
+            styleButtonRounded(.bpMediumBlue)(submitButton)
+        }
+    }
     @IBOutlet var babyNameTextField: ShakeTextField!
     @IBOutlet var babyDOBTextField: ShakeTextField!
     @IBOutlet var nameTextField: ShakeTextField!
@@ -26,6 +30,16 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
     @IBOutlet var submitActivityIndicator: UIActivityIndicatorView!
     @IBOutlet var infoContainers: [UIView]!
     @IBOutlet var allTextFields: [UITextField]!
+    @IBOutlet var haveAnAccountLabel: UILabel! {
+        didSet {
+            styleLabelFont(.notoSansRegular(ofSize: 16))(haveAnAccountLabel)
+        }
+    }
+    @IBOutlet var logInButton: UIButton! {
+        didSet {
+            styleButtonFont(.notoSansRegular(ofSize: 16))(logInButton)
+        }
+    }
     @IBOutlet var titleLabel: UILabel! {
         didSet {
             styleLabelTitle(titleLabel)
