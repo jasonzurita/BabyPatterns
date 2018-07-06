@@ -2,7 +2,6 @@
   - UI style pass on history screen
   - Add ability to tap on history bar and get tool tip of date
 - Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)
-- Reimplement login screen (and center UI)
 - Make feedings the home screen
 - Move last feeding info to feeding screen (from current home screen)
   - This can be either under the baby info on the top or at the bottom as a sort of persistent banner.
@@ -15,11 +14,13 @@
 - Pass on fonts
 - Test failing create account
 - Correct Firebase credentials in plist and move to new firebase account
+- fix login flicker (maybe with root navigation controller)
 
 bugs
 - Autolayout breaking when rotating on bottle screen
 - What if user exceeds max supply amount when pumping?
 - Slide bottle amount down, go to history, go back to bottle. The bottle UI is messed up.
+- Fix sizing of title labels in login and signup screens
 
 v2
 - Add ads back in
