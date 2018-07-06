@@ -40,7 +40,7 @@ class DispatchVC: UIViewController, Loggable {
         let vc = SignupVc()
 
         vc.onSignup = { (email, password, parentName, babyName) -> Void in
-            Auth.auth().createUser(withEmail: email, password: password) { [unowned self] user, error in
+            Auth.auth().createUser(withEmail: email, password: password) { [unowned self, unowned vc] user, error in
                 guard error == nil else {
                     vc.signUpFailed(error: error)
                     return
