@@ -11,5 +11,6 @@
         <page name='Request Feature'/>
         <page name='Turn Off Ads'/>
         <page name='Signup'/>
+        <page name='Login'/>
     </pages>
 </playground>
