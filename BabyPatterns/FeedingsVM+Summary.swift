@@ -13,8 +13,8 @@ extension FeedingsVM {
         return abs(lastFeedingTime.timeIntervalSinceNow)
     }
 
-    func lastFeedingSide() -> FeedingSide {
-        return feedings(withTypes: [.nursing], isFinished: true).last?.side ?? .none
+    func lastFeedingSide(for type: FeedingType) -> FeedingSide {
+        return feedings(withTypes: [type], isFinished: true).last?.side ?? .none
     }
 
     func averageNursingDuration(filterWindow _: DateInterval) -> TimeInterval? {

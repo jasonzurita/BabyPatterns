@@ -72,7 +72,7 @@ class HomeVC: UIViewController {
     private func updateFeedingUI() {
         guard let f = feedingsVM else { return }
 
-        let lastSide = f.lastFeedingSide()
+        let lastSide = f.lastFeedingSide(for: .nursing)
         var sideText = lastSide.asText()
         if lastSide != .none {
             sideText += ": "
