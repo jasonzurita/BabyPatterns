@@ -27,7 +27,7 @@ public final class PumpingVC: UIViewController {
     }
 
     @IBOutlet var saveButton: UIButton! {
-        didSet { styleButtonSave(saveButton) }
+        didSet { styleButtonRounded(.bpLightBlue)(saveButton) }
     }
 
     public init(controller: PumpingController) {

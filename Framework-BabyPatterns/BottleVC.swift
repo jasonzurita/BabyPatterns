@@ -19,7 +19,7 @@ public final class BottleVC: UIViewController, Loggable {
     @IBOutlet var bodyLabels: [UILabel]!
     @IBOutlet var unitLabels: [UILabel]!
     @IBOutlet var saveButton: UIButton! {
-        didSet { styleButtonSave(saveButton) }
+        didSet { styleButtonRounded(.bpLightBlue)(saveButton) }
     }
     @IBOutlet var remainingSupplyLabel: UILabel! {
         didSet {

@@ -84,14 +84,6 @@ func styleButtonRounded(_ color: UIColor) -> (UIButton) -> Void {
     }
 }
 
-let styleButtonSave =
-    styleButtonBase
-        <> styleButtonCornerRadius
-        <> styleButtonFont(.notoSansRegular(ofSize: 20))
-        <> {
-            $0.backgroundColor = .bpLightBlue
-        }
-
 // MARK: TextFields
 let styleTextFieldBase: (UITextField) -> Void = {
     $0.font = .notoSansRegular(ofSize: 16)
