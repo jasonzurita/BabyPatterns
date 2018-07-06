@@ -1,26 +1,31 @@
+- Correct Firebase credentials in plist and move to new firebase account
 - Add tick marks to history screen (by minute, day, week)
   - UI style pass on history screen
   - Add ability to tap on history bar and get tool tip of date
-- Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)
-- Move last feeding info to feeding screen (from current home screen)
-  - This can be either under the baby info on the top or at the bottom as a sort of persistent banner.
-  - Maybe with `*` and add `*` to feeding circle to indicate last side used?
+- Mark last feeding side (nursing & pumping) with `*` in feeding circle (tool tip will follow)
+- Add ability to add picture on other screens
+- Change turn off ads to donate row
+
+tests to conduct:
+- forgot password
+- Test failing create account
+
+bugs / clean up
+- Settings screen text fields don't show spaces at end of fields
 - Age validation during sign up
 - The first feeding seems to not get logged. Check this out.
-- Privacy policy
-- Pass on color scheme
-- Pass on fonts
-- Test failing create account
-- Correct Firebase credentials in plist and move to new firebase account
-- fix login flicker (maybe with root navigation controller)
-
-bugs
 - Autolayout breaking when rotating on bottle screen
+- fix login flicker (maybe with root navigation controller)
 - What if user exceeds max supply amount when pumping?
 - Slide bottle amount down, go to history, go back to bottle. The bottle UI is messed up.
 - Fix sizing of title labels in login and signup screens
+- Pass on color scheme
+- Pass on fonts
 
-v2
+v?
+- Add ability to set current supply (in settings?)
+- Tool tips (starting with last feeding side)
+- Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)
 - Add ads back in
 - Add relevant siri shortcuts (when pulling down on iOS and watchOS)
 - Native watchOS app?
@@ -33,7 +38,6 @@ v2
 - Walkthrough
 - Continue migrating over to a playground driven app
 - Reset password
-- Allow changing of current supply in settings
 - Ability to change add photo of child when signing up
 - Reset password in setting screen
 - Implement request feature
