@@ -1,13 +1,7 @@
 public struct K {
-    public struct NibNames {
-        // TODO: update this to use the acutal class name to make it more robust
-        public static let SignIn = "SignInVC"
-    }
-
     public struct Segues {
         // app launch
         public static let LoggedIn = "LoggedInSegue"
-        public static let LoggedOut = "LoggedOutSegue"
 
         // logged out
         public static let SignedIn = "SignedInSegue"

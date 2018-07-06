@@ -85,7 +85,6 @@ final class FeedingVC: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-        // equip page view controller to function here
         if let vc = segue.destination as? FeedingPageVC {
             configureFeedingPageVC(vc: vc)
         } else if let vc = segue.destination as? SettingsVC, let p = profileVM {
