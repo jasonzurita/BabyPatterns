@@ -5,7 +5,6 @@
 - Move last feeding info to feeding screen (from current home screen)
   - This can be either under the baby info on the top or at the bottom as a sort of persistent banner.
   - Maybe with `*` and add `*` to feeding circle to indicate last side used?
-- Move settings button to new feeding home screen
 - Age validation during sign up
 - The first feeding seems to not get logged. Check this out.
 - Privacy policy

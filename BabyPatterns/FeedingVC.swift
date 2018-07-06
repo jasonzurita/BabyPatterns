@@ -17,6 +17,8 @@ final class FeedingVC: UIViewController {
 
     var feedingsVM: FeedingsVM?
     var profileVM: ProfileVM?
+    var configuration: Configuration?
+    
     private var notificationToken: NSObjectProtocol?
     private var orderedCompletedFeedingEvents: [Event] {
         guard let vm = feedingsVM else { return [] }
@@ -31,6 +33,7 @@ final class FeedingVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backBarButtonItem?.title = " "
         let titles = FeedingType.allValues.map { $0.rawValue }
         segmentedControl.configureSegmentedBar(titles: titles, defaultSegmentIndex: 0)
     }
@@ -85,6 +88,9 @@ final class FeedingVC: UIViewController {
         // equip page view controller to function here
         if let vc = segue.destination as? FeedingPageVC {
             configureFeedingPageVC(vc: vc)
+        } else if let vc = segue.destination as? SettingsVC, let p = profileVM {
+            vc.profileVM = p
+            vc.configuration = configuration
         }
     }
 
