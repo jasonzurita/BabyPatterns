@@ -11,4 +11,3 @@ let parent = playgroundWrapper(child: vc,
                                orientation: .portrait,
                                contentSizeCategory: .accessibilityMedium)
 PlaygroundPage.current.liveView = parent
-
