@@ -1,7 +1,7 @@
 import UIKit
 import Library
 
-public final class SignupVc: UIViewController, Loggable, Validatable {
+public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTextFieldContainer {
     public let shouldPrintDebugLog = true
 
     public typealias SignupResultHandler =
@@ -84,15 +84,8 @@ public final class SignupVc: UIViewController, Loggable, Validatable {
     }
 
     @IBAction func logIn(_ sender: UIButton) {
+        resetContainerHeight()
         onLogInRequested?()
-    }
-
-    private func resetContainerHeight() {
-        view.setNeedsLayout()
-        UIView.animate(withDuration: 0.25) {
-            self.containerCenterYConstraint.constant = 0
-            self.view.layoutIfNeeded()
-        }
     }
 
     private func areAllTextFieldsValid() -> Bool {
@@ -139,13 +132,6 @@ extension SignupVc: UITextFieldDelegate {
     }
 
     public func textFieldDidBeginEditing(_ textField: UITextField) {
-        let delta = (view.frame.height - containerView.frame.height - view.safeAreaInsets.top) * 0.5
-        log("Container view Y offset: \(delta)", object: self, type: .info)
-
-        view.setNeedsLayout()
-        UIView.animate(withDuration: 0.25) {
-            self.containerCenterYConstraint.constant = -delta
-            self.view.layoutIfNeeded()
-        }
+        slideContainerUp()
     }
 }

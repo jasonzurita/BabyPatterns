@@ -61,6 +61,7 @@
 		12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
 		12DD2D0320A46ECD00849A48 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD2D0220A46ECD00849A48 /* Configuration.swift */; };
 		12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12E8E57D20A2684D00C781EE /* PumpingVC.xib */; };
+		12EE461620EF93EC00B51FC6 /* SlideableTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */; };
 		12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */; };
 		12F3A9C81FBB2174002ECC7B /* HistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */; };
 		2A665C208E99BFF450A704EB /* libPods-BabyPatterns.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20D78A84B09EE74A0AA1D /* libPods-BabyPatterns.a */; };
@@ -188,6 +189,7 @@
 		12C9FFD220B837CB00B048E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		12DD2D0220A46ECD00849A48 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		12E8E57D20A2684D00C781EE /* PumpingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PumpingVC.xib; sourceTree = "<group>"; };
+		12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideableTextFieldContainer.swift; sourceTree = "<group>"; };
 		12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryVC.xib; sourceTree = "<group>"; };
 		43037E0D1E3A36DB00D478AD /* NavigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
@@ -328,10 +330,7 @@
 				12C9FFD120B837B800B048E6 /* Extensions */,
 				12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */,
 				12605B3E1FBB1DBB0035243B /* Info.plist */,
-				12B6E41F20EB973400EA6944 /* SignupVc.swift */,
-				12B6E42020EB973400EA6944 /* SignupVc.xib */,
-				12BA1B7C20EED21700835F77 /* LoginVc.swift */,
-				12BA1B7D20EED21700835F77 /* LoginVc.xib */,
+				12EE461420EF938400B51FC6 /* Onboarding */,
 			);
 			path = "Framework-BabyPatterns";
 			sourceTree = "<group>";
@@ -387,6 +386,18 @@
 				12C9FFD220B837CB00B048E6 /* Color.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		12EE461420EF938400B51FC6 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				12B6E41F20EB973400EA6944 /* SignupVc.swift */,
+				12B6E42020EB973400EA6944 /* SignupVc.xib */,
+				12BA1B7C20EED21700835F77 /* LoginVc.swift */,
+				12BA1B7D20EED21700835F77 /* LoginVc.xib */,
+				12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		430F01791E2D09FD00FE02FC /* Extensions */ = {
@@ -950,6 +961,7 @@
 				124D863320A2634100F3C2D0 /* PumpingVC.swift in Sources */,
 				1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */,
 				12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */,
+				12EE461620EF93EC00B51FC6 /* SlideableTextFieldContainer.swift in Sources */,
 				12C9B0A31FD619C300CA6EBF /* Feeding.swift in Sources */,
 				12C9FFD320B837CB00B048E6 /* Color.swift in Sources */,
 				12C9B09C1FD6172100CA6EBF /* NursingVC.swift in Sources */,

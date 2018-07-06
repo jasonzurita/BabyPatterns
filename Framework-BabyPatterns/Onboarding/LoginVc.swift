@@ -1,7 +1,7 @@
 import UIKit
 import Library
 
-public final class LoginVc: UIViewController, Loggable {
+public final class LoginVc: UIViewController, Loggable, SlidableTextFieldContainer {
     public let shouldPrintDebugLog = true
 
     public var onLogIn: ((_ email: String, _ password: String) -> Void)?
@@ -47,7 +47,7 @@ public final class LoginVc: UIViewController, Loggable {
 
     @IBAction func logIn(_ sender: UIButton) {
         logInActivityIndicator.startAnimating()
-//        defer { containerView.endEditing(false); resetContainerHeight() }
+        defer { containerView.endEditing(false); resetContainerHeight() }
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             logInFailed()
             return
@@ -85,5 +85,17 @@ public final class LoginVc: UIViewController, Loggable {
         let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alert.addAction(okayAction)
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension LoginVc: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        resetContainerHeight()
+        return true
+    }
+
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        slideContainerUp()
     }
 }
