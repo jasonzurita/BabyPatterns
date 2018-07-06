@@ -89,14 +89,12 @@ class DispatchVC: UIViewController, Loggable {
         }
 
         vc.onForgotPassword = { email in
-            // TODO: implement this
-            //            Auth.auth().sendPasswordReset(withEmail: userInput, completion: { [weak self] error in
-            //                if let error = error, let s = self {
-            //                    // TODO: revist this because we want to print this error regardless if self is available
-            //                    s.log(error.localizedDescription, object: s, type: .error)
-            //                    return
-            //                }
-            //            })
+            Auth.auth().sendPasswordReset(withEmail: email, completion: { [weak self] error in
+                if let error = error, let s = self {
+                    s.log(error.localizedDescription, object: s, type: .error)
+                    // TODO: report error to user
+                }
+            })
         }
 
         rootVc.present(vc, animated: true, completion: nil)
