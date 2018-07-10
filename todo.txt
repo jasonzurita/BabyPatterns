@@ -2,7 +2,6 @@
 - Add tick marks to history screen (by minute, day, week)
   - UI style pass on history screen
   - Add ability to tap on history bar and get tool tip of date
-- Mark last feeding side (nursing & pumping) with `*` in feeding circle (tool tip will follow)
 - Add ability to add picture on other screens
 - Change turn off ads to donate row
 
@@ -23,6 +22,7 @@ bugs / clean up
 - Pass on fonts
 
 v?
+- Add tool tip for last feeding `*`
 - Add ability to set current supply (in settings?)
 - Tool tips (starting with last feeding side)
 - Update turn off ads screen with UI pass and ability to donate or email 3 friends screen (with restore purchase)

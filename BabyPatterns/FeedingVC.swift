@@ -18,7 +18,7 @@ final class FeedingVC: UIViewController {
     var feedingsVM: FeedingsVM?
     var profileVM: ProfileVM?
     var configuration: Configuration?
-    
+
     private var notificationToken: NSObjectProtocol?
     private var orderedCompletedFeedingEvents: [Event] {
         guard let vm = feedingsVM else { return [] }
@@ -126,6 +126,11 @@ final class FeedingVC: UIViewController {
 }
 
 extension FeedingVC: FeedingController {
+    func lastFeedingSide(type: FeedingType) -> FeedingSide {
+        guard let vm = feedingsVM else { return .none }
+        return vm.lastFeedingSide(for: type)
+    }
+
     func start(feeding type: FeedingType, side: FeedingSide) {
         feedingsVM?.feedingStarted(type: type, side: side)
     }

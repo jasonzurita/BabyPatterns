@@ -8,6 +8,24 @@ public final class FeedingStopwatchView: UIView {
     var onPause: StatusChangeHandler?
     var onResume: StatusChangeHandler?
 
+    var lastFeedingSide: FeedingSide = .none {
+        didSet {
+            switch lastFeedingSide {
+            case .none:
+                if !leftFeedingControl.isActive {
+                    leftFeedingControl.setTitle("Left", for: .normal)
+                }
+                if !rightFeedingControl.isActive {
+                    rightFeedingControl.setTitle("Right", for: .normal)
+                }
+            case .left:
+                leftFeedingControl.setTitle("Left*", for: .normal)
+            case .right:
+                rightFeedingControl.setTitle("Right*", for: .normal)
+            }
+        }
+    }
+
     private let _feedingType: FeedingType
     private var _sideInProgress: FeedingSide = .none
 
@@ -97,6 +115,8 @@ public final class FeedingStopwatchView: UIView {
         }
         reset(control: control)
         onEnd?(_feedingType, _sideInProgress)
+        lastFeedingSide = _sideInProgress
+        _sideInProgress = .none
     }
 
     @IBAction func feedingButtonPressed(_ sender: FeedingControl) {
@@ -136,6 +156,8 @@ public final class FeedingStopwatchView: UIView {
         control!.isActive = true
         stopButton.isDisabled = false
         _sideInProgress = control!.side
+        // this should be at the end for the feeding title to work properly
+        lastFeedingSide = .none
     }
 
     func pause() {

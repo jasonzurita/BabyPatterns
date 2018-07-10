@@ -20,6 +20,10 @@ struct Controller: FeedingController {
     func resume(feeding type: FeedingType, side: FeedingSide) {
         print("Resume: feeding type - \(type), side - \(side)")
     }
+
+    func lastFeedingSide(type: FeedingType) -> FeedingSide {
+        return .left
+    }
 }
 
 let feeding = Feeding(type: .nursing, side: .right, startDate: Date())
