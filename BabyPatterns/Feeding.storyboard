@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUG-AJ-tde" customClass="ProfileView" customModule="BabyPatterns" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUG-AJ-tde" customClass="ProfileView" customModule="Framework_BabyPatterns">
                                 <rect key="frame" x="9.5" y="74" width="274.5" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="svj-Wz-vwQ"/>

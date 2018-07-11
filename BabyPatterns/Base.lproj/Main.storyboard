@@ -217,17 +217,17 @@
                             <constraint firstItem="58s-pY-912" firstAttribute="centerX" secondItem="fR2-A6-E4L" secondAttribute="centerX" id="3RS-Aa-aT7"/>
                             <constraint firstItem="hys-b7-OmJ" firstAttribute="height" secondItem="fR2-A6-E4L" secondAttribute="height" id="6js-HC-eX9"/>
                             <constraint firstItem="58s-pY-912" firstAttribute="width" secondItem="fR2-A6-E4L" secondAttribute="width" id="APa-IV-Uzd"/>
+                            <constraint firstItem="ZVo-xp-IEt" firstAttribute="top" secondItem="x8Q-uZ-Wk0" secondAttribute="bottom" constant="30" id="D9K-XO-SJs"/>
                             <constraint firstItem="hys-b7-OmJ" firstAttribute="centerX" secondItem="fR2-A6-E4L" secondAttribute="centerX" id="EPb-iM-Yvq"/>
                             <constraint firstItem="58s-pY-912" firstAttribute="height" secondItem="fR2-A6-E4L" secondAttribute="height" id="GNb-kA-1kt"/>
                             <constraint firstItem="x8Q-uZ-Wk0" firstAttribute="width" secondItem="fR2-A6-E4L" secondAttribute="width" id="KrW-3M-su7"/>
-                            <constraint firstItem="ZVo-xp-IEt" firstAttribute="top" secondItem="x8Q-uZ-Wk0" secondAttribute="bottom" constant="30" id="VDR-Us-iUm"/>
+                            <constraint firstItem="c1v-rb-UA5" firstAttribute="top" secondItem="o4u-0M-ny3" secondAttribute="bottom" id="RAm-ku-SAF"/>
                             <constraint firstItem="hys-b7-OmJ" firstAttribute="width" secondItem="fR2-A6-E4L" secondAttribute="width" id="bhJ-fo-BvA"/>
+                            <constraint firstItem="xCO-2K-VIT" firstAttribute="top" secondItem="o4u-0M-ny3" secondAttribute="bottom" id="gBH-ot-j5F"/>
                             <constraint firstItem="hys-b7-OmJ" firstAttribute="centerY" secondItem="fR2-A6-E4L" secondAttribute="centerY" id="hW2-se-caZ"/>
-                            <constraint firstItem="c1v-rb-UA5" firstAttribute="top" secondItem="o4u-0M-ny3" secondAttribute="bottom" id="jH1-jS-I6l"/>
                             <constraint firstItem="x8Q-uZ-Wk0" firstAttribute="centerX" secondItem="fR2-A6-E4L" secondAttribute="centerX" id="kh1-LO-CzL"/>
                             <constraint firstItem="xCO-2K-VIT" firstAttribute="leading" secondItem="fR2-A6-E4L" secondAttribute="leadingMargin" id="r8i-Lj-ecB"/>
                             <constraint firstItem="58s-pY-912" firstAttribute="centerY" secondItem="fR2-A6-E4L" secondAttribute="centerY" id="w8w-ma-XBZ"/>
-                            <constraint firstItem="xCO-2K-VIT" firstAttribute="top" secondItem="o4u-0M-ny3" secondAttribute="bottom" id="xIE-TA-N4d"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>

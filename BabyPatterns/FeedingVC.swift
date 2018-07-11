@@ -19,6 +19,8 @@ final class FeedingVC: UIViewController {
     var profileVM: ProfileVM?
     var configuration: Configuration?
 
+    private var _profileImageCoordinator: ProfileImageCoordinator?
+
     private var notificationToken: NSObjectProtocol?
     private var orderedCompletedFeedingEvents: [Event] {
         guard let vm = feedingsVM else { return [] }
@@ -29,7 +31,11 @@ final class FeedingVC: UIViewController {
     }
 
     @IBOutlet var segmentedControl: SegmentedControlBar!
-    @IBOutlet var profileView: ProfileView!
+    @IBOutlet var profileView: ProfileView! {
+        didSet {
+            profileView.delegate = self
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +128,21 @@ final class FeedingVC: UIViewController {
 
         let toast = Toast(frame: frame, text: "Saved!")
         toast.presentInView(view: view)
+    }
+}
+
+extension FeedingVC: ProfileViewDelegate {
+    func changeProfileImageButtonTapped() {
+        let coordinator = ProfileImageCoordinator(rootVc: self)
+        defer { _profileImageCoordinator = coordinator }
+
+        coordinator.onImageChosen = { [weak self] image in
+            guard let strongSelf = self else { return }
+            strongSelf.profileVM?.updateProfilePhoto(image: image)
+            strongSelf.updateProfileUI()
+            strongSelf._profileImageCoordinator = nil
+        }
+        coordinator.changeProfileImageButtonTapped()
     }
 }
 

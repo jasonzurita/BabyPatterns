@@ -2,7 +2,6 @@
 - Add tick marks to history screen (by minute, day, week)
   - UI style pass on history screen
   - Add ability to tap on history bar and get tool tip of date
-- Add ability to add picture on other screens
 - Change turn off ads to donate row
 
 tests to conduct:
@@ -10,6 +9,7 @@ tests to conduct:
 - Test failing create account
 
 bugs / clean up
+- Pass on selected image from signup screen to persist it
 - Settings screen text fields don't show spaces at end of fields
 - Age validation during sign up
 - The first feeding seems to not get logged. Check this out.

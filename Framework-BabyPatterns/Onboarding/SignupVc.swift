@@ -15,6 +15,8 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
     public var onSignup: SignupResultHandler?
     public var onLogInRequested: (() -> Void)?
 
+    private var _profileImageCoordinator: ProfileImageCoordinator?
+
     @IBOutlet var containerCenterYConstraint: NSLayoutConstraint!
     @IBOutlet var containerView: UIView!
     @IBOutlet var submitButton: UIButton! {
@@ -44,6 +46,28 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
         didSet {
             styleLabelTitle(titleLabel)
         }
+    }
+    @IBOutlet var profileImageView: UIImageView! {
+        didSet {
+            profileImageView.layer.masksToBounds = true
+            profileImageView.layer.cornerRadius = profileImageView.frame.height * 0.5
+            let tgr = UITapGestureRecognizer(target: self, action: #selector(chooseProfileImage))
+            profileImageView.addGestureRecognizer(tgr)
+        }
+    }
+
+    @objc func chooseProfileImage() {
+        let coordinator = ProfileImageCoordinator(rootVc: self)
+        defer { _profileImageCoordinator = coordinator }
+
+        coordinator.onImageChosen = { [weak self] image in
+            guard let strongSelf = self else { return }
+            // TODO: pass on profile image when creating the account
+//            strongSelf.profileVM?.updateProfilePhoto(image: image)
+            strongSelf.profileImageView.image = image
+            strongSelf._profileImageCoordinator = nil
+        }
+        coordinator.changeProfileImageButtonTapped()
     }
 
     public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

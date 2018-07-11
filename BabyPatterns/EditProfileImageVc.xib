@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditProfileImageVc" customModule="Framework_BabyPatterns" customModuleProvider="target">
+            <connections>
+                <outlet property="overlayView" destination="3vd-MM-a2c" id="D9x-Ig-YRk"/>
+                <outlet property="profileImageView" destination="RLi-d2-YkE" id="UhZ-i0-ZYt"/>
+                <outlet property="scrollView" destination="C76-jy-Z8T" id="KgP-uK-MS8"/>
+                <outlet property="view" destination="0nt-N0-SWs" id="AJp-cn-yfT"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="0nt-N0-SWs">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C76-jy-Z8T">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RLi-d2-YkE">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="RLi-d2-YkE" secondAttribute="trailing" id="0jz-Md-2gq"/>
+                        <constraint firstItem="RLi-d2-YkE" firstAttribute="centerX" secondItem="C76-jy-Z8T" secondAttribute="centerX" id="2vG-6V-fr5"/>
+                        <constraint firstAttribute="bottom" secondItem="RLi-d2-YkE" secondAttribute="bottom" id="A2e-FO-KCf"/>
+                        <constraint firstItem="RLi-d2-YkE" firstAttribute="leading" secondItem="C76-jy-Z8T" secondAttribute="leading" id="dHG-gs-U5H"/>
+                        <constraint firstItem="RLi-d2-YkE" firstAttribute="centerY" secondItem="C76-jy-Z8T" secondAttribute="centerY" id="inR-ZC-qMd"/>
+                        <constraint firstItem="RLi-d2-YkE" firstAttribute="top" secondItem="C76-jy-Z8T" secondAttribute="top" id="qGd-9d-afd"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="smy-3t-tTe"/>
+                    </connections>
+                </scrollView>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vd-MM-a2c">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcw-XD-hrW">
+                    <rect key="frame" x="309" y="20" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="bVX-Gy-p93"/>
+                        <constraint firstAttribute="width" constant="50" id="eaG-nj-hok"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                    <state key="normal" title="✓">
+                        <color key="titleColor" red="0.0" green="0.80000000000000004" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="saveProfilePhoto:" destination="-1" eventType="touchUpInside" id="UOZ-tg-jub"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" text="Resize your profile image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jJ-LT-WQc">
+                    <rect key="frame" x="0.5" y="611" width="375" height="26"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbi-E9-VbC">
+                    <rect key="frame" x="16" y="20" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Dvp-lB-Wlj"/>
+                        <constraint firstAttribute="width" constant="50" id="xaa-iU-1S8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                    <state key="normal" title="✕"/>
+                    <connections>
+                        <action selector="dismissViewController:" destination="-1" eventType="touchUpInside" id="HCi-2q-fTg"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="1jJ-LT-WQc" firstAttribute="centerX" secondItem="0nt-N0-SWs" secondAttribute="centerX" id="0b4-9x-aWL"/>
+                <constraint firstItem="1jJ-LT-WQc" firstAttribute="width" secondItem="0nt-N0-SWs" secondAttribute="width" id="3EM-vt-ZFQ"/>
+                <constraint firstAttribute="trailingMargin" secondItem="xcw-XD-hrW" secondAttribute="trailing" id="47I-ju-nFL"/>
+                <constraint firstItem="C76-jy-Z8T" firstAttribute="width" secondItem="0nt-N0-SWs" secondAttribute="width" id="Nal-U6-VrD"/>
+                <constraint firstItem="3vd-MM-a2c" firstAttribute="height" secondItem="0nt-N0-SWs" secondAttribute="height" id="ZU1-B4-W9r"/>
+                <constraint firstItem="C76-jy-Z8T" firstAttribute="centerY" secondItem="0nt-N0-SWs" secondAttribute="centerY" id="cZZ-3f-dMj"/>
+                <constraint firstItem="5oR-Kd-yOS" firstAttribute="bottom" secondItem="1jJ-LT-WQc" secondAttribute="bottom" constant="30" id="dqq-SO-5kZ"/>
+                <constraint firstItem="3vd-MM-a2c" firstAttribute="centerX" secondItem="0nt-N0-SWs" secondAttribute="centerX" id="eMZ-DX-NiL"/>
+                <constraint firstItem="C76-jy-Z8T" firstAttribute="height" secondItem="0nt-N0-SWs" secondAttribute="height" id="f0d-RB-KSS"/>
+                <constraint firstItem="C76-jy-Z8T" firstAttribute="centerX" secondItem="0nt-N0-SWs" secondAttribute="centerX" id="hxD-1l-GRG"/>
+                <constraint firstItem="3vd-MM-a2c" firstAttribute="centerY" secondItem="0nt-N0-SWs" secondAttribute="centerY" id="l3Z-o9-HGh"/>
+                <constraint firstItem="mbi-E9-VbC" firstAttribute="top" secondItem="5oR-Kd-yOS" secondAttribute="top" id="maa-Z0-fp1"/>
+                <constraint firstItem="mbi-E9-VbC" firstAttribute="leading" secondItem="0nt-N0-SWs" secondAttribute="leadingMargin" id="nee-L2-fVI"/>
+                <constraint firstItem="xcw-XD-hrW" firstAttribute="top" secondItem="5oR-Kd-yOS" secondAttribute="top" id="paH-Oc-MY9"/>
+                <constraint firstItem="3vd-MM-a2c" firstAttribute="width" secondItem="0nt-N0-SWs" secondAttribute="width" id="z4u-Ld-o8z"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="5oR-Kd-yOS"/>
+        </view>
+    </objects>
+</document>

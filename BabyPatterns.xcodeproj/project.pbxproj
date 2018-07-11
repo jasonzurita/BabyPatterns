@@ -38,6 +38,11 @@
 		12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; };
 		12605B431FBB1DBB0035243B /* Framework_BabyPatterns.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289D18C20C167A800E73DA0 /* StopButton.swift */; };
+		128A56F720F56E2E00A4DC8E /* ProfileImageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128A56F620F56E2E00A4DC8E /* ProfileImageCoordinator.swift */; };
+		128A56F820F56EB200A4DC8E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C431E034E6400056F83 /* ProfileView.swift */; };
+		128A56F920F56EB800A4DC8E /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43932C471E03594F00056F83 /* ProfileView.xib */; };
+		128A56FA20F56F7900A4DC8E /* EditProfileImageVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43714F1B1E63DCC20055B411 /* EditProfileImageVc.swift */; };
+		128A56FC20F56F9200A4DC8E /* EditProfileImageVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 128A56FB20F56F9200A4DC8E /* EditProfileImageVc.xib */; };
 		12B6E42120EB973400EA6944 /* SignupVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B6E41F20EB973400EA6944 /* SignupVc.swift */; };
 		12B6E42220EB973400EA6944 /* SignupVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B6E42020EB973400EA6944 /* SignupVc.xib */; };
 		12BA1B7E20EED21700835F77 /* LoginVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BA1B7C20EED21700835F77 /* LoginVc.swift */; };
@@ -83,9 +88,6 @@
 		436939021E081A1700EA5158 /* FeedingsVM+Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436939011E081A1700EA5158 /* FeedingsVM+Summary.swift */; };
 		436939071E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436939061E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift */; };
 		43714F161E5E4DDC0055B411 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43714F151E5E4DDC0055B411 /* ProfileVM.swift */; };
-		43714F1C1E63DCC20055B411 /* EditProfileImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43714F1B1E63DCC20055B411 /* EditProfileImageVC.swift */; };
-		43932C441E034E6400056F83 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C431E034E6400056F83 /* ProfileView.swift */; };
-		43932C481E03594F00056F83 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43932C471E03594F00056F83 /* ProfileView.xib */; };
 		43A1C8FA1DFDA906008C5C2F /* SegmentedControlBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C8F91DFDA906008C5C2F /* SegmentedControlBar.xib */; };
 		43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */; };
 		43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BE631DCB684800895A65 /* FeedingVC.swift */; };
@@ -171,6 +173,8 @@
 		12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Framework-BabyPatterns.h"; sourceTree = "<group>"; };
 		12605B3E1FBB1DBB0035243B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1289D18C20C167A800E73DA0 /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
+		128A56F620F56E2E00A4DC8E /* ProfileImageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCoordinator.swift; sourceTree = "<group>"; };
+		128A56FB20F56F9200A4DC8E /* EditProfileImageVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileImageVc.xib; sourceTree = "<group>"; };
 		128C93CA1FB72CA0001E58F4 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validatable.swift; path = ../Library/Validatable.swift; sourceTree = "<group>"; };
 		12A782421FBB20C7000BD13F /* Main.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Main.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		12B6E41F20EB973400EA6944 /* SignupVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVc.swift; sourceTree = "<group>"; };
@@ -225,7 +229,7 @@
 		436939061E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedingsVM+FeedingInProgress.swift"; sourceTree = "<group>"; };
 		43714F151E5E4DDC0055B411 /* ProfileVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		43714F191E60F1E20055B411 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = ../Library/StringExtensions.swift; sourceTree = "<group>"; };
-		43714F1B1E63DCC20055B411 /* EditProfileImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileImageVC.swift; sourceTree = "<group>"; };
+		43714F1B1E63DCC20055B411 /* EditProfileImageVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileImageVc.swift; sourceTree = "<group>"; };
 		437C1F751E9BB44A00DE17DC /* Shakeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shakeable.swift; path = ../Library/Shakeable.swift; sourceTree = "<group>"; };
 		43932C401E01FEB400056F83 /* FeedingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedingControl.swift; path = ../../BabyPatterns/FeedingControl.swift; sourceTree = "<group>"; };
 		43932C431E034E6400056F83 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 				12605B3D1FBB1DBB0035243B /* Framework-BabyPatterns.h */,
 				12605B3E1FBB1DBB0035243B /* Info.plist */,
 				12EE461420EF938400B51FC6 /* Onboarding */,
+				43932C421E034E3400056F83 /* Profile */,
 			);
 			path = "Framework-BabyPatterns";
 			sourceTree = "<group>";
@@ -493,7 +498,6 @@
 		436484CE1DCA15E500E6B0A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				43932C421E034E3400056F83 /* Profile */,
 				4314DD631DFDA75C00B3649C /* Segmented Control */,
 				43F4FADB1DF702E1005510D4 /* Feeding Control */,
 				436484D61DCA198A00E6B0A7 /* Tile */,
@@ -509,7 +513,6 @@
 				436484B01DCA150500E6B0A7 /* HomeVC.swift */,
 				12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */,
 				43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */,
-				43714F1B1E63DCC20055B411 /* EditProfileImageVC.swift */,
 				43A1C8FD1DFDFEAC008C5C2F /* Feeding */,
 			);
 			name = "View Controllers";
@@ -573,10 +576,14 @@
 		43932C421E034E3400056F83 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				43714F1B1E63DCC20055B411 /* EditProfileImageVc.swift */,
+				128A56FB20F56F9200A4DC8E /* EditProfileImageVc.xib */,
+				128A56F620F56E2E00A4DC8E /* ProfileImageCoordinator.swift */,
 				43932C431E034E6400056F83 /* ProfileView.swift */,
 				43932C471E03594F00056F83 /* ProfileView.xib */,
 			);
 			name = Profile;
+			path = ../BabyPatterns;
 			sourceTree = "<group>";
 		};
 		43A1C8FD1DFDFEAC008C5C2F /* Feeding */ = {
@@ -852,6 +859,8 @@
 				12C866BA20DDAF5300053FCC /* NotoSans-BoldItalic.ttf in Resources */,
 				12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */,
 				12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */,
+				128A56FC20F56F9200A4DC8E /* EditProfileImageVc.xib in Resources */,
+				128A56F920F56EB800A4DC8E /* ProfileView.xib in Resources */,
 				12BA1B7F20EED21700835F77 /* LoginVc.xib in Resources */,
 				123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */,
 				120F801A1FBF0B7F00D04E45 /* Assets.xcassets in Resources */,
@@ -868,7 +877,6 @@
 				12EE85F420F028C00085BF01 /* SettingsVc.storyboard in Resources */,
 				4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */,
 				436484B91DCA150500E6B0A7 /* LaunchScreen.storyboard in Resources */,
-				43932C481E03594F00056F83 /* ProfileView.xib in Resources */,
 				4314DD601DFDA06D00B3649C /* Segment.xib in Resources */,
 				436484B41DCA150500E6B0A7 /* Main.storyboard in Resources */,
 				436484D01DCA160400E6B0A7 /* Tile.xib in Resources */,
@@ -955,6 +963,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				128A56FA20F56F7900A4DC8E /* EditProfileImageVc.swift in Sources */,
 				12C866BC20DDB09400053FCC /* UIFont.swift in Sources */,
 				12128AC820C5ED0300CF16C0 /* RequestFeatureTVC.swift in Sources */,
 				12C9B0A01FD6187800CA6EBF /* FeedingControl.swift in Sources */,
@@ -973,7 +982,9 @@
 				123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */,
 				12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */,
 				12C866C020DDB34200053FCC /* Style.swift in Sources */,
+				128A56F720F56E2E00A4DC8E /* ProfileImageCoordinator.swift in Sources */,
 				12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */,
+				128A56F820F56EB200A4DC8E /* ProfileView.swift in Sources */,
 				12DD2D0320A46ECD00849A48 /* Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -991,13 +1002,11 @@
 				436939021E081A1700EA5158 /* FeedingsVM+Summary.swift in Sources */,
 				436939071E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift in Sources */,
 				4314DD5C1DFD9E5E00B3649C /* SegmentedControlBar.swift in Sources */,
-				43714F1C1E63DCC20055B411 /* EditProfileImageVC.swift in Sources */,
 				436484B11DCA150500E6B0A7 /* HomeVC.swift in Sources */,
 				430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */,
 				43037E0E1E3A36DB00D478AD /* NavigationVC.swift in Sources */,
 				435859541E227C2B00F69A0C /* FeedingsVM.swift in Sources */,
 				43503C3E1DD35DAC00C6424E /* Tile.swift in Sources */,
-				43932C441E034E6400056F83 /* ProfileView.swift in Sources */,
 				43D2BE651DCB684800895A65 /* FeedingVC.swift in Sources */,
 				436484AF1DCA150500E6B0A7 /* AppDelegate.swift in Sources */,
 				43F4FAE11DF8CD01005510D4 /* SettingsVC.swift in Sources */,

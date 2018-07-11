@@ -1,23 +1,23 @@
 import UIKit
 
-protocol ProfileViewDelegate: class {
+public protocol ProfileViewDelegate: class {
     func changeProfileImageButtonTapped()
 }
 
-class ProfileView: UIView {
-    weak var delegate: ProfileViewDelegate?
+public final class ProfileView: UIView {
+    public weak var delegate: ProfileViewDelegate?
 
-    @IBOutlet var view: UIView!
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var ageLabel: UILabel!
+    @IBOutlet public var view: UIView!
+    @IBOutlet public var imageView: UIImageView!
+    @IBOutlet public var nameLabel: UILabel!
+    @IBOutlet public var ageLabel: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         initializeView()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initializeView()
     }
@@ -30,7 +30,7 @@ class ProfileView: UIView {
         imageView.layer.masksToBounds = true
     }
 
-    override func draw(_: CGRect) {
+    public override func draw(_: CGRect) {
         imageView.layer.cornerRadius = imageView.frame.height * 0.5
     }
 

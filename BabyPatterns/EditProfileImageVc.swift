@@ -2,44 +2,54 @@ import ImageIO
 import Library
 import UIKit
 
-protocol EditProfileImageDelegate: class {
+public protocol EditProfileImageDelegate: class {
     func profileImageEdited(image: UIImage)
 }
 
-final class EditProfileImageVC: UIViewController, Loggable {
-    let shouldPrintDebugLog = true
+public final class EditProfileImageVc: UIViewController, Loggable {
+    public let shouldPrintDebugLog = true
 
-    weak var delegate: EditProfileImageDelegate?
-    var imageCandidate: UIImage!
-    private var cropRadius: CGFloat!
+    public weak var delegate: EditProfileImageDelegate?
+    private let _imageCandidate: UIImage
+    private var _cropRadius: CGFloat {
+        return _cropCenter.x * 0.9
+    }
 
-    private var cropCenter = CGPoint(x: UIScreen.main.bounds.size.width * 0.5,
+    private var _cropCenter = CGPoint(x: UIScreen.main.bounds.size.width * 0.5,
                                      y: UIScreen.main.bounds.size.height * 0.5)
 
-    @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var overlayView: UIView!
-    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet public var profileImageView: UIImageView! {
+        didSet {
+            profileImageView.image = _imageCandidate
+        }
+    }
+    @IBOutlet public var overlayView: UIView!
+    @IBOutlet public var scrollView: UIScrollView! {
+        didSet {
+            scrollView.maximumZoomScale = 4.0
+        }
+    }
 
-    override var prefersStatusBarHidden: Bool {
+    public override var prefersStatusBarHidden: Bool {
         return true
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        profileImageView.image = imageCandidate
-        scrollView.maximumZoomScale = 4.0
-        cropRadius = cropCenter.x * 0.9
+    public init(imageCandidate: UIImage) {
+        _imageCandidate = imageCandidate
+        super.init(nibName: nil, bundle: Bundle.framework)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
+
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureOverlay()
     }
 
     private func configureOverlay() {
         let path = CGMutablePath()
-        path.addArc(center: cropCenter,
-                    radius: cropRadius,
+        path.addArc(center: _cropCenter,
+                    radius: _cropRadius,
                     startAngle: 0.0,
                     endAngle: 2 * CGFloat.pi,
                     clockwise: false)
@@ -73,10 +83,10 @@ final class EditProfileImageVC: UIViewController, Loggable {
     private func cropRect() -> CGRect? {
         guard let imageFrame = profileImageView.imageFrame() else { return nil }
 
-        let frame = CGRect(x: cropCenter.x - cropRadius,
-                           y: cropCenter.y - cropRadius,
-                           width: cropRadius * 2,
-                           height: cropRadius * 2)
+        let frame = CGRect(x: _cropCenter.x - _cropRadius,
+                           y: _cropCenter.y - _cropRadius,
+                           width: _cropRadius * 2,
+                           height: _cropRadius * 2)
 
         let imageSizeToFrameRatio = profileImageView.image!.size.width / imageFrame.width
 
@@ -95,8 +105,8 @@ final class EditProfileImageVC: UIViewController, Loggable {
     }
 }
 
-extension EditProfileImageVC: UIScrollViewDelegate {
-    func viewForZooming(in _: UIScrollView) -> UIView? {
+extension EditProfileImageVc: UIScrollViewDelegate {
+    public func viewForZooming(in _: UIScrollView) -> UIView? {
         return profileImageView
     }
 }
