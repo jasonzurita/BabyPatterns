@@ -10,6 +10,8 @@ tests to conduct:
 
 bugs / clean up
 - Pass on selected image from signup screen to persist it
+- Save button on pumping screen cut off bottom on iPhone 8 and smaller
+- Save profile image screen flickers background when transitioning
 - Settings screen text fields don't show spaces at end of fields
 - Age validation during sign up
 - The first feeding seems to not get logged. Check this out.
@@ -22,6 +24,7 @@ bugs / clean up
 - Pass on fonts
 
 v?
+- Tech debt: remove storyboard edit profile image screen
 - Add tool tip for last feeding `*`
 - Add ability to set current supply (in settings?)
 - Tool tips (starting with last feeding side)
