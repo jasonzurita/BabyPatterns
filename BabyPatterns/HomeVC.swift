@@ -91,7 +91,7 @@ class HomeVC: UIViewController {
         } else if let vc = segue.destination as? SettingsVC, let p = profileVM {
             vc.profileVM = p
             vc.configuration = configuration
-        } else if let vc = segue.destination as? EditProfileImageVc, let i = profilePhotoCandidate {
+        } else if let vc = segue.destination as? EditProfileImageVc /* ,let i = profilePhotoCandidate */ {
 //            vc.imageCandidate = i
             vc.delegate = self
         }

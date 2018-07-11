@@ -171,7 +171,7 @@ extension FeedingVC: FeedingController {
     }
 }
 
-extension FeedingVC: PumpingDelegate {
+extension FeedingVC: PumpingActionProtocol {
     func pumpingAmountChosen(_ amount: Double) {
         feedingsVM?.addPumpingAmountToLastPumping(amount: amount)
         showFeedingSavedToast()

@@ -1,11 +1,11 @@
 import Library
 import UIKit
 
-public protocol PumpingDelegate {
+public protocol PumpingActionProtocol {
     func pumpingAmountChosen(_ amount: Double)
 }
 
-public typealias PumpingController = PumpingDelegate & FeedingController
+public typealias PumpingController = PumpingActionProtocol & FeedingController
 
 public final class PumpingVC: UIViewController {
     private let _stopwatch = FeedingStopwatchView(feedingType: .pumping)
