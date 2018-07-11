@@ -2,6 +2,8 @@
 import PlaygroundSupport
 import UIKit
 
+UIFont.registerFonts
+
 struct MockEvent: Event {
     let endDate: Date
     init(_ minutes: TimeInterval) {

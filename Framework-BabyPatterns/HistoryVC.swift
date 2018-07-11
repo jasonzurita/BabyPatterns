@@ -27,6 +27,13 @@ public final class HistoryVC: UIViewController, Loggable {
 
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var scrollContentView: UIView!
+    @IBOutlet var headingLabels: [UILabel]!
+    @IBOutlet var bodyLabels: [UILabel]!
+    @IBOutlet var timeWindowSegmentedControl: UISegmentedControl! {
+        didSet {
+            timeWindowSegmentedControl.tintColor = .bpMediumBlue
+        }
+    }
 
     let events: [Event]
 
@@ -51,6 +58,12 @@ public final class HistoryVC: UIViewController, Loggable {
         super.viewDidLoad()
         modalTransitionStyle = .crossDissolve
         setupGraph()
+        completeStyling()
+    }
+
+    private func completeStyling() {
+        headingLabels.forEach { styleLabelH2($0) }
+        bodyLabels.forEach { styleLabelP2($0) }
     }
 
     private func setupGraph() {
