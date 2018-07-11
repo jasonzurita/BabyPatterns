@@ -33,6 +33,9 @@ public final class HistoryVC: UIViewController, Loggable {
     @IBOutlet var timeWindowSegmentedControl: UISegmentedControl! {
         didSet {
             timeWindowSegmentedControl.tintColor = .bpMediumBlue
+            let font = UIFont.notoSansRegular(ofSize: 14)
+            let attributes: [NSAttributedStringKey: Any] = [.font: font]
+            timeWindowSegmentedControl.setTitleTextAttributes(attributes, for: .normal)
         }
     }
 
