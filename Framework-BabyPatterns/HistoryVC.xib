@@ -122,11 +122,12 @@
                     </constraints>
                 </scrollView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hBc-oD-mBW">
-                    <rect key="frame" x="491" y="332" width="161" height="29"/>
+                    <rect key="frame" x="437" y="332" width="215" height="29"/>
                     <segments>
-                        <segment title="Day"/>
-                        <segment title="Week"/>
-                        <segment title="Month"/>
+                        <segment title="12h"/>
+                        <segment title="day"/>
+                        <segment title="week"/>
+                        <segment title="month"/>
                     </segments>
                     <color key="tintColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>

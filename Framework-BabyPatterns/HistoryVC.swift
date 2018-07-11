@@ -7,6 +7,7 @@ public protocol Event {
 
 public final class HistoryVC: UIViewController, Loggable {
     private enum TimeWindow: TimeInterval {
+        case twelveHours = 43_200 // in seconds
         case day = 86_400 // in seconds
         case week = 604_800 // in seconds
         case month = 2_592_000 // in seconds
@@ -19,7 +20,7 @@ public final class HistoryVC: UIViewController, Loggable {
 
     public override var description: String { return "\(type(of: self))" }
 
-    private var screenTimeWindow: TimeWindow = .day {
+    private var screenTimeWindow: TimeWindow = .twelveHours {
         didSet {
             setupGraph()
         }
@@ -137,10 +138,12 @@ public final class HistoryVC: UIViewController, Loggable {
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            screenTimeWindow = .day
+            screenTimeWindow = .twelveHours
         case 1:
-            screenTimeWindow = .week
+            screenTimeWindow = .day
         case 2:
+            screenTimeWindow = .week
+        case 3:
             screenTimeWindow = .month
         default:
             fatalError("Impossible segement selected...")

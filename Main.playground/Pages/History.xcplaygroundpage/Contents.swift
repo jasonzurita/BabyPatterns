@@ -16,6 +16,7 @@ let events = [
     MockEvent(0),
     MockEvent(120),
     MockEvent(240),
+    MockEvent(12 * 60),
     MockEvent(24 * 60),
     MockEvent(60 * 60),
     MockEvent(7 * 24 * 60),
