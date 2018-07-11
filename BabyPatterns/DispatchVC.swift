@@ -15,6 +15,8 @@ class DispatchVC: UIViewController, Loggable {
     private var feedingsVM: FeedingsVM?
     private var profileVM: ProfileVM?
 
+    private var _profileImage: UIImage?
+
     // TODO: this should be changed to be a bitwise operator
     private var didRequestFeedings = false
     private var didRequestProfile = false
@@ -58,6 +60,9 @@ class DispatchVC: UIViewController, Loggable {
                                                       userID: u.uid,
                                                       desiredMaxSupply: K.Defaults.DefaultDesiredMaxSupply)
                     self.profileVM?.sendToServer()
+                    if let image = self._profileImage {
+                        self.profileVM?.updateProfilePhoto(image: image)
+                    }
                     self.userLoggedIn(user: u)
                 })
             }
@@ -65,6 +70,10 @@ class DispatchVC: UIViewController, Loggable {
 
         vc.onLogInRequested = { [unowned self, unowned vc] in
             self.logIn(presentingOn: vc)
+        }
+
+        vc.onImageChosen = { [unowned self] image in
+            self._profileImage = image
         }
 
         present(vc, animated: false, completion: nil)

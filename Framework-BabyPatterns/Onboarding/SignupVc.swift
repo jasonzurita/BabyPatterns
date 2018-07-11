@@ -14,6 +14,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
 
     public var onSignup: SignupResultHandler?
     public var onLogInRequested: (() -> Void)?
+    public var onImageChosen: ((UIImage) -> Void)?
 
     private var _profileImageCoordinator: ProfileImageCoordinator?
 
@@ -62,8 +63,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
 
         coordinator.onImageChosen = { [weak self] image in
             guard let strongSelf = self else { return }
-            // TODO: pass on profile image when creating the account
-//            strongSelf.profileVM?.updateProfilePhoto(image: image)
+            strongSelf.onImageChosen?(image)
             strongSelf.profileImageView.image = image
             strongSelf._profileImageCoordinator = nil
         }
