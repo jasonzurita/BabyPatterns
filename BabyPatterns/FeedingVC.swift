@@ -10,6 +10,17 @@ struct EndFeedingEvent: Event {
     }
 }
 
+struct FeedingSummary: FeedingSummaryProtocol {
+    let timeSinceLastNursing: TimeInterval
+    let lastNursingSide: FeedingSide
+    let averageNursingDuration: TimeInterval
+    let timeSinceLastPumping: TimeInterval
+    let lastPumpingSide: FeedingSide
+    let lastPumpedAmount: Double
+    let timeSinceLastBottleFeeding: TimeInterval
+    let remainingSupplyAmount: Double
+}
+
 final class FeedingVC: UIViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -85,7 +96,15 @@ final class FeedingVC: UIViewController {
     }
 
     private func presentHistoryVC() {
-        let vc = HistoryVC(events: orderedCompletedFeedingEvents)
+        let summary = FeedingSummary(timeSinceLastNursing: 100,
+                                     lastNursingSide: .left,
+                                     averageNursingDuration: 100,
+                                     timeSinceLastPumping: 100,
+                                     lastPumpingSide: .left,
+                                     lastPumpedAmount: 100,
+                                     timeSinceLastBottleFeeding: 120,
+                                     remainingSupplyAmount: 100)
+        let vc = HistoryVC(events: orderedCompletedFeedingEvents, summary: summary)
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
     }

@@ -5,6 +5,17 @@ public protocol Event {
     var endDate: Date { get }
 }
 
+public protocol FeedingSummaryProtocol {
+    var timeSinceLastNursing: TimeInterval { get }
+    var lastNursingSide: FeedingSide { get }
+    var averageNursingDuration: TimeInterval { get }
+    var timeSinceLastPumping: TimeInterval { get }
+    var lastPumpingSide: FeedingSide { get }
+    var lastPumpedAmount: Double { get }
+    var timeSinceLastBottleFeeding: TimeInterval { get }
+    var remainingSupplyAmount: Double { get }
+}
+
 public final class HistoryVC: UIViewController, Loggable {
     private enum TimeWindow: TimeInterval {
         case twelveHours = 43_200 // in seconds
@@ -22,6 +33,7 @@ public final class HistoryVC: UIViewController, Loggable {
 
     private var screenTimeWindow: TimeWindow = .twelveHours {
         didSet {
+            updateAverageNursingLabel()
             setupGraph()
         }
     }
@@ -30,6 +42,31 @@ public final class HistoryVC: UIViewController, Loggable {
     @IBOutlet var scrollContentView: UIView!
     @IBOutlet var headingLabels: [UILabel]!
     @IBOutlet var bodyLabels: [UILabel]!
+    @IBOutlet var lastNursingLabel: UILabel!
+    @IBOutlet var averageNursingLabel: UILabel! {
+        didSet {
+            updateAverageNursingLabel()
+        }
+    }
+    @IBOutlet var lastPumpingLabel: UILabel!
+    @IBOutlet var lastPumpedAmount: UILabel! {
+        didSet {
+            lastPumpedAmount.text = "◦ last pumped: \(_summary.lastPumpedAmount) oz"
+        }
+    }
+    @IBOutlet var lastBottleFeedingLabel: UILabel! {
+        didSet {
+            let time = _summary.timeSinceLastBottleFeeding
+            let hours = time.stringFromSecondsToHours(zeroPadding: false)
+            let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
+            lastBottleFeedingLabel.text = "◦ " + hours.string + "h " + minutes.string + "m ago"
+        }
+    }
+    @IBOutlet var remainingSupplyLabel: UILabel! {
+        didSet {
+            remainingSupplyLabel.text = "◦ supply: \(_summary.remainingSupplyAmount) oz"
+        }
+    }
     @IBOutlet var timeWindowSegmentedControl: UISegmentedControl! {
         didSet {
             timeWindowSegmentedControl.tintColor = .bpMediumBlue
@@ -39,7 +76,8 @@ public final class HistoryVC: UIViewController, Loggable {
         }
     }
 
-    let events: [Event]
+    private let events: [Event]
+    private let _summary: FeedingSummaryProtocol
 
     private let yOffset: CGFloat = 6
     private let barGraphElementWidth: CGFloat = 2
@@ -49,8 +87,9 @@ public final class HistoryVC: UIViewController, Loggable {
         return scrollView.frame.width / CGFloat(screenTimeWindow.rawValue)
     }
 
-    public init(events: [Event]) {
+    public init(events: [Event], summary: FeedingSummaryProtocol) {
         self.events = events
+        _summary = summary
         super.init(nibName: "\(type(of: self))", bundle: Bundle.framework)
     }
 
@@ -62,12 +101,42 @@ public final class HistoryVC: UIViewController, Loggable {
         super.viewDidLoad()
         modalTransitionStyle = .crossDissolve
         setupGraph()
+        lastNursingLabel.text = lastFeedingText(side: _summary.lastNursingSide,
+                                                timeSinceLastFeeding: _summary.timeSinceLastNursing)
+
+        lastPumpingLabel.text = lastFeedingText(side: _summary.lastPumpingSide,
+                                                timeSinceLastFeeding: _summary.timeSinceLastPumping)
         completeStyling()
+    }
+
+    private func lastFeedingText(side: FeedingSide, timeSinceLastFeeding: TimeInterval) -> String {
+        let sideText = side == .none ? "" : "\(side.asText()): "
+        let hours = timeSinceLastFeeding.stringFromSecondsToHours(zeroPadding: false)
+        let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
+        let text = "◦ \(sideText)" + hours.string + "h " + minutes.string + "m ago"
+        return text.lowercased()
     }
 
     private func completeStyling() {
         headingLabels.forEach { styleLabelH2($0) }
         bodyLabels.forEach { styleLabelP2($0) }
+    }
+
+    private func updateAverageNursingLabel() {
+        // TODO: make sure this makes sense
+        // also the value needs to change depending on the window change
+        let window: String
+        switch screenTimeWindow {
+        case .twelveHours:
+            window = "12h"
+        case .day:
+            window = "day"
+        case .week:
+            window = "week"
+        case .month:
+            window = "month"
+        }
+        averageNursingLabel.text = "◦ avg feeding (\(window)) \(_summary.averageNursingDuration) m"
     }
 
     private func setupGraph() {

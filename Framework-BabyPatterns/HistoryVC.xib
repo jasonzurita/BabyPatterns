@@ -12,6 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryVC" customModule="Framework_BabyPatterns" customModuleProvider="target">
             <connections>
+                <outlet property="averageNursingLabel" destination="2j0-cZ-kmj" id="hbp-BU-MNM"/>
+                <outlet property="lastBottleFeedingLabel" destination="0RI-3q-Y65" id="Nct-rP-cDl"/>
+                <outlet property="lastNursingLabel" destination="byi-7R-9yN" id="iw7-pW-nvd"/>
+                <outlet property="lastPumpedAmount" destination="Wm7-Z3-hbf" id="oIK-Ee-8QN"/>
+                <outlet property="lastPumpingLabel" destination="evU-lF-obM" id="q4D-Xt-59f"/>
+                <outlet property="remainingSupplyLabel" destination="izL-8Z-kR6" id="1nb-Os-fhg"/>
                 <outlet property="scrollContentView" destination="fjg-CP-QJi" id="QMO-6g-VJg"/>
                 <outlet property="scrollView" destination="a1d-kw-iqS" id="7Qg-ra-ipr"/>
                 <outlet property="timeWindowSegmentedControl" destination="hBc-oD-mBW" id="mut-H5-ail"/>

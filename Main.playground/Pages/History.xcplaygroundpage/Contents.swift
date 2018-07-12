@@ -12,6 +12,17 @@ struct MockEvent: Event {
     }
 }
 
+struct FeedingSummary: FeedingSummaryProtocol {
+    let timeSinceLastNursing: TimeInterval
+    let lastNursingSide: FeedingSide
+    let averageNursingDuration: TimeInterval
+    let timeSinceLastPumping: TimeInterval
+    let lastPumpingSide: FeedingSide
+    let lastPumpedAmount: Double
+    let timeSinceLastBottleFeeding: TimeInterval
+    let remainingSupplyAmount: Double
+}
+
 let events = [
     MockEvent(0),
     MockEvent(120),
@@ -22,7 +33,16 @@ let events = [
     MockEvent(7 * 24 * 60),
 ]
 
-let vc = HistoryVC(events: events)
+let summary = FeedingSummary(timeSinceLastNursing: 60,
+                             lastNursingSide: .left,
+                             averageNursingDuration: 100,
+                             timeSinceLastPumping: 120,
+                             lastPumpingSide: .right,
+                             lastPumpedAmount: 100,
+                             timeSinceLastBottleFeeding: 1000,
+                             remainingSupplyAmount: 100)
+
+let vc = HistoryVC(events: events, summary: summary)
 
 let parent = playgroundWrapper(child: vc,
                                device: .phone4inch,
