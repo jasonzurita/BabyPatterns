@@ -104,7 +104,7 @@ final class FeedingVC: UIViewController {
                                      lastPumpedAmount: 100,
                                      timeSinceLastBottleFeeding: 120,
                                      remainingSupplyAmount: 100)
-        let vc = HistoryVC(events: orderedCompletedFeedingEvents, summary: summary)
+        let vc = HistoryVc(events: orderedCompletedFeedingEvents, summary: summary)
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
     }

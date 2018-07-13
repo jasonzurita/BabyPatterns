@@ -42,7 +42,7 @@ let summary = FeedingSummary(timeSinceLastNursing: 60,
                              timeSinceLastBottleFeeding: 1000,
                              remainingSupplyAmount: 100)
 
-let vc = HistoryVC(events: events, summary: summary)
+let vc = HistoryVc(events: events, summary: summary)
 
 let parent = playgroundWrapper(child: vc,
                                device: .phone4inch,

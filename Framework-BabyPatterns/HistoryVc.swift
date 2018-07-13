@@ -16,7 +16,7 @@ public protocol FeedingSummaryProtocol {
     var remainingSupplyAmount: Double { get }
 }
 
-public final class HistoryVC: UIViewController, Loggable {
+public final class HistoryVc: UIViewController, Loggable {
     private enum TimeWindow: TimeInterval {
         case twelveHours = 43_200 // in seconds
         case day = 86_400 // in seconds

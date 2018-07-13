@@ -68,8 +68,8 @@
 		12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12E8E57D20A2684D00C781EE /* PumpingVC.xib */; };
 		12EE461620EF93EC00B51FC6 /* SlideableTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */; };
 		12EE85F420F028C00085BF01 /* SettingsVc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12EE85F320F028C00085BF01 /* SettingsVc.storyboard */; };
-		12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */; };
-		12F3A9C81FBB2174002ECC7B /* HistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */; };
+		12F3A9C71FBB2174002ECC7B /* HistoryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */; };
+		12F3A9C81FBB2174002ECC7B /* HistoryVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12F3A9C61FBB2174002ECC7B /* HistoryVc.xib */; };
 		2A665C208E99BFF450A704EB /* libPods-BabyPatterns.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20D78A84B09EE74A0AA1D /* libPods-BabyPatterns.a */; };
 		43037E0E1E3A36DB00D478AD /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43037E0D1E3A36DB00D478AD /* NavigationVC.swift */; };
 		430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F01771E2BDAC700FE02FC /* DispatchVC.swift */; };
@@ -195,8 +195,8 @@
 		12E8E57D20A2684D00C781EE /* PumpingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PumpingVC.xib; sourceTree = "<group>"; };
 		12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideableTextFieldContainer.swift; sourceTree = "<group>"; };
 		12EE85F320F028C00085BF01 /* SettingsVc.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsVc.storyboard; sourceTree = "<group>"; };
-		12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
-		12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryVC.xib; sourceTree = "<group>"; };
+		12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVc.swift; sourceTree = "<group>"; };
+		12F3A9C61FBB2174002ECC7B /* HistoryVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryVc.xib; sourceTree = "<group>"; };
 		43037E0D1E3A36DB00D478AD /* NavigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
 		430F01771E2BDAC700FE02FC /* DispatchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchVC.swift; sourceTree = "<group>"; };
 		430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = ../Library/UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -325,8 +325,8 @@
 				4314DD571DFB6DE300B3649C /* Enums.swift */,
 				12DD2D0220A46ECD00849A48 /* Configuration.swift */,
 				43D2BE671DCB69E900895A65 /* Model */,
-				12F3A9C51FBB2174002ECC7B /* HistoryVC.swift */,
-				12F3A9C61FBB2174002ECC7B /* HistoryVC.xib */,
+				12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */,
+				12F3A9C61FBB2174002ECC7B /* HistoryVc.xib */,
 				AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */,
 				123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */,
 				123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */,
@@ -864,7 +864,7 @@
 				12BA1B7F20EED21700835F77 /* LoginVc.xib in Resources */,
 				123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */,
 				120F801A1FBF0B7F00D04E45 /* Assets.xcassets in Resources */,
-				12F3A9C81FBB2174002ECC7B /* HistoryVC.xib in Resources */,
+				12F3A9C81FBB2174002ECC7B /* HistoryVc.xib in Resources */,
 				1243E4841FD6DA4900D727F1 /* FeedingStopwatchView.xib in Resources */,
 				12C866B720DDAF5300053FCC /* NotoSans-Regular.ttf in Resources */,
 			);
@@ -977,7 +977,7 @@
 				12C9B09C1FD6172100CA6EBF /* NursingVC.swift in Sources */,
 				12C866BE20DDB15000053FCC /* Bundle.swift in Sources */,
 				12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */,
-				12F3A9C71FBB2174002ECC7B /* HistoryVC.swift in Sources */,
+				12F3A9C71FBB2174002ECC7B /* HistoryVc.swift in Sources */,
 				12B6E42120EB973400EA6944 /* SignupVc.swift in Sources */,
 				123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */,
 				12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */,
