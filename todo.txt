@@ -3,6 +3,7 @@
   - UI style pass on history screen
   - Add ability to tap on history bar and get tool tip of date
 - Change turn off ads to donate row
+- Update history buttons and replace with simple show history with half modal that can be dismissed by tapping outside of that modal
 
 tests to conduct:
 - forgot password
