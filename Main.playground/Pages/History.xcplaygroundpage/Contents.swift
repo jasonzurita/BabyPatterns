@@ -46,6 +46,6 @@ let vc = HistoryVc(events: events, summary: summary)
 
 let parent = playgroundWrapper(child: vc,
                                device: .phone4inch,
-                               orientation: .landscape,
+                               orientation: .portrait,
                                contentSizeCategory: .accessibilityMedium)
 PlaygroundPage.current.liveView = parent

@@ -57,21 +57,6 @@ final class FeedingVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
-
-        let center = NotificationCenter.default
-        notificationToken = center.addObserver(forName: .UIDeviceOrientationDidChange,
-                                               object: nil,
-                                               queue: nil,
-                                               using: { [weak self] _ in
-                                                guard UIDeviceOrientationIsLandscape(UIDevice.current.orientation),
-                                                let strongSelf = self else { return }
-                                                strongSelf.presentHistoryVC()
-                                                UIDevice.current.endGeneratingDeviceOrientationNotifications()
-                                                if let token = strongSelf.notificationToken {
-                                                    center.removeObserver(token)
-                                                }
-        })
         updateProfileUI()
     }
 
@@ -105,7 +90,7 @@ final class FeedingVC: UIViewController {
                                      timeSinceLastBottleFeeding: 120,
                                      remainingSupplyAmount: 100)
         let vc = HistoryVc(events: orderedCompletedFeedingEvents, summary: summary)
-        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)
     }
 

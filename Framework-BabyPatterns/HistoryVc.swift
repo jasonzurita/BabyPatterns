@@ -26,7 +26,7 @@ public final class HistoryVc: UIViewController, Loggable {
 
     public let shouldPrintDebugLog = true
     public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
+        return .portrait
     }
 
     public override var description: String { return "\(type(of: self))" }
@@ -99,7 +99,6 @@ public final class HistoryVc: UIViewController, Loggable {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        modalTransitionStyle = .crossDissolve
         setupGraph()
         lastNursingLabel.text = lastFeedingText(side: _summary.lastNursingSide,
                                                 timeSinceLastFeeding: _summary.timeSinceLastNursing)
@@ -182,25 +181,6 @@ public final class HistoryVc: UIViewController, Loggable {
         if let token = notificationToken {
             NotificationCenter.default.removeObserver(token)
         }
-    }
-
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
-
-        let center = NotificationCenter.default
-        notificationToken = center.addObserver(forName: .UIDeviceOrientationDidChange,
-                                               object: nil,
-                                               queue: nil,
-                                               using: { [weak self] _ in
-                                                   if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-                                                       self?.dismiss(animated: true, completion: nil)
-
-                                                       UIDevice.current.endGeneratingDeviceOrientationNotifications()
-                                                       guard let token = self?.notificationToken else { return }
-                                                       center.removeObserver(token)
-                                                   }
-        })
     }
 
     @IBAction func exitHistoryButtonPressed(_: UIButton) {
