@@ -44,49 +44,31 @@ public final class HistoryVc: UIViewController, Loggable {
     @IBOutlet var headingLabels: [UILabel]!
     @IBOutlet var bodyLabels: [UILabel]!
     @IBOutlet var lastNursingLabel: UILabel! {
-        didSet {
-            lastNursingLabel.text = lastTimeText(_summary.timeSinceLastNursing)
-        }
+        didSet { lastNursingLabel.text = lastTimeText(_summary.timeSinceLastNursing) }
     }
     @IBOutlet var lastNursingSideLabel: UILabel! {
-        didSet {
-            lastNursingLabel.text = "Last side: \(_summary.lastNursingSide)"
-        }
+        didSet { lastNursingLabel.text = "Last side: \(_summary.lastNursingSide)" }
     }
     @IBOutlet var averageNursingLabel: UILabel! {
-        didSet {
-            updateAverageNursingLabel()
-        }
+        didSet { updateAverageNursingLabel() }
     }
     @IBOutlet var lastPumpingLabel: UILabel! {
-        didSet {
-            lastNursingLabel.text = lastTimeText(_summary.timeSinceLastNursing)
-        }
+        didSet { lastNursingLabel.text = lastTimeText(_summary.timeSinceLastNursing) }
     }
     @IBOutlet var lastPumpingSideLabel: UILabel! {
-        didSet {
-            lastPumpingSideLabel.text = "Last side: \(_summary.lastPumpingSide)"
-        }
+        didSet { lastPumpingSideLabel.text = "Last side: \(_summary.lastPumpingSide)" }
     }
     @IBOutlet var lastPumpedAmount: UILabel! {
-        didSet {
-            lastPumpedAmount.text = "Last amount pumped: \(_summary.lastPumpedAmount) oz"
-        }
+        didSet { lastPumpedAmount.text = "Last amount pumped: \(_summary.lastPumpedAmount) oz" }
     }
     @IBOutlet var lastBottleFeedingLabel: UILabel! {
-        didSet {
-            lastBottleFeedingLabel.text = lastTimeText(_summary.timeSinceLastBottleFeeding)
-        }
+        didSet { lastBottleFeedingLabel.text = lastTimeText(_summary.timeSinceLastBottleFeeding) }
     }
     @IBOutlet var remainingSupplyLabel: UILabel! {
-        didSet {
-            remainingSupplyLabel.text = "Remaining supply: \(_summary.remainingSupplyAmount) oz"
-        }
+        didSet { remainingSupplyLabel.text = "Remaining supply: \(_summary.remainingSupplyAmount) oz" }
     }
     @IBOutlet var desiredSupplyLabel: UILabel! {
-        didSet {
-            desiredSupplyLabel.text = "Desired supply: \(_summary.desiredSupplyAmount)"
-        }
+        didSet { desiredSupplyLabel.text = "Desired supply: \(_summary.desiredSupplyAmount)" }
     }
 
     @IBOutlet var timeWindowSegmentedControl: UISegmentedControl! {
@@ -130,7 +112,6 @@ public final class HistoryVc: UIViewController, Loggable {
         setupGraph()
         completeStyling()
     }
-
 
     private func completeStyling() {
         headingLabels.forEach { styleLabelH2($0) }
