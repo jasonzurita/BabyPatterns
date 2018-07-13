@@ -14,10 +14,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryVc" customModule="Framework_BabyPatterns" customModuleProvider="target">
             <connections>
                 <outlet property="averageNursingLabel" destination="2j0-cZ-kmj" id="hbp-BU-MNM"/>
+                <outlet property="desiredSupplyLabel" destination="f2i-si-4IA" id="sEW-FF-ENa"/>
                 <outlet property="lastBottleFeedingLabel" destination="0RI-3q-Y65" id="Nct-rP-cDl"/>
                 <outlet property="lastNursingLabel" destination="byi-7R-9yN" id="iw7-pW-nvd"/>
+                <outlet property="lastNursingSideLabel" destination="Wfi-OO-sE1" id="yEz-1e-1ch"/>
                 <outlet property="lastPumpedAmount" destination="Wm7-Z3-hbf" id="oIK-Ee-8QN"/>
                 <outlet property="lastPumpingLabel" destination="evU-lF-obM" id="q4D-Xt-59f"/>
+                <outlet property="lastPumpingSideLabel" destination="1PA-PK-gAL" id="rwO-3Q-560"/>
                 <outlet property="remainingSupplyLabel" destination="izL-8Z-kR6" id="1nb-Os-fhg"/>
                 <outlet property="scrollContentView" destination="fjg-CP-QJi" id="QMO-6g-VJg"/>
                 <outlet property="scrollView" destination="a1d-kw-iqS" id="7Qg-ra-ipr"/>
@@ -32,6 +35,9 @@
                 <outletCollection property="bodyLabels" destination="Wm7-Z3-hbf" collectionClass="NSMutableArray" id="Idk-xJ-q80"/>
                 <outletCollection property="bodyLabels" destination="0RI-3q-Y65" collectionClass="NSMutableArray" id="cMK-jQ-ysu"/>
                 <outletCollection property="bodyLabels" destination="izL-8Z-kR6" collectionClass="NSMutableArray" id="pox-gt-g5V"/>
+                <outletCollection property="bodyLabels" destination="Wfi-OO-sE1" collectionClass="NSMutableArray" id="6PB-er-2et"/>
+                <outletCollection property="bodyLabels" destination="1PA-PK-gAL" collectionClass="NSMutableArray" id="kUT-bK-znc"/>
+                <outletCollection property="bodyLabels" destination="f2i-si-4IA" collectionClass="NSMutableArray" id="OQN-mL-S7C"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -52,26 +58,29 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last time: 4h 3m ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byi-7R-9yN">
-                                    <rect key="frame" x="0.0" y="20.5" width="162" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="20.5" width="345" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last side: left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfi-OO-sE1">
-                                    <rect key="frame" x="0.0" y="41" width="102.5" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="41" width="345" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Average feeding (day): 30m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2j0-cZ-kmj">
-                                    <rect key="frame" x="0.0" y="61.5" width="212" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="61.5" width="345" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="byi-7R-9yN" firstAttribute="width" secondItem="1Ah-9i-Aih" secondAttribute="width" id="7rt-MC-w3h"/>
                                 <constraint firstItem="6cg-cx-dZT" firstAttribute="width" secondItem="1Ah-9i-Aih" secondAttribute="width" id="Q4a-3r-QQE"/>
+                                <constraint firstItem="2j0-cZ-kmj" firstAttribute="width" secondItem="1Ah-9i-Aih" secondAttribute="width" id="sVH-Ss-fFG"/>
+                                <constraint firstItem="Wfi-OO-sE1" firstAttribute="width" secondItem="1Ah-9i-Aih" secondAttribute="width" id="vdJ-ku-Shd"/>
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZgZ-ar-D9C">
@@ -84,26 +93,29 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Last time: 4h 3m ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evU-lF-obM">
-                                    <rect key="frame" x="0.0" y="20.5" width="162" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="20.5" width="345" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Last side: right" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PA-PK-gAL">
-                                    <rect key="frame" x="0.0" y="41" width="113" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="41" width="345" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Last amount pumped: 3.2 oz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm7-Z3-hbf">
-                                    <rect key="frame" x="0.0" y="61.5" width="218" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="61.5" width="345" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="Wm7-Z3-hbf" firstAttribute="width" secondItem="ZgZ-ar-D9C" secondAttribute="width" id="ErB-eW-Ud6"/>
                                 <constraint firstItem="jRX-fF-oOl" firstAttribute="width" secondItem="ZgZ-ar-D9C" secondAttribute="width" id="F0a-p3-Bam"/>
+                                <constraint firstItem="1PA-PK-gAL" firstAttribute="width" secondItem="ZgZ-ar-D9C" secondAttribute="width" id="niO-LC-Qdo"/>
+                                <constraint firstItem="evU-lF-obM" firstAttribute="width" secondItem="ZgZ-ar-D9C" secondAttribute="width" id="op0-g8-LWA"/>
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="770-wr-TF1">
@@ -115,27 +127,30 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Last time: 4h 3m ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RI-3q-Y65">
-                                    <rect key="frame" x="0.0" y="20.5" width="162" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Last bottle feeding: 4h 3m ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RI-3q-Y65">
+                                    <rect key="frame" x="0.0" y="20.5" width="345" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining supply: 30oz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izL-8Z-kR6">
-                                    <rect key="frame" x="0.0" y="41" width="183" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining supply: 30 oz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izL-8Z-kR6">
+                                    <rect key="frame" x="0.0" y="41" width="345" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desired supply: 50oz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2i-si-4IA">
-                                    <rect key="frame" x="0.0" y="61.5" width="162" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desired supply: 50 oz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2i-si-4IA">
+                                    <rect key="frame" x="0.0" y="61.5" width="345" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="0RI-3q-Y65" firstAttribute="width" secondItem="770-wr-TF1" secondAttribute="width" id="B1d-cq-r5H"/>
                                 <constraint firstItem="8d9-fR-FRe" firstAttribute="width" secondItem="770-wr-TF1" secondAttribute="width" id="LYh-Uv-vd0"/>
+                                <constraint firstItem="f2i-si-4IA" firstAttribute="width" secondItem="770-wr-TF1" secondAttribute="width" id="Tkv-6k-L0Q"/>
+                                <constraint firstItem="izL-8Z-kR6" firstAttribute="width" secondItem="770-wr-TF1" secondAttribute="width" id="zHc-8L-tFk"/>
                             </constraints>
                         </stackView>
                     </subviews>

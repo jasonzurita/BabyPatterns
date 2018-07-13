@@ -13,14 +13,15 @@ struct MockEvent: Event {
 }
 
 struct FeedingSummary: FeedingSummaryProtocol {
-    let timeSinceLastNursing: TimeInterval
-    let lastNursingSide: FeedingSide
-    let averageNursingDuration: TimeInterval
-    let timeSinceLastPumping: TimeInterval
-    let lastPumpingSide: FeedingSide
-    let lastPumpedAmount: Double
-    let timeSinceLastBottleFeeding: TimeInterval
-    let remainingSupplyAmount: Double
+    let timeSinceLastNursing: TimeInterval = 60
+    let lastNursingSide: FeedingSide = .left
+    let averageNursingDuration: TimeInterval = 100
+    let timeSinceLastPumping: TimeInterval = 120
+    let lastPumpingSide: FeedingSide = .right
+    let lastPumpedAmount: Double = 100
+    let timeSinceLastBottleFeeding: TimeInterval = 1000
+    let remainingSupplyAmount: Double = 50
+    let desiredSupplyAmount: Double = 100
 }
 
 let events = [
@@ -33,14 +34,7 @@ let events = [
     MockEvent(7 * 24 * 60),
 ]
 
-let summary = FeedingSummary(timeSinceLastNursing: 60,
-                             lastNursingSide: .left,
-                             averageNursingDuration: 100,
-                             timeSinceLastPumping: 120,
-                             lastPumpingSide: .right,
-                             lastPumpedAmount: 100,
-                             timeSinceLastBottleFeeding: 1000,
-                             remainingSupplyAmount: 100)
+let summary = FeedingSummary()
 
 let vc = HistoryVc(events: events, summary: summary)
 

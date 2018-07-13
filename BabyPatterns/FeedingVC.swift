@@ -19,6 +19,7 @@ struct FeedingSummary: FeedingSummaryProtocol {
     let lastPumpedAmount: Double
     let timeSinceLastBottleFeeding: TimeInterval
     let remainingSupplyAmount: Double
+    let desiredSupplyAmount: Double
 }
 
 final class FeedingVC: UIViewController {
@@ -88,7 +89,8 @@ final class FeedingVC: UIViewController {
                                      lastPumpingSide: .left,
                                      lastPumpedAmount: 100,
                                      timeSinceLastBottleFeeding: 120,
-                                     remainingSupplyAmount: 100)
+                                     remainingSupplyAmount: 100,
+                                     desiredSupplyAmount: 100)
         let vc = HistoryVc(events: orderedCompletedFeedingEvents, summary: summary)
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)

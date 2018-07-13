@@ -14,6 +14,7 @@ public protocol FeedingSummaryProtocol {
     var lastPumpedAmount: Double { get }
     var timeSinceLastBottleFeeding: TimeInterval { get }
     var remainingSupplyAmount: Double { get }
+    var desiredSupplyAmount: Double { get }
 }
 
 public final class HistoryVc: UIViewController, Loggable {
@@ -42,31 +43,52 @@ public final class HistoryVc: UIViewController, Loggable {
     @IBOutlet var scrollContentView: UIView!
     @IBOutlet var headingLabels: [UILabel]!
     @IBOutlet var bodyLabels: [UILabel]!
-    @IBOutlet var lastNursingLabel: UILabel!
+    @IBOutlet var lastNursingLabel: UILabel! {
+        didSet {
+            lastNursingLabel.text = lastTimeText(_summary.timeSinceLastNursing)
+        }
+    }
+    @IBOutlet var lastNursingSideLabel: UILabel! {
+        didSet {
+            lastNursingLabel.text = "Last side: \(_summary.lastNursingSide)"
+        }
+    }
     @IBOutlet var averageNursingLabel: UILabel! {
         didSet {
             updateAverageNursingLabel()
         }
     }
-    @IBOutlet var lastPumpingLabel: UILabel!
+    @IBOutlet var lastPumpingLabel: UILabel! {
+        didSet {
+            lastNursingLabel.text = lastTimeText(_summary.timeSinceLastNursing)
+        }
+    }
+    @IBOutlet var lastPumpingSideLabel: UILabel! {
+        didSet {
+            lastPumpingSideLabel.text = "Last side: \(_summary.lastPumpingSide)"
+        }
+    }
     @IBOutlet var lastPumpedAmount: UILabel! {
         didSet {
-            lastPumpedAmount.text = "◦ last pumped: \(_summary.lastPumpedAmount) oz"
+            lastPumpedAmount.text = "Last amount pumped: \(_summary.lastPumpedAmount) oz"
         }
     }
     @IBOutlet var lastBottleFeedingLabel: UILabel! {
         didSet {
-            let time = _summary.timeSinceLastBottleFeeding
-            let hours = time.stringFromSecondsToHours(zeroPadding: false)
-            let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
-            lastBottleFeedingLabel.text = "◦ " + hours.string + "h " + minutes.string + "m ago"
+            lastBottleFeedingLabel.text = lastTimeText(_summary.timeSinceLastBottleFeeding)
         }
     }
     @IBOutlet var remainingSupplyLabel: UILabel! {
         didSet {
-            remainingSupplyLabel.text = "◦ supply: \(_summary.remainingSupplyAmount) oz"
+            remainingSupplyLabel.text = "Remaining supply: \(_summary.remainingSupplyAmount) oz"
         }
     }
+    @IBOutlet var desiredSupplyLabel: UILabel! {
+        didSet {
+            desiredSupplyLabel.text = "Desired supply: \(_summary.desiredSupplyAmount)"
+        }
+    }
+
     @IBOutlet var timeWindowSegmentedControl: UISegmentedControl! {
         didSet {
             timeWindowSegmentedControl.tintColor = .bpMediumBlue
@@ -74,6 +96,14 @@ public final class HistoryVc: UIViewController, Loggable {
             let attributes: [NSAttributedStringKey: Any] = [.font: font]
             timeWindowSegmentedControl.setTitleTextAttributes(attributes, for: .normal)
         }
+    }
+
+    private func lastTimeText(_ lastTime: TimeInterval) -> String {
+        //        let sideText = side == .none ? "" : "\(side.asText()): "
+        let hours = lastTime.stringFromSecondsToHours(zeroPadding: false)
+        let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
+        let text = "Last time: \(hours.string)h \(minutes.string)m ago"
+        return text
     }
 
     private let events: [Event]
@@ -93,28 +123,14 @@ public final class HistoryVc: UIViewController, Loggable {
         super.init(nibName: "\(type(of: self))", bundle: Bundle.framework)
     }
 
-    public required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupGraph()
-        lastNursingLabel.text = lastFeedingText(side: _summary.lastNursingSide,
-                                                timeSinceLastFeeding: _summary.timeSinceLastNursing)
-
-        lastPumpingLabel.text = lastFeedingText(side: _summary.lastPumpingSide,
-                                                timeSinceLastFeeding: _summary.timeSinceLastPumping)
         completeStyling()
     }
 
-    private func lastFeedingText(side: FeedingSide, timeSinceLastFeeding: TimeInterval) -> String {
-        let sideText = side == .none ? "" : "\(side.asText()): "
-        let hours = timeSinceLastFeeding.stringFromSecondsToHours(zeroPadding: false)
-        let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
-        let text = "◦ \(sideText)" + hours.string + "h " + minutes.string + "m ago"
-        return text.lowercased()
-    }
 
     private func completeStyling() {
         headingLabels.forEach { styleLabelH2($0) }
@@ -135,7 +151,7 @@ public final class HistoryVc: UIViewController, Loggable {
         case .month:
             window = "month"
         }
-        averageNursingLabel.text = "◦ avg feeding (\(window)) \(_summary.averageNursingDuration) m"
+        averageNursingLabel.text = "Average feeding (\(window)) \(_summary.averageNursingDuration) m"
     }
 
     private func setupGraph() {
