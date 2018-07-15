@@ -47,28 +47,28 @@ public final class HistoryVc: UIViewController, Loggable {
         didSet { lastNursingLabel.text = lastTimeText(_summary.timeSinceLastNursing) }
     }
     @IBOutlet var lastNursingSideLabel: UILabel! {
-        didSet { lastNursingLabel.text = "Last side: \(_summary.lastNursingSide)" }
+        didSet { lastNursingSideLabel.text = "  Last side: \(_summary.lastNursingSide)" }
     }
     @IBOutlet var averageNursingLabel: UILabel! {
         didSet { updateAverageNursingLabel() }
     }
     @IBOutlet var lastPumpingLabel: UILabel! {
-        didSet { lastNursingLabel.text = lastTimeText(_summary.timeSinceLastNursing) }
+        didSet { lastPumpingLabel.text = lastTimeText(_summary.timeSinceLastNursing) }
     }
     @IBOutlet var lastPumpingSideLabel: UILabel! {
-        didSet { lastPumpingSideLabel.text = "Last side: \(_summary.lastPumpingSide)" }
+        didSet { lastPumpingSideLabel.text = "  Last side: \(_summary.lastPumpingSide)" }
     }
     @IBOutlet var lastPumpedAmount: UILabel! {
-        didSet { lastPumpedAmount.text = "Last amount pumped: \(_summary.lastPumpedAmount) oz" }
+        didSet { lastPumpedAmount.text = "  Last amount pumped: \(_summary.lastPumpedAmount) oz" }
     }
     @IBOutlet var lastBottleFeedingLabel: UILabel! {
         didSet { lastBottleFeedingLabel.text = lastTimeText(_summary.timeSinceLastBottleFeeding) }
     }
     @IBOutlet var remainingSupplyLabel: UILabel! {
-        didSet { remainingSupplyLabel.text = "Remaining supply: \(_summary.remainingSupplyAmount) oz" }
+        didSet { remainingSupplyLabel.text = "  Remaining supply: \(_summary.remainingSupplyAmount) oz" }
     }
     @IBOutlet var desiredSupplyLabel: UILabel! {
-        didSet { desiredSupplyLabel.text = "Desired supply: \(_summary.desiredSupplyAmount)" }
+        didSet { desiredSupplyLabel.text = "  Desired supply: \(_summary.desiredSupplyAmount) oz" }
     }
 
     @IBOutlet var timeWindowSegmentedControl: UISegmentedControl! {
@@ -84,7 +84,7 @@ public final class HistoryVc: UIViewController, Loggable {
         //        let sideText = side == .none ? "" : "\(side.asText()): "
         let hours = lastTime.stringFromSecondsToHours(zeroPadding: false)
         let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
-        let text = "Last time: \(hours.string)h \(minutes.string)m ago"
+        let text = "  Last time: \(hours.string)h \(minutes.string)m ago"
         return text
     }
 
@@ -132,7 +132,7 @@ public final class HistoryVc: UIViewController, Loggable {
         case .month:
             window = "month"
         }
-        averageNursingLabel.text = "Average feeding (\(window)) \(_summary.averageNursingDuration) m"
+        averageNursingLabel.text = "  Average feeding (\(window)) \(_summary.averageNursingDuration) m"
     }
 
     private func setupGraph() {
