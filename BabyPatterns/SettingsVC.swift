@@ -163,7 +163,7 @@ extension SettingsVC {
         let vc = MFMailComposeViewController()
         vc.mailComposeDelegate = self
 
-        vc.setToRecipients(["jasonzurita@me.com"])
+        vc.setToRecipients(["support@baby-patterns.com"])
         vc.setSubject(subject)
 
         present(vc, animated: true, completion: nil)
