@@ -73,6 +73,10 @@ public final class LoginVc: UIViewController, Loggable, SlidableTextFieldContain
         present(prompt, animated: true, completion: nil)
     }
 
+    @IBAction func exit(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+
     public func logInFailed(error: Error? = nil) {
         logInActivityIndicator.stopAnimating()
 

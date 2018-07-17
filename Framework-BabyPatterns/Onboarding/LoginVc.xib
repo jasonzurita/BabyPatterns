@@ -146,12 +146,26 @@
                         <constraint firstItem="ZtG-eS-9ey" firstAttribute="top" secondItem="PLS-gM-wDh" secondAttribute="top" id="vIz-Mn-6hC"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeR-JT-xOr">
+                    <rect key="frame" x="0.0" y="20" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="eJb-7g-T7i"/>
+                        <constraint firstAttribute="width" constant="50" id="pdk-Et-EMJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="36"/>
+                    <state key="normal" title="✕"/>
+                    <connections>
+                        <action selector="exit:" destination="-1" eventType="touchUpInside" id="jbv-oA-cmm"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="PLS-gM-wDh" firstAttribute="centerY" secondItem="FkY-JY-0Gb" secondAttribute="centerY" id="8Yj-NB-lO4"/>
                 <constraint firstItem="PLS-gM-wDh" firstAttribute="centerX" secondItem="FkY-JY-0Gb" secondAttribute="centerX" id="An7-gO-pQY"/>
                 <constraint firstItem="PLS-gM-wDh" firstAttribute="width" secondItem="2Pq-0S-HWl" secondAttribute="width" multiplier="0.8" id="BUm-a6-rLd"/>
+                <constraint firstItem="HeR-JT-xOr" firstAttribute="top" secondItem="FkY-JY-0Gb" secondAttribute="top" id="JdU-pr-uuv"/>
+                <constraint firstItem="HeR-JT-xOr" firstAttribute="leading" secondItem="FkY-JY-0Gb" secondAttribute="leading" id="Tig-ad-Kov"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="FkY-JY-0Gb"/>
             <point key="canvasLocation" x="351.5" y="104.5"/>
