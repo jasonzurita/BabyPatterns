@@ -33,6 +33,7 @@ public final class LoginVc: UIViewController, Loggable, SlidableTextFieldContain
     }
     @IBOutlet var containerView: UIView!
     @IBOutlet var containerCenterYConstraint: NSLayoutConstraint!
+    private weak var _notificationToken: NSObjectProtocol?
 
     public init() {
         super.init(nibName: "\(type(of: self))", bundle: Bundle.framework)
@@ -43,6 +44,25 @@ public final class LoginVc: UIViewController, Loggable, SlidableTextFieldContain
     public override func viewDidLoad() {
         super.viewDidLoad()
         allTextFields.forEach(styleTextFieldBase)
+
+        let center = NotificationCenter.default
+        _notificationToken = center.addObserver(forName: .UIKeyboardWillShow,
+                                                object: nil,
+                                                queue: nil) { [unowned self] notification in
+                                                    let frame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]
+                                                    if let keyboardSize = (frame as? NSValue)?.cgRectValue {
+                                                        self.slideContainerUp(keyboardSize.height)
+                                                    }
+        }
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        defer { _notificationToken = nil }
+        if let token = _notificationToken {
+            NotificationCenter.default.removeObserver(token)
+        }
     }
 
     @IBAction func logIn(_ sender: UIButton) {
@@ -97,9 +117,5 @@ extension LoginVc: UITextFieldDelegate {
         textField.resignFirstResponder()
         resetContainerHeight()
         return true
-    }
-
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
-        slideContainerUp()
     }
 }

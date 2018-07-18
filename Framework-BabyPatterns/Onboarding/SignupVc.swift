@@ -17,6 +17,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
     public var onImageChosen: ((UIImage) -> Void)?
 
     private var _profileImageCoordinator: ProfileImageCoordinator?
+    private weak var _notificationToken: NSObjectProtocol?
 
     @IBOutlet var containerCenterYConstraint: NSLayoutConstraint!
     @IBOutlet var containerView: UIView!
@@ -86,9 +87,28 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
         allTextFields.forEach(styleTextFieldBase)
     }
 
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        resetContainerHeight()
+        let center = NotificationCenter.default
+        _notificationToken = center.addObserver(forName: .UIKeyboardWillShow,
+                                                object: nil,
+                                                queue: nil) { [unowned self] notification in
+                                                    let frame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]
+                                                    if let keyboardSize = (frame as? NSValue)?.cgRectValue {
+                                                        self.slideContainerUp(keyboardSize.height)
+                                                    }
+        }
+    }
+
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         submitActivityIndicator.stopAnimating()
+
+        defer { _notificationToken = nil }
+        if let token = _notificationToken {
+            NotificationCenter.default.removeObserver(token)
+        }
     }
 
     @IBAction func submitButtonPressed(_: UIButton) {
@@ -153,9 +173,5 @@ extension SignupVc: UITextFieldDelegate {
         textField.resignFirstResponder()
         resetContainerHeight()
         return true
-    }
-
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
-        slideContainerUp()
     }
 }
