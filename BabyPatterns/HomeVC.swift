@@ -78,10 +78,10 @@ class HomeVC: UIViewController {
             sideText += ": "
         }
 
-        let hours = f.timeSinceLastFeeding().stringFromSecondsToHours(zeroPadding: false)
-        let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
-
-        feedingTile.detailLabel1.text = "\(sideText)" + hours.string + "h " + minutes.string + "m ago"
+//        let hours = f.timeSinceLastFeeding().stringFromSecondsToHours(zeroPadding: false)
+//        let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
+//
+//        feedingTile.detailLabel1.text = "\(sideText)" + hours.string + "h " + minutes.string + "m ago"
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {

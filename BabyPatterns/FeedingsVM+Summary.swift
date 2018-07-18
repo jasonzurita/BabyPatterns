@@ -7,8 +7,9 @@ extension FeedingsVM {
         return feedings.filter { types.contains($0.type) && $0.isFinished == isFinished }
     }
 
-    func timeSinceLastFeeding() -> TimeInterval {
-        let finishedFeedings = feedings(withTypes: [.nursing, .bottle], isFinished: true)
+    func timeSinceLast(feedingTypes: [FeedingType]) -> TimeInterval {
+        let finishedFeedings = feedings(withTypes: feedingTypes, isFinished: true)
+        // TODO: consider returning some other value than sentinelish value
         guard let lastFeedingTime = finishedFeedings.last?.endDate else { return 0 }
         return abs(lastFeedingTime.timeIntervalSinceNow)
     }
