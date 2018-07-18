@@ -82,15 +82,21 @@ final class FeedingVC: UIViewController {
     }
 
     private func presentHistoryVC() {
-        let summary = FeedingSummary(timeSinceLastNursing: 100,
-                                     lastNursingSide: .left,
-                                     averageNursingDuration: 100,
-                                     timeSinceLastPumping: 100,
-                                     lastPumpingSide: .left,
-                                     lastPumpedAmount: 100,
-                                     timeSinceLastBottleFeeding: 120,
-                                     remainingSupplyAmount: 100,
-                                     desiredSupplyAmount: 100)
+        guard let vm = feedingsVM else {
+            fatalError("No feedingsVM to show history screen with")
+        }
+
+        let summary = FeedingSummary(
+            timeSinceLastNursing: vm.timeSinceLast(feedingTypes: [.nursing]),
+            lastNursingSide: vm.lastFeedingSide(for: .nursing),
+            averageNursingDuration: 100,
+            timeSinceLastPumping: vm.timeSinceLast(feedingTypes: [.pumping]),
+            lastPumpingSide: vm.lastFeedingSide(for: .pumping),
+            lastPumpedAmount: vm.lastFeeding(type: .pumping)?.supplyAmount ?? 0,
+            timeSinceLastBottleFeeding: vm.timeSinceLast(feedingTypes: [.bottle]),
+            remainingSupplyAmount: vm.remainingSupply(),
+            desiredSupplyAmount: profileVM?.profile?.desiredMaxSupply ?? K.Defaults.DefaultDesiredMaxSupply
+        )
         let vc = HistoryVc(events: orderedCompletedFeedingEvents, summary: summary)
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)
