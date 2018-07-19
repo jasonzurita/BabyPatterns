@@ -53,6 +53,7 @@ public final class HistoryVc: UIViewController, Loggable {
         didSet { addColorIndicator(labelView: bottleHeadingLabel, color: .bpMediumBlue) }
     }
 
+    private var _colorIndicators: [UIView] = []
     private func addColorIndicator(labelView: UIView, color: UIColor) {
         let colorIndicator = UIView()
         colorIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +67,7 @@ public final class HistoryVc: UIViewController, Loggable {
             colorIndicator.centerYAnchor.constraint(equalTo: labelView.centerYAnchor),
             colorIndicator.leadingAnchor.constraint(equalTo: labelView.trailingAnchor, constant: 5),
             ])
-        colorIndicator.layer.cornerRadius = labelView.frame.height * heightMultiplier * 0.5
+        _colorIndicators.append(colorIndicator)
     }
 
     @IBOutlet var bodyLabels: [UILabel]!
@@ -136,6 +137,14 @@ public final class HistoryVc: UIViewController, Loggable {
         super.viewDidLoad()
         setupGraph()
         completeStyling()
+    }
+
+    // TODO: make another pass at making the indicators round
+    // I am not crazy about the below code, but the radius was a bit off in
+    // the did set common method above
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        _colorIndicators.forEach { $0.layer.cornerRadius = $0.frame.height * 0.5 }
     }
 
     private func completeStyling() {
