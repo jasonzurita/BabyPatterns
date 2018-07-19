@@ -3,6 +3,7 @@ import UIKit
 
 public protocol Event {
     var endDate: Date { get }
+    var type: FeedingType { get }
 }
 
 public protocol FeedingSummaryProtocol {
