@@ -23,13 +23,13 @@ public final class IAPCheckout: NSObject {
 extension IAPCheckout: SKPaymentTransactionObserver {
     public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
-            switch (transaction.transactionState) {
+            switch transaction.transactionState {
             case .purchased:
                 onSuccess?()
             case .failed:
-                if let transactionError = transaction.error as? NSError {
-                    if transactionError.code != SKError.paymentCancelled.rawValue {
-                        print("Transaction Error: \(transaction.error?.localizedDescription)")
+                if let transactionError = transaction.error {
+                    if (transactionError as NSError).code != SKError.paymentCancelled.rawValue {
+                        print("Transaction Error: \(transactionError.localizedDescription)")
                     }
                 }
                 onFailure?()

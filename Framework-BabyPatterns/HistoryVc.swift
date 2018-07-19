@@ -81,11 +81,9 @@ public final class HistoryVc: UIViewController, Loggable {
     }
 
     private func lastTimeText(_ lastTime: TimeInterval) -> String {
-        //        let sideText = side == .none ? "" : "\(side.asText()): "
         let hours = lastTime.stringFromSecondsToHours(zeroPadding: false)
         let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
-        let text = "  Last time: \(hours.string)h \(minutes.string)m ago"
-        return text
+        return "  Last time: \(hours.string)h \(minutes.string)m ago"
     }
 
     private let events: [Event]
