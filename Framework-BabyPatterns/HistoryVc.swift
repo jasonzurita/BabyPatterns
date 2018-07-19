@@ -91,7 +91,7 @@ public final class HistoryVc: UIViewController, Loggable {
     private let _summary: FeedingSummaryProtocol
 
     private let yOffset: CGFloat = 6
-    private let barGraphElementWidth: CGFloat = 2
+    private let barGraphElementWidth: CGFloat = 4
     private var notificationToken: NSObjectProtocol?
 
     private var pointsPerSecond: CGFloat {
