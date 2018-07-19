@@ -12,6 +12,7 @@ final class SettingsVC: UITableViewController, Loggable {
     }
 
     var profileVM: ProfileVM?
+    private let _iapStatus = IAPAvailability(productId: K.IAP.donate)
     var configuration: Configuration? {
         didSet {
             configureAdsOffSwitch()
@@ -27,6 +28,7 @@ final class SettingsVC: UITableViewController, Loggable {
     @IBOutlet var resetPasswordCell: UITableViewCell!
     @IBOutlet var requestFeatureCell: UITableViewCell!
     @IBOutlet var contactSupportCell: UITableViewCell!
+    @IBOutlet var donateCell: UITableViewCell!
     @IBOutlet var logoutCell: UITableViewCell!
 
     @IBOutlet var emailTextField: UITextField!
@@ -148,6 +150,8 @@ extension SettingsVC {
             composeEmail(subject: "Baby Patterns - Request Feature")
         } else if selectedCell == contactSupportCell {
             composeEmail(subject: "Baby Patterns - Contact Support")
+        } else if selectedCell == donateCell {
+            donate()
         } else if selectedCell == logoutCell {
             logout()
         } else {
@@ -168,6 +172,8 @@ extension SettingsVC {
 
         present(vc, animated: true, completion: nil)
     }
+
+    private func donate() {}
 
     private func logout() {
         let firebaseAuth = Auth.auth()

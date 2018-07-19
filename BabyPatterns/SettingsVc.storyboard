@@ -270,10 +270,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWy-ef-MiV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help support development - $0.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWy-ef-MiV">
                                                     <rect key="frame" x="26" y="11" width="315" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.98039215690000003" green="0.0039215686269999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.3341426253" blue="0.80068218710000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -281,6 +281,27 @@
                                                 <constraint firstItem="LWy-ef-MiV" firstAttribute="centerY" secondItem="bB6-7E-UDG" secondAttribute="centerY" id="ZIf-Pp-A3h"/>
                                                 <constraint firstItem="LWy-ef-MiV" firstAttribute="leading" secondItem="bB6-7E-UDG" secondAttribute="leadingMargin" constant="10" id="ZUG-T8-Oy3"/>
                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="LWy-ef-MiV" secondAttribute="trailing" id="mYC-vS-2RS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="WmW-ag-ykE">
+                                        <rect key="frame" x="0.0" y="471" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WmW-ag-ykE" id="hWA-kS-af4">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJy-wC-X5v">
+                                                    <rect key="frame" x="26" y="11" width="315" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.0039215686269999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="lJy-wC-X5v" secondAttribute="trailing" id="Nkr-Mv-4HB"/>
+                                                <constraint firstItem="lJy-wC-X5v" firstAttribute="leading" secondItem="hWA-kS-af4" secondAttribute="leadingMargin" constant="10" id="SgJ-wx-41w"/>
+                                                <constraint firstItem="lJy-wC-X5v" firstAttribute="centerY" secondItem="hWA-kS-af4" secondAttribute="centerY" id="pzL-Jy-UA2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -298,8 +319,9 @@
                         <outlet property="babyNameTextField" destination="Lg4-o7-JMp" id="4FY-aa-rFx"/>
                         <outlet property="contactSupportCell" destination="Ml2-DW-i5l" id="QWt-M6-b1O"/>
                         <outlet property="desiredSupplyTextField" destination="OnO-EK-dHg" id="IAb-7n-t0I"/>
+                        <outlet property="donateCell" destination="lx6-hJ-jN2" id="W2R-bI-HhH"/>
                         <outlet property="emailTextField" destination="Pt2-m0-esC" id="aXw-zX-juy"/>
-                        <outlet property="logoutCell" destination="lx6-hJ-jN2" id="wi4-U4-QqN"/>
+                        <outlet property="logoutCell" destination="WmW-ag-ykE" id="obs-Kt-1j2"/>
                         <outlet property="nameTextField" destination="FCh-6Z-Ouv" id="tgc-9B-LLT"/>
                         <outlet property="requestFeatureCell" destination="eeM-kq-HsC" id="rnV-Df-tYo"/>
                     </connections>

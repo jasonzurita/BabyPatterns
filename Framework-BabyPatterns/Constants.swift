@@ -48,4 +48,8 @@ public struct K {
         public static let VersionNumber = "CFBundleShortVersionString"
         public static let BuildNumber = "CFBundleVersion"
     }
+
+    public struct IAP {
+        public static let donate = "com.jasonzurita.babypatterns.tipjar99"
+    }
 }
