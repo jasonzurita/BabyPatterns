@@ -2,8 +2,8 @@
 - Add tick marks to history screen (by minute, day, week)
   - UI style pass on history screen
   - Add ability to tap on history bar and get tool tip of date
-- Change turn off ads to donate row
 - Update history buttons and replace with simple show history with half modal that can be dismissed by tapping outside of that modal
+- Purchase of IAP
 
 tests to conduct:
 - forgot password
@@ -24,6 +24,7 @@ bugs / clean up
 - Pass on fonts
 
 v?
+- Add in progress feeding event to history screen
 - Tech debt: remove storyboard edit profile image screen
 - Add tool tip for last feeding `*`
 - Add ability to set current supply (in settings?)
