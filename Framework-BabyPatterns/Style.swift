@@ -18,6 +18,30 @@ let styleViewBorder: (UIView) -> Void = {
     $0.layer.masksToBounds = true
 }
 
+// MARK: Bar Graph Element
+let styleBarGraphElementBase: (UIView) -> Void = {
+    $0.layer.cornerRadius = 2 // FIXME: this number is an assumption that the width is 4
+    $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+}
+
+let styleBarGraphElementNursing =
+    styleBarGraphElementBase
+        <> {
+            $0.backgroundColor = .bpPink
+}
+
+let styleBarGraphElementPumping: (UIView) -> Void =
+    styleBarGraphElementBase
+        <> {
+            $0.backgroundColor = .bpGreen
+}
+
+let styleBarGraphElementBottle =
+    styleBarGraphElementBase
+        <> {
+            $0.backgroundColor = .bpMediumBlue
+}
+
 // MARK: Label Styles
 let styleLabelBase: (UILabel) -> Void = {
     $0.numberOfLines = 0

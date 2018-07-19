@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryVc" customModule="Framework_BabyPatterns" customModuleProvider="target">
             <connections>
                 <outlet property="averageNursingLabel" destination="2j0-cZ-kmj" id="hbp-BU-MNM"/>
+                <outlet property="bottleHeadingLabel" destination="8d9-fR-FRe" id="n3h-gt-6pq"/>
                 <outlet property="desiredSupplyLabel" destination="f2i-si-4IA" id="sEW-FF-ENa"/>
                 <outlet property="lastBottleFeedingLabel" destination="0RI-3q-Y65" id="Nct-rP-cDl"/>
                 <outlet property="lastNursingLabel" destination="byi-7R-9yN" id="iw7-pW-nvd"/>
@@ -21,6 +22,8 @@
                 <outlet property="lastPumpedAmount" destination="Wm7-Z3-hbf" id="oIK-Ee-8QN"/>
                 <outlet property="lastPumpingLabel" destination="evU-lF-obM" id="q4D-Xt-59f"/>
                 <outlet property="lastPumpingSideLabel" destination="1PA-PK-gAL" id="rwO-3Q-560"/>
+                <outlet property="nursingHeadingLabel" destination="jRX-fF-oOl" id="7G6-e9-eMa"/>
+                <outlet property="pumpingHeadingLabel" destination="6cg-cx-dZT" id="yw0-1Y-bTg"/>
                 <outlet property="remainingSupplyLabel" destination="izL-8Z-kR6" id="1nb-Os-fhg"/>
                 <outlet property="scrollContentView" destination="fjg-CP-QJi" id="QMO-6g-VJg"/>
                 <outlet property="scrollView" destination="a1d-kw-iqS" id="7Qg-ra-ipr"/>
@@ -55,7 +58,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="82"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Nursing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cg-cx-dZT">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="59.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -81,7 +84,6 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="byi-7R-9yN" firstAttribute="width" secondItem="1Ah-9i-Aih" secondAttribute="width" id="7rt-MC-w3h"/>
-                                        <constraint firstItem="6cg-cx-dZT" firstAttribute="width" secondItem="1Ah-9i-Aih" secondAttribute="width" id="Q4a-3r-QQE"/>
                                         <constraint firstItem="2j0-cZ-kmj" firstAttribute="width" secondItem="1Ah-9i-Aih" secondAttribute="width" id="sVH-Ss-fFG"/>
                                         <constraint firstItem="Wfi-OO-sE1" firstAttribute="width" secondItem="1Ah-9i-Aih" secondAttribute="width" id="vdJ-ku-Shd"/>
                                     </constraints>
@@ -90,7 +92,7 @@
                                     <rect key="frame" x="0.0" y="87" width="342" height="82"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pumping" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRX-fF-oOl">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="68" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -116,7 +118,6 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Wm7-Z3-hbf" firstAttribute="width" secondItem="ZgZ-ar-D9C" secondAttribute="width" id="ErB-eW-Ud6"/>
-                                        <constraint firstItem="jRX-fF-oOl" firstAttribute="width" secondItem="ZgZ-ar-D9C" secondAttribute="width" id="F0a-p3-Bam"/>
                                         <constraint firstItem="1PA-PK-gAL" firstAttribute="width" secondItem="ZgZ-ar-D9C" secondAttribute="width" id="niO-LC-Qdo"/>
                                         <constraint firstItem="evU-lF-obM" firstAttribute="width" secondItem="ZgZ-ar-D9C" secondAttribute="width" id="op0-g8-LWA"/>
                                     </constraints>
@@ -125,7 +126,7 @@
                                     <rect key="frame" x="0.0" y="174" width="342" height="82"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Bottle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d9-fR-FRe">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="45.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -151,7 +152,6 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="0RI-3q-Y65" firstAttribute="width" secondItem="770-wr-TF1" secondAttribute="width" id="B1d-cq-r5H"/>
-                                        <constraint firstItem="8d9-fR-FRe" firstAttribute="width" secondItem="770-wr-TF1" secondAttribute="width" id="LYh-Uv-vd0"/>
                                         <constraint firstItem="f2i-si-4IA" firstAttribute="width" secondItem="770-wr-TF1" secondAttribute="width" id="Tkv-6k-L0Q"/>
                                         <constraint firstItem="izL-8Z-kR6" firstAttribute="width" secondItem="770-wr-TF1" secondAttribute="width" id="zHc-8L-tFk"/>
                                     </constraints>

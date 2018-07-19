@@ -43,6 +43,32 @@ public final class HistoryVc: UIViewController, Loggable {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var scrollContentView: UIView!
     @IBOutlet var headingLabels: [UILabel]!
+    @IBOutlet var pumpingHeadingLabel: UILabel! {
+        didSet { addColorIndicator(labelView: pumpingHeadingLabel, color: .bpPink) }
+    }
+    @IBOutlet var nursingHeadingLabel: UILabel! {
+        didSet { addColorIndicator(labelView: nursingHeadingLabel, color: .bpGreen) }
+    }
+    @IBOutlet var bottleHeadingLabel: UILabel! {
+        didSet { addColorIndicator(labelView: bottleHeadingLabel, color: .bpMediumBlue) }
+    }
+
+    private func addColorIndicator(labelView: UIView, color: UIColor) {
+        let colorIndicator = UIView()
+        colorIndicator.translatesAutoresizingMaskIntoConstraints = false
+        colorIndicator.backgroundColor = color
+        labelView.addSubview(colorIndicator)
+
+        let heightMultiplier: CGFloat = 0.4
+        NSLayoutConstraint.activate([
+            colorIndicator.heightAnchor.constraint(equalTo: labelView.heightAnchor, multiplier: heightMultiplier),
+            colorIndicator.widthAnchor.constraint(equalTo: colorIndicator.heightAnchor),
+            colorIndicator.centerYAnchor.constraint(equalTo: labelView.centerYAnchor),
+            colorIndicator.leadingAnchor.constraint(equalTo: labelView.trailingAnchor, constant: 5),
+            ])
+        colorIndicator.layer.cornerRadius = labelView.frame.height * heightMultiplier * 0.5
+    }
+
     @IBOutlet var bodyLabels: [UILabel]!
     @IBOutlet var lastNursingLabel: UILabel! {
         didSet { lastNursingLabel.text = lastTimeText(_summary.timeSinceLastNursing) }
@@ -150,10 +176,20 @@ public final class HistoryVc: UIViewController, Loggable {
         for event in events {
             let x = xFeedingLocation(forDate: event.endDate, inWindow: window)
 
-            let graphElement = BarGraphLollipop()
+            let graphElement = UIView()
+            switch event.type {
+            case .pumping:
+                styleBarGraphElementPumping(graphElement)
+            case .nursing:
+                styleBarGraphElementNursing(graphElement)
+            case .bottle:
+                styleBarGraphElementBottle(graphElement)
+            case .none:
+                log("Event has feeding type of none: \(event)", object: self, type: .error)
+            }
             scrollContentView.addSubview(graphElement)
-
             graphElement.translatesAutoresizingMaskIntoConstraints = false
+
             NSLayoutConstraint.activate([
                 graphElement.heightAnchor.constraint(equalTo: scrollContentView.heightAnchor, multiplier: 0.5),
                 graphElement.widthAnchor.constraint(equalToConstant: barGraphElementWidth),
