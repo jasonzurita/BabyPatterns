@@ -48,10 +48,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="joE-aX-LYe">
-                    <rect key="frame" x="0.0" y="319" width="380" height="435"/>
+                    <rect key="frame" x="0.0" y="334" width="380" height="449"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="h4g-yc-XCx" userLabel="Container Stack View">
-                            <rect key="frame" x="19" y="89.5" width="342" height="256"/>
+                            <rect key="frame" x="19" y="96.5" width="342" height="256"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1Ah-9i-Aih">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="82"/>
@@ -171,10 +171,10 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1d-kw-iqS">
-                    <rect key="frame" x="0.0" y="20" width="667" height="299"/>
+                    <rect key="frame" x="0.0" y="79" width="667" height="240"/>
                     <subviews>
                         <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjg-CP-QJi" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="667" height="299"/>
+                            <rect key="frame" x="0.0" y="0.0" width="667" height="240"/>
                         </view>
                     </subviews>
                     <constraints>
@@ -186,7 +186,7 @@
                     </constraints>
                 </scrollView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hBc-oD-mBW">
-                    <rect key="frame" x="88.5" y="754" width="203" height="30"/>
+                    <rect key="frame" x="89" y="35" width="203" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="29" id="MVu-mF-fiL"/>
                     </constraints>
@@ -204,14 +204,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="hBc-oD-mBW" firstAttribute="top" secondItem="joE-aX-LYe" secondAttribute="bottom" id="3HM-R7-Pgi"/>
-                <constraint firstItem="Azi-7T-qv0" firstAttribute="bottom" secondItem="hBc-oD-mBW" secondAttribute="bottom" constant="15" id="4Y1-41-58X"/>
                 <constraint firstItem="joE-aX-LYe" firstAttribute="centerX" secondItem="Azi-7T-qv0" secondAttribute="centerX" id="Aga-R0-OyY"/>
-                <constraint firstItem="a1d-kw-iqS" firstAttribute="top" secondItem="Azi-7T-qv0" secondAttribute="top" id="EO5-A0-MzB"/>
-                <constraint firstItem="joE-aX-LYe" firstAttribute="top" secondItem="fjg-CP-QJi" secondAttribute="bottom" id="JGS-Qz-oU2"/>
+                <constraint firstItem="a1d-kw-iqS" firstAttribute="top" secondItem="hBc-oD-mBW" secondAttribute="bottom" constant="15" id="OWA-1s-sID"/>
                 <constraint firstItem="a1d-kw-iqS" firstAttribute="bottom" secondItem="Azi-7T-qv0" secondAttribute="bottom" multiplier="0.4" id="eDw-OV-izO"/>
                 <constraint firstItem="hBc-oD-mBW" firstAttribute="centerX" secondItem="1j2-3h-CVe" secondAttribute="centerX" id="kQI-F7-NHn"/>
+                <constraint firstItem="hBc-oD-mBW" firstAttribute="top" secondItem="Azi-7T-qv0" secondAttribute="top" constant="15" id="lv4-n8-Ykf"/>
+                <constraint firstItem="joE-aX-LYe" firstAttribute="top" secondItem="fjg-CP-QJi" secondAttribute="bottom" constant="15" id="nS8-pZ-aaW"/>
                 <constraint firstItem="joE-aX-LYe" firstAttribute="width" secondItem="1j2-3h-CVe" secondAttribute="width" id="tFM-IL-h3J"/>
+                <constraint firstItem="Azi-7T-qv0" firstAttribute="bottom" secondItem="joE-aX-LYe" secondAttribute="bottom" constant="15" id="wqY-Lf-nuz"/>
                 <constraint firstItem="a1d-kw-iqS" firstAttribute="trailing" secondItem="Azi-7T-qv0" secondAttribute="trailing" id="xa2-Ou-HvN"/>
                 <constraint firstItem="a1d-kw-iqS" firstAttribute="leading" secondItem="Azi-7T-qv0" secondAttribute="leading" id="xho-nR-khM"/>
             </constraints>
