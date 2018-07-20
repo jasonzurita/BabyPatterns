@@ -18,6 +18,12 @@ let styleViewBorder: (UIView) -> Void = {
     $0.layer.masksToBounds = true
 }
 
+func styleViewBackground(color: UIColor) -> (UIView) -> Void {
+    return {
+        $0.backgroundColor = color
+    }
+}
+
 // MARK: Bar Graph Element
 let styleBarGraphElementBase: (UIView) -> Void = {
     $0.layer.cornerRadius = 2 // FIXME: this number is an assumption that the width is 4
