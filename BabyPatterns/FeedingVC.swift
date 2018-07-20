@@ -81,10 +81,6 @@ final class FeedingVC: UIViewController {
     }
 
     @IBAction func showHistoryButtonPressed(_: UIButton) {
-        presentHistoryVC()
-    }
-
-    private func presentHistoryVC() {
         guard let vm = feedingsVM else {
             fatalError("No feedingsVM to show history screen with")
         }
@@ -101,7 +97,8 @@ final class FeedingVC: UIViewController {
             desiredSupplyAmount: profileVM?.profile?.desiredMaxSupply ?? K.Defaults.DefaultDesiredMaxSupply
         )
         let vc = HistoryVc(events: orderedCompletedFeedingEvents, summary: summary)
-        vc.modalPresentationStyle = .overCurrentContext
+        vc.transitioningDelegate = self
+        vc.modalPresentationStyle = .custom
         present(vc, animated: true, completion: nil)
     }
 
@@ -143,6 +140,17 @@ final class FeedingVC: UIViewController {
 
         let toast = Toast(frame: frame, text: "Saved!")
         toast.presentInView(view: view)
+    }
+}
+
+extension FeedingVC: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController,
+                                presenting: UIViewController?,
+                                source: UIViewController) -> UIPresentationController? {
+        let controller = PartialSlideInPresentationController(presentedViewController: presented,
+                                                              presenting: presenting,
+                                                              heightFraction: 0.86)
+        return controller
     }
 }
 

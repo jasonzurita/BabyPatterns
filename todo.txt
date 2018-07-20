@@ -2,7 +2,6 @@
 - Add tick marks to history screen (by minute, day, week)
   - UI style pass on history screen
   - Add ability to tap on history bar and get tool tip of date
-- Update history buttons and replace with simple show history with half modal that can be dismissed by tapping outside of that modal
 - Purchase of IAP
 - Use INT to store supply amounts
 
