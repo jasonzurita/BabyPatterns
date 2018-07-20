@@ -22,8 +22,6 @@
 		120F80461FBF126500D04E45 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C491E041E5300056F83 /* Toast.swift */; };
 		120F80471FBF126800D04E45 /* CircleToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */; };
 		120F80481FBF126B00D04E45 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */; };
-		120F80491FBF126E00D04E45 /* BarGraphLollipop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433AF9201E40CBB100AD654C /* BarGraphLollipop.swift */; };
-		120F804A1FBF127300D04E45 /* BarGraphLollipop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433AF9221E40CBD700AD654C /* BarGraphLollipop.xib */; };
 		120F804B1FBF127700D04E45 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433AF9251E40CC8A00AD654C /* Circle.swift */; };
 		120F804C1FBF127A00D04E45 /* ShakeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B002141E8A937E00810739 /* ShakeTextField.swift */; };
 		120F804D1FBF131D00D04E45 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE2DE11E76CC4A00B8B373 /* Loggable.swift */; };
@@ -218,8 +216,6 @@
 		4326BA581E04C1F0005604A9 /* Feeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feeding.swift; path = ../../BabyPatterns/Feeding.swift; sourceTree = "<group>"; };
 		432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4330FB5A1DF1B4A300737A7F /* DatabaseFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFacade.swift; sourceTree = "<group>"; };
-		433AF9201E40CBB100AD654C /* BarGraphLollipop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarGraphLollipop.swift; path = Library/BarGraphLollipop.swift; sourceTree = "<group>"; };
-		433AF9221E40CBD700AD654C /* BarGraphLollipop.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarGraphLollipop.xib; path = Library/BarGraphLollipop.xib; sourceTree = "<group>"; };
 		433AF9251E40CC8A00AD654C /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		43503C3D1DD35DAC00C6424E /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		435859531E227C2B00F69A0C /* FeedingsVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingsVM.swift; sourceTree = "<group>"; };
@@ -454,16 +450,6 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
-		433AF9241E40CBDC00AD654C /* BarGraphLollipop */ = {
-			isa = PBXGroup;
-			children = (
-				433AF9201E40CBB100AD654C /* BarGraphLollipop.swift */,
-				433AF9221E40CBD700AD654C /* BarGraphLollipop.xib */,
-			);
-			name = BarGraphLollipop;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		436484A21DCA150400E6B0A7 = {
 			isa = PBXGroup;
 			children = (
@@ -574,7 +560,6 @@
 				43932C491E041E5300056F83 /* Toast.swift */,
 				43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */,
 				43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */,
-				433AF9241E40CBDC00AD654C /* BarGraphLollipop */,
 				433AF9251E40CC8A00AD654C /* Circle.swift */,
 				43B002141E8A937E00810739 /* ShakeTextField.swift */,
 				1289D18C20C167A800E73DA0 /* StopButton.swift */,
@@ -847,7 +832,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				120F804A1FBF127300D04E45 /* BarGraphLollipop.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -958,7 +942,6 @@
 				1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */,
 				120F804D1FBF131D00D04E45 /* Loggable.swift in Sources */,
 				120F80411FBF125300D04E45 /* DateExtensions.swift in Sources */,
-				120F80491FBF126E00D04E45 /* BarGraphLollipop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
