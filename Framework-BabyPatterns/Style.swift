@@ -32,26 +32,21 @@ let styleBarGraphElementBase: (UIView) -> Void = {
 
 let styleBarGraphElementNursing =
     styleBarGraphElementBase
-        <> {
-            $0.backgroundColor = .bpPink
-}
+        <> styleViewBackground(color: .bpPink)
 
 let styleBarGraphElementPumping: (UIView) -> Void =
     styleBarGraphElementBase
-        <> {
-            $0.backgroundColor = .bpGreen
-}
+        <> styleViewBackground(color: .bpGreen)
 
 let styleBarGraphElementBottle =
     styleBarGraphElementBase
-        <> {
-            $0.backgroundColor = .bpMediumBlue
-}
+        <> styleViewBackground(color: .bpMediumBlue)
 
 // MARK: Label Styles
-let styleLabelBase: (UILabel) -> Void = {
-    $0.numberOfLines = 0
-    $0.backgroundColor = .clear
+let styleLabelBase: (UILabel) -> Void =
+    styleViewBackground(color: .clear)
+        <> {
+            $0.numberOfLines = 0
 }
 
 func styleLabelFont(_ font: UIFont) -> (UILabel) -> Void {
@@ -114,9 +109,7 @@ func styleButtonRounded(_ color: UIColor) -> (UIButton) -> Void {
     return styleButtonBase
         <> styleButtonCornerRadius
         <> styleButtonFont(.notoSansRegular(ofSize: 20))
-        <> {
-            $0.backgroundColor = color
-    }
+        <> styleViewBackground(color: color)
 }
 
 public let styleButtonCircle =
