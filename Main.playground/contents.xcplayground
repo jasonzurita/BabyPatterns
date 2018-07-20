@@ -12,5 +12,6 @@
         <page name='Turn Off Ads'/>
         <page name='Signup'/>
         <page name='Login'/>
+        <page name='Circle Button'/>
     </pages>
 </playground>

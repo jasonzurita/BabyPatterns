@@ -119,6 +119,20 @@ func styleButtonRounded(_ color: UIColor) -> (UIButton) -> Void {
     }
 }
 
+public let styleButtonCircle =
+    styleButtonBase
+        <> styleButtonCornerRadius
+        <> styleViewBackground(color: .bpWhite)
+        <> styleButtonFont(.boldSystemFont(ofSize: 14))
+        <> {
+            $0.titleLabel?.textAlignment = .center
+            $0.titleLabel?.numberOfLines = 0
+            $0.setTitleColor(.bpMediumBlue, for: .normal)
+            $0.setTitleColor(.bpDarkBlue, for: .highlighted)
+            $0.layer.borderWidth = 2
+            $0.layer.borderColor = UIColor.bpMediumBlue.cgColor
+}
+
 // MARK: TextFields
 let styleTextFieldBase: (UITextField) -> Void = {
     $0.font = .notoSansRegular(ofSize: 16)

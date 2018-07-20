@@ -47,7 +47,6 @@
                                     <constraint firstAttribute="width" secondItem="zZN-NE-iGJ" secondAttribute="height" multiplier="1:1" id="fvv-Ec-u8T"/>
                                     <constraint firstAttribute="height" constant="65" id="xDG-bV-197"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="viewHistory"/>
                                 <connections>
                                     <action selector="showHistoryButtonPressed:" destination="0zI-84-9QN" eventType="touchUpInside" id="4qS-HF-rGC"/>
                                 </connections>
@@ -82,6 +81,7 @@
                     <connections>
                         <outlet property="profileView" destination="XUG-AJ-tde" id="vDi-h3-zGn"/>
                         <outlet property="segmentedControl" destination="lHZ-wK-GNQ" id="Mo0-LI-D6l"/>
+                        <outlet property="showHistoryButton" destination="zZN-NE-iGJ" id="MqK-e3-WdU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BV7-Bo-838" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -107,6 +107,5 @@
     </scenes>
     <resources>
         <image name="settingButton" width="20" height="20"/>
-        <image name="viewHistory" width="46" height="46"/>
     </resources>
 </document>

@@ -45,6 +45,13 @@ final class FeedingVC: UIViewController {
             .sorted { $0.endDate > $1.endDate }
     }
 
+    @IBOutlet var showHistoryButton: UIButton! {
+        didSet {
+            showHistoryButton.setTitle("History", for: .normal)
+            styleButtonCircle(showHistoryButton)
+        }
+    }
+
     @IBOutlet var segmentedControl: SegmentedControlBar!
     @IBOutlet var profileView: ProfileView! {
         didSet {
