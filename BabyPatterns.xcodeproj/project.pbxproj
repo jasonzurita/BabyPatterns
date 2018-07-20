@@ -312,13 +312,13 @@
 		120F80221FBF0E9500D04E45 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				12ECF45821024F40007FCDFC /* PartialSlideInPresentationController.swift */,
 				ACF086A01F153E300012A04D /* Protocols */,
 				430F01791E2D09FD00FE02FC /* Extensions */,
 				43932C3F1E01FE7D00056F83 /* Views */,
 				120F80231FBF0E9500D04E45 /* Library.h */,
 				120F80241FBF0E9500D04E45 /* Info.plist */,
 				120F80321FBF0E9500D04E45 /* Info-LibraryTests.plist */,
-				12ECF45821024F40007FCDFC /* PartialSlideInPresentationController.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
