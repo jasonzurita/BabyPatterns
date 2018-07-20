@@ -224,10 +224,6 @@ public final class HistoryVc: UIViewController, Loggable {
         }
     }
 
-    @IBAction func exitHistoryButtonPressed(_: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
