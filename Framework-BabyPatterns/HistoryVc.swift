@@ -43,32 +43,10 @@ public final class HistoryVc: UIViewController, Loggable {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var scrollContentView: UIView!
     @IBOutlet var headingLabels: [UILabel]!
-    @IBOutlet var pumpingHeadingLabel: UILabel! {
-        didSet { addColorIndicator(labelView: pumpingHeadingLabel, color: .bpPink) }
-    }
-    @IBOutlet var nursingHeadingLabel: UILabel! {
-        didSet { addColorIndicator(labelView: nursingHeadingLabel, color: .bpGreen) }
-    }
-    @IBOutlet var bottleHeadingLabel: UILabel! {
-        didSet { addColorIndicator(labelView: bottleHeadingLabel, color: .bpMediumBlue) }
-    }
 
-    private var _colorIndicators: [UIView] = []
-    private func addColorIndicator(labelView: UIView, color: UIColor) {
-        let colorIndicator = UIView()
-        colorIndicator.translatesAutoresizingMaskIntoConstraints = false
-        colorIndicator.backgroundColor = color
-        labelView.addSubview(colorIndicator)
-
-        let heightMultiplier: CGFloat = 0.4
-        NSLayoutConstraint.activate([
-            colorIndicator.heightAnchor.constraint(equalTo: labelView.heightAnchor, multiplier: heightMultiplier),
-            colorIndicator.widthAnchor.constraint(equalTo: colorIndicator.heightAnchor),
-            colorIndicator.centerYAnchor.constraint(equalTo: labelView.centerYAnchor),
-            colorIndicator.leadingAnchor.constraint(equalTo: labelView.trailingAnchor, constant: 5),
-            ])
-        _colorIndicators.append(colorIndicator)
-    }
+    @IBOutlet var nursingHeadingLabel: UILabel!
+    @IBOutlet var pumpingHeadingLabel: UILabel!
+    @IBOutlet var bottleHeadingLabel: UILabel!
 
     @IBOutlet var bodyLabels: [UILabel]!
     @IBOutlet var lastNursingLabel: UILabel! {
@@ -137,14 +115,28 @@ public final class HistoryVc: UIViewController, Loggable {
         super.viewDidLoad()
         setupGraph()
         completeStyling()
+
+        addColorIndicator(labelView: nursingHeadingLabel, color: .bpPink)
+        addColorIndicator(labelView: pumpingHeadingLabel, color: .bpGreen)
+        addColorIndicator(labelView: bottleHeadingLabel, color: .bpMediumBlue)
     }
 
-    // TODO: make another pass at making the indicators round
-    // I am not crazy about the below code, but the radius was a bit off in
-    // the did set common method above
-    public override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        _colorIndicators.forEach { $0.layer.cornerRadius = $0.frame.height * 0.5 }
+    private func addColorIndicator(labelView: UIView, color: UIColor) {
+        let colorIndicator = UIView()
+        colorIndicator.translatesAutoresizingMaskIntoConstraints = false
+        colorIndicator.backgroundColor = color
+        labelView.addSubview(colorIndicator)
+
+        let heightMultiplier: CGFloat = 0.4
+        NSLayoutConstraint.activate([
+            colorIndicator.heightAnchor.constraint(equalTo: labelView.heightAnchor, multiplier: heightMultiplier),
+            colorIndicator.widthAnchor.constraint(equalTo: colorIndicator.heightAnchor),
+            colorIndicator.centerYAnchor.constraint(equalTo: labelView.centerYAnchor),
+            colorIndicator.leadingAnchor.constraint(equalTo: labelView.trailingAnchor, constant: 5),
+            ])
+
+        let size = labelView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        colorIndicator.layer.cornerRadius = size.height * heightMultiplier * 0.5
     }
 
     private func completeStyling() {

@@ -21,8 +21,8 @@
                 <outlet property="lastPumpedAmount" destination="Wm7-Z3-hbf" id="oIK-Ee-8QN"/>
                 <outlet property="lastPumpingLabel" destination="evU-lF-obM" id="q4D-Xt-59f"/>
                 <outlet property="lastPumpingSideLabel" destination="1PA-PK-gAL" id="rwO-3Q-560"/>
-                <outlet property="nursingHeadingLabel" destination="jRX-fF-oOl" id="7G6-e9-eMa"/>
-                <outlet property="pumpingHeadingLabel" destination="6cg-cx-dZT" id="yw0-1Y-bTg"/>
+                <outlet property="nursingHeadingLabel" destination="6cg-cx-dZT" id="LIy-jI-6BZ"/>
+                <outlet property="pumpingHeadingLabel" destination="jRX-fF-oOl" id="g4a-uK-DMG"/>
                 <outlet property="remainingSupplyLabel" destination="izL-8Z-kR6" id="1nb-Os-fhg"/>
                 <outlet property="scrollContentView" destination="fjg-CP-QJi" id="QMO-6g-VJg"/>
                 <outlet property="scrollView" destination="a1d-kw-iqS" id="7Qg-ra-ipr"/>
