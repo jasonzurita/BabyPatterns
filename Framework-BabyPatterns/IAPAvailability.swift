@@ -1,6 +1,6 @@
 import Foundation
-import StoreKit
 import Library
+import StoreKit
 
 // TODO: implement canMakePayments ?
 public final class IAPAvailability: NSObject, Loggable {
@@ -28,7 +28,7 @@ public final class IAPAvailability: NSObject, Loggable {
 }
 
 extension IAPAvailability: SKProductsRequestDelegate {
-    public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+    public func productsRequest(_: SKProductsRequest, didReceive response: SKProductsResponse) {
         availableProducts = response.products
         _productsRequestCompletionHandler?(true)
 
@@ -39,7 +39,7 @@ extension IAPAvailability: SKProductsRequestDelegate {
         }
     }
 
-    public func request(_ request: SKRequest, didFailWithError error: Error) {
+    public func request(_: SKRequest, didFailWithError error: Error) {
         let msg = "Failed to load list of IAP products: \(error.localizedDescription)"
         log(msg, object: self, type: .error)
         _productsRequestCompletionHandler?(false)

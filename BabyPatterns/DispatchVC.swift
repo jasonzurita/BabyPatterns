@@ -82,7 +82,7 @@ class DispatchVC: UIViewController, Loggable {
     private func logIn(presentingOn rootVc: UIViewController) {
         let vc = LoginVc()
 
-        vc.onLogIn = { [unowned self, unowned vc, unowned rootVc] (email, password) in
+        vc.onLogIn = { [unowned self, unowned vc, unowned rootVc] email, password in
             Auth.auth().signIn(withEmail: email, password: password, completion: { user, error in
                 if let error = error {
                     vc.logInFailed(error: error)

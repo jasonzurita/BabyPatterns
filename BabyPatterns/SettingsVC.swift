@@ -159,7 +159,7 @@ extension SettingsVC {
         }
     }
 
-    private func resetPassword() { }
+    private func resetPassword() {}
 
     private func composeEmail(subject: String) {
         guard MFMailComposeViewController.canSendMail() else { return }
@@ -195,8 +195,8 @@ extension SettingsVC: UITextFieldDelegate {
 
 extension SettingsVC: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController,
-                               didFinishWith result: MFMailComposeResult,
-                               error: Error?) {
+                               didFinishWith _: MFMailComposeResult,
+                               error _: Error?) {
         // TODO: make use of the error
         controller.dismiss(animated: true, completion: nil)
     }

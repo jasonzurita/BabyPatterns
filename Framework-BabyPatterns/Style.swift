@@ -13,6 +13,7 @@ func<> <A: AnyObject>(f: @escaping (A) -> Void, g: @escaping (A) -> Void) -> (A)
 }
 
 // MARK: UIView
+
 let styleViewBorder: (UIView) -> Void = {
     $0.layer.borderColor = UIColor.bpMediumBlue.cgColor
     $0.layer.masksToBounds = true
@@ -25,6 +26,7 @@ func styleViewBackground(color: UIColor) -> (UIView) -> Void {
 }
 
 // MARK: Bar Graph Element
+
 let styleBarGraphElementBase: (UIView) -> Void = {
     $0.layer.cornerRadius = 2 // FIXME: this number is an assumption that the width is 4
     $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -90,6 +92,7 @@ let styleLabelTimer =
 }
 
 // MARK: Buttons
+
 let styleButtonBase: (UIButton) -> Void = { _ in
     // noop
 }
@@ -127,6 +130,7 @@ public let styleButtonCircle =
 }
 
 // MARK: TextFields
+
 let styleTextFieldBase: (UITextField) -> Void = {
     $0.font = .notoSansRegular(ofSize: 16)
     $0.textColor = .bpDarkGray

@@ -18,16 +18,15 @@ public final class PartialSlideInPresentationController: UIPresentationControlle
         }
 
         let frameSize = size(forChildContentContainer: presentedViewController,
-                          withParentContainerSize: cv.bounds.size)
+                             withParentContainerSize: cv.bounds.size)
         let yOrigin = cv.frame.height * (1 - _heightFraction)
 
         return CGRect(origin: CGPoint(x: 0, y: yOrigin), size: frameSize)
     }
 
     public init(presentedViewController: UIViewController,
-         presenting presentingViewController: UIViewController?,
-         heightFraction: CGFloat) {
-
+                presenting presentingViewController: UIViewController?,
+                heightFraction: CGFloat) {
         _heightFraction = heightFraction
 
         super.init(presentedViewController: presentedViewController,
@@ -39,7 +38,6 @@ public final class PartialSlideInPresentationController: UIPresentationControlle
     }
 
     public override func presentationTransitionWillBegin() {
-
         containerView?.insertSubview(_dimmingView, at: 0)
 
         _dimmingView.bindFrameToSuperviewBounds()
@@ -68,8 +66,8 @@ public final class PartialSlideInPresentationController: UIPresentationControlle
         presentedView?.frame = frameOfPresentedViewInContainerView
     }
 
-    public override func size(forChildContentContainer container: UIContentContainer,
-                       withParentContainerSize parentSize: CGSize) -> CGSize {
+    public override func size(forChildContentContainer _: UIContentContainer,
+                              withParentContainerSize parentSize: CGSize) -> CGSize {
         return CGSize(width: parentSize.width, height: parentSize.height * _heightFraction)
     }
 }

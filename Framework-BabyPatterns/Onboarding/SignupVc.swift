@@ -1,15 +1,15 @@
-import UIKit
 import Library
+import UIKit
 
 public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTextFieldContainer {
     public let shouldPrintDebugLog = true
 
     public typealias SignupResultHandler =
         (
-        _ email: String,
-        _ password: String,
-        _ parentName: String,
-        _ babyName: String
+            _ email: String,
+            _ password: String,
+            _ parentName: String,
+            _ babyName: String
         ) -> Void
 
     public var onSignup: SignupResultHandler?
@@ -26,6 +26,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
             styleButtonRounded(.bpMediumBlue)(submitButton)
         }
     }
+
     @IBOutlet var babyNameTextField: ShakeTextField!
     @IBOutlet var babyDOBTextField: ShakeTextField!
     @IBOutlet var nameTextField: ShakeTextField!
@@ -39,16 +40,19 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
             styleLabelFont(.notoSansRegular(ofSize: 16))(haveAnAccountLabel)
         }
     }
+
     @IBOutlet var logInButton: UIButton! {
         didSet {
             styleButtonFont(.notoSansRegular(ofSize: 16))(logInButton)
         }
     }
+
     @IBOutlet var titleLabel: UILabel! {
         didSet {
             styleLabelTitle(titleLabel)
         }
     }
+
     @IBOutlet var profileImageView: UIImageView! {
         didSet {
             profileImageView.layer.masksToBounds = true
@@ -127,7 +131,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
         onSignup?(email, password, parentName, babyName)
     }
 
-    @IBAction func logIn(_ sender: UIButton) {
+    @IBAction func logIn(_: UIButton) {
         resetContainerHeight()
         onLogInRequested?()
     }

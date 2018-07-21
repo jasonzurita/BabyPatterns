@@ -21,7 +21,7 @@ struct Controller: FeedingController {
         print("Resume: feeding type - \(type), side - \(side)")
     }
 
-    func lastFeedingSide(type: FeedingType) -> FeedingSide {
+    func lastFeedingSide(type _: FeedingType) -> FeedingSide {
         return .left
     }
 }

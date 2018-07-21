@@ -1,5 +1,5 @@
-import UIKit
 import Library
+import UIKit
 
 public final class LoginVc: UIViewController, Loggable, SlidableTextFieldContainer {
     public let shouldPrintDebugLog = true
@@ -12,6 +12,7 @@ public final class LoginVc: UIViewController, Loggable, SlidableTextFieldContain
             styleLabelTitle(titleLabel)
         }
     }
+
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var allTextFields: [UITextField]!
@@ -20,17 +21,20 @@ public final class LoginVc: UIViewController, Loggable, SlidableTextFieldContain
             styleButtonRounded(.bpMediumBlue)(logInButton)
         }
     }
+
     @IBOutlet var forgotButton: UIButton! {
         didSet {
             styleButtonFont(.notoSansRegular(ofSize: 16))(forgotButton)
         }
     }
+
     @IBOutlet var logInActivityIndicator: UIActivityIndicatorView!
     @IBOutlet var loginContainerView: UIView! {
         didSet {
             styleViewBorder(loginContainerView)
         }
     }
+
     @IBOutlet var containerView: UIView!
     @IBOutlet var containerCenterYConstraint: NSLayoutConstraint!
     private weak var _notificationToken: NSObjectProtocol?
@@ -65,7 +69,7 @@ public final class LoginVc: UIViewController, Loggable, SlidableTextFieldContain
         }
     }
 
-    @IBAction func logIn(_ sender: UIButton) {
+    @IBAction func logIn(_: UIButton) {
         logInActivityIndicator.startAnimating()
         defer { containerView.endEditing(false); resetContainerHeight() }
         guard let email = emailTextField.text, let password = passwordTextField.text else {
@@ -75,7 +79,7 @@ public final class LoginVc: UIViewController, Loggable, SlidableTextFieldContain
         onLogIn?(email, password)
     }
 
-    @IBAction func forgotPassword(_ sender: UIButton) {
+    @IBAction func forgotPassword(_: UIButton) {
         let prompt = UIAlertController(title: "Reset Password?",
                                        message: "Enter your email then check that email for further instrucitons:",
                                        preferredStyle: .alert)
@@ -93,7 +97,7 @@ public final class LoginVc: UIViewController, Loggable, SlidableTextFieldContain
         present(prompt, animated: true, completion: nil)
     }
 
-    @IBAction func exit(_ sender: UIButton) {
+    @IBAction func exit(_: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 

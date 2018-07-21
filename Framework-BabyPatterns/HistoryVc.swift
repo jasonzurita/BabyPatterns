@@ -133,7 +133,7 @@ public final class HistoryVc: UIViewController, Loggable {
             colorIndicator.widthAnchor.constraint(equalTo: colorIndicator.heightAnchor),
             colorIndicator.centerYAnchor.constraint(equalTo: labelView.centerYAnchor),
             colorIndicator.leadingAnchor.constraint(equalTo: labelView.trailingAnchor, constant: 5),
-            ])
+        ])
 
         let size = labelView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         colorIndicator.layer.cornerRadius = size.height * heightMultiplier * 0.5

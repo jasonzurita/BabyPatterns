@@ -21,10 +21,9 @@ NSLayoutConstraint.activate([
     button.centerYAnchor.constraint(equalTo: superView.centerYAnchor),
     button.widthAnchor.constraint(equalTo: button.heightAnchor),
     button.heightAnchor.constraint(equalTo: superView.heightAnchor, multiplier: 0.35),
-    ])
+])
 
 superView.updateConstraintsIfNeeded()
 styleButtonCircle(button)
-
 
 PlaygroundPage.current.liveView = superView

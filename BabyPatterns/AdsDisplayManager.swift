@@ -1,5 +1,5 @@
-import Framework_BabyPatterns
 import Firebase
+import Framework_BabyPatterns
 import UIKit
 
 struct AdsDisplayManager {

@@ -75,7 +75,7 @@ extension PumpingVC: UIPickerViewDataSource {
 }
 
 extension PumpingVC: UIPickerViewDelegate {
-    public func pickerView(_ : UIPickerView,
+    public func pickerView(_: UIPickerView,
                            attributedTitleForRow row: Int,
                            forComponent _: Int) -> NSAttributedString? {
         let string = _amounts[row]

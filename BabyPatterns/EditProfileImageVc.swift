@@ -16,13 +16,14 @@ public final class EditProfileImageVc: UIViewController, Loggable {
     }
 
     private var _cropCenter = CGPoint(x: UIScreen.main.bounds.size.width * 0.5,
-                                     y: UIScreen.main.bounds.size.height * 0.5)
+                                      y: UIScreen.main.bounds.size.height * 0.5)
 
     @IBOutlet public var profileImageView: UIImageView! {
         didSet {
             profileImageView.image = _imageCandidate
         }
     }
+
     @IBOutlet public var overlayView: UIView!
     @IBOutlet public var scrollView: UIScrollView! {
         didSet {

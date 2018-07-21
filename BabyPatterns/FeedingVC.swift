@@ -153,7 +153,7 @@ final class FeedingVC: UIViewController {
 extension FeedingVC: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController,
                                 presenting: UIViewController?,
-                                source: UIViewController) -> UIPresentationController? {
+                                source _: UIViewController) -> UIPresentationController? {
         let controller = PartialSlideInPresentationController(presentedViewController: presented,
                                                               presenting: presenting,
                                                               heightFraction: 0.86)

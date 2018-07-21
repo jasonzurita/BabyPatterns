@@ -8,7 +8,6 @@ protocol SlidableTextFieldContainer: UITextFieldDelegate {
 }
 
 extension SlidableTextFieldContainer where Self: UIViewController {
-
     func slideContainerUp(_ bottomObstructingViewHeight: CGFloat) {
         let visibleWindowHeight = (view.frame.height - view.safeAreaInsets.top - bottomObstructingViewHeight) * 0.5
         // note: using the view's height below is equal to the content view's normal y midpoint

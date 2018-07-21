@@ -21,16 +21,19 @@ public final class BottleVC: UIViewController, Loggable {
     @IBOutlet var saveButton: UIButton! {
         didSet { styleButtonRounded(.bpLightBlue)(saveButton) }
     }
+
     @IBOutlet var remainingSupplyLabel: UILabel! {
         didSet {
             let style = styleLabelFont(.notoSansRegular(ofSize: 38))
             style(remainingSupplyLabel) }
     }
+
     @IBOutlet var amountFedLabel: UILabel! {
         didSet {
             let style = styleLabelFont(.notoSansRegular(ofSize: 38))
             style(amountFedLabel) }
     }
+
     @IBOutlet var sliderContainerView: UIView!
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var slider: UISlider!

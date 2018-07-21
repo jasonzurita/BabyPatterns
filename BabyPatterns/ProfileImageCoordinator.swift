@@ -60,7 +60,7 @@ extension ProfileImageCoordinator: UIImagePickerControllerDelegate,
             kCGImageSourceThumbnailMaxPixelSize: (max(image.size.width, image.size.height) * 0.5) as NSObject,
             kCGImageSourceCreateThumbnailFromImageAlways: true as NSObject,
             kCGImageSourceCreateThumbnailWithTransform: true as NSObject,
-            ]
+        ]
         let thumbnail = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary?)
         return thumbnail.flatMap { UIImage(cgImage: $0) }
     }
