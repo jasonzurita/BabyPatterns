@@ -119,7 +119,7 @@ public let styleButtonCircle =
     styleButtonBase
         <> styleButtonCornerRadius
         <> styleViewBackground(color: .bpWhite)
-        <> styleButtonFont(.boldSystemFont(ofSize: 14))
+        <> styleButtonFont(.notoSansBold(ofSize: 14))
         <> {
             $0.titleLabel?.textAlignment = .center
             $0.titleLabel?.numberOfLines = 0
