@@ -29,8 +29,8 @@ extension FeedingsVM {
         return feedings.filter { $0.type == type }.last
     }
 
-    func remainingSupply() -> Double {
-        return feedings.reduce(0.0, { runningTotal, feeding in
+    func remainingSupply() -> Int {
+        return feedings.reduce(0, { runningTotal, feeding in
             runningTotal + feeding.supplyAmount
         })
     }

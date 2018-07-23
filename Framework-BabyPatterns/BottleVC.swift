@@ -2,12 +2,12 @@ import Library
 import UIKit
 
 public protocol BottleDelegate: class {
-    func logBottleFeeding(withAmount amount: Double, time: Date)
+    func logBottleFeeding(withAmount amount: Int, time: Date)
 }
 
 public protocol BottleDataSource: class {
-    func remainingSupply() -> Double
-    func desiredMaxSupply() -> Double
+    func remainingSupply() -> Int
+    func desiredMaxSupply() -> Int
 }
 
 public final class BottleVC: UIViewController, Loggable {
@@ -124,7 +124,7 @@ public final class BottleVC: UIViewController, Loggable {
         let consumedAmount = convert(sliderValue: slider.value,
                                      withRemainingSupply: Float(ds.remainingSupply()),
                                      remainingSupplyHeight: Float(_remainingSupplyHeight))
-        delegate?.logBottleFeeding(withAmount: Double(consumedAmount), time: datePicker.date)
+        delegate?.logBottleFeeding(withAmount: Int(consumedAmount), time: datePicker.date)
         updateLabels()
         configureRemainingSupplyLine()
     }

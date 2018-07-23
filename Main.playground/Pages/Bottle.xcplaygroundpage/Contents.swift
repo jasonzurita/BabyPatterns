@@ -10,16 +10,16 @@ final class MockBottleProvider: BottleDelegate, BottleDataSource {
     var supply = 25.0
     var maxSupply = 50.0
 
-    func logBottleFeeding(withAmount amount: Double, time: Date) {
+    func logBottleFeeding(withAmount amount: Int, time: Date) {
         supply -= amount
         print("Amount: \(amount), Time: \(time)")
     }
 
-    func remainingSupply() -> Double {
+    func remainingSupply() -> Int {
         return supply
     }
 
-    func desiredMaxSupply() -> Double {
+    func desiredMaxSupply() -> Int {
         return maxSupply
     }
 }

@@ -2,7 +2,7 @@ import Library
 import UIKit
 
 public protocol PumpingActionProtocol {
-    func pumpingAmountChosen(_ amount: Double)
+    func pumpingAmountChosen(_ amount: Int)
 }
 
 public typealias PumpingController = PumpingActionProtocol & FeedingController
@@ -10,7 +10,7 @@ public typealias PumpingController = PumpingActionProtocol & FeedingController
 public final class PumpingVC: UIViewController {
     private let _stopwatch = FeedingStopwatchView(feedingType: .pumping)
     private let _amounts = stride(from: 0, to: 10, by: 0.1).map { String($0) }
-    private let _amountCallback: (Double) -> Void
+    private let _amountCallback: (Int) -> Void
 
     @IBOutlet var bodyLabels: [UILabel]!
     @IBOutlet var amountPicker: UIPickerView! {
@@ -59,7 +59,7 @@ public final class PumpingVC: UIViewController {
     @IBAction func saveButtonPressed(_: UIButton) {
         let row = amountPicker.selectedRow(inComponent: 0)
         // TOOD: alert user of failure from this guard
-        guard row >= 0, let amount = Double(_amounts[row]) else { return }
+        guard row >= 0, let amount = Int(_amounts[row]) else { return }
         _amountCallback(amount)
     }
 }

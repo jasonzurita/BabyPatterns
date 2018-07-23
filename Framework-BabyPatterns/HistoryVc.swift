@@ -12,10 +12,10 @@ public protocol FeedingSummaryProtocol {
     var averageNursingDuration: TimeInterval { get }
     var timeSinceLastPumping: TimeInterval { get }
     var lastPumpingSide: FeedingSide { get }
-    var lastPumpedAmount: Double { get }
+    var lastPumpedAmount: Int { get }
     var timeSinceLastBottleFeeding: TimeInterval { get }
-    var remainingSupplyAmount: Double { get }
-    var desiredSupplyAmount: Double { get }
+    var remainingSupplyAmount: Int { get }
+    var desiredSupplyAmount: Int { get }
 }
 
 public final class HistoryVc: UIViewController, Loggable {

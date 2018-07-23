@@ -2,7 +2,7 @@ import Foundation
 import Framework_BabyPatterns
 
 extension FeedingsVM {
-    func feedingStarted(type: FeedingType, side: FeedingSide, startDate: Date = Date(), supplyAmount: Double = 0.0) {
+    func feedingStarted(type: FeedingType, side: FeedingSide, startDate: Date = Date(), supplyAmount: Int = 0) {
         guard feedingInProgress(type: type) == nil else {
             log("Already a feeding started of this type...", object: self, type: .warning)
             return
@@ -15,7 +15,7 @@ extension FeedingsVM {
     }
 
     // TODO: the term `feeding in progress` doesn't quite fit here, consider improving naming
-    func addPumpingAmountToLastPumping(amount: Double) {
+    func addPumpingAmountToLastPumping(amount: Int) {
         guard let lpf = feedings.reversed().first(where: { $0.type == .pumping }) else {
             log("No pumping to to add amount to...", object: self, type: .warning)
             return

@@ -20,10 +20,10 @@ struct FeedingSummary: FeedingSummaryProtocol {
     let averageNursingDuration: TimeInterval = 100
     let timeSinceLastPumping: TimeInterval = 120
     let lastPumpingSide: FeedingSide = .right
-    let lastPumpedAmount: Double = 100
+    let lastPumpedAmount: Int = 100
     let timeSinceLastBottleFeeding: TimeInterval = 1000
-    let remainingSupplyAmount: Double = 50
-    let desiredSupplyAmount: Double = 100
+    let remainingSupplyAmount: Int = 50
+    let desiredSupplyAmount: Int = 100
 }
 
 let events = [

@@ -19,10 +19,10 @@ struct FeedingSummary: FeedingSummaryProtocol {
     let averageNursingDuration: TimeInterval
     let timeSinceLastPumping: TimeInterval
     let lastPumpingSide: FeedingSide
-    let lastPumpedAmount: Double
+    let lastPumpedAmount: Int
     let timeSinceLastBottleFeeding: TimeInterval
-    let remainingSupplyAmount: Double
-    let desiredSupplyAmount: Double
+    let remainingSupplyAmount: Int
+    let desiredSupplyAmount: Int
 }
 
 final class FeedingVC: UIViewController {
@@ -202,24 +202,24 @@ extension FeedingVC: FeedingController {
 }
 
 extension FeedingVC: PumpingActionProtocol {
-    func pumpingAmountChosen(_ amount: Double) {
+    func pumpingAmountChosen(_ amount: Int) {
         feedingsVM?.addPumpingAmountToLastPumping(amount: amount)
         showFeedingSavedToast()
     }
 }
 
 extension FeedingVC: BottleDataSource {
-    func remainingSupply() -> Double {
-        return feedingsVM?.remainingSupply() ?? 0.0
+    func remainingSupply() -> Int {
+        return feedingsVM?.remainingSupply() ?? 0
     }
 
-    func desiredMaxSupply() -> Double {
+    func desiredMaxSupply() -> Int {
         return profileVM?.profile?.desiredMaxSupply ?? K.Defaults.DefaultDesiredMaxSupply
     }
 }
 
 extension FeedingVC: BottleDelegate {
-    func logBottleFeeding(withAmount amount: Double, time: Date) {
+    func logBottleFeeding(withAmount amount: Int, time: Date) {
         // TODO: make specific bottle feeding method for the below weird calls
         feedingsVM?.feedingStarted(type: .bottle, side: .none, startDate: time, supplyAmount: -amount)
         feedingsVM?.feedingEnded(type: .bottle, side: .none, endDate: time)

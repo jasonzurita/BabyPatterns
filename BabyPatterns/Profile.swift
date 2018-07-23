@@ -8,7 +8,7 @@ public struct Profile {
     public var email: String
     public let userID: String
     public var serverKey: String?
-    public var desiredMaxSupply: Double
+    public var desiredMaxSupply: Int
     public var profilePicture: UIImage?
 
     public init(babyName: String,
@@ -17,7 +17,7 @@ public struct Profile {
                 email: String,
                 userID: String,
                 serverKey: String? = nil,
-                desiredMaxSupply: Double,
+                desiredMaxSupply: Int,
                 profilePicture: UIImage? = nil) {
         self.babyName = babyName
         self.parentName = parentName

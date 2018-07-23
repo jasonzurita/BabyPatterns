@@ -38,7 +38,7 @@ class ProfileVM: Loggable {
                 return
             }
 
-            let maxSupply = data.json[K.JsonFields.DesiredMaxSupply] as? Double
+            let maxSupply = data.json[K.JsonFields.DesiredMaxSupply] as? Int
             let desiredMaxSupply = maxSupply ?? K.Defaults.DefaultDesiredMaxSupply
 
             self.profile = Profile(babyName: babyName,

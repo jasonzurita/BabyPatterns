@@ -126,7 +126,8 @@ final class SettingsVC: UITableViewController, Loggable {
 
     @IBAction func desiredSupplyTextFieldDidFinishEditing(_ sender: UITextField) {
         // TODO: validate desiredSupply
-        guard let text = sender.text, let desiredSupply = Double(text) else {
+        // TODO: convert to centiounces
+        guard let text = sender.text, let desiredSupply = Int(text) else {
             fieldNotValid(message: "Chceck number and try again.")
             return
         }
