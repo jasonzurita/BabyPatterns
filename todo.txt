@@ -3,14 +3,12 @@
   - UI style pass on history screen
   - Add ability to tap on history bar and get tool tip of date
 - Purchase of IAP
-- Use INT to store supply amounts
 
 tests to conduct:
 - forgot password
 - Test failing create account
 
 bugs / clean up
-- Round remaining supply on history screen
 - Save button on pumping screen cut off bottom on iPhone 8 and smaller
 - Save profile image screen flickers background when transitioning
 - Settings screen text fields don't show spaces at end of fields
