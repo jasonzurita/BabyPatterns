@@ -126,13 +126,14 @@ final class SettingsVC: UITableViewController, Loggable {
 
     @IBAction func desiredSupplyTextFieldDidFinishEditing(_ sender: UITextField) {
         // TODO: validate desiredSupply
-        // TODO: convert to centiounces
-        guard let text = sender.text, let desiredSupply = Int(text) else {
+        guard let text = sender.text, let amount = Int(text) else {
             fieldNotValid(message: "Chceck number and try again.")
             return
         }
 
-        profileVM?.profile?.desiredMaxSupply = desiredSupply
+        let supplyAmount = SupplyAmount(value: amount, units: .ounces)
+
+        profileVM?.profile?.desiredMaxSupply = supplyAmount
         profileVM?.profileUpdated()
     }
 

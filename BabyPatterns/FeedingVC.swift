@@ -19,10 +19,10 @@ struct FeedingSummary: FeedingSummaryProtocol {
     let averageNursingDuration: TimeInterval
     let timeSinceLastPumping: TimeInterval
     let lastPumpingSide: FeedingSide
-    let lastPumpedAmount: Int
+    let lastPumpedAmount: SupplyAmount
     let timeSinceLastBottleFeeding: TimeInterval
-    let remainingSupplyAmount: Int
-    let desiredSupplyAmount: Int
+    let remainingSupplyAmount: SupplyAmount
+    let desiredSupplyAmount: SupplyAmount
 }
 
 final class FeedingVC: UIViewController {
@@ -92,16 +92,17 @@ final class FeedingVC: UIViewController {
             fatalError("No feedingsVM to show history screen with")
         }
 
+        let defaultMax = SupplyAmount(value: K.Defaults.DefaultDesiredMaxSupply)
         let summary = FeedingSummary(
             timeSinceLastNursing: vm.timeSinceLast(feedingTypes: [.nursing]),
             lastNursingSide: vm.lastFeedingSide(for: .nursing),
             averageNursingDuration: 100,
             timeSinceLastPumping: vm.timeSinceLast(feedingTypes: [.pumping]),
             lastPumpingSide: vm.lastFeedingSide(for: .pumping),
-            lastPumpedAmount: vm.lastFeeding(type: .pumping)?.supplyAmount ?? 0,
+            lastPumpedAmount: vm.lastFeeding(type: .pumping)?.supplyAmount ?? SupplyAmount.zero,
             timeSinceLastBottleFeeding: vm.timeSinceLast(feedingTypes: [.bottle]),
             remainingSupplyAmount: vm.remainingSupply(),
-            desiredSupplyAmount: profileVM?.profile?.desiredMaxSupply ?? K.Defaults.DefaultDesiredMaxSupply
+            desiredSupplyAmount: profileVM?.profile?.desiredMaxSupply ?? defaultMax
         )
         let vc = HistoryVc(events: orderedCompletedFeedingEvents, summary: summary)
         vc.transitioningDelegate = self
@@ -202,26 +203,31 @@ extension FeedingVC: FeedingController {
 }
 
 extension FeedingVC: PumpingActionProtocol {
+    // TODO: if using other units this function should take units in
     func pumpingAmountChosen(_ amount: Int) {
-        feedingsVM?.addPumpingAmountToLastPumping(amount: amount)
+        let supplyAmount = SupplyAmount(value: amount)
+        feedingsVM?.addPumpingAmountToLastPumping(amount: supplyAmount)
         showFeedingSavedToast()
     }
 }
 
 extension FeedingVC: BottleDataSource {
-    func remainingSupply() -> Int {
-        return feedingsVM?.remainingSupply() ?? 0
+    func remainingSupply() -> SupplyAmount {
+        return feedingsVM?.remainingSupply() ?? SupplyAmount.zero
     }
 
-    func desiredMaxSupply() -> Int {
-        return profileVM?.profile?.desiredMaxSupply ?? K.Defaults.DefaultDesiredMaxSupply
+    func desiredMaxSupply() -> SupplyAmount {
+        let max = SupplyAmount(value: K.Defaults.DefaultDesiredMaxSupply)
+        return profileVM?.profile?.desiredMaxSupply ?? max
     }
 }
 
 extension FeedingVC: BottleDelegate {
     func logBottleFeeding(withAmount amount: Int, time: Date) {
         // TODO: make specific bottle feeding method for the below weird calls
-        feedingsVM?.feedingStarted(type: .bottle, side: .none, startDate: time, supplyAmount: -amount)
+        // TODO: if using other units this function should take units in
+        let supplyAmount = SupplyAmount(value: -amount)
+        feedingsVM?.feedingStarted(type: .bottle, side: .none, startDate: time, supplyAmount: supplyAmount)
         feedingsVM?.feedingEnded(type: .bottle, side: .none, endDate: time)
         showFeedingSavedToast()
     }

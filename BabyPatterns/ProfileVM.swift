@@ -39,7 +39,8 @@ class ProfileVM: Loggable {
             }
 
             let maxSupply = data.json[K.JsonFields.DesiredMaxSupply] as? Int
-            let desiredMaxSupply = maxSupply ?? K.Defaults.DefaultDesiredMaxSupply
+            let desiredMaxSupplyAmount = maxSupply ?? K.Defaults.DefaultDesiredMaxSupply
+            let maxSupplyAmount = SupplyAmount(value: desiredMaxSupplyAmount)
 
             self.profile = Profile(babyName: babyName,
                                    parentName: parentName,
@@ -47,7 +48,7 @@ class ProfileVM: Loggable {
                                    email: email,
                                    userID: userID,
                                    serverKey: data.serverKey,
-                                   desiredMaxSupply: desiredMaxSupply)
+                                   desiredMaxSupply: maxSupplyAmount)
 
             guard let imagePath = self.profileImageURLPath, FileManager.default.fileExists(atPath: imagePath) else {
                 completionHandler()

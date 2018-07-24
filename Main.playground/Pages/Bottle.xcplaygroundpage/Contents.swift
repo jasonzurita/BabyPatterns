@@ -7,19 +7,20 @@ UIFont.registerFonts
 final class MockBottleProvider: BottleDelegate, BottleDataSource {
     init() {}
 
-    var supply = 25.0
-    var maxSupply = 50.0
+    var supply = SupplyAmount(value: 2500)
+    var maxSupply = SupplyAmount(value: 5000)
 
     func logBottleFeeding(withAmount amount: Int, time: Date) {
-        supply -= amount
+        let newSupply = supply.value - amount
+        supply = SupplyAmount(value: newSupply)
         print("Amount: \(amount), Time: \(time)")
     }
 
-    func remainingSupply() -> Int {
+    func remainingSupply() -> SupplyAmount {
         return supply
     }
 
-    func desiredMaxSupply() -> Int {
+    func desiredMaxSupply() -> SupplyAmount {
         return maxSupply
     }
 }

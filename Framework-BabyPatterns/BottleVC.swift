@@ -6,8 +6,8 @@ public protocol BottleDelegate: class {
 }
 
 public protocol BottleDataSource: class {
-    func remainingSupply() -> Int
-    func desiredMaxSupply() -> Int
+    func remainingSupply() -> SupplyAmount
+    func desiredMaxSupply() -> SupplyAmount
 }
 
 public final class BottleVC: UIViewController, Loggable {
@@ -54,7 +54,9 @@ public final class BottleVC: UIViewController, Loggable {
 
     private var _remainingSupplyHeight: Float {
         guard let ds = dataSource else { return 1.0 }
-        return (_maxSupplyHeight / Float(ds.desiredMaxSupply())) * Float(ds.remainingSupply())
+        let maxSupply = ds.desiredMaxSupply().value
+        let remainingSupply = ds.remainingSupply().value
+        return (_maxSupplyHeight / Float(maxSupply)) * Float(remainingSupply)
     }
 
     public init() {
@@ -83,7 +85,7 @@ public final class BottleVC: UIViewController, Loggable {
 
     private func updateLabels() {
         guard let ds = dataSource else { return }
-        remainingSupplyLabel.text = String.localizedStringWithFormat("%.1f%", abs(ds.remainingSupply()))
+        remainingSupplyLabel.text = ds.remainingSupply().displayValue(for: .ounces)
         amountFedLabel.text = "0.0"
     }
 
@@ -121,8 +123,9 @@ public final class BottleVC: UIViewController, Loggable {
 
     @IBAction func saveButtonPressed(_: UIButton) {
         guard let ds = dataSource else { return }
+        let remainingSupply = ds.remainingSupply().value
         let consumedAmount = convert(sliderValue: slider.value,
-                                     withRemainingSupply: Float(ds.remainingSupply()),
+                                     withRemainingSupply: Float(remainingSupply),
                                      remainingSupplyHeight: Float(_remainingSupplyHeight))
         delegate?.logBottleFeeding(withAmount: Int(consumedAmount), time: datePicker.date)
         updateLabels()
@@ -135,10 +138,12 @@ public final class BottleVC: UIViewController, Loggable {
         sender.value = sender.value > _remainingSupplyHeight ? _remainingSupplyHeight : sender.value
         bottleFillHeightConstraint.constant = CGFloat(sender.value)
 
-        let amountFed = convert(sliderValue: slider.value,
-                                withRemainingSupply: Float(ds.remainingSupply()),
-                                remainingSupplyHeight: Float(_remainingSupplyHeight))
-        amountFedLabel.text = String.localizedStringWithFormat("%.1f%", abs(CGFloat(amountFed)))
+        let remainingSupply = ds.remainingSupply().value
+        let amount = convert(sliderValue: slider.value,
+                             withRemainingSupply: Float(remainingSupply),
+                             remainingSupplyHeight: Float(_remainingSupplyHeight))
+        let amountFed = SupplyAmount(value: Int(amount))
+        amountFedLabel.text = amountFed.displayValue(for: .ounces)
     }
 
     private func convert(sliderValue: Float,

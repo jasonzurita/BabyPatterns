@@ -53,12 +53,13 @@ class DispatchVC: UIViewController, Loggable {
                 }
                 vc.dismiss(animated: false, completion: {
                     self.log("User id: \(u.uid)", object: self, type: .info)
+                    let maxSupply = SupplyAmount(value: K.Defaults.DefaultDesiredMaxSupply)
                     self.profileVM?.profile = Profile(babyName: babyName,
                                                       parentName: parentName,
                                                       babyDOB: Date(),
                                                       email: email,
                                                       userID: u.uid,
-                                                      desiredMaxSupply: K.Defaults.DefaultDesiredMaxSupply)
+                                                      desiredMaxSupply: maxSupply)
                     self.profileVM?.sendToServer()
                     if let image = self._profileImage {
                         self.profileVM?.updateProfilePhoto(image: image)

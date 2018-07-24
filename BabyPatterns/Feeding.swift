@@ -8,7 +8,7 @@ public struct Feeding {
     public var endDate: Date?
     public var lastPausedDate: Date?
     public var pausedTime: TimeInterval
-    public let supplyAmount: Int
+    public let supplyAmount: SupplyAmount
 
     public let shouldPrintDebugString = true
 
@@ -25,7 +25,7 @@ public struct Feeding {
                 startDate: Date,
                 endDate: Date? = nil,
                 lastPausedDate: Date? = nil,
-                supplyAmount: Int = 0,
+                supplyAmount: SupplyAmount,
                 pausedTime: TimeInterval = 0.0,
                 serverKey: String? = nil) {
         self.type = type
@@ -48,7 +48,8 @@ public struct Feeding {
 
         let lastPausedDate = Date(timeInterval: json[K.JsonFields.LastPausedDate])
 
-        guard let supplyAmount = json[K.JsonFields.SupplyAmount] as? Int else { return nil }
+        guard let amount = json[K.JsonFields.SupplyAmount] as? Int else { return nil }
+        let supplyAmount = SupplyAmount(value: amount)
         guard let pausedTime = json[K.JsonFields.PausedTime] as? TimeInterval else { return nil }
 
         self.init(type: type,

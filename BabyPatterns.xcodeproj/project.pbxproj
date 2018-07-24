@@ -28,6 +28,7 @@
 		12128AC820C5ED0300CF16C0 /* RequestFeatureTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */; };
 		1221EB7320E3006F002212DB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1221EB7220E3006F002212DB /* StoreKit.framework */; };
 		1221EB7520E50266002212DB /* IAPAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EB7420E50266002212DB /* IAPAvailability.swift */; };
+		1234CD652105FC410033FD56 /* SupplyAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234CD642105FC410033FD56 /* SupplyAmount.swift */; };
 		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
 		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
 		1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */; };
@@ -166,6 +167,7 @@
 		120F80321FBF0E9500D04E45 /* Info-LibraryTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-LibraryTests.plist"; sourceTree = "<group>"; };
 		1221EB7220E3006F002212DB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1221EB7420E50266002212DB /* IAPAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPAvailability.swift; sourceTree = "<group>"; };
+		1234CD642105FC410033FD56 /* SupplyAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyAmount.swift; sourceTree = "<group>"; };
 		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
 		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
 		1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingStopwatchView.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 			children = (
 				43FCAA841DD0BC70003872BA /* Profile.swift */,
 				4326BA581E04C1F0005604A9 /* Feeding.swift */,
+				1234CD642105FC410033FD56 /* SupplyAmount.swift */,
 			);
 			name = Model;
 			path = BabyPatterns;
@@ -960,6 +963,7 @@
 				1221EB7520E50266002212DB /* IAPAvailability.swift in Sources */,
 				12C866BC20DDB09400053FCC /* UIFont.swift in Sources */,
 				12128AC820C5ED0300CF16C0 /* RequestFeatureTVC.swift in Sources */,
+				1234CD652105FC410033FD56 /* SupplyAmount.swift in Sources */,
 				12C9B0A01FD6187800CA6EBF /* FeedingControl.swift in Sources */,
 				12BA1B7E20EED21700835F77 /* LoginVc.swift in Sources */,
 				124D863320A2634100F3C2D0 /* PumpingVC.swift in Sources */,

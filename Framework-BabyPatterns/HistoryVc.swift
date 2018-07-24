@@ -12,10 +12,10 @@ public protocol FeedingSummaryProtocol {
     var averageNursingDuration: TimeInterval { get }
     var timeSinceLastPumping: TimeInterval { get }
     var lastPumpingSide: FeedingSide { get }
-    var lastPumpedAmount: Int { get }
+    var lastPumpedAmount: SupplyAmount { get }
     var timeSinceLastBottleFeeding: TimeInterval { get }
-    var remainingSupplyAmount: Int { get }
-    var desiredSupplyAmount: Int { get }
+    var remainingSupplyAmount: SupplyAmount { get }
+    var desiredSupplyAmount: SupplyAmount { get }
 }
 
 public final class HistoryVc: UIViewController, Loggable {
@@ -65,16 +65,25 @@ public final class HistoryVc: UIViewController, Loggable {
         didSet { lastPumpingSideLabel.text = "  Last side: \(_summary.lastPumpingSide)" }
     }
     @IBOutlet var lastPumpedAmount: UILabel! {
-        didSet { lastPumpedAmount.text = "  Last amount pumped: \(_summary.lastPumpedAmount) oz" }
+        didSet {
+            let lastAmount = _summary.lastPumpedAmount.displayText(for: .ounces)
+            lastPumpedAmount.text = "  Last amount pumped: \(lastAmount)"
+        }
     }
     @IBOutlet var lastBottleFeedingLabel: UILabel! {
         didSet { lastBottleFeedingLabel.text = lastTimeText(_summary.timeSinceLastBottleFeeding) }
     }
     @IBOutlet var remainingSupplyLabel: UILabel! {
-        didSet { remainingSupplyLabel.text = "  Remaining supply: \(_summary.remainingSupplyAmount) oz" }
+        didSet {
+            let remainingSupply = _summary.remainingSupplyAmount.displayText(for: .ounces)
+            remainingSupplyLabel.text = "  Remaining supply: \(remainingSupply)"
+        }
     }
     @IBOutlet var desiredSupplyLabel: UILabel! {
-        didSet { desiredSupplyLabel.text = "  Desired supply: \(_summary.desiredSupplyAmount) oz" }
+        didSet {
+            let desiredSupply = _summary.desiredSupplyAmount.displayText(for: .ounces)
+            desiredSupplyLabel.text = "  Desired supply: \(desiredSupply)"
+        }
     }
 
     @IBOutlet var timeWindowSegmentedControl: UISegmentedControl! {
