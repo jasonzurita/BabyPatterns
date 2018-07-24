@@ -147,10 +147,14 @@ public final class BottleVC: UIViewController, Loggable {
     }
 
     private func convert(sliderValue: Float,
-                         withRemainingSupply reminingSupply: Float,
+                         withRemainingSupply remainingSupply: Float,
                          remainingSupplyHeight height: Float) -> Float {
-        let adjustedHeight = height > 0 ? height : 0.0001
-        return reminingSupply - reminingSupply / adjustedHeight * sliderValue
+        guard height > 0 else {
+            return remainingSupply
+        }
+        let amount = remainingSupply - remainingSupply / height * sliderValue
+        let oneDecimalPlaceAmount = Float(Int(amount * 0.1)) * 10
+        return oneDecimalPlaceAmount
     }
 }
 
