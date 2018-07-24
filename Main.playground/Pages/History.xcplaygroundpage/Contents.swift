@@ -14,7 +14,7 @@ struct MockEvent: Event {
     }
 }
 
-let amount = SupplyAmount(value: 1043)
+let amount = SupplyAmount(value: 2550)
 
 struct FeedingSummary: FeedingSummaryProtocol {
     let timeSinceLastNursing: TimeInterval = 60
