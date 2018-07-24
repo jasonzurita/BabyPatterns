@@ -21,12 +21,20 @@ struct Controller: PumpingController {
         print("Resume: feeding type - \(type), side - \(side)")
     }
 
+    func lastFeedingSide(type: FeedingType) -> FeedingSide {
+        return .left
+    }
+
+
     func pumpingAmountChosen(_ amount: Int) {
         print("Amount chosen: \(amount)")
     }
 }
 
-let feeding = Feeding(type: .nursing, side: .right, startDate: Date())
+let feeding = Feeding(type: .nursing,
+                      side: .right,
+                      startDate: Date(),
+                      supplyAmount: SupplyAmount.zero)
 let c = Controller()
 let vc = PumpingVC(controller: c)
 vc.resume(feeding: feeding)

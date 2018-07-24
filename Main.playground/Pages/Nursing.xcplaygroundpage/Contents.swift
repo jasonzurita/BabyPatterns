@@ -26,7 +26,10 @@ struct Controller: FeedingController {
     }
 }
 
-let feeding = Feeding(type: .nursing, side: .right, startDate: Date())
+let feeding = Feeding(type: .nursing,
+                      side: .right,
+                      startDate: Date(),
+                      supplyAmount: SupplyAmount.zero)
 let c = Controller()
 let vc = NursingVC(controller: c)
 vc.resume(feeding: feeding)
