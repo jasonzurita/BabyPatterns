@@ -29,7 +29,7 @@ public struct SupplyAmount {
         case .centiounces:
             break
         case .ounces:
-            adjustedValue = value * 10
+            adjustedValue = value * 100
         }
         return adjustedValue
     }
