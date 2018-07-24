@@ -36,7 +36,7 @@ public struct Profile {
             K.JsonFields.BabyDOB: babyDOB.timeIntervalSince1970,
             K.JsonFields.Email: email,
             K.JsonFields.UserID: userID,
-            K.JsonFields.DesiredMaxSupply: desiredMaxSupply,
+            K.JsonFields.DesiredMaxSupply: desiredMaxSupply.value,
         ]
     }
 }

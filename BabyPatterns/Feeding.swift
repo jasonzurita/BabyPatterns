@@ -70,7 +70,7 @@ public struct Feeding {
             K.JsonFields.PausedTime: pausedTime,
             K.JsonFields.EndDate: endDate?.timeIntervalSince1970 ?? 0.0,
             K.JsonFields.LastPausedDate: lastPausedDate?.timeIntervalSince1970 ?? 0.0,
-            K.JsonFields.SupplyAmount: supplyAmount,
+            K.JsonFields.SupplyAmount: supplyAmount.value,
         ]
 
         return json
