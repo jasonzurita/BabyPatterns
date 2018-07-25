@@ -204,9 +204,8 @@ extension FeedingVC: FeedingController {
 
 extension FeedingVC: PumpingActionProtocol {
     // TODO: if using other units this function should take units in
-    func pumpingAmountChosen(_ amount: Int) {
-        let supplyAmount = SupplyAmount(value: amount)
-        feedingsVM?.addPumpingAmountToLastPumping(amount: supplyAmount)
+    func pumpingAmountChosen(_ amount: SupplyAmount) {
+        feedingsVM?.addPumpingAmountToLastPumping(amount: amount)
         showFeedingSavedToast()
     }
 }
