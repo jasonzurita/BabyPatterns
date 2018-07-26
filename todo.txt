@@ -1,7 +1,7 @@
 - Correct Firebase credentials in plist and move to new firebase account
 - Add tick marks to history screen (by minute, day, week)
-  - UI style pass on history screen
   - Add ability to tap on history bar and get tool tip of date
+  - Add gradient color to graph background. From bottom?
 - Purchase of IAP
 
 tests to conduct:
@@ -17,9 +17,10 @@ bugs / clean up
 - fix login flicker (maybe with root navigation controller)
 - What if user exceeds max supply amount when pumping?
 - Pass on color scheme
-- Pass on fonts
+- Pass on leaks
 
 v?
+- Make animation of saved toast slide up slightly
 - Need a "no history" screen or label
 - Change button colors when pressed (indicate when a button is pressed)
 - Add in progress feeding event to history screen
