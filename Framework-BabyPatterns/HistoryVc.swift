@@ -180,6 +180,7 @@ public final class HistoryVc: UIViewController, Loggable {
 
     private func setupGraph() {
         guard let lastEvent = events.last else {
+            // TODO: what do we show in this case?
             log("no events to show...", object: self, type: .warning)
             return
         }
@@ -222,6 +223,9 @@ public final class HistoryVc: UIViewController, Loggable {
     private func xFeedingLocation(forDate date: Date, inWindow window: DateInterval) -> CGFloat {
         // TODO: window.end.timeIntervalSinceNow should be something like the full window or from start to end, etc.
         let secondsSinceNow = CGFloat(abs(date.timeIntervalSince(window.end)))
+
+        // the first graph element will have spacing of `barGraphElementWidth` from left
+        // margin because of the below addition AND the `leftAnchor` constraint above
         return pointsPerSecond * CGFloat(secondsSinceNow) + barGraphElementWidth
     }
 
