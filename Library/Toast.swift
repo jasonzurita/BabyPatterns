@@ -30,7 +30,7 @@ public final class Toast: UILabel {
         alpha = 0.0
     }
 
-    public func presentInView(view: UIView) {
+    public func present(in view: UIView) {
         text = title
 
         view.addSubview(self)

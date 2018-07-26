@@ -147,7 +147,7 @@ final class FeedingVC: UIViewController {
                            height: toastSize)
 
         let toast = Toast(frame: frame, text: "Saved!")
-        toast.presentInView(view: view)
+        toast.present(in: view)
     }
 }
 
