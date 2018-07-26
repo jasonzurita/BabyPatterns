@@ -40,7 +40,15 @@ public final class HistoryVc: UIViewController, Loggable {
         }
     }
 
-    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var graphHistoryLabel: UILabel! {
+        didSet {
+            graphHistoryLabel.text = "History"
+            styleLabelH2(graphHistoryLabel)
+        }
+    }
+    @IBOutlet var scrollView: UIScrollView! {
+        didSet { styleViewBackground(color: .bpLightestGray)(scrollView)}
+    }
     @IBOutlet var scrollContentView: UIView!
     @IBOutlet var headingLabels: [UILabel]!
 
