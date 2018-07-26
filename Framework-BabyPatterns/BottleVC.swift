@@ -75,7 +75,7 @@ public final class BottleVC: UIViewController, Loggable {
 
     private func configureRemainingStyles() {
         bodyLabels.forEach { styleLabelH2($0) }
-        unitLabels.forEach { styleLabelBody($0) }
+        unitLabels.forEach { styleLabelP1($0) }
     }
 
     public override func viewWillAppear(_ animated: Bool) {

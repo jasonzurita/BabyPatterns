@@ -46,7 +46,7 @@ public final class PumpingVC: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        bodyLabels.forEach { styleLabelBody($0) }
+        bodyLabels.forEach { styleLabelP1($0) }
     }
 
     public func resume(feeding: Feeding) {

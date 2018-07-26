@@ -73,7 +73,7 @@ let styleLabelH2 =
         <> styleLabelFont(.notoSansBold(ofSize: 16))
         <> styleLabelColor(.bpMediumGray)
 
-let styleLabelBody =
+let styleLabelP1 =
     styleLabelBase
         <> styleLabelFont(.notoSansRegular(ofSize: 16))
         <> styleLabelColor(.bpMediumGray)
