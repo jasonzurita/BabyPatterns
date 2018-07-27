@@ -118,7 +118,8 @@ public final class HistoryVc: UIViewController, Loggable {
     private var notificationToken: NSObjectProtocol?
 
     private var pointsPerSecond: CGFloat {
-        return scrollView.frame.width / CGFloat(screenTimeWindow.rawValue)
+        // this assumes the scrollView's width is equal to the view's width
+        return view.frame.width / CGFloat(screenTimeWindow.rawValue)
     }
 
     public init(events: [Event], summary: FeedingSummaryProtocol) {
