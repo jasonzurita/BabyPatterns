@@ -171,7 +171,7 @@
                         <constraint firstItem="h4g-yc-XCx" firstAttribute="centerX" secondItem="joE-aX-LYe" secondAttribute="centerX" id="pAM-IH-IWj"/>
                     </constraints>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1d-kw-iqS">
+                <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1d-kw-iqS">
                     <rect key="frame" x="0.0" y="79" width="667" height="240"/>
                     <subviews>
                         <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjg-CP-QJi" userLabel="Content View">

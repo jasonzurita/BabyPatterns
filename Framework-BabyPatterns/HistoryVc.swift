@@ -186,6 +186,9 @@ public final class HistoryVc: UIViewController, Loggable {
 
         let graphWindow = DateInterval(start: lastEvent.endDate, end: Date())
         layoutFeedings(events, inWindow: graphWindow)
+
+        // TODO: see if we can move this before the event check
+        layoutXAxis(for: graphWindow)
     }
 
     private func layoutFeedings(_ events: [Event], inWindow window: DateInterval) {
@@ -226,6 +229,23 @@ public final class HistoryVc: UIViewController, Loggable {
         // the first graph element will have spacing of `barGraphElementWidth` from left
         // margin because of the below addition AND the `leftAnchor` constraint above
         return pointsPerSecond * CGFloat(secondsSinceNow) + barGraphElementWidth
+    }
+
+    private func layoutXAxis(for window: DateInterval) {
+
+        let marker = UILabel()
+        marker.text = "now"
+        styleLabelP2(marker)
+
+        let x = xFeedingLocation(forDate: window.end, inWindow: window)
+        scrollContentView.addSubview(marker)
+        marker.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            scrollContentView.bottomAnchor.constraint(equalTo: marker.topAnchor),
+            marker.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor, constant: x),
+            scrollContentView.trailingAnchor.constraint(greaterThanOrEqualTo: marker.trailingAnchor, constant: 10),
+            ])
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
