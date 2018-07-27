@@ -112,7 +112,6 @@ public final class HistoryVc: UIViewController, Loggable {
     private let events: [Event]
     private let _summary: FeedingSummaryProtocol
 
-    private let yOffset: CGFloat = 6
     private let barGraphElementWidth: CGFloat = 4
     private var notificationToken: NSObjectProtocol?
 
@@ -212,7 +211,7 @@ public final class HistoryVc: UIViewController, Loggable {
             NSLayoutConstraint.activate([
                 graphElement.heightAnchor.constraint(equalTo: scrollContentView.heightAnchor, multiplier: 0.5),
                 graphElement.widthAnchor.constraint(equalToConstant: barGraphElementWidth),
-                scrollContentView.bottomAnchor.constraint(equalTo: graphElement.bottomAnchor, constant: yOffset),
+                scrollContentView.bottomAnchor.constraint(equalTo: graphElement.bottomAnchor),
                 graphElement.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor, constant: x),
                 scrollContentView.trailingAnchor
                     .constraint(greaterThanOrEqualTo: graphElement.trailingAnchor, constant: 10),
