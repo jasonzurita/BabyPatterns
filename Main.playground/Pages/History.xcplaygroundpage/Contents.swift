@@ -30,10 +30,12 @@ struct FeedingSummary: FeedingSummaryProtocol {
 
 let events = [
     MockEvent(0, .nursing),
-    MockEvent(60, .pumping),
-    MockEvent(90, .bottle),
+    MockEvent(60, .nursing),
+    MockEvent(90, .nursing),
     MockEvent(120, .nursing),
-    MockEvent(240, .pumping),
+    MockEvent(3 * 60, .bottle),
+    MockEvent(4 * 60, .bottle),
+    MockEvent(6 * 60, .bottle),
     MockEvent(12 * 60, .bottle),
     MockEvent(24 * 60, .pumping),
     MockEvent(60 * 60, .bottle),

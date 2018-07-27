@@ -49,7 +49,9 @@ public final class HistoryVc: UIViewController, Loggable {
     @IBOutlet var scrollView: UIScrollView! {
         didSet { styleViewBackground(color: .bpLightestGray)(scrollView)}
     }
-    @IBOutlet var scrollContentView: UIView!
+    @IBOutlet var scrollContentView: UIView! {
+        didSet { scrollContentView.translatesAutoresizingMaskIntoConstraints = false }
+    }
     @IBOutlet var headingLabels: [UILabel]!
 
     @IBOutlet var nursingHeadingLabel: UILabel!
@@ -184,6 +186,8 @@ public final class HistoryVc: UIViewController, Loggable {
             return
         }
 
+        scrollContentView.subviews.forEach { $0.removeFromSuperview() }
+
         let graphWindow = DateInterval(start: lastEvent.endDate, end: Date())
         layoutFeedings(events, inWindow: graphWindow)
 
@@ -192,8 +196,6 @@ public final class HistoryVc: UIViewController, Loggable {
     }
 
     private func layoutFeedings(_ events: [Event], inWindow window: DateInterval) {
-        scrollContentView.subviews.forEach { $0.removeFromSuperview() }
-        scrollContentView.translatesAutoresizingMaskIntoConstraints = false
         for event in events {
             let x = xFeedingLocation(forDate: event.endDate, inWindow: window)
 
@@ -233,19 +235,52 @@ public final class HistoryVc: UIViewController, Loggable {
 
     private func layoutXAxis(for window: DateInterval) {
 
-        let marker = UILabel()
-        marker.text = "now"
-        styleLabelP2(marker)
+        let frequency: TimeInterval
+        let divisor: TimeInterval
+        let timeUnit: String
+        switch screenTimeWindow {
+        case .twelveHours:
+            frequency = 3 * 60 * 60
+            divisor = 3600
+            timeUnit = "h"
+        case .day:
+            frequency = 6 * 60 * 60
+            divisor = 3600
+            timeUnit = "h"
+        case .week:
+            frequency = 24 * 60 * 60
+            divisor = frequency
+            timeUnit = "d"
+        case .month:
+            frequency = 7 * 24 * 60 * 60
+            divisor = frequency
+            timeUnit = "w"
+        }
 
-        let x = xFeedingLocation(forDate: window.end, inWindow: window)
-        scrollContentView.addSubview(marker)
-        marker.translatesAutoresizingMaskIntoConstraints = false
+        let labelTimestamps = stride(from: abs(window.end.timeIntervalSinceNow),
+                                     to: abs(window.start.timeIntervalSinceNow),
+                                     by: frequency)
 
-        NSLayoutConstraint.activate([
-            scrollContentView.bottomAnchor.constraint(equalTo: marker.topAnchor),
-            marker.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor, constant: x),
-            scrollContentView.trailingAnchor.constraint(greaterThanOrEqualTo: marker.trailingAnchor, constant: 10),
-            ])
+        let titles = ["now"] + stride(from: abs(window.end.timeIntervalSinceNow),
+                                      to: abs(window.start.timeIntervalSinceNow),
+                                      by: frequency).map { "\(Int($0/divisor)) \(timeUnit)" }.dropFirst()
+
+        for viewData in zip(labelTimestamps, titles) {
+            let marker = UILabel()
+            marker.text = "\(viewData.1)"
+            styleLabelP2(marker)
+
+            let x = xFeedingLocation(forDate: Date(timeIntervalSinceNow: viewData.0), inWindow: window)
+            scrollContentView.addSubview(marker)
+            marker.translatesAutoresizingMaskIntoConstraints = false
+
+            NSLayoutConstraint.activate([
+                scrollContentView.bottomAnchor.constraint(equalTo: marker.topAnchor),
+                marker.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor, constant: x),
+                scrollContentView.trailingAnchor.constraint(greaterThanOrEqualTo: marker.trailingAnchor, constant: 10),
+                ])
+
+        }
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
