@@ -9,6 +9,8 @@ tests to conduct:
 - Test failing create account
 
 bugs / clean up
+- History screen takes too long to load
+- Bottle feeding has negative feeding value. Could this be because I am using an old account before the change to using centiounces?
 - Save button on pumping screen cut off bottom on iPhone 8 and smaller
 - Save profile image screen flickers background when transitioning
 - Settings screen text fields don't show spaces at end of fields
