@@ -7,8 +7,8 @@ UIFont.registerFonts
 struct MockEvent: Event {
     let endDate: Date
     let type: FeedingType
-    init(_ minutes: TimeInterval, _ type: FeedingType) {
-        let date = Date(timeIntervalSinceNow: -minutes * 60)
+    init(hours: TimeInterval, _ type: FeedingType) {
+        let date = Date(timeIntervalSinceNow: -hours * 60 * 60)
         endDate = date
         self.type = type
     }
@@ -29,17 +29,17 @@ struct FeedingSummary: FeedingSummaryProtocol {
 }
 
 let events = [
-    MockEvent(0, .nursing),
-    MockEvent(60, .nursing),
-    MockEvent(90, .nursing),
-    MockEvent(120, .nursing),
-    MockEvent(3 * 60, .bottle),
-    MockEvent(4 * 60, .bottle),
-    MockEvent(6 * 60, .bottle),
-    MockEvent(12 * 60, .bottle),
-    MockEvent(24 * 60, .pumping),
-    MockEvent(60 * 60, .bottle),
-    MockEvent(7 * 24 * 60, .nursing),
+    MockEvent(hours: 0, .nursing),
+    MockEvent(hours: 1, .nursing),
+    MockEvent(hours: 1.5, .nursing),
+    MockEvent(hours: 2, .nursing),
+    MockEvent(hours: 3, .bottle),
+    MockEvent(hours: 4, .bottle),
+    MockEvent(hours: 6, .bottle),
+    MockEvent(hours: 12, .bottle),
+    MockEvent(hours: 24, .pumping),
+    MockEvent(hours: 60, .bottle),
+    MockEvent(hours: 7 * 24, .nursing),
 ]
 
 let summary = FeedingSummary()
