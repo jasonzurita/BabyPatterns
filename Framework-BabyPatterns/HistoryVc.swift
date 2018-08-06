@@ -264,7 +264,7 @@ public final class HistoryVc: UIViewController, Loggable {
 
         let titles = ["now"] + stride(from: abs(window.end.timeIntervalSinceNow),
                                       to: abs(window.start.timeIntervalSinceNow),
-                                      by: frequency).map { "\(Int($0/divisor)) \(timeUnit)" }.dropFirst()
+                                      by: frequency).map { "\(Int($0/divisor))\(timeUnit)" }.dropFirst()
 
         for viewData in zip(labelTimestamps, titles) {
             let marker = UILabel()
