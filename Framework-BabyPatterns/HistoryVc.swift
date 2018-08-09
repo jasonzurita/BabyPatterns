@@ -111,6 +111,23 @@ public final class HistoryVc: UIViewController, Loggable {
         return "  Last time: \(hours.string)h \(minutes.string)m ago"
     }
 
+    private func updateAverageNursingLabel() {
+        // TODO: make sure this makes sense
+        // also the value needs to change depending on the window change
+        let window: String
+        switch screenTimeWindow {
+        case .twelveHours:
+            window = "12h"
+        case .day:
+            window = "day"
+        case .week:
+            window = "week"
+        case .month:
+            window = "month"
+        }
+        averageNursingLabel.text = "  Average feeding (\(window)) \(_summary.averageNursingDuration) m"
+    }
+
     private let events: [Event]
     private let _summary: FeedingSummaryProtocol
 
@@ -133,12 +150,18 @@ public final class HistoryVc: UIViewController, Loggable {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        setupGraph()
         completeStyling()
 
         addColorIndicator(labelView: nursingHeadingLabel, color: .bpPink)
         addColorIndicator(labelView: pumpingHeadingLabel, color: .bpGreen)
         addColorIndicator(labelView: bottleHeadingLabel, color: .bpMediumBlue)
+
+        setupGraph()
+    }
+
+    private func completeStyling() {
+        headingLabels.forEach { styleLabelH2($0) }
+        bodyLabels.forEach { styleLabelP2($0) }
     }
 
     private func addColorIndicator(labelView: UIView, color: UIColor) {
@@ -157,28 +180,6 @@ public final class HistoryVc: UIViewController, Loggable {
 
         let size = labelView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         colorIndicator.layer.cornerRadius = size.height * heightMultiplier * 0.5
-    }
-
-    private func completeStyling() {
-        headingLabels.forEach { styleLabelH2($0) }
-        bodyLabels.forEach { styleLabelP2($0) }
-    }
-
-    private func updateAverageNursingLabel() {
-        // TODO: make sure this makes sense
-        // also the value needs to change depending on the window change
-        let window: String
-        switch screenTimeWindow {
-        case .twelveHours:
-            window = "12h"
-        case .day:
-            window = "day"
-        case .week:
-            window = "week"
-        case .month:
-            window = "month"
-        }
-        averageNursingLabel.text = "  Average feeding (\(window)) \(_summary.averageNursingDuration) m"
     }
 
     // TODO: pull out the screen scale dependency
