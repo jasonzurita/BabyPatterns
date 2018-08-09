@@ -119,7 +119,8 @@ public final class HistoryVc: UIViewController, Loggable {
 
     private var pointsPerSecond: CGFloat {
         // this assumes the scrollView's width is equal to the view's width
-        return view.frame.width / CGFloat(screenTimeWindow.rawValue)
+        // TODO: get rid of the UIScreen dependency
+        return UIScreen.main.bounds.width / CGFloat(screenTimeWindow.rawValue)
     }
 
     public init(events: [Event], summary: FeedingSummaryProtocol) {

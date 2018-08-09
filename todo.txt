@@ -20,6 +20,8 @@ bugs / clean up
 - What if user exceeds max supply amount when pumping?
 - Pass on color scheme
 - Pass on leaks
+- Remove UIScreen dependency in HistoryVc. The reference width should be the width
+of the containing views like the scroll view!
 
 v?
 - Make animation of saved toast slide up slightly
