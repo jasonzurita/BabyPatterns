@@ -171,11 +171,11 @@
                         <constraint firstItem="h4g-yc-XCx" firstAttribute="centerX" secondItem="joE-aX-LYe" secondAttribute="centerX" id="pAM-IH-IWj"/>
                     </constraints>
                 </view>
-                <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1d-kw-iqS">
-                    <rect key="frame" x="0.0" y="79" width="667" height="240"/>
+                <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1d-kw-iqS">
+                    <rect key="frame" x="0.0" y="79" width="380" height="240"/>
                     <subviews>
-                        <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjg-CP-QJi" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="667" height="240"/>
+                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjg-CP-QJi" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="380" height="240"/>
                         </view>
                     </subviews>
                     <constraints>
@@ -183,6 +183,7 @@
                         <constraint firstAttribute="bottom" secondItem="fjg-CP-QJi" secondAttribute="bottom" id="APC-fE-VNB"/>
                         <constraint firstAttribute="trailing" secondItem="fjg-CP-QJi" secondAttribute="trailing" id="YCa-jt-jF4"/>
                         <constraint firstItem="fjg-CP-QJi" firstAttribute="top" secondItem="a1d-kw-iqS" secondAttribute="top" id="irY-c2-KVL"/>
+                        <constraint firstItem="fjg-CP-QJi" firstAttribute="width" secondItem="a1d-kw-iqS" secondAttribute="width" placeholder="YES" id="qqW-n8-KqF"/>
                         <constraint firstItem="fjg-CP-QJi" firstAttribute="leading" secondItem="a1d-kw-iqS" secondAttribute="leading" id="z46-rd-mAr"/>
                     </constraints>
                 </scrollView>
