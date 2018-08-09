@@ -15,6 +15,7 @@
                 <outlet property="averageNursingLabel" destination="2j0-cZ-kmj" id="hbp-BU-MNM"/>
                 <outlet property="bottleHeadingLabel" destination="8d9-fR-FRe" id="n3h-gt-6pq"/>
                 <outlet property="desiredSupplyLabel" destination="f2i-si-4IA" id="sEW-FF-ENa"/>
+                <outlet property="graphBackgroundView" destination="dng-JB-FJO" id="McB-7D-yni"/>
                 <outlet property="graphHistoryLabel" destination="ioy-DZ-bT6" id="uer-5o-Vfz"/>
                 <outlet property="lastBottleFeedingLabel" destination="0RI-3q-Y65" id="Nct-rP-cDl"/>
                 <outlet property="lastNursingLabel" destination="byi-7R-9yN" id="iw7-pW-nvd"/>
@@ -48,6 +49,10 @@
             <rect key="frame" x="0.0" y="0.0" width="380" height="798"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dng-JB-FJO">
+                    <rect key="frame" x="0.0" y="20" width="380" height="299"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="joE-aX-LYe">
                     <rect key="frame" x="0.0" y="334" width="380" height="449"/>
                     <subviews>
@@ -213,13 +218,17 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="joE-aX-LYe" firstAttribute="centerX" secondItem="Azi-7T-qv0" secondAttribute="centerX" id="Aga-R0-OyY"/>
+                <constraint firstItem="dng-JB-FJO" firstAttribute="top" secondItem="Azi-7T-qv0" secondAttribute="top" id="LTF-Vo-c0y"/>
+                <constraint firstItem="dng-JB-FJO" firstAttribute="bottom" secondItem="a1d-kw-iqS" secondAttribute="bottom" id="NPx-Sy-0ZN"/>
                 <constraint firstItem="a1d-kw-iqS" firstAttribute="top" secondItem="hBc-oD-mBW" secondAttribute="bottom" constant="15" id="OWA-1s-sID"/>
                 <constraint firstItem="a1d-kw-iqS" firstAttribute="bottom" secondItem="Azi-7T-qv0" secondAttribute="bottom" multiplier="0.4" id="eDw-OV-izO"/>
+                <constraint firstItem="dng-JB-FJO" firstAttribute="width" secondItem="1j2-3h-CVe" secondAttribute="width" id="joO-IQ-R3c"/>
                 <constraint firstItem="hBc-oD-mBW" firstAttribute="centerX" secondItem="1j2-3h-CVe" secondAttribute="centerX" id="kQI-F7-NHn"/>
                 <constraint firstItem="ioy-DZ-bT6" firstAttribute="top" secondItem="a1d-kw-iqS" secondAttribute="top" constant="5" id="kbw-46-7Nr"/>
                 <constraint firstItem="hBc-oD-mBW" firstAttribute="top" secondItem="Azi-7T-qv0" secondAttribute="top" constant="15" id="lv4-n8-Ykf"/>
                 <constraint firstItem="joE-aX-LYe" firstAttribute="top" secondItem="fjg-CP-QJi" secondAttribute="bottom" constant="15" id="nS8-pZ-aaW"/>
                 <constraint firstItem="joE-aX-LYe" firstAttribute="width" secondItem="1j2-3h-CVe" secondAttribute="width" id="tFM-IL-h3J"/>
+                <constraint firstItem="dng-JB-FJO" firstAttribute="centerX" secondItem="Azi-7T-qv0" secondAttribute="centerX" id="tre-OE-mya"/>
                 <constraint firstItem="ioy-DZ-bT6" firstAttribute="centerX" secondItem="Azi-7T-qv0" secondAttribute="centerX" id="w71-oV-gzx"/>
                 <constraint firstItem="Azi-7T-qv0" firstAttribute="bottom" secondItem="joE-aX-LYe" secondAttribute="bottom" constant="15" id="wqY-Lf-nuz"/>
                 <constraint firstItem="a1d-kw-iqS" firstAttribute="trailing" secondItem="Azi-7T-qv0" secondAttribute="trailing" id="xa2-Ou-HvN"/>

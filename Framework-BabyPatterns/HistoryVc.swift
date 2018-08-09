@@ -46,9 +46,9 @@ public final class HistoryVc: UIViewController, Loggable {
             styleLabelH2(graphHistoryLabel)
         }
     }
-    @IBOutlet var scrollView: UIScrollView! {
-        didSet { styleViewBackground(color: .bpLightestGray)(scrollView)}
-    }
+
+    @IBOutlet var graphBackgroundView: UIView!
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var scrollContentView: UIView! {
         didSet { scrollContentView.translatesAutoresizingMaskIntoConstraints = false }
     }
@@ -288,6 +288,24 @@ public final class HistoryVc: UIViewController, Loggable {
             let x = xFeedingLocation(forDate: Date(timeIntervalSinceNow: viewData.0), inWindow: window)
             textLayer.frame = CGRect(x: x, y: y, width: preferedSize.width, height: preferedSize.height)
         }
+    }
+
+    // Note: the styling needs to be completed like this because the frame
+    // sizes need to be finalized
+    private var _shouldCompleteStyling = true
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        guard _shouldCompleteStyling else { return }
+        _shouldCompleteStyling = false
+
+        let gradient = CAGradientLayer()
+        gradient.frame = graphBackgroundView.bounds
+        gradient.colors = [UIColor.bpLightGray.cgColor, UIColor.bpWhite.cgColor]
+        gradient.startPoint = CGPoint(x: 0.5, y: 1.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 0.0)
+
+        graphBackgroundView.layer.insertSublayer(gradient, at: 0)
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
