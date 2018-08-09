@@ -22,6 +22,8 @@ bugs / clean up
 - Pass on leaks
 - Remove UIScreen dependency in HistoryVc. The reference width should be the width
 of the containing views like the scroll view!
+- History screen graph labels are offset too far from the bottom
+when the history screen first loads
 
 v?
 - Make animation of saved toast slide up slightly

@@ -181,20 +181,23 @@ public final class HistoryVc: UIViewController, Loggable {
         averageNursingLabel.text = "  Average feeding (\(window)) \(_summary.averageNursingDuration) m"
     }
 
-    private func setupGraph() {
+    // TODO: pull out the screen scale dependency
+    private func setupGraph(for screenScale: CGFloat = UIScreen.main.scale) {
         guard let lastEvent = events.last else {
             // TODO: what do we show in this case?
             log("no events to show...", object: self, type: .warning)
             return
         }
 
+        // TODO: should these go in their respective functions?
         scrollContentView.subviews.forEach { $0.removeFromSuperview() }
+        scrollContentView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
 
         let graphWindow = DateInterval(start: lastEvent.endDate, end: Date())
         layoutFeedings(events, inWindow: graphWindow)
 
         // TODO: see if we can move this before the event check
-        layoutXAxis(for: graphWindow)
+        layoutXAxis(for: graphWindow, screenScale: screenScale)
     }
 
     private func layoutFeedings(_ events: [Event], inWindow window: DateInterval) {
@@ -235,7 +238,7 @@ public final class HistoryVc: UIViewController, Loggable {
         return pointsPerSecond * CGFloat(secondsSinceNow) + barGraphElementWidth
     }
 
-    private func layoutXAxis(for window: DateInterval) {
+    private func layoutXAxis(for window: DateInterval, screenScale: CGFloat) {
 
         let frequency: TimeInterval
         let divisor: TimeInterval
@@ -267,21 +270,22 @@ public final class HistoryVc: UIViewController, Loggable {
                                       to: abs(window.start.timeIntervalSinceNow),
                                       by: frequency).map { "\(Int($0/divisor))\(timeUnit)" }.dropFirst()
 
+        let attributes = [
+            NSAttributedStringKey.font: UIFont.notoSansBold(ofSize: 14),
+            NSAttributedStringKey.foregroundColor: UIColor.bpMediumGray,
+            ]
+
+        let y = scrollContentView.layer.frame.height
+
         for viewData in zip(labelTimestamps, titles) {
-            let marker = UILabel()
-            marker.text = "\(viewData.1)"
-            styleLabelP2(marker)
+            let textLayer = CATextLayer()
+            textLayer.string = NSAttributedString(string: "\(viewData.1)", attributes: attributes)
+            textLayer.contentsScale = screenScale
+            let preferedSize = textLayer.preferredFrameSize()
+            scrollContentView.layer.addSublayer(textLayer)
 
             let x = xFeedingLocation(forDate: Date(timeIntervalSinceNow: viewData.0), inWindow: window)
-            scrollContentView.addSubview(marker)
-            marker.translatesAutoresizingMaskIntoConstraints = false
-
-            NSLayoutConstraint.activate([
-                scrollContentView.bottomAnchor.constraint(equalTo: marker.topAnchor),
-                marker.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor, constant: x),
-                scrollContentView.trailingAnchor.constraint(greaterThanOrEqualTo: marker.trailingAnchor, constant: 10),
-                ])
-
+            textLayer.frame = CGRect(x: x, y: y, width: preferedSize.width, height: preferedSize.height)
         }
     }
 
