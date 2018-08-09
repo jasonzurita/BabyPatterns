@@ -155,8 +155,6 @@ public final class HistoryVc: UIViewController, Loggable {
         addColorIndicator(labelView: nursingHeadingLabel, color: .bpPink)
         addColorIndicator(labelView: pumpingHeadingLabel, color: .bpGreen)
         addColorIndicator(labelView: bottleHeadingLabel, color: .bpMediumBlue)
-
-        setupGraph()
     }
 
     private func completeStyling() {
@@ -180,6 +178,26 @@ public final class HistoryVc: UIViewController, Loggable {
 
         let size = labelView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         colorIndicator.layer.cornerRadius = size.height * heightMultiplier * 0.5
+    }
+
+    // Note: the styling needs to be completed like this because the frame
+    // sizes need to be finalized
+    private var _shouldCompleteStyling = true
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        guard _shouldCompleteStyling else { return }
+        _shouldCompleteStyling = false
+
+        setupGraph()
+
+        let gradient = CAGradientLayer()
+        gradient.frame = graphBackgroundView.bounds
+        gradient.colors = [UIColor.bpLightGray.cgColor, UIColor.bpWhite.cgColor]
+        gradient.startPoint = CGPoint(x: 0.5, y: 1.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 0.0)
+
+        graphBackgroundView.layer.insertSublayer(gradient, at: 0)
     }
 
     // TODO: pull out the screen scale dependency
@@ -276,7 +294,7 @@ public final class HistoryVc: UIViewController, Loggable {
             NSAttributedStringKey.foregroundColor: UIColor.bpMediumGray,
             ]
 
-        let y = scrollContentView.layer.frame.height
+        let y = scrollView.frame.height
 
         for viewData in zip(labelTimestamps, titles) {
             let textLayer = CATextLayer()
@@ -288,24 +306,6 @@ public final class HistoryVc: UIViewController, Loggable {
             let x = xFeedingLocation(forDate: Date(timeIntervalSinceNow: viewData.0), inWindow: window)
             textLayer.frame = CGRect(x: x, y: y, width: preferedSize.width, height: preferedSize.height)
         }
-    }
-
-    // Note: the styling needs to be completed like this because the frame
-    // sizes need to be finalized
-    private var _shouldCompleteStyling = true
-    public override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        guard _shouldCompleteStyling else { return }
-        _shouldCompleteStyling = false
-
-        let gradient = CAGradientLayer()
-        gradient.frame = graphBackgroundView.bounds
-        gradient.colors = [UIColor.bpLightGray.cgColor, UIColor.bpWhite.cgColor]
-        gradient.startPoint = CGPoint(x: 0.5, y: 1.0)
-        gradient.endPoint = CGPoint(x: 0.5, y: 0.0)
-
-        graphBackgroundView.layer.insertSublayer(gradient, at: 0)
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
