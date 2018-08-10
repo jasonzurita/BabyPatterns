@@ -53,6 +53,7 @@ public final class BottleVC: UIViewController, Loggable {
     }
 
     private var _remainingSupplyHeight: Float {
+        // TODO: think if returning 1.0 is the best thing to do
         guard let ds = dataSource else { return 1.0 }
         let maxSupply = ds.desiredMaxSupply().value
         let remainingSupply = ds.remainingSupply().value
