@@ -65,7 +65,7 @@ final class SettingsVC: UITableViewController, Loggable {
         emailTextField.text = p.email
         nameTextField.text = p.parentName
         babyNameTextField.text = p.babyName
-        desiredSupplyTextField.text = "\(p.desiredMaxSupply)"
+        desiredSupplyTextField.text = "\(p.desiredMaxSupply.displayValue(for: .ounces))"
     }
 
     private func setupFooter() {
