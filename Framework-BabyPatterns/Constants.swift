@@ -35,7 +35,7 @@ public struct K {
     }
 
     public struct Defaults {
-        public static let DefaultDesiredMaxSupply = 25
+        public static let DefaultDesiredMaxSupply = 2500 // ceniounces
         public static let BottleTopHeight = 70.0
         public static let BottleFillOverlapWithBottomFillImage = 3.0
     }
