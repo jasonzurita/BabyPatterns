@@ -132,7 +132,6 @@ public final class HistoryVc: UIViewController, Loggable {
     private let _summary: FeedingSummaryProtocol
 
     private let barGraphElementWidth: CGFloat = 4
-    private var notificationToken: NSObjectProtocol?
 
     public init(events: [Event], summary: FeedingSummaryProtocol) {
         self.events = events
@@ -172,14 +171,6 @@ public final class HistoryVc: UIViewController, Loggable {
 
         let size = labelView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         colorIndicator.layer.cornerRadius = size.height * heightMultiplier * 0.5
-    }
-
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIDevice.current.endGeneratingDeviceOrientationNotifications()
-        if let token = notificationToken {
-            NotificationCenter.default.removeObserver(token)
-        }
     }
 
     // Note: the styling needs to be completed like this because the frame
