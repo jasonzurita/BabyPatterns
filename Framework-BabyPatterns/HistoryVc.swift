@@ -134,12 +134,6 @@ public final class HistoryVc: UIViewController, Loggable {
     private let barGraphElementWidth: CGFloat = 4
     private var notificationToken: NSObjectProtocol?
 
-    private var pointsPerSecond: CGFloat {
-        // this assumes the scrollView's width is equal to the view's width
-        // TODO: get rid of the UIScreen dependency
-        return UIScreen.main.bounds.width / CGFloat(screenTimeWindow.rawValue)
-    }
-
     public init(events: [Event], summary: FeedingSummaryProtocol) {
         self.events = events
         _summary = summary
@@ -180,6 +174,14 @@ public final class HistoryVc: UIViewController, Loggable {
         colorIndicator.layer.cornerRadius = size.height * heightMultiplier * 0.5
     }
 
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIDevice.current.endGeneratingDeviceOrientationNotifications()
+        if let token = notificationToken {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
+
     // Note: the styling needs to be completed like this because the frame
     // sizes need to be finalized
     private var _shouldCompleteStyling = true
@@ -198,6 +200,30 @@ public final class HistoryVc: UIViewController, Loggable {
         gradient.endPoint = CGPoint(x: 0.5, y: 0.0)
 
         graphBackgroundView.layer.insertSublayer(gradient, at: 0)
+    }
+
+    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            screenTimeWindow = .twelveHours
+        case 1:
+            screenTimeWindow = .day
+        case 2:
+            screenTimeWindow = .week
+        case 3:
+            screenTimeWindow = .month
+        default:
+            fatalError("Impossible segement selected...")
+        }
+    }
+}
+
+// MARK: Graph drawing
+extension HistoryVc {
+    private var pointsPerSecond: CGFloat {
+        // this assumes the scrollView's width is equal to the view's width
+        // TODO: get rid of the UIScreen dependency
+        return UIScreen.main.bounds.width / CGFloat(screenTimeWindow.rawValue)
     }
 
     // TODO: pull out the screen scale dependency
@@ -244,7 +270,7 @@ public final class HistoryVc: UIViewController, Loggable {
                 graphElement.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor, constant: x),
                 scrollContentView.trailingAnchor
                     .constraint(greaterThanOrEqualTo: graphElement.trailingAnchor, constant: 10),
-            ])
+                ])
         }
     }
 
@@ -305,29 +331,6 @@ public final class HistoryVc: UIViewController, Loggable {
 
             let x = xFeedingLocation(forDate: Date(timeIntervalSinceNow: viewData.0), inWindow: window)
             textLayer.frame = CGRect(x: x, y: y, width: preferedSize.width, height: preferedSize.height)
-        }
-    }
-
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIDevice.current.endGeneratingDeviceOrientationNotifications()
-        if let token = notificationToken {
-            NotificationCenter.default.removeObserver(token)
-        }
-    }
-
-    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            screenTimeWindow = .twelveHours
-        case 1:
-            screenTimeWindow = .day
-        case 2:
-            screenTimeWindow = .week
-        case 3:
-            screenTimeWindow = .month
-        default:
-            fatalError("Impossible segement selected...")
         }
     }
 }
