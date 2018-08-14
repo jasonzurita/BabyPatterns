@@ -108,7 +108,7 @@ public final class HistoryVc: UIViewController, Loggable {
     private func lastTimeText(_ lastTime: TimeInterval) -> String {
         let hours = lastTime.stringFromSecondsToHours(zeroPadding: false)
         let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
-        return "  Last time: \(hours.string)h \(minutes.string)m ago"
+        return "  Last: \(hours.string)h \(minutes.string)m ago"
     }
 
     private func updateAverageNursingLabel() {
