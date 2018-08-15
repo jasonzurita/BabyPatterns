@@ -14,12 +14,16 @@ struct MockEvent: Event {
     }
 }
 
-let amount = SupplyAmount(value: 2550)
+let amount = SupplyAmount(value: 2551)
+
+func avg(window: DateInterval) -> TimeInterval {
+    return 3650
+}
 
 struct FeedingSummary: FeedingSummaryProtocol {
     let timeSinceLastNursing: TimeInterval = 60
     let lastNursingSide: FeedingSide = .left
-    let averageNursingDuration: TimeInterval = 100
+    let averageNursingDuration: (DateInterval) -> TimeInterval = avg
     let timeSinceLastPumping: TimeInterval = 120
     let lastPumpingSide: FeedingSide = .right
     let lastPumpedAmount: SupplyAmount = amount

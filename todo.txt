@@ -2,7 +2,6 @@
 - Add ability to tap on history bar and get tool tip of date/duration/amount/etc
 - Add vertical bars from date labels on x-axis -> History screen
 - Purchase of IAP
-- Make sure history stats are live
 
 tests to conduct:
 - forgot password

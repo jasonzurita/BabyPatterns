@@ -16,7 +16,7 @@ struct EndFeedingEvent: Event {
 struct FeedingSummary: FeedingSummaryProtocol {
     let timeSinceLastNursing: TimeInterval
     let lastNursingSide: FeedingSide
-    let averageNursingDuration: TimeInterval
+    let averageNursingDuration: (DateInterval) -> TimeInterval
     let timeSinceLastPumping: TimeInterval
     let lastPumpingSide: FeedingSide
     let lastPumpedAmount: SupplyAmount
@@ -96,7 +96,7 @@ final class FeedingVC: UIViewController {
         let summary = FeedingSummary(
             timeSinceLastNursing: vm.timeSinceLast(feedingTypes: [.nursing]),
             lastNursingSide: vm.lastFeedingSide(for: .nursing),
-            averageNursingDuration: 100,
+            averageNursingDuration: vm.averageNursingDuration,
             timeSinceLastPumping: vm.timeSinceLast(feedingTypes: [.pumping]),
             lastPumpingSide: vm.lastFeedingSide(for: .pumping),
             lastPumpedAmount: vm.lastFeeding(type: .pumping)?.supplyAmount ?? SupplyAmount.zero,

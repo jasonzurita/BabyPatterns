@@ -5,11 +5,11 @@ public protocol Event {
     var endDate: Date { get }
     var type: FeedingType { get }
 }
-
+// func averageNursingDuration(filterWindow _: DateInterval) -> TimeInterval {
 public protocol FeedingSummaryProtocol {
     var timeSinceLastNursing: TimeInterval { get }
     var lastNursingSide: FeedingSide { get }
-    var averageNursingDuration: TimeInterval { get }
+    var averageNursingDuration: (DateInterval) -> TimeInterval { get }
     var timeSinceLastPumping: TimeInterval { get }
     var lastPumpingSide: FeedingSide { get }
     var lastPumpedAmount: SupplyAmount { get }
@@ -125,7 +125,15 @@ public final class HistoryVc: UIViewController, Loggable {
         case .month:
             window = "month"
         }
-        averageNursingLabel.text = "  Average feeding (\(window)) \(_summary.averageNursingDuration) m"
+
+        let now = Date()
+        let start = Date(timeInterval: -screenTimeWindow.rawValue, since: now)
+        let timeWindow = DateInterval(start: start, end: Date())
+        let average = _summary.averageNursingDuration(timeWindow)
+        // TODO: put in analytic event here to determine if hours is useful
+        let hours = average.stringFromSecondsToHours(zeroPadding: false)
+        let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
+        averageNursingLabel.text = "  Average feeding (last \(window)) \(hours.string)h \(minutes.string)m"
     }
 
     private let events: [Event]
