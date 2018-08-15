@@ -18,10 +18,13 @@ extension FeedingsVM {
         return feedings(withTypes: [type], isFinished: true).last?.side ?? .none
     }
 
-    func averageNursingDuration(filterWindow _: DateInterval) -> TimeInterval? {
-        let f = feedings(withTypes: [.nursing], isFinished: true)
+    func averageNursingDuration(filterWindow: DateInterval) -> TimeInterval {
+        let f = feedings(withTypes: [.nursing], isFinished: true).filter {
+            guard let end = $0.endDate else { return false }
+            return filterWindow.contains(end)
+        }
         guard f.count > 0 else { return 0.0 }
-        let sum = f.reduce(0.0, { $0 + $1.duration() })
+        let sum = f.reduce(0.0) { $0 + $1.duration() }
         return sum / TimeInterval(f.count)
     }
 
