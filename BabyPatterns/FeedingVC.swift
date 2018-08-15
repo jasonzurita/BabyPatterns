@@ -107,6 +107,9 @@ final class FeedingVC: UIViewController {
         let vc = HistoryVc(events: orderedCompletedFeedingEvents, summary: summary)
         vc.transitioningDelegate = self
         vc.modalPresentationStyle = .custom
+
+        vc.view.layer.cornerRadius = 8.0
+        vc.view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         present(vc, animated: true, completion: nil)
     }
 

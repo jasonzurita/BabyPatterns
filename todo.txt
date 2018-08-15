@@ -14,7 +14,6 @@ bugs / clean up
 - Bottle too small on iPhone SE
 - Pumping screen doesn't fit, which breaks constraints. This causes the feeding start
 to not be round..
-- Make top of history screen partial modal have rounded corners
 - Timer label in pumping/nursing is cut off on iPhone SE
 - fix login flicker (maybe with root navigation controller)
 - Age validation during sign up

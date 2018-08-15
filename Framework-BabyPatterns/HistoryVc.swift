@@ -151,6 +151,8 @@ public final class HistoryVc: UIViewController, Loggable {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+        view.clipsToBounds = true
+        
         completeStyling()
 
         addColorIndicator(labelView: nursingHeadingLabel, color: .bpPink)
