@@ -67,6 +67,7 @@
 		12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
 		12DD2D0320A46ECD00849A48 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD2D0220A46ECD00849A48 /* Configuration.swift */; };
 		12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12E8E57D20A2684D00C781EE /* PumpingVC.xib */; };
+		12EC21E22127824C00822D07 /* TapableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC21E12127824C00822D07 /* TapableView.swift */; };
 		12ECF45921024F40007FCDFC /* PartialSlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECF45821024F40007FCDFC /* PartialSlideInPresentationController.swift */; };
 		12EE461620EF93EC00B51FC6 /* SlideableTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */; };
 		12EE85F420F028C00085BF01 /* SettingsVc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12EE85F320F028C00085BF01 /* SettingsVc.storyboard */; };
@@ -198,6 +199,7 @@
 		12CED7D220FFFE3900553B58 /* IAPCheckout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPCheckout.swift; sourceTree = "<group>"; };
 		12DD2D0220A46ECD00849A48 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		12E8E57D20A2684D00C781EE /* PumpingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PumpingVC.xib; sourceTree = "<group>"; };
+		12EC21E12127824C00822D07 /* TapableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableView.swift; sourceTree = "<group>"; };
 		12ECF45821024F40007FCDFC /* PartialSlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialSlideInPresentationController.swift; sourceTree = "<group>"; };
 		12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideableTextFieldContainer.swift; sourceTree = "<group>"; };
 		12EE85F320F028C00085BF01 /* SettingsVc.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsVc.storyboard; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 				433AF9251E40CC8A00AD654C /* Circle.swift */,
 				43B002141E8A937E00810739 /* ShakeTextField.swift */,
 				1289D18C20C167A800E73DA0 /* StopButton.swift */,
+				12EC21E12127824C00822D07 /* TapableView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -930,6 +933,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12EC21E22127824C00822D07 /* TapableView.swift in Sources */,
 				120F80481FBF126B00D04E45 /* TimerLabel.swift in Sources */,
 				120F80471FBF126800D04E45 /* CircleToggleButton.swift in Sources */,
 				120F80451FBF126000D04E45 /* UIImageViewExtensions.swift in Sources */,
