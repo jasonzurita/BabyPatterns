@@ -17,7 +17,7 @@ struct MockEvent: Event {
 let amount = SupplyAmount(value: 2551)
 
 func avg(window: DateInterval) -> TimeInterval {
-    return 3650
+    return 365
 }
 
 struct FeedingSummary: FeedingSummaryProtocol {
