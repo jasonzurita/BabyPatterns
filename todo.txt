@@ -25,6 +25,7 @@ of the containing views like the scroll view!
 - Save profile image screen flickers background when transitioning
 
 v?
+- Change feeding duration to custom type that can generate a display string like SupplyAmount
 - Make animation of saved toast slide up slightly
 - Need a "no history" screen or label
 - Change button colors when pressed (indicate when a button is pressed)
