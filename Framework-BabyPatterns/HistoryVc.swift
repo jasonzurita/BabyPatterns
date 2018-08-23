@@ -33,6 +33,8 @@ public final class HistoryVc: UIViewController, Loggable {
         return .portrait
     }
 
+    private var _previouslySelectedFeedingAction: (() -> Void)?
+
     public override var description: String { return "\(type(of: self))" }
 
     private var screenTimeWindow: TimeWindow = .twelveHours {
@@ -154,7 +156,7 @@ public final class HistoryVc: UIViewController, Loggable {
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.clipsToBounds = true
-        
+
         completeStyling()
 
         addColorIndicator(labelView: nursingHeadingLabel, color: .bpPink)
@@ -252,7 +254,10 @@ extension HistoryVc {
         for event in events {
             let x = xFeedingLocation(forDate: event.endDate, inWindow: window)
 
-            let graphElement = UIView()
+            let graphElement = TapableView()
+            graphElement.onTap = { [unowned self] element in
+                self.selected(graphElement: element, event: event)
+            }
             switch event.type {
             case .pumping:
                 styleBarGraphElementPumping(graphElement)
@@ -275,6 +280,41 @@ extension HistoryVc {
                     .constraint(greaterThanOrEqualTo: graphElement.trailingAnchor, constant: 10),
                 ])
         }
+    }
+
+    private func selected(graphElement: UIView, event: Event) {
+        _previouslySelectedFeedingAction?()
+        let label = UILabel()
+        label.textAlignment = .center
+
+        let df = DateFormatter()
+        df.dateFormat = "hh:mm a, MM/dd"
+
+        let hours = event.duration.stringFromSecondsToHours(zeroPadding: false)
+        let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
+
+        let detailLabelTextOptions: [([FeedingType], String)] = [
+            ([.nursing, .pumping, .bottle], df.string(from: event.endDate)),
+            ([.nursing, .pumping], "\(hours.string)h \(minutes.string)m long"),
+            ([.pumping, .bottle], "\(event.supplyAmount.displayText(for: .ounces))"),
+            ]
+
+        label.text  = detailLabelTextOptions
+            .filter { $0.0.contains(event.type)}
+            .map { $0.1 }
+            .joined(separator: "\n")
+
+        scrollContentView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            label.bottomAnchor.constraint(equalTo: graphElement.topAnchor, constant: -6),
+            label.centerXAnchor.constraint(equalTo: graphElement.centerXAnchor),
+            ])
+
+        styleLabelP3(label)
+
+        _previouslySelectedFeedingAction = { label.removeFromSuperview() }
     }
 
     private func xFeedingLocation(forDate date: Date, inWindow window: DateInterval) -> CGFloat {

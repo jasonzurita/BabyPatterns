@@ -83,6 +83,11 @@ let styleLabelP2 =
         <> styleLabelFont(.notoSansRegular(ofSize: 14))
         <> styleLabelColor(.bpMediumGray)
 
+let styleLabelP3 =
+    styleLabelBase
+        <> styleLabelFont(.notoSansRegular(ofSize: 12))
+        <> styleLabelColor(.bpMediumGray)
+
 let styleLabelTimer =
     styleLabelBase
         <> styleLabelColor(.bpMediumGray)
