@@ -332,8 +332,7 @@
 				4314DD571DFB6DE300B3649C /* Enums.swift */,
 				12DD2D0220A46ECD00849A48 /* Configuration.swift */,
 				43D2BE671DCB69E900895A65 /* Model */,
-				12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */,
-				12F3A9C61FBB2174002ECC7B /* HistoryVc.xib */,
+				12DA5654212EDAEF0046797F /* History */,
 				AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */,
 				123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */,
 				123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */,
@@ -400,6 +399,15 @@
 				12C9FFD220B837CB00B048E6 /* Color.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		12DA5654212EDAEF0046797F /* History */ = {
+			isa = PBXGroup;
+			children = (
+				12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */,
+				12F3A9C61FBB2174002ECC7B /* HistoryVc.xib */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 		12EE461420EF938400B51FC6 /* Onboarding */ = {
