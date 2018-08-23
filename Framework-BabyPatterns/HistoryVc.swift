@@ -4,6 +4,8 @@ import UIKit
 public protocol Event {
     var endDate: Date { get }
     var type: FeedingType { get }
+    var duration: TimeInterval { get }
+    var supplyAmount: SupplyAmount { get }
 }
 // func averageNursingDuration(filterWindow _: DateInterval) -> TimeInterval {
 public protocol FeedingSummaryProtocol {

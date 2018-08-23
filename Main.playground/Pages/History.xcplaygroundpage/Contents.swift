@@ -7,10 +7,18 @@ UIFont.registerFonts
 struct MockEvent: Event {
     let endDate: Date
     let type: FeedingType
-    init(hours: TimeInterval, _ type: FeedingType) {
+    let duration: TimeInterval
+    let supplyAmount: SupplyAmount
+
+    init(hours: TimeInterval,
+         _ type: FeedingType,
+         _ duration: TimeInterval,
+         _ supplyAmount: SupplyAmount) {
         let date = Date(timeIntervalSinceNow: -hours * 60 * 60)
         endDate = date
         self.type = type
+        self.duration = duration
+        self.supplyAmount = supplyAmount
     }
 }
 
@@ -33,17 +41,17 @@ struct FeedingSummary: FeedingSummaryProtocol {
 }
 
 let events = [
-    MockEvent(hours: 0, .nursing),
-    MockEvent(hours: 1, .nursing),
-    MockEvent(hours: 1.5, .nursing),
-    MockEvent(hours: 2, .nursing),
-    MockEvent(hours: 3, .bottle),
-    MockEvent(hours: 4, .bottle),
-    MockEvent(hours: 6, .bottle),
-    MockEvent(hours: 12, .bottle),
-    MockEvent(hours: 24, .pumping),
-    MockEvent(hours: 60, .bottle),
-    MockEvent(hours: 7 * 24, .nursing),
+    MockEvent(hours: 0, .nursing, 5, amount),
+    MockEvent(hours: 1, .nursing, 5, amount),
+    MockEvent(hours: 1.5, .nursing, 5, amount),
+    MockEvent(hours: 2, .nursing, 5, amount),
+    MockEvent(hours: 3, .bottle, 5, amount),
+    MockEvent(hours: 4, .bottle, 5, amount),
+    MockEvent(hours: 6, .bottle, 5, amount),
+    MockEvent(hours: 12, .bottle, 5, amount),
+    MockEvent(hours: 24, .pumping, 5, amount),
+    MockEvent(hours: 60, .bottle, 5, amount),
+    MockEvent(hours: 7 * 24, .nursing, 5, amount),
 ]
 
 let summary = FeedingSummary()

@@ -5,11 +5,15 @@ import UIKit
 struct EndFeedingEvent: Event {
     let endDate: Date
     let type: FeedingType
+    let duration: TimeInterval
+    let supplyAmount: SupplyAmount
 
-    init?(date: Date?, type: FeedingType) {
+    init?(date: Date?, type: FeedingType, duration: TimeInterval, supplyAmount: SupplyAmount) {
         guard let d = date else { return nil }
         endDate = d
         self.type = type
+        self.duration = duration
+        self.supplyAmount = supplyAmount
     }
 }
 
@@ -41,7 +45,10 @@ final class FeedingVC: UIViewController {
         guard let vm = feedingsVM else { return [] }
         return vm
             .feedings(withTypes: [.nursing, .bottle, .pumping], isFinished: true)
-            .compactMap { EndFeedingEvent(date: $0.endDate, type: $0.type) }
+            .compactMap { EndFeedingEvent(date: $0.endDate,
+                                          type: $0.type,
+                                          duration: $0.duration(),
+                                          supplyAmount: $0.supplyAmount) }
             .sorted { $0.endDate > $1.endDate }
     }
 
