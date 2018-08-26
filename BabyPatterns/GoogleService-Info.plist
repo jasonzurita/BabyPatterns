@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>410192913017-1mbdkui060r11f9kkl0dkctpsecit1rm.apps.googleusercontent.com</string>
+	<string>1040237695821-4tehjbplpeo4kbddklkbg6tt1n6s02ii.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.410192913017-1mbdkui060r11f9kkl0dkctpsecit1rm</string>
+	<string>com.googleusercontent.apps.1040237695821-4tehjbplpeo4kbddklkbg6tt1n6s02ii</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCttxKtYlJ-n8nuyG9NXdHn80X9llxhoiA</string>
+	<string>AIzaSyAITysPAxzkJarSND6HZk59BlpchXGNRxA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>410192913017</string>
+	<string>1040237695821</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.jasonzurita.Baby-Tracker</string>
+	<string>com.jasonzurita.babypatterns</string>
 	<key>PROJECT_ID</key>
-	<string>baby-tracker-52762</string>
+	<string>babypatternsapp</string>
 	<key>STORAGE_BUCKET</key>
-	<string>baby-tracker-52762.appspot.com</string>
+	<string>babypatternsapp.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:410192913017:ios:dd7181a16d89a468</string>
+	<string>1:1040237695821:ios:2885c47cfda69fe2</string>
 	<key>DATABASE_URL</key>
-	<string>https://baby-tracker-52762.firebaseio.com</string>
+	<string>https://babypatternsapp.firebaseio.com</string>
 </dict>
 </plist>

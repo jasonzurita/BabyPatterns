@@ -43,6 +43,7 @@
 		128A56F920F56EB800A4DC8E /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43932C471E03594F00056F83 /* ProfileView.xib */; };
 		128A56FA20F56F7900A4DC8E /* EditProfileImageVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43714F1B1E63DCC20055B411 /* EditProfileImageVc.swift */; };
 		128A56FC20F56F9200A4DC8E /* EditProfileImageVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 128A56FB20F56F9200A4DC8E /* EditProfileImageVc.xib */; };
+		12A540382132480A00420351 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12A540372132480A00420351 /* GoogleService-Info.plist */; };
 		12B6E42120EB973400EA6944 /* SignupVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B6E41F20EB973400EA6944 /* SignupVc.swift */; };
 		12B6E42220EB973400EA6944 /* SignupVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12B6E42020EB973400EA6944 /* SignupVc.xib */; };
 		12BA1B7E20EED21700835F77 /* LoginVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BA1B7C20EED21700835F77 /* LoginVc.swift */; };
@@ -97,7 +98,6 @@
 		43E92D2F1E6D9F3F008CE31E /* StorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E92D2E1E6D9F3F008CE31E /* StorageFacade.swift */; };
 		43F4FAE11DF8CD01005510D4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */; };
 		AC9738DF1EE1FB6B00232DE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9738DE1EE1FB6B00232DE8 /* Assets.xcassets */; };
-		ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +181,7 @@
 		128A56F620F56E2E00A4DC8E /* ProfileImageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCoordinator.swift; sourceTree = "<group>"; };
 		128A56FB20F56F9200A4DC8E /* EditProfileImageVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileImageVc.xib; sourceTree = "<group>"; };
 		128C93CA1FB72CA0001E58F4 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Validatable.swift; path = ../Library/Validatable.swift; sourceTree = "<group>"; };
+		12A540372132480A00420351 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12A782421FBB20C7000BD13F /* Main.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Main.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		12B6E41F20EB973400EA6944 /* SignupVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVc.swift; sourceTree = "<group>"; };
 		12B6E42020EB973400EA6944 /* SignupVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupVc.xib; sourceTree = "<group>"; };
@@ -256,7 +257,6 @@
 		43FCAA841DD0BC70003872BA /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile.swift; path = ../../BabyPatterns/Profile.swift; sourceTree = "<group>"; };
 		AC9738DE1EE1FB6B00232DE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestFeatureTVC.swift; sourceTree = "<group>"; };
-		ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B8F20D78A84B09EE74A0AA1D /* libPods-BabyPatterns.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BabyPatterns.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35AE663E8B7C15692422F8B /* Pods-BabyPatterns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyPatterns.release.xcconfig"; path = "Pods/Target Support Files/Pods-BabyPatterns/Pods-BabyPatterns.release.xcconfig"; sourceTree = "<group>"; };
 		DA42E7856FB58D2B877C484F /* Pods_Baby_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -528,7 +528,7 @@
 		436484D41DCA186A00E6B0A7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				ACFDDFAC1DE6649F0074C25B /* GoogleService-Info.plist */,
+				12A540372132480A00420351 /* GoogleService-Info.plist */,
 				AC9738DE1EE1FB6B00232DE8 /* Assets.xcassets */,
 				436484BA1DCA150500E6B0A7 /* Info.plist */,
 			);
@@ -883,11 +883,11 @@
 			files = (
 				12EE85F420F028C00085BF01 /* SettingsVc.storyboard in Resources */,
 				4314DD5A1DFCA34600B3649C /* Feeding.storyboard in Resources */,
+				12A540382132480A00420351 /* GoogleService-Info.plist in Resources */,
 				436484B91DCA150500E6B0A7 /* LaunchScreen.storyboard in Resources */,
 				4314DD601DFDA06D00B3649C /* Segment.xib in Resources */,
 				436484B41DCA150500E6B0A7 /* Main.storyboard in Resources */,
 				436484D01DCA160400E6B0A7 /* Tile.xib in Resources */,
-				ACFDDFAD1DE6649F0074C25B /* GoogleService-Info.plist in Resources */,
 				AC9738DF1EE1FB6B00232DE8 /* Assets.xcassets in Resources */,
 				43A1C8FA1DFDA906008C5C2F /* SegmentedControlBar.xib in Resources */,
 			);
