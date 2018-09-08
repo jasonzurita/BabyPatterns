@@ -13,6 +13,7 @@ final class SettingsVC: UITableViewController, Loggable {
 
     var profileVM: ProfileVM?
     private let _iapStatus = IAPAvailability(productId: K.IAP.donate)
+    private lazy var _iapCheckout: IAPCheckout = IAPCheckout()
     var configuration: Configuration? {
         didSet {
             configureAdsOffSwitch()
@@ -175,7 +176,20 @@ extension SettingsVC {
         present(vc, animated: true, completion: nil)
     }
 
-    private func donate() {}
+    private func donate() {
+
+
+        // TODO: consider improving this if more products are introduced
+        guard let product = _iapStatus.availableProducts.first else {
+            return
+        }
+
+        _iapCheckout.onSuccess = {
+           print("YES!")
+        }
+
+        _iapCheckout.purchase(product)
+    }
 
     private func logout() {
         let firebaseAuth = Auth.auth()

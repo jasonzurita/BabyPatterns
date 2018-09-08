@@ -9,7 +9,7 @@ public final class IAPAvailability: NSObject, Loggable {
     public typealias ProductIdentifier = String
     public typealias ProductsRequestCompletionHandler = (Bool) -> Void
 
-    private var availableProducts: [SKProduct] = []
+    public var availableProducts: [SKProduct] = []
     private var _productsRequest: SKProductsRequest
     private var _productsRequestCompletionHandler: ProductsRequestCompletionHandler?
 
