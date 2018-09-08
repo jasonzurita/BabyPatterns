@@ -13,6 +13,10 @@ public final class IAPAvailability: NSObject, Loggable {
     private var _productsRequest: SKProductsRequest
     private var _productsRequestCompletionHandler: ProductsRequestCompletionHandler?
 
+    public var canMakePayment: Bool {
+        return SKPaymentQueue.canMakePayments()
+    }
+
     public init(productId: ProductIdentifier,
                 productRequestCompletionHandler: ProductsRequestCompletionHandler? = nil) {
         _productsRequest = SKProductsRequest(productIdentifiers: [productId])
