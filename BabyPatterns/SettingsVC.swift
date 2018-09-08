@@ -146,6 +146,7 @@ final class SettingsVC: UITableViewController, Loggable {
 extension SettingsVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
 
         if selectedCell == resetPasswordCell {
             resetPassword()
