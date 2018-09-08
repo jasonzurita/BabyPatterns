@@ -26,6 +26,7 @@ extension IAPCheckout: SKPaymentTransactionObserver {
             switch transaction.transactionState {
             case .purchased:
                 onSuccess?()
+                SKPaymentQueue.default().finishTransaction(transaction)
             case .failed:
                 if let transactionError = transaction.error {
                     if (transactionError as NSError).code != SKError.paymentCancelled.rawValue {
@@ -33,14 +34,12 @@ extension IAPCheckout: SKPaymentTransactionObserver {
                     }
                 }
                 onFailure?()
+                SKPaymentQueue.default().finishTransaction(transaction)
             case .restored:
-                break
-            case .deferred:
-                break
-            case .purchasing:
+                SKPaymentQueue.default().finishTransaction(transaction)
+            case .deferred, .purchasing:
                 break
             }
-            SKPaymentQueue.default().finishTransaction(transaction)
         }
     }
 }
