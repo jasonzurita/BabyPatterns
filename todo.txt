@@ -23,6 +23,7 @@ of the containing views like the scroll view!
 - Save profile image screen flickers background when transitioning
 
 v?
+- Thank you email after user "supports development" through IAP
 - Add vertical bars from date labels on x-axis -> History screen
 - Change feeding duration to custom type that can generate a display string like SupplyAmount
 - Make animation of saved toast slide up slightly
