@@ -1,5 +1,3 @@
-- Remove IAP cell if `canMakePayments` is false
-
 tests to conduct:
 - forgot password
 - Test failing create account

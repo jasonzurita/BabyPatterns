@@ -178,7 +178,16 @@ extension SettingsVC {
     }
 
     private func donate() {
-
+        guard _iapStatus.canMakePayment else {
+            let msg = "Please make sure your phone is capable of making in-app purchases"
+            let alert = UIAlertController(title: "Unable to make payment",
+                                          message: msg,
+                                          preferredStyle: .alert)
+            let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+            return
+        }
 
         // TODO: consider improving this if more products are introduced
         guard let product = _iapStatus.availableProducts.first else {
