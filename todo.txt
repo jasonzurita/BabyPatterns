@@ -1,5 +1,4 @@
 - Remove IAP cell if `canMakePayments` is false
-- Remove Turn off advertisements?
 
 tests to conduct:
 - forgot password

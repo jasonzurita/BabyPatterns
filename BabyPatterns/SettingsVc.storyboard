@@ -188,41 +188,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="kAP-Xt-xSW">
-                                        <rect key="frame" x="0.0" y="267" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kAP-Xt-xSW" id="83h-xh-hbk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn off advertiesments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRu-YR-TBP">
-                                                    <rect key="frame" x="26" y="11" width="274" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8Eh-xu-HX4">
-                                                    <rect key="frame" x="300" y="6" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="turnOffAdsSwitchPressed:" destination="GHL-ZJ-mXG" eventType="valueChanged" id="T7P-1b-k9e"/>
-                                                    </connections>
-                                                </switch>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="WRu-YR-TBP" firstAttribute="leading" secondItem="83h-xh-hbk" secondAttribute="leadingMargin" constant="10" id="5Yw-mF-kUI"/>
-                                                <constraint firstItem="WRu-YR-TBP" firstAttribute="centerY" secondItem="83h-xh-hbk" secondAttribute="centerY" id="DH3-3a-Ev5"/>
-                                                <constraint firstItem="8Eh-xu-HX4" firstAttribute="centerY" secondItem="83h-xh-hbk" secondAttribute="centerY" id="Ki5-0o-wCi"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="8Eh-xu-HX4" secondAttribute="trailing" constant="10" id="hA3-i3-zuE"/>
-                                                <constraint firstItem="8Eh-xu-HX4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="WRu-YR-TBP" secondAttribute="trailing" id="pe6-3K-ia6"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Support" id="tFt-nV-g3s">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="eeM-kq-HsC">
-                                        <rect key="frame" x="0.0" y="339" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="295" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eeM-kq-HsC" id="yiW-GZ-EWL">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -243,7 +214,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Ml2-DW-i5l">
-                                        <rect key="frame" x="0.0" y="383" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="339" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ml2-DW-i5l" id="Vln-7K-lKY">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -264,7 +235,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="lx6-hJ-jN2">
-                                        <rect key="frame" x="0.0" y="427" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="383" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lx6-hJ-jN2" id="bB6-7E-UDG">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -285,7 +256,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="WmW-ag-ykE">
-                                        <rect key="frame" x="0.0" y="471" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="427" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WmW-ag-ykE" id="hWA-kS-af4">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -315,7 +286,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="URm-vQ-JDo"/>
                     <connections>
-                        <outlet property="adsOffSwitch" destination="8Eh-xu-HX4" id="eCI-mA-K1b"/>
                         <outlet property="babyNameTextField" destination="Lg4-o7-JMp" id="4FY-aa-rFx"/>
                         <outlet property="contactSupportCell" destination="Ml2-DW-i5l" id="QWt-M6-b1O"/>
                         <outlet property="desiredSupplyTextField" destination="OnO-EK-dHg" id="IAb-7n-t0I"/>
