@@ -1,0 +1,10 @@
+---
+layout: default
+img: feedings.png
+category: Features
+title: Focus Where You Need
+description: Focus on caring for your baby, not learning an app
+---
+We can only fit so many things into our heads, so let's focus on our little ones — not learning how to use an app to track your baby's feedings!
+
+The tracking of a nursing, pumping, and bottle feeding was designed from the ground up to be easy. Tired? No problem!

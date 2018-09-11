@@ -1,0 +1,10 @@
+---
+layout: default
+img: history.png
+category: Features
+title: Rich History
+description: Rich display of your baby's feeding history
+---
+What good is tracking your baby's feedings without the ability to review them?
+- Look through a graphical history with different time range options
+- Learn feeding insights such as average nursing time and pumping supply information

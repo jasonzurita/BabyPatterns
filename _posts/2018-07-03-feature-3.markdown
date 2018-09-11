@@ -1,0 +1,10 @@
+---
+layout: default
+img: support.jpg
+category: Support
+title: We Care
+description: Help us improve the app by providing feedback
+---
+This app came from a passion to create an easier, more enjoyable, way to track your baby's feedings! We are dedicated to this, so please don't hesitate to reach out with new ideas, improvements, thoughts, and fun anecdotes about your little ones!
+
+We have many ideas on how to enhance the already great experience in Baby Patterns, and we can't wait to share them with you 😁.

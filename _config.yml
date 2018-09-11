@@ -1,0 +1,17 @@
+url: https://www.baby-patterns.com
+title: Baby Patterns
+email: support@baby-patterns.com
+description: > # An app for simple tracking of your baby's feedings
+copyright: 'Copyright &copy; 2018 Baby Patterns. All Rights Reserved.'
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+social:
+    #  - title: twitter
+    #    url: https://twitter.com/{url here}
+    #  - title: github
+    #    url: https://github.com/{url here}
+    #  - title: linkedin
+    #    url: 
