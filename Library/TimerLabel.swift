@@ -5,6 +5,7 @@ public final class TimerLabel: UILabel {
     private var _timer: Timer?
     public var isPaused = false
     public var isRunning = false
+    private var referenceDate = Date()
     private var counter: TimeInterval = 0 {
         didSet {
             let hours = counter.stringFromSecondsToHours(zeroPadding: true)
@@ -27,6 +28,7 @@ public final class TimerLabel: UILabel {
         isRunning = true
 
         counter = startTime
+        referenceDate = Date(timeIntervalSinceNow: -startTime)
 
         _timer = Timer.scheduledTimer(withTimeInterval: countingInterval, repeats: true, block: { [weak self] _ in
             guard let strongSelf = self else { return }
@@ -34,11 +36,29 @@ public final class TimerLabel: UILabel {
                 strongSelf.pulseAnimationIfNotPulsing()
                 return
             }
-            strongSelf.counter += 1
+            strongSelf.updateTimerCounterWithErrorCheck()
         })
     }
 
+    /*
+        This is to account for the internal counter falling out of sync
+        with the actual started time; such as when the app gets suspended
+        in the background.
 
+        We cannot just use the `elapsedRefTime` because rounding errors
+        make the displayed time a bit unstable, so the whole number `counter`
+        is needed.
+    */
+    private func updateTimerCounterWithErrorCheck() {
+        let elapsedRefTime = abs(referenceDate.timeIntervalSinceNow)
+        let maxTimeDelta = 3.0
+        if (elapsedRefTime - counter) > maxTimeDelta {
+            counter = floor(elapsedRefTime)
+        } else {
+            counter += 1
+        }
+        print("ref counter: \(elapsedRefTime), counter: \(counter)")
+    }
 
     public func end() {
         guard let t = _timer else { return }
