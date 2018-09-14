@@ -20,11 +20,11 @@ public final class TimerLabel: UILabel {
         counter = time
     }
 
-    public func start(startingAt startTime: TimeInterval? = nil) {
+    public func start(startingAt startTime: TimeInterval) {
         guard _timer == nil else { return }
         isRunning = true
 
-        counter = startingCounterTime(startTime: startTime)
+        counter = startTime
 
         _timer = Timer.scheduledTimer(withTimeInterval: countingInterval, repeats: true, block: { [weak self] _ in
             guard let strongSelf = self else { return }
@@ -36,16 +36,7 @@ public final class TimerLabel: UILabel {
         })
     }
 
-    private func startingCounterTime(startTime: TimeInterval?) -> TimeInterval {
-        let returnValue: TimeInterval
-        if let st = startTime {
-            returnValue = st
-        } else {
-            returnValue = 0
-        }
 
-        return returnValue
-    }
 
     public func end() {
         guard let t = _timer else { return }
