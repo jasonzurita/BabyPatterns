@@ -4,7 +4,6 @@ tests to conduct:
 - The first feeding seems to not get logged. Check this out.
 
 bugs / clean up
-- Timer label didn't update when background/foreground
 - Save button on pumping screen cut off bottom on iPhone 8 and smaller
 - Settings screen text fields don't show spaces at end of fields
 - Bottle too small on iPhone SE
