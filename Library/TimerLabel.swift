@@ -16,7 +16,9 @@ public final class TimerLabel: UILabel {
     }
 
     public func changeDisplayTime(time: TimeInterval) {
-        guard !isRunning else { return }
+        guard !isRunning else {
+            preconditionFailure("Timer wasn't stopped before trying to change time")
+        }
         counter = time
     }
 
