@@ -1,3 +1,10 @@
+v1.0.2
+- Better feedback when password doesn't meet validation
+- Implement birthday
+
+v1.1.0
+- Siri shortcuts
+
 tests to conduct:
 - forgot password
 - Test failing create account
@@ -19,6 +26,8 @@ to not be round..
 - Save profile image screen flickers background when transitioning
 
 v?
+- Skin the app color (maybe based on baby gender or user preference)
+- Apple Watch support
 - Thank you email after user "supports development" through IAP
 - Add vertical bars from date labels on x-axis -> History screen
 - Change feeding duration to custom type that can generate a display string like SupplyAmount
