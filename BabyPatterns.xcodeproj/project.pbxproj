@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		120F801A1FBF0B7F00D04E45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9738DE1EE1FB6B00232DE8 /* Assets.xcassets */; };
-		120F802A1FBF0E9500D04E45 /* Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120F80211FBF0E9500D04E45 /* Library.framework */; };
 		120F80331FBF0E9500D04E45 /* Library.h in Headers */ = {isa = PBXBuildFile; fileRef = 120F80231FBF0E9500D04E45 /* Library.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		120F80361FBF0E9500D04E45 /* Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120F80211FBF0E9500D04E45 /* Library.framework */; };
 		120F80371FBF0E9500D04E45 /* Library.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 120F80211FBF0E9500D04E45 /* Library.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -101,20 +100,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		120F802B1FBF0E9500D04E45 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 436484A31DCA150400E6B0A7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 120F80201FBF0E9500D04E45;
-			remoteInfo = Library;
-		};
-		120F802D1FBF0E9500D04E45 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 436484A31DCA150400E6B0A7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 436484AA1DCA150500E6B0A7;
-			remoteInfo = BabyPatterns;
-		};
 		120F80341FBF0E9500D04E45 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 436484A31DCA150400E6B0A7 /* Project object */;
@@ -135,13 +120,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 120F80201FBF0E9500D04E45;
 			remoteInfo = Library;
-		};
-		436484C01DCA150500E6B0A7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 436484A31DCA150400E6B0A7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 436484AA1DCA150500E6B0A7;
-			remoteInfo = "Baby Tracker";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -164,7 +142,6 @@
 		120F80211FBF0E9500D04E45 /* Library.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Library.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		120F80231FBF0E9500D04E45 /* Library.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Library.h; sourceTree = "<group>"; };
 		120F80241FBF0E9500D04E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		120F80291FBF0E9500D04E45 /* LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		120F80321FBF0E9500D04E45 /* Info-LibraryTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-LibraryTests.plist"; sourceTree = "<group>"; };
 		1221EB7220E3006F002212DB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1221EB7420E50266002212DB /* IAPAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPAvailability.swift; sourceTree = "<group>"; };
@@ -230,7 +207,6 @@
 		436484B31DCA150500E6B0A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		436484B81DCA150500E6B0A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		436484BA1DCA150500E6B0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		436484BF1DCA150500E6B0A7 /* BabyPatternsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabyPatternsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		436484CF1DCA160400E6B0A7 /* Tile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tile.xib; sourceTree = "<group>"; };
 		436939011E081A1700EA5158 /* FeedingsVM+Summary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedingsVM+Summary.swift"; sourceTree = "<group>"; };
 		436939061E081AE100EA5158 /* FeedingsVM+FeedingInProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedingsVM+FeedingInProgress.swift"; sourceTree = "<group>"; };
@@ -273,14 +249,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		120F80261FBF0E9500D04E45 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				120F802A1FBF0E9500D04E45 /* Library.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		12605B371FBB1DBB0035243B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,13 +264,6 @@
 				12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */,
 				1221EB7320E3006F002212DB /* StoreKit.framework in Frameworks */,
 				2A665C208E99BFF450A704EB /* libPods-BabyPatterns.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		436484BC1DCA150500E6B0A7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,10 +440,8 @@
 			isa = PBXGroup;
 			children = (
 				436484AB1DCA150500E6B0A7 /* BabyPatterns.app */,
-				436484BF1DCA150500E6B0A7 /* BabyPatternsTests.xctest */,
 				12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */,
 				120F80211FBF0E9500D04E45 /* Library.framework */,
-				120F80291FBF0E9500D04E45 /* LibraryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -692,25 +651,6 @@
 			productReference = 120F80211FBF0E9500D04E45 /* Library.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		120F80281FBF0E9500D04E45 /* LibraryTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 120F803B1FBF0E9500D04E45 /* Build configuration list for PBXNativeTarget "LibraryTests" */;
-			buildPhases = (
-				120F80251FBF0E9500D04E45 /* Sources */,
-				120F80261FBF0E9500D04E45 /* Frameworks */,
-				120F80271FBF0E9500D04E45 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				120F802C1FBF0E9500D04E45 /* PBXTargetDependency */,
-				120F802E1FBF0E9500D04E45 /* PBXTargetDependency */,
-			);
-			name = LibraryTests;
-			productName = LibraryTests;
-			productReference = 120F80291FBF0E9500D04E45 /* LibraryTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		12605B3A1FBB1DBB0035243B /* Framework-BabyPatterns */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12605B441FBB1DBB0035243B /* Build configuration list for PBXNativeTarget "Framework-BabyPatterns" */;
@@ -753,24 +693,6 @@
 			productReference = 436484AB1DCA150500E6B0A7 /* BabyPatterns.app */;
 			productType = "com.apple.product-type.application";
 		};
-		436484BE1DCA150500E6B0A7 /* BabyPatternsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 436484CB1DCA150500E6B0A7 /* Build configuration list for PBXNativeTarget "BabyPatternsTests" */;
-			buildPhases = (
-				436484BB1DCA150500E6B0A7 /* Sources */,
-				436484BC1DCA150500E6B0A7 /* Frameworks */,
-				436484BD1DCA150500E6B0A7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				436484C11DCA150500E6B0A7 /* PBXTargetDependency */,
-			);
-			name = BabyPatternsTests;
-			productName = "Baby TrackerTests";
-			productReference = 436484BF1DCA150500E6B0A7 /* BabyPatternsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -784,24 +706,19 @@
 					120F80201FBF0E9500D04E45 = {
 						CreatedOnToolsVersion = 9.1;
 						DevelopmentTeam = S64Z2T7FXA;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
-					};
-					120F80281FBF0E9500D04E45 = {
-						CreatedOnToolsVersion = 9.1;
-						DevelopmentTeam = S64Z2T7FXA;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 436484AA1DCA150500E6B0A7;
 					};
 					12605B3A1FBB1DBB0035243B = {
 						CreatedOnToolsVersion = 9.1;
 						DevelopmentTeam = S64Z2T7FXA;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					436484AA1DCA150500E6B0A7 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = S64Z2T7FXA;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
@@ -811,12 +728,6 @@
 								enabled = 0;
 							};
 						};
-					};
-					436484BE1DCA150500E6B0A7 = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = BHYX8VQHQ6;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 436484AA1DCA150500E6B0A7;
 					};
 				};
 			};
@@ -834,23 +745,14 @@
 			projectRoot = "";
 			targets = (
 				436484AA1DCA150500E6B0A7 /* BabyPatterns */,
-				436484BE1DCA150500E6B0A7 /* BabyPatternsTests */,
 				12605B3A1FBB1DBB0035243B /* Framework-BabyPatterns */,
 				120F80201FBF0E9500D04E45 /* Library */,
-				120F80281FBF0E9500D04E45 /* LibraryTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		120F801F1FBF0E9500D04E45 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		120F80271FBF0E9500D04E45 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -894,13 +796,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		436484BD1DCA150500E6B0A7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -915,7 +810,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		43C431771ED165EC00158E7A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -971,13 +866,6 @@
 				1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */,
 				120F804D1FBF131D00D04E45 /* Loggable.swift in Sources */,
 				120F80411FBF125300D04E45 /* DateExtensions.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		120F80251FBF0E9500D04E45 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1038,26 +926,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		436484BB1DCA150500E6B0A7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		120F802C1FBF0E9500D04E45 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 120F80201FBF0E9500D04E45 /* Library */;
-			targetProxy = 120F802B1FBF0E9500D04E45 /* PBXContainerItemProxy */;
-		};
-		120F802E1FBF0E9500D04E45 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 436484AA1DCA150500E6B0A7 /* BabyPatterns */;
-			targetProxy = 120F802D1FBF0E9500D04E45 /* PBXContainerItemProxy */;
-		};
 		120F80351FBF0E9500D04E45 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 120F80201FBF0E9500D04E45 /* Library */;
@@ -1072,11 +943,6 @@
 			isa = PBXTargetDependency;
 			target = 120F80201FBF0E9500D04E45 /* Library */;
 			targetProxy = 128F79B41FC39AF900FEF866 /* PBXContainerItemProxy */;
-		};
-		436484C11DCA150500E6B0A7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 436484AA1DCA150500E6B0A7 /* BabyPatterns */;
-			targetProxy = 436484C01DCA150500E6B0A7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1121,7 +987,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.Library;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1149,54 +1015,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.Library;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		120F803C1FBF0E9500D04E45 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S64Z2T7FXA;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Library/Info-LibraryTests.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.LibraryTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabyPatterns.app/BabyPatterns";
-			};
-			name = Debug;
-		};
-		120F803D1FBF0E9500D04E45 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S64Z2T7FXA;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Library/Info-LibraryTests.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.LibraryTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabyPatterns.app/BabyPatterns";
 			};
 			name = Release;
 		};
@@ -1210,6 +1032,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1223,7 +1046,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1240,6 +1063,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1252,7 +1076,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonzurita.Framework-BabyPatterns";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1376,6 +1200,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				INFOPLIST_FILE = BabyPatterns/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1383,8 +1208,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "40fc2f51-8b09-424a-9fb1-5de3a4705c07";
 				PROVISIONING_PROFILE_SPECIFIER = "Baby Patterns Dev";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1396,6 +1220,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				INFOPLIST_FILE = BabyPatterns/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1403,38 +1228,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "40fc2f51-8b09-424a-9fb1-5de3a4705c07";
 				PROVISIONING_PROFILE_SPECIFIER = "Baby Patterns Dev";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		436484CC1DCA150500E6B0A7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = BHYX8VQHQ6;
-				INFOPLIST_FILE = "Baby TrackerTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonzurita.Baby-TrackerTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabyPatterns.app/BabyPatterns";
-			};
-			name = Debug;
-		};
-		436484CD1DCA150500E6B0A7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = BHYX8VQHQ6;
-				INFOPLIST_FILE = "Baby TrackerTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonzurita.Baby-TrackerTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabyPatterns.app/BabyPatterns";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1446,15 +1240,6 @@
 			buildConfigurations = (
 				120F80391FBF0E9500D04E45 /* Debug */,
 				120F803A1FBF0E9500D04E45 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		120F803B1FBF0E9500D04E45 /* Build configuration list for PBXNativeTarget "LibraryTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				120F803C1FBF0E9500D04E45 /* Debug */,
-				120F803D1FBF0E9500D04E45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1482,15 +1267,6 @@
 			buildConfigurations = (
 				436484C91DCA150500E6B0A7 /* Debug */,
 				436484CA1DCA150500E6B0A7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		436484CB1DCA150500E6B0A7 /* Build configuration list for PBXNativeTarget "BabyPatternsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				436484CC1DCA150500E6B0A7 /* Debug */,
-				436484CD1DCA150500E6B0A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -50,10 +50,10 @@ public final class LoginVc: UIViewController, Loggable, SlidableTextFieldContain
         allTextFields.forEach(styleTextFieldBase)
 
         let center = NotificationCenter.default
-        _notificationToken = center.addObserver(forName: .UIKeyboardWillShow,
+        _notificationToken = center.addObserver(forName: UIResponder.keyboardWillShowNotification,
                                                 object: nil,
                                                 queue: nil) { [unowned self] notification in
-                                                    let frame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]
+                                                    let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
                                                     if let keyboardSize = (frame as? NSValue)?.cgRectValue {
                                                         self.slideContainerUp(keyboardSize.height)
                                                     }

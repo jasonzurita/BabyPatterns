@@ -60,7 +60,7 @@ public final class EditProfileImageVc: UIViewController, Loggable {
         let maskLayer = CAShapeLayer()
         maskLayer.backgroundColor = UIColor.black.cgColor
         maskLayer.path = path
-        maskLayer.fillRule = kCAFillRuleEvenOdd
+        maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
 
         // Release the path since it's not covered by ARC.
         overlayView.layer.mask = maskLayer

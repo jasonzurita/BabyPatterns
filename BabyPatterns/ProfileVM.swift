@@ -82,7 +82,7 @@ class ProfileVM: Loggable {
 
     func updateProfilePhoto(image: UIImage) {
         profile?.profilePicture = image
-        let data = UIImagePNGRepresentation(image)
+        let data = image.pngData()
         StorageFacade().uploadData(data: data!, requestType: .profilePhoto)
 
         guard let d = data, let path = profileImageURLPath else { return }

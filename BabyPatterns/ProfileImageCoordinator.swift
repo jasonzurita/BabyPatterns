@@ -30,7 +30,7 @@ public final class ProfileImageCoordinator: NSObject, ProfileViewDelegate {
         _rootVc?.present(actionSheet, animated: true, completion: nil)
     }
 
-    private func profileImage(from sourceType: UIImagePickerControllerSourceType) {
+    private func profileImage(from sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = sourceType
@@ -42,9 +42,10 @@ extension ProfileImageCoordinator: UIImagePickerControllerDelegate,
                                    UINavigationControllerDelegate {
 
     public func imagePickerController(_ picker: UIImagePickerController,
-                                      didFinishPickingMediaWithInfo info: [String: Any]) {
+                                      didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+
         picker.dismiss(animated: true, completion: nil)
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
 
         guard let resizedImage = resize(image: image) else { return }
         let vc = EditProfileImageVc(imageCandidate: resizedImage)
@@ -53,7 +54,7 @@ extension ProfileImageCoordinator: UIImagePickerControllerDelegate,
     }
 
     fileprivate func resize(image: UIImage) -> UIImage? {
-        guard let data = UIImageJPEGRepresentation(image, 0) else { return nil }
+        guard let data = image.jpegData(compressionQuality: 0) else { return nil }
         guard let imageSource = CGImageSourceCreateWithData(data as NSData as CFData, nil) else { return nil }
 
         let options: [NSString: NSObject] = [
@@ -65,7 +66,7 @@ extension ProfileImageCoordinator: UIImagePickerControllerDelegate,
         return thumbnail.flatMap { UIImage(cgImage: $0) }
     }
 
-    private func rotatedImage(image: UIImage, orientation: UIImageOrientation) -> UIImage {
+    private func rotatedImage(image: UIImage, orientation: UIImage.Orientation) -> UIImage {
         UIGraphicsBeginImageContext(image.size)
 
         let context = UIGraphicsGetCurrentContext()

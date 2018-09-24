@@ -95,10 +95,10 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
         super.viewWillAppear(animated)
         resetContainerHeight()
         let center = NotificationCenter.default
-        _notificationToken = center.addObserver(forName: .UIKeyboardWillShow,
+        _notificationToken = center.addObserver(forName: UIResponder.keyboardWillShowNotification,
                                                 object: nil,
                                                 queue: nil) { [unowned self] notification in
-                                                    let frame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]
+                                                    let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
                                                     if let keyboardSize = (frame as? NSValue)?.cgRectValue {
                                                         self.slideContainerUp(keyboardSize.height)
                                                     }

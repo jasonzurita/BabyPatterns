@@ -127,7 +127,7 @@ extension HomeVC: ProfileViewDelegate {
         present(actionSheet, animated: true, completion: nil)
     }
 
-    private func getProfileImage(sourceType: UIImagePickerControllerSourceType) {
+    private func getProfileImage(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = sourceType
@@ -143,16 +143,16 @@ extension HomeVC: EditProfileImageDelegate {
 }
 
 extension HomeVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
-        picker.dismiss(animated: true, completion: nil)
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
 
         profilePhotoCandidate = resize(image: image)
         performSegue(withIdentifier: K.Segues.EditProfileImage, sender: nil)
     }
 
     fileprivate func resize(image: UIImage) -> UIImage? {
-        guard let data = UIImageJPEGRepresentation(image, 0) else { return nil }
+        guard let data = image.jpegData(compressionQuality: 0) else { return nil }
         guard let imageSource = CGImageSourceCreateWithData(data as NSData as CFData, nil) else { return nil }
 
         let options: [NSString: NSObject] = [
@@ -164,7 +164,7 @@ extension HomeVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         return thumbnail.flatMap { UIImage(cgImage: $0) }
     }
 
-    private func rotatedImage(image: UIImage, orientation: UIImageOrientation) -> UIImage {
+    private func rotatedImage(image: UIImage, orientation: UIImage.Orientation) -> UIImage {
         UIGraphicsBeginImageContext(image.size)
 
         let context = UIGraphicsGetCurrentContext()

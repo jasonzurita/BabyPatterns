@@ -14,14 +14,14 @@ class FeedingPageVC: UIPageViewController {
         setActivePageViewController(direction: .forward)
     }
 
-    fileprivate func setActivePageViewController(direction: UIPageViewControllerNavigationDirection) {
+    fileprivate func setActivePageViewController(direction: UIPageViewController.NavigationDirection) {
         setViewControllers([pages[segmentIndex.active]], direction: direction, animated: true)
     }
 }
 
 extension FeedingPageVC: SegmentedControlBarDelegate {
     func segmentedControlBar(bar _: SegmentedControlBar, segmentWasTapped index: Int) {
-        let direction: UIPageViewControllerNavigationDirection = segmentIndex.active < index ? .forward : .reverse
+        let direction: UIPageViewController.NavigationDirection = segmentIndex.active < index ? .forward : .reverse
         segmentIndex.active = index
 
         setActivePageViewController(direction: direction)

@@ -104,7 +104,7 @@ public final class HistoryVc: UIViewController, Loggable {
         didSet {
             timeWindowSegmentedControl.tintColor = .bpMediumBlue
             let font = UIFont.notoSansRegular(ofSize: 14)
-            let attributes: [NSAttributedStringKey: Any] = [.font: font]
+            let attributes: [NSAttributedString.Key: Any] = [.font: font]
             timeWindowSegmentedControl.setTitleTextAttributes(attributes, for: .normal)
         }
     }
@@ -183,7 +183,7 @@ public final class HistoryVc: UIViewController, Loggable {
             colorIndicator.leadingAnchor.constraint(equalTo: labelView.trailingAnchor, constant: 5),
         ])
 
-        let size = labelView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        let size = labelView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         colorIndicator.layer.cornerRadius = size.height * heightMultiplier * 0.5
     }
 
@@ -359,8 +359,8 @@ extension HistoryVc {
                                       by: frequency).map { "\(Int($0/divisor))\(timeUnit)" }.dropFirst()
 
         let attributes = [
-            NSAttributedStringKey.font: UIFont.notoSansBold(ofSize: 14),
-            NSAttributedStringKey.foregroundColor: UIColor.bpMediumGray,
+            NSAttributedString.Key.font: UIFont.notoSansBold(ofSize: 14),
+            NSAttributedString.Key.foregroundColor: UIColor.bpMediumGray,
             ]
 
         let y = scrollView.frame.height
