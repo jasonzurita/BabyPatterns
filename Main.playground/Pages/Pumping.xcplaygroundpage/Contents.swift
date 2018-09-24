@@ -25,7 +25,7 @@ struct Controller: PumpingController {
         return .left
     }
 
-    func pumpingAmountChosen(_ amount: Int) {
+    func pumpingAmountChosen(_ amount: SupplyAmount) {
         print("Amount chosen: \(amount)")
     }
 }
