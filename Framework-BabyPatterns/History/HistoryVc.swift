@@ -7,6 +7,7 @@ public protocol Event {
     var duration: TimeInterval { get }
     var supplyAmount: SupplyAmount { get }
 }
+
 // func averageNursingDuration(filterWindow _: DateInterval) -> TimeInterval {
 public protocol FeedingSummaryProtocol {
     var timeSinceLastNursing: TimeInterval { get }
@@ -224,6 +225,7 @@ public final class HistoryVc: UIViewController, Loggable {
 }
 
 // MARK: Graph drawing
+
 extension HistoryVc {
     private var pointsPerSecond: CGFloat {
         // this assumes the scrollView's width is equal to the view's width
@@ -278,7 +280,7 @@ extension HistoryVc {
                 graphElement.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor, constant: x),
                 scrollContentView.trailingAnchor
                     .constraint(greaterThanOrEqualTo: graphElement.trailingAnchor, constant: 10),
-                ])
+            ])
         }
     }
 
@@ -297,10 +299,10 @@ extension HistoryVc {
             ([.nursing, .pumping, .bottle], df.string(from: event.endDate)),
             ([.nursing, .pumping], "\(hours.string)h \(minutes.string)m long"),
             ([.pumping, .bottle], "\(event.supplyAmount.displayText(for: .ounces))"),
-            ]
+        ]
 
-        label.text  = detailLabelTextOptions
-            .filter { $0.0.contains(event.type)}
+        label.text = detailLabelTextOptions
+            .filter { $0.0.contains(event.type) }
             .map { $0.1 }
             .joined(separator: "\n")
 
@@ -310,7 +312,7 @@ extension HistoryVc {
         NSLayoutConstraint.activate([
             label.bottomAnchor.constraint(equalTo: graphElement.topAnchor, constant: -6),
             label.centerXAnchor.constraint(equalTo: graphElement.centerXAnchor),
-            ])
+        ])
 
         styleLabelP3(label)
 
@@ -327,7 +329,6 @@ extension HistoryVc {
     }
 
     private func layoutXAxis(for window: DateInterval, screenScale: CGFloat) {
-
         let frequency: TimeInterval
         let divisor: TimeInterval
         let timeUnit: String
@@ -356,12 +357,12 @@ extension HistoryVc {
 
         let titles = ["now"] + stride(from: abs(window.end.timeIntervalSinceNow),
                                       to: abs(window.start.timeIntervalSinceNow),
-                                      by: frequency).map { "\(Int($0/divisor))\(timeUnit)" }.dropFirst()
+                                      by: frequency).map { "\(Int($0 / divisor))\(timeUnit)" }.dropFirst()
 
         let attributes = [
             NSAttributedString.Key.font: UIFont.notoSansBold(ofSize: 14),
             NSAttributedString.Key.foregroundColor: UIColor.bpMediumGray,
-            ]
+        ]
 
         let y = scrollView.frame.height
 

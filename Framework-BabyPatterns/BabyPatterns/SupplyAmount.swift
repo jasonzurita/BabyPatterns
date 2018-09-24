@@ -53,10 +53,10 @@ public struct SupplyAmount {
         let newValue = left.value - right.value
         return SupplyAmount(value: newValue, units: left.units)
     }
-
 }
 
 // MARK: Display
+
 extension SupplyAmount {
     public func displayValue(for u: Units) -> String {
         switch u {
@@ -67,6 +67,7 @@ extension SupplyAmount {
             return "\(Double(value) * 0.01)"
         }
     }
+
     public func displayUnits(for u: Units) -> String {
         switch u {
         case .centiounces:
@@ -75,6 +76,7 @@ extension SupplyAmount {
             return "oz"
         }
     }
+
     public func displayText(for units: Units) -> String {
         return "\(displayValue(for: units)) \(displayUnits(for: units))"
     }

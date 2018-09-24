@@ -1,7 +1,6 @@
 import UIKit
 
 public final class TapableView: UIView {
-
     public var onTap: ((UIView) -> Void)?
 
     public init() {
@@ -10,7 +9,7 @@ public final class TapableView: UIView {
         addGestureRecognizer(tgr)
     }
 
-    public required init?(coder aDecoder: NSCoder) { fatalError("\(#function) has not been implemented") }
+    public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
 
     @objc func tapped() { onTap?(self) }
 }

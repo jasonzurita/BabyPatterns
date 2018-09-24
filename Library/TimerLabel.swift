@@ -41,14 +41,14 @@ public final class TimerLabel: UILabel {
     }
 
     /*
-        This is to account for the internal counter falling out of sync
-        with the actual started time; such as when the app gets suspended
-        in the background.
+     This is to account for the internal counter falling out of sync
+     with the actual started time; such as when the app gets suspended
+     in the background.
 
-        We cannot just use the `elapsedRefTime` because rounding errors
-        make the displayed time a bit unstable, so the whole number `counter`
-        is needed.
-    */
+     We cannot just use the `elapsedRefTime` because rounding errors
+     make the displayed time a bit unstable, so the whole number `counter`
+     is needed.
+     */
     private func updateTimerCounterWithErrorCheck() {
         let elapsedRefTime = abs(referenceDate.timeIntervalSinceNow)
         let maxTimeDelta = 3.0

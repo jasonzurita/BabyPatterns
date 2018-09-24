@@ -82,8 +82,8 @@ extension PumpingVC: UIPickerViewDelegate {
         let string = _amounts[row]
         return NSAttributedString(string: string,
                                   attributes: [
-                                    .font: UIFont.notoSansRegular(ofSize: 20),
-                                    .foregroundColor: UIColor.black,
-                                    ])
+                                      .font: UIFont.notoSansRegular(ofSize: 20),
+                                      .foregroundColor: UIColor.black,
+        ])
     }
 }

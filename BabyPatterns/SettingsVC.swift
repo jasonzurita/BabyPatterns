@@ -195,7 +195,7 @@ extension SettingsVC {
         }
 
         _iapCheckout.onSuccess = {
-           print("YES!")
+            print("YES!")
         }
 
         _iapCheckout.purchase(product)

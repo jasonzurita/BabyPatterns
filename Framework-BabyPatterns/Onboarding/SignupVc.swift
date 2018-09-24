@@ -98,10 +98,10 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
         _notificationToken = center.addObserver(forName: UIResponder.keyboardWillShowNotification,
                                                 object: nil,
                                                 queue: nil) { [unowned self] notification in
-                                                    let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
-                                                    if let keyboardSize = (frame as? NSValue)?.cgRectValue {
-                                                        self.slideContainerUp(keyboardSize.height)
-                                                    }
+            let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
+            if let keyboardSize = (frame as? NSValue)?.cgRectValue {
+                self.slideContainerUp(keyboardSize.height)
+            }
         }
     }
 
