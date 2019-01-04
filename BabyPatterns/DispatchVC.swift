@@ -41,7 +41,7 @@ class DispatchVC: UIViewController, Loggable {
     private func presentSignup() {
         let vc = SignupVc()
 
-        vc.onSignup = { (email, password, parentName, babyName) -> Void in
+        vc.onSignup = { (email, password, parentName, babyName, babyDOB) -> Void in
             Auth.auth().createUser(withEmail: email, password: password) { [unowned self, unowned vc] user, error in
                 guard error == nil else {
                     vc.signUpFailed(error: error)
@@ -56,7 +56,7 @@ class DispatchVC: UIViewController, Loggable {
                     let maxSupply = SupplyAmount(value: K.Defaults.DefaultDesiredMaxSupply)
                     self.profileVM?.profile = Profile(babyName: babyName,
                                                       parentName: parentName,
-                                                      babyDOB: Date(),
+                                                      babyDOB: babyDOB,
                                                       email: email,
                                                       userID: u.uid,
                                                       desiredMaxSupply: maxSupply)

@@ -9,7 +9,8 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
             _ email: String,
             _ password: String,
             _ parentName: String,
-            _ babyName: String
+            _ babyName: String,
+            _ babyDOB: Date
         ) -> Void
 
     public var onSignup: SignupResultHandler?
@@ -126,9 +127,20 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
             signUpFailed(message: "Please check your email and password and try again.")
             return
         }
+        // TODO: these would be able to get removed if the validation passed back a success result
         let parentName = nameTextField.text ?? "None"
         let babyName = babyNameTextField.text ?? "None"
-        onSignup?(email, password, parentName, babyName)
+
+        // FIXME: this dafeformat should be better linked to the validation
+        let babyDOB: Date
+        let df = DateFormatter()
+        df.dateFormat = "MM/dd/yyyy"
+        if let dobText = babyDOBTextField.text, let dob = df.date(from: dobText) {
+            babyDOB = dob
+        } else {
+            babyDOB = Date()
+        }
+        onSignup?(email, password, parentName, babyName, babyDOB)
     }
 
     @IBAction func logIn(_: UIButton) {
