@@ -1,6 +1,5 @@
 v1.0.2
 - Better feedback when password doesn't meet validation
-- Implement birthday
 
 v1.1.0
 - Siri shortcuts

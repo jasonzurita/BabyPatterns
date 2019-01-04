@@ -84,6 +84,14 @@ final class FeedingVC: UIViewController {
         navigationItem.title = "Welcome \(p.parentName)!"
         let image = p.profilePicture ?? UIImage(named: "defaultProfileImage")
         profileView.imageView.image = image
+
+        let babyDOBInSeconds = p.babyDOB.timeIntervalSinceNow
+        let wasBabyBorn = babyDOBInSeconds <= 0
+        if wasBabyBorn {
+            let secondsInAWeek: Double = 7 * 24 * 60 * 60
+            let numberOfWeeks = Int(abs(babyDOBInSeconds) / secondsInAWeek)
+            profileView.ageLabel.text = "\(numberOfWeeks) weeks"
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
