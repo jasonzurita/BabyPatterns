@@ -144,6 +144,7 @@ public final class SignupVc: UIViewController, Loggable, Validatable, SlidableTe
         let passwordResult = validate(passwordTextField.text, type: .password)
 
         if case .failure = babyNameResult { babyNameTextField.shake() }
+        // TODO: surface reason by showing drop down or drop up alert
         if case .failure = babyDOBResult { babyDOBTextField.shake() }
         if case .failure = nameResult { nameTextField.shake() }
         if case .failure = emailResult { emailTextField.shake() }
