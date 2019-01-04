@@ -5,7 +5,7 @@ public enum ValidationType {
     case email
     case phoneNumber
     case dateOfBirth
-    case password
+    case password(length: Int)
     case custom((String) -> ValidationResult)
 }
 
@@ -31,8 +31,8 @@ public extension Validatable {
             return validate(phoneNumber: v)
         case .dateOfBirth:
             return validate(dateOfBirth: v)
-        case .password:
-            return validate(password: v)
+        case let .password(length):
+            return validate(password: v, requiredPasswordLength: length)
         case let .custom(validator):
             return validator(v)
         }
@@ -70,10 +70,9 @@ public extension Validatable {
         return .success
     }
 
-    private func validate(password: String) -> ValidationResult {
-        let passwordLength = 10
-        return password.count > passwordLength ?
+    private func validate(password: String, requiredPasswordLength: Int) -> ValidationResult {
+        return password.count >= requiredPasswordLength ?
             .success :
-            .failure(reason: "you password must be greater than \(passwordLength) characters")
+            .failure(reason: "you password must be greater than \(requiredPasswordLength) characters")
     }
 }
