@@ -18,6 +18,7 @@ public protocol Validatable {
     func validate(_ value: String?, type: ValidationType) -> ValidationResult
 }
 
+// TODO: blog post on composible validation using point free learnings
 public extension Validatable {
     func validate(_ value: String?, type: ValidationType) -> ValidationResult {
         guard let v = value else { return .failure(reason: "no text to validate") }
