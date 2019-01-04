@@ -66,9 +66,21 @@ public extension Validatable {
         return .success
     }
 
-    private func validate(dateOfBirth _: String) -> ValidationResult {
-        // TODO: implement validation
-        return .success
+    private func validate(dateOfBirth dob: String) -> ValidationResult {
+        let df = DateFormatter()
+        df.dateFormat = "MM/dd/yyyy"
+        guard let date = df.date(from: dob) else {
+            return .failure(reason: "please use the format: mm/dd/yyyy")
+        }
+        let twoHundredYearsInSeconds = 200 * 365.25 * 24 * 3600
+        let twoHundredYearsAgo = Date(timeIntervalSinceNow: -twoHundredYearsInSeconds)
+        switch date.compare(twoHundredYearsAgo) {
+        case .orderedAscending, .orderedSame:
+            return .failure(reason: "invalid date of birth")
+        case .orderedDescending:
+        // TODO: pass back valid date as part of this? Looks like result type :)
+            return .success
+        }
     }
 
     private func validate(password: String, requiredPasswordLength: Int) -> ValidationResult {
