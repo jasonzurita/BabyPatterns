@@ -7,3 +7,5 @@ BabyPatterns.xcodeproj/xcuserdata
 *.xctimeline
 BabyPatterns.xcworkspace/xcshareddata
 GoogleService-Info.plist
+*.xcuserstate
+BabyPatterns.xcodeproj/project.xcworkspace/xcshareddata
