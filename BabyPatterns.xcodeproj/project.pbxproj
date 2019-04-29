@@ -661,6 +661,7 @@
 				43C431771ED165EC00158E7A /* ShellScript */,
 				12605B311FBAA6B50035243B /* Embed Frameworks */,
 				12B9611F214C004F00FD3E7D /* ShellScript */,
+				12D5C6402277AA1C003B1CB0 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -791,6 +792,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		12D5C6402277AA1C003B1CB0 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ngit=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
 		};
 		43C431771ED165EC00158E7A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
