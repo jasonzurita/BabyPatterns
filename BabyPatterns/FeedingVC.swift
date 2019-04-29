@@ -36,7 +36,6 @@ final class FeedingVC: UIViewController {
 
     var feedingsVM: FeedingsVM?
     var profileVM: ProfileVM?
-    var configuration: Configuration?
 
     private var _profileImageCoordinator: ProfileImageCoordinator?
 
@@ -133,7 +132,6 @@ final class FeedingVC: UIViewController {
             configureFeedingPageVC(vc: vc)
         } else if let vc = segue.destination as? SettingsVC, let p = profileVM {
             vc.profileVM = p
-            vc.configuration = configuration
         }
     }
 

@@ -12,24 +12,10 @@ final class SettingsVC: UITableViewController, Loggable {
     }
 
     var profileVM: ProfileVM?
-    private let _iapStatus = IAPAvailability(productId: K.IAP.donate)
-    private lazy var _iapCheckout: IAPCheckout = IAPCheckout()
-    var configuration: Configuration? {
-        didSet {
-            configureAdsOffSwitch()
-        }
-    }
-
-    @IBOutlet var adsOffSwitch: UISwitch! {
-        didSet {
-            configureAdsOffSwitch()
-        }
-    }
 
     @IBOutlet var resetPasswordCell: UITableViewCell!
     @IBOutlet var requestFeatureCell: UITableViewCell!
     @IBOutlet var contactSupportCell: UITableViewCell!
-    @IBOutlet var donateCell: UITableViewCell!
     @IBOutlet var logoutCell: UITableViewCell!
 
     @IBOutlet var emailTextField: UITextField!
@@ -77,17 +63,6 @@ final class SettingsVC: UITableViewController, Loggable {
         tableView.tableFooterView = footerView
     }
 
-    private func configureAdsOffSwitch() {
-        guard let c = configuration, adsOffSwitch != nil else { return }
-
-        switch c.adsState {
-        case .show, .initialInstall:
-            adsOffSwitch.setOn(false, animated: true)
-        case .hide:
-            adsOffSwitch.setOn(true, animated: true)
-        }
-    }
-
     @IBAction func emailTextFieldDidFinishEditing(_ sender: UITextField) {
         guard let email = sender.text, email.validateEmail() else {
             fieldNotValid(message: "Invalid email. Try again.")
@@ -108,21 +83,6 @@ final class SettingsVC: UITableViewController, Loggable {
         guard let name = sender.text else { return }
         profileVM?.profile?.babyName = name
         profileVM?.profileUpdated()
-    }
-
-    @IBAction func turnOffAdsSwitchPressed(_: UISwitch) {
-        guard let c = configuration else { return }
-        switch c.adsState {
-        case .hide:
-            configuration?.adsState = .show
-        case .show:
-            configuration?.adsState = .hide
-        case .initialInstall:
-            adsOffSwitch.isOn = false
-            let vc = TurnOffAdsVC()
-            vc.modalPresentationStyle = .overCurrentContext
-            present(vc, animated: true, completion: nil)
-        }
     }
 
     @IBAction func desiredSupplyTextFieldDidFinishEditing(_ sender: UITextField) {
@@ -154,8 +114,6 @@ extension SettingsVC {
             composeEmail(subject: "Baby Patterns - Request Feature")
         } else if selectedCell == contactSupportCell {
             composeEmail(subject: "Baby Patterns - Contact Support")
-        } else if selectedCell == donateCell {
-            donate()
         } else if selectedCell == logoutCell {
             logout()
         } else {
@@ -175,30 +133,6 @@ extension SettingsVC {
         vc.setSubject(subject)
 
         present(vc, animated: true, completion: nil)
-    }
-
-    private func donate() {
-        guard _iapStatus.canMakePayment else {
-            let msg = "Please make sure your phone is capable of making in-app purchases"
-            let alert = UIAlertController(title: "Unable to make payment",
-                                          message: msg,
-                                          preferredStyle: .alert)
-            let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
-            return
-        }
-
-        // TODO: consider improving this if more products are introduced
-        guard let product = _iapStatus.availableProducts.first else {
-            return
-        }
-
-        _iapCheckout.onSuccess = {
-            print("YES!")
-        }
-
-        _iapCheckout.purchase(product)
     }
 
     private func logout() {

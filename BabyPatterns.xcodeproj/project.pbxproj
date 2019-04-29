@@ -25,8 +25,6 @@
 		120F804C1FBF127A00D04E45 /* ShakeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B002141E8A937E00810739 /* ShakeTextField.swift */; };
 		120F804D1FBF131D00D04E45 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE2DE11E76CC4A00B8B373 /* Loggable.swift */; };
 		12128AC820C5ED0300CF16C0 /* RequestFeatureTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */; };
-		1221EB7320E3006F002212DB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1221EB7220E3006F002212DB /* StoreKit.framework */; };
-		1221EB7520E50266002212DB /* IAPAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EB7420E50266002212DB /* IAPAvailability.swift */; };
 		1234CD652105FC410033FD56 /* SupplyAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234CD642105FC410033FD56 /* SupplyAmount.swift */; };
 		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
 		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
@@ -58,13 +56,10 @@
 		12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
 		12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
 		12C9B0A31FD619C300CA6EBF /* Feeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326BA581E04C1F0005604A9 /* Feeding.swift */; };
-		12C9FFD020B8301200B048E6 /* AdsDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */; };
 		12C9FFD320B837CB00B048E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9FFD220B837CB00B048E6 /* Color.swift */; };
-		12CED7D320FFFE3900553B58 /* IAPCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CED7D220FFFE3900553B58 /* IAPCheckout.swift */; };
 		12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */; };
 		12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
 		12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
-		12DD2D0320A46ECD00849A48 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD2D0220A46ECD00849A48 /* Configuration.swift */; };
 		12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12E8E57D20A2684D00C781EE /* PumpingVC.xib */; };
 		12EC21E22127824C00822D07 /* TapableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC21E12127824C00822D07 /* TapableView.swift */; };
 		12ECF45921024F40007FCDFC /* PartialSlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECF45821024F40007FCDFC /* PartialSlideInPresentationController.swift */; };
@@ -142,8 +137,6 @@
 		120F80231FBF0E9500D04E45 /* Library.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Library.h; sourceTree = "<group>"; };
 		120F80241FBF0E9500D04E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		120F80321FBF0E9500D04E45 /* Info-LibraryTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-LibraryTests.plist"; sourceTree = "<group>"; };
-		1221EB7220E3006F002212DB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		1221EB7420E50266002212DB /* IAPAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPAvailability.swift; sourceTree = "<group>"; };
 		1234CD642105FC410033FD56 /* SupplyAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyAmount.swift; sourceTree = "<group>"; };
 		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
 		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
@@ -170,10 +163,7 @@
 		12C866BD20DDB15000053FCC /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		12C866BF20DDB34100053FCC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		12C9B09A1FD6172100CA6EBF /* NursingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingVC.swift; sourceTree = "<group>"; };
-		12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDisplayManager.swift; sourceTree = "<group>"; };
 		12C9FFD220B837CB00B048E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		12CED7D220FFFE3900553B58 /* IAPCheckout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPCheckout.swift; sourceTree = "<group>"; };
-		12DD2D0220A46ECD00849A48 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		12E8E57D20A2684D00C781EE /* PumpingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PumpingVC.xib; sourceTree = "<group>"; };
 		12EC21E12127824C00822D07 /* TapableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableView.swift; sourceTree = "<group>"; };
 		12ECF45821024F40007FCDFC /* PartialSlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialSlideInPresentationController.swift; sourceTree = "<group>"; };
@@ -260,7 +250,6 @@
 			files = (
 				120F80361FBF0E9500D04E45 /* Library.framework in Frameworks */,
 				12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */,
-				1221EB7320E3006F002212DB /* StoreKit.framework in Frameworks */,
 				2A665C208E99BFF450A704EB /* libPods-BabyPatterns.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +278,6 @@
 				12C866B220DDAE1200053FCC /* Fonts */,
 				430FD7441DE484EC00D07C50 /* Constants.swift */,
 				4314DD571DFB6DE300B3649C /* Enums.swift */,
-				12DD2D0220A46ECD00849A48 /* Configuration.swift */,
 				43D2BE671DCB69E900895A65 /* Model */,
 				12DA5654212EDAEF0046797F /* History */,
 				AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */,
@@ -300,8 +288,6 @@
 				12605B3E1FBB1DBB0035243B /* Info.plist */,
 				12EE461420EF938400B51FC6 /* Onboarding */,
 				43932C421E034E3400056F83 /* Profile */,
-				1221EB7420E50266002212DB /* IAPAvailability.swift */,
-				12CED7D220FFFE3900553B58 /* IAPCheckout.swift */,
 			);
 			path = "Framework-BabyPatterns";
 			sourceTree = "<group>";
@@ -474,7 +460,6 @@
 				43037E0D1E3A36DB00D478AD /* NavigationVC.swift */,
 				430F01771E2BDAC700FE02FC /* DispatchVC.swift */,
 				436484B01DCA150500E6B0A7 /* HomeVC.swift */,
-				12C9FFCF20B8301200B048E6 /* AdsDisplayManager.swift */,
 				43F4FAE01DF8CD01005510D4 /* SettingsVC.swift */,
 				43A1C8FD1DFDFEAC008C5C2F /* Feeding */,
 			);
@@ -600,7 +585,6 @@
 		E6E2429A0B036BEAA14B2AB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1221EB7220E3006F002212DB /* StoreKit.framework */,
 				432A4696F48DC53EEB5697CE /* Pods_Baby_Tracker.framework */,
 				DA42E7856FB58D2B877C484F /* Pods_Baby_TrackerTests.framework */,
 				B8F20D78A84B09EE74A0AA1D /* libPods-BabyPatterns.a */,
@@ -718,7 +702,7 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Keychain = {
 								enabled = 0;
@@ -870,14 +854,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				128A56FA20F56F7900A4DC8E /* EditProfileImageVc.swift in Sources */,
-				1221EB7520E50266002212DB /* IAPAvailability.swift in Sources */,
 				12C866BC20DDB09400053FCC /* UIFont.swift in Sources */,
 				12128AC820C5ED0300CF16C0 /* RequestFeatureTVC.swift in Sources */,
 				1234CD652105FC410033FD56 /* SupplyAmount.swift in Sources */,
 				12C9B0A01FD6187800CA6EBF /* FeedingControl.swift in Sources */,
 				12BA1B7E20EED21700835F77 /* LoginVc.swift in Sources */,
 				124D863320A2634100F3C2D0 /* PumpingVC.swift in Sources */,
-				12CED7D320FFFE3900553B58 /* IAPCheckout.swift in Sources */,
 				1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */,
 				12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */,
 				12EE461620EF93EC00B51FC6 /* SlideableTextFieldContainer.swift in Sources */,
@@ -894,7 +876,6 @@
 				128A56F720F56E2E00A4DC8E /* ProfileImageCoordinator.swift in Sources */,
 				12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */,
 				128A56F820F56EB200A4DC8E /* ProfileView.swift in Sources */,
-				12DD2D0320A46ECD00849A48 /* Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,7 +883,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12C9FFD020B8301200B048E6 /* AdsDisplayManager.swift in Sources */,
 				43E92D2F1E6D9F3F008CE31E /* StorageFacade.swift in Sources */,
 				43A1C8FC1DFDFEA5008C5C2F /* FeedingPageVC.swift in Sources */,
 				43714F161E5E4DDC0055B411 /* ProfileVM.swift in Sources */,

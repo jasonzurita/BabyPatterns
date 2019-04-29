@@ -9,10 +9,8 @@ class HomeVC: UIViewController {
         return .portrait
     }
 
-    private var adsManager = AdsDisplayManager()
     var feedingsVM: FeedingsVM?
     var profileVM: ProfileVM?
-    var configuration: Configuration?
     var profilePhotoCandidate: UIImage?
 
     @IBOutlet var homeScreenTitle: UINavigationItem!
@@ -48,11 +46,6 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
-
-        let state: AdsDisplayState = configuration?.adsState ?? .initialInstall
-        adsManager.update(adBannerView,
-                          for: state,
-                          additionalViewsToManage: [turnOffAdsButton])
     }
 
     private func updateUI() {
@@ -90,7 +83,6 @@ class HomeVC: UIViewController {
             vc.profileVM = profileVM
         } else if let vc = segue.destination as? SettingsVC, let p = profileVM {
             vc.profileVM = p
-            vc.configuration = configuration
         } else if let vc = segue.destination as? EditProfileImageVc /* ,let i = profilePhotoCandidate */ {
 //            vc.imageCandidate = i
             vc.delegate = self

@@ -153,7 +153,6 @@ class DispatchVC: UIViewController, Loggable {
             let vc = navigationVC.topViewController as? FeedingVC {
             vc.feedingsVM = feedingsVM
             vc.profileVM = profileVM
-            vc.configuration = Configuration(defaults: UserDefaults.standard)
             feedingsVM = nil
             profileVM = nil
             didRequestProfile = false
