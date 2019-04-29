@@ -33,7 +33,7 @@ extension FeedingPageVC: UIPageViewControllerDelegate {
                             willTransitionTo pendingViewControllers: [UIViewController]) {
         guard pendingViewControllers.count == 1,
             let pendingVC = pendingViewControllers.first,
-            let pendingIndex = pages.index(of: pendingVC) else { return }
+            let pendingIndex = pages.firstIndex(of: pendingVC) else { return }
 
         segmentIndex.pending = pendingIndex
     }
@@ -52,7 +52,7 @@ extension FeedingPageVC: UIPageViewControllerDelegate {
 extension FeedingPageVC: UIPageViewControllerDataSource {
     func pageViewController(_: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = pages.index(of: viewController) else { return nil }
+        guard let index = pages.firstIndex(of: viewController) else { return nil }
         let previousIndex = index - 1
         guard previousIndex >= 0 else { return nil }
 
@@ -61,7 +61,7 @@ extension FeedingPageVC: UIPageViewControllerDataSource {
 
     func pageViewController(_: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let index = pages.index(of: viewController) else { return nil }
+        guard let index = pages.firstIndex(of: viewController) else { return nil }
         let nextIndex = index + 1
         guard nextIndex < pages.count else { return nil }
 

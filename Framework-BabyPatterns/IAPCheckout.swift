@@ -39,6 +39,8 @@ extension IAPCheckout: SKPaymentTransactionObserver {
                 SKPaymentQueue.default().finishTransaction(transaction)
             case .deferred, .purchasing:
                 break
+            @unknown default:
+                fatalError()
             }
         }
     }

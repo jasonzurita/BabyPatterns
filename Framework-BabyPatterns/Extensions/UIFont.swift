@@ -17,7 +17,7 @@ public enum CustomFont: String {
 }
 
 public extension UIFont {
-    public static let registerFonts: () = {
+    static let registerFonts: () = {
         CustomFont.allValues
             .map { $0.rawValue + ".ttf" }
             .forEach { registerFont(fontName: $0) }

@@ -65,7 +65,7 @@ extension FeedingsVM {
 
     private func updateInternalFeedingCache(fip: Feeding) {
         // TODO: implement an == definition in the Feeding class to make this more robust
-        if let i = feedings.index(where: { $0.serverKey == fip.serverKey }) {
+        if let i = feedings.firstIndex(where: { $0.serverKey == fip.serverKey }) {
             feedings[i] = fip
         }
     }
