@@ -11,7 +11,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         // TODO: move this into a separate initialization file
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-9077495891432075~4439532342")
+        GADMobileAds.configure(withApplicationID: "")
         return true
     }
 
