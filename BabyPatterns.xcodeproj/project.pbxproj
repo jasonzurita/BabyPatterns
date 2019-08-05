@@ -1204,7 +1204,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "40fc2f51-8b09-424a-9fb1-5de3a4705c07";
-				PROVISIONING_PROFILE_SPECIFIER = "Baby Patterns Dev";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.jasonzurita.babypatterns";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1224,7 +1224,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "40fc2f51-8b09-424a-9fb1-5de3a4705c07";
-				PROVISIONING_PROFILE_SPECIFIER = "Baby Patterns Prod";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.jasonzurita.babypatterns";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
