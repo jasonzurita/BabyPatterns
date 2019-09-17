@@ -119,11 +119,6 @@ final class FeedingVC: UIViewController {
             desiredSupplyAmount: profileVM?.profile?.desiredMaxSupply ?? defaultMax
         )
         let vc = HistoryVc(events: orderedCompletedFeedingEvents, summary: summary)
-        vc.transitioningDelegate = self
-        vc.modalPresentationStyle = .custom
-
-        vc.view.layer.cornerRadius = 8.0
-        vc.view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         present(vc, animated: true, completion: nil)
     }
 
@@ -165,17 +160,6 @@ final class FeedingVC: UIViewController {
         let toast = Toast(frame: frame, text: "Saved!")
         styleLabelToast(toast)
         toast.present(in: view)
-    }
-}
-
-extension FeedingVC: UIViewControllerTransitioningDelegate {
-    func presentationController(forPresented presented: UIViewController,
-                                presenting: UIViewController?,
-                                source _: UIViewController) -> UIPresentationController? {
-        let controller = PartialSlideInPresentationController(presentedViewController: presented,
-                                                              presenting: presenting,
-                                                              heightFraction: 0.86)
-        return controller
     }
 }
 

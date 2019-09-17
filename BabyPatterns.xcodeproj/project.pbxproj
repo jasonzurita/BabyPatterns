@@ -62,7 +62,6 @@
 		12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
 		12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12E8E57D20A2684D00C781EE /* PumpingVC.xib */; };
 		12EC21E22127824C00822D07 /* TapableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC21E12127824C00822D07 /* TapableView.swift */; };
-		12ECF45921024F40007FCDFC /* PartialSlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECF45821024F40007FCDFC /* PartialSlideInPresentationController.swift */; };
 		12EE461620EF93EC00B51FC6 /* SlideableTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */; };
 		12EE85F420F028C00085BF01 /* SettingsVc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12EE85F320F028C00085BF01 /* SettingsVc.storyboard */; };
 		12F3A9C71FBB2174002ECC7B /* HistoryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */; };
@@ -166,7 +165,6 @@
 		12C9FFD220B837CB00B048E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		12E8E57D20A2684D00C781EE /* PumpingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PumpingVC.xib; sourceTree = "<group>"; };
 		12EC21E12127824C00822D07 /* TapableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableView.swift; sourceTree = "<group>"; };
-		12ECF45821024F40007FCDFC /* PartialSlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialSlideInPresentationController.swift; sourceTree = "<group>"; };
 		12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideableTextFieldContainer.swift; sourceTree = "<group>"; };
 		12EE85F320F028C00085BF01 /* SettingsVc.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsVc.storyboard; sourceTree = "<group>"; };
 		12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVc.swift; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 		120F80221FBF0E9500D04E45 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				12ECF45821024F40007FCDFC /* PartialSlideInPresentationController.swift */,
 				ACF086A01F153E300012A04D /* Protocols */,
 				430F01791E2D09FD00FE02FC /* Extensions */,
 				43932C3F1E01FE7D00056F83 /* Views */,
@@ -860,7 +857,6 @@
 				120F80421FBF125700D04E45 /* DoubleExtensions.swift in Sources */,
 				120F80431FBF125A00D04E45 /* UIViewExtensions.swift in Sources */,
 				120F803E1FBF0FCF00D04E45 /* Shakeable.swift in Sources */,
-				12ECF45921024F40007FCDFC /* PartialSlideInPresentationController.swift in Sources */,
 				120F80401FBF124F00D04E45 /* Validatable.swift in Sources */,
 				1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */,
 				120F804D1FBF131D00D04E45 /* Loggable.swift in Sources */,
