@@ -42,9 +42,9 @@ public final class EditProfileImageVc: UIViewController, Loggable {
 
     public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
 
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configureOverlay()
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+         configureOverlay()
     }
 
     private func configureOverlay() {
