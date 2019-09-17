@@ -40,6 +40,7 @@ class DispatchVC: UIViewController, Loggable {
 
     private func presentSignup() {
         let vc = SignupVc()
+        vc.modalPresentationStyle = .fullScreen
 
         vc.onSignup = { (email, password, parentName, babyName, babyDOB) -> Void in
             Auth.auth().createUser(withEmail: email, password: password) { [unowned self, unowned vc] user, error in

@@ -48,6 +48,7 @@ extension ProfileImageCoordinator: UIImagePickerControllerDelegate,
         guard let resizedImage = resize(image: image) else { return }
         let vc = EditProfileImageVc(imageCandidate: resizedImage)
         vc.delegate = self
+        vc.modalPresentationStyle = .fullScreen
         _rootVc?.present(vc, animated: true, completion: nil)
     }
 
