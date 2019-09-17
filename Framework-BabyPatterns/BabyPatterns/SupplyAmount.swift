@@ -1,4 +1,5 @@
 import Swift
+import Foundation.NSNumberFormatter
 
 public enum Units {
     case centiounces
@@ -63,8 +64,14 @@ extension SupplyAmount {
         case .centiounces:
             return "\(value)"
         case .ounces:
+            let df = NumberFormatter()
+            df.maximumFractionDigits = 1
+            df.minimumFractionDigits = 1
             // TOOD: consider pulling the 0.01 out into the enum
-            return "\(Double(value) * 0.01)"
+            guard let ouncesString = df.string(from: NSNumber(value: Double(value) * 0.01)) else {
+                preconditionFailure("Couldn't convert supply amount to string for UI")
+            }
+            return ouncesString
         }
     }
 

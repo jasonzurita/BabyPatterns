@@ -9,7 +9,9 @@ public typealias PumpingController = PumpingActionProtocol & FeedingController
 
 public final class PumpingVC: UIViewController {
     private let _stopwatch = FeedingStopwatchView(feedingType: .pumping)
-    private let _amounts = stride(from: 0, to: 10, by: 0.1).map { String($0) }
+    private let possibleSupplyAmounts = stride(from: 0, to: 1000, by: 10).map {
+        SupplyAmount(value: $0)
+    }
     private let _amountCallback: (SupplyAmount) -> Void
 
     @IBOutlet var bodyLabels: [UILabel]!
@@ -59,9 +61,8 @@ public final class PumpingVC: UIViewController {
     @IBAction func saveButtonPressed(_: UIButton) {
         let row = amountPicker.selectedRow(inComponent: 0)
         // TODO: alert user of failure from this guard
-        guard row >= 0, let amount = Double(_amounts[row]) else { return }
-        let supplyAmount = SupplyAmount(value: Int(amount * 100))
-        _amountCallback(supplyAmount)
+        guard row >= 0 else { return }
+        _amountCallback(possibleSupplyAmounts[row])
     }
 }
 
@@ -71,7 +72,7 @@ extension PumpingVC: UIPickerViewDataSource {
     }
 
     public func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
-        return _amounts.count
+        return possibleSupplyAmounts.count
     }
 }
 
@@ -79,8 +80,8 @@ extension PumpingVC: UIPickerViewDelegate {
     public func pickerView(_: UIPickerView,
                            attributedTitleForRow row: Int,
                            forComponent _: Int) -> NSAttributedString? {
-        let string = _amounts[row]
-        return NSAttributedString(string: string,
+        let s = possibleSupplyAmounts[row].displayValue(for: .ounces)
+        return NSAttributedString(string: s,
                                   attributes: [
                                       .font: UIFont.notoSansRegular(ofSize: 20),
                                       .foregroundColor: UIColor.black,
