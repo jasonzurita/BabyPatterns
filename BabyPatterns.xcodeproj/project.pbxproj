@@ -1197,6 +1197,7 @@
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				INFOPLIST_FILE = BabyPatterns/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "40fc2f51-8b09-424a-9fb1-5de3a4705c07";
@@ -1217,6 +1218,7 @@
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				INFOPLIST_FILE = BabyPatterns/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "40fc2f51-8b09-424a-9fb1-5de3a4705c07";
