@@ -655,7 +655,6 @@
 				436484A71DCA150500E6B0A7 /* Sources */,
 				436484A81DCA150500E6B0A7 /* Frameworks */,
 				436484A91DCA150500E6B0A7 /* Resources */,
-				43C431771ED165EC00158E7A /* ShellScript */,
 				12605B311FBAA6B50035243B /* Embed Frameworks */,
 				12B9611F214C004F00FD3E7D /* ShellScript */,
 				12D5C6402277AA1C003B1CB0 /* Set Build Number */,
@@ -807,19 +806,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ngit=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
-		};
-		43C431771ED165EC00158E7A /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
 		};
 		F98E26E6EAD0764B1E7D37D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

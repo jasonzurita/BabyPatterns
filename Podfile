@@ -8,7 +8,6 @@ pod 'Firebase/AdMob'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
-pod 'SwiftLint'
 pod 'Crashlytics'
 
 target 'BabyPatterns' do
