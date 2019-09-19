@@ -35,10 +35,9 @@ platform :ios do
 
   desc "Build dependencies"
   lane :build_dependencies do
-    cocopods(
+    cocoapods(
       use_bundle_exec: false,
-      repo_update: true,
-      platform: "iOS"
+      repo_update: true
     )
   end
 
@@ -48,10 +47,11 @@ platform :ios do
       scheme: "BabyPatterns",
       clean: true,
       skip_build: true,
+      # This needs to match with the CircleCI config yml
       output_directory: "artifacts/tests",
       output_files: "report.html",
       output_types: "html",
-      devices: ["iPhone Xs"],
+      devices: ["iPhone 8"],
       code_coverage: true
     )
   end
