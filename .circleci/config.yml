@@ -1,0 +1,85 @@
+# iOS CircleCI 2.0 configuration file
+# https://circleci.com/docs/2.0/configuration-reference/#section=configuration
+#
+version: 2
+common-setup: &common-setup
+    macos:
+      xcode: "11.0.0"
+    shell: /bin/bash --login -eo pipefail
+
+jobs:
+  lint-danger:
+    <<: *common-setup
+    steps:
+      - run:
+          name: Set Ruby Version
+          command:  echo "ruby-2.6" > ~/.ruby-version
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-gems-{{ checksum "Gemfile.lock" }}
+            - v1-gems-
+      - run:
+          name: Bundle install
+          command: bundle install
+          environment:
+            BUNDLE_PATH: vendor/bundle
+      - run:
+          name: Run Dangerfile
+          command: bundle exec danger
+          environment:
+            BUNDLE_PATH: vendor/bundle
+    
+  test:
+    <<: *common-setup
+    steps:
+      - run:
+          name: Set Ruby Version
+          command:  echo "ruby-2.6" > ~/.ruby-version
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-gems-{{ checksum "Gemfile.lock" }}
+            - v1-gems-
+      - run:
+          name: Bundle install
+          command: bundle install
+          environment:
+            BUNDLE_PATH: vendor/bundle
+      - run:
+          name: "Make firebase plist"
+          command: |
+            echo $FIREBASE_GOOGLE_PLIST > './BabyPatterns/GoogleService-Info.plist'
+      - run:
+          name: Build dependencies
+          command: bundle exec fastlane build_dependencies
+          environment:
+            BUNDLE_PATH: vendor/bundle
+      - run:
+          name: Build app and run tests
+          command: bundle exec fastlane test
+          environment:
+            BUNDLE_PATH: vendor/bundle
+      - store_test_results:
+          # This needs to match with the Fastfile test output_directory
+          path: artifacts/tests
+      - store_artifacts:
+          path: ~/Library/Logs/scan
+          destination: scan-logs
+      - store_artifacts:
+          path: ~/project/artifacts/tests
+          destination: test-results
+
+workflows:
+  version: 2
+
+  commit-workflow:
+    jobs:
+      - lint-danger:
+          filters:
+            branches:
+              ignore: master
+      - test:
+          filters:
+            branches:
+              ignore: master
