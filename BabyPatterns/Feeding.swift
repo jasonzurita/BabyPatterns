@@ -38,6 +38,7 @@ public struct Feeding {
         self.serverKey = serverKey
     }
 
+    // TODO: put under a test and make codable!
     public init?(json: [String: Any], serverKey: String) {
         guard let typeRawValue = json[K.JsonFields.FeedingType] as? String else { return nil }
         guard let type = FeedingType(rawValue: typeRawValue) else { return nil }
@@ -62,6 +63,8 @@ public struct Feeding {
                   serverKey: serverKey)
     }
 
+    // TODO: put this under a test and then make use of codable!
+    // (then find other cases like this and update them too)
     public func eventJson() -> [String: Any] {
         let json: [String: Any] = [
             K.JsonFields.FeedingType: type.rawValue,
