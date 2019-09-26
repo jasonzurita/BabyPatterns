@@ -7,7 +7,7 @@ public final class TimerLabel: UILabel {
     public var isPaused = false
     public var isRunning = false
     private var referenceDate = Date()
-    
+
     private var counter: Seconds = 0 {
         didSet {
             // TODO: abstract this and put under test?
@@ -26,14 +26,15 @@ public final class TimerLabel: UILabel {
         counter = time
     }
 
-    public func start(startingAt startTime: Seconds) {
+    public func start(at startTime: Seconds) {
         guard _timer == nil else { return }
         isRunning = true
 
         counter = startTime
         referenceDate = Date(timeIntervalSinceNow: -TimeInterval(startTime))
 
-        _timer = Current.scheduledTimer(countingInterval, true, { [weak self] _ in
+        _timer = Current.scheduledTimer(countingInterval, true) { [weak self] _ in
+            // TODO: change all the `strongSelf` to `self` (in current Swift, `self` is now supported)
             guard let strongSelf = self else { return }
             guard !strongSelf.isPaused else {
                 strongSelf.pulseAnimationIfNotPulsing()
@@ -42,7 +43,7 @@ public final class TimerLabel: UILabel {
             strongSelf.counter += 1
             // TODO: improve logging, so this isn't in production
             print("counter: \(strongSelf.counter)")
-        })
+        }
     }
 
     public func end() {

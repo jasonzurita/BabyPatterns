@@ -25,7 +25,7 @@ final class TimerLabelTests: XCTestCase {
 
     func testTimerStartAtZero() {
         let timerLabel = TimerLabel(frame: .zero)
-        timerLabel.start(startingAt: 0)
+        timerLabel.start(at: 0)
         guard let timerText = timerLabel.text else {
             XCTFail("No timer text label to check")
             return
@@ -45,7 +45,7 @@ final class TimerLabelTests: XCTestCase {
 
     func testTimerRunning() {
         let timerLabel = TimerLabel(frame: .zero)
-        timerLabel.start(startingAt: 0)
+        timerLabel.start(at: 0)
         // simulating 5 seconds
         (1 ... 5).forEach { _ in
             timer.fire()
@@ -59,7 +59,7 @@ final class TimerLabelTests: XCTestCase {
 
     func testPauseTimer() {
         let timerLabel = TimerLabel(frame: .zero)
-        timerLabel.start(startingAt: 0)
+        timerLabel.start(at: 0)
         timerLabel.pause()
         // simulating 5 seconds
         (1 ... 10).forEach { _ in
