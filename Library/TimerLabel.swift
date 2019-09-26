@@ -30,7 +30,7 @@ public final class TimerLabel: UILabel {
         counter = startTime
         referenceDate = Date(timeIntervalSinceNow: -startTime)
 
-        _timer = Timer.scheduledTimer(withTimeInterval: countingInterval, repeats: true, block: { [weak self] _ in
+        _timer = Current.scheduledTimer(countingInterval, true, { [weak self] _ in
             guard let strongSelf = self else { return }
             guard !strongSelf.isPaused else {
                 strongSelf.pulseAnimationIfNotPulsing()
