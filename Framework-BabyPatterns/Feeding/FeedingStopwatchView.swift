@@ -151,7 +151,7 @@ public final class FeedingStopwatchView: UIView {
         case .none:
             assertionFailure("Asked to start a feeding on side of = none")
         }
-        timerLabel.start(startingAt: startTime)
+        timerLabel.start(startingAt: TimerLabel.Seconds(startTime))
         control!.setTitle("Pause", for: .normal)
         control!.isActive = true
         stopButton.isDisabled = false
