@@ -28,11 +28,12 @@
 		1234CD652105FC410033FD56 /* SupplyAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234CD642105FC410033FD56 /* SupplyAmount.swift */; };
 		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
 		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
-		123D4F91233691EB00F164E5 /* LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123D4F90233691EB00F164E5 /* LibraryTests.swift */; };
 		123D4F93233691EB00F164E5 /* Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120F80211FBF0E9500D04E45 /* Library.framework */; };
 		1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */; };
 		1243E4841FD6DA4900D727F1 /* FeedingStopwatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */; };
 		124D863320A2634100F3C2D0 /* PumpingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124D863220A2634100F3C2D0 /* PumpingVC.swift */; };
+		1257EF6F233C1AF6006A1CD3 /* TimerLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123D4F90233691EB00F164E5 /* TimerLabelTests.swift */; };
+		1257EF71233CDDB1006A1CD3 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1257EF70233CDDB1006A1CD3 /* AppEnvironment.swift */; };
 		12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; };
 		12605B431FBB1DBB0035243B /* Framework_BabyPatterns.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289D18C20C167A800E73DA0 /* StopButton.swift */; };
@@ -156,11 +157,11 @@
 		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
 		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
 		123D4F8E233691EB00F164E5 /* LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		123D4F90233691EB00F164E5 /* LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTests.swift; sourceTree = "<group>"; };
-		123D4F92233691EB00F164E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		123D4F90233691EB00F164E5 /* TimerLabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabelTests.swift; sourceTree = "<group>"; };
 		1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingStopwatchView.swift; sourceTree = "<group>"; };
 		1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedingStopwatchView.xib; sourceTree = "<group>"; };
 		124D863220A2634100F3C2D0 /* PumpingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PumpingVC.swift; sourceTree = "<group>"; };
+		1257EF70233CDDB1006A1CD3 /* AppEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Framework_BabyPatterns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12605B3E1FBB1DBB0035243B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1289D18C20C167A800E73DA0 /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
@@ -285,6 +286,7 @@
 		120F80221FBF0E9500D04E45 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				1257EF70233CDDB1006A1CD3 /* AppEnvironment.swift */,
 				ACF086A01F153E300012A04D /* Protocols */,
 				430F01791E2D09FD00FE02FC /* Extensions */,
 				43932C3F1E01FE7D00056F83 /* Views */,
@@ -293,15 +295,6 @@
 				120F80321FBF0E9500D04E45 /* Info-LibraryTests.plist */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		123D4F8F233691EB00F164E5 /* LibraryTests */ = {
-			isa = PBXGroup;
-			children = (
-				123D4F90233691EB00F164E5 /* LibraryTests.swift */,
-				123D4F92233691EB00F164E5 /* Info.plist */,
-			);
-			path = LibraryTests;
 			sourceTree = "<group>";
 		};
 		12605B3C1FBB1DBB0035243B /* Framework-BabyPatterns */ = {
@@ -446,7 +439,6 @@
 				12605B3C1FBB1DBB0035243B /* Framework-BabyPatterns */,
 				120F80221FBF0E9500D04E45 /* Library */,
 				436484AD1DCA150500E6B0A7 /* BabyPatterns */,
-				123D4F8F233691EB00F164E5 /* LibraryTests */,
 				436484AC1DCA150500E6B0A7 /* Products */,
 				C9E049A3AB031F05B25929A5 /* Pods */,
 				E6E2429A0B036BEAA14B2AB7 /* Frameworks */,
@@ -548,6 +540,7 @@
 				43932C491E041E5300056F83 /* Toast.swift */,
 				43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */,
 				43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */,
+				123D4F90233691EB00F164E5 /* TimerLabelTests.swift */,
 				433AF9251E40CC8A00AD654C /* Circle.swift */,
 				43B002141E8A937E00810739 /* ShakeTextField.swift */,
 				1289D18C20C167A800E73DA0 /* StopButton.swift */,
@@ -908,6 +901,7 @@
 				120F80471FBF126800D04E45 /* CircleToggleButton.swift in Sources */,
 				120F80451FBF126000D04E45 /* UIImageViewExtensions.swift in Sources */,
 				120F80461FBF126500D04E45 /* Toast.swift in Sources */,
+				1257EF71233CDDB1006A1CD3 /* AppEnvironment.swift in Sources */,
 				120F80441FBF125D00D04E45 /* StringExtensions.swift in Sources */,
 				120F804B1FBF127700D04E45 /* Circle.swift in Sources */,
 				120F804C1FBF127A00D04E45 /* ShakeTextField.swift in Sources */,
@@ -925,7 +919,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				123D4F91233691EB00F164E5 /* LibraryTests.swift in Sources */,
+				1257EF6F233C1AF6006A1CD3 /* TimerLabelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,7 +1092,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = LibraryTests/Info.plist;
+				INFOPLIST_FILE = Library/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1120,7 +1114,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = LibraryTests/Info.plist;
+				INFOPLIST_FILE = Library/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.flippingleaf.com.LibraryTests;
