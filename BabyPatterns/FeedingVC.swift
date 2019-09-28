@@ -70,6 +70,22 @@ final class FeedingVC: UIViewController {
         navigationItem.backBarButtonItem?.title = " "
         let titles = FeedingType.allValues.map { $0.rawValue }
         segmentedControl.configureSegmentedBar(titles: titles, defaultSegmentIndex: 0)
+
+        let center = NotificationCenter.default
+        notificationToken = center.addObserver(forName: K.Notifications.updateFeedingsUI,
+                                               object: nil,
+                                               queue: nil) { _ in
+            if let lf = self.feedingsVM?.lastFeeding(type: .nursing), !lf.isFinished {
+                DispatchQueue.main.async {
+                    self.nVc?.resume(feeding: lf)
+                }
+            }
+            if let lf = self.feedingsVM?.lastFeeding(type: .pumping), !lf.isFinished {
+                DispatchQueue.main.async {
+                    self.pVc?.resume(feeding: lf)
+                }
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -130,6 +146,9 @@ final class FeedingVC: UIViewController {
         }
     }
 
+    private var nVc: NursingVC?
+    private var pVc: PumpingVC?
+
     private func configureFeedingPageVC(vc: FeedingPageVC) {
         segmentedControl.delegate = vc
         vc.segmentedControl = segmentedControl
@@ -138,10 +157,12 @@ final class FeedingVC: UIViewController {
         if let lf = feedingsVM?.lastFeeding(type: .nursing), !lf.isFinished {
             page1.resume(feeding: lf)
         }
+        nVc = page1
         let page2 = PumpingVC(controller: self)
         if let lf = feedingsVM?.lastFeeding(type: .pumping), !lf.isFinished {
             page2.resume(feeding: lf)
         }
+        pVc = page2
         let page3 = BottleVC()
         page3.delegate = self
         page3.dataSource = self

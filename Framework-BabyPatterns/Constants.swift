@@ -1,3 +1,5 @@
+import Foundation
+
 public struct K {
     public struct Segues {
         // app launch
@@ -47,5 +49,9 @@ public struct K {
     public struct DictionaryKeys {
         public static let VersionNumber = "CFBundleShortVersionString"
         public static let BuildNumber = "CFBundleVersion"
+    }
+
+    public struct Notifications {
+        public static let updateFeedingsUI = NSNotification.Name("com.flippingleaf.notifications.update-feedings-ui")
     }
 }

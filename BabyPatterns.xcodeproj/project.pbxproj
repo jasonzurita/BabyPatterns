@@ -39,7 +39,7 @@
 		1263ADE623393A9200142056 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1263ADE423393A9200142056 /* Interface.storyboard */; };
 		1263ADE823393A9300142056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1263ADE723393A9300142056 /* Assets.xcassets */; };
 		1263ADEF23393A9300142056 /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1263ADEE23393A9300142056 /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		1263ADF423393A9300142056 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263ADF323393A9300142056 /* ContentView.swift */; };
+		1263ADF423393A9300142056 /* AddFeedingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263ADF323393A9300142056 /* AddFeedingView.swift */; };
 		1263ADF623393A9300142056 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263ADF523393A9300142056 /* HostingController.swift */; };
 		1263ADF823393A9300142056 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263ADF723393A9300142056 /* ExtensionDelegate.swift */; };
 		1263ADFA23393A9400142056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1263ADF923393A9400142056 /* Assets.xcassets */; };
@@ -78,6 +78,7 @@
 		12EE85F420F028C00085BF01 /* SettingsVc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12EE85F320F028C00085BF01 /* SettingsVc.storyboard */; };
 		12F3A9C71FBB2174002ECC7B /* HistoryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */; };
 		12F3A9C81FBB2174002ECC7B /* HistoryVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12F3A9C61FBB2174002ECC7B /* HistoryVc.xib */; };
+		12F3EC29233D6BFB0051D52B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3EC28233D6BFB0051D52B /* HomeView.swift */; };
 		2A665C208E99BFF450A704EB /* libPods-BabyPatterns.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20D78A84B09EE74A0AA1D /* libPods-BabyPatterns.a */; };
 		43037E0E1E3A36DB00D478AD /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43037E0D1E3A36DB00D478AD /* NavigationVC.swift */; };
 		430F01781E2BDAC700FE02FC /* DispatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F01771E2BDAC700FE02FC /* DispatchVC.swift */; };
@@ -214,7 +215,7 @@
 		1263ADE723393A9300142056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1263ADE923393A9300142056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1263ADEE23393A9300142056 /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1263ADF323393A9300142056 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1263ADF323393A9300142056 /* AddFeedingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFeedingView.swift; sourceTree = "<group>"; };
 		1263ADF523393A9300142056 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		1263ADF723393A9300142056 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		1263ADF923393A9400142056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -245,6 +246,7 @@
 		12EE85F320F028C00085BF01 /* SettingsVc.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsVc.storyboard; sourceTree = "<group>"; };
 		12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVc.swift; sourceTree = "<group>"; };
 		12F3A9C61FBB2174002ECC7B /* HistoryVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryVc.xib; sourceTree = "<group>"; };
+		12F3EC28233D6BFB0051D52B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		43037E0D1E3A36DB00D478AD /* NavigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
 		430F01771E2BDAC700FE02FC /* DispatchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchVC.swift; sourceTree = "<group>"; };
 		430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = ../Library/UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -396,7 +398,8 @@
 			children = (
 				1263ADF723393A9300142056 /* ExtensionDelegate.swift */,
 				1263ADF523393A9300142056 /* HostingController.swift */,
-				1263ADF323393A9300142056 /* ContentView.swift */,
+				12F3EC28233D6BFB0051D52B /* HomeView.swift */,
+				1263ADF323393A9300142056 /* AddFeedingView.swift */,
 				1263ADF923393A9400142056 /* Assets.xcassets */,
 				1263ADFE23393A9400142056 /* Info.plist */,
 				1263ADFB23393A9400142056 /* Preview Content */,
@@ -1141,7 +1144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1263ADF623393A9300142056 /* HostingController.swift in Sources */,
-				1263ADF423393A9300142056 /* ContentView.swift in Sources */,
+				12F3EC29233D6BFB0051D52B /* HomeView.swift in Sources */,
+				1263ADF423393A9300142056 /* AddFeedingView.swift in Sources */,
 				1263ADF823393A9300142056 /* ExtensionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
