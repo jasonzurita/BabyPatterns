@@ -7,6 +7,7 @@ public enum FeedingType: String {
     public static let allValues = [nursing, pumping, bottle]
 }
 
+// TODO: decide on the below enums
 public enum FirebaseRequestType: String {
     case feedings
     case profile

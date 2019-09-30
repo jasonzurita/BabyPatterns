@@ -32,7 +32,7 @@ extension FeedingsVM: WCSessionDelegate {
 
         replyHandler(["response": "starting: \(m)"])
 
-        if m["feedingType"] == "nursing" {
+        if m["feedingType"] == "Nursing" {
             if m["side"] == "left" {
                 feedingStarted(type: .nursing, side: .left)
             } else if m["side"] == "right" {
@@ -40,7 +40,7 @@ extension FeedingsVM: WCSessionDelegate {
             } else {
                 fatalError("No side to start feeding on...")
             }
-        } else if m["feedingType"] == "pumping" {
+        } else if m["feedingType"] == "Pumping" {
             if m["side"] == "left" {
                 feedingStarted(type: .pumping, side: .left)
 
