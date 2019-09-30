@@ -1,3 +1,4 @@
+import Common
 import Foundation
 import Framework_BabyPatterns
 import Library
@@ -16,43 +17,12 @@ extension FeedingsVM: WCSessionDelegate {
         print("session did deactivate")
     }
 
-    public func session(_: WCSession, didReceiveMessage _: [String: Any]) {
-        print("Received message!")
-    }
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
+        let decoder = JSONDecoder()
+        guard let info = try? decoder.decode(WatchCommunication.self, from: messageData) else { return }
 
-    public func session(_: WCSession,
-                        didReceiveMessage message: [String: Any],
-                        replyHandler: @escaping ([String: Any]) -> Void) {
-        print("message received!")
-
-        guard let m = message as? [String: String] else {
-            replyHandler(["response": "poorly formed message"])
-            return
-        }
-
-        replyHandler(["response": "starting: \(m)"])
-
-        if m["feedingType"] == "Nursing" {
-            if m["side"] == "left" {
-                feedingStarted(type: .nursing, side: .left)
-            } else if m["side"] == "right" {
-                feedingStarted(type: .nursing, side: .right)
-            } else {
-                fatalError("No side to start feeding on...")
-            }
-        } else if m["feedingType"] == "Pumping" {
-            if m["side"] == "left" {
-                feedingStarted(type: .pumping, side: .left)
-
-            } else if m["side"] == "right" {
-                feedingStarted(type: .pumping, side: .right)
-
-            } else {
-                fatalError("No side to start feeding on...")
-            }
-        } else {
-            // noop for bottle
-        }
+        guard info.feedingType != .none else { return }
+        feedingStarted(type: info.feedingType, side: info.feedingSide)
 
         // FIXME: for some reason, the UI isn't updating as expected when killed
         let center = NotificationCenter.default

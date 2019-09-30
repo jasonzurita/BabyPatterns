@@ -69,9 +69,15 @@ struct AddFeedingView: View {
                         // TODO: These numbers are not exact, figure this out better
                         .offset(x: isAdding(feeding: self.feedingIntent) ? -45 : -metrics.size.width * 0.5 - 50)
                         .gesture(TapGesture().onEnded {
-                            WCSession.default.sendMessage(["feedingType": "\(self.feedingIntent.rawValue)", "side": "left"], replyHandler: { reply in
-                                print(reply)
-                            }) { e in
+                            let info = WatchCommunication(type: self.feedingIntent,
+                                                          side: .left,
+                                                          action: .start)
+                            let jsonEncoder = JSONEncoder()
+                            guard let d = try? jsonEncoder.encode(info) else {
+                                // TODO: what do we do here?
+                                return
+                            }
+                            WCSession.default.sendMessageData(d, replyHandler: nil) { e in
                                 print("Error sending the message: \(e.localizedDescription)")
                             }
                             self.isShowingSheet = false
@@ -81,9 +87,15 @@ struct AddFeedingView: View {
                         .font(.system(size: 55))
                         .offset(x: isAdding(feeding: self.feedingIntent) ? 45 : metrics.size.width * 0.5 + 50)
                         .gesture(TapGesture().onEnded {
-                            WCSession.default.sendMessage(["feedingType": "\(self.feedingIntent.rawValue)", "side": "right"], replyHandler: { reply in
-                                print(reply)
-                            }) { e in
+                            let info = WatchCommunication(type: self.feedingIntent,
+                                                          side: .right,
+                                                          action: .start)
+                            let jsonEncoder = JSONEncoder()
+                            guard let d = try? jsonEncoder.encode(info) else {
+                                 // TODO: what do we do here?
+                                 return
+                             }
+                            WCSession.default.sendMessageData(d, replyHandler: nil) { e in
                                 print("Error sending the message: \(e.localizedDescription)")
                             }
                             self.isShowingSheet = false

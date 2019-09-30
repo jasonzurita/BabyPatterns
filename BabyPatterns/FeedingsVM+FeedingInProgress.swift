@@ -7,6 +7,7 @@ extension FeedingsVM {
                         side: FeedingSide,
                         startDate: Date = Date(),
                         supplyAmount: SupplyAmount = SupplyAmount.zero) {
+        // FIXME: I dislike that you can start a feeding of type none...
         guard feedingInProgress(type: type) == nil else {
             log("Already a feeding started of this type...", object: self, type: .warning)
             return
