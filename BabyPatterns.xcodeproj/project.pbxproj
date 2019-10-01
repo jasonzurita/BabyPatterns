@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,9 @@
 		120F804C1FBF127A00D04E45 /* ShakeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B002141E8A937E00810739 /* ShakeTextField.swift */; };
 		120F804D1FBF131D00D04E45 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE2DE11E76CC4A00B8B373 /* Loggable.swift */; };
 		12128AC820C5ED0300CF16C0 /* RequestFeatureTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */; };
+		121CA2E6234224A800AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E5234224A800AB4891 /* Common */; };
+		121CA2E8234224B500AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E7234224B500AB4891 /* Common */; };
+		121CA2EA2342273F00AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E92342273F00AB4891 /* Common */; };
 		1234CD652105FC410033FD56 /* SupplyAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234CD642105FC410033FD56 /* SupplyAmount.swift */; };
 		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
 		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
@@ -65,7 +68,6 @@
 		12C866C020DDB34200053FCC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C866BF20DDB34100053FCC /* Style.swift */; };
 		12C9B09C1FD6172100CA6EBF /* NursingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9B09A1FD6172100CA6EBF /* NursingVC.swift */; };
 		12C9B0A01FD6187800CA6EBF /* FeedingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C401E01FEB400056F83 /* FeedingControl.swift */; };
-		12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314DD571DFB6DE300B3649C /* Enums.swift */; };
 		12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
 		12C9B0A31FD619C300CA6EBF /* Feeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326BA581E04C1F0005604A9 /* Feeding.swift */; };
 		12C9FFD320B837CB00B048E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9FFD220B837CB00B048E6 /* Color.swift */; };
@@ -199,6 +201,7 @@
 		120F80231FBF0E9500D04E45 /* Library.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Library.h; sourceTree = "<group>"; };
 		120F80241FBF0E9500D04E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		120F80321FBF0E9500D04E45 /* Info-LibraryTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-LibraryTests.plist"; sourceTree = "<group>"; };
+		121CA2E42342246F00AB4891 /* Common */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Common; sourceTree = "<group>"; };
 		1234CD642105FC410033FD56 /* SupplyAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyAmount.swift; sourceTree = "<group>"; };
 		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
 		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
@@ -254,7 +257,6 @@
 		430F017E1E2D0A7900FE02FC /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = ../Library/DateExtensions.swift; sourceTree = "<group>"; };
 		430FD7441DE484EC00D07C50 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4314DD541DFB37D700B3649C /* BabyPatterns.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabyPatterns.entitlements; sourceTree = "<group>"; };
-		4314DD571DFB6DE300B3649C /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enums.swift; path = ../BabyPatterns/Enums.swift; sourceTree = "<group>"; };
 		4314DD591DFCA34600B3649C /* Feeding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feeding.storyboard; sourceTree = "<group>"; };
 		4314DD5B1DFD9E5E00B3649C /* SegmentedControlBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlBar.swift; sourceTree = "<group>"; };
 		4314DD5D1DFDA05D00B3649C /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				121CA2EA2342273F00AB4891 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +335,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				121CA2E8234224B500AB4891 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +346,7 @@
 				120F80361FBF0E9500D04E45 /* Library.framework in Frameworks */,
 				12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */,
 				2A665C208E99BFF450A704EB /* libPods-BabyPatterns.a in Frameworks */,
+				121CA2E6234224A800AB4891 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +373,6 @@
 				12C866BF20DDB34100053FCC /* Style.swift */,
 				12C866B220DDAE1200053FCC /* Fonts */,
 				430FD7441DE484EC00D07C50 /* Constants.swift */,
-				4314DD571DFB6DE300B3649C /* Enums.swift */,
 				43D2BE671DCB69E900895A65 /* Model */,
 				12DA5654212EDAEF0046797F /* History */,
 				AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */,
@@ -532,11 +536,11 @@
 		436484A21DCA150400E6B0A7 = {
 			isa = PBXGroup;
 			children = (
+				121CA2E42342246F00AB4891 /* Common */,
 				12A782421FBB20C7000BD13F /* Main.playground */,
 				12605B3C1FBB1DBB0035243B /* Framework-BabyPatterns */,
 				120F80221FBF0E9500D04E45 /* Library */,
 				436484AD1DCA150500E6B0A7 /* BabyPatterns */,
-				123D4F8F233691EB00F164E5 /* LibraryTests */,
 				1263ADE323393A9200142056 /* Watch */,
 				1263ADF223393A9300142056 /* Watch Extension */,
 				436484AC1DCA150500E6B0A7 /* Products */,
@@ -795,6 +799,9 @@
 				128F79B51FC39AF900FEF866 /* PBXTargetDependency */,
 			);
 			name = "Framework-BabyPatterns";
+			packageProductDependencies = (
+				121CA2E92342273F00AB4891 /* Common */,
+			);
 			productName = AppFramework;
 			productReference = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */;
 			productType = "com.apple.product-type.framework";
@@ -830,6 +837,9 @@
 			dependencies = (
 			);
 			name = "Watch Extension";
+			packageProductDependencies = (
+				121CA2E7234224B500AB4891 /* Common */,
+			);
 			productName = "Watch Extension";
 			productReference = 1263ADEE23393A9300142056 /* Watch Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
@@ -855,6 +865,9 @@
 				1263AE0023393A9400142056 /* PBXTargetDependency */,
 			);
 			name = BabyPatterns;
+			packageProductDependencies = (
+				121CA2E5234224A800AB4891 /* Common */,
+			);
 			productName = "Baby Tracker";
 			productReference = 436484AB1DCA150500E6B0A7 /* BabyPatterns.app */;
 			productType = "com.apple.product-type.application";
@@ -1131,7 +1144,6 @@
 				12F3A9C71FBB2174002ECC7B /* HistoryVc.swift in Sources */,
 				12B6E42120EB973400EA6944 /* SignupVc.swift in Sources */,
 				123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */,
-				12C9B0A11FD6190200CA6EBF /* Enums.swift in Sources */,
 				12C866C020DDB34200053FCC /* Style.swift in Sources */,
 				128A56F720F56E2E00A4DC8E /* ProfileImageCoordinator.swift in Sources */,
 				12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */,
@@ -1258,7 +1270,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Library/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.Library;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1286,7 +1302,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Library/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.Library;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1308,7 +1328,11 @@
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Library/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.flippingleaf.com.LibraryTests;
@@ -1330,7 +1354,11 @@
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Library/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.flippingleaf.com.LibraryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1359,7 +1387,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Framework-BabyPatterns/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonzurita.Framework-BabyPatterns";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1390,7 +1422,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Framework-BabyPatterns/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonzurita.Framework-BabyPatterns";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1473,7 +1509,11 @@
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 1.0.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1502,7 +1542,11 @@
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 1.0.5;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns.watchkitapp.watchkitextension;
@@ -1621,7 +1665,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1638,7 +1683,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				INFOPLIST_FILE = BabyPatterns/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1660,7 +1708,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				INFOPLIST_FILE = BabyPatterns/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1737,6 +1788,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		121CA2E5234224A800AB4891 /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Common;
+		};
+		121CA2E7234224B500AB4891 /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Common;
+		};
+		121CA2E92342273F00AB4891 /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Common;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 436484A31DCA150400E6B0A7 /* Project object */;
 }

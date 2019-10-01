@@ -1,8 +1,16 @@
+import Common
 import SwiftUI
 import WatchConnectivity
 
+private func isAdding(feeding type: FeedingType) -> Bool {
+    switch type {
+    case .nursing, .pumping, .bottle: return true
+    case .none: return false
+    }
+}
+
 struct FeedingOptionsView: View {
-    @Binding var intent: AddingIntent
+    @Binding var feedingIntent: FeedingType
     var body: some View {
         VStack {
             Spacer()
@@ -10,16 +18,16 @@ struct FeedingOptionsView: View {
                 Spacer()
                 Image(systemName: "n.circle.fill")
                     .font(.system(size: 55))
-                    .scaleEffect(self.intent.isAdding ? 0.5 : 1)
+                    .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
                     .gesture(TapGesture().onEnded {
-                        withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.intent = .nursing }
+                        withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .nursing }
                     })
                 Spacer()
                 Image(systemName: "p.circle.fill")
                     .font(.system(size: 55))
-                    .scaleEffect(self.intent.isAdding ? 0.5 : 1)
+                    .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
                     .gesture(TapGesture().onEnded {
-                        withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.intent = .pumping }
+                        withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .pumping }
                     })
                 Spacer()
             }
@@ -28,9 +36,9 @@ struct FeedingOptionsView: View {
                 Spacer()
                 Image(systemName: "b.circle.fill")
                     .font(.system(size: 55))
-                    .scaleEffect(self.intent.isAdding ? 0.5 : 1)
+                    .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
                     .gesture(TapGesture().onEnded {
-                        withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.intent = .bottle }
+                        withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .bottle }
                     })
                 Spacer()
             }
@@ -39,44 +47,37 @@ struct FeedingOptionsView: View {
     }
 }
 
-// TODO: change this to be backed by an int
-enum AddingIntent: String {
-    // TODO: I may be able to use this enum from the main app
-    case nursing, pumping, bottle, none
-
-    var isAdding: Bool {
-        switch self {
-        case .nursing, .pumping, .bottle: return true
-        case .none: return false
-        }
-    }
-}
-
 struct AddFeedingView: View {
     @Binding var isShowingSheet: Bool
-    @State private var intent: AddingIntent = .none
+    @State private var feedingIntent: FeedingType = .none
 
     var body: some View {
         ZStack {
-            FeedingOptionsView(intent: $intent)
+            FeedingOptionsView(feedingIntent: $feedingIntent)
             GeometryReader { metrics in
                 ZStack {
                     Rectangle()
-                        .opacity(self.intent.isAdding ? 0.5 : 0)
+                        .opacity(isAdding(feeding: self.feedingIntent) ? 0.5 : 0)
                         .foregroundColor(Color.black)
                         .gesture(TapGesture().onEnded {
                             // TODO: not a fan of duplicating this
-                            withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.intent = .none }
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .none }
                         })
 
                     Image(systemName: "l.circle")
                         .font(.system(size: 55))
                         // TODO: These numbers are not exact, figure this out better
-                        .offset(x: self.intent.isAdding ? -45 : -metrics.size.width * 0.5 - 50)
+                        .offset(x: isAdding(feeding: self.feedingIntent) ? -45 : -metrics.size.width * 0.5 - 50)
                         .gesture(TapGesture().onEnded {
-                            WCSession.default.sendMessage(["feedingType": "\(self.intent.rawValue)", "side": "left"], replyHandler: { reply in
-                                print(reply)
-                            }) { e in
+                            let info = WatchCommunication(type: self.feedingIntent,
+                                                          side: .left,
+                                                          action: .start)
+                            let jsonEncoder = JSONEncoder()
+                            guard let d = try? jsonEncoder.encode(info) else {
+                                // TODO: what do we do here?
+                                return
+                            }
+                            WCSession.default.sendMessageData(d, replyHandler: nil) { e in
                                 print("Error sending the message: \(e.localizedDescription)")
                             }
                             self.isShowingSheet = false
@@ -84,11 +85,17 @@ struct AddFeedingView: View {
 
                     Image(systemName: "r.circle")
                         .font(.system(size: 55))
-                        .offset(x: self.intent.isAdding ? 45 : metrics.size.width * 0.5 + 50)
+                        .offset(x: isAdding(feeding: self.feedingIntent) ? 45 : metrics.size.width * 0.5 + 50)
                         .gesture(TapGesture().onEnded {
-                            WCSession.default.sendMessage(["feedingType": "\(self.intent.rawValue)", "side": "right"], replyHandler: { reply in
-                                print(reply)
-                            }) { e in
+                            let info = WatchCommunication(type: self.feedingIntent,
+                                                          side: .right,
+                                                          action: .start)
+                            let jsonEncoder = JSONEncoder()
+                            guard let d = try? jsonEncoder.encode(info) else {
+                                 // TODO: what do we do here?
+                                 return
+                             }
+                            WCSession.default.sendMessageData(d, replyHandler: nil) { e in
                                 print("Error sending the message: \(e.localizedDescription)")
                             }
                             self.isShowingSheet = false
