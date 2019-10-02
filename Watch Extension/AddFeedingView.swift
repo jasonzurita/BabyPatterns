@@ -1,6 +1,5 @@
 import Common
 import SwiftUI
-import WatchConnectivity
 
 private func isAdding(feeding type: FeedingType) -> Bool {
     switch type {
@@ -48,6 +47,8 @@ struct FeedingOptionsView: View {
 }
 
 struct AddFeedingView: View {
+    @ObservedObject var store: Store<AppState, AppAction>
+
     @Binding var isShowingSheet: Bool
     @State private var feedingIntent: FeedingType = .none
 
@@ -69,17 +70,7 @@ struct AddFeedingView: View {
                         // TODO: These numbers are not exact, figure this out better
                         .offset(x: isAdding(feeding: self.feedingIntent) ? -45 : -metrics.size.width * 0.5 - 50)
                         .gesture(TapGesture().onEnded {
-                            let info = WatchCommunication(type: self.feedingIntent,
-                                                          side: .left,
-                                                          action: .start)
-                            let jsonEncoder = JSONEncoder()
-                            guard let d = try? jsonEncoder.encode(info) else {
-                                // TODO: what do we do here?
-                                return
-                            }
-                            WCSession.default.sendMessageData(d, replyHandler: nil) { e in
-                                print("Error sending the message: \(e.localizedDescription)")
-                            }
+                            self.store.send(.start(type: self.feedingIntent, side: .left))
                             self.isShowingSheet = false
                         })
 
@@ -87,17 +78,7 @@ struct AddFeedingView: View {
                         .font(.system(size: 55))
                         .offset(x: isAdding(feeding: self.feedingIntent) ? 45 : metrics.size.width * 0.5 + 50)
                         .gesture(TapGesture().onEnded {
-                            let info = WatchCommunication(type: self.feedingIntent,
-                                                          side: .right,
-                                                          action: .start)
-                            let jsonEncoder = JSONEncoder()
-                            guard let d = try? jsonEncoder.encode(info) else {
-                                 // TODO: what do we do here?
-                                 return
-                             }
-                            WCSession.default.sendMessageData(d, replyHandler: nil) { e in
-                                print("Error sending the message: \(e.localizedDescription)")
-                            }
+                            self.store.send(.start(type: self.feedingIntent, side: .right))
                             self.isShowingSheet = false
                         })
                 }
@@ -106,8 +87,11 @@ struct AddFeedingView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+// swiftlint:disable type_name
+struct FeedingView_Previews: PreviewProvider {
+// swiftlint:enable type_name
     static var previews: some View {
-        AddFeedingView(isShowingSheet: .constant(true))
+        AddFeedingView(store: Store(initialValue: AppState(), reducer: appReducer),
+                       isShowingSheet: .constant(true))
     }
 }
