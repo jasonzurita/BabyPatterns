@@ -8,8 +8,6 @@ import SwiftUI
    behaves well from a UI standpoint when using the watch
  - App icon
  - Think about subscriptions or IAP for this
- - Better formalize communication instead of basing it off
-   of yucky strings
  - Add unidirectional flow architecture for better state management
  - Allow stopping current feeding
  - Allow pausing current feeding
