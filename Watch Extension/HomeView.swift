@@ -8,18 +8,20 @@ import SwiftUI
    behaves well from a UI standpoint when using the watch
  - App icon
  - Think about subscriptions or IAP for this
- - Add unidirectional flow architecture for better state management
  - Allow stopping current feeding
  - Allow pausing current feeding
+ - Load all feedings when starting up?
+ - Make sure iPhone is available and logged in
  */
 
 struct HomeView: View {
+    @ObservedObject var store: Store<AppState, AppAction> = Store(initialValue: AppState(), reducer: appReducer)
     @State private var isShowingSheet = false
     var body: some View {
         // TODO: think more about the layout of these two
         VStack {
-            // TODO: fill this in with active feedings
-            List(1 ... 10, id: \.self) { _ in
+            List(store.value.activeFeedings, id: \.self) { _ in
+                // TODO: setup timer for real
                 Text("00:00:00")
             }
             // TODO: better style this
@@ -28,7 +30,7 @@ struct HomeView: View {
                 .rotationEffect(.init(degrees: 45))
                 .offset(y: -10)
                 .sheet(isPresented: $isShowingSheet) {
-                    AddFeedingView(isShowingSheet: self.$isShowingSheet)
+                    AddFeedingView(store: self.store, isShowingSheet: self.$isShowingSheet)
                 }
                 .gesture(TapGesture().onEnded {
                     self.isShowingSheet.toggle()
