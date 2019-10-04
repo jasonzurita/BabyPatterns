@@ -10,3 +10,4 @@ GoogleService-Info.plist
 *.xcuserstate
 BabyPatterns.xcodeproj/project.xcworkspace/xcshareddata
 *.swp
+*.xcscheme
