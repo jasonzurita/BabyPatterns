@@ -12,9 +12,11 @@ struct Feeding: Identifiable {
 
 struct AppState {
     var activeFeedings: [Feeding] = []
+    var timerPulseCount: Int = 0
 }
 
 enum AppAction {
+    case timerPulse
     case start(type: FeedingType, side: FeedingSide)
     case stop(Feeding)
     case pause(Feeding)
@@ -23,6 +25,8 @@ enum AppAction {
 // TODO: see what can be DRY-ed up here
 func appReducer(value: inout AppState, action: AppAction) {
     switch action {
+    case .timerPulse:
+        value.timerPulseCount += 1
     case let .start(type, side):
         let info = WatchCommunication(type: type,
                                       side: side,
@@ -51,6 +55,7 @@ func appReducer(value: inout AppState, action: AppAction) {
         WCSession.default.sendMessageData(d, replyHandler: nil) { e in
             print("Error sending the message: \(e.localizedDescription)")
         }
+        value.activeFeedings.removeAll { $0.id == feeding.id }
     case let .pause(feeding):
         let info = WatchCommunication(type: feeding.type,
                                       side: feeding.side,

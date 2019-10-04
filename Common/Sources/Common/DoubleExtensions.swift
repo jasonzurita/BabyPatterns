@@ -2,6 +2,9 @@ import Foundation
 
 public extension Double {
     // TODO: make these a generic function
+    // TODO: make test for this 60s = next minue aka we shouldn't see 60 show up at all (same goes for minutes)
+    // ^^ not sure if this is actually an issue
+    // TODO: the api here could be a bit cleaner
     func stringFromSecondsToHours(zeroPadding: Bool) -> (string: String, remainder: Double) {
         let secondsToHours: Double = 3600
         let hours = floor(self / secondsToHours)

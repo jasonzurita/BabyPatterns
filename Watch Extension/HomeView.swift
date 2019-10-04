@@ -3,7 +3,6 @@ import SwiftUI
 /*
  TODO: - V1 Watch
  - Polish UI
- - Make running feedings a live list
  - Make sure a backgrounded/terminated main app
    behaves well from a UI standpoint when using the watch
  - Think about subscriptions or IAP for this
@@ -12,13 +11,18 @@ import SwiftUI
  */
 
 struct HomeView: View {
-    @ObservedObject var store: Store<AppState, AppAction> = Store(initialValue: AppState(), reducer: appReducer)
+    @ObservedObject var store: Store<AppState, AppAction> = {
+        let s = Store(initialValue: AppState(), reducer: appReducer)
+        TimerPulse.shared.store = s
+        TimerPulse.shared.start()
+        return s
+    }()
+
     @State private var isShowingSheet = false
     var body: some View {
         // TODO: think more about the layout of these two
         VStack {
-            List(store.value.activeFeedings) { feeding in
-                // TODO: setup timer for real
+            List(store.value.activeFeedings.reversed()) { feeding in
                 HStack {
                     Spacer()
                     FeedingView(store: self.store, feeding: feeding)

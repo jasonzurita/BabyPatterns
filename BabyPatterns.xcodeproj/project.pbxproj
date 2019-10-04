@@ -14,7 +14,6 @@
 		120F803E1FBF0FCF00D04E45 /* Shakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437C1F751E9BB44A00DE17DC /* Shakeable.swift */; };
 		120F80401FBF124F00D04E45 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128C93CA1FB72CA0001E58F4 /* Validatable.swift */; };
 		120F80411FBF125300D04E45 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F017E1E2D0A7900FE02FC /* DateExtensions.swift */; };
-		120F80421FBF125700D04E45 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F017C1E2D0A5F00FE02FC /* DoubleExtensions.swift */; };
 		120F80431FBF125A00D04E45 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */; };
 		120F80441FBF125D00D04E45 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43714F191E60F1E20055B411 /* StringExtensions.swift */; };
 		120F80451FBF126000D04E45 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E92D2C1E68D9AC008CE31E /* UIImageViewExtensions.swift */; };
@@ -71,6 +70,7 @@
 		12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
 		12C9B0A31FD619C300CA6EBF /* Feeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326BA581E04C1F0005604A9 /* Feeding.swift */; };
 		12C9FFD320B837CB00B048E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9FFD220B837CB00B048E6 /* Color.swift */; };
+		12D0AF4B2347670A00725A56 /* TimerPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0AF4A2347670A00725A56 /* TimerPulse.swift */; };
 		12D0AF4D234768AF00725A56 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 12D0AF4C234768AF00725A56 /* Common */; };
 		12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */; };
 		12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
@@ -246,6 +246,7 @@
 		12C866BF20DDB34100053FCC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		12C9B09A1FD6172100CA6EBF /* NursingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingVC.swift; sourceTree = "<group>"; };
 		12C9FFD220B837CB00B048E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		12D0AF4A2347670A00725A56 /* TimerPulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPulse.swift; sourceTree = "<group>"; };
 		12E38A3E2343CEB500940F07 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		12E38A3F2343CEB500940F07 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		12E8E57D20A2684D00C781EE /* PumpingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PumpingVC.xib; sourceTree = "<group>"; };
@@ -258,7 +259,6 @@
 		43037E0D1E3A36DB00D478AD /* NavigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
 		430F01771E2BDAC700FE02FC /* DispatchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchVC.swift; sourceTree = "<group>"; };
 		430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = ../Library/UIViewExtensions.swift; sourceTree = "<group>"; };
-		430F017C1E2D0A5F00FE02FC /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtensions.swift; path = ../Library/DoubleExtensions.swift; sourceTree = "<group>"; };
 		430F017E1E2D0A7900FE02FC /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = ../Library/DateExtensions.swift; sourceTree = "<group>"; };
 		430FD7441DE484EC00D07C50 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4314DD541DFB37D700B3649C /* BabyPatterns.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabyPatterns.entitlements; sourceTree = "<group>"; };
@@ -407,6 +407,7 @@
 			children = (
 				12E38A3F2343CEB500940F07 /* Store.swift */,
 				12E38A3E2343CEB500940F07 /* AppState.swift */,
+				12D0AF4A2347670A00725A56 /* TimerPulse.swift */,
 				1263ADF723393A9300142056 /* ExtensionDelegate.swift */,
 				1263ADF523393A9300142056 /* HostingController.swift */,
 				12F3EC28233D6BFB0051D52B /* HomeView.swift */,
@@ -505,7 +506,6 @@
 			isa = PBXGroup;
 			children = (
 				430F017E1E2D0A7900FE02FC /* DateExtensions.swift */,
-				430F017C1E2D0A5F00FE02FC /* DoubleExtensions.swift */,
 				430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */,
 				43714F191E60F1E20055B411 /* StringExtensions.swift */,
 				43E92D2C1E68D9AC008CE31E /* UIImageViewExtensions.swift */,
@@ -1114,7 +1114,6 @@
 				120F80441FBF125D00D04E45 /* StringExtensions.swift in Sources */,
 				120F804B1FBF127700D04E45 /* Circle.swift in Sources */,
 				120F804C1FBF127A00D04E45 /* ShakeTextField.swift in Sources */,
-				120F80421FBF125700D04E45 /* DoubleExtensions.swift in Sources */,
 				120F80431FBF125A00D04E45 /* UIViewExtensions.swift in Sources */,
 				120F803E1FBF0FCF00D04E45 /* Shakeable.swift in Sources */,
 				120F80401FBF124F00D04E45 /* Validatable.swift in Sources */,
@@ -1170,6 +1169,7 @@
 				1221F04E2344C9CC00E516D5 /* FeedingView.swift in Sources */,
 				12F3EC29233D6BFB0051D52B /* HomeView.swift in Sources */,
 				12E38A412343CEB500940F07 /* Store.swift in Sources */,
+				12D0AF4B2347670A00725A56 /* TimerPulse.swift in Sources */,
 				1263ADF423393A9300142056 /* AddFeedingView.swift in Sources */,
 				1263ADF823393A9300142056 /* ExtensionDelegate.swift in Sources */,
 			);

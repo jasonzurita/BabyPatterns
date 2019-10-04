@@ -4,10 +4,22 @@ struct FeedingView: View {
     @ObservedObject var store: Store<AppState, AppAction>
     @State var isShowingActionSheet = false
     let feeding: Feeding
+
+    private func timerString(from date: Date) -> String {
+        let timeInterval = abs(date.timeIntervalSinceNow)
+        let hours = TimeInterval(timeInterval).stringFromSecondsToHours(zeroPadding: true)
+        let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: true)
+        let seconds = minutes.remainder.stringFromSecondsToSeconds(zeroPadding: true)
+
+        return hours.string + ":" + minutes.string + ":" + seconds.string
+    }
+
     var body: some View {
         VStack(alignment: .center) {
-            Text("00:00:00")
-                .font(.title)
+            if store.value.timerPulseCount >= 0 {
+                Text("\(timerString(from: feeding.start))")
+                    .font(.title)
+            }
             HStack(alignment: .center) {
                 Text("\(feeding.type.rawValue)")
                     .font(.caption)
