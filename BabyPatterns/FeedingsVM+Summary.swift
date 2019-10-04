@@ -24,7 +24,7 @@ extension FeedingsVM {
             guard let end = $0.endDate else { return false }
             return filterWindow.contains(end)
         }
-        guard f.count > 0 else { return 0.0 }
+        guard f.isEmpty else { return 0.0 }
         // TODO: this could probably be a map {$0.duration()}.reduce(0, +) to make it easier to read
         let sum = f.reduce(0.0) { $0 + $1.duration() }
         return sum / TimeInterval(f.count)

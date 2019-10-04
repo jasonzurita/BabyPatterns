@@ -84,7 +84,7 @@ extension FeedingsVM {
 
     func feedingInProgress(type: FeedingType) -> Feeding? {
         let f = feedings.filter { $0.type == type && !$0.isFinished }
-        guard f.count > 0 else { return nil }
+        guard f.isEmpty else { return nil }
         guard f.count == 1, let feeding = f.first else {
             log("More than one in-progress feeding of the same type...", object: self, type: .warning)
             return nil
