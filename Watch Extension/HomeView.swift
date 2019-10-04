@@ -19,7 +19,12 @@ struct HomeView: View {
         VStack {
             List(store.value.activeFeedings) { feeding in
                 // TODO: setup timer for real
-                FeedingView(store: self.store, feeding: feeding)
+                HStack {
+                    Spacer()
+                    FeedingView(store: self.store, feeding: feeding)
+                        .layoutPriority(1.0)
+                    Spacer()
+                }
             }
 
             // TODO: better style this
