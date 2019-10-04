@@ -76,12 +76,12 @@ final class FeedingVC: UIViewController {
         notificationToken = center.addObserver(forName: K.Notifications.updateFeedingsUI,
                                                object: nil,
                                                queue: nil) { _ in
-            if let lf = self.feedingsVM?.lastFeeding(type: .nursing), !lf.isFinished {
+            if let lf = self.feedingsVM?.lastFeeding(type: .nursing) {
                 DispatchQueue.main.async {
                     self.nVc?.resume(feeding: lf)
                 }
             }
-            if let lf = self.feedingsVM?.lastFeeding(type: .pumping), !lf.isFinished {
+            if let lf = self.feedingsVM?.lastFeeding(type: .pumping) {
                 DispatchQueue.main.async {
                     self.pVc?.resume(feeding: lf)
                 }
