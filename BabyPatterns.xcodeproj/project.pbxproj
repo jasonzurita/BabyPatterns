@@ -37,7 +37,6 @@
 		1243E4841FD6DA4900D727F1 /* FeedingStopwatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */; };
 		124D863320A2634100F3C2D0 /* PumpingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124D863220A2634100F3C2D0 /* PumpingVC.swift */; };
 		1257EF6F233C1AF6006A1CD3 /* TimerLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123D4F90233691EB00F164E5 /* TimerLabelTests.swift */; };
-		1257EF71233CDDB1006A1CD3 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1257EF70233CDDB1006A1CD3 /* AppEnvironment.swift */; };
 		12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; };
 		12605B431FBB1DBB0035243B /* Framework_BabyPatterns.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1263ADE623393A9200142056 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1263ADE423393A9200142056 /* Interface.storyboard */; };
@@ -72,6 +71,7 @@
 		12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
 		12C9B0A31FD619C300CA6EBF /* Feeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4326BA581E04C1F0005604A9 /* Feeding.swift */; };
 		12C9FFD320B837CB00B048E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9FFD220B837CB00B048E6 /* Color.swift */; };
+		12D0AF4D234768AF00725A56 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 12D0AF4C234768AF00725A56 /* Common */; };
 		12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */; };
 		12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
 		12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
@@ -214,7 +214,6 @@
 		1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingStopwatchView.swift; sourceTree = "<group>"; };
 		1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedingStopwatchView.xib; sourceTree = "<group>"; };
 		124D863220A2634100F3C2D0 /* PumpingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PumpingVC.swift; sourceTree = "<group>"; };
-		1257EF70233CDDB1006A1CD3 /* AppEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Framework_BabyPatterns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12605B3E1FBB1DBB0035243B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1263ADE223393A9200142056 /* Baby Patterns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baby Patterns.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,6 +317,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12D0AF4D234768AF00725A56 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +362,6 @@
 		120F80221FBF0E9500D04E45 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				1257EF70233CDDB1006A1CD3 /* AppEnvironment.swift */,
 				ACF086A01F153E300012A04D /* Protocols */,
 				430F01791E2D09FD00FE02FC /* Extensions */,
 				43932C3F1E01FE7D00056F83 /* Views */,
@@ -770,6 +769,9 @@
 			dependencies = (
 			);
 			name = Library;
+			packageProductDependencies = (
+				12D0AF4C234768AF00725A56 /* Common */,
+			);
 			productName = Library;
 			productReference = 120F80211FBF0E9500D04E45 /* Library.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1109,7 +1111,6 @@
 				120F80471FBF126800D04E45 /* CircleToggleButton.swift in Sources */,
 				120F80451FBF126000D04E45 /* UIImageViewExtensions.swift in Sources */,
 				120F80461FBF126500D04E45 /* Toast.swift in Sources */,
-				1257EF71233CDDB1006A1CD3 /* AppEnvironment.swift in Sources */,
 				120F80441FBF125D00D04E45 /* StringExtensions.swift in Sources */,
 				120F804B1FBF127700D04E45 /* Circle.swift in Sources */,
 				120F804C1FBF127A00D04E45 /* ShakeTextField.swift in Sources */,
@@ -1811,6 +1812,10 @@
 			productName = Common;
 		};
 		121CA2E92342273F00AB4891 /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Common;
+		};
+		12D0AF4C234768AF00725A56 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Common;
 		};
