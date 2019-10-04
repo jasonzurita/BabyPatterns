@@ -21,8 +21,18 @@ extension FeedingsVM: WCSessionDelegate {
         let decoder = JSONDecoder()
         guard let info = try? decoder.decode(WatchCommunication.self, from: messageData) else { return }
 
+        // TODO: look into if we can get rid of the `.none` case
         guard info.feedingType != .none else { return }
-        feedingStarted(type: info.feedingType, side: info.feedingSide)
+
+        switch info.action {
+        case .start:
+            feedingStarted(type: info.feedingType, side: info.feedingSide)
+        case .stop:
+            feedingEnded(type: info.feedingType, side: info.feedingSide)
+        case .pause:
+            guard let fip = feedingInProgress(type: info.feedingType) else { return }
+            updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: !fip.isPaused)
+        }
 
         // FIXME: for some reason, the UI isn't updating as expected when killed
         let center = NotificationCenter.default

@@ -88,7 +88,7 @@ struct AddFeedingView: View {
 }
 
 // swiftlint:disable type_name
-struct FeedingView_Previews: PreviewProvider {
+struct AddFeedingView_Previews: PreviewProvider {
 // swiftlint:enable type_name
     static var previews: some View {
         AddFeedingView(store: Store(initialValue: AppState(), reducer: appReducer),

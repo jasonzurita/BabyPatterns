@@ -28,6 +28,7 @@
 		121CA2E6234224A800AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E5234224A800AB4891 /* Common */; };
 		121CA2E8234224B500AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E7234224B500AB4891 /* Common */; };
 		121CA2EA2342273F00AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E92342273F00AB4891 /* Common */; };
+		1221F04E2344C9CC00E516D5 /* FeedingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221F04D2344C9CC00E516D5 /* FeedingView.swift */; };
 		1234CD652105FC410033FD56 /* SupplyAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234CD642105FC410033FD56 /* SupplyAmount.swift */; };
 		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
 		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
@@ -204,6 +205,7 @@
 		120F80241FBF0E9500D04E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		120F80321FBF0E9500D04E45 /* Info-LibraryTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-LibraryTests.plist"; sourceTree = "<group>"; };
 		121CA2E42342246F00AB4891 /* Common */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Common; sourceTree = "<group>"; };
+		1221F04D2344C9CC00E516D5 /* FeedingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingView.swift; sourceTree = "<group>"; };
 		1234CD642105FC410033FD56 /* SupplyAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyAmount.swift; sourceTree = "<group>"; };
 		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
 		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				1263ADF723393A9300142056 /* ExtensionDelegate.swift */,
 				1263ADF523393A9300142056 /* HostingController.swift */,
 				12F3EC28233D6BFB0051D52B /* HomeView.swift */,
+				1221F04D2344C9CC00E516D5 /* FeedingView.swift */,
 				1263ADF323393A9300142056 /* AddFeedingView.swift */,
 				1263ADF923393A9400142056 /* Assets.xcassets */,
 				1263ADFE23393A9400142056 /* Info.plist */,
@@ -1163,6 +1166,7 @@
 			files = (
 				1263ADF623393A9300142056 /* HostingController.swift in Sources */,
 				12E38A402343CEB500940F07 /* AppState.swift in Sources */,
+				1221F04E2344C9CC00E516D5 /* FeedingView.swift in Sources */,
 				12F3EC29233D6BFB0051D52B /* HomeView.swift in Sources */,
 				12E38A412343CEB500940F07 /* Store.swift in Sources */,
 				1263ADF423393A9300142056 /* AddFeedingView.swift in Sources */,

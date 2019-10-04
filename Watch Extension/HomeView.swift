@@ -8,8 +8,6 @@ import SwiftUI
    behaves well from a UI standpoint when using the watch
  - App icon
  - Think about subscriptions or IAP for this
- - Allow stopping current feeding
- - Allow pausing current feeding
  - Load all feedings when starting up?
  - Make sure iPhone is available and logged in
  */
@@ -20,10 +18,11 @@ struct HomeView: View {
     var body: some View {
         // TODO: think more about the layout of these two
         VStack {
-            List(store.value.activeFeedings, id: \.self) { _ in
+            List(store.value.activeFeedings) { feeding in
                 // TODO: setup timer for real
-                Text("00:00:00")
+                FeedingView(store: self.store, feeding: feeding)
             }
+
             // TODO: better style this
             Image(systemName: "xmark.circle.fill")
                 .font(.system(size: 55))

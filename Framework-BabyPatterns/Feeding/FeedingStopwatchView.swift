@@ -101,22 +101,12 @@ public final class FeedingStopwatchView: UIView {
         guard timerLabel.isRunning else {
             preconditionFailure("Cannot stop timer that is not running")
         }
-
         guard _sideInProgress != .none else {
             preconditionFailure("No side in progress to stop")
         }
 
-        var control: FeedingControl!
-        if leftFeedingControl.isActive && _sideInProgress == .left {
-            control = leftFeedingControl
-        } else if rightFeedingControl.isActive && _sideInProgress == .right {
-            control = rightFeedingControl
-        } else {
-            assertionFailure("Failed to end feeding")
-        }
-        reset(control: control)
+        reset(lastFeedingSide: _sideInProgress)
         onEnd?(_feedingType, _sideInProgress)
-        lastFeedingSide = _sideInProgress
         _sideInProgress = .none
     }
 
@@ -173,9 +163,11 @@ public final class FeedingStopwatchView: UIView {
         control.setTitle("Pause", for: .normal)
     }
 
-    private func reset(control: FeedingControl) {
-        control.isActive = false
+    func reset(lastFeedingSide: FeedingSide) {
+        leftFeedingControl.isActive = false
+        rightFeedingControl.isActive = false
         stopButton.isDisabled = true
         timerLabel.end()
+        self.lastFeedingSide = lastFeedingSide
     }
 }

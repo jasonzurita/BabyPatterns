@@ -8,6 +8,8 @@ extension FeedingsVM {
                         startDate: Date = Date(),
                         supplyAmount: SupplyAmount = SupplyAmount.zero) {
         // FIXME: I dislike that you can start a feeding of type none...
+        // FIXME: there is a bug here in that after there is more than one feeding this
+        // will always let you start another
         guard feedingInProgress(type: type) == nil else {
             log("Already a feeding started of this type...", object: self, type: .warning)
             return
@@ -82,7 +84,7 @@ extension FeedingsVM {
 
     func feedingInProgress(type: FeedingType) -> Feeding? {
         let f = feedings.filter { $0.type == type && !$0.isFinished }
-        guard f.count > 0 else { return nil }
+        guard f.isEmpty else { return nil }
         guard f.count == 1, let feeding = f.first else {
             log("More than one in-progress feeding of the same type...", object: self, type: .warning)
             return nil
