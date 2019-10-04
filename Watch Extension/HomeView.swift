@@ -3,11 +3,13 @@ import SwiftUI
 /*
  TODO: - V1 Watch
  - Polish UI
+ - Get pause to actually pause
  - Make sure a backgrounded/terminated main app
    behaves well from a UI standpoint when using the watch
  - Think about subscriptions or IAP for this
  - Load all feedings when starting up?
  - Make sure iPhone is available and logged in
+ - What to do with bottle feeding?
  */
 
 struct HomeView: View {

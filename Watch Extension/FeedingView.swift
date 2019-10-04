@@ -35,7 +35,8 @@ struct FeedingView: View {
                             .default(Text("Stop")) {
                                 self.store.send(.stop(self.feeding))
                             },
-                            // TODO: make this real
+                            // TODO: make this real, which can probably be accomplished
+                            // by having a pullback on the store's state mutation
                             .default(Text("Pause/Resume")) {
                                 self.store.send(.pause(self.feeding))
                             },
