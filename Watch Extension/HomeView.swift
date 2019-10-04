@@ -6,7 +6,6 @@ import SwiftUI
  - Make running feedings a live list
  - Make sure a backgrounded/terminated main app
    behaves well from a UI standpoint when using the watch
- - App icon
  - Think about subscriptions or IAP for this
  - Load all feedings when starting up?
  - Make sure iPhone is available and logged in
