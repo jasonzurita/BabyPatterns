@@ -8,6 +8,8 @@ private func isAdding(feeding type: FeedingType) -> Bool {
     }
 }
 
+// TODO: should we show all the start feeding options if there is already an
+// active feeding going for that type?
 struct FeedingOptionsView: View {
     @Binding var feedingIntent: FeedingType
     var body: some View {
