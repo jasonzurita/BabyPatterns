@@ -1,9 +1,11 @@
+import Common
 import Firebase
 import Framework_BabyPatterns
 import Library
 import UIKit
+import WatchConnectivity
 
-class DispatchVC: UIViewController, Loggable {
+final class DispatchVC: UIViewController, Loggable {
     let shouldPrintDebugLog = true
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -23,6 +25,18 @@ class DispatchVC: UIViewController, Loggable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
+         This Needs to be here becuase the sessions needs to be acivated before
+         trying to set the context.
+
+         TODO: this and the other watch communication code should be moved into
+         its own entity.
+         */
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            WCSession.default.activate()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -159,5 +173,44 @@ class DispatchVC: UIViewController, Loggable {
             didRequestProfile = false
             didRequestFeedings = false
         }
+    }
+}
+
+extension DispatchVC: WCSessionDelegate {
+    public func session(_: WCSession, activationDidCompleteWith _: WCSessionActivationState, error: Error?) {
+        print("Completed activation: \(error?.localizedDescription ?? "n/a error")")
+    }
+
+    public func sessionDidBecomeInactive(_: WCSession) {
+        print("session did become inactive")
+    }
+
+    public func sessionDidDeactivate(_: WCSession) {
+        print("session did deactivate")
+    }
+
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
+        let decoder = JSONDecoder()
+        guard let info = try? decoder.decode(WatchCommunication.self, from: messageData) else { return }
+
+        // TODO: look into if we can get rid of the `.none` case
+        guard info.feedingType != .none else { return }
+
+        // TODO: this needs to be a bit better
+        guard let vm = feedingsVM else { return }
+
+        switch info.action {
+        case .start:
+            vm.feedingStarted(type: info.feedingType, side: info.feedingSide)
+        case .stop:
+            vm.feedingEnded(type: info.feedingType, side: info.feedingSide)
+        case .pause:
+            guard let fip = vm.feedingInProgress(type: info.feedingType) else { return }
+            vm.updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: !fip.isPaused)
+        }
+
+        // FIXME: for some reason, the UI isn't updating as expected when killed
+        let center = NotificationCenter.default
+        center.post(name: K.Notifications.updateFeedingsUI, object: nil)
     }
 }
