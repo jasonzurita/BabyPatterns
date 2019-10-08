@@ -11,11 +11,19 @@ struct Feeding: Identifiable {
 }
 
 struct AppState {
+    enum SessionState {
+        case loggedIn
+        case loggedOut
+    }
+
     var activeFeedings: [Feeding] = []
     var timerPulseCount: Int = 0
+    var session: SessionState = .loggedOut
 }
 
 enum AppAction {
+    case loggedIn
+    case loggedOut
     case timerPulse
     case start(type: FeedingType, side: FeedingSide)
     case stop(Feeding)
@@ -25,6 +33,11 @@ enum AppAction {
 // TODO: see what can be DRY-ed up here
 func appReducer(value: inout AppState, action: AppAction) {
     switch action {
+    // TODO: can logged out and logged in be combined?
+    case .loggedIn:
+        value.session = .loggedIn
+    case .loggedOut:
+        value.session = .loggedOut
     case .timerPulse:
         value.timerPulseCount += 1
     case let .start(type, side):
@@ -36,6 +49,7 @@ func appReducer(value: inout AppState, action: AppAction) {
             // TODO: what do we do here?
             return
         }
+
         WCSession.default.sendMessageData(d, replyHandler: nil) { e in
             print("Error sending the message: \(e.localizedDescription)")
         }

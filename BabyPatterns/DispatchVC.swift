@@ -49,6 +49,13 @@ final class DispatchVC: UIViewController, Loggable {
             userLoggedIn(user: user)
         } else {
             presentSignup()
+
+            let context = ["loggedOut": "dummy"]
+            do {
+                try WCSession.default.updateApplicationContext(context)
+            } catch {
+                print("Error setting watch<>phone context: \(error)")
+            }
         }
     }
 
@@ -130,6 +137,7 @@ final class DispatchVC: UIViewController, Loggable {
         activityIndicator.stopAnimating()
     }
 
+    // TODO: rename this because naming is confusing with other `userLoggedIn` function
     private func userLoggedIn(user: User?) {
         if let user = user {
             log("User id: \(user.uid)", object: self, type: .info)
@@ -160,6 +168,9 @@ final class DispatchVC: UIViewController, Loggable {
     private func userLoggedIn() {
         if didRequestFeedings && didRequestProfile {
             performSegue(withIdentifier: K.Segues.LoggedIn, sender: nil)
+
+            let context = ["loggedIn": "dummy"]
+            try? WCSession.default.updateApplicationContext(context)
         }
     }
 
@@ -168,7 +179,6 @@ final class DispatchVC: UIViewController, Loggable {
             let vc = navigationVC.topViewController as? FeedingVC {
             vc.feedingsVM = feedingsVM
             vc.profileVM = profileVM
-            feedingsVM = nil
             profileVM = nil
             didRequestProfile = false
             didRequestFeedings = false

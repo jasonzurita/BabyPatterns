@@ -2,18 +2,11 @@ import WatchConnectivity
 import WatchKit
 
 final class ExtensionDelegate: NSObject, WKExtensionDelegate {
-    func applicationDidFinishLaunching() {
-        // Perform any final initialization of your application.
-        if WCSession.isSupported() {
-            let session = WCSession.default
-            session.delegate = self
-            session.activate()
-        }
-    }
+    func applicationDidFinishLaunching() {}
 
-    func applicationDidBecomeActive() { }
+    func applicationDidBecomeActive() {}
 
-    func applicationWillResignActive() { }
+    func applicationWillResignActive() {}
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
         for task in backgroundTasks {
@@ -43,11 +36,5 @@ final class ExtensionDelegate: NSObject, WKExtensionDelegate {
                 task.setTaskCompletedWithSnapshot(false)
             }
         }
-    }
-}
-
-extension ExtensionDelegate: WCSessionDelegate {
-    func session(_: WCSession, activationDidCompleteWith _: WCSessionActivationState, error: Error?) {
-        print("Completed activation: \(error?.localizedDescription ?? "n/a error")")
     }
 }
