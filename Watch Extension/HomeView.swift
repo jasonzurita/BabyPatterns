@@ -8,7 +8,7 @@ import SwiftUI
    behaves well from a UI standpoint when using the watch
  - Think about subscriptions or IAP for this
  - Load all feedings when starting up?
- - Make sure iPhone is available and logged in
+ - Make sure iPhone is available when sending messages
  - What to do with bottle feeding?
  */
 
@@ -17,35 +17,20 @@ struct HomeView: View {
         let s = Store(initialValue: AppState(), reducer: appReducer)
         TimerPulse.shared.store = s
         TimerPulse.shared.start()
+
+        SessionCoordinator.shared.store = s
+
         return s
     }()
 
-    @State private var isShowingSheet = false
     var body: some View {
-        // TODO: think more about the layout of these two
         VStack {
-            List(store.value.activeFeedings.reversed()) { feeding in
-                HStack {
-                    Spacer()
-                    FeedingView(store: self.store, feeding: feeding)
-                        .layoutPriority(1.0)
-                    Spacer()
-                }
+            if store.value.session == .loggedIn {
+                LoggedInHomeView(store: store)
+            } else {
+                LoggedOutHomeView()
             }
-
-            // TODO: better style this
-            Image(systemName: "xmark.circle.fill")
-                .font(.system(size: 55))
-                .rotationEffect(.init(degrees: 45))
-                .offset(y: -10)
-                .sheet(isPresented: $isShowingSheet) {
-                    AddFeedingView(store: self.store, isShowingSheet: self.$isShowingSheet)
-                }
-                .gesture(TapGesture().onEnded {
-                    self.isShowingSheet.toggle()
-                })
         }
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

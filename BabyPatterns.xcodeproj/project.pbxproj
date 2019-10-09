@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120478ED234BE53800302AFD /* SessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120478EC234BE53800302AFD /* SessionCoordinator.swift */; };
+		120478EF234BEBB600302AFD /* LoggedOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120478EE234BEBB600302AFD /* LoggedOutView.swift */; };
+		120478F1234BEC3400302AFD /* LoggedInHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120478F0234BEC3400302AFD /* LoggedInHomeView.swift */; };
 		120F801A1FBF0B7F00D04E45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9738DE1EE1FB6B00232DE8 /* Assets.xcassets */; };
 		120F80331FBF0E9500D04E45 /* Library.h in Headers */ = {isa = PBXBuildFile; fileRef = 120F80231FBF0E9500D04E45 /* Library.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		120F80361FBF0E9500D04E45 /* Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120F80211FBF0E9500D04E45 /* Library.framework */; };
@@ -200,6 +203,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		120478EC234BE53800302AFD /* SessionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCoordinator.swift; sourceTree = "<group>"; };
+		120478EE234BEBB600302AFD /* LoggedOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutView.swift; sourceTree = "<group>"; };
+		120478F0234BEC3400302AFD /* LoggedInHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInHomeView.swift; sourceTree = "<group>"; };
 		120F80211FBF0E9500D04E45 /* Library.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Library.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		120F80231FBF0E9500D04E45 /* Library.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Library.h; sourceTree = "<group>"; };
 		120F80241FBF0E9500D04E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -405,12 +411,15 @@
 		1263ADF223393A9300142056 /* Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1263ADF723393A9300142056 /* ExtensionDelegate.swift */,
 				12E38A3F2343CEB500940F07 /* Store.swift */,
 				12E38A3E2343CEB500940F07 /* AppState.swift */,
 				12D0AF4A2347670A00725A56 /* TimerPulse.swift */,
-				1263ADF723393A9300142056 /* ExtensionDelegate.swift */,
+				120478EC234BE53800302AFD /* SessionCoordinator.swift */,
 				1263ADF523393A9300142056 /* HostingController.swift */,
 				12F3EC28233D6BFB0051D52B /* HomeView.swift */,
+				120478EE234BEBB600302AFD /* LoggedOutView.swift */,
+				120478F0234BEC3400302AFD /* LoggedInHomeView.swift */,
 				1221F04D2344C9CC00E516D5 /* FeedingView.swift */,
 				1263ADF323393A9300142056 /* AddFeedingView.swift */,
 				1263ADF923393A9400142056 /* Assets.xcassets */,
@@ -1165,12 +1174,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1263ADF623393A9300142056 /* HostingController.swift in Sources */,
+				120478ED234BE53800302AFD /* SessionCoordinator.swift in Sources */,
 				12E38A402343CEB500940F07 /* AppState.swift in Sources */,
 				1221F04E2344C9CC00E516D5 /* FeedingView.swift in Sources */,
 				12F3EC29233D6BFB0051D52B /* HomeView.swift in Sources */,
 				12E38A412343CEB500940F07 /* Store.swift in Sources */,
 				12D0AF4B2347670A00725A56 /* TimerPulse.swift in Sources */,
+				120478EF234BEBB600302AFD /* LoggedOutView.swift in Sources */,
 				1263ADF423393A9300142056 /* AddFeedingView.swift in Sources */,
+				120478F1234BEC3400302AFD /* LoggedInHomeView.swift in Sources */,
 				1263ADF823393A9300142056 /* ExtensionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
