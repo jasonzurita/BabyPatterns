@@ -8,7 +8,6 @@ import SwiftUI
    behaves well from a UI standpoint when using the watch
  - Think about subscriptions or IAP for this
  - Load all feedings when starting up?
- - Make sure iPhone is available when sending messages
  - What to do with bottle feeding?
  */
 
