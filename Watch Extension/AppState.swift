@@ -33,6 +33,7 @@ enum AppAction {
 }
 
 // TODO: see what can be DRY-ed up here
+// swiftlint:disable function_body_length
 func appReducer(value: inout AppState, action: AppAction) {
     switch action {
     // TODO: can logged out and logged in be combined?
@@ -98,3 +99,4 @@ func appReducer(value: inout AppState, action: AppAction) {
         }
     }
 }
+// swiftlint:enable function_body_length
