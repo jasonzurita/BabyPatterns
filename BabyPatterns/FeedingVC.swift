@@ -223,6 +223,10 @@ extension FeedingVC: FeedingController {
     func resume(feeding type: FeedingType, side: FeedingSide) {
         feedingsVM?.updateFeedingInProgress(type: type, side: side, isPaused: false)
     }
+
+    func feedingInProgress(type: FeedingType) -> Feeding? {
+        feedingsVM?.feedingInProgress(type: type)
+    }
 }
 
 extension FeedingVC: PumpingActionProtocol {

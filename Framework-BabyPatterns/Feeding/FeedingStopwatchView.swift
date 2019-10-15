@@ -27,6 +27,8 @@ public final class FeedingStopwatchView: UIView {
         }
     }
 
+    var feedingInProgress: ((FeedingType) -> Feeding?)?
+
     private let _feedingType: FeedingType
     private var _sideInProgress: FeedingSide = .none
 

@@ -42,6 +42,7 @@ public final class PumpingVC: UIViewController {
         _stopwatch.onPause = controller.pause(feeeding:side:)
         _stopwatch.onResume = controller.resume(feeding:side:)
         _stopwatch.lastFeedingSide = controller.lastFeedingSide(type: .pumping)
+        _stopwatch.feedingInProgress = controller.feedingInProgress
     }
 
     public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
