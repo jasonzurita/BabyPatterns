@@ -23,7 +23,7 @@ struct LoggedInHomeView: View {
 
                 // TODO: better style this
                 Image(systemName: "xmark.circle.fill")
-                    .font(.system(size: 55))
+                    .font(.system(size: 50))
                     .rotationEffect(.init(degrees: 45))
                     .offset(y: -10)
                     .sheet(isPresented: $isShowingSheet) {

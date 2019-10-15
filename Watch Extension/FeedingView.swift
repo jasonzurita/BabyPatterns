@@ -18,7 +18,7 @@ struct FeedingView: View {
         VStack(alignment: .center) {
             if store.value.timerPulseCount >= 0 {
                 Text("\(timerString(from: feeding.start))")
-                    .font(.title)
+                    .font(.system(size: 32, weight: .semibold))
             }
             HStack(alignment: .center) {
                 Text("\(feeding.type.rawValue)")
