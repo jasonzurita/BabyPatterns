@@ -3,9 +3,22 @@ import Library
 import XCTest
 
 final class TimerLabelTests: XCTestCase {
+    final class MockSource: TimerSource {
+        var forcedDuration: TimeInterval = 0
+        var isPaused: Bool = false
+        func duration() -> TimeInterval {
+            forcedDuration
+        }
+    }
+
     private weak var timer: Timer!
+    private var mockActiveSource: (() -> TimerSource?)?
+    private var mockSource: MockSource!
 
     override func setUp() {
+        mockSource = MockSource()
+        mockActiveSource = { self.mockSource }
+
         let mockScheduled = { [weak self] (_: TimeInterval, _: Bool, block: @escaping (Timer) -> Void) -> Timer in
             /*
              This time interval is okay since we will be manually firing the timer,
@@ -26,7 +39,18 @@ final class TimerLabelTests: XCTestCase {
 
     func testTimerStartAtZero() {
         let timerLabel = TimerLabel(frame: .zero)
-        timerLabel.start(at: 0)
+        guard let timerText = timerLabel.text else {
+            XCTFail("No timer text label to check")
+            return
+        }
+        XCTAssertEqual(timerText, "00:00:00")
+    }
+
+    func testTimerStartAtZeroWithActiveSource() {
+        let timerLabel = TimerLabel(frame: .zero)
+        timerLabel.activeSource = mockActiveSource
+        mockSource.forcedDuration = 0
+        timer.fire()
         guard let timerText = timerLabel.text else {
             XCTFail("No timer text label to check")
             return
@@ -36,7 +60,9 @@ final class TimerLabelTests: XCTestCase {
 
     func testChangeDisplayTime() {
         let timerLabel = TimerLabel(frame: .zero)
-        timerLabel.changeDisplayTime(time: 11111)
+        timerLabel.activeSource = mockActiveSource
+        mockSource.forcedDuration = 11111
+        timerLabel.refresh()
         guard let timerText = timerLabel.text else {
             XCTFail("No timer text label to check")
             return
@@ -44,40 +70,21 @@ final class TimerLabelTests: XCTestCase {
         XCTAssertEqual(timerText, "03:05:11")
     }
 
-    func testTimerRunning() {
+    func testTimerNotPaused() {
         let timerLabel = TimerLabel(frame: .zero)
-        timerLabel.start(at: 0)
-        // simulating 5 seconds
-        (1 ... 5).forEach { _ in
-            timer.fire()
-        }
-        guard let timerText = timerLabel.text else {
-            XCTFail("No timer text label to check")
-            return
-        }
-        XCTAssertEqual(timerText, "00:00:05")
+        timerLabel.activeSource = mockActiveSource
+        mockSource.isPaused = false
+        timer.fire()
+
+        XCTAssertNil(timerLabel.layer.animationKeys())
     }
 
-    func testPauseTimer() {
+    func testTimerPaused() {
         let timerLabel = TimerLabel(frame: .zero)
-        timerLabel.start(at: 0)
-        timerLabel.pause()
-        // simulating 5 seconds
-        (1 ... 10).forEach { _ in
-            timer.fire()
-        }
-        /*
-         This sleep is used to expose the bug by making the start reference time
-         out of sync with the counter. 5 seconds is okay since it is a relatively
-         small compared to the full CI set of tasks.
-         */
-        sleep(5)
-        timerLabel.resume()
+        timerLabel.activeSource = mockActiveSource
+        mockSource.isPaused = true
         timer.fire()
-        guard let timerText = timerLabel.text else {
-            XCTFail("No timer text label to check")
-            return
-        }
-        XCTAssertEqual(timerText, "00:00:01")
+
+        XCTAssertNotNil(timerLabel.layer.animationKeys())
     }
 }

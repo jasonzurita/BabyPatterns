@@ -57,10 +57,7 @@ public final class PumpingVC: UIViewController {
             _stopwatch.reset(lastFeedingSide: feeding.side)
             return
         }
-        _stopwatch.startFeeding(at: feeding.duration(), on: feeding.side)
-        if feeding.isPaused {
-            _stopwatch.pause()
-        }
+        _stopwatch.updateUIForInProgressFeeding(on: feeding.side)
     }
 
     @IBAction func saveButtonPressed(_: UIButton) {
