@@ -7,6 +7,7 @@ public protocol FeedingController {
     func pause(feeeding type: FeedingType, side: FeedingSide)
     func resume(feeding type: FeedingType, side: FeedingSide)
     func lastFeedingSide(type: FeedingType) -> FeedingSide
+    func feedingInProgress(type: FeedingType) -> Feeding?
 }
 
 // TODO: consider combining this vc and the feedingStopwatchView
@@ -20,6 +21,7 @@ public final class NursingVC: UIViewController {
         _stopwatch.onPause = controller.pause(feeeding:side:)
         _stopwatch.onResume = controller.resume(feeding:side:)
         _stopwatch.lastFeedingSide = controller.lastFeedingSide(type: .nursing)
+        _stopwatch.feedingInProgress = controller.feedingInProgress
     }
 
     public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
@@ -43,9 +45,6 @@ public final class NursingVC: UIViewController {
             _stopwatch.reset(lastFeedingSide: feeding.side)
             return
         }
-        _stopwatch.startFeeding(at: feeding.duration(), on: feeding.side)
-        if feeding.isPaused {
-            _stopwatch.pause()
-        }
+        _stopwatch.updateUIForInProgressFeeding(on: feeding.side)
     }
 }

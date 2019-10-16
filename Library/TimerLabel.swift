@@ -1,66 +1,51 @@
 import Common
 import UIKit
 
+public protocol TimerSource {
+    func duration() -> TimeInterval
+    var isPaused: Bool { get }
+}
+
 public final class TimerLabel: UILabel {
-    public typealias Seconds = Int
-    private let countingInterval: Double = 1
+    private let countingInterval: TimeInterval = 1
     private var _timer: Timer?
-    public var isPaused = false
-    public var isRunning = false
-    private var referenceDate = Date()
+    public var activeSource: (() -> TimerSource?)?
 
-    private var counter: Seconds = 0 {
-        didSet {
-            // TODO: abstract this and put under test?
-            let hours = TimeInterval(counter).stringFromSecondsToHours(zeroPadding: true)
-            let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: true)
-            let seconds = minutes.remainder.stringFromSecondsToSeconds(zeroPadding: true)
-
-            text = hours.string + ":" + minutes.string + ":" + seconds.string
-        }
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        start()
+    }
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        start()
     }
 
-    public func changeDisplayTime(time: Seconds) {
-        guard !isRunning else {
-            preconditionFailure("Timer wasn't stopped before trying to change time")
-        }
-        counter = time
-    }
-
-    public func start(at startTime: Seconds) {
-        guard _timer == nil else { return }
-        isRunning = true
-
-        counter = startTime
-        referenceDate = Date(timeIntervalSinceNow: -TimeInterval(startTime))
+    private func start() {
+        refresh()
 
         _timer = Current.scheduledTimer(countingInterval, true) { [weak self] _ in
             // TODO: change all the `strongSelf` to `self` (in current Swift, `self` is now supported)
             guard let strongSelf = self else { return }
-            guard !strongSelf.isPaused else {
-                strongSelf.pulseAnimationIfNotPulsing()
-                return
-            }
-            strongSelf.counter += 1
-            // TODO: improve logging, so this isn't in production
-            print("counter: \(strongSelf.counter)")
+            strongSelf.refresh()
         }
     }
 
-    public func end() {
-        guard let t = _timer else { return }
-        isRunning = false
-        isPaused = false
-        clearPauseAnimation()
-        t.invalidate()
-        _timer = nil
-        changeDisplayTime(time: 0)
-    }
+    public func refresh() {
+        let source = activeSource?()
+        if source?.isPaused ?? false {
+            pulseAnimationIfNotPulsing()
+        } else {
+            layer.removeAllAnimations()
+        }
 
-    public func pause() {
-        guard _timer != nil else { return }
-        isPaused = true
-        pulseAnimationIfNotPulsing()
+        let duration = source?.duration() ?? 0
+
+        // TODO: abstract this and put under test?
+        let hours = duration.stringFromSecondsToHours(zeroPadding: true)
+        let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: true)
+        let seconds = minutes.remainder.stringFromSecondsToSeconds(zeroPadding: true)
+
+        text = hours.string + ":" + minutes.string + ":" + seconds.string
     }
 
     private func pulseAnimationIfNotPulsing() {
@@ -74,16 +59,6 @@ public final class TimerLabel: UILabel {
                            guard let strongSelf = self else { return }
                            strongSelf.alpha = 1.0
         })
-    }
-
-    public func resume() {
-        guard _timer != nil else { return }
-        isPaused = false
-        clearPauseAnimation()
-    }
-
-    private func clearPauseAnimation() {
-        layer.removeAllAnimations()
     }
 
     deinit {
