@@ -87,6 +87,11 @@ final class FeedingVC: UIViewController {
                 }
             }
         }
+
+        center.addObserver(self,
+                           selector: #selector(showFeedingSavedToast),
+                           name: K.Notifications.showSavedToast,
+                           object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -172,7 +177,7 @@ final class FeedingVC: UIViewController {
 
     @IBAction func unwindToFeedingVC(segue _: UIStoryboardSegue) {}
 
-    fileprivate func showFeedingSavedToast() {
+    @objc fileprivate func showFeedingSavedToast() {
         let toastSize: CGFloat = 150
         let frame = CGRect(x: view.frame.width * 0.5 - (toastSize * 0.5),
                            y: view.frame.height * 0.5 - (toastSize * 0.5),
