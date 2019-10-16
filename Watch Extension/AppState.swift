@@ -59,6 +59,7 @@ func appReducer(value: inout AppState, action: AppAction) {
         WCSession.default.sendMessageData(d, replyHandler: nil) { error in
             // TODO: should gracefully handle a failure here
             print("Error sending the message: \(error.localizedDescription)")
+            assertionFailure()
         }
         // TODO: this should really be placed in the success block
         // from the communication above, but mutating the value in an
@@ -78,6 +79,7 @@ func appReducer(value: inout AppState, action: AppAction) {
         WCSession.default.sendMessageData(d, replyHandler: nil) { error in
             // TODO: should gracefully handle a failure here
             print("Error sending the message: \(error.localizedDescription)")
+            assertionFailure()
         }
         // TODO: this should really be placed in the success block
         // from the communication above, but mutating the value in an
@@ -96,6 +98,7 @@ func appReducer(value: inout AppState, action: AppAction) {
         WCSession.default.sendMessageData(d, replyHandler: nil) { error in
             // TODO: should gracefully handle a failure here
             print("Error sending the message: \(error.localizedDescription)")
+            assertionFailure()
         }
     }
 }
