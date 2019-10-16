@@ -213,6 +213,7 @@ extension DispatchVC: WCSessionDelegate {
         case .start:
             vm.feedingStarted(type: info.feedingType, side: info.feedingSide)
         case .stop:
+            // TODO: this doesn't trigger the saved toast :(
             vm.feedingEnded(type: info.feedingType, side: info.feedingSide)
         case .pause:
             guard let fip = vm.feedingInProgress(type: info.feedingType) else { return }
