@@ -20,7 +20,7 @@
 		120F80431FBF125A00D04E45 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430F017A1E2D0A4200FE02FC /* UIViewExtensions.swift */; };
 		120F80441FBF125D00D04E45 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43714F191E60F1E20055B411 /* StringExtensions.swift */; };
 		120F80451FBF126000D04E45 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E92D2C1E68D9AC008CE31E /* UIImageViewExtensions.swift */; };
-		120F80461FBF126500D04E45 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C491E041E5300056F83 /* Toast.swift */; };
+		120F80461FBF126500D04E45 /* FyiDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C491E041E5300056F83 /* FyiDialog.swift */; };
 		120F80471FBF126800D04E45 /* CircleToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */; };
 		120F80481FBF126B00D04E45 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */; };
 		120F804B1FBF127700D04E45 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433AF9251E40CC8A00AD654C /* Circle.swift */; };
@@ -294,7 +294,7 @@
 		43932C401E01FEB400056F83 /* FeedingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedingControl.swift; path = ../../BabyPatterns/FeedingControl.swift; sourceTree = "<group>"; };
 		43932C431E034E6400056F83 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		43932C471E03594F00056F83 /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
-		43932C491E041E5300056F83 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		43932C491E041E5300056F83 /* FyiDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FyiDialog.swift; sourceTree = "<group>"; };
 		43A1C8F91DFDA906008C5C2F /* SegmentedControlBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlBar.xib; sourceTree = "<group>"; };
 		43A1C8FB1DFDFEA5008C5C2F /* FeedingPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingPageVC.swift; sourceTree = "<group>"; };
 		43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottleVC.swift; path = ../../BottleVC.swift; sourceTree = "<group>"; };
@@ -660,7 +660,7 @@
 		43932C3F1E01FE7D00056F83 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				43932C491E041E5300056F83 /* Toast.swift */,
+				43932C491E041E5300056F83 /* FyiDialog.swift */,
 				43A1C90A1E01ACB4008C5C2F /* CircleToggleButton.swift */,
 				43A1C90C1E01CB9E008C5C2F /* TimerLabel.swift */,
 				123D4F90233691EB00F164E5 /* TimerLabelTests.swift */,
@@ -1119,7 +1119,7 @@
 				120F80481FBF126B00D04E45 /* TimerLabel.swift in Sources */,
 				120F80471FBF126800D04E45 /* CircleToggleButton.swift in Sources */,
 				120F80451FBF126000D04E45 /* UIImageViewExtensions.swift in Sources */,
-				120F80461FBF126500D04E45 /* Toast.swift in Sources */,
+				120F80461FBF126500D04E45 /* FyiDialog.swift in Sources */,
 				120F80441FBF125D00D04E45 /* StringExtensions.swift in Sources */,
 				120F804B1FBF127700D04E45 /* Circle.swift in Sources */,
 				120F804C1FBF127A00D04E45 /* ShakeTextField.swift in Sources */,

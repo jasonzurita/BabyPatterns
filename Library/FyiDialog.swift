@@ -1,7 +1,7 @@
 import UIKit
 
-public final class Toast: UILabel {
-    var title = "toast label"
+public final class FyiDialog: UILabel {
+    var title = "Fyi Dialog label"
 
     public convenience init(frame: CGRect, text: String) {
         self.init(frame: frame)
@@ -10,15 +10,15 @@ public final class Toast: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupToast()
+        setupDialog()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupToast()
+        setupDialog()
     }
 
-    private func setupToast() {
+    private func setupDialog() {
         textAlignment = .center
         textColor = UIColor.white
         font = UIFont(name: "Helvetica", size: 32)

@@ -96,7 +96,7 @@ let styleLabelTimer =
             $0.textAlignment = .center
 }
 
-public let styleLabelToast: (UILabel) -> Void =
+public let styleLabelFyiDialog: (UILabel) -> Void =
     styleLabelFont(.notoSansBold(ofSize: 32))
         <> styleLabelColor(.bpWhite)
         <> styleViewBackground(color: .bpMediumGray)

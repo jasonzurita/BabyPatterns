@@ -216,7 +216,7 @@ extension DispatchVC: WCSessionDelegate {
             guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
             vm.feedingEnded(type: info.feedingType, side: info.feedingSide)
             DispatchQueue.main.async {
-                NotificationCenter.default.post(name: K.Notifications.showSavedToast, object: nil)
+                NotificationCenter.default.post(name: K.Notifications.showSavedFyiDialog, object: nil)
             }
         case .pause:
             guard let fip = vm.feedingInProgress(type: info.feedingType) else { return }
