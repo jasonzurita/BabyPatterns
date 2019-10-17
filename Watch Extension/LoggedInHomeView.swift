@@ -59,6 +59,10 @@ struct LoggedInHomeView: View {
             .gesture(TapGesture().onEnded {
                 self.store.send(.clearFailedCommunication)
             })
+
+            if store.value.showSavedFyiDialog {
+                FyiDialog(store: store, screenWidthPercent: 0.5)
+            }
         }
     }
 }

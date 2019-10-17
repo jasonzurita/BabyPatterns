@@ -20,6 +20,13 @@ struct AppState {
     var timerPulseCount: Int = 0
     var session: SessionState = .loggedOut
     var didCommunicationFail = false
+    /*
+     TODO: think about this some more.
+     I am not too sure how much I like this.
+     It is a bit of a weird side effect, but for now
+     it gets the job done.
+     */
+    var showSavedFyiDialog = false
 }
 
 enum AppAction {
@@ -27,6 +34,7 @@ enum AppAction {
     case loggedOut
     case timerPulse
     case clearFailedCommunication
+    case hideSavedFyiDialog
     case start(type: FeedingType, side: FeedingSide)
     case stop(Feeding)
     case pause(Feeding)
@@ -45,6 +53,8 @@ func appReducer(value: inout AppState, action: AppAction) {
         value.timerPulseCount += 1
     case .clearFailedCommunication:
         value.didCommunicationFail = false
+    case .hideSavedFyiDialog:
+        value.showSavedFyiDialog = false
     case let .start(type, side):
         let info = WatchCommunication(type: type,
                                       side: side,
@@ -85,6 +95,7 @@ func appReducer(value: inout AppState, action: AppAction) {
         // from the communication above, but mutating the value in an
         // escaping block needs to be worked out. Can we send from the block?
         value.activeFeedings.removeAll { $0.id == feeding.id }
+        value.showSavedFyiDialog = true
     case let .pause(feeding):
         let info = WatchCommunication(type: feeding.type,
                                       side: feeding.side,
