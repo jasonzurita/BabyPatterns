@@ -20,26 +20,20 @@ struct FeedingOptionsView: View {
                 Image(systemName: "n.circle.fill")
                     .font(.system(size: 55))
                     .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
+                    .blur(radius: isAdding(feeding: feedingIntent) ? 1.0 : 0)
+                    .opacity(isAdding(feeding: feedingIntent) ? 0.5 : 1.0)
                     .gesture(TapGesture().onEnded {
                         withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .nursing }
                     })
                 Spacer()
+                Spacer()
                 Image(systemName: "p.circle.fill")
                     .font(.system(size: 55))
                     .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
+                    .opacity(isAdding(feeding: feedingIntent) ? 0.5 : 1.0)
+                    .blur(radius: isAdding(feeding: feedingIntent) ? 1.0 : 0)
                     .gesture(TapGesture().onEnded {
                         withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .pumping }
-                    })
-                Spacer()
-            }
-            Spacer()
-            HStack {
-                Spacer()
-                Image(systemName: "b.circle.fill")
-                    .font(.system(size: 55))
-                    .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
-                    .gesture(TapGesture().onEnded {
-                        withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .bottle }
                     })
                 Spacer()
             }
