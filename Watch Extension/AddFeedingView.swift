@@ -12,6 +12,13 @@ private func isAdding(feeding type: FeedingType) -> Bool {
 // active feeding going for that type?
 struct FeedingOptionsView: View {
     @Binding var feedingIntent: FeedingType
+    let activeFeedingTypes: [FeedingType]
+
+    private func opacity(for type: FeedingType) -> Double {
+        isAdding(feeding: feedingIntent) || activeFeedingTypes.contains(type)
+            ? 0.5 : 1.0
+    }
+
     var body: some View {
         VStack {
             Spacer()
@@ -21,7 +28,8 @@ struct FeedingOptionsView: View {
                     .font(.system(size: 55))
                     .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
                     .blur(radius: isAdding(feeding: feedingIntent) ? 1.0 : 0)
-                    .opacity(isAdding(feeding: feedingIntent) ? 0.5 : 1.0)
+                    .opacity(opacity(for: .nursing))
+                    .disabled(activeFeedingTypes.contains(.nursing))
                     .gesture(TapGesture().onEnded {
                         withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .nursing }
                     })
@@ -30,8 +38,9 @@ struct FeedingOptionsView: View {
                 Image(systemName: "p.circle.fill")
                     .font(.system(size: 55))
                     .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
-                    .opacity(isAdding(feeding: feedingIntent) ? 0.5 : 1.0)
+                    .opacity(opacity(for: .pumping))
                     .blur(radius: isAdding(feeding: feedingIntent) ? 1.0 : 0)
+                    .disabled(activeFeedingTypes.contains(.pumping))
                     .gesture(TapGesture().onEnded {
                         withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .pumping }
                     })
@@ -44,13 +53,16 @@ struct FeedingOptionsView: View {
 
 struct AddFeedingView: View {
     @ObservedObject var store: Store<AppState, AppAction>
-
     @Binding var isShowingSheet: Bool
     @State private var feedingIntent: FeedingType = .none
 
     var body: some View {
         ZStack {
-            FeedingOptionsView(feedingIntent: $feedingIntent)
+            // Keep an eye on the below `activeFeedingTypes`. I am not sure if changes to the
+            // store will reflect in the below view since we are just passing an array in and
+            // not some kind of binding
+            FeedingOptionsView(feedingIntent: $feedingIntent,
+                               activeFeedingTypes: store.value.activeFeedings.map { $0.type })
             GeometryReader { metrics in
                 ZStack {
                     Rectangle()
