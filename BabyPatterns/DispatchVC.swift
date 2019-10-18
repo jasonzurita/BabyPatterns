@@ -219,8 +219,11 @@ extension DispatchVC: WCSessionDelegate {
                 NotificationCenter.default.post(name: K.Notifications.showSavedFyiDialog, object: nil)
             }
         case .pause:
-            guard let fip = vm.feedingInProgress(type: info.feedingType) else { return }
-            vm.updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: !fip.isPaused)
+            guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
+            vm.updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: true)
+        case .resume:
+            guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
+            vm.updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: false)
         }
 
         // FIXME: for some reason, the UI isn't updating as expected when killed

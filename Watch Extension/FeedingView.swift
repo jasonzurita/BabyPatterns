@@ -5,21 +5,30 @@ struct FeedingView: View {
     @State var isShowingActionSheet = false
     let feeding: Feeding
 
-    private func timerString(from date: Date) -> String {
-        let timeInterval = abs(date.timeIntervalSinceNow)
-        let hours = TimeInterval(timeInterval).stringFromSecondsToHours(zeroPadding: true)
+    private func timerString(from seconds: TimeInterval) -> String {
+        let hours = seconds.stringFromSecondsToHours(zeroPadding: true)
         let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: true)
         let seconds = minutes.remainder.stringFromSecondsToSeconds(zeroPadding: true)
 
         return hours.string + ":" + minutes.string + ":" + seconds.string
     }
 
+    private func actionSheetButton(_ fip: Feeding) -> Alert.Button {
+        if fip.isPaused {
+            return .default(Text("Resume")) {
+                self.store.send(.resume(fip))
+            }
+        } else {
+            return .default(Text("Pause")) {
+                self.store.send(.pause(fip))
+            }
+        }
+    }
+
     var body: some View {
         VStack(alignment: .center) {
-            if store.value.timerPulseCount >= 0 {
-                Text("\(timerString(from: feeding.start))")
-                    .font(.system(size: 32, weight: .semibold))
-            }
+            Text(feeding.isPaused ? "PAUSED" : "\(timerString(from: feeding.duration()))")
+                .font(.system(size: 32, weight: .semibold))
             HStack(alignment: .center) {
                 Text("\(feeding.type.rawValue)")
                     .font(.caption)
@@ -35,11 +44,7 @@ struct FeedingView: View {
                             .default(Text("Stop")) {
                                 self.store.send(.stop(self.feeding))
                             },
-                            // TODO: make this real, which can probably be accomplished
-                            // by having a pullback on the store's state mutation
-                            .default(Text("Pause/Resume")) {
-                                self.store.send(.pause(self.feeding))
-                            },
+                            actionSheetButton(self.feeding),
                         ])
         }
         .gesture(TapGesture().onEnded {

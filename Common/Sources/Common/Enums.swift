@@ -8,7 +8,7 @@ public enum FeedingType: String, Codable {
 }
 
 public enum FeedingAction: Int, Codable {
-    case start, stop, pause
+    case start, stop, pause, resume
 }
 
 // TODO: decide on the below enums
