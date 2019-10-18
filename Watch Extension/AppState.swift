@@ -33,21 +33,56 @@ enum AppAction {
     case resume(Feeding)
 }
 
-// TODO: see what can be DRY-ed up here
-// swiftlint:disable function_body_length
-func appReducer(value: inout AppState, action: AppAction) {
+let appReducer = combine(
+    accountStatusReducer,
+    pulseReducer,
+    communicationReducer,
+    savedFyiDialogReducer,
+    feedingReducer
+)
+
+func accountStatusReducer(value: inout AppState, action: AppAction) {
     switch action {
     // TODO: can logged out and logged in be combined?
     case .loggedIn:
         value.session = .loggedIn
     case .loggedOut:
         value.session = .loggedOut
+    default:
+        break
+    }
+}
+
+func pulseReducer(value: inout AppState, action: AppAction) {
+    switch action {
     case .timerPulse:
         value.timerPulseCount += 1
+    default:
+        break
+    }
+}
+
+func communicationReducer(value: inout AppState, action: AppAction) {
+    switch action {
     case .clearFailedCommunication:
         value.didCommunicationFail = false
+    default:
+        break
+    }
+}
+
+func savedFyiDialogReducer(value: inout AppState, action: AppAction) {
+    switch action {
     case .hideSavedFyiDialog:
         value.showSavedFyiDialog = false
+    default:
+        break
+    }
+}
+
+// TODO: see what can be DRY-ed up here
+func feedingReducer(value: inout AppState, action: AppAction) {
+    switch action {
     case let .start(type, side):
         let info = WatchCommunication(type: type,
                                       side: side,
@@ -132,11 +167,12 @@ func appReducer(value: inout AppState, action: AppAction) {
         // escaping block needs to be worked out. Can we send from the block?
         guard let i = value.activeFeedings.firstIndex(where: { $0.type == feeding.type }),
             let lpd = value.activeFeedings[i].lastPausedDate else {
-                value.didCommunicationFail = true
-                return
+            value.didCommunicationFail = true
+            return
         }
         value.activeFeedings[i].pausedTime += abs(lpd.timeIntervalSinceNow)
         value.activeFeedings[i].lastPausedDate = nil
+    default:
+        break
     }
 }
-// swiftlint:enable function_body_length
