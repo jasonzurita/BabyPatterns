@@ -22,19 +22,19 @@ final class Button: UIButton {
 
 let vc = UIViewController()
 let button = Button()
-button.setTitle("Toast", for: .normal)
+button.setTitle("Show Fyi Dialog", for: .normal)
 vc.view.addSubview(button)
 button.bindFrameToSuperviewBounds()
 
 button.onTap = {
-    let toastSize: CGFloat = 150
-    let frame = CGRect(x: vc.view.frame.width * 0.5 - (toastSize * 0.5),
-                       y: vc.view.frame.height * 0.5 - (toastSize * 0.5),
-                       width: toastSize,
-                       height: toastSize)
-    let toast = Toast(frame: frame, text: "Saved!")
-    styleLabelToast(toast)
-    toast.present(in: vc.view)
+    let dialogSize: CGFloat = 150
+    let frame = CGRect(x: vc.view.frame.width * 0.5 - (dialogSize * 0.5),
+                       y: vc.view.frame.height * 0.5 - (dialogSize * 0.5),
+                       width: dialogSize,
+                       height: dialogSize)
+    let fyi = FyiDialog(frame: frame, text: "Saved!")
+    styleLabelFyiDialog(fyi)
+    fyi.present(in: vc.view)
 }
 
 let parent = playgroundWrapper(child: vc,

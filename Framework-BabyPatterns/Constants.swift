@@ -53,5 +53,7 @@ public struct K {
 
     public struct Notifications {
         public static let updateFeedingsUI = NSNotification.Name("com.flippingleaf.notifications.update-feedings-ui")
+        public static let showSavedFyiDialog = NSNotification.Name("com.flippingleaf.notifications.show-saved-fyi-dialog")
+
     }
 }

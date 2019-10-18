@@ -213,8 +213,11 @@ extension DispatchVC: WCSessionDelegate {
         case .start:
             vm.feedingStarted(type: info.feedingType, side: info.feedingSide)
         case .stop:
-            // TODO: this doesn't trigger the saved toast :(
+            guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
             vm.feedingEnded(type: info.feedingType, side: info.feedingSide)
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: K.Notifications.showSavedFyiDialog, object: nil)
+            }
         case .pause:
             guard let fip = vm.feedingInProgress(type: info.feedingType) else { return }
             vm.updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: !fip.isPaused)
