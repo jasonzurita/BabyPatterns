@@ -8,6 +8,25 @@ struct Feeding: Identifiable {
     let start: Date
     let type: FeedingType
     let side: FeedingSide
+    var lastPausedDate: Date?
+    var pausedTime: TimeInterval = 0
+
+    var isPaused: Bool {
+        lastPausedDate != nil
+    }
+
+    func duration() -> TimeInterval {
+        return round(abs(start.timeIntervalSinceNow) - fullPausedTime())
+    }
+
+    private func fullPausedTime() -> TimeInterval {
+        var adjustment: TimeInterval = 0.0
+        if let lastPausedDate = lastPausedDate {
+            adjustment = abs(lastPausedDate.timeIntervalSinceNow)
+        }
+
+        return pausedTime + adjustment
+    }
 }
 
 struct AppState {
@@ -38,6 +57,7 @@ enum AppAction {
     case start(type: FeedingType, side: FeedingSide)
     case stop(Feeding)
     case pause(Feeding)
+    case resume(Feeding)
 }
 
 // TODO: see what can be DRY-ed up here
@@ -111,6 +131,39 @@ func appReducer(value: inout AppState, action: AppAction) {
             print("Error sending the message: \(error.localizedDescription)")
             assertionFailure()
         }
+        // TODO: this should really be placed in the success block
+        // from the communication above, but mutating the value in an
+        // escaping block needs to be worked out. Can we send from the block?
+        guard let i = value.activeFeedings.firstIndex(where: { $0.type == feeding.type }) else {
+            value.didCommunicationFail = true
+            return
+        }
+        value.activeFeedings[i].lastPausedDate = Date()
+    case let .resume(feeding):
+        let info = WatchCommunication(type: feeding.type,
+                                      side: feeding.side,
+                                      action: .resume)
+        let jsonEncoder = JSONEncoder()
+        guard let d = try? jsonEncoder.encode(info), WCSession.default.isReachable else {
+            value.didCommunicationFail = true
+            return
+        }
+
+        WCSession.default.sendMessageData(d, replyHandler: nil) { error in
+            // TODO: should gracefully handle a failure here
+            print("Error sending the message: \(error.localizedDescription)")
+            assertionFailure()
+        }
+        // TODO: this should really be placed in the success block
+        // from the communication above, but mutating the value in an
+        // escaping block needs to be worked out. Can we send from the block?
+        guard let i = value.activeFeedings.firstIndex(where: { $0.type == feeding.type }),
+            let lpd = value.activeFeedings[i].lastPausedDate else {
+                value.didCommunicationFail = true
+                return
+        }
+        value.activeFeedings[i].pausedTime += abs(lpd.timeIntervalSinceNow)
+        value.activeFeedings[i].lastPausedDate = nil
     }
 }
 // swiftlint:enable function_body_length
