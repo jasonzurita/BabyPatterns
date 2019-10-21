@@ -2,15 +2,15 @@ import Common
 import Swift
 import WatchConnectivity
 
-struct AppState {
-    enum SessionState {
-        case loggedIn
-        case loggedOut
-    }
+enum SessionState {
+    case loggedIn
+    case loggedOut
+}
 
+struct AppState {
     var activeFeedings: [Feeding] = []
     var timerPulseCount: Int = 0
-    var session: SessionState = .loggedOut
+    var sessionState: SessionState = .loggedOut
     var didCommunicationFail = false
     /*
      TODO: think about this some more.
@@ -34,47 +34,48 @@ enum AppAction {
 }
 
 let appReducer = combine(
-    accountStatusReducer,
-    pulseReducer,
-    communicationReducer,
-    savedFyiDialogReducer,
+    pullback(accountStatusReducer, keyValue: \.sessionState),
+    pullback(pulseReducer, keyValue: \.timerPulseCount),
+    pullback(communicationReducer, keyValue: \.didCommunicationFail),
+    pullback(savedFyiDialogReducer, keyValue: \.showSavedFyiDialog),
     feedingReducer
 )
 
-func accountStatusReducer(value: inout AppState, action: AppAction) {
+func accountStatusReducer(sessinState: inout SessionState, action: AppAction) {
     switch action {
     // TODO: can logged out and logged in be combined?
     case .loggedIn:
-        value.session = .loggedIn
+       sessinState = .loggedIn
     case .loggedOut:
-        value.session = .loggedOut
+        sessinState = .loggedOut
     default:
         break
     }
 }
 
-func pulseReducer(value: inout AppState, action: AppAction) {
+func pulseReducer(timerPulseCount: inout Int, action: AppAction) {
     switch action {
     case .timerPulse:
-        value.timerPulseCount += 1
+        timerPulseCount += 1
     default:
         break
     }
 }
 
-func communicationReducer(value: inout AppState, action: AppAction) {
+// TODO: this should probably be a higher order reducer /w abstraced feeding reducer mutations
+func communicationReducer(didCommunicationFail: inout Bool, action: AppAction) {
     switch action {
     case .clearFailedCommunication:
-        value.didCommunicationFail = false
+        didCommunicationFail = false
     default:
         break
     }
 }
 
-func savedFyiDialogReducer(value: inout AppState, action: AppAction) {
+func savedFyiDialogReducer(showSavedFyiDialog: inout Bool, action: AppAction) {
     switch action {
     case .hideSavedFyiDialog:
-        value.showSavedFyiDialog = false
+        showSavedFyiDialog = false
     default:
         break
     }

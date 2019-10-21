@@ -25,3 +25,12 @@ func combine<Value, Action>(
         }
     }
 }
+
+func pullback<LocalValue, GlobalValue, Action>(
+    _ reducer: @escaping (inout LocalValue, Action) -> Void,
+    keyValue: WritableKeyPath<GlobalValue, LocalValue>
+) -> (inout GlobalValue, Action) -> Void {
+    return { globalValue, action in
+        reducer(&globalValue[keyPath: keyValue], action)
+    }
+}
