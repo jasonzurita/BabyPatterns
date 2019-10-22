@@ -15,7 +15,7 @@ final class TimerPulse {
         // a new timer is added to the main runloop (aka the main thread)
         timer = Current.scheduledTimer(1, true) { [weak self] _ in
             guard let self = self else { return }
-            self.store?.send(.timerPulse)
+            self.store?.send(.pulse(.timerPulse))
         }
     }
 

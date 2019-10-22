@@ -38,7 +38,7 @@ struct FyiDialog: View {
                 withAnimation(.easeIn(duration: self.disappearDuration)) {
                     self.isShowing = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + self.disappearDuration) {
-                        self.store.send(.hideSavedFyiDialog)
+                        self.store.send(.savedFyiDialog(.hideSavedFyiDialog))
                     }
                 }
             }

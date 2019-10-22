@@ -78,7 +78,7 @@ struct AddFeedingView: View {
                         // TODO: These numbers are not exact, figure this out better
                         .offset(x: isAdding(feeding: self.feedingIntent) ? -45 : -metrics.size.width * 0.5 - 50)
                         .gesture(TapGesture().onEnded {
-                            self.store.send(.start(type: self.feedingIntent, side: .left))
+                            self.store.send(.feeding(.start(type: self.feedingIntent, side: .left)))
                             self.isShowingSheet = false
                         })
 
@@ -86,7 +86,7 @@ struct AddFeedingView: View {
                         .font(.system(size: 55))
                         .offset(x: isAdding(feeding: self.feedingIntent) ? 45 : metrics.size.width * 0.5 + 50)
                         .gesture(TapGesture().onEnded {
-                            self.store.send(.start(type: self.feedingIntent, side: .right))
+                            self.store.send(.feeding(.start(type: self.feedingIntent, side: .right)))
                             self.isShowingSheet = false
                         })
                 }

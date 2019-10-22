@@ -2,42 +2,15 @@ import Common
 import Swift
 import WatchConnectivity
 
-// TODO: this should be combined (or sorted out) with the iOS app's Feeding struct
-struct Feeding: Identifiable {
-    let id = UUID()
-    let start: Date
-    let type: FeedingType
-    let side: FeedingSide
-    var lastPausedDate: Date?
-    var pausedTime: TimeInterval = 0
-
-    var isPaused: Bool {
-        lastPausedDate != nil
-    }
-
-    func duration() -> TimeInterval {
-        return round(abs(start.timeIntervalSinceNow) - fullPausedTime())
-    }
-
-    private func fullPausedTime() -> TimeInterval {
-        var adjustment: TimeInterval = 0.0
-        if let lastPausedDate = lastPausedDate {
-            adjustment = abs(lastPausedDate.timeIntervalSinceNow)
-        }
-
-        return pausedTime + adjustment
-    }
+enum SessionState {
+    case loggedIn
+    case loggedOut
 }
 
 struct AppState {
-    enum SessionState {
-        case loggedIn
-        case loggedOut
-    }
-
     var activeFeedings: [Feeding] = []
     var timerPulseCount: Int = 0
-    var session: SessionState = .loggedOut
+    var sessionState: SessionState = .loggedOut
     var didCommunicationFail = false
     /*
      TODO: think about this some more.
@@ -49,32 +22,137 @@ struct AppState {
 }
 
 enum AppAction {
+    case session(SessionAction)
+    case pulse(PulseAction)
+    case communication(CommunicationAction)
+    case savedFyiDialog(SavedFyiDialogAction)
+    case feeding(FeedingAction)
+
+    // TODO: consider auto-gen for this:
+    // https://github.com/pointfreeco/swift-enum-properties
+    var session: SessionAction? {
+        get {
+            guard case let .session(value) = self else { return nil }
+            return value
+        }
+        set {
+            guard case .session = self, let newValue = newValue else { return }
+            self = .session(newValue)
+        }
+    }
+
+    var pulse: PulseAction? {
+        get {
+            guard case let .pulse(value) = self else { return nil }
+            return value
+        }
+        set {
+            guard case .pulse = self, let newValue = newValue else { return }
+            self = .pulse(newValue)
+        }
+    }
+
+    var communication: CommunicationAction? {
+        get {
+            guard case let .communication(value) = self else { return nil }
+            return value
+        }
+        set {
+            guard case .communication = self, let newValue = newValue else { return }
+            self = .communication(newValue)
+        }
+    }
+
+    var savedFyiDialog: SavedFyiDialogAction? {
+        get {
+            guard case let .savedFyiDialog(value) = self else { return nil }
+            return value
+        }
+        set {
+            guard case .savedFyiDialog = self, let newValue = newValue else { return }
+            self = .savedFyiDialog(newValue)
+        }
+    }
+
+    var feeding: FeedingAction? {
+        get {
+            guard case let .feeding(value) = self else { return nil }
+            return value
+        }
+        set {
+            guard case .feeding = self, let newValue = newValue else { return }
+            self = .feeding(newValue)
+        }
+    }
+}
+
+enum SessionAction {
     case loggedIn
     case loggedOut
+}
+
+enum PulseAction {
     case timerPulse
+}
+
+enum CommunicationAction {
     case clearFailedCommunication
+}
+
+enum SavedFyiDialogAction {
     case hideSavedFyiDialog
+}
+
+enum FeedingAction {
     case start(type: FeedingType, side: FeedingSide)
     case stop(Feeding)
     case pause(Feeding)
     case resume(Feeding)
 }
 
-// TODO: see what can be DRY-ed up here
-// swiftlint:disable function_body_length
-func appReducer(value: inout AppState, action: AppAction) {
+let appReducer: (inout AppState, AppAction) -> Void  = combine(
+    pullback(accountStatusReducer, value: \.sessionState, action: \.session),
+    pullback(pulseReducer, value: \.timerPulseCount, action: \.pulse),
+    pullback(communicationReducer, value: \.didCommunicationFail, action: \.communication),
+    pullback(savedFyiDialogReducer, value: \.showSavedFyiDialog, action: \.savedFyiDialog),
+    pullback(feedingReducer, value: \.self, action: \.feeding)
+)
+
+func accountStatusReducer(sessinState: inout SessionState, action: SessionAction) {
     switch action {
     // TODO: can logged out and logged in be combined?
     case .loggedIn:
-        value.session = .loggedIn
+       sessinState = .loggedIn
     case .loggedOut:
-        value.session = .loggedOut
+        sessinState = .loggedOut
+    }
+}
+
+func pulseReducer(timerPulseCount: inout Int, action: PulseAction) {
+    switch action {
     case .timerPulse:
-        value.timerPulseCount += 1
+        timerPulseCount += 1
+    }
+}
+
+// TODO: this should probably be a higher order reducer /w abstraced feeding reducer mutations
+func communicationReducer(didCommunicationFail: inout Bool, action: CommunicationAction) {
+    switch action {
     case .clearFailedCommunication:
-        value.didCommunicationFail = false
+        didCommunicationFail = false
+    }
+}
+
+func savedFyiDialogReducer(showSavedFyiDialog: inout Bool, action: SavedFyiDialogAction) {
+    switch action {
     case .hideSavedFyiDialog:
-        value.showSavedFyiDialog = false
+        showSavedFyiDialog = false
+    }
+}
+
+// TODO: see what can be DRY-ed up here
+func feedingReducer(value: inout AppState, action: FeedingAction) {
+    switch action {
     case let .start(type, side):
         let info = WatchCommunication(type: type,
                                       side: side,
@@ -159,11 +237,10 @@ func appReducer(value: inout AppState, action: AppAction) {
         // escaping block needs to be worked out. Can we send from the block?
         guard let i = value.activeFeedings.firstIndex(where: { $0.type == feeding.type }),
             let lpd = value.activeFeedings[i].lastPausedDate else {
-                value.didCommunicationFail = true
-                return
+            value.didCommunicationFail = true
+            return
         }
         value.activeFeedings[i].pausedTime += abs(lpd.timeIntervalSinceNow)
         value.activeFeedings[i].lastPausedDate = nil
     }
 }
-// swiftlint:enable function_body_length

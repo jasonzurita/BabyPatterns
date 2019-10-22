@@ -23,7 +23,7 @@ struct HomeView: View {
 
     var body: some View {
         VStack {
-            if store.value.session == .loggedIn {
+            if store.value.sessionState == .loggedIn {
                 LoggedInHomeView(store: store)
             } else {
                 LoggedOutHomeView()

@@ -57,7 +57,7 @@ struct LoggedInHomeView: View {
             .opacity(self.store.value.didCommunicationFail ? 1.0 : 0.0)
             .animation(.spring(response: 0.45, dampingFraction: 0.7))
             .gesture(TapGesture().onEnded {
-                self.store.send(.clearFailedCommunication)
+                self.store.send(.communication(.clearFailedCommunication))
             })
 
             if store.value.showSavedFyiDialog {
