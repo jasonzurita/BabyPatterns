@@ -28,10 +28,10 @@ struct LoggedInHomeView: View {
                     .offset(y: -10)
                     .sheet(isPresented: $isShowingSheet) {
                         AddFeedingView(store: self.store, isShowingSheet: self.$isShowingSheet)
-                }
-                .gesture(TapGesture().onEnded {
-                    self.isShowingSheet.toggle()
-                })
+                    }
+                    .gesture(TapGesture().onEnded {
+                        self.isShowingSheet.toggle()
+                    })
             }
             .edgesIgnoringSafeArea(.bottom)
 

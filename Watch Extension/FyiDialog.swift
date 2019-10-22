@@ -51,6 +51,6 @@ struct FyiDialog_Previews: PreviewProvider {
 // swiftlint:enable type_name
     static var previews: some View {
         FyiDialog(store: Store(initialValue: AppState(), reducer: appReducer),
-              screenWidthPercent: 0.5)
+                  screenWidthPercent: 0.5)
     }
 }

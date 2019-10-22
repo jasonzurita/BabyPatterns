@@ -19,18 +19,18 @@ extension SessionCoordinator: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith _: WCSessionActivationState, error: Error?) {
         print("Completed activation: \(error?.localizedDescription ?? "no error")")
         if session.receivedApplicationContext["loggedIn"] != nil {
-            self.store?.send(.session(.loggedIn))
+            store?.send(.session(.loggedIn))
         } else if session.receivedApplicationContext["loggedOut"] != nil {
-            self.store?.send(.session(.loggedOut))
+            store?.send(.session(.loggedOut))
         }
     }
 
     func session(_: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
         // TODO: change this into codable or something better
         if applicationContext["loggedIn"] != nil {
-            self.store?.send(.session(.loggedIn))
+            store?.send(.session(.loggedIn))
         } else if applicationContext["loggedOut"] != nil {
-            self.store?.send(.session(.loggedOut))
+            store?.send(.session(.loggedOut))
         }
     }
 }
