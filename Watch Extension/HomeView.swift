@@ -12,7 +12,8 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var store: Store<AppState, AppAction> = {
-        let s = Store(initialValue: AppState(), reducer: appReducer)
+        let s = Store(initialValue: AppState(),
+                      reducer: higherOrderFeedingCommunicationReducer(appReducer))
         TimerPulse.shared.store = s
         TimerPulse.shared.start()
 
