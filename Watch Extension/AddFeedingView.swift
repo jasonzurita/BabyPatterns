@@ -8,8 +8,6 @@ private func isAdding(feeding type: FeedingType) -> Bool {
     }
 }
 
-// TODO: should we show all the start feeding options if there is already an
-// active feeding going for that type?
 struct FeedingOptionsView: View {
     @Binding var feedingIntent: FeedingType
     let activeFeedingTypes: [FeedingType]
@@ -69,7 +67,6 @@ struct AddFeedingView: View {
                         .opacity(isAdding(feeding: self.feedingIntent) ? 0.5 : 0)
                         .foregroundColor(Color.black)
                         .gesture(TapGesture().onEnded {
-                            // TODO: not a fan of duplicating this
                             withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .none }
                         })
 
