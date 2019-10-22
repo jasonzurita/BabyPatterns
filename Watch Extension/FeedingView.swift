@@ -16,11 +16,11 @@ struct FeedingView: View {
     private func actionSheetButton(_ fip: Feeding) -> Alert.Button {
         if fip.isPaused {
             return .default(Text("Resume")) {
-                self.store.send(.resume(fip))
+                self.store.send(.feeding(.resume(fip)))
             }
         } else {
             return .default(Text("Pause")) {
-                self.store.send(.pause(fip))
+                self.store.send(.feeding(.pause(fip)))
             }
         }
     }
@@ -42,7 +42,7 @@ struct FeedingView: View {
             ActionSheet(title: Text("What do you want to do?"),
                         buttons: [
                             .default(Text("Stop")) {
-                                self.store.send(.stop(self.feeding))
+                                self.store.send(.feeding(.stop(self.feeding)))
                             },
                             actionSheetButton(self.feeding),
                         ])
