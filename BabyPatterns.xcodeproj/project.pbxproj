@@ -32,6 +32,11 @@
 		121CA2E8234224B500AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E7234224B500AB4891 /* Common */; };
 		121CA2EA2342273F00AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E92342273F00AB4891 /* Common */; };
 		1221F04E2344C9CC00E516D5 /* FeedingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221F04D2344C9CC00E516D5 /* FeedingView.swift */; };
+		12227F16235F2223004049DB /* AccountReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12227F15235F2223004049DB /* AccountReducer.swift */; };
+		12227F18235F232A004049DB /* PulseReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12227F17235F232A004049DB /* PulseReducer.swift */; };
+		12227F1A235F23AE004049DB /* SavedFyiDialogReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12227F19235F23AE004049DB /* SavedFyiDialogReducer.swift */; };
+		12227F1C235F2460004049DB /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12227F1B235F2460004049DB /* AppReducer.swift */; };
+		12227F1E235F2481004049DB /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12227F1D235F2481004049DB /* AppAction.swift */; };
 		1234CD652105FC410033FD56 /* SupplyAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234CD642105FC410033FD56 /* SupplyAmount.swift */; };
 		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
 		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
@@ -215,6 +220,11 @@
 		121455FA235A6B990087AB11 /* Feeding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feeding.swift; sourceTree = "<group>"; };
 		121CA2E42342246F00AB4891 /* Common */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Common; sourceTree = "<group>"; };
 		1221F04D2344C9CC00E516D5 /* FeedingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingView.swift; sourceTree = "<group>"; };
+		12227F15235F2223004049DB /* AccountReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReducer.swift; sourceTree = "<group>"; };
+		12227F17235F232A004049DB /* PulseReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseReducer.swift; sourceTree = "<group>"; };
+		12227F19235F23AE004049DB /* SavedFyiDialogReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedFyiDialogReducer.swift; sourceTree = "<group>"; };
+		12227F1B235F2460004049DB /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		12227F1D235F2481004049DB /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		1234CD642105FC410033FD56 /* SupplyAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyAmount.swift; sourceTree = "<group>"; };
 		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
 		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
@@ -382,6 +392,18 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
+		12227F12235E99E5004049DB /* State Management */ = {
+			isa = PBXGroup;
+			children = (
+				12227F1D235F2481004049DB /* AppAction.swift */,
+				12227F1B235F2460004049DB /* AppReducer.swift */,
+				12227F15235F2223004049DB /* AccountReducer.swift */,
+				12227F17235F232A004049DB /* PulseReducer.swift */,
+				12227F19235F23AE004049DB /* SavedFyiDialogReducer.swift */,
+			);
+			path = "State Management";
+			sourceTree = "<group>";
+		};
 		12605B3C1FBB1DBB0035243B /* Framework-BabyPatterns */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,8 +438,9 @@
 			isa = PBXGroup;
 			children = (
 				1263ADF723393A9300142056 /* ExtensionDelegate.swift */,
-				12E38A3E2343CEB500940F07 /* AppState.swift */,
 				12E38A3F2343CEB500940F07 /* UnidirectionalFlow.swift */,
+				12227F12235E99E5004049DB /* State Management */,
+				12E38A3E2343CEB500940F07 /* AppState.swift */,
 				121455FA235A6B990087AB11 /* Feeding.swift */,
 				12D0AF4A2347670A00725A56 /* TimerPulse.swift */,
 				120478EC234BE53800302AFD /* SessionCoordinator.swift */,
@@ -1179,6 +1202,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12227F1E235F2481004049DB /* AppAction.swift in Sources */,
+				12227F18235F232A004049DB /* PulseReducer.swift in Sources */,
+				12227F1A235F23AE004049DB /* SavedFyiDialogReducer.swift in Sources */,
 				1263ADF623393A9300142056 /* HostingController.swift in Sources */,
 				126C44DD2358929A00C211A1 /* FyiDialog.swift in Sources */,
 				120478ED234BE53800302AFD /* SessionCoordinator.swift in Sources */,
@@ -1189,6 +1215,8 @@
 				12D0AF4B2347670A00725A56 /* TimerPulse.swift in Sources */,
 				120478EF234BEBB600302AFD /* LoggedOutView.swift in Sources */,
 				121455FB235A6B990087AB11 /* Feeding.swift in Sources */,
+				12227F1C235F2460004049DB /* AppReducer.swift in Sources */,
+				12227F16235F2223004049DB /* AccountReducer.swift in Sources */,
 				1263ADF423393A9300142056 /* AddFeedingView.swift in Sources */,
 				120478F1234BEC3400302AFD /* LoggedInHomeView.swift in Sources */,
 				1263ADF823393A9300142056 /* ExtensionDelegate.swift in Sources */,
