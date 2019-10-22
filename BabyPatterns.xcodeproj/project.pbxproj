@@ -397,6 +397,7 @@
 		12227F12235E99E5004049DB /* State Management */ = {
 			isa = PBXGroup;
 			children = (
+				12E38A3E2343CEB500940F07 /* AppState.swift */,
 				12227F1D235F2481004049DB /* AppAction.swift */,
 				12227F1B235F2460004049DB /* AppReducer.swift */,
 				12227F13235E9A02004049DB /* FeedingReducers.swift */,
@@ -443,7 +444,6 @@
 				1263ADF723393A9300142056 /* ExtensionDelegate.swift */,
 				12E38A3F2343CEB500940F07 /* UnidirectionalFlow.swift */,
 				12227F12235E99E5004049DB /* State Management */,
-				12E38A3E2343CEB500940F07 /* AppState.swift */,
 				121455FA235A6B990087AB11 /* Feeding.swift */,
 				12D0AF4A2347670A00725A56 /* TimerPulse.swift */,
 				120478EC234BE53800302AFD /* SessionCoordinator.swift */,
