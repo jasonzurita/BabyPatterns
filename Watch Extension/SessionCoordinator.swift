@@ -1,3 +1,4 @@
+import Common
 import Foundation
 import WatchConnectivity
 
@@ -31,6 +32,32 @@ extension SessionCoordinator: WCSessionDelegate {
             store?.send(.session(.loggedIn))
         } else if applicationContext["loggedOut"] != nil {
             store?.send(.session(.loggedOut))
+        }
+    }
+
+    func session(_ session: WCSession,
+                 didReceiveMessageData messageData: Data,
+                 replyHandler: @escaping (Data) -> Void) {
+        // This is just used as a succesfull communication reply
+        defer { replyHandler(Data()) }
+
+        let decoder = JSONDecoder()
+        guard let info = try? decoder.decode(WatchCommunication.self, from: messageData) else { return }
+
+        // TODO: look into if we can get rid of the `.none` case
+        guard info.feedingType != .none else { return }
+
+        guard let s = store else { return }
+
+        switch info.action {
+        case .start:
+            s.send(.feeding(.start(type: info.feedingType, side: info.feedingSide)))
+        case .stop:
+            s.send(.feeding(.stop(type: info.feedingType)))
+        case .pause:
+            s.send(.feeding(.pause(type: info.feedingType)))
+        case .resume:
+            s.send(.feeding(.resume(type: info.feedingType)))
         }
     }
 }

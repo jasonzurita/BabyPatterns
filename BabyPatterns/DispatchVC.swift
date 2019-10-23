@@ -199,7 +199,13 @@ extension DispatchVC: WCSessionDelegate {
         print("session did deactivate")
     }
 
-    func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
+    func session(_ session: WCSession,
+                 didReceiveMessageData messageData: Data,
+                 replyHandler: @escaping (Data) -> Void) {
+
+        // This is just used as a succesfull communication reply
+        defer { replyHandler(Data()) }
+
         let decoder = JSONDecoder()
         guard let info = try? decoder.decode(WatchCommunication.self, from: messageData) else { return }
 

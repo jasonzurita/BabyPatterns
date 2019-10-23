@@ -1,3 +1,5 @@
+import Common
+import WatchConnectivity
 import SwiftUI
 
 struct FeedingView: View {
@@ -16,13 +18,44 @@ struct FeedingView: View {
     private func actionSheetButton(_ fip: Feeding) -> Alert.Button {
         if fip.isPaused {
             return .default(Text("Resume")) {
-                self.store.send(.feeding(.resume(fip)))
+                self.communicate(type: fip.type, side: fip.side, action: .resume)
             }
         } else {
             return .default(Text("Pause")) {
-                self.store.send(.feeding(.pause(fip)))
+                self.communicate(type: fip.type, side: fip.side, action: .pause)
             }
         }
+    }
+
+    // TODO: consider making this a global function or in the session coordinator or ?
+    // This is the second time of copy and paste
+    func communicate(type: FeedingType, side: FeedingSide, action: Common.FeedingAction) {
+        let info = WatchCommunication(type: type, side: side, action: action)
+
+        let jsonEncoder = JSONEncoder()
+        guard let d = try? jsonEncoder.encode(info), WCSession.default.isReachable else {
+            // TODO: show communication error
+            return
+        }
+
+        WCSession.default.sendMessageData(
+            d,
+            replyHandler: { _ in
+                switch action {
+                case .start: break
+                case .stop:
+                    self.store.send(.feeding(.stop(type: type)))
+                case .pause:
+                    self.store.send(.feeding(.pause(type: type)))
+                case .resume:
+                    self.store.send(.feeding(.resume(type: type)))
+                }
+        },
+            errorHandler: { error in
+                // TODO: show communication error
+                print("Error sending the message: \(error.localizedDescription)")
+                assertionFailure()
+        })
     }
 
     var body: some View {
@@ -42,7 +75,7 @@ struct FeedingView: View {
             ActionSheet(title: Text("What do you want to do?"),
                         buttons: [
                             .default(Text("Stop")) {
-                                self.store.send(.feeding(.stop(self.feeding)))
+                                self.communicate(type: self.feeding.type, side: self.feeding.side, action: .stop)
                             },
                             actionSheetButton(self.feeding),
                         ])
