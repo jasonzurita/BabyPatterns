@@ -1,4 +1,5 @@
 import Common
+import WatchConnectivity
 import SwiftUI
 
 private func isAdding(feeding type: FeedingType) -> Bool {
@@ -75,20 +76,46 @@ struct AddFeedingView: View {
                         // TODO: These numbers are not exact, figure this out better
                         .offset(x: isAdding(feeding: self.feedingIntent) ? -45 : -metrics.size.width * 0.5 - 50)
                         .gesture(TapGesture().onEnded {
-                            self.store.send(.feeding(.start(type: self.feedingIntent, side: .left)))
-                            self.isShowingSheet = false
+                            self.communicateFeedingStart(type: self.feedingIntent, side: .left)
+                            // TODO: show spinner here
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .none }
                         })
 
                     Image(systemName: "r.circle")
                         .font(.system(size: 55))
                         .offset(x: isAdding(feeding: self.feedingIntent) ? 45 : metrics.size.width * 0.5 + 50)
                         .gesture(TapGesture().onEnded {
-                            self.store.send(.feeding(.start(type: self.feedingIntent, side: .right)))
-                            self.isShowingSheet = false
+                            self.communicateFeedingStart(type: self.feedingIntent, side: .right)
+                            // TODO: show spinner here
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .none }
                         })
                 }
             }
         }
+    }
+
+    // TODO: consider making this a global function or in the session coordinator or ?
+    // This is the first time of copy and paste
+    func communicateFeedingStart(type: FeedingType, side: FeedingSide) {
+        let info = WatchCommunication(type: type, side: side, action: .start)
+
+        let jsonEncoder = JSONEncoder()
+        guard let d = try? jsonEncoder.encode(info), WCSession.default.isReachable else {
+            // TODO: show communication error
+            return
+        }
+
+        WCSession.default.sendMessageData(
+            d,
+            replyHandler: { _ in
+                self.store.send(.feeding(.start(type: type, side: side)))
+                self.isShowingSheet = false
+        },
+            errorHandler: { error in
+                // TODO: show communication error
+                print("Error sending the message: \(error.localizedDescription)")
+                assertionFailure()
+        })
     }
 }
 
