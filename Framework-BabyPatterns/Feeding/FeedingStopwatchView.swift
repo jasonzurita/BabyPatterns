@@ -133,8 +133,8 @@ public final class FeedingStopwatchView: UIView {
                 onPause?(_feedingType, sender.side)
             }
         } else {
-            updateUIForInProgressFeeding(on: sender.side)
             onStart?(_feedingType, sender.side)
+            updateUIForInProgressFeeding(on: sender.side)
         }
     }
 
