@@ -18,19 +18,19 @@ struct FeedingView: View {
     private func actionSheetButton(_ fip: Feeding) -> Alert.Button {
         if fip.isPaused {
             return .default(Text("Resume")) {
-                self.communicate(feeding: fip, action: .resume)
+                self.communicate(type: fip.type, side: fip.side, action: .resume)
             }
         } else {
             return .default(Text("Pause")) {
-                self.communicate(feeding: fip, action: .pause)
+                self.communicate(type: fip.type, side: fip.side, action: .pause)
             }
         }
     }
 
     // TODO: consider making this a global function or in the session coordinator or ?
     // This is the second time of copy and paste
-    func communicate(feeding: Feeding, action: Common.FeedingAction) {
-        let info = WatchCommunication(type: feeding.type, side: feeding.side, action: action)
+    func communicate(type: FeedingType, side: FeedingSide, action: Common.FeedingAction) {
+        let info = WatchCommunication(type: type, side: side, action: action)
 
         let jsonEncoder = JSONEncoder()
         guard let d = try? jsonEncoder.encode(info), WCSession.default.isReachable else {
@@ -75,7 +75,7 @@ struct FeedingView: View {
             ActionSheet(title: Text("What do you want to do?"),
                         buttons: [
                             .default(Text("Stop")) {
-                                self.communicate(feeding: self.feeding, action: .stop)
+                                self.communicate(type: self.feeding.type, side: self.feeding.side, action: .stop)
                             },
                             actionSheetButton(self.feeding),
                         ])

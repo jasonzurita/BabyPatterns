@@ -3,7 +3,7 @@ import SwiftUI
 /*
  TODO: - V1 Watch
  - Polish UI
- - Handle UI when main app manages an in-progress feeding
+ - Sync in-progress feedings when first starting watch app
  - Think about subscriptions or IAP for this
  - Load all feedings when starting up?
  */

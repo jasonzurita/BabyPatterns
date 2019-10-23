@@ -1,5 +1,6 @@
 import Common
 import Foundation
+import WatchConnectivity
 import Framework_BabyPatterns
 
 extension FeedingsVM {
@@ -19,6 +20,10 @@ extension FeedingsVM {
         let serverKey = DatabaseFacade().uploadJSON(fip.eventJson(), requestType: .feedings)
         fip.serverKey = serverKey
         feedings.append(fip)
+
+        if type != .bottle {
+            communicate(feeding: fip, action: .start)
+        }
     }
 
     // TODO: the term `feeding in progress` doesn't quite fit here, consider improving naming
@@ -51,6 +56,10 @@ extension FeedingsVM {
 
         updateInternalFeedingCache(fip: fip)
         updateFeedingOnServer(fip: fip)
+
+        if type != .bottle {
+            communicate(feeding: fip, action: .stop)
+        }
     }
 
     func updateFeedingInProgress(type: FeedingType, side _: FeedingSide, isPaused: Bool) {
@@ -65,6 +74,11 @@ extension FeedingsVM {
 
         updateInternalFeedingCache(fip: fip)
         updateFeedingOnServer(fip: fip)
+
+        if type != .bottle {
+            let action: FeedingAction = isPaused ? .pause : .resume
+            communicate(feeding: fip, action: action)
+        }
     }
 
     private func updateInternalFeedingCache(fip: Feeding) {
@@ -90,5 +104,25 @@ extension FeedingsVM {
             return nil
         }
         return feeding
+    }
+
+    // TODO: consider making this a global function or ?
+    // This is the third time copying and pasting this, but first time in this target
+    func communicate(feeding: Feeding, action: Common.FeedingAction) {
+        let info = WatchCommunication(type: feeding.type, side: feeding.side, action: action)
+
+        let jsonEncoder = JSONEncoder()
+        guard let d = try? jsonEncoder.encode(info), WCSession.default.isReachable else {
+            // TODO: show communication error?
+            return
+        }
+
+        WCSession.default.sendMessageData(
+            d,
+            replyHandler: { _ in /* noop */ },
+            errorHandler: { error in
+                // TODO: show communication error
+                print("Error sending the message: \(error.localizedDescription)")
+        })
     }
 }
