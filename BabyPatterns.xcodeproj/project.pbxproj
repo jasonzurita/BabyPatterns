@@ -259,10 +259,10 @@
 		12B6E42020EB973400EA6944 /* SignupVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupVc.xib; sourceTree = "<group>"; };
 		12BA1B7C20EED21700835F77 /* LoginVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVc.swift; sourceTree = "<group>"; };
 		12BA1B7D20EED21700835F77 /* LoginVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVc.xib; sourceTree = "<group>"; };
-		12C866B320DDAF5200053FCC /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
-		12C866B420DDAF5200053FCC /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
-		12C866B520DDAF5300053FCC /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
-		12C866B620DDAF5300053FCC /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		12C866B320DDAF5200053FCC /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSans-Regular.ttf"; path = "../../fonts/NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		12C866B420DDAF5200053FCC /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSans-Bold.ttf"; path = "../../fonts/NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		12C866B520DDAF5300053FCC /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSans-Italic.ttf"; path = "../../fonts/NotoSans-Italic.ttf"; sourceTree = "<group>"; };
+		12C866B620DDAF5300053FCC /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSans-BoldItalic.ttf"; path = "../../fonts/NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		12C866BB20DDB09400053FCC /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		12C866BD20DDB15000053FCC /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		12C866BF20DDB34100053FCC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
