@@ -20,7 +20,7 @@ struct FyiDialog: View {
                     .opacity(0.96)
 
                 Text("Saved!")
-                    .bold()
+                    .scaledFont(.notoSansBold, size: 16)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
                     .opacity(self.isShowing ? 1.0 : 0.0)

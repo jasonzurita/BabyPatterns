@@ -32,6 +32,7 @@
 		121BFD7F2361C67400EDCE89 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 121BFD7B2361C67400EDCE89 /* NotoSans-Regular.ttf */; };
 		121BFD802361C67400EDCE89 /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 121BFD7C2361C67400EDCE89 /* NotoSans-Italic.ttf */; };
 		121BFD812361C67400EDCE89 /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 121BFD7D2361C67400EDCE89 /* NotoSans-BoldItalic.ttf */; };
+		121BFD832361C70E00EDCE89 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121BFD822361C70E00EDCE89 /* CustomFonts.swift */; };
 		121CA2E6234224A800AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E5234224A800AB4891 /* Common */; };
 		121CA2E8234224B500AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E7234224B500AB4891 /* Common */; };
 		121CA2EA2342273F00AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E92342273F00AB4891 /* Common */; };
@@ -227,6 +228,7 @@
 		121BFD7B2361C67400EDCE89 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSans-Regular.ttf"; path = "fonts/NotoSans-Regular.ttf"; sourceTree = SOURCE_ROOT; };
 		121BFD7C2361C67400EDCE89 /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSans-Italic.ttf"; path = "fonts/NotoSans-Italic.ttf"; sourceTree = SOURCE_ROOT; };
 		121BFD7D2361C67400EDCE89 /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSans-BoldItalic.ttf"; path = "fonts/NotoSans-BoldItalic.ttf"; sourceTree = SOURCE_ROOT; };
+		121BFD822361C70E00EDCE89 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		121CA2E42342246F00AB4891 /* Common */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Common; sourceTree = "<group>"; };
 		1221F04D2344C9CC00E516D5 /* FeedingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingView.swift; sourceTree = "<group>"; };
 		12227F13235E9A02004049DB /* FeedingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingReducer.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 				120478F0234BEC3400302AFD /* LoggedInHomeView.swift */,
 				1221F04D2344C9CC00E516D5 /* FeedingView.swift */,
 				1263ADF323393A9300142056 /* AddFeedingView.swift */,
+				121BFD822361C70E00EDCE89 /* CustomFonts.swift */,
 				1263ADF923393A9400142056 /* Assets.xcassets */,
 				1263ADFE23393A9400142056 /* Info.plist */,
 				1263ADFB23393A9400142056 /* Preview Content */,
@@ -1235,6 +1238,7 @@
 				120478EF234BEBB600302AFD /* LoggedOutView.swift in Sources */,
 				121455FB235A6B990087AB11 /* Feeding.swift in Sources */,
 				12227F1C235F2460004049DB /* AppReducer.swift in Sources */,
+				121BFD832361C70E00EDCE89 /* CustomFonts.swift in Sources */,
 				12227F16235F2223004049DB /* AccountReducer.swift in Sources */,
 				1263ADF423393A9300142056 /* AddFeedingView.swift in Sources */,
 				12227F14235E9A02004049DB /* FeedingReducer.swift in Sources */,

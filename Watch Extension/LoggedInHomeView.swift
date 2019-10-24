@@ -35,6 +35,7 @@ struct LoggedInHomeView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
 
+            // TODO: this needs UI work / to be abstracted?
             GeometryReader { metrics in
                 ZStack {
                     Rectangle()

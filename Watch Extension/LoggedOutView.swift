@@ -5,10 +5,10 @@ struct LoggedOutHomeView: View {
         VStack {
             Spacer()
             Text("Welcome!")
-                .font(.title)
+                .scaledFont(.notoSansBold, size: 30)
             Spacer()
             Text("Create an account using the main app to get started!")
-                .font(.callout)
+                .scaledFont(.notoSansRegular, size: 18)
                 .foregroundColor(.gray)
                 .layoutPriority(1.0)
             Spacer()
