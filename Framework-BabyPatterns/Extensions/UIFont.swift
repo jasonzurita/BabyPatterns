@@ -1,24 +1,15 @@
 import UIKit
 
-public enum CustomFont: String {
+public enum CustomFont: String, CaseIterable {
     case notoSansBold = "NotoSans-Bold"
     case notoSansBoldItalic = "NotoSans-BoldItalic"
     case notoSansItalic = "NotoSans-Italic"
     case notoSansRegular = "NotoSans-Regular"
-
-    static var allValues: [CustomFont] {
-        return [
-            .notoSansBold,
-            .notoSansBoldItalic,
-            .notoSansItalic,
-            .notoSansRegular,
-        ]
-    }
 }
 
 public extension UIFont {
     static let registerFonts: () = {
-        CustomFont.allValues
+        CustomFont.allCases
             .map { $0.rawValue + ".ttf" }
             .forEach { registerFont(fontName: $0) }
     }()

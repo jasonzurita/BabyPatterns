@@ -1,4 +1,3 @@
-import WatchConnectivity
 import WatchKit
 
 final class ExtensionDelegate: NSObject, WKExtensionDelegate {
