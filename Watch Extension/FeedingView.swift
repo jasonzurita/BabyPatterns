@@ -4,8 +4,8 @@ import SwiftUI
 
 struct FeedingView: View {
     @ObservedObject var store: Store<AppState, AppAction>
-    @State var isShowingActionSheet = false
     let feeding: Feeding
+    @State private var isShowingActionSheet = false
 
     private func timerString(from seconds: TimeInterval) -> String {
         let hours = seconds.stringFromSecondsToHours(zeroPadding: true)
@@ -61,13 +61,17 @@ struct FeedingView: View {
     var body: some View {
         VStack(alignment: .center) {
             Text(feeding.isPaused ? "PAUSED" : "\(timerString(from: feeding.duration()))")
-                .font(.system(size: 32, weight: .semibold))
+                .scaledFont(.notoSansBold, size: 32)
+            // TODO: get these to align better with the timer label
             HStack(alignment: .center) {
+                Spacer()
                 Text("\(feeding.type.rawValue)")
-                    .font(.caption)
-                + Text(" (\(feeding.side.asText()))".lowercased())
-                    .font(.footnote)
+                    .scaledFont(.notoSansRegular, size: 16)
+                Spacer()
+                Text("\(feeding.side.asText())".lowercased())
+                    .scaledFont(.notoSansRegular, size: 16)
                     .foregroundColor(.gray)
+                Spacer()
             }
             Spacer()
         }
@@ -89,8 +93,22 @@ struct FeedingView: View {
 // swiftlint:disable type_name
 struct FeedingView_Previews: PreviewProvider {
 // swiftlint:enable type_name
+    static let feeding = Feeding(start: Date() - 3355,
+                                 type: .nursing,
+                                 side: .left,
+                                 lastPausedDate: nil,
+                                 pausedTime: 0)
+    static let feedingPaused = Feeding(start: Date(),
+                                 type: .nursing,
+                                 side: .left,
+                                 lastPausedDate: Date() + 5,
+                                 pausedTime: 0)
     static var previews: some View {
+        Group {
         FeedingView(store: Store(initialValue: AppState(), reducer: appReducer),
-                    feeding: Feeding(start: Date(), type: .nursing, side: .left))
+                    feeding: FeedingView_Previews.feeding)
+            FeedingView(store: Store(initialValue: AppState(), reducer: appReducer),
+                        feeding: FeedingView_Previews.feedingPaused)
+        }
     }
 }
