@@ -1,5 +1,25 @@
-import Common
 import Foundation
+
+public struct K {
+    // TODO: reconcile this duplication with `Constants.swift`
+    public struct JsonFields {
+        public static let FeedingType = "type"
+        public static let Side = "side"
+        public static let StartDate = "startDate"
+        public static let EndDate = "endDate"
+        public static let LastPausedDate = "lastPausedDate"
+        public static let SupplyAmount = "supplyAmount"
+        public static let PausedTime = "pausedTime"
+    }
+}
+
+// TODO: reconcile this duplication
+private extension Date {
+    init?(timeInterval: Any?) {
+        guard let i = timeInterval as? TimeInterval, i > 0 else { return nil }
+        self = Date(timeIntervalSince1970: i)
+    }
+}
 
 public struct Feeding {
     public let type: FeedingType

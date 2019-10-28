@@ -1,4 +1,4 @@
-@testable import Framework_BabyPatterns
+@testable import Common
 import XCTest
 
 final class FeedingTests: XCTestCase {
@@ -88,4 +88,13 @@ final class FeedingTests: XCTestCase {
         )
         XCTAssertTrue(feeding.duration() == duration)
     }
+
+
+    static var allTests = [
+        ("testInitFromJson", testInitFromJson),
+        ("testFeedingJson", testFeedingJson),
+        ("testIsPaused", testIsPaused),
+        ("testIsFinished", testIsFinished),
+        ("testDuration", testDuration),
+    ]
 }
