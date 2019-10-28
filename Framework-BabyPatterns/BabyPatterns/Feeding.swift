@@ -7,6 +7,8 @@ public struct Feeding {
     public let startDate: Date
     public var serverKey: String?
     public var endDate: Date?
+    // TODO: make sure we can't have a lastPausedTime after the endDate
+    // i.e., the lastPauseDate should be limited
     public var lastPausedDate: Date?
     public var pausedTime: TimeInterval
     public let supplyAmount: SupplyAmount
@@ -95,7 +97,11 @@ public struct Feeding {
     private func fullPausedTime() -> TimeInterval {
         var adjustment: TimeInterval = 0.0
         if let lastPausedDate = lastPausedDate {
-            adjustment = abs(lastPausedDate.timeIntervalSinceNow)
+            if let endDate = endDate {
+                adjustment = abs(lastPausedDate.timeIntervalSince(endDate))
+            } else {
+                adjustment = abs(lastPausedDate.timeIntervalSinceNow)
+            }
         }
 
         return pausedTime + adjustment
