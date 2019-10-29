@@ -24,8 +24,6 @@ public struct K {
         public static let LastPausedDate = "lastPausedDate"
         public static let SupplyAmount = "supplyAmount"
         public static let PausedTime = "pausedTime"
-        public static let FeedingQuantity = "quantity"
-        public static let Duration = "duration"
 
         // profile
         public static let ParentName = "parentName"
