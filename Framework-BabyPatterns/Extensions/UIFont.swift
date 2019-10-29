@@ -50,13 +50,8 @@ extension UIFont {
         return font
     }
 
-    // needed because loaded font name differs from font file name
     private static let notoSansRegular: String = {
         var rawValue = CustomFont.notoSansRegular.rawValue
-        guard let range = rawValue.range(of: "-Regular") else {
-            preconditionFailure("Couldn't process noto sans regular name")
-        }
-        rawValue.removeSubrange(range)
         return rawValue
     }()
 

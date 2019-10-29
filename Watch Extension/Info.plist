@@ -35,6 +35,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>NotoSans-Bold.ttf</string>
+		<string>NotoSans-SemiBold.ttf</string>
 		<string>NotoSans-BoldItalic.ttf</string>
 		<string>NotoSans-Italic.ttf</string>
 		<string>NotoSans-Regular.ttf</string>

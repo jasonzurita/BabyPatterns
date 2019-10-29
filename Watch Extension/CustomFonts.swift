@@ -3,6 +3,7 @@ import SwiftUI
 // TODO: consider putting this in the common package
 public enum CustomFont: String {
     case notoSansBold = "NotoSans-Bold"
+    case notoSansSemiBold = "NotoSans-SemiBold"
     case notoSansBoldItalic = "NotoSans-BoldItalic"
     case notoSansItalic = "NotoSans-Italic"
     case notoSansRegular = "NotoSans-Regular"
