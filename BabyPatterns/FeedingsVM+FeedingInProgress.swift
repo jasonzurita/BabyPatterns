@@ -21,6 +21,7 @@ extension FeedingsVM {
         fip.serverKey = serverKey
         feedings.append(fip)
 
+        updateContext()
     }
 
     // TODO: the term `feeding in progress` doesn't quite fit here, consider improving naming
@@ -43,6 +44,7 @@ extension FeedingsVM {
 
         updateInternalFeedingCache(fip: updatedPumpingFeeding)
         updateFeedingOnServer(fip: updatedPumpingFeeding)
+        updateContext()
     }
 
     func feedingEnded(type: FeedingType, side _: FeedingSide, endDate: Date = Date()) {
@@ -53,6 +55,7 @@ extension FeedingsVM {
 
         updateInternalFeedingCache(fip: fip)
         updateFeedingOnServer(fip: fip)
+        updateContext()
     }
 
     func updateFeedingInProgress(type: FeedingType, side _: FeedingSide, isPaused: Bool) {
@@ -67,6 +70,7 @@ extension FeedingsVM {
 
         updateInternalFeedingCache(fip: fip)
         updateFeedingOnServer(fip: fip)
+        updateContext()
     }
 
     private func updateInternalFeedingCache(fip: Feeding) {
@@ -92,5 +96,15 @@ extension FeedingsVM {
             return nil
         }
         return feeding
+    }
+
+    func updateContext() {
+        do {
+            let encoder = JSONEncoder()
+            let feedingsData = try encoder.encode(feedings)
+            try WCSession.default.updateApplicationContext(["feedings": feedingsData])
+        } catch {
+            print(error)
+        }
     }
 }

@@ -169,7 +169,12 @@ final class DispatchVC: UIViewController, Loggable {
         if didRequestFeedings && didRequestProfile {
             performSegue(withIdentifier: K.Segues.LoggedIn, sender: nil)
 
-            let context = ["loggedIn": "dummy"]
+            // keep the apple watch up to date upon first start up
+            var context: [String: Any] = ["loggedIn": "dummy"]
+            let encoder = JSONEncoder()
+            if let vm = feedingsVM, let feedingsData = try? encoder.encode(vm.feedings) {
+                context["feedings"] = feedingsData
+            }
             try? WCSession.default.updateApplicationContext(context)
         }
     }
