@@ -108,7 +108,7 @@ struct AddFeedingView: View {
         WCSession.default.sendMessageData(
             d,
             replyHandler: { _ in
-                self.store.send(.feeding(.start(type: type, side: side)))
+                self.store.send(.newFeeding(.start(type: type, side: side)))
                 self.isShowingSheet = false
         },
             errorHandler: { error in

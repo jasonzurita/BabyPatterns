@@ -21,7 +21,8 @@ private extension Date {
     }
 }
 
-public struct Feeding: Codable {
+public struct Feeding: Codable, Identifiable {
+    public let id = UUID()
     public let type: FeedingType
     public let side: FeedingSide
     public let startDate: Date

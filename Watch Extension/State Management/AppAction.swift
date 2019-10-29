@@ -5,6 +5,7 @@ enum AppAction {
     case pulse(PulseAction)
     case communication(CommunicationAction)
     case savedFyiDialog(SavedFyiDialogAction)
+    case newFeeding(NewFeedingAction)
     case feeding(FeedingAction)
 
     // TODO: consider auto-gen for this:
@@ -50,6 +51,17 @@ enum AppAction {
         set {
             guard case .savedFyiDialog = self, let newValue = newValue else { return }
             self = .savedFyiDialog(newValue)
+        }
+    }
+
+    var newFeeding: NewFeedingAction? {
+        get {
+            guard case let .newFeeding(value) = self else { return nil }
+            return value
+        }
+        set {
+            guard case .newFeeding = self, let newValue = newValue else { return }
+            self = .newFeeding(newValue)
         }
     }
 

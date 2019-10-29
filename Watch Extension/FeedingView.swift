@@ -44,11 +44,11 @@ struct FeedingView: View {
                 switch action {
                 case .start: break
                 case .stop:
-                    self.store.send(.feeding(.stop(type: type)))
+                    self.store.send(.newFeeding(.stop(type: type)))
                 case .pause:
-                    self.store.send(.feeding(.pause(type: type)))
+                    self.store.send(.newFeeding(.pause(type: type)))
                 case .resume:
-                    self.store.send(.feeding(.resume(type: type)))
+                    self.store.send(.newFeeding(.resume(type: type)))
                 }
         },
             errorHandler: { error in
@@ -93,20 +93,23 @@ struct FeedingView: View {
 // swiftlint:disable type_name
 struct FeedingView_Previews: PreviewProvider {
 // swiftlint:enable type_name
-    static let feeding = Feeding(start: Date() - 3355,
-                                 type: .nursing,
+    static let feeding = Feeding(type: .nursing,
                                  side: .left,
-                                 lastPausedDate: nil,
+                                 startDate: Date() - 3355,
+                                 supplyAmount: .zero,
                                  pausedTime: 0)
-    static let feedingPaused = Feeding(start: Date(),
-                                 type: .nursing,
-                                 side: .left,
-                                 lastPausedDate: Date() + 5,
-                                 pausedTime: 0)
+
+    static let feedingPaused = Feeding(type: .nursing,
+                                       side: .left,
+                                       startDate: Date() - 3355,
+                                       lastPausedDate: Date() + 5,
+                                       supplyAmount: .zero,
+                                       pausedTime: 0)
+
     static var previews: some View {
         Group {
-        FeedingView(store: Store(initialValue: AppState(), reducer: appReducer),
-                    feeding: FeedingView_Previews.feeding)
+            FeedingView(store: Store(initialValue: AppState(), reducer: appReducer),
+                        feeding: FeedingView_Previews.feeding)
             FeedingView(store: Store(initialValue: AppState(), reducer: appReducer),
                         feeding: FeedingView_Previews.feedingPaused)
         }
