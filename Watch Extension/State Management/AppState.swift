@@ -1,3 +1,4 @@
+import Common
 import Swift
 
 struct AppState {

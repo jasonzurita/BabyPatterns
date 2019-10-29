@@ -27,6 +27,12 @@ extension SessionCoordinator: WCSessionDelegate {
     }
 
     func session(_: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
+        let decoder = JSONDecoder()
+        if let data = applicationContext["feedings"] as? Data,
+            let feedings = try? decoder.decode([Feeding].self, from: data) {
+            store?.send(.feeding(.update(feedings: feedings)))
+        }
+
         // TODO: change this into codable or something better
         if applicationContext["loggedIn"] != nil {
             store?.send(.session(.loggedIn))
@@ -51,13 +57,13 @@ extension SessionCoordinator: WCSessionDelegate {
 
         switch info.action {
         case .start:
-            s.send(.feeding(.start(type: info.feedingType, side: info.feedingSide)))
+            s.send(.newFeeding(.start(type: info.feedingType, side: info.feedingSide)))
         case .stop:
-            s.send(.feeding(.stop(type: info.feedingType)))
+            s.send(.newFeeding(.stop(type: info.feedingType)))
         case .pause:
-            s.send(.feeding(.pause(type: info.feedingType)))
+            s.send(.newFeeding(.pause(type: info.feedingType)))
         case .resume:
-            s.send(.feeding(.resume(type: info.feedingType)))
+            s.send(.newFeeding(.resume(type: info.feedingType)))
         }
     }
 }

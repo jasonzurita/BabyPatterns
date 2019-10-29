@@ -1,12 +1,12 @@
 import Swift
 import Foundation.NSNumberFormatter
 
-public enum Units {
+public enum Units: Int, Codable {
     case centiounces
     case ounces
 }
 
-public struct SupplyAmount {
+public struct SupplyAmount: Codable {
     public let value: Int
     public let units: Units
 

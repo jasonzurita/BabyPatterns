@@ -3,9 +3,9 @@ import SwiftUI
 /*
  TODO: - V1 Watch
  - Polish UI
- - Sync in-progress feedings when first starting watch app
+ - Allow watch to refresh feedings from main app
+   + Refresh button? pull down? automatic?
  - Think about subscriptions or IAP for this
- - Load all feedings when starting up?
  */
 
 struct HomeView: View {

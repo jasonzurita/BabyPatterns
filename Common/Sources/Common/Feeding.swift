@@ -1,12 +1,35 @@
-import Common
 import Foundation
 
-public struct Feeding {
+public struct K {
+    // TODO: reconcile this duplication with `Constants.swift`
+    public struct JsonFields {
+        public static let FeedingType = "type"
+        public static let Side = "side"
+        public static let StartDate = "startDate"
+        public static let EndDate = "endDate"
+        public static let LastPausedDate = "lastPausedDate"
+        public static let SupplyAmount = "supplyAmount"
+        public static let PausedTime = "pausedTime"
+    }
+}
+
+// TODO: reconcile this duplication
+private extension Date {
+    init?(timeInterval: Any?) {
+        guard let i = timeInterval as? TimeInterval, i > 0 else { return nil }
+        self = Date(timeIntervalSince1970: i)
+    }
+}
+
+public struct Feeding: Codable, Identifiable {
+    public let id = UUID()
     public let type: FeedingType
     public let side: FeedingSide
     public let startDate: Date
     public var serverKey: String?
     public var endDate: Date?
+    // TODO: make sure we can't have a lastPausedTime after the endDate
+    // i.e., the lastPauseDate should be limited
     public var lastPausedDate: Date?
     public var pausedTime: TimeInterval
     public let supplyAmount: SupplyAmount
@@ -95,7 +118,11 @@ public struct Feeding {
     private func fullPausedTime() -> TimeInterval {
         var adjustment: TimeInterval = 0.0
         if let lastPausedDate = lastPausedDate {
-            adjustment = abs(lastPausedDate.timeIntervalSinceNow)
+            if let endDate = endDate {
+                adjustment = abs(lastPausedDate.timeIntervalSince(endDate))
+            } else {
+                adjustment = abs(lastPausedDate.timeIntervalSinceNow)
+            }
         }
 
         return pausedTime + adjustment
