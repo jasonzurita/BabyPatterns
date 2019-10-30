@@ -1,7 +1,6 @@
 import Common
 import Foundation
 
-// TODO: consider having a clock pulse like this in the iOS app
 final class TimerPulse {
     // TODO: need to manage the timer by hooking into the app's lifecycle
     static let shared = TimerPulse()
