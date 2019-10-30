@@ -1,6 +1,6 @@
 import Common
-import WatchConnectivity
 import SwiftUI
+import WatchConnectivity
 
 struct FeedingView: View {
     @ObservedObject var store: Store<AppState, AppAction>
@@ -50,12 +50,13 @@ struct FeedingView: View {
                 case .resume:
                     self.store.send(.newFeeding(.resume(type: type)))
                 }
-        },
+            },
             errorHandler: { error in
                 // TODO: show communication error
                 print("Error sending the message: \(error.localizedDescription)")
                 assertionFailure()
-        })
+            }
+        )
     }
 
     var body: some View {

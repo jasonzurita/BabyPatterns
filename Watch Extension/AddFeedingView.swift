@@ -1,6 +1,6 @@
 import Common
-import WatchConnectivity
 import SwiftUI
+import WatchConnectivity
 
 private func isAdding(feeding type: FeedingType) -> Bool {
     switch type {
@@ -110,12 +110,13 @@ struct AddFeedingView: View {
             replyHandler: { _ in
                 self.store.send(.newFeeding(.start(type: type, side: side)))
                 self.isShowingSheet = false
-        },
+            },
             errorHandler: { error in
                 // TODO: show communication error
                 print("Error sending the message: \(error.localizedDescription)")
                 assertionFailure()
-        })
+            }
+        )
     }
 }
 

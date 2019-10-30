@@ -41,7 +41,7 @@ extension SessionCoordinator: WCSessionDelegate {
         }
     }
 
-    func session(_ session: WCSession,
+    func session(_: WCSession,
                  didReceiveMessageData messageData: Data,
                  replyHandler: @escaping (Data) -> Void) {
         // This is just used as a succesfull communication reply
