@@ -3,9 +3,7 @@ import Swift
 enum AppAction {
     case session(SessionAction)
     case pulse(PulseAction)
-    case communication(CommunicationAction)
     case savedFyiDialog(SavedFyiDialogAction)
-    case newFeeding(NewFeedingAction)
     case feeding(FeedingAction)
     case context(ContextAction)
 
@@ -33,17 +31,6 @@ enum AppAction {
         }
     }
 
-    var communication: CommunicationAction? {
-        get {
-            guard case let .communication(value) = self else { return nil }
-            return value
-        }
-        set {
-            guard case .communication = self, let newValue = newValue else { return }
-            self = .communication(newValue)
-        }
-    }
-
     var savedFyiDialog: SavedFyiDialogAction? {
         get {
             guard case let .savedFyiDialog(value) = self else { return nil }
@@ -52,17 +39,6 @@ enum AppAction {
         set {
             guard case .savedFyiDialog = self, let newValue = newValue else { return }
             self = .savedFyiDialog(newValue)
-        }
-    }
-
-    var newFeeding: NewFeedingAction? {
-        get {
-            guard case let .newFeeding(value) = self else { return nil }
-            return value
-        }
-        set {
-            guard case .newFeeding = self, let newValue = newValue else { return }
-            self = .newFeeding(newValue)
         }
     }
 

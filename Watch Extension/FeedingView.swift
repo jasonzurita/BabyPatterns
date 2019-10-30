@@ -41,14 +41,12 @@ struct FeedingView: View {
         WCSession.default.sendMessageData(
             d,
             replyHandler: { _ in
+                // TODO: add UI elements like the saved dialog here
                 switch action {
                 case .start: break
-                case .stop:
-                    self.store.send(.newFeeding(.stop(type: type)))
-                case .pause:
-                    self.store.send(.newFeeding(.pause(type: type)))
-                case .resume:
-                    self.store.send(.newFeeding(.resume(type: type)))
+                case .stop: break
+                case .pause: break
+                case .resume: break
                 }
             },
             errorHandler: { error in

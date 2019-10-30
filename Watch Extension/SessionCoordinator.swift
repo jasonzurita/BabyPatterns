@@ -50,30 +50,4 @@ extension SessionCoordinator: WCSessionDelegate {
             store?.send(.session(.loggedOut))
         }
     }
-
-    func session(_: WCSession,
-                 didReceiveMessageData messageData: Data,
-                 replyHandler: @escaping (Data) -> Void) {
-        // This is just used as a succesfull communication reply
-        defer { replyHandler(Data()) }
-
-        let decoder = JSONDecoder()
-        guard let info = try? decoder.decode(WatchFeedingCommunication.self, from: messageData) else { return }
-
-        // TODO: look into if we can get rid of the `.none` case
-        guard info.feedingType != .none else { return }
-
-        guard let s = store else { return }
-
-        switch info.action {
-        case .start:
-            s.send(.newFeeding(.start(type: info.feedingType, side: info.feedingSide)))
-        case .stop:
-            s.send(.newFeeding(.stop(type: info.feedingType)))
-        case .pause:
-            s.send(.newFeeding(.pause(type: info.feedingType)))
-        case .resume:
-            s.send(.newFeeding(.resume(type: info.feedingType)))
-        }
-    }
 }
