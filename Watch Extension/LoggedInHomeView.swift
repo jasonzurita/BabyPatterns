@@ -12,12 +12,25 @@ struct LoggedInHomeView: View {
         ZStack {
             // TODO: think more about the layout of these two
             VStack {
-                List(store.value.activeFeedings.reversed()) { feeding in
-                    HStack {
-                        Spacer()
-                        FeedingView(store: self.store, feeding: feeding)
-                            .layoutPriority(1.0)
-                        Spacer()
+                if store.value.activeFeedings.isEmpty {
+                    Spacer()
+                    // TODO: maybe add an image behind the text?
+                    Text("No active feedings")
+                        .lineLimit(nil)
+                        .multilineTextAlignment(.center)
+                        .scaledFont(.notoSansSemiBold, size: 22)
+                        .foregroundColor(Color.gray)
+                        .layoutPriority(1)
+                    Spacer()
+                    Spacer()
+                } else {
+                    List(store.value.activeFeedings.reversed()) { feeding in
+                        HStack {
+                            Spacer()
+                            FeedingView(store: self.store, feeding: feeding)
+                                .layoutPriority(1.0)
+                            Spacer()
+                        }
                     }
                 }
 
