@@ -97,7 +97,7 @@ struct AddFeedingView: View {
     // TODO: consider making this a global function or in the session coordinator or ?
     // This is the first time of copy and paste
     func communicateFeedingStart(type: FeedingType, side: FeedingSide) {
-        let info = WatchCommunication(type: type, side: side, action: .start)
+        let info = WatchFeedingCommunication(type: type, side: side, action: .start)
 
         let jsonEncoder = JSONEncoder()
         guard let d = try? jsonEncoder.encode(info), WCSession.default.isReachable else {
