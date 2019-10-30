@@ -3,9 +3,7 @@ import SwiftUI
 /*
  TODO: - V1 Watch
  - Polish UI
- - Allow watch to refresh feedings from main app
-   + Refresh button? pull down? automatic?
- - Think about subscriptions or IAP for this
+ - clean up / fix popups
  */
 
 struct HomeView: View {

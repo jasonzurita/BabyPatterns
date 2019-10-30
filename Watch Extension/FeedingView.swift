@@ -30,7 +30,7 @@ struct FeedingView: View {
     // TODO: consider making this a global function or in the session coordinator or ?
     // This is the second time of copy and paste
     func communicate(type: FeedingType, side: FeedingSide, action: Common.FeedingAction) {
-        let info = WatchCommunication(type: type, side: side, action: action)
+        let info = WatchFeedingCommunication(type: type, side: side, action: action)
 
         let jsonEncoder = JSONEncoder()
         guard let d = try? jsonEncoder.encode(info), WCSession.default.isReachable else {

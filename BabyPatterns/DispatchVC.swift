@@ -208,37 +208,47 @@ extension DispatchVC: WCSessionDelegate {
                  didReceiveMessageData messageData: Data,
                  replyHandler: @escaping (Data) -> Void) {
 
-        // This is just used as a succesfull communication reply
-        defer { replyHandler(Data()) }
+        // TODO: this should probably be a litle smarter now based on the received message
+        defer { replyHandler(Data()) } // This is just used as a succesfull communication reply
 
         let decoder = JSONDecoder()
-        guard let info = try? decoder.decode(WatchCommunication.self, from: messageData) else { return }
+        if (try? decoder.decode(WatchContextCommunication.self, from: messageData)) != nil,
+            let feedings = feedingsVM?.feedings,
+            let feedingsData = try? JSONEncoder().encode(feedings) {
+            // TODO: this seems to be a common thing (see above). Consider DRY-ing this up.
+            let context: [String: Any] = [
+                "loggedIn": "dummy",
+                "feedings": feedingsData,
+            ]
+            try? WCSession.default.updateApplicationContext(context)
+        } else if let info = try? decoder.decode(WatchFeedingCommunication.self, from: messageData) {
 
-        // TODO: look into if we can get rid of the `.none` case
-        guard info.feedingType != .none else { return }
+            // TODO: look into if we can get rid of the `.none` case
+            guard info.feedingType != .none else { return }
 
-        // TODO: this needs to be a bit better
-        guard let vm = feedingsVM else { return }
+            // TODO: this needs to be a bit better
+            guard let vm = feedingsVM else { return }
 
-        switch info.action {
-        case .start:
-            vm.feedingStarted(type: info.feedingType, side: info.feedingSide)
-        case .stop:
-            guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
-            vm.feedingEnded(type: info.feedingType, side: info.feedingSide)
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: K.Notifications.showSavedFyiDialog, object: nil)
+            switch info.action {
+            case .start:
+                vm.feedingStarted(type: info.feedingType, side: info.feedingSide)
+            case .stop:
+                guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
+                vm.feedingEnded(type: info.feedingType, side: info.feedingSide)
+                DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: K.Notifications.showSavedFyiDialog, object: nil)
+                }
+            case .pause:
+                guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
+                vm.updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: true)
+            case .resume:
+                guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
+                vm.updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: false)
             }
-        case .pause:
-            guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
-            vm.updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: true)
-        case .resume:
-            guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
-            vm.updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: false)
-        }
 
-        // FIXME: for some reason, the UI isn't updating as expected when killed
-        let center = NotificationCenter.default
-        center.post(name: K.Notifications.updateFeedingsUI, object: nil)
+            // FIXME: for some reason, the UI isn't updating as expected when killed
+            let center = NotificationCenter.default
+            center.post(name: K.Notifications.updateFeedingsUI, object: nil)
+        }
     }
 }

@@ -38,6 +38,7 @@
 		12227F1A235F23AE004049DB /* SavedFyiDialogReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12227F19235F23AE004049DB /* SavedFyiDialogReducer.swift */; };
 		12227F1C235F2460004049DB /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12227F1B235F2460004049DB /* AppReducer.swift */; };
 		12227F1E235F2481004049DB /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12227F1D235F2481004049DB /* AppAction.swift */; };
+		1233CA222369F62D009BAF8E /* ContextReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1233CA212369F62D009BAF8E /* ContextReducer.swift */; };
 		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
 		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
 		123D4F93233691EB00F164E5 /* Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120F80211FBF0E9500D04E45 /* Library.framework */; };
@@ -231,6 +232,7 @@
 		12227F19235F23AE004049DB /* SavedFyiDialogReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedFyiDialogReducer.swift; sourceTree = "<group>"; };
 		12227F1B235F2460004049DB /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		12227F1D235F2481004049DB /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		1233CA212369F62D009BAF8E /* ContextReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextReducer.swift; sourceTree = "<group>"; };
 		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
 		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
 		123D4F8E233691EB00F164E5 /* LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -410,6 +412,7 @@
 				12227F1B235F2460004049DB /* AppReducer.swift */,
 				12227F13235E9A02004049DB /* NewFeedingReducer.swift */,
 				125BBC5F2367E37400CF3C70 /* FeedingReducer.swift */,
+				1233CA212369F62D009BAF8E /* ContextReducer.swift */,
 				12227F15235F2223004049DB /* AccountReducer.swift */,
 				12227F17235F232A004049DB /* PulseReducer.swift */,
 				12227F19235F23AE004049DB /* SavedFyiDialogReducer.swift */,
@@ -1239,6 +1242,7 @@
 				12F3EC29233D6BFB0051D52B /* HomeView.swift in Sources */,
 				12E38A412343CEB500940F07 /* UnidirectionalFlow.swift in Sources */,
 				12D0AF4B2347670A00725A56 /* TimerPulse.swift in Sources */,
+				1233CA222369F62D009BAF8E /* ContextReducer.swift in Sources */,
 				125BBC602367E37400CF3C70 /* FeedingReducer.swift in Sources */,
 				120478EF234BEBB600302AFD /* LoggedOutView.swift in Sources */,
 				12227F1C235F2460004049DB /* AppReducer.swift in Sources */,

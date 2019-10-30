@@ -7,6 +7,7 @@ enum AppAction {
     case savedFyiDialog(SavedFyiDialogAction)
     case newFeeding(NewFeedingAction)
     case feeding(FeedingAction)
+    case context(ContextAction)
 
     // TODO: consider auto-gen for this:
     // https://github.com/pointfreeco/swift-enum-properties
@@ -73,6 +74,17 @@ enum AppAction {
         set {
             guard case .feeding = self, let newValue = newValue else { return }
             self = .feeding(newValue)
+        }
+    }
+
+    var context: ContextAction? {
+        get {
+            guard case let .context(value) = self else { return nil }
+            return value
+        }
+        set {
+            guard case .context = self, let newValue = newValue else { return }
+            self = .context(newValue)
         }
     }
 }

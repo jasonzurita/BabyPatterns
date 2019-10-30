@@ -4,7 +4,11 @@ import WatchConnectivity
 
 final class SessionCoordinator: NSObject {
     static let shared = SessionCoordinator()
-    weak var store: Store<AppState, AppAction>?
+    weak var store: Store<AppState, AppAction>? {
+        didSet {
+            store?.send(.context(.requestFullContext))
+        }
+    }
 
     override init() {
         super.init()
@@ -19,6 +23,12 @@ final class SessionCoordinator: NSObject {
 extension SessionCoordinator: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith _: WCSessionActivationState, error: Error?) {
         print("Completed activation: \(error?.localizedDescription ?? "no error")")
+        let decoder = JSONDecoder()
+        if let data = session.receivedApplicationContext["feedings"] as? Data,
+            let feedings = try? decoder.decode([Feeding].self, from: data) {
+            store?.send(.feeding(.update(feedings: feedings)))
+        }
+
         if session.receivedApplicationContext["loggedIn"] != nil {
             store?.send(.session(.loggedIn))
         } else if session.receivedApplicationContext["loggedOut"] != nil {
@@ -48,7 +58,7 @@ extension SessionCoordinator: WCSessionDelegate {
         defer { replyHandler(Data()) }
 
         let decoder = JSONDecoder()
-        guard let info = try? decoder.decode(WatchCommunication.self, from: messageData) else { return }
+        guard let info = try? decoder.decode(WatchFeedingCommunication.self, from: messageData) else { return }
 
         // TODO: look into if we can get rid of the `.none` case
         guard info.feedingType != .none else { return }
