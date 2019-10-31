@@ -75,7 +75,11 @@ struct LoggedInHomeView: View {
             })
 
             if store.value.showSavedFyiDialog {
-                FyiDialog(store: store, screenWidthPercent: 0.5)
+                FyiDialog(text: Text("Saved!"),
+                           screenWidthPercent: 0.5,
+                           backgroundColor: Color.gray,
+                           displayDuration: 1,
+                           endAction: { self.store.send(.communicationErrorFyiDialog(.hide)) })
             }
         }
     }

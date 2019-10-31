@@ -40,6 +40,7 @@
 		1233CA222369F62D009BAF8E /* ContextReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1233CA212369F62D009BAF8E /* ContextReducer.swift */; };
 		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
 		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
+		123C1C1D236A849300AE084E /* FyiDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C1C1C236A849300AE084E /* FyiDialog.swift */; };
 		123D4F93233691EB00F164E5 /* Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120F80211FBF0E9500D04E45 /* Library.framework */; };
 		1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */; };
 		1243E4841FD6DA4900D727F1 /* FeedingStopwatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */; };
@@ -57,7 +58,6 @@
 		1263ADFA23393A9400142056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1263ADF923393A9400142056 /* Assets.xcassets */; };
 		1263ADFD23393A9400142056 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1263ADFC23393A9400142056 /* Preview Assets.xcassets */; };
 		1263AE0123393A9400142056 /* Baby Patterns.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1263ADE223393A9200142056 /* Baby Patterns.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		126C44DD2358929A00C211A1 /* FyiDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C44DC2358929A00C211A1 /* FyiDialog.swift */; };
 		1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289D18C20C167A800E73DA0 /* StopButton.swift */; };
 		128A56F720F56E2E00A4DC8E /* ProfileImageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128A56F620F56E2E00A4DC8E /* ProfileImageCoordinator.swift */; };
 		128A56F820F56EB200A4DC8E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C431E034E6400056F83 /* ProfileView.swift */; };
@@ -233,6 +233,7 @@
 		1233CA212369F62D009BAF8E /* ContextReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextReducer.swift; sourceTree = "<group>"; };
 		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
 		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
+		123C1C1C236A849300AE084E /* FyiDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FyiDialog.swift; sourceTree = "<group>"; };
 		123D4F8E233691EB00F164E5 /* LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		123D4F90233691EB00F164E5 /* TimerLabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabelTests.swift; sourceTree = "<group>"; };
 		1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingStopwatchView.swift; sourceTree = "<group>"; };
@@ -252,7 +253,6 @@
 		1263ADF923393A9400142056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1263ADFC23393A9400142056 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1263ADFE23393A9400142056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		126C44DC2358929A00C211A1 /* FyiDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FyiDialog.swift; sourceTree = "<group>"; };
 		1289D18C20C167A800E73DA0 /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		128A56F620F56E2E00A4DC8E /* ProfileImageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCoordinator.swift; sourceTree = "<group>"; };
 		128A56FB20F56F9200A4DC8E /* EditProfileImageVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileImageVc.xib; sourceTree = "<group>"; };
@@ -456,7 +456,7 @@
 				12D0AF4A2347670A00725A56 /* TimerPulse.swift */,
 				120478EC234BE53800302AFD /* SessionCoordinator.swift */,
 				1263ADF523393A9300142056 /* HostingController.swift */,
-				126C44DC2358929A00C211A1 /* FyiDialog.swift */,
+				123C1C1C236A849300AE084E /* FyiDialog.swift */,
 				12F3EC28233D6BFB0051D52B /* HomeView.swift */,
 				120478EE234BEBB600302AFD /* LoggedOutView.swift */,
 				120478F0234BEC3400302AFD /* LoggedInHomeView.swift */,
@@ -1232,7 +1232,7 @@
 				12227F18235F232A004049DB /* PulseReducer.swift in Sources */,
 				12227F1A235F23AE004049DB /* SavedFyiDialogReducer.swift in Sources */,
 				1263ADF623393A9300142056 /* HostingController.swift in Sources */,
-				126C44DD2358929A00C211A1 /* FyiDialog.swift in Sources */,
+				123C1C1D236A849300AE084E /* FyiDialog.swift in Sources */,
 				120478ED234BE53800302AFD /* SessionCoordinator.swift in Sources */,
 				12E38A402343CEB500940F07 /* AppState.swift in Sources */,
 				1221F04E2344C9CC00E516D5 /* FeedingView.swift in Sources */,
