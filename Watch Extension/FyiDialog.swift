@@ -1,11 +1,13 @@
 import SwiftUI
 
 struct FyiDialog: View {
-    // TODO: remove the requirement to have the full store
-    @ObservedObject var store: Store<AppState, AppAction>
-    @State private var isShowing = false
+    let text: Text
     let screenWidthPercent: CGFloat
-    private let disappearDuration: TimeInterval = 0.45
+    let backgroundColor: Color
+    let displayDuration: TimeInterval
+    let endAction: () -> Void
+
+    @State private var isShowing = false
 
     private func sideDimention(for metrics: GeometryProxy) -> CGFloat {
         isShowing ? metrics.size.width * screenWidthPercent : 10
@@ -16,11 +18,11 @@ struct FyiDialog: View {
             ZStack {
                 Rectangle()
                     .cornerRadius(12)
-                    .foregroundColor(Color.gray)
-                    .opacity(0.96)
+                    .foregroundColor(self.backgroundColor)
+                    .opacity(0.98)
 
-                Text("Saved!")
-                    .scaledFont(.notoSansBold, size: 16)
+                self.text
+                    .scaledFont(.notoSansSemiBold, size: 18)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
                     .opacity(self.isShowing ? 1.0 : 0.0)
@@ -34,11 +36,11 @@ struct FyiDialog: View {
             withAnimation(.spring()) {
                 self.isShowing = true
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                withAnimation(.easeIn(duration: self.disappearDuration)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.displayDuration) {
+                withAnimation(.easeIn(duration: 0.45)) {
                     self.isShowing = false
-                    DispatchQueue.main.asyncAfter(deadline: .now() + self.disappearDuration) {
-                        self.store.send(.fyiDialog(.hide))
+                    DispatchQueue.main.asyncAfter(deadline: .now() + self.displayDuration) {
+                        self.endAction()
                     }
                 }
             }
@@ -50,7 +52,22 @@ struct FyiDialog: View {
 struct FyiDialog_Previews: PreviewProvider {
 // swiftlint:enable type_name
     static var previews: some View {
-        FyiDialog(store: Store(initialValue: AppState(), reducer: appReducer),
-                  screenWidthPercent: 0.5)
+        Group {
+            FyiDialog(text: Text("Saved!"),
+                      screenWidthPercent: 0.5,
+                      backgroundColor: Color.gray,
+                      displayDuration: 0.45,
+                      endAction: {})
+            FyiDialog(text: Text("Oh no!\nPlease try again."),
+                      screenWidthPercent: 0.75,
+                      backgroundColor: Color.red,
+                      displayDuration: 0.7,
+                      endAction: {})
+            FyiDialog(text: Text("Hello World!"),
+                      screenWidthPercent: 0.7,
+                      backgroundColor: Color.blue,
+                      displayDuration: 0.45,
+                      endAction: {})
+        }
     }
 }

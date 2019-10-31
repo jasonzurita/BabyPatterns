@@ -4,6 +4,7 @@ enum AppAction {
     case session(SessionAction)
     case pulse(PulseAction)
     case fyiDialog(SavedFyiDialogAction)
+    case communicationErrorFyiDialog(CommunicationErrorFyiDialogAction)
     case feeding(FeedingAction)
     case context(ContextAction)
 
@@ -39,6 +40,17 @@ enum AppAction {
         set {
             guard case .fyiDialog = self, let newValue = newValue else { return }
             self = .fyiDialog(newValue)
+        }
+    }
+
+    var communicationErrorFyiDialog: CommunicationErrorFyiDialogAction? {
+        get {
+            guard case let .communicationErrorFyiDialog(value) = self else { return nil }
+            return value
+        }
+        set {
+            guard case .communicationErrorFyiDialog = self, let newValue = newValue else { return }
+            self = .communicationErrorFyiDialog(newValue)
         }
     }
 

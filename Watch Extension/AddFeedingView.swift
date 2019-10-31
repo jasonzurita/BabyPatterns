@@ -111,9 +111,9 @@ struct AddFeedingView: View {
                 self.isShowingSheet = false
             },
             errorHandler: { error in
-                // TODO: show communication error
                 print("Error sending the message: \(error.localizedDescription)")
-                assertionFailure()
+                self.isShowingSheet = false
+                self.store.send(.communicationErrorFyiDialog(.show))
             }
         )
     }

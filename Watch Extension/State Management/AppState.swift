@@ -5,6 +5,7 @@ struct AppState {
     var activeFeedings: [Feeding] = []
     var timerPulseCount: Int = 0
     var sessionState: SessionState = .loggedOut
+    var showCommunicationErrorFyiDialog = false
     /*
      TODO: think about this some more.
      I am not too sure how much I like this.
