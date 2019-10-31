@@ -41,6 +41,7 @@
 		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
 		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
 		123C1C1D236A849300AE084E /* FyiDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C1C1C236A849300AE084E /* FyiDialog.swift */; };
+		123C1C1F236A898700AE084E /* CommunicationErrorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C1C1E236A898700AE084E /* CommunicationErrorReducer.swift */; };
 		123D4F93233691EB00F164E5 /* Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120F80211FBF0E9500D04E45 /* Library.framework */; };
 		1243E4821FD6D9D000D727F1 /* FeedingStopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */; };
 		1243E4841FD6DA4900D727F1 /* FeedingStopwatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1243E4831FD6DA4900D727F1 /* FeedingStopwatchView.xib */; };
@@ -234,6 +235,7 @@
 		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
 		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
 		123C1C1C236A849300AE084E /* FyiDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FyiDialog.swift; sourceTree = "<group>"; };
+		123C1C1E236A898700AE084E /* CommunicationErrorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationErrorReducer.swift; sourceTree = "<group>"; };
 		123D4F8E233691EB00F164E5 /* LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		123D4F90233691EB00F164E5 /* TimerLabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabelTests.swift; sourceTree = "<group>"; };
 		1243E4811FD6D9D000D727F1 /* FeedingStopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingStopwatchView.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				12227F15235F2223004049DB /* AccountReducer.swift */,
 				12227F17235F232A004049DB /* PulseReducer.swift */,
 				12227F19235F23AE004049DB /* SavedFyiDialogReducer.swift */,
+				123C1C1E236A898700AE084E /* CommunicationErrorReducer.swift */,
 			);
 			path = "State Management";
 			sourceTree = "<group>";
@@ -1239,6 +1242,7 @@
 				12F3EC29233D6BFB0051D52B /* HomeView.swift in Sources */,
 				12E38A412343CEB500940F07 /* UnidirectionalFlow.swift in Sources */,
 				12D0AF4B2347670A00725A56 /* TimerPulse.swift in Sources */,
+				123C1C1F236A898700AE084E /* CommunicationErrorReducer.swift in Sources */,
 				1233CA222369F62D009BAF8E /* ContextReducer.swift in Sources */,
 				125BBC602367E37400CF3C70 /* FeedingReducer.swift in Sources */,
 				120478EF234BEBB600302AFD /* LoggedOutView.swift in Sources */,

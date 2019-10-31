@@ -41,19 +41,16 @@ struct FeedingView: View {
         WCSession.default.sendMessageData(
             d,
             replyHandler: { _ in
-                // TODO: add UI elements like the saved dialog here
                 switch action {
                 case .start: break
-                case .stop:
-                    self.store.send(.fyiDialog(.show))
+                case .stop: self.store.send(.fyiDialog(.show))
                 case .pause: break
                 case .resume: break
                 }
             },
             errorHandler: { error in
-                // TODO: show communication error
                 print("Error sending the message: \(error.localizedDescription)")
-                assertionFailure()
+                self.store.send(.communicationErrorFyiDialog(.show))
             }
         )
     }
