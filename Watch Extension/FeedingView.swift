@@ -44,7 +44,8 @@ struct FeedingView: View {
                 // TODO: add UI elements like the saved dialog here
                 switch action {
                 case .start: break
-                case .stop: break
+                case .stop:
+                    self.store.send(.fyiDialog(.show))
                 case .pause: break
                 case .resume: break
                 }

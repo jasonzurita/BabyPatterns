@@ -3,7 +3,7 @@ import Swift
 enum AppAction {
     case session(SessionAction)
     case pulse(PulseAction)
-    case savedFyiDialog(SavedFyiDialogAction)
+    case fyiDialog(SavedFyiDialogAction)
     case feeding(FeedingAction)
     case context(ContextAction)
 
@@ -33,12 +33,12 @@ enum AppAction {
 
     var savedFyiDialog: SavedFyiDialogAction? {
         get {
-            guard case let .savedFyiDialog(value) = self else { return nil }
+            guard case let .fyiDialog(value) = self else { return nil }
             return value
         }
         set {
-            guard case .savedFyiDialog = self, let newValue = newValue else { return }
-            self = .savedFyiDialog(newValue)
+            guard case .fyiDialog = self, let newValue = newValue else { return }
+            self = .fyiDialog(newValue)
         }
     }
 
