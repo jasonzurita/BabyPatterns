@@ -5,19 +5,32 @@ struct LoggedInHomeView: View {
     @State private var isShowingSheet = false
 
     private func alertDimension(for metrics: GeometryProxy) -> CGFloat {
-        store.value.didCommunicationFail ? metrics.size.width * 0.9 : 10
+        metrics.size.width * 0.9
     }
 
     var body: some View {
         ZStack {
             // TODO: think more about the layout of these two
             VStack {
-                List(store.value.activeFeedings.reversed()) { feeding in
-                    HStack {
-                        Spacer()
-                        FeedingView(store: self.store, feeding: feeding)
-                            .layoutPriority(1.0)
-                        Spacer()
+                if store.value.activeFeedings.isEmpty {
+                    Spacer()
+                    // TODO: maybe add an image behind the text?
+                    Text("No active feedings")
+                        .lineLimit(nil)
+                        .multilineTextAlignment(.center)
+                        .scaledFont(.notoSansSemiBold, size: 22)
+                        .foregroundColor(Color.gray)
+                        .layoutPriority(1)
+                    Spacer()
+                    Spacer()
+                } else {
+                    List(store.value.activeFeedings.reversed()) { feeding in
+                        HStack {
+                            Spacer()
+                            FeedingView(store: self.store, feeding: feeding)
+                                .layoutPriority(1.0)
+                            Spacer()
+                        }
                     }
                 }
 
@@ -55,10 +68,10 @@ struct LoggedInHomeView: View {
                 }
                 .frame(width: self.alertDimension(for: metrics), height: self.alertDimension(for: metrics))
             }
-            .opacity(self.store.value.didCommunicationFail ? 1.0 : 0.0)
+            .opacity(false ? 1.0 : 0.0)
             .animation(.spring(response: 0.45, dampingFraction: 0.7))
             .gesture(TapGesture().onEnded {
-                self.store.send(.communication(.clearFailedCommunication))
+//                self.store.send(.communication(.clearFailedCommunication))
             })
 
             if store.value.showSavedFyiDialog {

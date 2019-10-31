@@ -1,12 +1,15 @@
 import Swift
 
 enum SavedFyiDialogAction {
-    case hideSavedFyiDialog
+    case show
+    case hide
 }
 
 func savedFyiDialogReducer(showSavedFyiDialog: inout Bool, action: SavedFyiDialogAction) {
     switch action {
-    case .hideSavedFyiDialog:
+    case .show:
+        showSavedFyiDialog = true
+    case .hide:
         showSavedFyiDialog = false
     }
 }
