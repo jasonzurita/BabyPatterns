@@ -60,6 +60,8 @@ struct LoggedInHomeView: View {
                            backgroundColor: Color.gray,
                            displayDuration: 1,
                            endAction: { self.store.send(.communicationErrorFyiDialog(.hide)) })
+            } else if store.value.isLoading {
+                LoadingView()
             }
         }
     }

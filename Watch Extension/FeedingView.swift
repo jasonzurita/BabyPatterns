@@ -38,9 +38,12 @@ struct FeedingView: View {
             return
         }
 
+        self.store.send(.loading(.loading))
+
         WCSession.default.sendMessageData(
             d,
             replyHandler: { _ in
+                defer { self.store.send(.loading(.notLoading)) }
                 switch action {
                 case .start: break
                 case .stop: self.store.send(.fyiDialog(.show))
