@@ -104,11 +104,12 @@ struct AddFeedingView: View {
             // TODO: show communication error
             return
         }
-
+        self.isShowingSheet = false
+        self.store.send(.loading(.loading))
         WCSession.default.sendMessageData(
             d,
             replyHandler: { _ in
-                self.isShowingSheet = false
+                self.store.send(.loading(.notLoading))
             },
             errorHandler: { error in
                 print("Error sending the message: \(error.localizedDescription)")

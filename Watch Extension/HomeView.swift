@@ -3,7 +3,6 @@ import SwiftUI
 /*
  TODO: - V1 Watch
  - Polish UI
- - Show spinner when sending message to phone
  */
 
 struct HomeView: View {

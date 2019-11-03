@@ -7,6 +7,7 @@ enum AppAction {
     case communicationErrorFyiDialog(CommunicationErrorFyiDialogAction)
     case feeding(FeedingAction)
     case context(ContextAction)
+    case loading(LoadingAction)
 
     // TODO: consider auto-gen for this:
     // https://github.com/pointfreeco/swift-enum-properties
@@ -73,6 +74,17 @@ enum AppAction {
         set {
             guard case .context = self, let newValue = newValue else { return }
             self = .context(newValue)
+        }
+    }
+
+    var loading: LoadingAction? {
+        get {
+            guard case let .loading(value) = self else { return nil }
+            return value
+        }
+        set {
+            guard case .loading = self, let newValue = newValue else { return }
+            self = .loading(newValue)
         }
     }
 }
