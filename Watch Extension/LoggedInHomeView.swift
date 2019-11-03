@@ -53,13 +53,13 @@ struct LoggedInHomeView: View {
                            screenWidthPercent: 0.75,
                            backgroundColor: Color.red,
                            displayDuration: 1.5,
-                           endAction: { self.store.send(.fyiDialog(.hide)) })
+                           endAction: { self.store.send(.communicationErrorFyiDialog(.hide)) })
             } else if store.value.showSavedFyiDialog {
                 FyiDialog(text: Text("Saved!"),
                            screenWidthPercent: 0.5,
                            backgroundColor: Color.gray,
                            displayDuration: 1,
-                           endAction: { self.store.send(.communicationErrorFyiDialog(.hide)) })
+                           endAction: { self.store.send(.fyiDialog(.hide)) })
             } else if store.value.isLoading {
                 LoadingView()
             }
