@@ -1,8 +1,9 @@
+import Common
 import Foundation
 import Framework_BabyPatterns
 import Library
 
-class FeedingsVM: Loggable {
+final class FeedingsVM: NSObject, Loggable {
     let shouldPrintDebugLog = true
     var feedings: [Feeding] = []
 

@@ -1,4 +1,6 @@
+import Common
 import Foundation
+import WatchConnectivity
 import Framework_BabyPatterns
 
 extension FeedingsVM {
@@ -6,6 +8,9 @@ extension FeedingsVM {
                         side: FeedingSide,
                         startDate: Date = Date(),
                         supplyAmount: SupplyAmount = SupplyAmount.zero) {
+        // FIXME: I dislike that you can start a feeding of type none...
+        // FIXME: there is a bug here in that after there is more than one feeding this
+        // will always let you start another
         guard feedingInProgress(type: type) == nil else {
             log("Already a feeding started of this type...", object: self, type: .warning)
             return
@@ -15,6 +20,8 @@ extension FeedingsVM {
         let serverKey = DatabaseFacade().uploadJSON(fip.eventJson(), requestType: .feedings)
         fip.serverKey = serverKey
         feedings.append(fip)
+
+        updateContext()
     }
 
     // TODO: the term `feeding in progress` doesn't quite fit here, consider improving naming
@@ -37,6 +44,7 @@ extension FeedingsVM {
 
         updateInternalFeedingCache(fip: updatedPumpingFeeding)
         updateFeedingOnServer(fip: updatedPumpingFeeding)
+        updateContext()
     }
 
     func feedingEnded(type: FeedingType, side _: FeedingSide, endDate: Date = Date()) {
@@ -47,6 +55,7 @@ extension FeedingsVM {
 
         updateInternalFeedingCache(fip: fip)
         updateFeedingOnServer(fip: fip)
+        updateContext()
     }
 
     func updateFeedingInProgress(type: FeedingType, side _: FeedingSide, isPaused: Bool) {
@@ -61,6 +70,7 @@ extension FeedingsVM {
 
         updateInternalFeedingCache(fip: fip)
         updateFeedingOnServer(fip: fip)
+        updateContext()
     }
 
     private func updateInternalFeedingCache(fip: Feeding) {
@@ -80,11 +90,21 @@ extension FeedingsVM {
 
     func feedingInProgress(type: FeedingType) -> Feeding? {
         let f = feedings.filter { $0.type == type && !$0.isFinished }
-        guard f.count > 0 else { return nil }
+        guard !f.isEmpty else { return nil }
         guard f.count == 1, let feeding = f.first else {
             log("More than one in-progress feeding of the same type...", object: self, type: .warning)
             return nil
         }
         return feeding
+    }
+
+    func updateContext() {
+        do {
+            let encoder = JSONEncoder()
+            let feedingsData = try encoder.encode(feedings)
+            try WCSession.default.updateApplicationContext(["feedings": feedingsData])
+        } catch {
+            print(error)
+        }
     }
 }

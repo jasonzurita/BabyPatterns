@@ -1,10 +1,23 @@
+# Rule explanations: https://github.com/realm/SwiftLint/blob/master/Rules.md
+#
 disabled_rules: # rule identifiers to exclude from running
   - todo
-  - trailing_comma
   - vertical_parameter_alignment
   - identifier_name
-excluded: # paths to ignore during linting. Takes precedence over `included`.
+
+opt_in_rules:
+  - empty_count
+  - contains_over_first_not_nil
+excluded:
   - Pods
+
+trailing_comma:
+  mandatory_comma: true 
+
+force_cast: warning
+
+force_try: warning
+
 type_name:
   excluded:
     - K

@@ -1,3 +1,5 @@
+import Foundation
+
 public struct K {
     public struct Segues {
         // app launch
@@ -22,8 +24,6 @@ public struct K {
         public static let LastPausedDate = "lastPausedDate"
         public static let SupplyAmount = "supplyAmount"
         public static let PausedTime = "pausedTime"
-        public static let FeedingQuantity = "quantity"
-        public static let Duration = "duration"
 
         // profile
         public static let ParentName = "parentName"
@@ -47,5 +47,11 @@ public struct K {
     public struct DictionaryKeys {
         public static let VersionNumber = "CFBundleShortVersionString"
         public static let BuildNumber = "CFBundleVersion"
+    }
+
+    public struct Notifications {
+        public static let updateFeedingsUI = NSNotification.Name("com.flippingleaf.notifications.update-feedings-ui")
+        public static let showSavedFyiDialog = NSNotification.Name("com.flippingleaf.notifications.show-saved-fyi-dialog")
+
     }
 }

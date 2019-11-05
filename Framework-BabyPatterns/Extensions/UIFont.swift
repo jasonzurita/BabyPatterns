@@ -1,24 +1,15 @@
 import UIKit
 
-public enum CustomFont: String {
+public enum CustomFont: String, CaseIterable {
     case notoSansBold = "NotoSans-Bold"
     case notoSansBoldItalic = "NotoSans-BoldItalic"
     case notoSansItalic = "NotoSans-Italic"
     case notoSansRegular = "NotoSans-Regular"
-
-    static var allValues: [CustomFont] {
-        return [
-            .notoSansBold,
-            .notoSansBoldItalic,
-            .notoSansItalic,
-            .notoSansRegular,
-        ]
-    }
 }
 
 public extension UIFont {
     static let registerFonts: () = {
-        CustomFont.allValues
+        CustomFont.allCases
             .map { $0.rawValue + ".ttf" }
             .forEach { registerFont(fontName: $0) }
     }()
@@ -59,13 +50,8 @@ extension UIFont {
         return font
     }
 
-    // needed because loaded font name differs from font file name
     private static let notoSansRegular: String = {
         var rawValue = CustomFont.notoSansRegular.rawValue
-        guard let range = rawValue.range(of: "-Regular") else {
-            preconditionFailure("Couldn't process noto sans regular name")
-        }
-        rawValue.removeSubrange(range)
         return rawValue
     }()
 

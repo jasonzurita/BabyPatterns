@@ -1,3 +1,4 @@
+import Common
 import Framework_BabyPatterns
 import Library
 import UIKit
@@ -70,6 +71,27 @@ final class FeedingVC: UIViewController {
         navigationItem.backBarButtonItem?.title = " "
         let titles = FeedingType.allValues.map { $0.rawValue }
         segmentedControl.configureSegmentedBar(titles: titles, defaultSegmentIndex: 0)
+
+        let center = NotificationCenter.default
+        notificationToken = center.addObserver(forName: K.Notifications.updateFeedingsUI,
+                                               object: nil,
+                                               queue: nil) { _ in
+            if let lf = self.feedingsVM?.lastFeeding(type: .nursing) {
+                DispatchQueue.main.async {
+                    self.nVc?.resume(feeding: lf)
+                }
+            }
+            if let lf = self.feedingsVM?.lastFeeding(type: .pumping) {
+                DispatchQueue.main.async {
+                    self.pVc?.resume(feeding: lf)
+                }
+            }
+        }
+
+        center.addObserver(self,
+                           selector: #selector(showFeedingSavedFyiDialog),
+                           name: K.Notifications.showSavedFyiDialog,
+                           object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -130,6 +152,9 @@ final class FeedingVC: UIViewController {
         }
     }
 
+    private var nVc: NursingVC?
+    private var pVc: PumpingVC?
+
     private func configureFeedingPageVC(vc: FeedingPageVC) {
         segmentedControl.delegate = vc
         vc.segmentedControl = segmentedControl
@@ -138,10 +163,12 @@ final class FeedingVC: UIViewController {
         if let lf = feedingsVM?.lastFeeding(type: .nursing), !lf.isFinished {
             page1.resume(feeding: lf)
         }
+        nVc = page1
         let page2 = PumpingVC(controller: self)
         if let lf = feedingsVM?.lastFeeding(type: .pumping), !lf.isFinished {
             page2.resume(feeding: lf)
         }
+        pVc = page2
         let page3 = BottleVC()
         page3.delegate = self
         page3.dataSource = self
@@ -150,16 +177,16 @@ final class FeedingVC: UIViewController {
 
     @IBAction func unwindToFeedingVC(segue _: UIStoryboardSegue) {}
 
-    fileprivate func showFeedingSavedToast() {
-        let toastSize: CGFloat = 150
-        let frame = CGRect(x: view.frame.width * 0.5 - (toastSize * 0.5),
-                           y: view.frame.height * 0.5 - (toastSize * 0.5),
-                           width: toastSize,
-                           height: toastSize)
+    @objc fileprivate func showFeedingSavedFyiDialog() {
+        let dialogSize: CGFloat = 150
+        let frame = CGRect(x: view.frame.width * 0.5 - (dialogSize * 0.5),
+                           y: view.frame.height * 0.5 - (dialogSize * 0.5),
+                           width: dialogSize,
+                           height: dialogSize)
 
-        let toast = Toast(frame: frame, text: "Saved!")
-        styleLabelToast(toast)
-        toast.present(in: view)
+        let fyi = FyiDialog(frame: frame, text: "Saved!")
+        styleLabelFyiDialog(fyi)
+        fyi.present(in: view)
     }
 }
 
@@ -190,7 +217,7 @@ extension FeedingVC: FeedingController {
 
     func end(feeding type: FeedingType, side: FeedingSide) {
         feedingsVM?.feedingEnded(type: type, side: side)
-        showFeedingSavedToast()
+        showFeedingSavedFyiDialog()
     }
 
     // TODO: split up feedingVM.updateFeedingInProgress for pause and resume
@@ -201,13 +228,17 @@ extension FeedingVC: FeedingController {
     func resume(feeding type: FeedingType, side: FeedingSide) {
         feedingsVM?.updateFeedingInProgress(type: type, side: side, isPaused: false)
     }
+
+    func feedingInProgress(type: FeedingType) -> Feeding? {
+        feedingsVM?.feedingInProgress(type: type)
+    }
 }
 
 extension FeedingVC: PumpingActionProtocol {
     // TODO: if using other units this function should take units in
     func pumpingAmountChosen(_ amount: SupplyAmount) {
         feedingsVM?.addPumpingAmountToLastPumping(amount: amount)
-        showFeedingSavedToast()
+        showFeedingSavedFyiDialog()
     }
 }
 
@@ -229,6 +260,6 @@ extension FeedingVC: BottleDelegate {
         let supplyAmount = SupplyAmount(value: -amount)
         feedingsVM?.feedingStarted(type: .bottle, side: .none, startDate: time, supplyAmount: supplyAmount)
         feedingsVM?.feedingEnded(type: .bottle, side: .none, endDate: time)
-        showFeedingSavedToast()
+        showFeedingSavedFyiDialog()
     }
 }

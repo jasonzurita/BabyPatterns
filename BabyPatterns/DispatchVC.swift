@@ -1,9 +1,11 @@
+import Common
 import Firebase
 import Framework_BabyPatterns
 import Library
 import UIKit
+import WatchConnectivity
 
-class DispatchVC: UIViewController, Loggable {
+final class DispatchVC: UIViewController, Loggable {
     let shouldPrintDebugLog = true
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -23,6 +25,18 @@ class DispatchVC: UIViewController, Loggable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
+         This Needs to be here becuase the sessions needs to be acivated before
+         trying to set the context.
+
+         TODO: this and the other watch communication code should be moved into
+         its own entity.
+         */
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            WCSession.default.activate()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -35,6 +49,13 @@ class DispatchVC: UIViewController, Loggable {
             userLoggedIn(user: user)
         } else {
             presentSignup()
+
+            let context = ["loggedOut": "dummy"]
+            do {
+                try WCSession.default.updateApplicationContext(context)
+            } catch {
+                print("Error setting watch<>phone context: \(error)")
+            }
         }
     }
 
@@ -116,6 +137,7 @@ class DispatchVC: UIViewController, Loggable {
         activityIndicator.stopAnimating()
     }
 
+    // TODO: rename this because naming is confusing with other `userLoggedIn` function
     private func userLoggedIn(user: User?) {
         if let user = user {
             log("User id: \(user.uid)", object: self, type: .info)
@@ -146,6 +168,14 @@ class DispatchVC: UIViewController, Loggable {
     private func userLoggedIn() {
         if didRequestFeedings && didRequestProfile {
             performSegue(withIdentifier: K.Segues.LoggedIn, sender: nil)
+
+            // keep the apple watch up to date upon first start up
+            var context: [String: Any] = ["loggedIn": "dummy"]
+            let encoder = JSONEncoder()
+            if let vm = feedingsVM, let feedingsData = try? encoder.encode(vm.feedings) {
+                context["feedings"] = feedingsData
+            }
+            try? WCSession.default.updateApplicationContext(context)
         }
     }
 
@@ -154,10 +184,71 @@ class DispatchVC: UIViewController, Loggable {
             let vc = navigationVC.topViewController as? FeedingVC {
             vc.feedingsVM = feedingsVM
             vc.profileVM = profileVM
-            feedingsVM = nil
             profileVM = nil
             didRequestProfile = false
             didRequestFeedings = false
+        }
+    }
+}
+
+extension DispatchVC: WCSessionDelegate {
+    public func session(_: WCSession, activationDidCompleteWith _: WCSessionActivationState, error: Error?) {
+        print("Completed activation: \(error?.localizedDescription ?? "n/a error")")
+    }
+
+    public func sessionDidBecomeInactive(_: WCSession) {
+        print("session did become inactive")
+    }
+
+    public func sessionDidDeactivate(_: WCSession) {
+        print("session did deactivate")
+    }
+
+    func session(_ session: WCSession,
+                 didReceiveMessageData messageData: Data,
+                 replyHandler: @escaping (Data) -> Void) {
+
+        // TODO: this should probably be a litle smarter now based on the received message
+        defer { replyHandler(Data()) } // This is just used as a succesfull communication reply
+
+        let decoder = JSONDecoder()
+        if (try? decoder.decode(WatchContextCommunication.self, from: messageData)) != nil,
+            let feedings = feedingsVM?.feedings,
+            let feedingsData = try? JSONEncoder().encode(feedings) {
+            // TODO: this seems to be a common thing (see above). Consider DRY-ing this up.
+            let context: [String: Any] = [
+                "loggedIn": "dummy",
+                "feedings": feedingsData,
+            ]
+            try? WCSession.default.updateApplicationContext(context)
+        } else if let info = try? decoder.decode(WatchFeedingCommunication.self, from: messageData) {
+
+            // TODO: look into if we can get rid of the `.none` case
+            guard info.feedingType != .none else { return }
+
+            // TODO: this needs to be a bit better
+            guard let vm = feedingsVM else { return }
+
+            switch info.action {
+            case .start:
+                vm.feedingStarted(type: info.feedingType, side: info.feedingSide)
+            case .stop:
+                guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
+                vm.feedingEnded(type: info.feedingType, side: info.feedingSide)
+                DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: K.Notifications.showSavedFyiDialog, object: nil)
+                }
+            case .pause:
+                guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
+                vm.updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: true)
+            case .resume:
+                guard vm.feedingInProgress(type: info.feedingType) != nil else { return }
+                vm.updateFeedingInProgress(type: info.feedingType, side: info.feedingSide, isPaused: false)
+            }
+
+            // FIXME: for some reason, the UI isn't updating as expected when killed
+            let center = NotificationCenter.default
+            center.post(name: K.Notifications.updateFeedingsUI, object: nil)
         }
     }
 }

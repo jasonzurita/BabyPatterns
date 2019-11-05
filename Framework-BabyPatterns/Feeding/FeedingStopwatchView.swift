@@ -1,5 +1,9 @@
+import Common
 import Library
 import UIKit
+
+// Done to be able to pass feeding into the timer label
+extension Feeding: TimerSource {}
 
 public final class FeedingStopwatchView: UIView {
     typealias StatusChangeHandler = ((FeedingType, FeedingSide) -> Void)
@@ -25,6 +29,8 @@ public final class FeedingStopwatchView: UIView {
             }
         }
     }
+
+    var feedingInProgress: ((FeedingType) -> Feeding?)?
 
     private let _feedingType: FeedingType
     private var _sideInProgress: FeedingSide = .none
@@ -52,7 +58,10 @@ public final class FeedingStopwatchView: UIView {
 
     @IBOutlet var timerLabel: TimerLabel! {
         didSet {
-            timerLabel.changeDisplayTime(time: 0)
+            timerLabel.activeSource = { [weak self] in
+                guard let self = self else { return nil }
+                return self.feedingInProgress?(self._feedingType)
+            }
             styleLabelTimer(timerLabel)
         }
     }
@@ -97,25 +106,12 @@ public final class FeedingStopwatchView: UIView {
     public required init?(coder _: NSCoder) { fatalError("\(#function) has not been implemented") }
 
     func stopButtonPressed() {
-        guard timerLabel.isRunning else {
-            preconditionFailure("Cannot stop timer that is not running")
-        }
-
         guard _sideInProgress != .none else {
             preconditionFailure("No side in progress to stop")
         }
 
-        var control: FeedingControl!
-        if leftFeedingControl.isActive && _sideInProgress == .left {
-            control = leftFeedingControl
-        } else if rightFeedingControl.isActive && _sideInProgress == .right {
-            control = rightFeedingControl
-        } else {
-            assertionFailure("Failed to end feeding")
-        }
-        reset(control: control)
         onEnd?(_feedingType, _sideInProgress)
-        lastFeedingSide = _sideInProgress
+        reset(lastFeedingSide: _sideInProgress)
         _sideInProgress = .none
     }
 
@@ -124,25 +120,26 @@ public final class FeedingStopwatchView: UIView {
             preconditionFailure("Cannot start / end feeding because no feeding type or no side")
         }
 
-        // TODO: make into enum
-        let shouldStartTimer = !timerLabel.isRunning && !timerLabel.isPaused
-        let shouldPauseTimer = timerLabel.isRunning && !timerLabel.isPaused && sender.isActive
-        let shouldResumeTimer = timerLabel.isRunning && timerLabel.isPaused && sender.isActive
+        defer { timerLabel.refresh() }
 
-        if shouldStartTimer {
-            startFeeding(at: 0, on: sender.side)
+        if let fip = feedingInProgress?(_feedingType) {
+            if fip.isPaused {
+                sender.setTitle("Pause", for: .normal)
+                onResume?(_feedingType, sender.side)
+            } else {
+                if let control = _activeControl {
+                    control.setTitle("Resume", for: .normal)
+                }
+                onPause?(_feedingType, sender.side)
+            }
+        } else {
             onStart?(_feedingType, sender.side)
-        } else if shouldPauseTimer {
-            pause()
-            onPause?(_feedingType, sender.side)
-        } else if shouldResumeTimer {
-            resumeFeeding(control: sender)
-            onResume?(_feedingType, sender.side)
+            updateUIForInProgressFeeding(on: sender.side)
         }
     }
 
-    func startFeeding(at startTime: TimeInterval, on side: FeedingSide) {
-        var control: FeedingControl?
+    func updateUIForInProgressFeeding(on side: FeedingSide) {
+        var control: FeedingControl! // ! is okay here b/c of below switch
         switch side {
         case .left:
             control = leftFeedingControl
@@ -151,29 +148,24 @@ public final class FeedingStopwatchView: UIView {
         case .none:
             assertionFailure("Asked to start a feeding on side of = none")
         }
-        timerLabel.start(at: TimerLabel.Seconds(startTime))
-        control!.setTitle("Pause", for: .normal)
-        control!.isActive = true
+
+        if let fip = feedingInProgress?(_feedingType), !fip.isPaused {
+            control.setTitle("Pause", for: .normal)
+        } else {
+            control.setTitle("Resume", for: .normal)
+        }
+
+        control.isActive = true
         stopButton.isDisabled = false
-        _sideInProgress = control!.side
+        _sideInProgress = control.side
         // this should be at the end for the feeding title to work properly
         lastFeedingSide = .none
     }
 
-    func pause() {
-        guard let control = _activeControl else { return }
-        timerLabel.pause()
-        control.setTitle("Resume", for: .normal)
-    }
-
-    private func resumeFeeding(control: FeedingControl) {
-        timerLabel.resume()
-        control.setTitle("Pause", for: .normal)
-    }
-
-    private func reset(control: FeedingControl) {
-        control.isActive = false
+    func reset(lastFeedingSide: FeedingSide) {
+        leftFeedingControl.isActive = false
+        rightFeedingControl.isActive = false
         stopButton.isDisabled = true
-        timerLabel.end()
+        self.lastFeedingSide = lastFeedingSide
     }
 }
