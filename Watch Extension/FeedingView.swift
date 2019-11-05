@@ -58,22 +58,29 @@ struct FeedingView: View {
         )
     }
 
+    private func color(for type: FeedingType) -> Color {
+        switch type {
+        case .nursing: return .bpPink
+        case .pumping: return .bpGreen
+        case .bottle: return .bpMediumBlue
+        case .none: fatalError()
+        }
+    }
+
     var body: some View {
-        VStack(alignment: .center) {
+        HStack(alignment: .center) {
             Text(feeding.isPaused ? "PAUSED" : "\(timerString(from: feeding.duration()))")
-                .scaledFont(.notoSansBold, size: 32)
+                .scaledFont(.notoSansBold, size: 26)
+                .layoutPriority(1)
             // TODO: get these to align better with the timer label
-            HStack(alignment: .center) {
-                Spacer()
-                Text("\(feeding.type.rawValue)")
-                    .scaledFont(.notoSansRegular, size: 16)
-                Spacer()
-                Text("\(feeding.side.asText())".lowercased())
-                    .scaledFont(.notoSansRegular, size: 16)
-                    .foregroundColor(.bpMediumGray)
-                Spacer()
+            VStack(alignment: .center) {
+                Text("\(String(feeding.type.rawValue.prefix(1)))".uppercased())
+                    .scaledFont(.notoSansBold, size: 16)
+                    .foregroundColor(color(for: feeding.type))
+                Text("\(feeding.side.asText().prefix(1))".uppercased())
+                    .scaledFont(.notoSansSemiBold, size: 14)
+                    .foregroundColor(.bpLightGray)
             }
-            Spacer()
         }
         .actionSheet(isPresented: $isShowingActionSheet) {
             ActionSheet(title: Text("What do you want to do?"),
