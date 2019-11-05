@@ -61,6 +61,7 @@
 		1263ADFA23393A9400142056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1263ADF923393A9400142056 /* Assets.xcassets */; };
 		1263ADFD23393A9400142056 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1263ADFC23393A9400142056 /* Preview Assets.xcassets */; };
 		1263AE0123393A9400142056 /* Baby Patterns.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1263ADE223393A9200142056 /* Baby Patterns.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		127EACFE23712C68006BEED7 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EACFD23712C68006BEED7 /* CustomColor.swift */; };
 		1289D18D20C167A800E73DA0 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289D18C20C167A800E73DA0 /* StopButton.swift */; };
 		128A56F720F56E2E00A4DC8E /* ProfileImageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128A56F620F56E2E00A4DC8E /* ProfileImageCoordinator.swift */; };
 		128A56F820F56EB200A4DC8E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43932C431E034E6400056F83 /* ProfileView.swift */; };
@@ -259,6 +260,7 @@
 		1263ADF923393A9400142056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1263ADFC23393A9400142056 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1263ADFE23393A9400142056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		127EACFD23712C68006BEED7 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		1289D18C20C167A800E73DA0 /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		128A56F620F56E2E00A4DC8E /* ProfileImageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCoordinator.swift; sourceTree = "<group>"; };
 		128A56FB20F56F9200A4DC8E /* EditProfileImageVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileImageVc.xib; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				1221F04D2344C9CC00E516D5 /* FeedingView.swift */,
 				1263ADF323393A9300142056 /* AddFeedingView.swift */,
 				121BFD822361C70E00EDCE89 /* CustomFonts.swift */,
+				127EACFD23712C68006BEED7 /* CustomColor.swift */,
 				1263ADF923393A9400142056 /* Assets.xcassets */,
 				12AE29E223687CCE0037545D /* Fonts */,
 				1263ADFE23393A9400142056 /* Info.plist */,
@@ -1251,6 +1254,7 @@
 				12E38A412343CEB500940F07 /* UnidirectionalFlow.swift in Sources */,
 				12D0AF4B2347670A00725A56 /* TimerPulse.swift in Sources */,
 				123C1C1F236A898700AE084E /* CommunicationErrorReducer.swift in Sources */,
+				127EACFE23712C68006BEED7 /* CustomColor.swift in Sources */,
 				1233CA222369F62D009BAF8E /* ContextReducer.swift in Sources */,
 				125BBC602367E37400CF3C70 /* FeedingReducer.swift in Sources */,
 				120478EF234BEBB600302AFD /* LoggedOutView.swift in Sources */,
