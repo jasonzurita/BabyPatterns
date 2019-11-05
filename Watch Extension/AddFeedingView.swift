@@ -101,7 +101,7 @@ struct AddFeedingView: View {
 
         let jsonEncoder = JSONEncoder()
         guard let d = try? jsonEncoder.encode(info), WCSession.default.isReachable else {
-            // TODO: show communication error
+            store.send(.communicationErrorFyiDialog(.show))
             return
         }
         self.isShowingSheet = false
