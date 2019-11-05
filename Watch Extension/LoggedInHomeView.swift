@@ -14,13 +14,19 @@ struct LoggedInHomeView: View {
             VStack {
                 if store.value.activeFeedings.isEmpty {
                     Spacer()
-                    // TODO: maybe add an image behind the text?
-                    Text("No active feedings")
-                        .lineLimit(nil)
-                        .multilineTextAlignment(.center)
-                        .scaledFont(.notoSansSemiBold, size: 22)
-                        .foregroundColor(Color.gray)
-                        .layoutPriority(1)
+                    ZStack {
+                        Image("feet")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .scaleEffect(1.2)
+                            .opacity(0.4)
+                        Text("Start")
+                            .lineLimit(nil)
+                            .multilineTextAlignment(.center)
+                            .scaledFont(.notoSansSemiBold, size: 26)
+                            .foregroundColor(Color.gray)
+                    }
+                    .layoutPriority(1)
                     Spacer()
                     Spacer()
                 } else {

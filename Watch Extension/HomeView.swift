@@ -5,7 +5,6 @@ import SwiftUI
  - Polish UI
    + Look at putting nursing and side on left of the feeding chip
    + Try putting colored circle behind plus circle
-   + Consider laceholder photo behind _no active feeding_ text
  V2
  - Have the feeding chip turn into pause and stop buttons instead of popup
  */
