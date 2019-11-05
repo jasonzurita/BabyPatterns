@@ -10,7 +10,6 @@ struct LoggedInHomeView: View {
 
     var body: some View {
         ZStack {
-            // TODO: think more about the layout of these two
             VStack {
                 if store.value.activeFeedings.isEmpty {
                     Spacer()

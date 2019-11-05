@@ -78,7 +78,6 @@ struct AddFeedingView: View {
                         .offset(x: isAdding(feeding: self.feedingIntent) ? -45 : -metrics.size.width * 0.5 - 50)
                         .gesture(TapGesture().onEnded {
                             self.communicateFeedingStart(type: self.feedingIntent, side: .left)
-                            // TODO: show spinner here
                             withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .none }
                         })
 
@@ -88,7 +87,6 @@ struct AddFeedingView: View {
                         .offset(x: isAdding(feeding: self.feedingIntent) ? 45 : metrics.size.width * 0.5 + 50)
                         .gesture(TapGesture().onEnded {
                             self.communicateFeedingStart(type: self.feedingIntent, side: .right)
-                            // TODO: show spinner here
                             withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .none }
                         })
                 }

@@ -1,9 +1,6 @@
 import SwiftUI
 
 /*
- TODO: - V1 Watch
- - Polish UI
-   + Try putting colored circle behind plus circle
  V2
  - Have the feeding chip turn into pause and stop buttons instead of popup
  */

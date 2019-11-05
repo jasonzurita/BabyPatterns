@@ -1,6 +1,6 @@
 import SwiftUI
 
-// TODO: consider putting this in the common package
+// TODO: put into common SPM when SPM supports assets
 public enum CustomFont: String {
     case notoSansBold = "NotoSans-Bold"
     case notoSansSemiBold = "NotoSans-SemiBold"
