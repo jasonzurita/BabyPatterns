@@ -12,7 +12,7 @@ struct LoadingView: View {
         GeometryReader { metrics in
             Circle()
                 .trim(from: 0, to: self.isAnimating ? 0 : 1)
-                .stroke(Color.blue, lineWidth: 5.0)
+                .stroke(Color.bpDarkBlue, lineWidth: 5)
                 .frame(width: metrics.size.width * 0.3,
                        height: metrics.size.width * 0.3)
                 .rotationEffect(Angle(degrees: self.isAnimating ? 0 : 360))

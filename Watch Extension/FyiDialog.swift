@@ -24,7 +24,7 @@ struct FyiDialog: View {
                 self.text
                     .scaledFont(.notoSansSemiBold, size: 18)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(.bpWhite)
                     .opacity(self.isShowing ? 1.0 : 0.0)
                     .animation(.none)
             }
@@ -55,17 +55,18 @@ struct FyiDialog_Previews: PreviewProvider {
         Group {
             FyiDialog(text: Text("Saved!"),
                       screenWidthPercent: 0.5,
-                      backgroundColor: Color.gray,
+                      backgroundColor: .bpMediumGray,
                       displayDuration: 0.45,
                       endAction: {})
             FyiDialog(text: Text("Oh no!\nPlease try again."),
                       screenWidthPercent: 0.75,
+                      // TODO: need a red color
                       backgroundColor: Color.red,
                       displayDuration: 0.7,
                       endAction: {})
             FyiDialog(text: Text("Hello World!"),
                       screenWidthPercent: 0.7,
-                      backgroundColor: Color.blue,
+                      backgroundColor: .bpMediumBlue,
                       displayDuration: 0.45,
                       endAction: {})
         }

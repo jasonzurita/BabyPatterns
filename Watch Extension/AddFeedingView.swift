@@ -73,6 +73,7 @@ struct AddFeedingView: View {
 
                     Image(systemName: "l.circle")
                         .font(.system(size: 55))
+                        .foregroundColor(.bpLightestGray)
                         // TODO: These numbers are not exact, figure this out better
                         .offset(x: isAdding(feeding: self.feedingIntent) ? -45 : -metrics.size.width * 0.5 - 50)
                         .gesture(TapGesture().onEnded {
@@ -83,6 +84,7 @@ struct AddFeedingView: View {
 
                     Image(systemName: "r.circle")
                         .font(.system(size: 55))
+                        .foregroundColor(.bpLightestGray)
                         .offset(x: isAdding(feeding: self.feedingIntent) ? 45 : metrics.size.width * 0.5 + 50)
                         .gesture(TapGesture().onEnded {
                             self.communicateFeedingStart(type: self.feedingIntent, side: .right)

@@ -24,7 +24,7 @@ struct LoggedInHomeView: View {
                             .lineLimit(nil)
                             .multilineTextAlignment(.center)
                             .scaledFont(.notoSansSemiBold, size: 26)
-                            .foregroundColor(Color.gray)
+                            .foregroundColor(.bpLightestGray)
                     }
                     .layoutPriority(1)
                     Spacer()
@@ -40,7 +40,6 @@ struct LoggedInHomeView: View {
                     }
                 }
 
-                // TODO: better style this
                 Image(systemName: "xmark.circle.fill")
                     .font(.system(size: 50))
                     .rotationEffect(.init(degrees: 45))
@@ -48,6 +47,7 @@ struct LoggedInHomeView: View {
                     .sheet(isPresented: $isShowingSheet) {
                         AddFeedingView(store: self.store, isShowingSheet: self.$isShowingSheet)
                     }
+                    .foregroundColor(.bpLightestGray)
                     .gesture(TapGesture().onEnded {
                         self.isShowingSheet.toggle()
                     })
@@ -57,13 +57,14 @@ struct LoggedInHomeView: View {
             if store.value.showCommunicationErrorFyiDialog {
                 FyiDialog(text: Text("Oh no!\nPlease try again."),
                            screenWidthPercent: 0.75,
+                           // TODO: need a red color
                            backgroundColor: Color.red,
                            displayDuration: 1.6,
                            endAction: { self.store.send(.communicationErrorFyiDialog(.hide)) })
             } else if store.value.showSavedFyiDialog {
                 FyiDialog(text: Text("Saved!"),
                            screenWidthPercent: 0.5,
-                           backgroundColor: Color.gray,
+                           backgroundColor: .bpMediumGray,
                            displayDuration: 1.25,
                            endAction: { self.store.send(.fyiDialog(.hide)) })
             } else if store.value.isLoading {

@@ -9,7 +9,7 @@ struct LoggedOutHomeView: View {
             Spacer()
             Text("Create an account using the main app to get started!")
                 .scaledFont(.notoSansRegular, size: 18)
-                .foregroundColor(.gray)
+                .foregroundColor(.bpMediumGray)
                 .layoutPriority(1.0)
             Spacer()
         }

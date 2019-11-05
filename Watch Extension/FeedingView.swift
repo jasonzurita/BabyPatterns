@@ -70,7 +70,7 @@ struct FeedingView: View {
                 Spacer()
                 Text("\(feeding.side.asText())".lowercased())
                     .scaledFont(.notoSansRegular, size: 16)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.bpMediumGray)
                 Spacer()
             }
             Spacer()
