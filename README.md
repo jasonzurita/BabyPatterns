@@ -1,5 +1,4 @@
 # Baby Patterns
-[![CircleCI](https://circleci.com/gh/jasonzurita/BabyPatterns.svg?style=svg)](https://circleci.com/gh/jasonzurita/BabyPatterns)
 
 Tracking and review of baby feedings (iOS).
 - Website: [baby-patterns.com](https://www.baby-patterns.com)
