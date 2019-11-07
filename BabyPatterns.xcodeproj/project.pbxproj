@@ -987,13 +987,9 @@
 					};
 					1263ADE123393A9200142056 = {
 						CreatedOnToolsVersion = 11.0;
-						DevelopmentTeam = S64Z2T7FXA;
-						ProvisioningStyle = Automatic;
 					};
 					1263ADED23393A9300142056 = {
 						CreatedOnToolsVersion = 11.0;
-						DevelopmentTeam = S64Z2T7FXA;
-						ProvisioningStyle = Automatic;
 					};
 					436484AA1DCA150500E6B0A7 = {
 						CreatedOnToolsVersion = 8.1;
@@ -1571,8 +1567,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1583,6 +1579,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns.watchkitapp;
 				PRODUCT_NAME = "Baby Patterns";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.jasonzurita.babypatterns.watchkitapp";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1601,7 +1598,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1611,6 +1608,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns.watchkitapp;
 				PRODUCT_NAME = "Baby Patterns";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.jasonzurita.babypatterns.watchkitapp";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1627,7 +1625,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Watch Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
@@ -1644,6 +1643,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.jasonzurita.babypatterns.watchkitapp.watchkitextension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1660,7 +1660,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Watch Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = S64Z2T7FXA;
@@ -1676,6 +1677,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.jasonzurita.babypatterns.watchkitapp.watchkitextension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
