@@ -896,7 +896,7 @@
 			buildPhases = (
 				1263ADE023393A9200142056 /* Resources */,
 				1263AE0523393A9400142056 /* Embed App Extensions */,
-				12B58112233E4950008B1A41 /* ShellScript */,
+				12B58112233E4950008B1A41 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -915,6 +915,7 @@
 				1263ADEA23393A9300142056 /* Sources */,
 				1263ADEB23393A9300142056 /* Frameworks */,
 				1263ADEC23393A9300142056 /* Resources */,
+				127EACFF23714346006BEED7 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -1111,7 +1112,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12B58112233E4950008B1A41 /* ShellScript */ = {
+		127EACFF23714346006BEED7 /* Set Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1120,6 +1121,25 @@
 			);
 			inputPaths = (
 			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
+		};
+		12B58112233E4950008B1A41 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
 			outputFileListPaths = (
 			);
 			outputPaths = (
