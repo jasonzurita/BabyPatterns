@@ -15,7 +15,12 @@ platform :ios do
     match(
       git_url: "git@github.com:jasonzurita/ios-certificates.git",
       username: "ios-dev@flippingleaf.com",
-      app_identifier: ["com.jasonzurita.babypatterns", "com.flippingleaf.*"],
+      app_identifier: [
+        "com.jasonzurita.babypatterns",
+        "com.flippingleaf.*",
+        "com.jasonzurita.babypatterns.watchkitapp.watchkitextension",
+        "com.jasonzurita.babypatterns.watchkitapp",
+      ],
       type: type,
       skip_docs: true,
       force_for_new_devices: true
