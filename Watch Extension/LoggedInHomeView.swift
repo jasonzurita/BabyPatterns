@@ -77,6 +77,14 @@ struct LoggedInHomeView: View {
 struct LoggedInHomeView_Previews: PreviewProvider {
 // swiftlint:enable type_name
     static var previews: some View {
-        LoggedInHomeView(store: Store(initialValue: AppState(), reducer: appReducer))
+        Group {
+            LoggedInHomeView(store:
+                Store(initialValue: AppState.singleFeedingMock,
+                      reducer: appReducer)
+            )
+            LoggedInHomeView(store:
+                Store(initialValue: AppState(), reducer: appReducer)
+            )
+        }
     }
 }
