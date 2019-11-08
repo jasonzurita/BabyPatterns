@@ -30,7 +30,7 @@ struct LoggedInHomeView: View {
                     Spacer()
                 } else {
                     List(store.value.activeFeedings.reversed()) { feeding in
-                        HStack {
+                        HStack(spacing: -10) {
                             Spacer()
                             FeedingView(store: self.store, feeding: feeding)
                                 .layoutPriority(1.0)

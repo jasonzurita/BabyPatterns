@@ -70,10 +70,10 @@ struct FeedingView: View {
     var body: some View {
         HStack(alignment: .center) {
             Text(feeding.isPaused ? "PAUSED" : "\(timerString(from: feeding.duration()))")
-                .scaledFont(.notoSansBold, size: 26)
+                .scaledFont(.notoSansRegular, size: 30)
                 .layoutPriority(1)
             // TODO: get these to align better with the timer label
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: -7) {
                 Text("\(String(feeding.type.rawValue.prefix(1)))".uppercased())
                     .scaledFont(.notoSansBold, size: 16)
                     .foregroundColor(color(for: feeding.type))
