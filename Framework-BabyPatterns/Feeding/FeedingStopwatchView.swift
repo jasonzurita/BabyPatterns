@@ -123,6 +123,7 @@ public final class FeedingStopwatchView: UIView {
         defer { timerLabel.refresh() }
 
         if let fip = feedingInProgress?(_feedingType) {
+            guard fip.side == sender.side else { return }
             if fip.isPaused {
                 sender.setTitle("Pause", for: .normal)
                 onResume?(_feedingType, sender.side)
