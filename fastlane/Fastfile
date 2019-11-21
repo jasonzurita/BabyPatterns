@@ -23,7 +23,7 @@ platform :ios do
       ],
       type: type,
       skip_docs: true,
-      force_for_new_devices: true
+      force_for_new_devices: true,
     )
   end
 
@@ -42,7 +42,7 @@ platform :ios do
   lane :build_dependencies do
     cocoapods(
       use_bundle_exec: false,
-      repo_update: true
+      repo_update: true,
     )
   end
 
@@ -57,7 +57,7 @@ platform :ios do
       output_files: "report.html",
       output_types: "html",
       devices: ["iPhone 8"],
-      code_coverage: true
+      code_coverage: true,
     )
   end
 end
