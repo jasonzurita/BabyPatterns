@@ -13,7 +13,7 @@ jobs:
     steps:
       - run:
           name: Set Ruby Version
-          command:  echo "ruby-2.6" > ~/.ruby-version
+          command: echo "ruby-2.6" > ~/.ruby-version
       - checkout
       - restore_cache:
           keys:
@@ -35,7 +35,7 @@ jobs:
     steps:
       - run:
           name: Set Ruby Version
-          command:  echo "ruby-2.6" > ~/.ruby-version
+          command: echo "ruby-2.6" > ~/.ruby-version
       - checkout
       - restore_cache:
           keys:
