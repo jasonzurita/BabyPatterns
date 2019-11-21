@@ -78,6 +78,46 @@ jobs:
           path: ~/project/artifacts/tests
           destination: test-results
 
+  release:
+    <<: *common-setup
+    steps:
+      - run:
+          name: Set Ruby Version
+          command: echo "ruby-2.5" > ~/.ruby-version
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-gems-{{ checksum "Gemfile.lock" }}
+            - v1-gems-
+      - run:
+          name: Bundle install
+          command: bundle install
+          environment:
+            BUNDLE_PATH: vendor/bundle
+      - save_cache:
+          key: v1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: "Make firebase plist"
+          command: |
+            echo $FIREBASE_GOOGLE_PLIST > './BabyPatterns/GoogleService-Info.plist'
+      - run:
+          name: Setup app store code signing
+          command: bundle exec fastlane provision type:"appstore" use_temporary_keychain:true
+          environment:
+            BUNDLE_PATH: vendor/bundle
+      - run:
+          name: Archive and upload to iTunes Connect
+          command: bundle exec fastlane release
+          environment:
+            BUNDLE_PATH: vendor/bundle
+      - store_test_results:
+          path: artifacts/tests
+      - store_artifacts:
+          path: ~/project/artifacts/tests
+          destination: test-results
+
 workflows:
   version: 2
 
@@ -91,3 +131,14 @@ workflows:
           filters:
             branches:
               ignore: master
+
+  release-workflow:
+    jobs:
+      - hold:
+          type: approval
+          filters:
+            branches:
+              only: master
+      - release:
+          requires:
+            - hold

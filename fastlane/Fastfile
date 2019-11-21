@@ -10,7 +10,11 @@ platform :ios do
     }
   end
 
-  private_lane :provision do |options|
+  desc "Set up certificates and code signing for a specific type (e.g., appstore, development)"
+  lane :provision do |options|
+    if options[:use_temporary_keychain]
+      create_temporary_keychain
+    end
     type = options[:type]
     match(
       git_url: "git@github.com:jasonzurita/ios-certificates.git",
@@ -24,6 +28,22 @@ platform :ios do
       type: type,
       skip_docs: true,
       force_for_new_devices: true,
+    )
+  end
+
+  # https://medium.com/sixt-tech-blog/continuous-integration-and-delivery-at-sixt-91ca215670a0
+  private_lane :create_temporary_keychain do
+    keychain_name = "temporary_keychain"
+    ENV["KEYCHAIN_NAME"] = keychain_name
+    ENV["KEYCHAIN_PASSWORD"] = keychain_name
+    ENV["MATCH_KEYCHAIN_NAME"] = keychain_name
+    ENV["MATCH_KEYCHAIN_PASSWORD"] = keychain_name
+
+    create_keychain(
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true,
     )
   end
 
@@ -58,6 +78,23 @@ platform :ios do
       output_types: "html",
       devices: ["iPhone 8"],
       code_coverage: true,
+    )
+  end
+
+  desc "Archive & upload to iTunes Connect"
+  lane :release do
+    gym(
+      scheme: "BabyPatterns",
+      configuration: "Release",
+      clean: true,
+      workspace: "BabyPatterns.xcworkspace",
+      output_directory: "../",
+      output_name: "BabyPatterns.ipa",
+      include_bitcode: true,
+      export_method: "app-store",
+    )
+    deliver(
+      username: "ios-dev@flippingleaf.com",
     )
   end
 end
