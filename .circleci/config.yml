@@ -24,6 +24,10 @@ jobs:
           command: bundle install
           environment:
             BUNDLE_PATH: vendor/bundle
+      - save_cache:
+          key: v1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run:
           name: Run Dangerfile
           command: bundle exec danger
@@ -46,6 +50,10 @@ jobs:
           command: bundle install
           environment:
             BUNDLE_PATH: vendor/bundle
+      - save_cache:
+          key: v1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run:
           name: "Make firebase plist"
           command: |
