@@ -95,6 +95,7 @@ platform :ios do
     )
     deliver(
       username: "ios-dev@flippingleaf.com",
+      force: "true",
     )
   end
 end
