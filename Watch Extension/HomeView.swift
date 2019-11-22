@@ -25,6 +25,9 @@ struct HomeView: View {
                 LoggedOutHomeView()
             }
         }
+        .onAppear {
+            self.store.send(.context(.requestFullContext))
+        }
     }
 }
 
