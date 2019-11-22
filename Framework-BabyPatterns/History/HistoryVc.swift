@@ -11,13 +11,11 @@ public protocol Event {
 
 // func averageNursingDuration(filterWindow _: DateInterval) -> TimeInterval {
 public protocol FeedingSummaryProtocol {
-    var timeSinceLastNursing: TimeInterval { get }
+    var timeSinceLastStart: ([FeedingType]) -> TimeInterval { get }
     var lastNursingSide: FeedingSide { get }
     var averageNursingDuration: (DateInterval) -> TimeInterval { get }
-    var timeSinceLastPumping: TimeInterval { get }
     var lastPumpingSide: FeedingSide { get }
     var lastPumpedAmount: SupplyAmount { get }
-    var timeSinceLastBottleFeeding: TimeInterval { get }
     var remainingSupplyAmount: SupplyAmount { get }
     var desiredSupplyAmount: SupplyAmount { get }
 }
@@ -66,7 +64,7 @@ public final class HistoryVc: UIViewController, Loggable {
 
     @IBOutlet var bodyLabels: [UILabel]!
     @IBOutlet var lastNursingLabel: UILabel! {
-        didSet { lastNursingLabel.text = lastTimeText(_summary.timeSinceLastNursing) }
+        didSet { lastNursingLabel.text = lastTimeText(_summary.timeSinceLastStart([.nursing])) }
     }
     @IBOutlet var lastNursingSideLabel: UILabel! {
         didSet { lastNursingSideLabel.text = "  Last side: \(_summary.lastNursingSide)" }
@@ -75,7 +73,7 @@ public final class HistoryVc: UIViewController, Loggable {
         didSet { updateAverageNursingLabel() }
     }
     @IBOutlet var lastPumpingLabel: UILabel! {
-        didSet { lastPumpingLabel.text = lastTimeText(_summary.timeSinceLastNursing) }
+        didSet { lastPumpingLabel.text = lastTimeText(_summary.timeSinceLastStart([.pumping])) }
     }
     @IBOutlet var lastPumpingSideLabel: UILabel! {
         didSet { lastPumpingSideLabel.text = "  Last side: \(_summary.lastPumpingSide)" }
@@ -87,7 +85,7 @@ public final class HistoryVc: UIViewController, Loggable {
         }
     }
     @IBOutlet var lastBottleFeedingLabel: UILabel! {
-        didSet { lastBottleFeedingLabel.text = lastTimeText(_summary.timeSinceLastBottleFeeding) }
+        didSet { lastBottleFeedingLabel.text = lastTimeText(_summary.timeSinceLastStart([.bottle])) }
     }
     @IBOutlet var remainingSupplyLabel: UILabel! {
         didSet {

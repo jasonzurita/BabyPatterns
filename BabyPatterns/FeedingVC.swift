@@ -19,13 +19,11 @@ struct EndFeedingEvent: Event {
 }
 
 struct FeedingSummary: FeedingSummaryProtocol {
-    let timeSinceLastNursing: TimeInterval
+    let timeSinceLastStart: ([FeedingType]) -> TimeInterval
     let lastNursingSide: FeedingSide
     let averageNursingDuration: (DateInterval) -> TimeInterval
-    let timeSinceLastPumping: TimeInterval
     let lastPumpingSide: FeedingSide
     let lastPumpedAmount: SupplyAmount
-    let timeSinceLastBottleFeeding: TimeInterval
     let remainingSupplyAmount: SupplyAmount
     let desiredSupplyAmount: SupplyAmount
 }
@@ -130,13 +128,11 @@ final class FeedingVC: UIViewController {
 
         let defaultMax = SupplyAmount(value: K.Defaults.DefaultDesiredMaxSupply)
         let summary = FeedingSummary(
-            timeSinceLastNursing: vm.timeSinceLast(feedingTypes: [.nursing]),
+            timeSinceLastStart: vm.timeSinceLastFeedingStart(for:),
             lastNursingSide: vm.lastFeedingSide(for: .nursing),
             averageNursingDuration: vm.averageNursingDuration,
-            timeSinceLastPumping: vm.timeSinceLast(feedingTypes: [.pumping]),
             lastPumpingSide: vm.lastFeedingSide(for: .pumping),
             lastPumpedAmount: vm.lastFeeding(type: .pumping)?.supplyAmount ?? SupplyAmount.zero,
-            timeSinceLastBottleFeeding: vm.timeSinceLast(feedingTypes: [.bottle]),
             remainingSupplyAmount: vm.remainingSupply(),
             desiredSupplyAmount: profileVM?.profile?.desiredMaxSupply ?? defaultMax
         )
