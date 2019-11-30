@@ -13,36 +13,35 @@ struct FeedingOptionsView: View {
     @Binding var feedingIntent: FeedingType
     let activeFeedingTypes: [FeedingType]
 
-    private func opacity(for type: FeedingType) -> Double {
-        isAdding(feeding: feedingIntent) || activeFeedingTypes.contains(type)
-            ? 0.5 : 1.0
-    }
-
     var body: some View {
         VStack {
             Spacer()
             HStack {
                 Spacer()
-                Image(systemName: "n.circle.fill")
-                    .font(.system(size: 55))
-                    .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
-                    .blur(radius: isAdding(feeding: feedingIntent) ? 1.0 : 0)
-                    .opacity(opacity(for: .nursing))
-                    .disabled(activeFeedingTypes.contains(.nursing))
-                    .gesture(TapGesture().onEnded {
-                        withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .nursing }
-                    })
+                Button(action: {
+                    withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .nursing }
+                }, label: {
+                    Image(systemName: "n.circle.fill")
+                        .font(.system(size: 55))
+                        .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
+                        .blur(radius: isAdding(feeding: feedingIntent) ? 1.0 : 0)
+                })
+                .buttonStyle(PlainButtonStyle())
+                .disabled(activeFeedingTypes.contains(.nursing))
+
                 Spacer()
                 Spacer()
-                Image(systemName: "p.circle.fill")
-                    .font(.system(size: 55))
-                    .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
-                    .opacity(opacity(for: .pumping))
-                    .blur(radius: isAdding(feeding: feedingIntent) ? 1.0 : 0)
-                    .disabled(activeFeedingTypes.contains(.pumping))
-                    .gesture(TapGesture().onEnded {
-                        withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .pumping }
-                    })
+
+                Button(action: {
+                    withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .pumping }
+                }, label: {
+                    Image(systemName: "p.circle.fill")
+                        .font(.system(size: 55))
+                        .scaleEffect(isAdding(feeding: feedingIntent) ? 0.5 : 1)
+                        .blur(radius: isAdding(feeding: feedingIntent) ? 1.0 : 0)
+                })
+                .buttonStyle(PlainButtonStyle())
+                .disabled(activeFeedingTypes.contains(.pumping))
                 Spacer()
             }
             Spacer()
