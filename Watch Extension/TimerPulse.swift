@@ -5,7 +5,7 @@ final class TimerPulse {
     // TODO: need to manage the timer by hooking into the app's lifecycle
     static let shared = TimerPulse()
 
-    weak var store: Store<AppState, AppAction>?
+    var store: Store<Void, PulseAction>?
     private var timer: Timer?
 
     func start() {
@@ -14,7 +14,7 @@ final class TimerPulse {
         // a new timer is added to the main runloop (aka the main thread)
         timer = Current.scheduledTimer(1, true) { [weak self] _ in
             guard let self = self else { return }
-            self.store?.send(.pulse(.timerPulse))
+            self.store?.send(.timerPulse)
         }
     }
 
