@@ -9,10 +9,19 @@ struct HomeView: View {
     @ObservedObject var store: Store<AppState, AppAction> = {
         let s = Store(initialValue: AppState(),
                       reducer: appReducer)
-        TimerPulse.shared.store = s
+        TimerPulse.shared.store = s.view(value: { _ in }, action: { .pulse($0) })
         TimerPulse.shared.start()
 
-        SessionCoordinator.shared.store = s
+        SessionCoordinator.shared.store = s.view(
+            value: { _ in },
+            action: {
+                switch $0 {
+                case let .session(action): return.session(action)
+                case let .context(action): return .context(action)
+                case let .feeding(action): return.feeding(action)
+                }
+            }
+        )
 
         return s
     }()
@@ -20,7 +29,26 @@ struct HomeView: View {
     var body: some View {
         VStack {
             if store.value.sessionState == .loggedIn {
-                LoggedInHomeView(store: store)
+                LoggedInHomeView(store:
+                    store.view(
+                        value: {
+                        ($0.activeFeedings,
+                         $0.showCommunicationErrorFyiDialog,
+                         $0.showSavedFyiDialog,
+                         $0.isLoading)
+                        },
+                        action: {
+                            switch $0 {
+                            case let .communicationErrorFyiDialog(action):
+                                return .communicationErrorFyiDialog(action)
+                            case let .fyiDialog(action):
+                                return .fyiDialog(action)
+                            case let .loading(action):
+                                return .loading(action)
+                            }
+                        }
+                    )
+                )
             } else {
                 LoggedOutHomeView()
             }

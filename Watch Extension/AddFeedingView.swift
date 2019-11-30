@@ -50,8 +50,13 @@ struct FeedingOptionsView: View {
     }
 }
 
+enum AddFeedingViewAction {
+    case communicationErrorFyiDialog(CommunicationErrorFyiDialogAction)
+    case loading(LoadingAction)
+}
+
 struct AddFeedingView: View {
-    @ObservedObject var store: Store<AppState, AppAction>
+    @ObservedObject var store: Store<[Feeding], AddFeedingViewAction>
     @Binding var isShowingSheet: Bool
     @State private var feedingIntent: FeedingType = .none
 
@@ -61,7 +66,7 @@ struct AddFeedingView: View {
             // store will reflect in the below view since we are just passing an array in and
             // not some kind of binding
             FeedingOptionsView(feedingIntent: $feedingIntent,
-                               activeFeedingTypes: store.value.activeFeedings.map { $0.type })
+                               activeFeedingTypes: store.value.map { $0.type })
             GeometryReader { metrics in
                 ZStack {
                     Rectangle()
@@ -123,8 +128,20 @@ struct AddFeedingView: View {
 // swiftlint:disable type_name
 struct AddFeedingView_Previews: PreviewProvider {
 // swiftlint:enable type_name
+    static let store = Store(initialValue: AppState(), reducer: appReducer)
     static var previews: some View {
-        AddFeedingView(store: Store(initialValue: AppState(), reducer: appReducer),
-                       isShowingSheet: .constant(true))
+        AddFeedingView(store:
+            store.view(
+                value: { $0.activeFeedings },
+                action: {
+                    switch $0 {
+                    case let .communicationErrorFyiDialog(action):
+                        return .communicationErrorFyiDialog(action)
+                    case let .loading(action):
+                        return .loading(action)
+                    }
+                }
+            ), isShowingSheet: .constant(true)
+        )
     }
 }

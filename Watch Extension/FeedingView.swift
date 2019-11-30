@@ -2,8 +2,14 @@ import Common
 import SwiftUI
 import WatchConnectivity
 
+enum FeedingViewAction {
+    case communicationErrorFyiDialog(CommunicationErrorFyiDialogAction)
+    case fyiDialog(SavedFyiDialogAction)
+    case loading(LoadingAction)
+}
+
 struct FeedingView: View {
-    @ObservedObject var store: Store<AppState, AppAction>
+    @ObservedObject var store: Store<[Feeding], FeedingViewAction>
     let feeding: Feeding
     @State private var isShowingActionSheet = false
 
@@ -100,6 +106,9 @@ struct FeedingView: View {
 // swiftlint:disable type_name
 struct FeedingView_Previews: PreviewProvider {
 // swiftlint:enable type_name
+
+    static let store = Store(initialValue: AppState(), reducer: appReducer)
+
     static let feeding = Feeding(type: .nursing,
                                  side: .left,
                                  startDate: Date() - 3355,
@@ -115,10 +124,36 @@ struct FeedingView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            FeedingView(store: Store(initialValue: AppState(), reducer: appReducer),
-                        feeding: FeedingView_Previews.feeding)
-            FeedingView(store: Store(initialValue: AppState(), reducer: appReducer),
-                        feeding: FeedingView_Previews.feedingPaused)
+            FeedingView(store:
+                store.view(
+                    value: { $0.activeFeedings },
+                    action: {
+                        switch $0 {
+                        case let .communicationErrorFyiDialog(action):
+                            return .communicationErrorFyiDialog(action)
+                        case let .fyiDialog(action):
+                            return .fyiDialog(action)
+                        case let .loading(action):
+                            return .loading(action)
+                        }
+                    }
+                ), feeding: feeding
+            )
+            FeedingView(store:
+                store.view(
+                    value: { $0.activeFeedings },
+                    action: {
+                        switch $0 {
+                        case let .communicationErrorFyiDialog(action):
+                            return .communicationErrorFyiDialog(action)
+                        case let .fyiDialog(action):
+                            return .fyiDialog(action)
+                        case let .loading(action):
+                            return .loading(action)
+                        }
+                    }
+                ), feeding: feedingPaused
+            )
         }
     }
 }

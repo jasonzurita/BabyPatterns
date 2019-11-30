@@ -2,9 +2,15 @@ import Common
 import Foundation
 import WatchConnectivity
 
+enum SessionCoordinatorAction {
+    case session(SessionAction)
+    case context(ContextAction)
+    case feeding(FeedingAction)
+}
+
 final class SessionCoordinator: NSObject {
     static let shared = SessionCoordinator()
-    weak var store: Store<AppState, AppAction>? {
+    var store: Store<Void, SessionCoordinatorAction>? {
         didSet {
             store?.send(.context(.requestFullContext))
         }
