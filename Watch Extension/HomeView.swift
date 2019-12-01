@@ -50,7 +50,12 @@ struct HomeView: View {
                     )
                 )
             } else {
-                LoggedOutHomeView()
+                LoggedOutHomeView(store:
+                    store.view(
+                        value: { _ in },
+                        action: { .context($0) }
+                    )
+                )
             }
         }
         .onAppear {
