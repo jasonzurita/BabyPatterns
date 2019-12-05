@@ -7,7 +7,6 @@ let appReducer: Reducer<AppState, AppAction> = combine(
     pullback(communicationErrorFyiDialogReducer,
              value: \.showCommunicationErrorFyiDialog,
              action: \.communicationErrorFyiDialog),
-    pullback(loadingReducer, value: \.isLoading, action: \.loading),
     pullback(feedingReducer, value: \.feedingState, action: \.feeding),
     pullback(contextReducer, value: \.showCommunicationErrorFyiDialog, action: \.context)
 )
