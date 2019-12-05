@@ -10,6 +10,11 @@ struct AppState {
     var showSavedFyiDialog = false
     var isLoading = false
 
+    var feedingState: FeedingState {
+        get { (activeFeedings, showCommunicationErrorFyiDialog, showSavedFyiDialog, isLoading) }
+        set { (activeFeedings, showCommunicationErrorFyiDialog, showSavedFyiDialog, isLoading) = newValue }
+    }
+
     static var singleFeedingMock: AppState {
         let feeding = Feeding(type: .nursing,
                               side: .left,

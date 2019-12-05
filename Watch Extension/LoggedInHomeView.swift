@@ -1,14 +1,8 @@
 import SwiftUI
 import Common
 
-enum LoggedInHomeViewAction {
-    case communicationErrorFyiDialog(CommunicationErrorFyiDialogAction)
-    case fyiDialog(SavedFyiDialogAction)
-    case loading(LoadingAction)
-}
-
 struct LoggedInHomeView: View {
-    @ObservedObject var store: Store<[Feeding], LoggedInHomeViewAction>
+    @ObservedObject var store: Store<[Feeding], FeedingAction>
     @State private var isShowingSheet = false
 
     private func alertDimension(for metrics: GeometryProxy) -> CGFloat {
@@ -42,16 +36,7 @@ struct LoggedInHomeView: View {
                             FeedingView(store:
                                 self.store.view(
                                     value: { $0 },
-                                    action: {
-                                        switch $0 {
-                                        case let .communicationErrorFyiDialog(action):
-                                            return .communicationErrorFyiDialog(action)
-                                        case let .fyiDialog(action):
-                                            return .fyiDialog(action)
-                                        case let .loading(action):
-                                            return .loading(action)
-                                        }
-                                    }
+                                    action: { $0 }
                                 ), feeding: feeding)
                                 .layoutPriority(1.0)
                             Spacer()
@@ -67,14 +52,7 @@ struct LoggedInHomeView: View {
                         AddFeedingView(store:
                             self.store.view(
                                 value: { $0 },
-                                action: {
-                                    switch $0 {
-                                    case let .communicationErrorFyiDialog(action):
-                                        return .communicationErrorFyiDialog(action)
-                                    case let .loading(action):
-                                        return .loading(action)
-                                    }
-                            }
+                                action: { $0 }
                         ), isShowingSheet: self.$isShowingSheet)
                     }
                     .foregroundColor(.bpLightestGray)
@@ -98,31 +76,13 @@ struct LoggedInHomeView_Previews: PreviewProvider {
             LoggedInHomeView(store:
                 singleFeedingStore.view(
                     value: { $0.activeFeedings },
-                    action: {
-                        switch $0 {
-                        case let .communicationErrorFyiDialog(action):
-                            return .communicationErrorFyiDialog(action)
-                        case let .fyiDialog(action):
-                            return .fyiDialog(action)
-                        case let .loading(action):
-                            return .loading(action)
-                        }
-                    }
+                    action: { .feeding($0) }
                 )
             )
             LoggedInHomeView(store:
                 store.view(
                     value: { $0.activeFeedings },
-                    action: {
-                        switch $0 {
-                        case let .communicationErrorFyiDialog(action):
-                            return .communicationErrorFyiDialog(action)
-                        case let .fyiDialog(action):
-                            return .fyiDialog(action)
-                        case let .loading(action):
-                            return .loading(action)
-                        }
-                    }
+                    action: { .feeding($0) }
                 )
             )
         }
