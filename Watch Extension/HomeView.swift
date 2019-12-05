@@ -27,35 +27,49 @@ struct HomeView: View {
     }()
 
     var body: some View {
-        VStack {
-            if store.value.sessionState == .loggedIn {
-                LoggedInHomeView(store:
-                    store.view(
-                        value: {
-                        ($0.activeFeedings,
-                         $0.showCommunicationErrorFyiDialog,
-                         $0.showSavedFyiDialog,
-                         $0.isLoading)
-                        },
-                        action: {
-                            switch $0 {
-                            case let .communicationErrorFyiDialog(action):
-                                return .communicationErrorFyiDialog(action)
-                            case let .fyiDialog(action):
-                                return .fyiDialog(action)
-                            case let .loading(action):
-                                return .loading(action)
-                            }
+        ZStack {
+            VStack {
+                if store.value.sessionState == .loggedIn {
+                    LoggedInHomeView(store:
+                        store.view(
+                            value: { $0.activeFeedings },
+                            action: {
+                                switch $0 {
+                                case let .communicationErrorFyiDialog(action):
+                                    return .communicationErrorFyiDialog(action)
+                                case let .fyiDialog(action):
+                                    return .fyiDialog(action)
+                                case let .loading(action):
+                                    return .loading(action)
+                                }
                         }
+                        )
                     )
-                )
-            } else {
-                LoggedOutHomeView(store:
-                    store.view(
-                        value: { _ in },
-                        action: { .context($0) }
+                } else {
+                    LoggedOutHomeView(store:
+                        store.view(
+                            value: { _ in },
+                            action: { .context($0) }
+                        )
                     )
-                )
+                }
+            }
+
+            if store.value.showCommunicationErrorFyiDialog {
+                FyiDialog(text: Text("Oh no!\nPlease try again."),
+                           screenWidthPercent: 0.75,
+                           // TODO: need a red color
+                           backgroundColor: Color.red,
+                           displayDuration: 1.6,
+                           endAction: { self.store.send(.communicationErrorFyiDialog(.hide)) })
+            } else if store.value.showSavedFyiDialog {
+                FyiDialog(text: Text("Saved!"),
+                           screenWidthPercent: 0.5,
+                           backgroundColor: .bpMediumGray,
+                           displayDuration: 1.25,
+                           endAction: { self.store.send(.fyiDialog(.hide)) })
+            } else if store.value.isLoading {
+                LoadingView()
             }
         }
         .onAppear {

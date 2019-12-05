@@ -1,13 +1,6 @@
 import SwiftUI
 import Common
 
-typealias LoggedInHomeViewState = (
-    activeFeedings: [Feeding],
-    showCommunicationErrorFyiDialog: Bool,
-    showSavedFyiDialog: Bool,
-    isLoading: Bool
-)
-
 enum LoggedInHomeViewAction {
     case communicationErrorFyiDialog(CommunicationErrorFyiDialogAction)
     case fyiDialog(SavedFyiDialogAction)
@@ -15,7 +8,7 @@ enum LoggedInHomeViewAction {
 }
 
 struct LoggedInHomeView: View {
-    @ObservedObject var store: Store<LoggedInHomeViewState, LoggedInHomeViewAction>
+    @ObservedObject var store: Store<[Feeding], LoggedInHomeViewAction>
     @State private var isShowingSheet = false
 
     private func alertDimension(for metrics: GeometryProxy) -> CGFloat {
@@ -25,7 +18,7 @@ struct LoggedInHomeView: View {
     var body: some View {
         ZStack {
             VStack {
-                if store.value.activeFeedings.isEmpty {
+                if store.value.isEmpty {
                     Spacer()
                     ZStack {
                         Image("feet")
@@ -43,12 +36,12 @@ struct LoggedInHomeView: View {
                     Spacer()
                     Spacer()
                 } else {
-                    List(store.value.activeFeedings.reversed()) { feeding in
+                    List(store.value.reversed()) { feeding in
                         HStack(spacing: -10) {
                             Spacer()
                             FeedingView(store:
                                 self.store.view(
-                                    value: { $0.activeFeedings },
+                                    value: { $0 },
                                     action: {
                                         switch $0 {
                                         case let .communicationErrorFyiDialog(action):
@@ -73,7 +66,7 @@ struct LoggedInHomeView: View {
                     .sheet(isPresented: $isShowingSheet) {
                         AddFeedingView(store:
                             self.store.view(
-                                value: { $0.activeFeedings },
+                                value: { $0 },
                                 action: {
                                     switch $0 {
                                     case let .communicationErrorFyiDialog(action):
@@ -90,23 +83,6 @@ struct LoggedInHomeView: View {
                     })
             }
             .edgesIgnoringSafeArea(.bottom)
-
-            if store.value.showCommunicationErrorFyiDialog {
-                FyiDialog(text: Text("Oh no!\nPlease try again."),
-                           screenWidthPercent: 0.75,
-                           // TODO: need a red color
-                           backgroundColor: Color.red,
-                           displayDuration: 1.6,
-                           endAction: { self.store.send(.communicationErrorFyiDialog(.hide)) })
-            } else if store.value.showSavedFyiDialog {
-                FyiDialog(text: Text("Saved!"),
-                           screenWidthPercent: 0.5,
-                           backgroundColor: .bpMediumGray,
-                           displayDuration: 1.25,
-                           endAction: { self.store.send(.fyiDialog(.hide)) })
-            } else if store.value.isLoading {
-                LoadingView()
-            }
         }
     }
 }
@@ -121,12 +97,7 @@ struct LoggedInHomeView_Previews: PreviewProvider {
         Group {
             LoggedInHomeView(store:
                 singleFeedingStore.view(
-                    value: {
-                        ($0.activeFeedings,
-                         $0.showCommunicationErrorFyiDialog,
-                         $0.showSavedFyiDialog,
-                         $0.isLoading)
-                    },
+                    value: { $0.activeFeedings },
                     action: {
                         switch $0 {
                         case let .communicationErrorFyiDialog(action):
@@ -141,12 +112,7 @@ struct LoggedInHomeView_Previews: PreviewProvider {
             )
             LoggedInHomeView(store:
                 store.view(
-                    value: {
-                        ($0.activeFeedings,
-                         $0.showCommunicationErrorFyiDialog,
-                         $0.showSavedFyiDialog,
-                         $0.isLoading)
-                    },
+                    value: { $0.activeFeedings },
                     action: {
                         switch $0 {
                         case let .communicationErrorFyiDialog(action):
