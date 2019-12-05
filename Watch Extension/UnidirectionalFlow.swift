@@ -1,19 +1,26 @@
 import Foundation
 import Combine
 
+typealias Effect<Action> = (@escaping (Action) -> Void) -> Void
+
+typealias Reducer<Value, Action> = (inout Value, Action) -> [Effect<Action>]
+
 final class Store<Value, Action>: ObservableObject {
-    private let reducer: (inout Value, Action) -> Void
+    private let reducer: Reducer<Value, Action>
     @Published private(set) var value: Value
     private var cancellable: Cancellable?
 
-    init(initialValue: Value, reducer: @escaping (inout Value, Action) -> Void) {
+    init(initialValue: Value, reducer: @escaping Reducer<Value, Action>) {
         self.reducer = reducer
         value = initialValue
     }
 
     func send(_ action: Action) {
         DispatchQueue.main.async {
-            self.reducer(&self.value, action)
+            let effects = self.reducer(&self.value, action)
+            effects.forEach { effect in
+                effect(self.send)
+            }
         }
     }
 
@@ -26,6 +33,7 @@ final class Store<Value, Action>: ObservableObject {
             reducer: { localValue, localAction in
                 self.send(toGlobalAction(localAction))
                 localValue = toLocalValue(self.value)
+                return []
             }
         )
         localStore.cancellable = self.$value.sink { [weak localStore] newValue in
@@ -36,22 +44,33 @@ final class Store<Value, Action>: ObservableObject {
 }
 
 func combine<Value, Action>(
-    _ reducers: (inout Value, Action) -> Void...
-) -> (inout Value, Action) -> Void {
+    _ reducers: Reducer<Value, Action>...
+) -> Reducer<Value, Action> {
     return { value, action in
-        for reducer in reducers {
-            reducer(&value, action)
-        }
+        let effects = reducers.flatMap { $0(&value, action) }
+        return effects
     }
 }
 
 func pullback<GlobalValue, LocalValue, GlobalAction, LocalAction>(
-    _ reducer: @escaping (inout LocalValue, LocalAction) -> Void,
+    _ reducer: @escaping Reducer<LocalValue, LocalAction>,
     value: WritableKeyPath<GlobalValue, LocalValue>,
     action: WritableKeyPath<GlobalAction, LocalAction?>
-) -> (inout GlobalValue, GlobalAction) -> Void {
+) -> Reducer<GlobalValue, GlobalAction> {
     return { globalValue, globalAction in
-        guard let localAction = globalAction[keyPath: action] else { return }
-        reducer(&globalValue[keyPath: value], localAction)
+        guard let localAction = globalAction[keyPath: action] else { return [] }
+        let localEffects = reducer(&globalValue[keyPath: value], localAction)
+        let globalEffects: [Effect<GlobalAction>] = localEffects.map { localEffect in
+            // swiftlint:disable opening_brace
+            { callback in
+            // swiftlint:enable opening_brace
+                localEffect { localAction in
+                    var globalAction = globalAction
+                    globalAction[keyPath: action] = localAction
+                    callback(globalAction)
+                }
+            }
+        }
+        return globalEffects
     }
 }
