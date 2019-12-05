@@ -10,12 +10,14 @@ enum SessionAction {
     case loggedOut
 }
 
-func accountStatusReducer(sessionState: inout SessionState, action: SessionAction) {
+func accountStatusReducer(sessionState: inout SessionState, action: SessionAction) -> [Effect<SessionAction>] {
     switch action {
     // TODO: can logged out and logged in be combined?
     case .loggedIn:
         sessionState = .loggedIn
+        return []
     case .loggedOut:
         sessionState = .loggedOut
+        return []
     }
 }

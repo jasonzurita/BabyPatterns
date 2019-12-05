@@ -6,11 +6,13 @@ enum LoadingAction {
 }
 
 func loadingReducer(isLoading: inout Bool,
-                    action: LoadingAction) {
+                    action: LoadingAction) -> [Effect<LoadingAction>] {
     switch action {
     case .loading:
         isLoading = true
+        return []
     case .notLoading:
         isLoading = false
+        return []
     }
 }
