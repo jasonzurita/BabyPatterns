@@ -49,13 +49,8 @@ struct FeedingOptionsView: View {
     }
 }
 
-enum AddFeedingViewAction {
-    case communicationErrorFyiDialog(CommunicationErrorFyiDialogAction)
-    case loading(LoadingAction)
-}
-
 struct AddFeedingView: View {
-    @ObservedObject var store: Store<[Feeding], AddFeedingViewAction>
+    @ObservedObject var store: Store<[Feeding], FeedingAction>
     @Binding var isShowingSheet: Bool
     @State private var feedingIntent: FeedingType = .none
 
@@ -81,7 +76,8 @@ struct AddFeedingView: View {
                         // TODO: These numbers are not exact, figure this out better
                         .offset(x: isAdding(feeding: self.feedingIntent) ? -45 : -metrics.size.width * 0.5 - 50)
                         .gesture(TapGesture().onEnded {
-                            self.communicateFeedingStart(type: self.feedingIntent, side: .left)
+                            self.store.send(.communicate(type: self.feedingIntent, side: .left, action: .start))
+                            self.isShowingSheet = false
                             withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .none }
                         })
 
@@ -90,37 +86,13 @@ struct AddFeedingView: View {
                         .foregroundColor(.bpLightestGray)
                         .offset(x: isAdding(feeding: self.feedingIntent) ? 45 : metrics.size.width * 0.5 + 50)
                         .gesture(TapGesture().onEnded {
-                            self.communicateFeedingStart(type: self.feedingIntent, side: .right)
+                            self.store.send(.communicate(type: self.feedingIntent, side: .right, action: .start))
+                            self.isShowingSheet = false
                             withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { self.feedingIntent = .none }
                         })
                 }
             }
         }
-    }
-
-    // TODO: consider making this a global function or in the session coordinator or ?
-    // This is the first time of copy and paste
-    func communicateFeedingStart(type: FeedingType, side: FeedingSide) {
-        let info = WatchFeedingCommunication(type: type, side: side, action: .start)
-
-        let jsonEncoder = JSONEncoder()
-        guard let d = try? jsonEncoder.encode(info), WCSession.default.isReachable else {
-            store.send(.communicationErrorFyiDialog(.show))
-            return
-        }
-        self.isShowingSheet = false
-        self.store.send(.loading(.loading))
-        WCSession.default.sendMessageData(
-            d,
-            replyHandler: { _ in
-                self.store.send(.loading(.notLoading))
-            },
-            errorHandler: { error in
-                print("Error sending the message: \(error.localizedDescription)")
-                self.isShowingSheet = false
-                self.store.send(.communicationErrorFyiDialog(.show))
-            }
-        )
     }
 }
 
@@ -132,14 +104,7 @@ struct AddFeedingView_Previews: PreviewProvider {
         AddFeedingView(store:
             store.view(
                 value: { $0.activeFeedings },
-                action: {
-                    switch $0 {
-                    case let .communicationErrorFyiDialog(action):
-                        return .communicationErrorFyiDialog(action)
-                    case let .loading(action):
-                        return .loading(action)
-                    }
-                }
+                action: { .feeding($0) }
             ), isShowingSheet: .constant(true)
         )
     }

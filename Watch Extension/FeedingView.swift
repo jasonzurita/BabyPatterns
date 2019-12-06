@@ -2,14 +2,8 @@ import Common
 import SwiftUI
 import WatchConnectivity
 
-enum FeedingViewAction {
-    case communicationErrorFyiDialog(CommunicationErrorFyiDialogAction)
-    case fyiDialog(SavedFyiDialogAction)
-    case loading(LoadingAction)
-}
-
 struct FeedingView: View {
-    @ObservedObject var store: Store<[Feeding], FeedingViewAction>
+    @ObservedObject var store: Store<[Feeding], FeedingAction>
     let feeding: Feeding
     @State private var isShowingActionSheet = false
 
@@ -24,44 +18,13 @@ struct FeedingView: View {
     private func actionSheetButton(_ fip: Feeding) -> Alert.Button {
         if fip.isPaused {
             return .default(Text("Resume")) {
-                self.communicate(type: fip.type, side: fip.side, action: .resume)
+                self.store.send(.communicate(type: fip.type, side: fip.side, action: .resume))
             }
         } else {
             return .default(Text("Pause")) {
-                self.communicate(type: fip.type, side: fip.side, action: .pause)
+                self.store.send(.communicate(type: fip.type, side: fip.side, action: .pause))
             }
         }
-    }
-
-    // TODO: consider making this a global function or in the session coordinator or ?
-    // This is the second time of copy and paste
-    func communicate(type: FeedingType, side: FeedingSide, action: Common.FeedingAction) {
-        let info = WatchFeedingCommunication(type: type, side: side, action: action)
-
-        let jsonEncoder = JSONEncoder()
-        guard let d = try? jsonEncoder.encode(info), WCSession.default.isReachable else {
-            store.send(.communicationErrorFyiDialog(.show))
-            return
-        }
-
-        self.store.send(.loading(.loading))
-
-        WCSession.default.sendMessageData(
-            d,
-            replyHandler: { _ in
-                defer { self.store.send(.loading(.notLoading)) }
-                switch action {
-                case .start: break
-                case .stop: self.store.send(.fyiDialog(.show))
-                case .pause: break
-                case .resume: break
-                }
-            },
-            errorHandler: { error in
-                print("Error sending the message: \(error.localizedDescription)")
-                self.store.send(.communicationErrorFyiDialog(.show))
-            }
-        )
     }
 
     private func color(for type: FeedingType) -> Color {
@@ -92,7 +55,9 @@ struct FeedingView: View {
             ActionSheet(title: Text("What do you want to do?"),
                         buttons: [
                             .default(Text("Stop")) {
-                                self.communicate(type: self.feeding.type, side: self.feeding.side, action: .stop)
+                                self.store.send(.communicate(type: self.feeding.type,
+                                                             side: self.feeding.side,
+                                                             action: .stop))
                             },
                             actionSheetButton(self.feeding),
                         ])
@@ -127,31 +92,13 @@ struct FeedingView_Previews: PreviewProvider {
             FeedingView(store:
                 store.view(
                     value: { $0.activeFeedings },
-                    action: {
-                        switch $0 {
-                        case let .communicationErrorFyiDialog(action):
-                            return .communicationErrorFyiDialog(action)
-                        case let .fyiDialog(action):
-                            return .fyiDialog(action)
-                        case let .loading(action):
-                            return .loading(action)
-                        }
-                    }
+                    action: { .feeding($0) }
                 ), feeding: feeding
             )
             FeedingView(store:
                 store.view(
                     value: { $0.activeFeedings },
-                    action: {
-                        switch $0 {
-                        case let .communicationErrorFyiDialog(action):
-                            return .communicationErrorFyiDialog(action)
-                        case let .fyiDialog(action):
-                            return .fyiDialog(action)
-                        case let .loading(action):
-                            return .loading(action)
-                        }
-                    }
+                    action: { .feeding($0) }
                 ), feeding: feedingPaused
             )
         }

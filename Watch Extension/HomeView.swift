@@ -33,16 +33,7 @@ struct HomeView: View {
                     LoggedInHomeView(store:
                         store.view(
                             value: { $0.activeFeedings },
-                            action: {
-                                switch $0 {
-                                case let .communicationErrorFyiDialog(action):
-                                    return .communicationErrorFyiDialog(action)
-                                case let .fyiDialog(action):
-                                    return .fyiDialog(action)
-                                case let .loading(action):
-                                    return .loading(action)
-                                }
-                        }
+                            action: { .feeding($0) }
                         )
                     )
                 } else {
