@@ -39,7 +39,7 @@ public final class HistoryVc: UIViewController, Loggable {
 
     public override var description: String { return "\(type(of: self))" }
 
-    private var screenTimeWindow: TimeWindow = .twelveHours {
+    private var screenTimeWindow: TimeWindow = .sixHours {
         didSet {
             updateAverageNursingLabel()
             setupGraph()
