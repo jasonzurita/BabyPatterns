@@ -22,6 +22,7 @@ public protocol FeedingSummaryProtocol {
 
 public final class HistoryVc: UIViewController, Loggable {
     private enum TimeWindow: TimeInterval {
+        case sixHours = 21_600 // in second
         case twelveHours = 43_200 // in seconds
         case day = 86_400 // in seconds
         case week = 604_800 // in seconds
@@ -120,14 +121,11 @@ public final class HistoryVc: UIViewController, Loggable {
         // also the value needs to change depending on the window change
         let window: String
         switch screenTimeWindow {
-        case .twelveHours:
-            window = "12h"
-        case .day:
-            window = "day"
-        case .week:
-            window = "week"
-        case .month:
-            window = "month"
+        case .sixHours: window = "6h"
+        case .twelveHours: window = "12h"
+        case .day: window = "day"
+        case .week: window = "week"
+        case .month: window = "month"
         }
 
         let now = Date()
@@ -209,16 +207,12 @@ public final class HistoryVc: UIViewController, Loggable {
 
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-        case 0:
-            screenTimeWindow = .twelveHours
-        case 1:
-            screenTimeWindow = .day
-        case 2:
-            screenTimeWindow = .week
-        case 3:
-            screenTimeWindow = .month
-        default:
-            fatalError("Impossible segement selected...")
+        case 0: screenTimeWindow = .sixHours
+        case 1: screenTimeWindow = .twelveHours
+        case 2: screenTimeWindow = .day
+        case 3: screenTimeWindow = .week
+        case 4: screenTimeWindow = .month
+        default: fatalError("Impossible segement selected...")
         }
     }
 }
@@ -332,6 +326,10 @@ extension HistoryVc {
         let divisor: TimeInterval
         let timeUnit: String
         switch screenTimeWindow {
+        case .sixHours:
+            frequency = 1 * 60 * 60
+            divisor = 3600
+            timeUnit = "h"
         case .twelveHours:
             frequency = 3 * 60 * 60
             divisor = 3600
