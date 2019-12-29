@@ -5,6 +5,7 @@ import UIKit
 public protocol Event {
     var endDate: Date { get }
     var type: FeedingType { get }
+    var side: FeedingSide { get }
     var duration: TimeInterval { get }
     var supplyAmount: SupplyAmount { get }
 }
@@ -288,9 +289,11 @@ extension HistoryVc {
         let hours = event.duration.stringFromSecondsToHours(zeroPadding: false)
         let minutes = hours.remainder.stringFromSecondsToMinutes(zeroPadding: false)
 
+        let sideString = event.side == .none ? "" : " (\(event.side.asText()))"
+
         let detailLabelTextOptions: [([FeedingType], String)] = [
             ([.nursing, .pumping, .bottle], df.string(from: event.endDate)),
-            ([.nursing, .pumping], "\(hours.string)h \(minutes.string)m long"),
+            ([.nursing, .pumping], "\(hours.string)h \(minutes.string)m long\(sideString)"),
             ([.pumping, .bottle], "\(event.supplyAmount.displayText(for: .ounces))"),
         ]
 
