@@ -142,7 +142,15 @@ public final class HistoryVc: UIViewController, Loggable {
     private let events: [Event]
     private let _summary: FeedingSummaryProtocol
 
-    private let barGraphElementWidth: CGFloat = 4
+    private var barGraphElementWidth: CGFloat {
+        switch screenTimeWindow {
+        case .sixHours: return 12
+        case .twelveHours: return 8
+        case .day: return 8
+        case .week: return 6
+        case .month: return 4
+        }
+    }
 
     public init(events: [Event], summary: FeedingSummaryProtocol) {
         self.events = events
