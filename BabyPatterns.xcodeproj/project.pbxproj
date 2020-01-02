@@ -94,9 +94,9 @@
 		12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
 		12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
 		12E38A402343CEB500940F07 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E38A3E2343CEB500940F07 /* AppState.swift */; };
-		12E38A412343CEB500940F07 /* UnidirectionalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E38A3F2343CEB500940F07 /* UnidirectionalFlow.swift */; };
 		12E8E57E20A2684D00C781EE /* PumpingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12E8E57D20A2684D00C781EE /* PumpingVC.xib */; };
 		12EC21E22127824C00822D07 /* TapableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC21E12127824C00822D07 /* TapableView.swift */; };
+		12ECB9DE23BEA3CA001BACD5 /* Cycle in Frameworks */ = {isa = PBXBuildFile; productRef = 12ECB9DD23BEA3CA001BACD5 /* Cycle */; };
 		12EE461620EF93EC00B51FC6 /* SlideableTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */; };
 		12EE85F420F028C00085BF01 /* SettingsVc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12EE85F320F028C00085BF01 /* SettingsVc.storyboard */; };
 		12F3A9C71FBB2174002ECC7B /* HistoryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */; };
@@ -285,9 +285,9 @@
 		12C9FFD220B837CB00B048E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		12D0AF4A2347670A00725A56 /* TimerPulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPulse.swift; sourceTree = "<group>"; };
 		12E38A3E2343CEB500940F07 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		12E38A3F2343CEB500940F07 /* UnidirectionalFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnidirectionalFlow.swift; sourceTree = "<group>"; };
 		12E8E57D20A2684D00C781EE /* PumpingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PumpingVC.xib; sourceTree = "<group>"; };
 		12EC21E12127824C00822D07 /* TapableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableView.swift; sourceTree = "<group>"; };
+		12ECB9DC23BE9E97001BACD5 /* Cycle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Cycle; sourceTree = "<group>"; };
 		12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideableTextFieldContainer.swift; sourceTree = "<group>"; };
 		12EE85F320F028C00085BF01 /* SettingsVc.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsVc.storyboard; sourceTree = "<group>"; };
 		12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVc.swift; sourceTree = "<group>"; };
@@ -378,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				121CA2E8234224B500AB4891 /* Common in Frameworks */,
+				12ECB9DE23BEA3CA001BACD5 /* Cycle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +459,6 @@
 			isa = PBXGroup;
 			children = (
 				1263ADF723393A9300142056 /* ExtensionDelegate.swift */,
-				12E38A3F2343CEB500940F07 /* UnidirectionalFlow.swift */,
 				12227F12235E99E5004049DB /* State Management */,
 				12D0AF4A2347670A00725A56 /* TimerPulse.swift */,
 				120478EC234BE53800302AFD /* SessionCoordinator.swift */,
@@ -616,6 +616,7 @@
 		436484A21DCA150400E6B0A7 = {
 			isa = PBXGroup;
 			children = (
+				12ECB9DC23BE9E97001BACD5 /* Cycle */,
 				121CA2E42342246F00AB4891 /* Common */,
 				12A782421FBB20C7000BD13F /* Main.playground */,
 				12605B3C1FBB1DBB0035243B /* Framework-BabyPatterns */,
@@ -921,6 +922,7 @@
 			name = "Watch Extension";
 			packageProductDependencies = (
 				121CA2E7234224B500AB4891 /* Common */,
+				12ECB9DD23BEA3CA001BACD5 /* Cycle */,
 			);
 			productName = "Watch Extension";
 			productReference = 1263ADEE23393A9300142056 /* Watch Extension.appex */;
@@ -1263,7 +1265,6 @@
 				12E38A402343CEB500940F07 /* AppState.swift in Sources */,
 				1221F04E2344C9CC00E516D5 /* FeedingView.swift in Sources */,
 				12F3EC29233D6BFB0051D52B /* HomeView.swift in Sources */,
-				12E38A412343CEB500940F07 /* UnidirectionalFlow.swift in Sources */,
 				12D0AF4B2347670A00725A56 /* TimerPulse.swift in Sources */,
 				123C1C1F236A898700AE084E /* CommunicationErrorReducer.swift in Sources */,
 				127EACFE23712C68006BEED7 /* CustomColor.swift in Sources */,
@@ -1928,6 +1929,10 @@
 		12D0AF4C234768AF00725A56 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Common;
+		};
+		12ECB9DD23BEA3CA001BACD5 /* Cycle */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Cycle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

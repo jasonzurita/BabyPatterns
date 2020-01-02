@@ -1,4 +1,5 @@
 import Swift
+import Cycle
 
 enum SessionState {
     case loggedIn
