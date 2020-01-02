@@ -1,21 +1,21 @@
 import Foundation
 import Combine
 
-typealias Effect<Action> = (@escaping (Action) -> Void) -> Void
+public typealias Effect<Action> = (@escaping (Action) -> Void) -> Void
 
-typealias Reducer<Value, Action> = (inout Value, Action) -> [Effect<Action>]
+public typealias Reducer<Value, Action> = (inout Value, Action) -> [Effect<Action>]
 
-final class Store<Value, Action>: ObservableObject {
+public final class Store<Value, Action>: ObservableObject {
     private let reducer: Reducer<Value, Action>
-    @Published private(set) var value: Value
+    @Published public private(set) var value: Value
     private var cancellable: Cancellable?
 
-    init(initialValue: Value, reducer: @escaping Reducer<Value, Action>) {
+    public init(initialValue: Value, reducer: @escaping Reducer<Value, Action>) {
         self.reducer = reducer
         value = initialValue
     }
 
-    func send(_ action: Action) {
+    public func send(_ action: Action) {
         DispatchQueue.main.async {
             let effects = self.reducer(&self.value, action)
             effects.forEach { effect in
@@ -24,7 +24,7 @@ final class Store<Value, Action>: ObservableObject {
         }
     }
 
-    func view<LocalValue, LocalAction>(
+    public func view<LocalValue, LocalAction>(
         value toLocalValue: @escaping (Value) -> LocalValue,
         action toGlobalAction: @escaping (LocalAction) -> Action
     ) -> Store<LocalValue, LocalAction> {
@@ -43,7 +43,7 @@ final class Store<Value, Action>: ObservableObject {
     }
 }
 
-func combine<Value, Action>(
+public func combine<Value, Action>(
     _ reducers: Reducer<Value, Action>...
 ) -> Reducer<Value, Action> {
     return { value, action in
@@ -52,7 +52,7 @@ func combine<Value, Action>(
     }
 }
 
-func pullback<GlobalValue, LocalValue, GlobalAction, LocalAction>(
+public func pullback<GlobalValue, LocalValue, GlobalAction, LocalAction>(
     _ reducer: @escaping Reducer<LocalValue, LocalAction>,
     value: WritableKeyPath<GlobalValue, LocalValue>,
     action: WritableKeyPath<GlobalAction, LocalAction?>
@@ -75,7 +75,7 @@ func pullback<GlobalValue, LocalValue, GlobalAction, LocalAction>(
     }
 }
 
-func logging<Value, Action>(
+public func logging<Value, Action>(
   _ reducer: @escaping Reducer<Value, Action>
 ) -> Reducer<Value, Action> {
   return { value, action in
