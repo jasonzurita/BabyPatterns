@@ -31,30 +31,35 @@ extension SessionCoordinator: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith _: WCSessionActivationState, error: Error?) {
         print("Completed activation: \(error?.localizedDescription ?? "no error")")
         let decoder = JSONDecoder()
-        if let data = session.receivedApplicationContext["feedings"] as? Data,
-            let feedings = try? decoder.decode([Feeding].self, from: data) {
-            store?.send(.feeding(.update(feedings: feedings)))
-        }
 
-        if session.receivedApplicationContext["loggedIn"] != nil {
-            store?.send(.session(.loggedIn))
-        } else if session.receivedApplicationContext["loggedOut"] != nil {
-            store?.send(.session(.loggedOut))
+        DispatchQueue.main.async {
+            if let data = session.receivedApplicationContext["feedings"] as? Data,
+                let feedings = try? decoder.decode([Feeding].self, from: data) {
+                self.store?.send(.feeding(.update(feedings: feedings)))
+            }
+
+            if session.receivedApplicationContext["loggedIn"] != nil {
+                self.store?.send(.session(.loggedIn))
+            } else if session.receivedApplicationContext["loggedOut"] != nil {
+                self.store?.send(.session(.loggedOut))
+            }
         }
     }
 
     func session(_: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
         let decoder = JSONDecoder()
-        if let data = applicationContext["feedings"] as? Data,
-            let feedings = try? decoder.decode([Feeding].self, from: data) {
-            store?.send(.feeding(.update(feedings: feedings)))
-        }
+        DispatchQueue.main.async {
+            if let data = applicationContext["feedings"] as? Data,
+                let feedings = try? decoder.decode([Feeding].self, from: data) {
+                self.store?.send(.feeding(.update(feedings: feedings)))
+            }
 
-        // TODO: change this into codable or something better
-        if applicationContext["loggedIn"] != nil {
-            store?.send(.session(.loggedIn))
-        } else if applicationContext["loggedOut"] != nil {
-            store?.send(.session(.loggedOut))
+            // TODO: change this into codable or something better
+            if applicationContext["loggedIn"] != nil {
+                self.store?.send(.session(.loggedIn))
+            } else if applicationContext["loggedOut"] != nil {
+                self.store?.send(.session(.loggedOut))
+            }
         }
     }
 }

@@ -27,11 +27,9 @@ public final class Store<Value, Action>: ObservableObject {
     }
 
     public func send(_ action: Action) {
-        DispatchQueue.main.async {
-            let effects = self.reducer(&self.value, action)
-            effects.forEach { effect in
-                effect.run(self.send)
-            }
+        let effects = self.reducer(&self.value, action)
+        effects.forEach { effect in
+            effect.run(self.send)
         }
     }
 
