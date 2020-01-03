@@ -1,7 +1,18 @@
 import Foundation
 import Combine
 
-public typealias Effect<Action> = (@escaping (Action) -> Void) -> Void
+public struct Effect<A> {
+    public let run: (@escaping (A) -> Void) -> Void
+
+    public init(run: @escaping (@escaping (A) -> Void) -> Void) {
+        self.run = run
+    }
+
+    public func map<B>(_ f: @escaping (A) -> B) -> Effect<B> {
+        return Effect<B> { callback in self.run { a in callback(f(a)) }
+        }
+    }
+}
 
 public typealias Reducer<Value, Action> = (inout Value, Action) -> [Effect<Action>]
 
@@ -19,7 +30,7 @@ public final class Store<Value, Action>: ObservableObject {
         DispatchQueue.main.async {
             let effects = self.reducer(&self.value, action)
             effects.forEach { effect in
-                effect(self.send)
+                effect.run(self.send)
             }
         }
     }
@@ -61,10 +72,8 @@ public func pullback<GlobalValue, LocalValue, GlobalAction, LocalAction>(
         guard let localAction = globalAction[keyPath: action] else { return [] }
         let localEffects = reducer(&globalValue[keyPath: value], localAction)
         let globalEffects: [Effect<GlobalAction>] = localEffects.map { localEffect in
-            // swiftlint:disable opening_brace
-            { callback in
-            // swiftlint:enable opening_brace
-                localEffect { localAction in
+            Effect { callback in
+                localEffect.run { localAction in
                     var globalAction = globalAction
                     globalAction[keyPath: action] = localAction
                     callback(globalAction)
@@ -81,7 +90,7 @@ public func logging<Value, Action>(
   return { value, action in
     let effects = reducer(&value, action)
     let newValue = value
-    return [{ _ in
+    return [Effect { _ in
       print("Action: \(action)")
       print("Value:")
       dump(newValue)

@@ -11,10 +11,11 @@ enum ContextAction {
 func contextReducer(showCommunicationErrorFyiDialog: inout Bool, action: ContextAction) -> [Effect<ContextAction>] {
     switch action {
     case .requestFullContext:
-        return [ { callback in
-            let communication = WatchContextCommunication()
-            let encoder = JSONEncoder()
-            guard let data = try? encoder.encode(communication) else { return }
+        let communication = WatchContextCommunication()
+        let encoder = JSONEncoder()
+        guard let data = try? encoder.encode(communication) else { return [] }
+        
+        return [ Effect { callback in
             WCSession.default.sendMessageData(data, replyHandler: nil, errorHandler: { _ in
                 callback(.fullContextRequestFailed)
             })

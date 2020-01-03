@@ -34,7 +34,7 @@ func feedingReducer(feedingState: inout FeedingState, action: FeedingAction) -> 
         }
         feedingState.isLoading = true
         return [
-            { callback in
+            Effect { callback in
                 WCSession.default.sendMessageData(
                     d,
                     replyHandler: { _ in
