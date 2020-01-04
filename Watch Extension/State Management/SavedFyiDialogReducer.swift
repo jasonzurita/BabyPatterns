@@ -1,4 +1,5 @@
 import Swift
+import Cycle
 
 // TODO: delete this action by moving the hide functinality into side effects
 

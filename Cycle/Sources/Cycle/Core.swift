@@ -1,30 +1,39 @@
 import Foundation
 import Combine
 
-typealias Effect<Action> = (@escaping (Action) -> Void) -> Void
+public struct Effect<A> {
+    public let run: (@escaping (A) -> Void) -> Void
 
-typealias Reducer<Value, Action> = (inout Value, Action) -> [Effect<Action>]
+    public init(run: @escaping (@escaping (A) -> Void) -> Void) {
+        self.run = run
+    }
 
-final class Store<Value, Action>: ObservableObject {
+    public func map<B>(_ f: @escaping (A) -> B) -> Effect<B> {
+        return Effect<B> { callback in self.run { a in callback(f(a)) }
+        }
+    }
+}
+
+public typealias Reducer<Value, Action> = (inout Value, Action) -> [Effect<Action>]
+
+public final class Store<Value, Action>: ObservableObject {
     private let reducer: Reducer<Value, Action>
-    @Published private(set) var value: Value
+    @Published public private(set) var value: Value
     private var cancellable: Cancellable?
 
-    init(initialValue: Value, reducer: @escaping Reducer<Value, Action>) {
+    public init(initialValue: Value, reducer: @escaping Reducer<Value, Action>) {
         self.reducer = reducer
         value = initialValue
     }
 
-    func send(_ action: Action) {
-        DispatchQueue.main.async {
-            let effects = self.reducer(&self.value, action)
-            effects.forEach { effect in
-                effect(self.send)
-            }
+    public func send(_ action: Action) {
+        let effects = self.reducer(&self.value, action)
+        effects.forEach { effect in
+            effect.run(self.send)
         }
     }
 
-    func view<LocalValue, LocalAction>(
+    public func view<LocalValue, LocalAction>(
         value toLocalValue: @escaping (Value) -> LocalValue,
         action toGlobalAction: @escaping (LocalAction) -> Action
     ) -> Store<LocalValue, LocalAction> {
@@ -43,7 +52,7 @@ final class Store<Value, Action>: ObservableObject {
     }
 }
 
-func combine<Value, Action>(
+public func combine<Value, Action>(
     _ reducers: Reducer<Value, Action>...
 ) -> Reducer<Value, Action> {
     return { value, action in
@@ -52,7 +61,7 @@ func combine<Value, Action>(
     }
 }
 
-func pullback<GlobalValue, LocalValue, GlobalAction, LocalAction>(
+public func pullback<GlobalValue, LocalValue, GlobalAction, LocalAction>(
     _ reducer: @escaping Reducer<LocalValue, LocalAction>,
     value: WritableKeyPath<GlobalValue, LocalValue>,
     action: WritableKeyPath<GlobalAction, LocalAction?>
@@ -61,10 +70,8 @@ func pullback<GlobalValue, LocalValue, GlobalAction, LocalAction>(
         guard let localAction = globalAction[keyPath: action] else { return [] }
         let localEffects = reducer(&globalValue[keyPath: value], localAction)
         let globalEffects: [Effect<GlobalAction>] = localEffects.map { localEffect in
-            // swiftlint:disable opening_brace
-            { callback in
-            // swiftlint:enable opening_brace
-                localEffect { localAction in
+            Effect { callback in
+                localEffect.run { localAction in
                     var globalAction = globalAction
                     globalAction[keyPath: action] = localAction
                     callback(globalAction)
@@ -75,13 +82,13 @@ func pullback<GlobalValue, LocalValue, GlobalAction, LocalAction>(
     }
 }
 
-func logging<Value, Action>(
+public func logging<Value, Action>(
   _ reducer: @escaping Reducer<Value, Action>
 ) -> Reducer<Value, Action> {
   return { value, action in
     let effects = reducer(&value, action)
     let newValue = value
-    return [{ _ in
+    return [Effect { _ in
       print("Action: \(action)")
       print("Value:")
       dump(newValue)

@@ -1,4 +1,5 @@
 import Common
+import Cycle
 import Foundation
 
 final class TimerPulse {

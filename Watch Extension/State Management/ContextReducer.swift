@@ -1,4 +1,5 @@
 import Common
+import Cycle
 import Foundation
 import WatchConnectivity
 
@@ -10,14 +11,16 @@ enum ContextAction {
 func contextReducer(showCommunicationErrorFyiDialog: inout Bool, action: ContextAction) -> [Effect<ContextAction>] {
     switch action {
     case .requestFullContext:
-        return [ { callback in
-            let communication = WatchContextCommunication()
-            let encoder = JSONEncoder()
-            guard let data = try? encoder.encode(communication) else { return }
-            WCSession.default.sendMessageData(data, replyHandler: nil, errorHandler: { _ in
-                callback(.fullContextRequestFailed)
-            })
-        },
+        let communication = WatchContextCommunication()
+        let encoder = JSONEncoder()
+        guard let data = try? encoder.encode(communication) else { return [] }
+        
+        return [
+            Effect { callback in
+                WCSession.default.sendMessageData(data, replyHandler: nil, errorHandler: { _ in
+                    DispatchQueue.main.async { callback(.fullContextRequestFailed) }
+                })
+            },
         ]
     case .fullContextRequestFailed:
         showCommunicationErrorFyiDialog = true
