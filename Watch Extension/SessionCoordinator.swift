@@ -11,11 +11,7 @@ enum SessionCoordinatorAction {
 
 final class SessionCoordinator: NSObject {
     static let shared = SessionCoordinator()
-    var store: Store<Void, SessionCoordinatorAction>? {
-        didSet {
-            store?.send(.context(.requestFullContext))
-        }
-    }
+    var store: Store<Void, SessionCoordinatorAction>?
 
     override init() {
         super.init()
