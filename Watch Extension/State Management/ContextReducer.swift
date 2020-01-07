@@ -20,7 +20,8 @@ func contextReducer(showCommunicationErrorFyiDialog: inout Bool, action: Context
                 WCSession.default.sendMessageData(data, replyHandler: nil, errorHandler: { _ in
                     DispatchQueue.main.async { callback(.fullContextRequestFailed) }
                 })
-            },
+            }
+            .receive(on: .main),
         ]
     case .fullContextRequestFailed:
         showCommunicationErrorFyiDialog = true

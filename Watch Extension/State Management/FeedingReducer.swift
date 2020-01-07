@@ -38,20 +38,21 @@ func feedingReducer(feedingState: inout FeedingState, action: FeedingAction) -> 
                 WCSession.default.sendMessageData(
                     d,
                     replyHandler: { _ in
-                        defer { DispatchQueue.main.async { callback(.loadingFinished) } }
+                        defer { callback(.loadingFinished) }
                         switch action {
                         case .start: break
                         case .stop:
-                            DispatchQueue.main.async { callback(.showFeedingStopped) }
+                            callback(.showFeedingStopped)
                         case .pause: break
                         case .resume: break
                         }
                 },
                     errorHandler: { error in
                         print("Error sending the message: \(error.localizedDescription)")
-                        DispatchQueue.main.async { callback(.communicationFailed) }
+                        callback(.communicationFailed)
                 })
-            },
+            }
+            .receive(on: .main),
         ]
     case .communicationFailed:
         feedingState.showCommunicationFyiDialog = true
