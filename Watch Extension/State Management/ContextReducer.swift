@@ -14,7 +14,7 @@ func contextReducer(showCommunicationErrorFyiDialog: inout Bool, action: Context
         let communication = WatchContextCommunication()
         let encoder = JSONEncoder()
         guard let data = try? encoder.encode(communication) else { return [] }
-        
+
         return [
             Effect { callback in
                 WCSession.default.sendMessageData(data, replyHandler: nil, errorHandler: { _ in
