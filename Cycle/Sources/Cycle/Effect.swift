@@ -1,26 +1,39 @@
 import Foundation
+import Combine
 
-public struct Effect<A> {
-    public let run: (@escaping (A) -> Void) -> Void
+public struct Effect<Output>: Publisher {
+    public typealias Failure = Never
 
-    public init(run: @escaping (@escaping (A) -> Void) -> Void) {
-        self.run = run
+    private let anyPublisher: AnyPublisher<Output, Never>
+
+    public init(_ publisher: AnyPublisher<Output, Never>) {
+        self.anyPublisher = publisher
     }
 
-    public func map<B>(_ f: @escaping (A) -> B) -> Effect<B> {
-        return Effect<B> { callback in self.run { a in callback(f(a)) }
-        }
+    public func receive<S>(subscriber: S) where S: Subscriber, Failure == S.Failure, Output == S.Input {
+        anyPublisher.receive(subscriber: subscriber)
+    }
+}
+
+extension Publisher where Failure == Never {
+    public func eraseToEffect() -> Effect<Output> {
+        Effect(self.eraseToAnyPublisher())
     }
 }
 
 extension Effect {
-    public func receive(on queue: DispatchQueue) -> Effect {
-        return Effect { callback in
-            self.run { a in
-                queue.async {
-                    callback(a)
-                }
-            }
-        }
+    public static func fireAndForget(_ work: @escaping () -> Void) -> Effect {
+        Deferred { () -> Empty<Output, Never> in
+            work()
+            return Empty(completeImmediately: true)
+        }.eraseToEffect()
+    }
+}
+
+extension Effect {
+    public static func sync(_ work: @escaping () -> Output) -> Effect {
+        Deferred {
+            Just(work())
+        }.eraseToEffect()
     }
 }

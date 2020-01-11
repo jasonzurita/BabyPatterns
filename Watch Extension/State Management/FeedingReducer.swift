@@ -13,9 +13,7 @@ typealias FeedingState = (
 enum FeedingAction {
     case update(feedings: [Feeding])
     case communicate(type: FeedingType, side: FeedingSide, action: Common.FeedingAction)
-    case communicationFailed
-    case showFeedingStopped
-    case loadingFinished
+    case communicationFinished(Data?, Common.FeedingAction)
 }
 
 func feedingReducer(feedingState: inout FeedingState, action: FeedingAction) -> [Effect<FeedingAction>] {
@@ -34,34 +32,26 @@ func feedingReducer(feedingState: inout FeedingState, action: FeedingAction) -> 
         }
         feedingState.isLoading = true
         return [
-            Effect { callback in
-                WCSession.default.sendMessageData(
-                    d,
-                    replyHandler: { _ in
-                        defer { callback(.loadingFinished) }
-                        switch action {
-                        case .start: break
-                        case .stop:
-                            callback(.showFeedingStopped)
-                        case .pause: break
-                        case .resume: break
-                        }
-                },
-                    errorHandler: { error in
-                        print("Error sending the message: \(error.localizedDescription)")
-                        callback(.communicationFailed)
-                })
-            }
-            .receive(on: .main),
+            WCSession.sendMessageDataPublisher(data: d)
+                .compactMap { $0 }
+                .replaceError(with: nil)
+                .map { FeedingAction.communicationFinished($0, action) }
+                .receive(on: DispatchQueue.main)
+                .eraseToEffect(),
         ]
-    case .communicationFailed:
-        feedingState.showCommunicationFyiDialog = true
-        return []
-    case .showFeedingStopped:
-        feedingState.showSavedFyiDialog = true
-        return []
-    case .loadingFinished:
-        feedingState.isLoading = false
+    case let .communicationFinished(data, feedingAction):
+        guard data != nil else {
+            feedingState.showCommunicationFyiDialog = true
+            return []
+        }
+
+        defer { feedingState.isLoading = false }
+        switch feedingAction {
+        case .start: break
+        case .stop: feedingState.showSavedFyiDialog = true
+        case .pause: break
+        case .resume: break
+        }
         return []
     }
 }
