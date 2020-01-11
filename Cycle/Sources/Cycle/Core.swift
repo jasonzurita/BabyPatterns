@@ -6,7 +6,8 @@ public typealias Reducer<Value, Action> = (inout Value, Action) -> [Effect<Actio
 public final class Store<Value, Action>: ObservableObject {
     private let reducer: Reducer<Value, Action>
     @Published public private(set) var value: Value
-    private var cancellable: Cancellable?
+    private var viewCancellable: Cancellable?
+    private var effectCancellers: Set<AnyCancellable> = []
 
     public init(initialValue: Value, reducer: @escaping Reducer<Value, Action>) {
         self.reducer = reducer
@@ -16,7 +17,19 @@ public final class Store<Value, Action>: ObservableObject {
     public func send(_ action: Action) {
         let effects = self.reducer(&self.value, action)
         effects.forEach { effect in
-            effect.run(self.send)
+            var canceller: AnyCancellable?
+            var didComplete = false
+            canceller = effect.sink(
+                receiveCompletion: { [weak self] _ in
+                    didComplete = true
+                    guard let c = canceller else { return }
+                    self?.effectCancellers.remove(c)
+            },
+                receiveValue: self.send
+            )
+            if !didComplete, let c = canceller {
+                effectCancellers.insert(c)
+            }
         }
     }
 
@@ -32,7 +45,7 @@ public final class Store<Value, Action>: ObservableObject {
                 return []
             }
         )
-        localStore.cancellable = self.$value.sink { [weak localStore] newValue in
+        localStore.viewCancellable = self.$value.sink { [weak localStore] newValue in
             localStore?.value = toLocalValue(newValue)
         }
         return localStore
@@ -57,13 +70,11 @@ public func pullback<GlobalValue, LocalValue, GlobalAction, LocalAction>(
         guard let localAction = globalAction[keyPath: action] else { return [] }
         let localEffects = reducer(&globalValue[keyPath: value], localAction)
         let globalEffects: [Effect<GlobalAction>] = localEffects.map { localEffect in
-            Effect { callback in
-                localEffect.run { localAction in
-                    var globalAction = globalAction
-                    globalAction[keyPath: action] = localAction
-                    callback(globalAction)
-                }
-            }
+            localEffect.map { localAction in
+                var globalAction = globalAction
+                globalAction[keyPath: action] = localAction
+                return globalAction
+            }.eraseToEffect()
         }
         return globalEffects
     }
@@ -76,7 +87,7 @@ public func logging<Value, Action>(
         let effects = reducer(&value, action)
         let newValue = value
         return [
-            Effect { _ in
+            .fireAndForget {
                 print("Action: \(action)")
                 print("Value:")
                 dump(newValue)
