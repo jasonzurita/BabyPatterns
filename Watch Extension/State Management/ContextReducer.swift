@@ -5,7 +5,8 @@ import WatchConnectivity
 
 enum ContextAction {
     case requestFullContext
-    case fullContextRequestFailed
+    case fullContextRequest(Data?)
+
 }
 
 func contextReducer(showCommunicationErrorFyiDialog: inout Bool, action: ContextAction) -> [Effect<ContextAction>] {
@@ -16,17 +17,15 @@ func contextReducer(showCommunicationErrorFyiDialog: inout Bool, action: Context
         guard let data = try? encoder.encode(communication) else { return [] }
 
         return [
-            Effect { callback in
-                WCSession.default.sendMessageData(data, replyHandler: nil, errorHandler: { _ in
-                    DispatchQueue.main.async { callback(.fullContextRequestFailed) }
-                })
-            }
-            .receive(on: .main),
+            WCSession.sendMessageDataPublisher(data: data)
+                .compactMap { $0 }
+                .replaceError(with: nil)
+                .map (ContextAction.fullContextRequest)
+                .receive(on: DispatchQueue.main)
+                .eraseToEffect(),
         ]
-    case .fullContextRequestFailed:
-        showCommunicationErrorFyiDialog = true
-        // TODO: we can formalize the removal of the fyi dialog here with a
-        // side effect dispatch async and a new action!
+    case let .fullContextRequest(data):
+        showCommunicationErrorFyiDialog = data == nil
         return []
     }
 }

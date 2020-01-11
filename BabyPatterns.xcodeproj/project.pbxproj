@@ -40,6 +40,7 @@
 		1233CA222369F62D009BAF8E /* ContextReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1233CA212369F62D009BAF8E /* ContextReducer.swift */; };
 		123616AE20C5F43500185A27 /* TurnOffAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */; };
 		123616AF20C5F43500185A27 /* TurnOffAdsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */; };
+		123B535523CA30140028CE0C /* WCSessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123B535423CA30140028CE0C /* WCSessionExtensions.swift */; };
 		123C1C1D236A849300AE084E /* FyiDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C1C1C236A849300AE084E /* FyiDialog.swift */; };
 		123C1C1F236A898700AE084E /* CommunicationErrorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C1C1E236A898700AE084E /* CommunicationErrorReducer.swift */; };
 		123C3A9C236E373D0089F730 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C3A9B236E373D0089F730 /* LoadingView.swift */; };
@@ -236,6 +237,7 @@
 		1233CA212369F62D009BAF8E /* ContextReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextReducer.swift; sourceTree = "<group>"; };
 		123616AC20C5F43500185A27 /* TurnOffAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOffAdsVC.swift; sourceTree = "<group>"; };
 		123616AD20C5F43500185A27 /* TurnOffAdsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnOffAdsVC.xib; sourceTree = "<group>"; };
+		123B535423CA30140028CE0C /* WCSessionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionExtensions.swift; sourceTree = "<group>"; };
 		123C1C1C236A849300AE084E /* FyiDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FyiDialog.swift; sourceTree = "<group>"; };
 		123C1C1E236A898700AE084E /* CommunicationErrorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationErrorReducer.swift; sourceTree = "<group>"; };
 		123C3A9B236E373D0089F730 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				1263ADF723393A9300142056 /* ExtensionDelegate.swift */,
+				123B535423CA30140028CE0C /* WCSessionExtensions.swift */,
 				12227F12235E99E5004049DB /* State Management */,
 				12D0AF4A2347670A00725A56 /* TimerPulse.swift */,
 				120478EC234BE53800302AFD /* SessionCoordinator.swift */,
@@ -1258,6 +1261,7 @@
 				12227F1E235F2481004049DB /* AppAction.swift in Sources */,
 				12227F18235F232A004049DB /* PulseReducer.swift in Sources */,
 				123C3A9C236E373D0089F730 /* LoadingView.swift in Sources */,
+				123B535523CA30140028CE0C /* WCSessionExtensions.swift in Sources */,
 				12227F1A235F23AE004049DB /* SavedFyiDialogReducer.swift in Sources */,
 				1263ADF623393A9300142056 /* HostingController.swift in Sources */,
 				123C1C1D236A849300AE084E /* FyiDialog.swift in Sources */,
