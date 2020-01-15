@@ -3,7 +3,7 @@ import Library
 import UIKit
 
 public protocol Event {
-    var endDate: Date { get }
+    var startDate: Date { get }
     var type: FeedingType { get }
     var side: FeedingSide { get }
     var duration: TimeInterval { get }
@@ -247,7 +247,7 @@ extension HistoryVc {
         scrollContentView.subviews.forEach { $0.removeFromSuperview() }
         scrollContentView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
 
-        let graphWindow = DateInterval(start: lastEvent.endDate, end: Date())
+        let graphWindow = DateInterval(start: lastEvent.startDate, end: Date())
         layoutFeedings(events, inWindow: graphWindow)
 
         // TODO: see if we can move this before the event check
@@ -256,7 +256,7 @@ extension HistoryVc {
 
     private func layoutFeedings(_ events: [Event], inWindow window: DateInterval) {
         for event in events {
-            let x = xFeedingLocation(forDate: event.endDate, inWindow: window)
+            let x = xFeedingLocation(forDate: event.startDate, inWindow: window)
 
             let graphElement = TapableView()
             graphElement.onTap = { [unowned self] element in
@@ -300,7 +300,7 @@ extension HistoryVc {
         let sideString = event.side == .none ? "" : " (\(event.side.asText()))"
 
         let detailLabelTextOptions: [([FeedingType], String)] = [
-            ([.nursing, .pumping, .bottle], df.string(from: event.endDate)),
+            ([.nursing, .pumping, .bottle], df.string(from: event.startDate)),
             ([.nursing, .pumping], "\(hours.string)h \(minutes.string)m long\(sideString)"),
             ([.pumping, .bottle], "\(event.supplyAmount.displayText(for: .ounces))"),
         ]
