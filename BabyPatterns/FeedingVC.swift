@@ -3,21 +3,20 @@ import Framework_BabyPatterns
 import Library
 import UIKit
 
-struct EndFeedingEvent: Event {
-    let endDate: Date
+struct EndedFeedingEvent: Event {
+    let startDate: Date
     let type: FeedingType
     let side: FeedingSide
     let duration: TimeInterval
     let supplyAmount: SupplyAmount
 
-    init?(date: Date?,
+    init?(startDate: Date,
           type: FeedingType,
           side: FeedingSide,
           duration: TimeInterval,
           supplyAmount: SupplyAmount
     ) {
-        guard let d = date else { return nil }
-        endDate = d
+        self.startDate = startDate
         self.type = type
         self.side = side
         self.duration = duration
@@ -50,12 +49,12 @@ final class FeedingVC: UIViewController {
         guard let vm = feedingsVM else { return [] }
         return vm
             .feedings(withTypes: [.nursing, .bottle, .pumping], isFinished: true)
-            .compactMap { EndFeedingEvent(date: $0.endDate,
+            .compactMap { EndedFeedingEvent(startDate: $0.startDate,
                                           type: $0.type,
                                           side: $0.side,
                                           duration: $0.duration(),
                                           supplyAmount: $0.supplyAmount) }
-            .sorted { $0.endDate > $1.endDate }
+            .sorted { $0.startDate > $1.startDate }
     }
 
     @IBOutlet var showHistoryButton: UIButton! {
