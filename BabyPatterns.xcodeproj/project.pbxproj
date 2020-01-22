@@ -289,7 +289,6 @@
 		12E38A3E2343CEB500940F07 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		12E8E57D20A2684D00C781EE /* PumpingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PumpingVC.xib; sourceTree = "<group>"; };
 		12EC21E12127824C00822D07 /* TapableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableView.swift; sourceTree = "<group>"; };
-		12ECB9DC23BE9E97001BACD5 /* Cycle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Cycle; sourceTree = "<group>"; };
 		12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideableTextFieldContainer.swift; sourceTree = "<group>"; };
 		12EE85F320F028C00085BF01 /* SettingsVc.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsVc.storyboard; sourceTree = "<group>"; };
 		12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVc.swift; sourceTree = "<group>"; };
@@ -619,7 +618,6 @@
 		436484A21DCA150400E6B0A7 = {
 			isa = PBXGroup;
 			children = (
-				12ECB9DC23BE9E97001BACD5 /* Cycle */,
 				121CA2E42342246F00AB4891 /* Common */,
 				12A782421FBB20C7000BD13F /* Main.playground */,
 				12605B3C1FBB1DBB0035243B /* Framework-BabyPatterns */,
@@ -1018,6 +1016,9 @@
 				Base,
 			);
 			mainGroup = 436484A21DCA150400E6B0A7;
+			packageReferences = (
+				12D37C6323D64390009D8B7C /* XCRemoteSwiftPackageReference "Cycle" */,
+			);
 			productRefGroup = 436484AC1DCA150500E6B0A7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1916,6 +1917,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		12D37C6323D64390009D8B7C /* XCRemoteSwiftPackageReference "Cycle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jasonzurita/Cycle.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "1.0.0-beta.1";
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		121CA2E5234224A800AB4891 /* Common */ = {
