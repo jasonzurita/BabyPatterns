@@ -54,6 +54,12 @@ jobs:
           key: v1-gems-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+      # This is required because SPM is getting defaulted to use SSH, which fails the build for public repos :(
+      # Known Xcode bug workaround: https://discuss.circleci.com/t/xcode-11-gm-seed-1-released/32379/18
+      - run:
+          name: Override GitHub URL rewriting — to allow use of public repos
+          command: |
+            git config --global --unset url."ssh://git@github.com".insteadOf
       - run:
           name: "Make firebase plist"
           command: |
