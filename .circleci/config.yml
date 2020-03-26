@@ -4,7 +4,7 @@
 version: 2
 common-setup: &common-setup
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     shell: /bin/bash --login -eo pipefail
 
 jobs:

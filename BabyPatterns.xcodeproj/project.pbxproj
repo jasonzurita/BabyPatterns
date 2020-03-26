@@ -28,9 +28,7 @@
 		120F804D1FBF131D00D04E45 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE2DE11E76CC4A00B8B373 /* Loggable.swift */; };
 		12128AC820C5ED0300CF16C0 /* RequestFeatureTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9738E61EE49B9E00232DE8 /* RequestFeatureTVC.swift */; };
 		121BFD832361C70E00EDCE89 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121BFD822361C70E00EDCE89 /* CustomFonts.swift */; };
-		121CA2E6234224A800AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E5234224A800AB4891 /* Common */; };
 		121CA2E8234224B500AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E7234224B500AB4891 /* Common */; };
-		121CA2EA2342273F00AB4891 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 121CA2E92342273F00AB4891 /* Common */; };
 		1221F04E2344C9CC00E516D5 /* FeedingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221F04D2344C9CC00E516D5 /* FeedingView.swift */; };
 		12227F16235F2223004049DB /* AccountReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12227F15235F2223004049DB /* AccountReducer.swift */; };
 		12227F18235F232A004049DB /* PulseReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12227F17235F232A004049DB /* PulseReducer.swift */; };
@@ -90,7 +88,6 @@
 		12C9B0A21FD619C000CA6EBF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCAA841DD0BC70003872BA /* Profile.swift */; };
 		12C9FFD320B837CB00B048E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9FFD220B837CB00B048E6 /* Color.swift */; };
 		12D0AF4B2347670A00725A56 /* TimerPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0AF4A2347670A00725A56 /* TimerPulse.swift */; };
-		12D0AF4D234768AF00725A56 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 12D0AF4C234768AF00725A56 /* Common */; };
 		12DAC19E1FC5A3C800E44433 /* BottleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C9021DFDFFFA008C5C2F /* BottleVC.swift */; };
 		12DAC19F1FC5A3DA00E44433 /* BottleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A1C9031DFDFFFA008C5C2F /* BottleVC.xib */; };
 		12DAC1A01FC5A42300E44433 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FD7441DE484EC00D07C50 /* Constants.swift */; };
@@ -100,6 +97,7 @@
 		12ECB9DE23BEA3CA001BACD5 /* Cycle in Frameworks */ = {isa = PBXBuildFile; productRef = 12ECB9DD23BEA3CA001BACD5 /* Cycle */; };
 		12EE461620EF93EC00B51FC6 /* SlideableTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EE461520EF93EC00B51FC6 /* SlideableTextFieldContainer.swift */; };
 		12EE85F420F028C00085BF01 /* SettingsVc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12EE85F320F028C00085BF01 /* SettingsVc.storyboard */; };
+		12F3979E242BC3F50088CC4F /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 12F3979D242BC3F50088CC4F /* Common */; };
 		12F3A9C71FBB2174002ECC7B /* HistoryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3A9C51FBB2174002ECC7B /* HistoryVc.swift */; };
 		12F3A9C81FBB2174002ECC7B /* HistoryVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12F3A9C61FBB2174002ECC7B /* HistoryVc.xib */; };
 		12F3EC29233D6BFB0051D52B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3EC28233D6BFB0051D52B /* HomeView.swift */; };
@@ -354,7 +352,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12D0AF4D234768AF00725A56 /* Common in Frameworks */,
+				12F3979E242BC3F50088CC4F /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +368,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				121CA2EA2342273F00AB4891 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +387,6 @@
 				120F80361FBF0E9500D04E45 /* Library.framework in Frameworks */,
 				12605B421FBB1DBB0035243B /* Framework_BabyPatterns.framework in Frameworks */,
 				2A665C208E99BFF450A704EB /* libPods-BabyPatterns.a in Frameworks */,
-				121CA2E6234224A800AB4891 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,7 +838,7 @@
 			);
 			name = Library;
 			packageProductDependencies = (
-				12D0AF4C234768AF00725A56 /* Common */,
+				12F3979D242BC3F50088CC4F /* Common */,
 			);
 			productName = Library;
 			productReference = 120F80211FBF0E9500D04E45 /* Library.framework */;
@@ -883,7 +879,6 @@
 			);
 			name = "Framework-BabyPatterns";
 			packageProductDependencies = (
-				121CA2E92342273F00AB4891 /* Common */,
 			);
 			productName = AppFramework;
 			productReference = 12605B3B1FBB1DBB0035243B /* Framework_BabyPatterns.framework */;
@@ -951,7 +946,6 @@
 			);
 			name = BabyPatterns;
 			packageProductDependencies = (
-				121CA2E5234224A800AB4891 /* Common */,
 			);
 			productName = "Baby Tracker";
 			productReference = 436484AB1DCA150500E6B0A7 /* BabyPatterns.app */;
@@ -1576,7 +1570,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = Watch/Info.plist;
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns.watchkitapp;
@@ -1606,7 +1600,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = Watch/Info.plist;
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns.watchkitapp;
 				PRODUCT_NAME = "Baby Patterns";
@@ -1640,7 +1634,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns.watchkitapp.watchkitextension;
@@ -1675,7 +1669,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -1816,7 +1810,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "40fc2f51-8b09-424a-9fb1-5de3a4705c07";
@@ -1841,7 +1835,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonzurita.babypatterns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "40fc2f51-8b09-424a-9fb1-5de3a4705c07";
@@ -1930,25 +1924,17 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		121CA2E5234224A800AB4891 /* Common */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Common;
-		};
 		121CA2E7234224B500AB4891 /* Common */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Common;
-		};
-		121CA2E92342273F00AB4891 /* Common */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Common;
-		};
-		12D0AF4C234768AF00725A56 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Common;
 		};
 		12ECB9DD23BEA3CA001BACD5 /* Cycle */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Cycle;
+		};
+		12F3979D242BC3F50088CC4F /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Common;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
